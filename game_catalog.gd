@@ -1,18 +1,24 @@
 extends RefCounted
 
 const UPGRADES := [
-	{"id":"damage", "name":"HUGE HAMMER", "desc":"+35% damage", "icon":"HAMMER", "rarity":"COMMON"},
-	{"id":"speed", "name":"QUICK GRIP", "desc":"Attack 18% faster", "icon":"ZAP", "rarity":"COMMON"},
-	{"id":"crit", "name":"KEEN EDGE", "desc":"+12% crit chance", "icon":"CRIT", "rarity":"RARE"},
-	{"id":"multi", "name":"TWIN BONK", "desc":"+1 hit each attack", "icon":"x2", "rarity":"EPIC"},
-	{"id":"splash", "name":"SHOCKWAVE", "desc":"Damage echoes to next foe", "icon":"WAVE", "rarity":"RARE"},
-	{"id":"vamp", "name":"SNACKY FANG", "desc":"Heal 4% of damage dealt", "icon":"HEAL", "rarity":"RARE"},
-	{"id":"armor", "name":"TIN LID", "desc":"+30 max HP, 8% less damage", "icon":"HP", "rarity":"COMMON"},
-	{"id":"frenzy", "name":"PANIC POWER", "desc":"Faster when hurt", "icon":"RAGE", "rarity":"EPIC"},
-	{"id":"tap", "name":"TAP TEMPEST", "desc":"Taps deal +80% damage", "icon":"TAP", "rarity":"COMMON"},
-	{"id":"execute", "name":"YEET", "desc":"Execute foes below 12% HP", "icon":"YEET", "rarity":"EPIC"},
-	{"id":"regen", "name":"BANDAGE", "desc":"Regenerate 1.5 HP/sec", "icon":"REGEN", "rarity":"COMMON"},
-	{"id":"greed", "name":"SHINY BRAIN", "desc":"+50% coins and XP", "icon":"LOOT", "rarity":"RARE"}
+	{"id":"damage", "name":"COLOSSAL GRIP", "desc":"+35% damage", "icon":"FIST", "rarity":"COMMON", "tags":["Physical"]},
+	{"id":"crit", "name":"RELIC EDGE", "desc":"+12% crit chance", "icon":"CRIT", "rarity":"RARE", "tags":["Physical"]},
+	{"id":"execute", "name":"MERCY BREAKER", "desc":"Execute below 12% HP", "icon":"YEET", "rarity":"EPIC", "tags":["Physical", "Physical"]},
+	{"id":"heavy", "name":"QUAKE BONK", "desc":"Rhythm hits deal 2.2x", "icon":"BOOM", "rarity":"EPIC", "tags":["Physical"]},
+	{"id":"speed", "name":"QUICK GRIP", "desc":"Attack 18% faster", "icon":"ZAP", "rarity":"COMMON", "tags":["Lightning"]},
+	{"id":"multi", "name":"TWIN VOLT", "desc":"+1 hit each auto attack", "icon":"x2", "rarity":"EPIC", "tags":["Lightning", "Lightning"]},
+	{"id":"tap", "name":"STATIC FINGERS", "desc":"Taps deal +80% damage", "icon":"TAP", "rarity":"COMMON", "tags":["Lightning"]},
+	{"id":"storm", "name":"STORM RHYTHM", "desc":"Frequent attacks chain", "icon":"ARC", "rarity":"RARE", "tags":["Lightning"]},
+	{"id":"splash", "name":"CINDER WAKE", "desc":"Damage echoes to next foe", "icon":"FIRE", "rarity":"RARE", "tags":["Fire"]},
+	{"id":"ignite", "name":"EMBER TEETH", "desc":"Hits build stronger burns", "icon":"BURN", "rarity":"COMMON", "tags":["Fire"]},
+	{"id":"frenzy", "name":"FURNACE HEART", "desc":"Faster when hurt", "icon":"RAGE", "rarity":"EPIC", "tags":["Fire", "Fire"]},
+	{"id":"wildfire", "name":"WILDFIRE", "desc":"Burning foes explode", "icon":"NOVA", "rarity":"EPIC", "tags":["Fire"]},
+	{"id":"vamp", "name":"TOXIC FANG", "desc":"Heal 4% of damage dealt", "icon":"DRAIN", "rarity":"RARE", "tags":["Poison"]},
+	{"id":"regen", "name":"MUTANT MOSS", "desc":"Regenerate 1.5 HP/sec", "icon":"REGEN", "rarity":"COMMON", "tags":["Poison"]},
+	{"id":"venom", "name":"VENOM COAT", "desc":"Hits stack poison damage", "icon":"TOXIN", "rarity":"COMMON", "tags":["Poison"]},
+	{"id":"plague", "name":"PLAGUE SIPHON", "desc":"Poison damage heals you", "icon":"SIPHON", "rarity":"EPIC", "tags":["Poison", "Poison"]},
+	{"id":"armor", "name":"SCAVENGER PLATE", "desc":"+30 HP, 8% less damage", "icon":"HP", "rarity":"COMMON", "tags":["Physical"]},
+	{"id":"greed", "name":"RELIC MAGNET", "desc":"+50% coins and XP", "icon":"LOOT", "rarity":"RARE", "tags":["Poison"]}
 ]
 
 static func rarity_color(rarity: String) -> Color:

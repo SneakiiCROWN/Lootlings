@@ -1,5 +1,8 @@
 extends SceneTree
 
+const BuildSystem = preload("res://build_system.gd")
+const GameCatalog = preload("res://game_catalog.gd")
+
 var failures: Array[String] = []
 
 func _initialize() -> void:
@@ -19,13 +22,37 @@ func run_tests() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await process_frame
+	var identity_build = BuildSystem.new()
+	identity_build.add_upgrade(upgrade_by_id("ignite"))
+	identity_build.add_upgrade(upgrade_by_id("wildfire"))
+	check(identity_build.dominant() == "Fire" and identity_build.tier() == 1, "build tags produce a Fire evolution threshold")
+	check(BuildSystem.COLORS.Fire != BuildSystem.COLORS.Lightning and BuildSystem.COLORS.Poison != BuildSystem.COLORS.Physical, "implemented identities have distinct visual palettes")
+	for mechanic_id in ["ignite", "storm", "venom", "heavy"]:
+		game.start_run()
+		game.apply_upgrade_effect(upgrade_by_id(mechanic_id))
+		game.player_x = game.PLAYER_ATTACK_X
+		game.enemy_max_hp = 99999.0
+		game.enemy_hp = game.enemy_max_hp
+		game.enemy_hit_multiplier = 1.0
+		if mechanic_id == "storm":
+			game.attack_sequence = 3
+		elif mechanic_id == "heavy":
+			game.attack_sequence = 4
+		var hp_before: float = game.enemy_hp
+		game.perform_player_attack(false)
+		match mechanic_id:
+			"ignite": check(game.enemy_burn_dps > 0.0, "Fire upgrades ignite enemies")
+			"storm": check(hp_before - game.enemy_hp > game.base_damage * 1.2, "Lightning upgrades trigger chain damage")
+			"venom": check(game.enemy_poison_stacks > 0, "Poison upgrades stack damage over time")
+			"heavy": check(hp_before - game.enemy_hp > game.base_damage * 1.7, "Physical upgrades trigger heavy rhythm hits")
+	game.start_run()
 	check(game.state == "playing", "a run starts in gameplay")
 	check(game.enemy_alive and game.enemy_hp > 0.0, "first enemy spawns with health")
 	game.player_x = game.PLAYER_ATTACK_X
 	game.perform_player_attack(true)
 	check(game.enemy_hp < game.enemy_max_hp, "tap attack damages the enemy")
 	check(game.attack_anim > 0.0 and game.enemy_recoil > 0.0, "attacks trigger readable impact animation")
-	game.damage_enemy(game.enemy_hp + 1.0, false, false)
+	game.damage_enemy(game.enemy_max_hp * 10.0, false, false)
 	check(game.enemy_death_anim > 0.0 and not game.reward_pickups.is_empty(), "enemy death launches reward feedback")
 	var guard := 0
 	while game.state != "result" and guard < 100:
@@ -48,6 +75,7 @@ func run_tests() -> void:
 	game.enemy_damage = 999.0
 	game.perform_enemy_attack()
 	check(game.state == "result" and game.player_hp == 0.0, "defeat reaches results without a softlock")
+	seed(424242)
 	var victories := 0
 	for run_index in range(5):
 		game.start_run()
@@ -76,3 +104,9 @@ func run_tests() -> void:
 	else:
 		print("SMOKE TEST FAILED: %d issue(s)" % failures.size())
 		quit(1)
+
+func upgrade_by_id(id: String) -> Dictionary:
+	for upgrade in GameCatalog.UPGRADES:
+		if upgrade.id == id:
+			return upgrade
+	return {}

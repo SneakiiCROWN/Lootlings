@@ -1,6 +1,9 @@
 extends Control
 
 const GameCatalog = preload("res://game_catalog.gd")
+const BuildSystem = preload("res://build_system.gd")
+const MetaStore = preload("res://meta_store.gd")
+const CreatureRenderer = preload("res://creature_renderer.gd")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const RUN_LAST_WAVE := 15
@@ -12,6 +15,8 @@ const ENEMY_X := 372.0
 const UPGRADES := GameCatalog.UPGRADES
 
 var rng := RandomNumberGenerator.new()
+var build = BuildSystem.new()
+var creature_renderer = CreatureRenderer.new()
 var title_font: Font
 var body_font: Font
 var state := "playing"
@@ -49,9 +54,24 @@ var enemy_attack_interval := 2.0
 var enemy_attack_clock := 1.5
 var enemy_is_boss := false
 var enemy_is_miniboss := false
+var enemy_archetype := "skirmisher"
+var enemy_hit_multiplier := 1.0
+var enemy_attack_count := 0
 var enemy_alive := true
 var spawn_clock := 0.0
 var carried_shockwave := 0.0
+var attack_sequence := 0
+var enemy_burn_dps := 0.0
+var enemy_burn_time := 0.0
+var enemy_poison_stacks := 0
+var enemy_poison_time := 0.0
+var dot_tick_clock := 0.4
+var heavy_power := 0
+var storm_power := 0
+var ignite_power := 0
+var wildfire_power := 0
+var venom_power := 0
+var plague_power := 0
 var selected_upgrades: Array = []
 var upgrade_counts := {}
 var floating_texts: Array = []
@@ -206,6 +226,14 @@ func start_run() -> void:
 	carried_shockwave = 0.0
 	selected_upgrades.clear()
 	upgrade_counts.clear()
+	build.reset()
+	attack_sequence = 0
+	heavy_power = 0
+	storm_power = 0
+	ignite_power = 0
+	wildfire_power = 0
+	venom_power = 0
+	plague_power = 0
 	floating_texts.clear()
 	particles.clear()
 	reward_pickups.clear()
@@ -236,13 +264,39 @@ func spawn_enemy() -> void:
 		type_bonus = 2.8
 		enemy_name = "GRUMP KNIGHT"
 	else:
-		var names := ["Pocket Slime", "Mushroom Punk", "Dust Goblin", "Angry Turnip", "Sock Mimic"]
-		enemy_name = names[(wave + wave_kills) % names.size()]
+		var archetypes := ["skirmisher", "tank", "hexer"]
+		enemy_archetype = archetypes[(wave + wave_kills) % archetypes.size()]
+		match enemy_archetype:
+			"tank": enemy_name = "MOSSBACK BRUTE"
+			"hexer": enemy_name = "LANTERN HEXER"
+			_: enemy_name = "RAZOR IMP"
 	enemy_max_hp = (24.0 + wave * 7.0) * progress * type_bonus
-	enemy_hp = enemy_max_hp
 	enemy_damage = (3.5 + wave * 0.92) * (1.3 if enemy_is_miniboss else 1.0) * (1.55 if enemy_is_boss else 1.0)
 	enemy_attack_interval = maxf(0.85, 2.25 - wave * 0.045)
+	enemy_hit_multiplier = 1.0
+	if not enemy_is_boss and not enemy_is_miniboss:
+		match enemy_archetype:
+			"skirmisher":
+				enemy_max_hp *= 0.78
+				enemy_attack_interval *= 0.62
+				enemy_damage *= 0.72
+			"tank":
+				enemy_max_hp *= 1.65
+				enemy_attack_interval *= 1.28
+				enemy_damage *= 0.9
+				enemy_hit_multiplier = 0.82
+			"hexer":
+				enemy_max_hp *= 0.9
+				enemy_attack_interval *= 1.08
+				enemy_damage *= 0.88
+	enemy_hp = enemy_max_hp
 	enemy_attack_clock = enemy_attack_interval
+	enemy_attack_count = 0
+	enemy_burn_dps = 0.0
+	enemy_burn_time = 0.0
+	enemy_poison_stacks = 0
+	enemy_poison_time = 0.0
+	dot_tick_clock = 0.35
 	enemy_alive = true
 	spawn_clock = 0.0
 	enemy_entry_anim = 0.55 if enemy_is_boss or enemy_is_miniboss else 0.28
@@ -281,6 +335,11 @@ func _process(delta: float) -> void:
 		return
 	if player_x < PLAYER_ATTACK_X:
 		player_x = minf(PLAYER_ATTACK_X, player_x + 155.0 * delta)
+		if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss:
+			enemy_attack_clock -= delta
+			if enemy_attack_clock <= 0.0:
+				enemy_attack_clock += enemy_attack_interval
+				perform_enemy_attack(0.62)
 	else:
 		attack_clock -= delta
 		if attack_clock <= 0.0:
@@ -290,6 +349,7 @@ func _process(delta: float) -> void:
 		if enemy_attack_clock <= 0.0:
 			enemy_attack_clock += enemy_attack_interval
 			perform_enemy_attack()
+	update_elemental_damage(delta)
 	queue_redraw()
 
 func current_attack_interval() -> float:
@@ -303,6 +363,15 @@ func perform_player_attack(is_tap: bool) -> void:
 		return
 	var hit_count := 1 if is_tap else multi_hits
 	var damage_scale := tap_mult if is_tap else 1.0
+	attack_sequence += 1
+	var physical_count: int = build.count("Physical")
+	var heavy_interval := maxi(3, 7 - mini(physical_count + heavy_power, 4))
+	var is_heavy := physical_count > 0 and attack_sequence % heavy_interval == 0
+	if is_heavy:
+		damage_scale *= 2.2
+		wave_banner_text = "QUAKE BONK!"
+		wave_banner_color = build.color("Physical")
+		wave_banner_timer = 0.38
 	if is_tap:
 		tap_combo += 1
 		combo_clock = 0.7
@@ -316,10 +385,16 @@ func perform_player_attack(is_tap: bool) -> void:
 		damage_enemy(damage, is_crit, is_tap)
 		if hit_count > 1 and hit_index < hit_count - 1:
 			add_particles(Vector2(337, 475), Color("#d6a8ff"), 3)
+	var lightning_count: int = build.count("Lightning")
+	var chain_interval := maxi(3, 6 - mini(lightning_count + storm_power, 3))
+	if enemy_alive and lightning_count > 0 and attack_sequence % chain_interval == 0:
+		var chain_damage := base_damage * (0.35 + lightning_count * 0.14) * (1.0 + (multi_hits - 1) * 0.18)
+		deal_elemental_hit(chain_damage, "Lightning")
 	squash = 0.16
 	attack_anim = 0.22
 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool) -> void:
+	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
 	enemy_flash = 0.11
 	enemy_squash = 0.16
@@ -333,16 +408,31 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool) -> void:
 	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7)
 	player_hp = minf(player_max_hp, player_hp + amount * life_steal)
 	carried_shockwave += amount * splash_ratio
+	var fire_count: int = build.count("Fire")
+	if fire_count > 0:
+		enemy_burn_dps = minf(base_damage * (1.5 + fire_count * 0.45), enemy_burn_dps + amount * (0.018 * fire_count + ignite_power * 0.025))
+		enemy_burn_time = 3.2
+	var poison_count: int = build.count("Poison")
+	if poison_count > 0:
+		enemy_poison_stacks = mini(4 + poison_count * 3, enemy_poison_stacks + 1 + venom_power)
+		enemy_poison_time = 5.0
 	if execute_ratio > 0.0 and enemy_hp > 0.0 and enemy_hp / enemy_max_hp <= execute_ratio:
 		add_float("YEET!", Vector2(355, 385), Color("#ff8bd8"), 28)
 		enemy_hp = 0.0
 	if enemy_hp <= 0.0:
 		kill_enemy()
 
-func perform_enemy_attack() -> void:
+func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if not enemy_alive:
 		return
-	var damage := enemy_damage * (1.0 - minf(armor, 0.65))
+	enemy_attack_count += 1
+	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
+		var ward := enemy_max_hp * 0.07
+		enemy_hp = minf(enemy_max_hp, enemy_hp + ward)
+		add_float("WARD +%.0f" % ward, Vector2(325, 410), Color("#d194ff"), 17)
+		add_particles(Vector2(365, 465), Color("#b86cff"), 6)
+		return
+	var damage := enemy_damage * damage_scale * (1.0 - minf(armor, 0.65))
 	player_hp -= damage
 	player_flash = 0.13
 	screen_shake = 0.08
@@ -351,6 +441,52 @@ func perform_enemy_attack() -> void:
 	if player_hp <= 0.0:
 		player_hp = 0.0
 		end_run(false)
+
+func deal_elemental_hit(amount: float, identity: String) -> void:
+	if not enemy_alive:
+		return
+	amount *= enemy_hit_multiplier
+	enemy_hp -= amount
+	var color := build.color(identity)
+	enemy_flash = 0.08
+	enemy_recoil = 22.0
+	impact_flash = 0.06
+	add_float("ARC %.0f" % amount, Vector2(324, 390), color, 22)
+	add_particles(Vector2(350, 455), color, 9)
+	carried_shockwave += amount * 0.18 if build.count("Lightning") >= 5 else 0.0
+	if enemy_hp <= 0.0:
+		kill_enemy()
+
+func update_elemental_damage(delta: float) -> void:
+	if not enemy_alive:
+		return
+	enemy_burn_time = maxf(0.0, enemy_burn_time - delta)
+	enemy_poison_time = maxf(0.0, enemy_poison_time - delta)
+	if enemy_burn_time <= 0.0:
+		enemy_burn_dps = move_toward(enemy_burn_dps, 0.0, base_damage * delta)
+	if enemy_poison_time <= 0.0:
+		enemy_poison_stacks = 0
+	dot_tick_clock -= delta
+	if dot_tick_clock > 0.0:
+		return
+	dot_tick_clock += 0.4
+	var total_dot := 0.0
+	if enemy_burn_dps > 0.0:
+		var burn_damage := enemy_burn_dps * 0.4 * enemy_hit_multiplier
+		total_dot += burn_damage
+		add_float("BURN %.0f" % burn_damage, Vector2(322, 400), build.color("Fire"), 15)
+		add_particles(Vector2(360, 446), build.color("Fire"), 2)
+	if enemy_poison_stacks > 0:
+		var poison_damage := base_damage * 0.012 * build.count("Poison") * enemy_poison_stacks * enemy_hit_multiplier
+		total_dot += poison_damage
+		add_float("TOXIN %.0f" % poison_damage, Vector2(350, 430), build.color("Poison"), 15)
+		add_particles(Vector2(375, 480), build.color("Poison"), 2)
+		if build.count("Poison") >= 3 or plague_power > 0:
+			player_hp = minf(player_max_hp, player_hp + poison_damage * (0.12 + plague_power * 0.05))
+	if total_dot > 0.0:
+		enemy_hp -= total_dot
+		if enemy_hp <= 0.0:
+			kill_enemy()
 
 func kill_enemy() -> void:
 	enemy_alive = false
@@ -363,6 +499,12 @@ func kill_enemy() -> void:
 	var reward := int(round((5.0 + wave * 1.8) * reward_mult * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0)))
 	coins += reward
 	var xp_reward := (13.0 + wave * 2.2) * reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0)
+	var fire_count: int = build.count("Fire")
+	if fire_count >= 3 or wildfire_power > 0:
+		var explosion := base_damage * (0.45 * fire_count + wildfire_power * 0.5)
+		carried_shockwave += explosion
+		add_float("WILDFIRE %.0f" % explosion, Vector2(300, 380), build.color("Fire"), 23)
+		add_particles(Vector2(365, 455), build.color("Fire"), 12)
 	add_xp(xp_reward)
 	add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 19)
 	add_particles(Vector2(365, 470), Color("#ffd65a"), 26 if enemy_is_boss else 18)
@@ -402,7 +544,8 @@ func show_upgrade_choices() -> void:
 		selected_upgrades.append(pool[i])
 		var up: Dictionary = pool[i]
 		var stacks := int(upgrade_counts.get(up.id, 0))
-		upgrade_buttons[i].text = "%s   %s   [%s]\n%s%s" % [up.icon, up.name, up.rarity, up.desc, "  -  STACK %d" % stacks if stacks > 0 else ""]
+		var tag: String = up.tags[0].to_upper()
+		upgrade_buttons[i].text = "%s   %s   [%s]\n%s  -  %s%s" % [up.icon, up.name, up.rarity, tag, up.desc, "  (x%d)" % stacks if stacks > 0 else ""]
 		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
 	upgrade_title.text = "LEVEL %d - PICK ONE" % level
 	upgrade_panel.visible = true
@@ -411,8 +554,35 @@ func choose_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size():
 		return
 	var up: Dictionary = selected_upgrades[index]
+	var previous_dominant: String = build.dominant()
+	var previous_tier: int = build.tier(previous_dominant)
+	apply_upgrade_effect(up)
+	var new_dominant: String = build.dominant()
+	var transformed := new_dominant != "Neutral" and (new_dominant != previous_dominant or build.tier(new_dominant) > previous_tier)
+	if transformed:
+		wave_banner_text = "%s CORE  -  %s" % [new_dominant.to_upper(), build.tier_name(new_dominant)]
+		wave_banner_timer = 1.8
+		upgrade_flash = 1.1
+		add_particles(Vector2(player_x, 470), build.color(), 34)
+	else:
+		wave_banner_text = "%s EQUIPPED" % up.name
+		wave_banner_timer = 1.15
+		add_particles(Vector2(player_x, 470), build.color(), 20)
+	wave_banner_color = build.color()
+	status_message = "%s acquired!" % up.name
+	status_clock = 2.0
+	pending_levels -= 1
+	upgrade_panel.visible = false
+	if pending_levels > 0:
+		show_upgrade_choices()
+	else:
+		state = "playing"
+	queue_redraw()
+
+func apply_upgrade_effect(up: Dictionary) -> void:
 	var id: String = up.id
 	upgrade_counts[id] = int(upgrade_counts.get(id, 0)) + 1
+	build.add_upgrade(up)
 	match id:
 		"damage": base_damage *= 1.35
 		"speed": attack_interval *= 0.82
@@ -429,20 +599,12 @@ func choose_upgrade(index: int) -> void:
 		"execute": execute_ratio = minf(0.35, execute_ratio + 0.12)
 		"regen": regen_per_second += 1.5
 		"greed": reward_mult += 0.5
-	status_message = "%s acquired!" % up.name
-	status_clock = 2.0
-	upgrade_flash = 0.75
-	wave_banner_text = "%s EQUIPPED" % up.name
-	wave_banner_color = GameCatalog.rarity_color(up.rarity)
-	wave_banner_timer = 1.15
-	add_particles(Vector2(player_x, 470), wave_banner_color, 22)
-	pending_levels -= 1
-	upgrade_panel.visible = false
-	if pending_levels > 0:
-		show_upgrade_choices()
-	else:
-		state = "playing"
-	queue_redraw()
+		"heavy": heavy_power += 1
+		"storm": storm_power += 1
+		"ignite": ignite_power += 1
+		"wildfire": wildfire_power += 1
+		"venom": venom_power += 1
+		"plague": plague_power += 1
 
 func end_run(victory: bool) -> void:
 	state = "result"
@@ -477,18 +639,12 @@ func refresh_meta_button() -> void:
 	meta_button.disabled = meta_shards < cost
 
 func load_meta() -> void:
-	var config := ConfigFile.new()
-	if config.load(SAVE_PATH) != OK:
-		return
-	meta_shards = clampi(int(config.get_value("progress", "shards", 0)), 0, 999999)
-	meta_power = clampi(int(config.get_value("progress", "power", 0)), 0, 100)
+	var progress := MetaStore.load_progress(SAVE_PATH)
+	meta_shards = progress.shards
+	meta_power = progress.power
 
 func save_meta() -> void:
-	var config := ConfigFile.new()
-	config.set_value("progress", "version", 1)
-	config.set_value("progress", "shards", meta_shards)
-	config.set_value("progress", "power", meta_power)
-	config.save(SAVE_PATH)
+	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state != "playing":
@@ -614,7 +770,13 @@ func draw_arena(shake: Vector2) -> void:
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_alive:
 		var entry_offset := ease(enemy_entry_anim / 0.55, 2.0) * 95.0
-		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 467 + sin(run_time * 3.8) * 1.5) + shake
+		var behavior_offset := Vector2.ZERO
+		if not enemy_is_boss and not enemy_is_miniboss:
+			match enemy_archetype:
+				"skirmisher": behavior_offset = Vector2(-maxf(0.0, 1.0 - enemy_attack_clock / 0.18) * 18.0, sin(run_time * 8.0) * 3.0)
+				"tank": behavior_offset = Vector2(0, sin(run_time * 2.2) * 1.0)
+				"hexer": behavior_offset = Vector2(12.0 + sin(run_time * 2.5) * 6.0, sin(run_time * 3.2) * 5.0)
+		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 467) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
 	elif enemy_death_anim > 0.0:
 		var death_progress := 1.0 - enemy_death_anim / 0.62
@@ -626,80 +788,17 @@ func draw_arena(shake: Vector2) -> void:
 	draw_stats_strip()
 
 func draw_lootling(pos: Vector2, hurt: bool) -> void:
-	var body_color := Color("#f6f8ff") if hurt else Color("#7ad9ff")
-	var scale_y := 0.82 if squash > 0.0 else 1.0
-	var scale_x := 1.13 if squash > 0.0 else 1.0
-	draw_set_transform(pos, -0.03, Vector2(scale_x, scale_y))
-	# Shadow, tiny adventurer body, cape and boots.
-	draw_set_transform(pos + Vector2(0, 46), 0.0, Vector2(1.0, 0.34))
-	draw_circle(Vector2.ZERO, 43, Color("#0a1123a0"))
-	draw_set_transform(pos, -0.03, Vector2(scale_x, scale_y))
-	draw_colored_polygon(PackedVector2Array([Vector2(-24,18),Vector2(-42,52),Vector2(-6,45)]), Color("#e75270"))
-	draw_circle(Vector2(0, 30), 26, Color("#395fa4"))
-	draw_rect(Rect2(-22, 24, 44, 15), Color("#f0c862"), true)
-	draw_circle(Vector2(-17, 52), 10, Color("#24324f"))
-	draw_circle(Vector2(17, 52), 10, Color("#24324f"))
-	# Oversized head, ears, expressive eyes and rosy cheeks.
-	draw_circle(Vector2(-27, -27), 17, body_color)
-	draw_circle(Vector2(27, -27), 17, body_color)
-	draw_circle(Vector2(0, 2), 43, Color("#20304e"))
-	draw_circle(Vector2(0, -2), 41, body_color)
-	draw_circle(Vector2(-15, -8), 9, Color.WHITE)
-	draw_circle(Vector2(15, -8), 9, Color.WHITE)
-	draw_circle(Vector2(-14, -7), 5, Color("#14203b"))
-	draw_circle(Vector2(14, -7), 5, Color("#14203b"))
-	draw_circle(Vector2(-12, -10), 2, Color.WHITE)
-	draw_circle(Vector2(16, -10), 2, Color.WHITE)
-	draw_circle(Vector2(-28, 8), 6, Color("#ff91ac80"))
-	draw_circle(Vector2(28, 8), 6, Color("#ff91ac80"))
-	draw_arc(Vector2(0, 5), 13, 0.25, PI - 0.25, 16, Color("#315175"), 3)
-	# Tiny circlet and heroic scarf.
-	draw_line(Vector2(-31, -28), Vector2(31, -28), Color("#f6c955"), 5)
-	draw_colored_polygon(PackedVector2Array([Vector2(-8,-29),Vector2(0,-43),Vector2(8,-29)]), Color("#ffe783"))
-	draw_line(Vector2(27, 22), Vector2(83, -45), Color("#a76939"), 11)
-	var windup := clampf(1.0 - attack_clock / 0.16, 0.0, 1.0) if attack_anim <= 0.0 else 0.0
-	var weapon_angle := lerpf(-0.28, -0.72, windup)
-	if attack_anim > 0.0:
-		weapon_angle = lerpf(-0.28, 0.42, attack_anim / 0.22)
-	draw_set_transform(pos + Vector2(81, -49), weapon_angle, Vector2.ONE)
-	draw_rect(Rect2(-31, -20, 62, 40), Color("#ffcf58"), true)
-	draw_rect(Rect2(-31, -20, 62, 40), Color("#fff0a0"), false, 4)
-	draw_circle(Vector2(-20, -8), 4, Color("#fff7c4"))
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	creature_renderer.draw_lootling(self, pos, hurt)
 
 func draw_enemy(pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
-	var hit_scale := Vector2(1.16, 0.78) if enemy_squash > 0.0 and enemy_alive else Vector2.ONE
-	draw_set_transform(pos, 0.0, hit_scale * extra_scale)
-	var radius := 58.0 if enemy_is_boss else 48.0 if enemy_is_miniboss else 39.0
-	var outline := Color("#311f3b")
-	outline.a = color.a
-	draw_circle(Vector2(0, 10), radius + 4, outline)
-	draw_circle(Vector2(0, 38), radius * 0.56, color.darkened(0.22))
-	draw_circle(Vector2(0, 4), radius, color)
-	if enemy_is_boss:
-		draw_colored_polygon(PackedVector2Array([Vector2(-42,-20),Vector2(-29,-67),Vector2(-9,-35),Vector2(10,-72),Vector2(29,-34),Vector2(47,-61),Vector2(39,-15)]), Color("#ffb33e"))
-	elif enemy_is_miniboss:
-		draw_rect(Rect2(-43, -43, 86, 26), Color("#8e97ae"), true)
-	else:
-		draw_circle(Vector2(-23, -25), 14, color)
-		draw_circle(Vector2(23, -25), 14, color)
-	draw_circle(Vector2(-15, -6), 9, Color.WHITE)
-	draw_circle(Vector2(15, -6), 9, Color.WHITE)
-	draw_circle(Vector2(-13, -5), 5, Color("#271c35"))
-	draw_circle(Vector2(13, -5), 5, Color("#271c35"))
-	draw_circle(Vector2(-11, -8), 2, Color.WHITE)
-	draw_circle(Vector2(15, -8), 2, Color.WHITE)
-	draw_line(Vector2(-23, -18), Vector2(-7, -13), Color("#51243f"), 4)
-	draw_line(Vector2(23, -18), Vector2(7, -13), Color("#51243f"), 4)
-	draw_line(Vector2(-12, 20), Vector2(12, 18), Color("#51243f"), 3)
-	if enemy_is_boss:
-		draw_colored_polygon(PackedVector2Array([Vector2(-10,19),Vector2(-4,30),Vector2(1,19),Vector2(7,30),Vector2(12,18)]), Color.WHITE)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	creature_renderer.draw_enemy(self, pos, color, extra_scale)
 
 func draw_stats_strip() -> void:
 	draw_rect(Rect2(18, 714, 444, 84), Color("#101831ee"), true)
 	draw_rect(Rect2(18, 714, 444, 84), Color("#526b9b"), false, 2)
-	draw_string(body_font, Vector2(31, 735), "RUN BUILD", HORIZONTAL_ALIGNMENT_LEFT, 100, 11, Color("#6f87b7"))
+	var identity := build.dominant()
+	var build_title := "RELIC CORE  -  DORMANT" if identity == "Neutral" else "%s CORE  -  %s" % [identity.to_upper(), build.tier_name(identity)]
+	draw_string(body_font, Vector2(31, 735), build_title, HORIZONTAL_ALIGNMENT_LEFT, 300, 11, build.color())
 	var lines := ["DMG  %.0f" % base_damage, "RATE  %.2fs" % current_attack_interval(), "CRIT  %d%%" % int(crit_chance * 100.0), "HITS  x%d" % multi_hits]
 	for i in range(4):
 		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#1d2a4a"), true)
@@ -707,12 +806,7 @@ func draw_stats_strip() -> void:
 	draw_string(body_font, Vector2(30, 787), build_summary(), HORIZONTAL_ALIGNMENT_CENTER, 420, 12, Color("#9fb4dd"))
 
 func build_summary() -> String:
-	if upgrade_counts.is_empty():
-		return "No upgrades yet"
-	var parts: Array[String] = []
-	for key in upgrade_counts:
-		parts.append("%s x%d" % [GameCatalog.display_name(key), upgrade_counts[key]])
-	return "  /  ".join(parts).left(62)
+	return build.short_summary()
 
 func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: String, font_size: int) -> void:
 	draw_rect(Rect2(rect.position + Vector2(0, 2), rect.size + Vector2(0, 3)), Color("#05091675"), true)
