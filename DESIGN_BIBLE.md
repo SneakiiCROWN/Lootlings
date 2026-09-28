@@ -1,0 +1,131 @@
+# Lootlings Design Bible
+
+## Core Visual Identity
+
+Lootlings should be instantly readable, cute first, and badass second.
+
+The visual hook is:
+**tiny adorable mythical/relic creatures + oversized equipment + visible progression + strong silhouettes.**
+
+The game should feel collectible and character-driven rather than like a generic idle RPG.
+
+## Main Mascot Direction
+
+The preferred main Lootling is an original neutral relic-beast mascot.
+
+Core traits:
+- Small chunky body.
+- Approximately 2 to 2.5 heads tall.
+- Huge expressive ears.
+- Tiny horns.
+- One visible fang.
+- Massive curled tail.
+- Large, readable eyes and facial expression.
+- Strong silhouette that still reads clearly on a phone screen.
+- Small pieces of scavenger-style armour rather than full-body armour.
+- Loot satchel / scavenger gear details.
+- A glowing chest Relic Core as a major identifying feature.
+
+The base creature should feel friendly, curious, slightly mischievous, and highly collectible.
+
+It must be an original character and must not closely copy Capybara Go or another existing game's mascot.
+
+## Equipment Language
+
+Equipment should look oversized compared with the Lootling.
+
+Rules:
+- Weapons are intentionally huge and visually funny/cool against the tiny body.
+- Armour covers roughly 30–50% of the creature so the creature itself remains visible.
+- Gear should look worn, handmade, scavenged, patched, or relic-like rather than pristine generic fantasy armour.
+- Weapons should remain interchangeable instead of being permanently fused to one character design.
+- The creature silhouette must still be recognizable even when heavily equipped.
+
+For character sheets / class templates, the Lootling can be shown weaponless when useful so the body, armour, pose, and class identity are clearly readable.
+
+## Progression / Transformation Language
+
+Progression should be visible on the character, not only represented by numbers.
+
+The neutral mascot should be able to support build transformations such as:
+- Fire
+- Frost
+- Void
+- Poison
+- Lightning
+- Holy
+
+These transformations should modify effects, Relic Core glow, armour details, particles, markings, and other readable visual cues without destroying the original mascot identity.
+
+Gear, equipment, and mutations should visibly evolve as the player becomes stronger.
+
+## Character / Class Design Rules
+
+Future Lootlings and classes should follow the same visual template:
+
+- Short, chunky proportions.
+- Strong phone-scale silhouette.
+- Clear creature traits.
+- Expressive face.
+- Cute base form with a slightly ridiculous badass contrast.
+- Partial armour rather than hiding the whole body.
+- One or two memorable class-specific visual features.
+- Room for interchangeable oversized weapons and equipment.
+- Easy to recolor / reskin / evolve for cosmetics and progression.
+- Designed to work as collectible characters.
+
+Different characters/classes should feel related as part of the same world, but not like simple recolors of one body.
+
+## Gameplay Presentation
+
+Portrait mobile presentation.
+
+The player character should remain visually prominent during combat.
+
+Combat should emphasize:
+- readable attack anticipation
+- squash / stretch
+- recoil
+- impact
+- enemy reaction
+- clear crit feedback
+- visible coin / XP rewards
+- restrained screen shake
+- satisfying but readable particles
+
+The game should stay enjoyable to watch during auto-combat while active tapping provides additional impact and feedback.
+
+## UI Direction
+
+UI should feel polished, playful, readable, and mobile-first.
+
+Avoid:
+- debug-looking text
+- overly dense information
+- tiny labels
+- visually identical upgrade choices
+
+Upgrade choices should be large and easy to understand, with:
+- icon / symbol
+- short name
+- concise effect
+- readable hierarchy
+- satisfying selection feedback
+
+Bosses, minibosses, victory, defeat, rare upgrades, and major rewards should have stronger presentation than ordinary gameplay moments.
+
+## Art Production Rule
+
+Current procedural art is placeholder only.
+
+Do not spend large amounts of development time polishing placeholder shapes once proper character assets become available.
+
+Gameplay architecture should allow final sprites / animations / effects to replace procedural visuals without rewriting the underlying combat and progression systems.
+
+## Brand Test
+
+At a glance, a screenshot or icon should communicate:
+
+**"What is that adorable little creature, and why is it carrying something enormous?"**
+
+That contrast is central to Lootlings.
