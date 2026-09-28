@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cwmci6qcwy7fv"]
+
+[ext_resource type="Texture2D" uid="uid://bhs23lg88ojoa" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://l4wjsfd7s222" path="res://lootling.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1369787506]
+
+[node name="Lootling" type="Sprite2D" parent="." unique_id=1481391864]
+position = Vector2(186, 548)
+texture = ExtResource("1_ig7tw")
+script = ExtResource("2_0xm2m")
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=99360764]
+position = Vector2(1032, 543)
+texture = ExtResource("1_ig7tw")
