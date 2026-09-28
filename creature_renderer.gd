@@ -81,35 +81,51 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	g.draw_colored_polygon(PackedVector2Array([Vector2(0,31-core_radius*0.35),Vector2(core_radius*0.48,35),Vector2(0,35+core_radius*0.45),Vector2(-core_radius*0.48,35)]), core_color.lightened(0.48))
 	if evolution_tier > 0:
 		g.draw_arc(Vector2(0, 35), 11 + evolution_tier * 3, g.run_time * 2.0, g.run_time * 2.0 + 4.8, 18, core_color.lightened(0.25), 2 + evolution_tier)
-	g.draw_line(Vector2(27, 22), Vector2(83, -45), Color("#a76939"), 11)
 	var windup := clampf(1.0 - g.attack_clock / 0.16, 0.0, 1.0) if g.attack_anim <= 0.0 else 0.0
 	var weapon_angle := lerpf(-0.28, -0.72, windup)
 	if g.attack_anim > 0.0:
 		weapon_angle = lerpf(-0.28, 0.42, g.attack_anim / 0.22)
-	g.draw_set_transform(pos + Vector2(81, -49), weapon_angle, Vector2.ONE * weapon_growth)
 	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
-	var hammer_shape := PackedVector2Array([Vector2(-31,-15),Vector2(-23,-22),Vector2(24,-20),Vector2(32,-11),Vector2(28,17),Vector2(17,22),Vector2(-27,18)])
-	g.draw_colored_polygon(hammer_shape, weapon_color.darkened(0.16))
-	g.draw_polyline(PackedVector2Array([Vector2(-31,-15),Vector2(-23,-22),Vector2(24,-20),Vector2(32,-11),Vector2(28,17),Vector2(17,22),Vector2(-27,18),Vector2(-31,-15)]), weapon_color.lightened(0.32), 4)
+	var family: String = g.inventory.weapon_family()
+	match family:
+		"RANGER": draw_bow(g, pos, weapon_angle, weapon_growth, weapon_color)
+		"MAGE": draw_staff(g, pos, weapon_angle, weapon_growth, weapon_color, core_color)
+		"ROGUE": draw_daggers(g, pos, weapon_angle, weapon_growth, weapon_color)
+		_: draw_vanguard(g, pos, weapon_angle, weapon_growth, weapon_color, core_color, identity)
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+func draw_vanguard(g, pos: Vector2, angle: float, growth: float, color: Color, core_color: Color, identity: String) -> void:
+	g.draw_set_transform(pos, -0.03, Vector2.ONE)
+	g.draw_line(Vector2(27, 22), Vector2(83, -45), Color("#a76939"), 11)
+	g.draw_set_transform(pos + Vector2(81, -49), angle, Vector2.ONE * growth)
+	var shape := PackedVector2Array([Vector2(-31,-15),Vector2(-23,-22),Vector2(24,-20),Vector2(32,-11),Vector2(28,17),Vector2(17,22),Vector2(-27,18)])
+	g.draw_colored_polygon(shape, color.darkened(0.16))
+	g.draw_polyline(PackedVector2Array([Vector2(-31,-15),Vector2(-23,-22),Vector2(24,-20),Vector2(32,-11),Vector2(28,17),Vector2(17,22),Vector2(-27,18),Vector2(-31,-15)]), color.lightened(0.32), 4)
 	g.draw_circle(Vector2(-19, -8), 4, Color("#e9bd62"))
 	g.draw_circle(Vector2(19, 9), 4, Color("#e9bd62"))
-	match identity:
-		"Fire":
-			g.draw_line(Vector2(-27, 12), Vector2(25, -12), Color("#732d2b"), 5)
-			g.draw_colored_polygon(PackedVector2Array([Vector2(-10,18),Vector2(-2,-4),Vector2(5,9),Vector2(13,-17),Vector2(20,18)]), core_color.lightened(0.35))
-		"Lightning":
-			g.draw_arc(Vector2(1, 0), 26, -1.2, 1.35, 18, Color("#51449a"), 6)
-			g.draw_polyline(PackedVector2Array([Vector2(-23,-12),Vector2(-7,-3),Vector2(-15,8),Vector2(5,1),Vector2(0,14),Vector2(24,5)]), core_color.lightened(0.45), 4)
-		"Poison":
-			g.draw_line(Vector2(-25, 12), Vector2(22, -11), Color("#5e492d"), 6)
-			g.draw_colored_polygon(PackedVector2Array([Vector2(-12,3),Vector2(-1,-9),Vector2(3,7)]), core_color.lightened(0.28))
-			g.draw_colored_polygon(PackedVector2Array([Vector2(6,-4),Vector2(20,-14),Vector2(16,3)]), core_color.lightened(0.4))
-			g.draw_circle(Vector2(18, 11), 4, core_color.darkened(0.2))
-		"Physical":
-			g.draw_rect(Rect2(-24, -12, 48, 24), Color("#57473f"), true)
-			g.draw_colored_polygon(PackedVector2Array([Vector2(-28,-20),Vector2(-18,-32),Vector2(-7,-20)]), core_color.lightened(0.25))
-			g.draw_colored_polygon(PackedVector2Array([Vector2(8,-20),Vector2(19,-33),Vector2(27,-20)]), core_color.lightened(0.25))
-	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if identity != "Neutral":
+		g.draw_line(Vector2(-24, 10), Vector2(23, -10), core_color.lightened(0.38), 5)
+
+func draw_bow(g, pos: Vector2, angle: float, growth: float, color: Color) -> void:
+	g.draw_set_transform(pos + Vector2(61, -14), angle * 0.35, Vector2.ONE * growth)
+	g.draw_arc(Vector2.ZERO, 38, -1.35, 1.35, 24, color.lightened(0.18), 7)
+	g.draw_line(Vector2(8, -37), Vector2(8, 37), Color("#f1dfba"), 2)
+	g.draw_line(Vector2(-20, 0), Vector2(52, 0), Color("#cfad74"), 4)
+	g.draw_colored_polygon(PackedVector2Array([Vector2(55,0),Vector2(42,-7),Vector2(42,7)]), color.lightened(0.45))
+
+func draw_staff(g, pos: Vector2, angle: float, growth: float, color: Color, core_color: Color) -> void:
+	g.draw_set_transform(pos + Vector2(59, -10), angle * 0.45, Vector2.ONE * growth)
+	g.draw_line(Vector2(-22, 39), Vector2(22, -38), Color("#795236"), 8)
+	g.draw_circle(Vector2(25, -43), 18, color.darkened(0.18))
+	g.draw_circle(Vector2(25, -43), 11, core_color.lightened(0.30))
+	g.draw_arc(Vector2(25, -43), 24, g.run_time * 2.0, g.run_time * 2.0 + 4.8, 20, core_color, 3)
+
+func draw_daggers(g, pos: Vector2, angle: float, growth: float, color: Color) -> void:
+	g.draw_set_transform(pos + Vector2(48, -3), angle * 0.6, Vector2.ONE * growth)
+	for offset in [Vector2(0, -17), Vector2(7, 18)]:
+		g.draw_line(offset + Vector2(-17, 20), offset + Vector2(17, -19), Color("#6c4534"), 7)
+		g.draw_colored_polygon(PackedVector2Array([offset + Vector2(14,-17),offset + Vector2(43,-28),offset + Vector2(24,1)]), color.lightened(0.28))
+		g.draw_line(offset + Vector2(8, -8), offset + Vector2(27, 8), Color("#e6bd63"), 4)
 
 func draw_enemy(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	var hit_scale := Vector2(1.16, 0.78) if g.enemy_squash > 0.0 and g.enemy_alive else Vector2.ONE

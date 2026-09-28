@@ -69,3 +69,10 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - Poison Relic build: Mosskin-inspired nature, growth, sustain, and shield language.
 - Physical Relic build: Pebblewyrm-inspired rock, armour, and heavy-impact language.
 - Glimmerfin and Gloomlet remain canonical future class references; they are not implemented as playable systems in this pass.
+
+## Systems / Equipment Reference
+
+- `57b7aeaf-2dbf-4d29-8ae8-35455e05bc19.png`
+- Canonical overview of the neutral Relic Beast plus the six separate characters, class roles, weapon examples, weapon evolution, armour sets, cosmetic skins, jewellery/charms, automatic spells, companions, internal-to-themed rarity language, and oddity items.
+- Current-system cues adopted from this sheet: weapon families remain interchangeable; weapons may later evolve; equipment and automatic runes are separate slots; internal Common/Rare/Epic/Legendary tiers can later display as Lootlings-themed names; oddity items should carry playful names and unusual effects.
+- This overview does not merge the neutral mascot with Emberhorn or any other class character.

@@ -1,65 +1,71 @@
 # Lootlings Project State
 
 ## CURRENT STATE
-Playable Godot 4.7.2 portrait vertical slice with a signature Relic Core build system and canonical art-aware placeholder presentation. A run spans 15 waves, includes a miniboss on wave 8 and a boss on wave 15, then awards permanent-progression currency and allows an immediate restart. Stable fallbacks are `99ccc07` (base vertical slice), `bed14ba` (pre-identity polish), and `8615f29` (pre-canonical-art integration).
+Playable Godot 4.7.2 portrait vertical slice with a complete first-pass loot loop: fight, physical drop, rarity reveal, Equip/Keep/Scrap, persistent equipment, merchant spending, build growth, boss reward, results, and restart. A run spans 15 waves, includes a miniboss on wave 8 and a boss on wave 15. Stable fallbacks are `99ccc07` (base vertical slice), `bed14ba` (pre-identity polish), `8615f29` (pre-canonical-art integration), and `6f7a81e` (pre-loot-loop checkpoint).
 
 ## WHAT WORKS
 - Automatic approach and attacks; tap/click/Space adds combo-scaled bonus attacks.
-- Enemy health, retaliation, death, coins, XP, level-ups, wave scaling, miniboss, boss, victory and defeat.
-- Three-choice paused level-ups with 18 stacking upgrades. Every choice contributes Fire, Lightning, Poison, or Physical build tags.
-- Fire builds stack burning damage and evolve into death explosions/spreading damage.
-- Lightning builds trigger rhythm chain hits, with multihit improving chain damage and high-tier chains carrying power forward.
-- Poison builds stack damage over time and evolve into healing/drain sustain.
-- Physical builds trigger timed 2.2x heavy hits and combine naturally with crit, execute, armour, and weapon growth.
-- Dominant tag counts produce Spark, Awakened (2 tags), and Ascended (5 tags) Relic Core evolution tiers.
-- Three regular enemy behaviours: fast Razor Imp, armoured Mossback Brute, and ranged/healing Lantern Hexer.
-- The procedural base player now follows the canonical neutral Main Mascot RelicBeast: warm beige/brown fur, huge pointed ears, small rock horns, amber eyes, visible fang, fluffy curled tail, partial scavenger armour, satchel, amber diamond Relic Core, and oversized patched hammer.
-- The neutral mascot remains distinct from Emberhorn. Current build overlays borrow visual language without replacing the base character: Fire/Emberhorn, Lightning/Moonkip, Poison/Mosskin, and Physical/Pebblewyrm.
-- Mossback Brute, Razor Imp, and Lantern Hexer silhouettes use clearer guardian, nimble, and shadow/ranged cues without representing the canonical playable characters themselves.
-- Dominant builds visibly recolor/evolve the Relic Core, aura, HUD identity, and weapon markings; the weapon grows at 3 and 7 upgrades.
-- Layered combat feel: auto-attack windup, weapon follow-through, player recoil, enemy squash/knockback, restrained shake/flash, stronger crits, death animation, and tap-combo feedback.
-- Coins and XP visibly arc from defeated enemies toward their HUD counters; reward particles occupy the short spawn gap.
-- Animated wave/miniboss/boss/upgrade banners and improved victory/defeat presentation.
-- Large color-coded upgrade cards with placeholder icons, concise mechanical effects, build tag, rarity, and stack count.
-- Star-shard run rewards and purchasable permanent +5% starting damage/HP ranks.
-- ConfigFile save/load with type conversion and clamped values.
-- Automated smoke test covers the full loop, restart, defeat, save path, and simulated tapping balance.
+- Enemy health, retaliation, death, Coins, XP, level-ups, wave scaling, miniboss, boss, victory, defeat, and restart.
+- Three-choice paused level-ups with 18 stacking upgrades. Fire, Lightning, Poison, and Physical Relic builds still combine freely with equipment.
+- Four interchangeable weapon combat styles, with no permanent class lock: heavy/defensive Vanguard, ranged/rapid Ranger, ranged/proc Mage, and fast/crit/execute Rogue.
+- Small data-driven equipment catalog covering Weapon, Armour, Relic, and Rune slots with named effects and future weapon-evolution metadata.
+- Normal enemies have a restrained equipment chance; the wave 8 miniboss guarantees Rare+ and the wave 15 boss guarantees Epic+ with a Legendary chance. Drop chances and rarity weights are centralized.
+- Equipment physically pops from enemies, bounces, casts a phone-readable rarity beam, and bursts on pickup. Normal finds queue until a wave-safe review instead of repeatedly interrupting combat.
+- Large mobile item review shows rarity, slot/family, description, effects, and the currently equipped comparison, then offers Equip, Keep, or Scrap.
+- Equipped gear applies combat effects immediately. Replaced non-starter gear returns to the stash where space allows; a full stash safely auto-scraps the replaced item.
+- Persistent lightweight inventory has four equipped slots, a 12-item stash, and Scrap. The starter Scrapfang Blade is supplied when no weapon save exists.
+- Optional Pack Peddler visits before waves 6 and 11 with three priced items, Buy, escalating Coin rerolls, and Continue. Purchases use the same item-decision flow and the shop is never mandatory.
+- Coins are an in-run merchant currency, Scrap is persistent salvage currency, XP remains run leveling, and Star Shards retain the existing permanent-power purpose.
+- Representative automatic item procs include crit Lightning, stronger/longer elemental effects, Mage repeat spells, kill shockwaves, boss/heavy bonuses, execute, low-health power, and coin bonuses.
+- The canonical neutral Main Mascot RelicBeast remains the base player and is not recolored or redesigned as Emberhorn. Procedural weapon silhouettes now visibly change between mallet/blade, bow, staff, and daggers.
+- Layered combat feel remains intact: windup/follow-through, recoil, squash/knockback, restrained shake/flash, crits, death animation, tap combo, arcing Coin/XP rewards, and wave/boss banners.
+- The newly added canonical systems overview is indexed in `ART_REFERENCE_INDEX.md`; all canonical images remain reference-only and are not loaded at runtime.
+- Automated smoke coverage now includes loot generation and rarity bounds, miniboss/boss guarantees, Equip/Keep/Scrap, inventory/Scrap save-load, equipment effects, weapon style differences, Coin earning/spending, merchant purchase/reroll, current Relic mechanics, the complete run, victory, defeat, and restart.
 
 ## CONTROLS
-- Tap/click anywhere in the arena or press Space: bonus attack.
-- Upgrade and result screens: press/click their buttons.
+- Tap/click the arena or press Space: bonus attack.
+- Upgrade screen: choose one of three cards.
+- Item screen: Equip immediately, Keep in the persistent stash, or Scrap for persistent currency.
+- Merchant: buy an affordable item, reroll stock with Coins, or Continue without spending.
 - Combat otherwise proceeds automatically.
 
 ## IMPORTANT FILES
 - `main.tscn` - minimal root scene.
-- `lootling.gd` - run/combat controller, UI/effects orchestration, and progression integration.
-- `game_catalog.gd` - upgrade definitions, rarity colors, and display names.
-- `build_system.gd` - extensible build tags, dominant identity, evolution tiers, palettes, and weapon tier.
-- `creature_renderer.gd` - replaceable procedural Lootling/enemy placeholder rendering.
-- `meta_store.gd` - validated permanent-progression persistence.
-- `ART_REFERENCE_INDEX.md` - canonical filename/identity map and gameplay-presentation notes.
-- `art/reference/canonical/` - canonical visual source of truth for the neutral mascot and six established character/class identities.
-- `tests/smoke_test.gd` - end-to-end headless regression and balance simulation.
-- `project.godot` - 480x854 mobile-first project settings.
+- `lootling.gd` - run/combat controller and UI/effects orchestration.
+- `game_catalog.gd` - run-upgrade definitions.
+- `build_system.gd` - Relic tags, dominant identity, tiers, palettes, and weapon growth.
+- `item_catalog.gd` - equipment definitions, rarities, effects, descriptions, and evolution hooks.
+- `loot_system.gd` - centralized drop chances, rarity tables, seeded item rolls, and shop rolls.
+- `inventory_system.gd` - equipped slots, stash, salvage, effect aggregation, and persistence.
+- `shop_system.gd` - merchant stock, prices, reroll costs, and purchases.
+- `creature_renderer.gd` - replaceable procedural mascot/enemy/weapon placeholder rendering.
+- `meta_store.gd` - validated Star Shard/permanent-power persistence.
+- `ART_REFERENCE_INDEX.md` - canonical filename/identity/system reference map.
+- `art/reference/canonical/` - canonical visual source of truth; no runtime dependency.
+- `tests/smoke_test.gd` - end-to-end regression, persistence checks, and seeded balance simulation.
 
 ## SYSTEMS
-- Run state machine: `playing`, `upgrade`, `result`.
-- Three regular enemies per wave; wave 8 and 15 are single special encounters.
-- Implemented Relic identities are Fire, Lightning, Poison, and Physical only. Frost, Void, and Holy are reserved for later.
-- Build mechanics are driven by tag counts rather than color-only stat bonuses.
-- Canonical character identities are separate from Relic build identities. The neutral Main Mascot RelicBeast is the current player; Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, and Gloomlet remain distinct established characters.
-- Enemy values scale exponentially; 20% HP recovery between waves keeps varied builds viable.
-- Runtime visuals remain lightweight draw calls and small transient dictionaries; canonical images are references only and are not loaded during gameplay.
-- Save path: `user://lootlings_save.cfg`; currently stores version, star shards, and power rank.
+- Run states: `playing`, `upgrade`, `item`, `merchant`, and `result`.
+- Three regular enemies per wave; waves 8 and 15 are single special encounters.
+- Combat style is driven by the equipped Weapon family. Relic build is independent, allowing combinations such as Fire Ranger, Lightning Mage, Poison Rogue, and Physical Vanguard.
+- Equipment slots are Weapon, Armour, Relic, and Rune. Stash capacity is intentionally small and mobile-friendly.
+- Runtime visuals remain lightweight draw calls and bounded transient dictionaries; there is no asset pipeline expansion or node-heavy particle system.
+- Save paths: `user://lootlings_save.cfg` stores Star Shards/power; `user://lootlings_inventory.cfg` stores equipped gear, stash, and Scrap.
 
-## KNOWN BUGS
-- No known gameplay/parser/runtime errors.
-- Headless runs print a Windows root-certificate-store warning caused by the sandboxed test environment.
-- Godot's dummy renderer crashes if asked to use Movie Maker; real OpenGL rendering and normal headless gameplay both pass.
-- Procedural visuals remain replacement-ready placeholders; final character art and audio are intentionally deferred.
+## VALIDATION
+- Headless smoke/regression suite passes. Current seeded tapping balance: 4 victories in 5 runs, with the failed run still reaching the final boss.
+- Real OpenGL render capture passes at 480x854 on the Godot 4.7.2 Compatibility renderer with no parser/runtime errors.
+- The Windows sandbox may print a root-certificate-store warning during headless tests; it does not affect gameplay or test results.
+
+## KNOWN LIMITATIONS
+- Procedural visuals remain replacement-ready placeholders; production sprites and audio are intentionally deferred.
+- Kept stash items persist but there is not yet a separate out-of-run stash browser/forge screen. Items can currently be equipped at acquisition time.
+- Weapon evolution paths are represented in catalog data for safe future extension; this checkpoint does not implement mutation choices or a large evolution tree.
+- Scrap has a clear salvage/future-forge purpose and persists, but the forge itself is not implemented yet.
+- Merchant stock is intentionally equipment-only in this first pass; healing/run-upgrade stock can be assessed after playtesting the core shop economy.
 
 ## LAST COMPLETED CHECKPOINT
-Canonical visual-alignment checkpoint - neutral mascot corrected to the Main Mascot RelicBeast, separate character/class references indexed, current build motifs aligned, and gameplay preserved.
+Loot-loop checkpoint - physical rarity drops, meaningful item decisions, persistent equipment/stash/Scrap, optional Coin merchant, four weapon combat styles, extended regression coverage, and canonical systems-reference indexing.
 
-## NEXT TASK
-Manually verify the neutral mascot reads clearly on a small phone, especially the ears, rock horns, fang, tail, satchel, chest core, and hammer. Confirm Fire/Lightning/Poison/Physical overlays remain distinct without making the mascot look like Emberhorn, Moonkip, Mosskin, or Pebblewyrm themselves. Production sprite integration remains a later pass.
+## NEXT MANUAL PLAYTEST
+Play two full runs on a phone-sized window. Verify that loot beams are noticed without feeling too frequent; item comparison is readable; Equip/Keep/Scrap feels quick; waves 6 and 11 merchant prices create real choices; Ranger/Mage spacing and Vanguard/Rogue impact are distinct; boss loot resolves before victory; and a restarted game retains equipment, stash, Scrap, Star Shards, and permanent power. Record any item that feels like an automatic choice and whether Coin income makes rerolls too cheap or too rare.

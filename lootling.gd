@@ -4,8 +4,13 @@ const GameCatalog = preload("res://game_catalog.gd")
 const BuildSystem = preload("res://build_system.gd")
 const MetaStore = preload("res://meta_store.gd")
 const CreatureRenderer = preload("res://creature_renderer.gd")
+const ItemCatalog = preload("res://item_catalog.gd")
+const LootSystem = preload("res://loot_system.gd")
+const InventorySystem = preload("res://inventory_system.gd")
+const ShopSystem = preload("res://shop_system.gd")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
+const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
 const RUN_LAST_WAVE := 15
 const ENEMIES_PER_WAVE := 3
 const PLAYER_HOME_X := 102.0
@@ -17,6 +22,9 @@ const UPGRADES := GameCatalog.UPGRADES
 var rng := RandomNumberGenerator.new()
 var build = BuildSystem.new()
 var creature_renderer = CreatureRenderer.new()
+var loot_system = LootSystem.new()
+var inventory = InventorySystem.new()
+var shop = ShopSystem.new()
 var title_font: Font
 var body_font: Font
 var state := "playing"
@@ -77,6 +85,14 @@ var upgrade_counts := {}
 var floating_texts: Array = []
 var particles: Array = []
 var reward_pickups: Array = []
+var loot_drops: Array = []
+var pending_items: Array = []
+var current_item: Dictionary = {}
+var pending_victory := false
+var merchant_due := false
+var item_review_due := false
+var return_to_merchant := false
+var equipment_hp_bonus := 0.0
 var screen_shake := 0.0
 var enemy_flash := 0.0
 var player_flash := 0.0
@@ -108,6 +124,18 @@ var result_summary: Label
 var meta_button: Button
 var restart_button: Button
 var help_label: Label
+var item_panel: Panel
+var item_title: Label
+var item_description: Label
+var item_compare: Label
+var item_equip_button: Button
+var item_keep_button: Button
+var item_scrap_button: Button
+var merchant_panel: Panel
+var merchant_title: Label
+var merchant_buttons: Array[Button] = []
+var merchant_reroll_button: Button
+var merchant_continue_button: Button
 
 func _ready() -> void:
 	rng.randomize()
@@ -115,6 +143,7 @@ func _ready() -> void:
 	body_font = ThemeDB.fallback_font
 	build_overlay_ui()
 	load_meta()
+	inventory.load(INVENTORY_SAVE_PATH)
 	start_run()
 	queue_redraw()
 
@@ -154,6 +183,49 @@ func build_overlay_ui() -> void:
 	restart_button.pressed.connect(start_run)
 	result_panel.add_child(restart_button)
 	help_label = make_label(self, "TAP / CLICK / SPACE = bonus attack", 14, Rect2(20, 815, 440, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#a9b7d7"))
+	build_item_ui()
+	build_merchant_ui()
+
+func build_item_ui() -> void:
+	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
+	item_panel.visible = false
+	item_title = make_label(item_panel, "LOOT FOUND!", 27, Rect2(20, 18, 392, 45), HORIZONTAL_ALIGNMENT_CENTER, Color.WHITE)
+	item_description = make_label(item_panel, "", 18, Rect2(28, 82, 376, 146), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
+	item_description.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	item_compare = make_label(item_panel, "", 15, Rect2(28, 235, 376, 92), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
+	item_compare.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	item_compare.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 345), Vector2(176, 62), Color("#295d50"), Color("#69e6b0"), accept_item_equip)
+	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 345), Vector2(176, 62), Color("#29486b"), Color("#74caff"), accept_item_keep)
+	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 426), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), accept_item_scrap)
+
+func build_merchant_ui() -> void:
+	merchant_panel = make_panel(Rect2(20, 156, 440, 570), Color("#15142ff8"))
+	merchant_panel.visible = false
+	merchant_title = make_label(merchant_panel, "THE PACK PEDDLER", 27, Rect2(20, 17, 400, 50), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(merchant_panel, "Spend run coins. Purchases still use Equip / Keep / Scrap.", 14, Rect2(26, 62, 388, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c6e6")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	for i in range(3):
+		var button := Button.new()
+		button.position = Vector2(25, 110 + i * 112)
+		button.size = Vector2(390, 96)
+		button.add_theme_font_size_override("font_size", 16)
+		button.pressed.connect(buy_merchant_item.bind(i))
+		merchant_panel.add_child(button)
+		merchant_buttons.append(button)
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(25, 462), Vector2(185, 64), Color("#3e315c"), Color("#c89bff"), reroll_merchant)
+	merchant_continue_button = make_action_button(merchant_panel, "CONTINUE", Vector2(230, 462), Vector2(185, 64), Color("#295d50"), Color("#69e6b0"), leave_merchant)
+
+func make_action_button(parent: Node, text_value: String, pos: Vector2, button_size: Vector2, fill: Color, border: Color, callback: Callable) -> Button:
+	var button := Button.new()
+	button.text = text_value
+	button.position = pos
+	button.size = button_size
+	button.add_theme_font_size_override("font_size", 18)
+	apply_button_style(button, fill, border)
+	button.pressed.connect(callback)
+	parent.add_child(button)
+	return button
 
 func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
@@ -207,7 +279,8 @@ func start_run() -> void:
 	run_time = 0.0
 	player_x = PLAYER_HOME_X
 	var meta_bonus := 1.0 + float(meta_power) * 0.05
-	player_max_hp = 100.0 * meta_bonus
+	equipment_hp_bonus = inventory.effect_total("max_hp")
+	player_max_hp = maxf(40.0, 100.0 * meta_bonus + equipment_hp_bonus)
 	player_hp = player_max_hp
 	base_damage = 11.0 * meta_bonus
 	attack_interval = 0.85
@@ -237,6 +310,15 @@ func start_run() -> void:
 	floating_texts.clear()
 	particles.clear()
 	reward_pickups.clear()
+	loot_drops.clear()
+	pending_items.clear()
+	current_item.clear()
+	pending_victory = false
+	merchant_due = false
+	item_review_due = false
+	return_to_merchant = false
+	shop.stock.clear()
+	shop.rerolls = 0
 	attack_anim = 0.0
 	enemy_recoil = 0.0
 	enemy_death_anim = 0.0
@@ -245,6 +327,8 @@ func start_run() -> void:
 	wave_banner_timer = 1.8
 	upgrade_panel.visible = false
 	result_panel.visible = false
+	item_panel.visible = false
+	merchant_panel.visible = false
 	help_label.visible = true
 	run_shards_earned = 0
 	status_message = "A new run begins!"
@@ -328,13 +412,28 @@ func _process(delta: float) -> void:
 		tap_combo = 0
 	player_hp = minf(player_max_hp, player_hp + regen_per_second * delta)
 	if not enemy_alive:
+		if loot_drops.is_empty() and item_review_due:
+			if not pending_items.is_empty():
+				show_next_item()
+				queue_redraw()
+				return
+			item_review_due = false
+		if loot_drops.is_empty() and pending_victory:
+			end_run(true)
+			queue_redraw()
+			return
+		if loot_drops.is_empty() and merchant_due:
+			show_merchant()
+			queue_redraw()
+			return
 		spawn_clock -= delta
 		if spawn_clock <= 0.0:
 			spawn_enemy()
 		queue_redraw()
 		return
-	if player_x < PLAYER_ATTACK_X:
-		player_x = minf(PLAYER_ATTACK_X, player_x + 155.0 * delta)
+	var attack_position := target_player_x()
+	if player_x < attack_position:
+		player_x = minf(attack_position, player_x + 155.0 * delta)
 		if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss:
 			enemy_attack_clock -= delta
 			if enemy_attack_clock <= 0.0:
@@ -354,21 +453,48 @@ func _process(delta: float) -> void:
 
 func current_attack_interval() -> float:
 	var result := attack_interval
+	match inventory.weapon_family():
+		"RANGER": result *= 0.78
+		"MAGE": result *= 0.95
+		"ROGUE": result *= 0.68
+		_: result *= 1.18
+	result *= 1.0 + inventory.effect_total("attack_slow")
+	result /= 1.0 + inventory.effect_total("attack_speed")
 	if frenzy > 0.0:
 		result /= 1.0 + frenzy * (1.0 - player_hp / player_max_hp)
 	return maxf(0.16, result)
 
+func target_player_x() -> float:
+	return 162.0 if inventory.weapon_family() in ["RANGER", "MAGE"] else PLAYER_ATTACK_X
+
+func effective_crit_chance() -> float:
+	var family_bonus := 0.10 if inventory.weapon_family() == "ROGUE" else 0.06 if inventory.weapon_family() == "RANGER" else 0.0
+	return minf(0.85, crit_chance + inventory.effect_total("crit") + family_bonus)
+
+func equipment_damage_multiplier() -> float:
+	var result := 1.0 + inventory.effect_total("damage_mult")
+	if player_hp / player_max_hp < 0.4:
+		result += inventory.effect_total("low_health_damage")
+	if enemy_is_boss:
+		result += inventory.effect_total("boss_damage")
+	match inventory.weapon_family():
+		"VANGUARD": result *= 1.18
+		"RANGER": result *= 0.82
+		"MAGE": result *= 0.95
+		"ROGUE": result *= 0.72
+	return result
+
 func perform_player_attack(is_tap: bool) -> void:
-	if state != "playing" or not enemy_alive or player_x < PLAYER_ATTACK_X - 4.0:
+	if state != "playing" or not enemy_alive or player_x < target_player_x() - 4.0:
 		return
-	var hit_count := 1 if is_tap else multi_hits
+	var hit_count := 1 if is_tap else multi_hits + int(inventory.effect_total("extra_hits"))
 	var damage_scale := tap_mult if is_tap else 1.0
 	attack_sequence += 1
 	var physical_count: int = build.count("Physical")
 	var heavy_interval := maxi(3, 7 - mini(physical_count + heavy_power, 4))
 	var is_heavy := physical_count > 0 and attack_sequence % heavy_interval == 0
 	if is_heavy:
-		damage_scale *= 2.2
+		damage_scale *= 2.2 + inventory.effect_total("heavy_bonus")
 		wave_banner_text = "QUAKE BONK!"
 		wave_banner_color = build.color("Physical")
 		wave_banner_timer = 0.38
@@ -380,9 +506,11 @@ func perform_player_attack(is_tap: bool) -> void:
 	for hit_index in range(hit_count):
 		if not enemy_alive:
 			break
-		var is_crit := rng.randf() < crit_chance
-		var damage := base_damage * damage_scale * (crit_mult if is_crit else 1.0) * rng.randf_range(0.92, 1.08)
+		var is_crit := rng.randf() < effective_crit_chance()
+		var damage := base_damage * damage_scale * equipment_damage_multiplier() * (crit_mult if is_crit else 1.0) * rng.randf_range(0.92, 1.08)
 		damage_enemy(damage, is_crit, is_tap)
+		if enemy_alive and is_crit and inventory.effect_total("crit_lightning") > 0.0:
+			deal_elemental_hit(base_damage * inventory.effect_total("crit_lightning"), "Lightning")
 		if hit_count > 1 and hit_index < hit_count - 1:
 			add_particles(Vector2(337, 475), Color("#d6a8ff"), 3)
 	var lightning_count: int = build.count("Lightning")
@@ -390,6 +518,14 @@ func perform_player_attack(is_tap: bool) -> void:
 	if enemy_alive and lightning_count > 0 and attack_sequence % chain_interval == 0:
 		var chain_damage := base_damage * (0.35 + lightning_count * 0.14) * (1.0 + (multi_hits - 1) * 0.18)
 		deal_elemental_hit(chain_damage, "Lightning")
+	if enemy_alive and inventory.weapon_family() == "MAGE":
+		var repeat_every := maxi(3, int(inventory.effect_total("repeat_every"))) if inventory.effect_total("repeat_every") > 0.0 else 4
+		if attack_sequence % repeat_every == 0:
+			var spell_identity := build.dominant()
+			if spell_identity == "Neutral":
+				spell_identity = "Lightning"
+			deal_elemental_hit(base_damage * 0.62, spell_identity)
+			add_float("RELIC SPELL!", Vector2(250, 365), build.color(spell_identity), 18)
 	squash = 0.16
 	attack_anim = 0.22
 
@@ -410,13 +546,15 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool) -> void:
 	carried_shockwave += amount * splash_ratio
 	var fire_count: int = build.count("Fire")
 	if fire_count > 0:
-		enemy_burn_dps = minf(base_damage * (1.5 + fire_count * 0.45), enemy_burn_dps + amount * (0.018 * fire_count + ignite_power * 0.025))
+		var fire_bonus := 1.0 + inventory.effect_total("fire_damage")
+		enemy_burn_dps = minf(base_damage * (1.5 + fire_count * 0.45) * fire_bonus, enemy_burn_dps + amount * (0.018 * fire_count + ignite_power * 0.025) * fire_bonus)
 		enemy_burn_time = 3.2
 	var poison_count: int = build.count("Poison")
 	if poison_count > 0:
-		enemy_poison_stacks = mini(4 + poison_count * 3, enemy_poison_stacks + 1 + venom_power)
-		enemy_poison_time = 5.0
-	if execute_ratio > 0.0 and enemy_hp > 0.0 and enemy_hp / enemy_max_hp <= execute_ratio:
+		enemy_poison_stacks = mini(4 + poison_count * 3, enemy_poison_stacks + 1 + venom_power + int(inventory.effect_total("poison_bonus")))
+		enemy_poison_time = 5.0 * (1.0 + inventory.effect_total("poison_duration"))
+	var effective_execute := execute_ratio + inventory.effect_total("execute")
+	if effective_execute > 0.0 and enemy_hp > 0.0 and enemy_hp / enemy_max_hp <= effective_execute:
 		add_float("YEET!", Vector2(355, 385), Color("#ff8bd8"), 28)
 		enemy_hp = 0.0
 	if enemy_hp <= 0.0:
@@ -432,7 +570,9 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		add_float("WARD +%.0f" % ward, Vector2(325, 410), Color("#d194ff"), 17)
 		add_particles(Vector2(365, 465), Color("#b86cff"), 6)
 		return
-	var damage := enemy_damage * damage_scale * (1.0 - minf(armor, 0.65))
+	var style_armor := 0.04 if inventory.weapon_family() == "VANGUARD" else 0.0
+	var effective_armor := armor + inventory.effect_total("armor") + style_armor
+	var damage := enemy_damage * damage_scale * (1.0 - minf(effective_armor, 0.72))
 	player_hp -= damage
 	player_flash = 0.13
 	screen_shake = 0.08
@@ -496,7 +636,7 @@ func kill_enemy() -> void:
 	enemy_hp = 0.0
 	total_kills += 1
 	wave_kills += 1
-	var reward := int(round((5.0 + wave * 1.8) * reward_mult * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0)))
+	var reward := int(round((5.0 + wave * 1.8) * reward_mult * (1.0 + inventory.effect_total("coin_mult")) * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0)))
 	coins += reward
 	var xp_reward := (13.0 + wave * 2.2) * reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0)
 	var fire_count: int = build.count("Fire")
@@ -505,6 +645,11 @@ func kill_enemy() -> void:
 		carried_shockwave += explosion
 		add_float("WILDFIRE %.0f" % explosion, Vector2(300, 380), build.color("Fire"), 23)
 		add_particles(Vector2(365, 455), build.color("Fire"), 12)
+	var gear_explosion := base_damage * inventory.effect_total("kill_explosion")
+	if gear_explosion > 0.0:
+		carried_shockwave += gear_explosion
+		add_float("GEAR BURST %.0f" % gear_explosion, Vector2(290, 405), Color("#ffd17a"), 18)
+	spawn_item_drop()
 	add_xp(xp_reward)
 	add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 19)
 	add_particles(Vector2(365, 470), Color("#ffd65a"), 26 if enemy_is_boss else 18)
@@ -512,11 +657,15 @@ func kill_enemy() -> void:
 	status_message = "%s defeated!" % enemy_name
 	status_clock = 1.2
 	if enemy_is_boss:
-		end_run(true)
+		pending_victory = true
+		item_review_due = true
 		return
 	if wave_kills >= ENEMIES_PER_WAVE or enemy_is_miniboss:
 		wave += 1
 		wave_kills = 0
+		item_review_due = true
+		if wave in [6, 11]:
+			merchant_due = true
 		player_hp = minf(player_max_hp, player_hp + player_max_hp * 0.20)
 		status_message = "WAVE %d - enemies grow stronger!" % wave
 		status_clock = 2.0
@@ -524,6 +673,159 @@ func kill_enemy() -> void:
 		wave_banner_color = Color("#ffb154") if wave == RUN_LAST_WAVE else Color("#d49cff") if wave == 8 else Color("#8fdcff")
 		wave_banner_timer = 1.8
 	carried_shockwave = minf(carried_shockwave, base_damage * 12.0)
+
+func spawn_item_drop() -> void:
+	var item: Dictionary = loot_system.roll_drop(enemy_is_miniboss, enemy_is_boss)
+	if item.is_empty():
+		return
+	var rarity_color := ItemCatalog.rarity_color(item.rarity)
+	loot_drops.append({
+		"item":item,
+		"pos":Vector2(365, 430),
+		"vel":Vector2(rng.randf_range(-70.0, -25.0), rng.randf_range(-235.0, -190.0)),
+		"pickup":1.05,
+		"bounces":0,
+		"color":rarity_color
+	})
+	spawn_clock = maxf(spawn_clock, 1.2)
+	add_float("%s LOOT!" % item.rarity, Vector2(290, 335), rarity_color, 21)
+
+func show_next_item() -> void:
+	if pending_items.is_empty():
+		finish_item_decision()
+		return
+	state = "item"
+	current_item = pending_items.pop_front()
+	var rarity: String = current_item.get("rarity", "COMMON")
+	var color := ItemCatalog.rarity_color(rarity)
+	item_title.text = "%s  %s" % [rarity, current_item.get("name", "Unknown Loot")]
+	item_title.add_theme_color_override("font_color", color)
+	item_description.text = "%s  -  %s\n\n%s" % [current_item.get("slot", "Item"), current_item.get("family", "GEAR"), current_item.get("desc", "")]
+	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
+	var equipped_text := "Empty slot"
+	if not equipped.is_empty():
+		equipped_text = "Equipped: %s [%s]\n%s" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), ItemCatalog.describe_effects(equipped)]
+	item_compare.text = "%s\n\nFound: %s" % [equipped_text, ItemCatalog.describe_effects(current_item)]
+	item_keep_button.disabled = inventory.stash.size() >= InventorySystem.MAX_STASH
+	item_keep_button.text = "KEEP (%d/%d)" % [inventory.stash.size(), InventorySystem.MAX_STASH]
+	item_scrap_button.text = "SCRAP  +%d" % ItemCatalog.scrap_value(current_item)
+	apply_button_style(item_equip_button, Color("#295d50"), color)
+	item_panel.visible = true
+	help_label.visible = false
+	queue_redraw()
+
+func accept_item_equip() -> void:
+	if state != "item" or current_item.is_empty():
+		return
+	var item_name: String = current_item.get("name", "Loot")
+	var result: Dictionary = inventory.equip(current_item)
+	refresh_equipment_health()
+	inventory.save(INVENTORY_SAVE_PATH)
+	status_message = "%s equipped!" % item_name
+	if int(result.get("scrapped", 0)) > 0:
+		status_message += " Old gear auto-scrapped."
+	finish_item_decision()
+
+func accept_item_keep() -> void:
+	if state != "item" or current_item.is_empty():
+		return
+	if not inventory.keep(current_item):
+		return
+	inventory.save(INVENTORY_SAVE_PATH)
+	status_message = "%s sent to stash." % current_item.get("name", "Loot")
+	finish_item_decision()
+
+func accept_item_scrap() -> void:
+	if state != "item" or current_item.is_empty():
+		return
+	var value := inventory.salvage(current_item)
+	inventory.save(INVENTORY_SAVE_PATH)
+	status_message = "Loot scrapped for %d scrap." % value
+	finish_item_decision()
+
+func finish_item_decision() -> void:
+	item_panel.visible = false
+	current_item.clear()
+	status_clock = 2.0
+	if not pending_items.is_empty():
+		state = "playing"
+		show_next_item()
+	elif return_to_merchant:
+		return_to_merchant = false
+		show_merchant()
+	elif pending_victory:
+		end_run(true)
+	else:
+		item_review_due = false
+		state = "playing"
+		help_label.visible = true
+
+func refresh_equipment_health() -> void:
+	var new_bonus := inventory.effect_total("max_hp")
+	var difference := new_bonus - equipment_hp_bonus
+	equipment_hp_bonus = new_bonus
+	player_max_hp = maxf(40.0, player_max_hp + difference)
+	player_hp = clampf(player_hp + maxf(0.0, difference), 1.0, player_max_hp)
+
+func show_merchant() -> void:
+	state = "merchant"
+	merchant_due = false
+	if shop.stock.is_empty():
+		shop.generate_stock(loot_system, wave)
+	merchant_panel.visible = true
+	help_label.visible = false
+	refresh_merchant_ui()
+
+func refresh_merchant_ui() -> void:
+	merchant_title.text = "THE PACK PEDDLER  -  %d COINS" % coins
+	for i in range(merchant_buttons.size()):
+		var button := merchant_buttons[i]
+		if i >= shop.stock.size():
+			button.text = "SOLD"
+			button.disabled = true
+			continue
+		var item: Dictionary = shop.stock[i]
+		var price := int(item.get("price", 0))
+		button.text = "%s  [%s]  -  %d COINS\n%s\n%s" % [item.name, item.rarity, price, item.slot, ItemCatalog.describe_effects(item)]
+		button.disabled = coins < price
+		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
+	var reroll_price := shop.reroll_cost(wave)
+	merchant_reroll_button.text = "REROLL  %d" % reroll_price
+	merchant_reroll_button.disabled = coins < reroll_price
+
+func buy_merchant_item(index: int) -> void:
+	if state != "merchant" or index < 0 or index >= shop.stock.size():
+		return
+	var price := int(shop.stock[index].get("price", 0))
+	if coins < price:
+		return
+	coins -= price
+	var bought: Dictionary = shop.take(index)
+	merchant_panel.visible = false
+	return_to_merchant = true
+	pending_items.push_front(bought)
+	state = "playing"
+	show_next_item()
+
+func reroll_merchant() -> void:
+	if state != "merchant":
+		return
+	var price := shop.reroll_cost(wave)
+	if coins < price:
+		return
+	coins -= price
+	shop.reroll(loot_system, wave)
+	refresh_merchant_ui()
+
+func leave_merchant() -> void:
+	if state != "merchant":
+		return
+	merchant_panel.visible = false
+	shop.stock.clear()
+	state = "playing"
+	help_label.visible = true
+	status_message = "Back to the hunt!"
+	status_clock = 1.5
 
 func add_xp(amount: float) -> void:
 	xp += amount
@@ -609,6 +911,8 @@ func apply_upgrade_effect(up: Dictionary) -> void:
 func end_run(victory: bool) -> void:
 	state = "result"
 	upgrade_panel.visible = false
+	item_panel.visible = false
+	merchant_panel.visible = false
 	result_panel.visible = true
 	help_label.visible = false
 	run_shards_earned = (10 + level * 2 + wave) if victory else max(2, int(level + wave * 0.5))
@@ -616,7 +920,7 @@ func end_run(victory: bool) -> void:
 	save_meta()
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
-	result_summary.text = "Wave %d / %d\nLevel %d  -  %d enemies\n%d coins gathered\n\n+%d star shards\nPermanent power: +%d%%" % [wave, RUN_LAST_WAVE, level, total_kills, coins, run_shards_earned, meta_power * 5]
+	result_summary.text = "Wave %d / %d\nLevel %d  -  %d enemies\n%d coins  -  %d scrap\n%s equipped\n\n+%d star shards\nPermanent power: +%d%%" % [wave, RUN_LAST_WAVE, level, total_kills, coins, inventory.scrap, inventory.equipped_item("Weapon").get("name", "No weapon"), run_shards_earned, meta_power * 5]
 	if victory:
 		for burst in range(4):
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
@@ -697,6 +1001,21 @@ func update_effects(delta: float) -> void:
 	for i in range(reward_pickups.size() - 1, -1, -1):
 		if reward_pickups[i].life <= 0.0:
 			reward_pickups.remove_at(i)
+	for drop in loot_drops:
+		drop.pickup -= delta
+		drop.vel.y += 340.0 * delta
+		drop.pos += drop.vel * delta
+		if drop.pos.y >= 540.0 and drop.vel.y > 0.0:
+			drop.pos.y = 540.0
+			drop.vel.y = -drop.vel.y * (0.44 if int(drop.bounces) == 0 else 0.18)
+			drop.vel.x *= 0.68
+			drop.bounces += 1
+	for i in range(loot_drops.size() - 1, -1, -1):
+		if loot_drops[i].pickup <= 0.0:
+			var found: Dictionary = loot_drops[i].item
+			pending_items.append(found)
+			add_particles(loot_drops[i].pos, loot_drops[i].color, 18)
+			loot_drops.remove_at(i)
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
 	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":0.8, "max_life":0.8})
@@ -799,11 +1118,11 @@ func draw_stats_strip() -> void:
 	var identity := build.dominant()
 	var build_title := "RELIC CORE  -  DORMANT" if identity == "Neutral" else "%s CORE  -  %s" % [identity.to_upper(), build.tier_name(identity)]
 	draw_string(body_font, Vector2(31, 735), build_title, HORIZONTAL_ALIGNMENT_LEFT, 300, 11, build.color())
-	var lines := ["DMG  %.0f" % base_damage, "RATE  %.2fs" % current_attack_interval(), "CRIT  %d%%" % int(crit_chance * 100.0), "HITS  x%d" % multi_hits]
+	var lines := ["DMG  %.0f" % (base_damage * equipment_damage_multiplier()), "RATE  %.2fs" % current_attack_interval(), "CRIT  %d%%" % int(effective_crit_chance() * 100.0), "HITS  x%d" % multi_hits]
 	for i in range(4):
 		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#1d2a4a"), true)
 		draw_string(body_font, Vector2(27 + i * 108, 760), lines[i], HORIZONTAL_ALIGNMENT_CENTER, 102, 13, Color("#e3edff"))
-	draw_string(body_font, Vector2(30, 787), build_summary(), HORIZONTAL_ALIGNMENT_CENTER, 420, 12, Color("#9fb4dd"))
+	draw_string(body_font, Vector2(30, 787), "%s  |  %s  |  %d SCRAP" % [inventory.weapon_family(), build_summary(), inventory.scrap], HORIZONTAL_ALIGNMENT_CENTER, 420, 12, Color("#9fb4dd"))
 
 func build_summary() -> String:
 	return build.short_summary()
@@ -817,6 +1136,14 @@ func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: S
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:
+	for drop in loot_drops:
+		var color: Color = drop.color
+		var beam := color
+		beam.a = 0.18 + sin(run_time * 9.0) * 0.05
+		draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(-16, 5), drop.pos + Vector2(-5, -96), drop.pos + Vector2(5, -96), drop.pos + Vector2(16, 5)]), beam)
+		draw_circle(drop.pos, 15, Color("#11172b"))
+		draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-12),drop.pos + Vector2(12,0),drop.pos + Vector2(0,12),drop.pos + Vector2(-12,0)]), color)
+		draw_circle(drop.pos, 5, color.lightened(0.45))
 	for pickup in reward_pickups:
 		if pickup.delay > 0.0:
 			continue
