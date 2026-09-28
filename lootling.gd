@@ -1,5 +1,6 @@
 extends Control
 
+const GameCatalog = preload("res://game_catalog.gd")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const RUN_LAST_WAVE := 15
@@ -8,20 +9,7 @@ const PLAYER_HOME_X := 102.0
 const PLAYER_ATTACK_X := 245.0
 const ENEMY_X := 372.0
 
-const UPGRADES := [
-	{"id":"damage", "name":"HUGE HAMMER", "desc":"+35% damage", "icon":"HAMMER"},
-	{"id":"speed", "name":"QUICK GRIP", "desc":"Attack 18% faster", "icon":"ZAP"},
-	{"id":"crit", "name":"KEEN EDGE", "desc":"+12% crit chance", "icon":"CRIT"},
-	{"id":"multi", "name":"TWIN BONK", "desc":"+1 hit each attack", "icon":"x2"},
-	{"id":"splash", "name":"SHOCKWAVE", "desc":"Damage echoes to next foe", "icon":"WAVE"},
-	{"id":"vamp", "name":"SNACKY FANG", "desc":"Heal 4% of damage dealt", "icon":"HEAL"},
-	{"id":"armor", "name":"TIN LID", "desc":"+30 max HP, 8% less damage", "icon":"HP"},
-	{"id":"frenzy", "name":"PANIC POWER", "desc":"Faster when hurt", "icon":"RAGE"},
-	{"id":"tap", "name":"TAP TEMPEST", "desc":"Taps deal +80% damage", "icon":"TAP"},
-	{"id":"execute", "name":"YEET", "desc":"Execute foes below 12% HP", "icon":"YEET"},
-	{"id":"regen", "name":"BANDAGE", "desc":"Regenerate 1.5 HP/sec", "icon":"REGEN"},
-	{"id":"greed", "name":"SHINY BRAIN", "desc":"+50% coins and XP", "icon":"LOOT"}
-]
+const UPGRADES := GameCatalog.UPGRADES
 
 var rng := RandomNumberGenerator.new()
 var title_font: Font
@@ -68,10 +56,22 @@ var selected_upgrades: Array = []
 var upgrade_counts := {}
 var floating_texts: Array = []
 var particles: Array = []
+var reward_pickups: Array = []
 var screen_shake := 0.0
 var enemy_flash := 0.0
 var player_flash := 0.0
 var squash := 0.0
+var attack_anim := 0.0
+var enemy_recoil := 0.0
+var enemy_squash := 0.0
+var enemy_death_anim := 0.0
+var enemy_entry_anim := 0.0
+var impact_flash := 0.0
+var tap_pulse := 0.0
+var upgrade_flash := 0.0
+var wave_banner_timer := 0.0
+var wave_banner_text := ""
+var wave_banner_color := Color("#8fdcff")
 var status_message := "Tap anywhere to help!"
 var status_clock := 4.0
 var tap_combo := 0
@@ -108,6 +108,7 @@ func build_overlay_ui() -> void:
 		button.size = Vector2(386, 96)
 		button.add_theme_font_size_override("font_size", 20)
 		button.add_theme_color_override("font_color", Color("#f8fbff"))
+		button.add_theme_color_override("font_hover_color", Color.WHITE)
 		button.pressed.connect(choose_upgrade.bind(i))
 		upgrade_panel.add_child(button)
 		upgrade_buttons.append(button)
@@ -121,6 +122,7 @@ func build_overlay_ui() -> void:
 	meta_button.position = Vector2(47, 320)
 	meta_button.size = Vector2(330, 72)
 	meta_button.add_theme_font_size_override("font_size", 18)
+	apply_button_style(meta_button, Color("#24365f"), Color("#72b8ff"))
 	meta_button.pressed.connect(buy_meta_power)
 	result_panel.add_child(meta_button)
 	restart_button = Button.new()
@@ -128,9 +130,23 @@ func build_overlay_ui() -> void:
 	restart_button.position = Vector2(47, 415)
 	restart_button.size = Vector2(330, 78)
 	restart_button.add_theme_font_size_override("font_size", 20)
+	apply_button_style(restart_button, Color("#795523"), Color("#ffd468"))
 	restart_button.pressed.connect(start_run)
 	result_panel.add_child(restart_button)
 	help_label = make_label(self, "TAP / CLICK / SPACE = bonus attack", 14, Rect2(20, 815, 440, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#a9b7d7"))
+
+func apply_button_style(button: Button, fill: Color, border: Color) -> void:
+	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
+		var box := StyleBoxFlat.new()
+		box.bg_color = fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
+		box.border_color = border
+		box.set_border_width_all(2)
+		box.set_corner_radius_all(14)
+		box.content_margin_left = 16
+		box.content_margin_right = 16
+		box.shadow_color = Color(0, 0, 0, 0.28)
+		box.shadow_size = 6 if state_name == "normal" else 2
+		button.add_theme_stylebox_override(state_name, box)
 
 func make_panel(rect: Rect2, color: Color) -> Panel:
 	var panel := Panel.new()
@@ -192,6 +208,13 @@ func start_run() -> void:
 	upgrade_counts.clear()
 	floating_texts.clear()
 	particles.clear()
+	reward_pickups.clear()
+	attack_anim = 0.0
+	enemy_recoil = 0.0
+	enemy_death_anim = 0.0
+	wave_banner_text = "WAVE 1"
+	wave_banner_color = Color("#8fdcff")
+	wave_banner_timer = 1.8
 	upgrade_panel.visible = false
 	result_panel.visible = false
 	help_label.visible = true
@@ -222,7 +245,17 @@ func spawn_enemy() -> void:
 	enemy_attack_clock = enemy_attack_interval
 	enemy_alive = true
 	spawn_clock = 0.0
+	enemy_entry_anim = 0.55 if enemy_is_boss or enemy_is_miniboss else 0.28
+	enemy_death_anim = 0.0
 	player_x = minf(player_x, PLAYER_HOME_X + 30.0)
+	if enemy_is_boss:
+		wave_banner_text = "BOSS  -  THE HOARD DRAGON"
+		wave_banner_color = Color("#ffb154")
+		wave_banner_timer = 2.3
+	elif enemy_is_miniboss:
+		wave_banner_text = "MINIBOSS  -  GRUMP KNIGHT"
+		wave_banner_color = Color("#d49cff")
+		wave_banner_timer = 2.0
 	if carried_shockwave > 0.0:
 		var opening_damage := minf(carried_shockwave, enemy_hp * 0.55)
 		enemy_hp -= opening_damage
@@ -273,6 +306,7 @@ func perform_player_attack(is_tap: bool) -> void:
 	if is_tap:
 		tap_combo += 1
 		combo_clock = 0.7
+		tap_pulse = 0.18
 		damage_scale *= 1.0 + minf(tap_combo, 10) * 0.025
 	for hit_index in range(hit_count):
 		if not enemy_alive:
@@ -282,17 +316,21 @@ func perform_player_attack(is_tap: bool) -> void:
 		damage_enemy(damage, is_crit, is_tap)
 		if hit_count > 1 and hit_index < hit_count - 1:
 			add_particles(Vector2(337, 475), Color("#d6a8ff"), 3)
-	squash = 0.14
+	squash = 0.16
+	attack_anim = 0.22
 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool) -> void:
 	enemy_hp -= amount
 	enemy_flash = 0.11
-	screen_shake = 0.09 if is_crit else 0.045
+	enemy_squash = 0.16
+	enemy_recoil = 28.0 if is_crit else 17.0 if is_tap else 12.0
+	impact_flash = 0.10 if is_crit else 0.045
+	screen_shake = 0.075 if is_crit else 0.035
 	var text := ("CRIT! %.0f" if is_crit else "%.0f") % amount
 	if is_tap and not is_crit:
 		text = "TAP %.0f" % amount
-	add_float(text, Vector2(360 + rng.randf_range(-18, 18), 420), Color("#fff178") if is_crit else Color.WHITE, 23 if is_crit else 18)
-	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 8 if is_crit else 4)
+	add_float(text, Vector2(330 + rng.randf_range(-12, 12), 408), Color("#fff178") if is_crit else Color.WHITE, 29 if is_crit else 20)
+	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7)
 	player_hp = minf(player_max_hp, player_hp + amount * life_steal)
 	carried_shockwave += amount * splash_ratio
 	if execute_ratio > 0.0 and enemy_hp > 0.0 and enemy_hp / enemy_max_hp <= execute_ratio:
@@ -316,7 +354,9 @@ func perform_enemy_attack() -> void:
 
 func kill_enemy() -> void:
 	enemy_alive = false
-	spawn_clock = 0.55
+	spawn_clock = 0.72
+	enemy_death_anim = 0.62
+	impact_flash = 0.12
 	enemy_hp = 0.0
 	total_kills += 1
 	wave_kills += 1
@@ -325,7 +365,8 @@ func kill_enemy() -> void:
 	var xp_reward := (13.0 + wave * 2.2) * reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0)
 	add_xp(xp_reward)
 	add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 19)
-	add_particles(Vector2(365, 480), Color("#ffd65a"), 16)
+	add_particles(Vector2(365, 470), Color("#ffd65a"), 26 if enemy_is_boss else 18)
+	add_reward_burst(reward, xp_reward)
 	status_message = "%s defeated!" % enemy_name
 	status_clock = 1.2
 	if enemy_is_boss:
@@ -337,6 +378,9 @@ func kill_enemy() -> void:
 		player_hp = minf(player_max_hp, player_hp + player_max_hp * 0.20)
 		status_message = "WAVE %d - enemies grow stronger!" % wave
 		status_clock = 2.0
+		wave_banner_text = "FINAL WAVE" if wave == RUN_LAST_WAVE else "MINIBOSS AHEAD" if wave == 8 else "WAVE %d" % wave
+		wave_banner_color = Color("#ffb154") if wave == RUN_LAST_WAVE else Color("#d49cff") if wave == 8 else Color("#8fdcff")
+		wave_banner_timer = 1.8
 	carried_shockwave = minf(carried_shockwave, base_damage * 12.0)
 
 func add_xp(amount: float) -> void:
@@ -358,7 +402,8 @@ func show_upgrade_choices() -> void:
 		selected_upgrades.append(pool[i])
 		var up: Dictionary = pool[i]
 		var stacks := int(upgrade_counts.get(up.id, 0))
-		upgrade_buttons[i].text = "%s   %s\n%s%s" % [up.icon, up.name, up.desc, "  (owned %d)" % stacks if stacks > 0 else ""]
+		upgrade_buttons[i].text = "%s   %s   [%s]\n%s%s" % [up.icon, up.name, up.rarity, up.desc, "  -  STACK %d" % stacks if stacks > 0 else ""]
+		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
 	upgrade_title.text = "LEVEL %d - PICK ONE" % level
 	upgrade_panel.visible = true
 
@@ -386,6 +431,11 @@ func choose_upgrade(index: int) -> void:
 		"greed": reward_mult += 0.5
 	status_message = "%s acquired!" % up.name
 	status_clock = 2.0
+	upgrade_flash = 0.75
+	wave_banner_text = "%s EQUIPPED" % up.name
+	wave_banner_color = GameCatalog.rarity_color(up.rarity)
+	wave_banner_timer = 1.15
+	add_particles(Vector2(player_x, 470), wave_banner_color, 22)
 	pending_levels -= 1
 	upgrade_panel.visible = false
 	if pending_levels > 0:
@@ -405,6 +455,9 @@ func end_run(victory: bool) -> void:
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	result_summary.text = "Wave %d / %d\nLevel %d  -  %d enemies\n%d coins gathered\n\n+%d star shards\nPermanent power: +%d%%" % [wave, RUN_LAST_WAVE, level, total_kills, coins, run_shards_earned, meta_power * 5]
+	if victory:
+		for burst in range(4):
+			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
 	refresh_meta_button()
 
 func buy_meta_power() -> void:
@@ -456,6 +509,15 @@ func update_effects(delta: float) -> void:
 	player_flash = maxf(0.0, player_flash - delta)
 	screen_shake = maxf(0.0, screen_shake - delta)
 	squash = maxf(0.0, squash - delta)
+	attack_anim = maxf(0.0, attack_anim - delta)
+	enemy_squash = maxf(0.0, enemy_squash - delta)
+	enemy_death_anim = maxf(0.0, enemy_death_anim - delta)
+	enemy_entry_anim = maxf(0.0, enemy_entry_anim - delta)
+	impact_flash = maxf(0.0, impact_flash - delta)
+	tap_pulse = maxf(0.0, tap_pulse - delta)
+	upgrade_flash = maxf(0.0, upgrade_flash - delta)
+	wave_banner_timer = maxf(0.0, wave_banner_timer - delta)
+	enemy_recoil = move_toward(enemy_recoil, 0.0, 115.0 * delta)
 	for item in floating_texts:
 		item.life -= delta
 		item.pos.y -= 42.0 * delta
@@ -469,6 +531,16 @@ func update_effects(delta: float) -> void:
 	for i in range(particles.size() - 1, -1, -1):
 		if particles[i].life <= 0.0:
 			particles.remove_at(i)
+	for pickup in reward_pickups:
+		if pickup.delay > 0.0:
+			pickup.delay -= delta
+			continue
+		pickup.life -= delta
+		var progress: float = 1.0 - clampf(pickup.life / pickup.max_life, 0.0, 1.0)
+		pickup.pos = pickup.start.lerp(pickup.target, progress) + Vector2(0, -sin(progress * PI) * 72.0)
+	for i in range(reward_pickups.size() - 1, -1, -1):
+		if reward_pickups[i].life <= 0.0:
+			reward_pickups.remove_at(i)
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
 	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":0.8, "max_life":0.8})
@@ -476,6 +548,16 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 func add_particles(pos: Vector2, color: Color, count: int) -> void:
 	for i in range(count):
 		particles.append({"pos":pos, "vel":Vector2(rng.randf_range(-105, 105), rng.randf_range(-155, -25)), "color":color, "life":rng.randf_range(0.25, 0.55), "max_life":0.55})
+
+func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
+	var coin_count := mini(7, maxi(3, int(coin_reward / 8) + 3))
+	for i in range(coin_count):
+		var start := Vector2(360, 450) + Vector2(rng.randf_range(-24, 24), rng.randf_range(-18, 20))
+		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "delay":i * 0.045, "life":0.72, "max_life":0.72})
+	var xp_count := mini(5, maxi(2, int(xp_reward / 25.0) + 2))
+	for i in range(xp_count):
+		var start := Vector2(365, 450) + Vector2(rng.randf_range(-28, 28), rng.randf_range(-15, 22))
+		reward_pickups.append({"kind":"xp", "start":start, "pos":start, "target":Vector2(250, 92), "delay":0.10 + i * 0.055, "life":0.78, "max_life":0.78})
 
 func _draw() -> void:
 	var sx := size.x / DESIGN_SIZE.x
@@ -488,40 +570,57 @@ func _draw() -> void:
 	draw_hud()
 	draw_arena(shake)
 	draw_effects()
+	draw_moment_overlay()
 
 func draw_background() -> void:
 	draw_rect(Rect2(0, 0, 480, 854), Color("#101831"))
+	draw_circle(Vector2(405, 310), 72, Color("#21335c"))
+	draw_circle(Vector2(388, 293), 58, Color("#172447"))
 	for i in range(9):
 		var color := Color("#18264a") if i % 2 == 0 else Color("#15213f")
 		draw_circle(Vector2(25 + i * 63, 275 + (i % 3) * 28), 115, color)
 	draw_rect(Rect2(0, 510, 480, 304), Color("#243652"))
 	draw_colored_polygon(PackedVector2Array([Vector2(0,545),Vector2(110,500),Vector2(220,548),Vector2(340,495),Vector2(480,540),Vector2(480,650),Vector2(0,650)]), Color("#314b64"))
+	draw_line(Vector2(0, 511), Vector2(480, 511), Color("#49667c"), 3)
 	for i in range(12):
 		draw_circle(Vector2(18 + i * 43, 613 + (i % 4) * 29), 5, Color("#3f5c6d"))
 
 func draw_hud() -> void:
-	draw_string(title_font, Vector2(18, 40), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 26, Color("#ffe178"))
-	draw_string(body_font, Vector2(18, 67), "WAVE %d / %d" % [wave, RUN_LAST_WAVE], HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("#dce7ff"))
-	draw_string(body_font, Vector2(282, 39), "COINS  %d" % coins, HORIZONTAL_ALIGNMENT_RIGHT, 180, 18, Color("#ffd75e"))
-	draw_string(body_font, Vector2(282, 66), "LEVEL  %d" % level, HORIZONTAL_ALIGNMENT_RIGHT, 180, 17, Color("#baddff"))
-	draw_bar(Rect2(18, 82, 444, 20), xp / xp_needed, Color("#263457"), Color("#64d9ff"), "XP %.0f / %.0f" % [xp, xp_needed], 13)
-	draw_bar(Rect2(18, 112, 444, 24), player_hp / player_max_hp, Color("#472c46"), Color("#69df8d"), "HP %.0f / %.0f" % [player_hp, player_max_hp], 15)
+	draw_rect(Rect2(0, 0, 480, 146), Color("#0b1229e8"), true)
+	draw_rect(Rect2(0, 144, 480, 2), Color("#4e6394"), true)
+	draw_string(title_font, Vector2(18, 35), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 25, Color("#ffe178"))
+	draw_string(body_font, Vector2(18, 62), "WAVE %02d / %02d" % [wave, RUN_LAST_WAVE], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("#bac9eb"))
+	draw_circle(Vector2(353, 29), 11, Color("#f7c94c"))
+	draw_circle(Vector2(353, 29), 6, Color("#ffe990"))
+	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 90, 18, Color("#ffe078"))
+	draw_string(body_font, Vector2(337, 63), "LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 125, 15, Color("#9fddff"))
+	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
+	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14)
 	var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
-	draw_string(body_font, Vector2(60, 163), "%s  -  %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "ENEMIES", mini(wave_kills + (0 if enemy_alive else 1), wave_target), wave_target], HORIZONTAL_ALIGNMENT_CENTER, 360, 16, Color("#aebee8"))
+	draw_string(body_font, Vector2(60, 169), "%s     %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "ENCOUNTER", mini(wave_kills + (0 if enemy_alive else 1), wave_target), wave_target], HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color("#9fb0d4"))
 
 func draw_arena(shake: Vector2) -> void:
 	var enemy_color := Color("#ff6f87") if enemy_is_boss else Color("#bf80ff") if enemy_is_miniboss else Color("#73d7a2")
 	if enemy_flash > 0.0:
 		enemy_color = Color.WHITE
 	if enemy_alive:
-		draw_string(body_font, Vector2(40, 215), enemy_name, HORIZONTAL_ALIGNMENT_CENTER, 400, 21, Color("#f4f7ff"))
+		draw_string(body_font, Vector2(40, 210), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, 19, Color("#f4f7ff"))
 		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
 	elif state == "playing":
 		draw_string(body_font, Vector2(90, 236), "Next foe incoming...", HORIZONTAL_ALIGNMENT_CENTER, 300, 17, Color("#aebee8"))
-	var player_pos := Vector2(player_x, 472) + shake
+	var idle_bob := sin(run_time * 5.2) * 2.0
+	var lunge := attack_anim / 0.22 * 10.0
+	var player_pos := Vector2(player_x + lunge, 472 + idle_bob) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_alive:
-		draw_enemy(Vector2(ENEMY_X, 467) + shake, enemy_color)
+		var entry_offset := ease(enemy_entry_anim / 0.55, 2.0) * 95.0
+		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 467 + sin(run_time * 3.8) * 1.5) + shake
+		draw_enemy(enemy_pos, enemy_color)
+	elif enemy_death_anim > 0.0:
+		var death_progress := 1.0 - enemy_death_anim / 0.62
+		var death_color := enemy_color
+		death_color.a = 1.0 - death_progress
+		draw_enemy(Vector2(ENEMY_X + death_progress * 35.0, 467 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
 	if status_clock > 0.0:
 		draw_string(body_font, Vector2(25, 690), status_message, HORIZONTAL_ALIGNMENT_CENTER, 430, 19, Color("#ffe797"))
 	draw_stats_strip()
@@ -529,24 +628,53 @@ func draw_arena(shake: Vector2) -> void:
 func draw_lootling(pos: Vector2, hurt: bool) -> void:
 	var body_color := Color("#f6f8ff") if hurt else Color("#7ad9ff")
 	var scale_y := 0.82 if squash > 0.0 else 1.0
-	draw_set_transform(pos, -0.03, Vector2(1.0, scale_y))
-	draw_circle(Vector2(0, 8), 43, Color("#20304e"))
-	draw_circle(Vector2.ZERO, 40, body_color)
-	draw_circle(Vector2(-24, -28), 16, body_color)
-	draw_circle(Vector2(24, -28), 16, body_color)
-	draw_circle(Vector2(-13, -5), 5, Color("#152037"))
-	draw_circle(Vector2(13, -5), 5, Color("#152037"))
-	draw_arc(Vector2(0, 4), 13, 0.3, PI - 0.3, 16, Color("#315175"), 3)
-	draw_line(Vector2(27, 18), Vector2(83, -45), Color("#b77942"), 10)
-	draw_set_transform(pos + Vector2(81, -49), -0.28, Vector2.ONE)
-	draw_rect(Rect2(-27, -18, 55, 36), Color("#ffcf58"), true)
-	draw_rect(Rect2(-27, -18, 55, 36), Color("#fff0a0"), false, 4)
+	var scale_x := 1.13 if squash > 0.0 else 1.0
+	draw_set_transform(pos, -0.03, Vector2(scale_x, scale_y))
+	# Shadow, tiny adventurer body, cape and boots.
+	draw_set_transform(pos + Vector2(0, 46), 0.0, Vector2(1.0, 0.34))
+	draw_circle(Vector2.ZERO, 43, Color("#0a1123a0"))
+	draw_set_transform(pos, -0.03, Vector2(scale_x, scale_y))
+	draw_colored_polygon(PackedVector2Array([Vector2(-24,18),Vector2(-42,52),Vector2(-6,45)]), Color("#e75270"))
+	draw_circle(Vector2(0, 30), 26, Color("#395fa4"))
+	draw_rect(Rect2(-22, 24, 44, 15), Color("#f0c862"), true)
+	draw_circle(Vector2(-17, 52), 10, Color("#24324f"))
+	draw_circle(Vector2(17, 52), 10, Color("#24324f"))
+	# Oversized head, ears, expressive eyes and rosy cheeks.
+	draw_circle(Vector2(-27, -27), 17, body_color)
+	draw_circle(Vector2(27, -27), 17, body_color)
+	draw_circle(Vector2(0, 2), 43, Color("#20304e"))
+	draw_circle(Vector2(0, -2), 41, body_color)
+	draw_circle(Vector2(-15, -8), 9, Color.WHITE)
+	draw_circle(Vector2(15, -8), 9, Color.WHITE)
+	draw_circle(Vector2(-14, -7), 5, Color("#14203b"))
+	draw_circle(Vector2(14, -7), 5, Color("#14203b"))
+	draw_circle(Vector2(-12, -10), 2, Color.WHITE)
+	draw_circle(Vector2(16, -10), 2, Color.WHITE)
+	draw_circle(Vector2(-28, 8), 6, Color("#ff91ac80"))
+	draw_circle(Vector2(28, 8), 6, Color("#ff91ac80"))
+	draw_arc(Vector2(0, 5), 13, 0.25, PI - 0.25, 16, Color("#315175"), 3)
+	# Tiny circlet and heroic scarf.
+	draw_line(Vector2(-31, -28), Vector2(31, -28), Color("#f6c955"), 5)
+	draw_colored_polygon(PackedVector2Array([Vector2(-8,-29),Vector2(0,-43),Vector2(8,-29)]), Color("#ffe783"))
+	draw_line(Vector2(27, 22), Vector2(83, -45), Color("#a76939"), 11)
+	var windup := clampf(1.0 - attack_clock / 0.16, 0.0, 1.0) if attack_anim <= 0.0 else 0.0
+	var weapon_angle := lerpf(-0.28, -0.72, windup)
+	if attack_anim > 0.0:
+		weapon_angle = lerpf(-0.28, 0.42, attack_anim / 0.22)
+	draw_set_transform(pos + Vector2(81, -49), weapon_angle, Vector2.ONE)
+	draw_rect(Rect2(-31, -20, 62, 40), Color("#ffcf58"), true)
+	draw_rect(Rect2(-31, -20, 62, 40), Color("#fff0a0"), false, 4)
+	draw_circle(Vector2(-20, -8), 4, Color("#fff7c4"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
-func draw_enemy(pos: Vector2, color: Color) -> void:
-	draw_set_transform(pos, 0.0, Vector2.ONE)
+func draw_enemy(pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
+	var hit_scale := Vector2(1.16, 0.78) if enemy_squash > 0.0 and enemy_alive else Vector2.ONE
+	draw_set_transform(pos, 0.0, hit_scale * extra_scale)
 	var radius := 58.0 if enemy_is_boss else 48.0 if enemy_is_miniboss else 39.0
-	draw_circle(Vector2(0, 10), radius + 4, Color("#311f3b"))
+	var outline := Color("#311f3b")
+	outline.a = color.a
+	draw_circle(Vector2(0, 10), radius + 4, outline)
+	draw_circle(Vector2(0, 38), radius * 0.56, color.darkened(0.22))
 	draw_circle(Vector2(0, 4), radius, color)
 	if enemy_is_boss:
 		draw_colored_polygon(PackedVector2Array([Vector2(-42,-20),Vector2(-29,-67),Vector2(-9,-35),Vector2(10,-72),Vector2(29,-34),Vector2(47,-61),Vector2(39,-15)]), Color("#ffb33e"))
@@ -555,34 +683,56 @@ func draw_enemy(pos: Vector2, color: Color) -> void:
 	else:
 		draw_circle(Vector2(-23, -25), 14, color)
 		draw_circle(Vector2(23, -25), 14, color)
-	draw_circle(Vector2(-14, -5), 5, Color("#271c35"))
-	draw_circle(Vector2(14, -5), 5, Color("#271c35"))
-	draw_line(Vector2(-12, 19), Vector2(12, 17), Color("#51243f"), 3)
+	draw_circle(Vector2(-15, -6), 9, Color.WHITE)
+	draw_circle(Vector2(15, -6), 9, Color.WHITE)
+	draw_circle(Vector2(-13, -5), 5, Color("#271c35"))
+	draw_circle(Vector2(13, -5), 5, Color("#271c35"))
+	draw_circle(Vector2(-11, -8), 2, Color.WHITE)
+	draw_circle(Vector2(15, -8), 2, Color.WHITE)
+	draw_line(Vector2(-23, -18), Vector2(-7, -13), Color("#51243f"), 4)
+	draw_line(Vector2(23, -18), Vector2(7, -13), Color("#51243f"), 4)
+	draw_line(Vector2(-12, 20), Vector2(12, 18), Color("#51243f"), 3)
+	if enemy_is_boss:
+		draw_colored_polygon(PackedVector2Array([Vector2(-10,19),Vector2(-4,30),Vector2(1,19),Vector2(7,30),Vector2(12,18)]), Color.WHITE)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_stats_strip() -> void:
-	draw_rect(Rect2(18, 718, 444, 78), Color("#111a33d9"), true)
-	draw_rect(Rect2(18, 718, 444, 78), Color("#526b9b"), false, 2)
-	var lines := ["DMG %.0f" % base_damage, "SPEED %.2fs" % current_attack_interval(), "CRIT %d%%" % int(crit_chance * 100.0), "HITS x%d" % multi_hits]
+	draw_rect(Rect2(18, 714, 444, 84), Color("#101831ee"), true)
+	draw_rect(Rect2(18, 714, 444, 84), Color("#526b9b"), false, 2)
+	draw_string(body_font, Vector2(31, 735), "RUN BUILD", HORIZONTAL_ALIGNMENT_LEFT, 100, 11, Color("#6f87b7"))
+	var lines := ["DMG  %.0f" % base_damage, "RATE  %.2fs" % current_attack_interval(), "CRIT  %d%%" % int(crit_chance * 100.0), "HITS  x%d" % multi_hits]
 	for i in range(4):
-		draw_string(body_font, Vector2(21 + i * 110, 750), lines[i], HORIZONTAL_ALIGNMENT_CENTER, 105, 14, Color("#dce7ff"))
-	draw_string(body_font, Vector2(30, 779), "BUILD: %s" % build_summary(), HORIZONTAL_ALIGNMENT_CENTER, 420, 13, Color("#9fb4dd"))
+		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#1d2a4a"), true)
+		draw_string(body_font, Vector2(27 + i * 108, 760), lines[i], HORIZONTAL_ALIGNMENT_CENTER, 102, 13, Color("#e3edff"))
+	draw_string(body_font, Vector2(30, 787), build_summary(), HORIZONTAL_ALIGNMENT_CENTER, 420, 12, Color("#9fb4dd"))
 
 func build_summary() -> String:
 	if upgrade_counts.is_empty():
 		return "No upgrades yet"
 	var parts: Array[String] = []
 	for key in upgrade_counts:
-		parts.append("%s x%d" % [key, upgrade_counts[key]])
-	return ", ".join(parts).left(55)
+		parts.append("%s x%d" % [GameCatalog.display_name(key), upgrade_counts[key]])
+	return "  /  ".join(parts).left(62)
 
 func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: String, font_size: int) -> void:
+	draw_rect(Rect2(rect.position + Vector2(0, 2), rect.size + Vector2(0, 3)), Color("#05091675"), true)
 	draw_rect(rect, back, true)
 	draw_rect(Rect2(rect.position + Vector2(2, 2), Vector2(maxf(0.0, (rect.size.x - 4) * clampf(ratio, 0.0, 1.0)), rect.size.y - 4)), fill, true)
-	draw_rect(rect, Color("#9db1d3"), false, 2)
+	draw_rect(Rect2(rect.position + Vector2(2, 2), Vector2(maxf(0.0, (rect.size.x - 4) * clampf(ratio, 0.0, 1.0)), 3)), fill.lightened(0.35), true)
+	draw_rect(rect, Color("#7f94bc"), false, 2)
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:
+	for pickup in reward_pickups:
+		if pickup.delay > 0.0:
+			continue
+		var pop := clampf(pickup.life / pickup.max_life * 2.0, 0.0, 1.0)
+		if pickup.kind == "coin":
+			draw_circle(pickup.pos, 7.0 * pop, Color("#f4bd3e"))
+			draw_circle(pickup.pos, 4.0 * pop, Color("#fff09a"))
+		else:
+			var radius := 7.0 * pop
+			draw_colored_polygon(PackedVector2Array([pickup.pos + Vector2(0,-radius),pickup.pos + Vector2(radius,0),pickup.pos + Vector2(0,radius),pickup.pos + Vector2(-radius,0)]), Color("#70e5ff"))
 	for particle in particles:
 		var alpha: float = clampf(particle.life / particle.max_life, 0.0, 1.0)
 		var color: Color = particle.color
@@ -593,3 +743,19 @@ func draw_effects() -> void:
 		var color: Color = item.color
 		color.a = alpha
 		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
+
+func draw_moment_overlay() -> void:
+	if impact_flash > 0.0:
+		var flash_alpha := clampf(impact_flash * 1.8, 0.0, 0.16)
+		draw_rect(Rect2(0, 146, 480, 555), Color(1.0, 0.94, 0.68, flash_alpha), true)
+	if tap_pulse > 0.0 and tap_combo > 1:
+		var pulse_alpha := clampf(tap_pulse / 0.18, 0.0, 1.0)
+		draw_string(title_font, Vector2(285, 660), "TAP COMBO  x%d" % tap_combo, HORIZONTAL_ALIGNMENT_CENTER, 170, 17 + mini(tap_combo, 6), Color(0.55, 0.92, 1.0, pulse_alpha))
+	if wave_banner_timer > 0.0:
+		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
+		var banner_color := wave_banner_color
+		banner_color.a = fade
+		draw_rect(Rect2(0, 286, 480, 78), Color(0.03, 0.06, 0.16, 0.78 * fade), true)
+		draw_rect(Rect2(0, 286, 480, 3), banner_color, true)
+		draw_rect(Rect2(0, 361, 480, 3), banner_color, true)
+		draw_string(title_font, Vector2(20, 339), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 440, 27, banner_color)

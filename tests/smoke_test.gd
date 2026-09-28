@@ -24,6 +24,9 @@ func run_tests() -> void:
 	game.player_x = game.PLAYER_ATTACK_X
 	game.perform_player_attack(true)
 	check(game.enemy_hp < game.enemy_max_hp, "tap attack damages the enemy")
+	check(game.attack_anim > 0.0 and game.enemy_recoil > 0.0, "attacks trigger readable impact animation")
+	game.damage_enemy(game.enemy_hp + 1.0, false, false)
+	check(game.enemy_death_anim > 0.0 and not game.reward_pickups.is_empty(), "enemy death launches reward feedback")
 	var guard := 0
 	while game.state != "result" and guard < 100:
 		guard += 1
