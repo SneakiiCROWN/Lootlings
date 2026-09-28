@@ -27,6 +27,8 @@ func run_tests() -> void:
 	identity_build.add_upgrade(upgrade_by_id("wildfire"))
 	check(identity_build.dominant() == "Fire" and identity_build.tier() == 1, "build tags produce a Fire evolution threshold")
 	check(BuildSystem.COLORS.Fire != BuildSystem.COLORS.Lightning and BuildSystem.COLORS.Poison != BuildSystem.COLORS.Physical, "implemented identities have distinct visual palettes")
+	check(identity_build.class_influence("Neutral") == "Main Mascot RelicBeast", "neutral player identity remains separate from Emberhorn")
+	check(identity_build.class_influence("Fire") == "Emberhorn", "Fire visuals can reference Emberhorn without replacing the mascot")
 	for mechanic_id in ["ignite", "storm", "venom", "heavy"]:
 		game.start_run()
 		game.apply_upgrade_effect(upgrade_by_id(mechanic_id))
