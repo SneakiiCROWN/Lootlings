@@ -136,6 +136,8 @@ var item_keep_button: Button
 var item_scrap_button: Button
 var merchant_panel: Panel
 var merchant_title: Label
+var merchant_subtitle: Label
+var merchant_coin_label: Label
 var merchant_buttons: Array[Button] = []
 var merchant_reroll_button: Button
 var merchant_continue_button: Button
@@ -209,11 +211,12 @@ func build_item_ui() -> void:
 func build_merchant_ui() -> void:
 	merchant_panel = make_panel(Rect2(20, 156, 440, 570), Color("#15142ff8"))
 	merchant_panel.visible = false
-	merchant_title = make_label(merchant_panel, "THE PACK PEDDLER", 27, Rect2(20, 17, 400, 50), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(merchant_panel, "Spend run coins. Purchases still use Equip / Keep / Scrap.", 14, Rect2(26, 62, 388, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c6e6")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	merchant_title = make_label(merchant_panel, "MERCHANT STOP", 31, Rect2(20, 14, 400, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	merchant_subtitle = make_label(merchant_panel, "THE PACK PEDDLER  •  BETWEEN WAVES", 14, Rect2(26, 54, 388, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#d3b777"))
+	merchant_coin_label = make_label(merchant_panel, "", 16, Rect2(64, 78, 312, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe078"))
 	for i in range(3):
 		var button := Button.new()
-		button.position = Vector2(25, 110 + i * 112)
+		button.position = Vector2(25, 112 + i * 112)
 		button.size = Vector2(390, 96)
 		button.add_theme_font_size_override("font_size", 16)
 		button.pressed.connect(buy_merchant_item.bind(i))
@@ -250,8 +253,8 @@ func make_action_button(parent: Node, text_value: String, pos: Vector2, button_s
 func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
-		box.bg_color = fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
-		box.border_color = border.lightened(0.08)
+		box.bg_color = fill.darkened(0.28) if state_name == "disabled" else fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
+		box.border_color = border.darkened(0.45) if state_name == "disabled" else border.lightened(0.08)
 		box.set_border_width_all(3 if state_name == "focus" else 2)
 		box.set_corner_radius_all(14)
 		box.content_margin_left = 16
@@ -259,6 +262,7 @@ func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 		box.shadow_color = Color(0.01, 0.015, 0.05, 0.58)
 		box.shadow_size = 8 if state_name == "normal" else 3
 		button.add_theme_stylebox_override(state_name, box)
+	button.add_theme_color_override("font_disabled_color", Color("#77819a"))
 
 func make_panel(rect: Rect2, color: Color) -> Panel:
 	var panel := Panel.new()
@@ -527,9 +531,7 @@ func perform_player_attack(is_tap: bool) -> void:
 	var is_heavy := physical_count > 0 and attack_sequence % heavy_interval == 0
 	if is_heavy:
 		damage_scale *= 2.2 + inventory.effect_total("heavy_bonus")
-		wave_banner_text = "QUAKE BONK!"
-		wave_banner_color = build.color("Physical")
-		wave_banner_timer = 0.38
+		add_float("QUAKE BONK!", Vector2(280, 360), build.color("Physical"), 22)
 	if is_tap:
 		tap_combo += 1
 		combo_clock = 0.7
@@ -836,7 +838,8 @@ func show_merchant() -> void:
 	refresh_merchant_ui()
 
 func refresh_merchant_ui() -> void:
-	merchant_title.text = "THE PACK PEDDLER  -  %d COINS" % coins
+	merchant_title.text = "MERCHANT STOP"
+	merchant_coin_label.text = "●  %d RUN COINS  •  TAP AN OFFER" % coins
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
 		if i >= shop.stock.size():
@@ -845,7 +848,8 @@ func refresh_merchant_ui() -> void:
 			continue
 		var item: Dictionary = shop.stock[i]
 		var price := int(item.get("price", 0))
-		button.text = "%s  [%s]  -  %d COINS\n%s\n%s" % [item.name, item.rarity, price, item.slot, ItemCatalog.describe_effects(item)]
+		var slot_icon := "⚔" if item.slot == "Weapon" else "◆" if item.slot == "Armour" else "✦"
+		button.text = "%s  %s OFFER    ● %d\n%s  [%s]\n%s" % [slot_icon, item.slot.to_upper(), price, item.name, item.rarity, ItemCatalog.describe_effects(item)]
 		button.disabled = coins < price
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
 	var reroll_price := shop.reroll_cost(wave)
@@ -1079,7 +1083,22 @@ func update_effects(delta: float) -> void:
 			loot_drops.remove_at(i)
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
-	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":0.8, "max_life":0.8})
+	var is_dot := size_value <= 15
+	var prefix := text_value.get_slice(" ", 0)
+	var nearby := 0
+	for item in floating_texts:
+		if is_dot and item.text.get_slice(" ", 0) == prefix and item.life > 0.28:
+			return
+		if item.pos.distance_to(pos) < 95.0:
+			nearby += 1
+	if nearby >= 3 and size_value < 22:
+		return
+	pos.y -= min(nearby, 3) * 18.0
+	pos.x += (-10.0 if nearby % 2 == 0 else 10.0) * min(nearby, 2)
+	var duration := 0.68 if size_value < 25 else 0.82
+	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":duration, "max_life":duration})
+	while floating_texts.size() > 7:
+		floating_texts.pop_front()
 
 func add_particles(pos: Vector2, color: Color, count: int) -> void:
 	for i in range(count):
@@ -1170,7 +1189,9 @@ func draw_arena(shake: Vector2) -> void:
 		death_color.a = 1.0 - death_progress
 		draw_enemy(Vector2(ENEMY_X + death_progress * 35.0, 467 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
 	if status_clock > 0.0:
-		draw_string(body_font, Vector2(25, 690), status_message, HORIZONTAL_ALIGNMENT_CENTER, 430, 19, Color("#ffe797"))
+		draw_rect(Rect2(67, 662, 346, 36), Color("#091127d6"), true)
+		draw_rect(Rect2(67, 662, 346, 36), Color("#b98b477a"), false, 1)
+		draw_string(body_font, Vector2(79, 687), status_message, HORIZONTAL_ALIGNMENT_CENTER, 322, 17, Color("#ffe797"))
 	draw_stats_strip()
 
 func draw_lootling(pos: Vector2, hurt: bool) -> void:
@@ -1225,6 +1246,7 @@ func draw_effects() -> void:
 		var alpha: float = clampf(item.life / item.max_life, 0.0, 1.0)
 		var color: Color = item.color
 		color.a = alpha
+		draw_string(body_font, item.pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, Color(0.02, 0.03, 0.08, alpha * 0.80))
 		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
 
 func draw_loot_drop(drop: Dictionary) -> void:
@@ -1265,7 +1287,7 @@ func draw_moment_overlay() -> void:
 		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
 		var banner_color := wave_banner_color
 		banner_color.a = fade
-		draw_rect(Rect2(0, 286, 480, 78), Color(0.03, 0.06, 0.16, 0.78 * fade), true)
-		draw_rect(Rect2(0, 286, 480, 3), banner_color, true)
-		draw_rect(Rect2(0, 361, 480, 3), banner_color, true)
-		draw_string(title_font, Vector2(20, 339), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 440, 27, banner_color)
+		draw_rect(Rect2(24, 294, 432, 64), Color(0.03, 0.06, 0.16, 0.86 * fade), true)
+		draw_rect(Rect2(24, 294, 432, 2), banner_color, true)
+		draw_rect(Rect2(24, 356, 432, 2), banner_color, true)
+		draw_string(title_font, Vector2(36, 337), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 408, 25, banner_color)

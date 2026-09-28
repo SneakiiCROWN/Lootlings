@@ -4,6 +4,10 @@ const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
 const MOSSBACK_BRUTE_TEXTURE = preload("res://art/sprites/enemies/mossback_brute.png")
 const LANTERN_HEXER_TEXTURE = preload("res://art/sprites/enemies/lantern_hexer.png")
+const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
+const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
+const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
+const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	var identity: String = g.build.dominant()
@@ -144,37 +148,26 @@ func draw_lootling_procedural(g, pos: Vector2, hurt: bool) -> void:
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_vanguard(g, pos: Vector2, angle: float, growth: float, color: Color, core_color: Color, identity: String) -> void:
-	g.draw_set_transform(pos, -0.03, Vector2.ONE)
-	g.draw_line(Vector2(27, 22), Vector2(83, -45), Color("#a76939"), 11)
-	g.draw_set_transform(pos + Vector2(81, -49), angle, Vector2.ONE * growth)
-	var shape := PackedVector2Array([Vector2(-31,-15),Vector2(-23,-22),Vector2(24,-20),Vector2(32,-11),Vector2(28,17),Vector2(17,22),Vector2(-27,18)])
-	g.draw_colored_polygon(shape, color.darkened(0.16))
-	g.draw_polyline(PackedVector2Array([Vector2(-31,-15),Vector2(-23,-22),Vector2(24,-20),Vector2(32,-11),Vector2(28,17),Vector2(17,22),Vector2(-27,18),Vector2(-31,-15)]), color.lightened(0.32), 4)
-	g.draw_circle(Vector2(-19, -8), 4, Color("#e9bd62"))
-	g.draw_circle(Vector2(19, 9), 4, Color("#e9bd62"))
-	if identity != "Neutral":
-		g.draw_line(Vector2(-24, 10), Vector2(23, -10), core_color.lightened(0.38), 5)
+	var accent := core_color if identity != "Neutral" else Color("#ffbd55")
+	draw_weapon_sprite(g, VANGUARD_WEAPON_TEXTURE, pos + Vector2(28, 15), Rect2(-8, -105, 126, 114), angle * 0.68, growth, accent, Vector2(82, -62))
 
 func draw_bow(g, pos: Vector2, angle: float, growth: float, color: Color) -> void:
-	g.draw_set_transform(pos + Vector2(61, -14), angle * 0.35, Vector2.ONE * growth)
-	g.draw_arc(Vector2.ZERO, 38, -1.35, 1.35, 24, color.lightened(0.18), 7)
-	g.draw_line(Vector2(8, -37), Vector2(8, 37), Color("#f1dfba"), 2)
-	g.draw_line(Vector2(-20, 0), Vector2(52, 0), Color("#cfad74"), 4)
-	g.draw_colored_polygon(PackedVector2Array([Vector2(55,0),Vector2(42,-7),Vector2(42,7)]), color.lightened(0.45))
+	draw_weapon_sprite(g, RANGER_WEAPON_TEXTURE, pos + Vector2(27, 14), Rect2(-7, -100, 119, 110), angle * 0.42, growth, color, Vector2(76, -55))
 
 func draw_staff(g, pos: Vector2, angle: float, growth: float, color: Color, core_color: Color) -> void:
-	g.draw_set_transform(pos + Vector2(59, -10), angle * 0.45, Vector2.ONE * growth)
-	g.draw_line(Vector2(-22, 39), Vector2(22, -38), Color("#795236"), 8)
-	g.draw_circle(Vector2(25, -43), 18, color.darkened(0.18))
-	g.draw_circle(Vector2(25, -43), 11, core_color.lightened(0.30))
-	g.draw_arc(Vector2(25, -43), 24, g.run_time * 2.0, g.run_time * 2.0 + 4.8, 20, core_color, 3)
+	draw_weapon_sprite(g, MAGE_WEAPON_TEXTURE, pos + Vector2(25, 16), Rect2(-5, -117, 98, 118), angle * 0.48, growth, core_color, Vector2(65, -78))
 
 func draw_daggers(g, pos: Vector2, angle: float, growth: float, color: Color) -> void:
-	g.draw_set_transform(pos + Vector2(48, -3), angle * 0.6, Vector2.ONE * growth)
-	for offset in [Vector2(0, -17), Vector2(7, 18)]:
-		g.draw_line(offset + Vector2(-17, 20), offset + Vector2(17, -19), Color("#6c4534"), 7)
-		g.draw_colored_polygon(PackedVector2Array([offset + Vector2(14,-17),offset + Vector2(43,-28),offset + Vector2(24,1)]), color.lightened(0.28))
-		g.draw_line(offset + Vector2(8, -8), offset + Vector2(27, 8), Color("#e6bd63"), 4)
+	draw_weapon_sprite(g, ROGUE_WEAPON_TEXTURE, pos + Vector2(24, 15), Rect2(-4, -98, 112, 102), angle * 0.62, growth, color, Vector2(75, -55))
+
+func draw_weapon_sprite(g, texture: Texture2D, pivot: Vector2, rect: Rect2, rotation: float, growth: float, accent: Color, glow_offset: Vector2) -> void:
+	var glow := accent
+	glow.a = 0.16
+	g.draw_set_transform(pivot, rotation, Vector2.ONE * growth)
+	g.draw_circle(glow_offset, 24.0, glow)
+	g.draw_circle(glow_offset, 12.0, Color(accent.r, accent.g, accent.b, 0.10))
+	g.draw_texture_rect(texture, rect, false, Color.WHITE)
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_enemy(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	if not g.enemy_is_boss and not g.enemy_is_miniboss:

@@ -31,7 +31,11 @@ func run_tests() -> void:
 		"res://art/sprites/enemies/razor_imp.png",
 		"res://art/sprites/enemies/mossback_brute.png",
 		"res://art/sprites/enemies/lantern_hexer.png",
-		"res://art/backgrounds/treasure_ruins_arena.png"
+		"res://art/backgrounds/treasure_ruins_arena.png",
+		"res://art/sprites/weapons/vanguard_hammer.png",
+		"res://art/sprites/weapons/ranger_bow.png",
+		"res://art/sprites/weapons/mage_staff.png",
+		"res://art/sprites/weapons/rogue_daggers.png"
 	]:
 		check(load(asset_path) is Texture2D, "%s imports as a Texture2D" % asset_path)
 	game.inventory.reset_to_starter()

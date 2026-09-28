@@ -77,6 +77,7 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `art/sprites/enemies/mossback_brute.png` is the first-pass tank cutout: broad mossy ruin beast with a battered wooden shield. It is an enemy species, not Mosskin.
 - `art/sprites/enemies/lantern_hexer.png` is the first-pass ranged cutout: narrow floating hooded spirit with a lantern staff and violet hex. It is not Gloomlet or another playable Lootling.
 - `art/backgrounds/treasure_ruins_arena.png` is the layered portrait arena backdrop derived from the gameplay/polish boards: moonlit ruins, lanterns, crystals, treasure, and a readable stone combat platform.
+- `art/sprites/weapons/` contains transparent painterly cutouts for the four implemented equipment families: oversized Vanguard relic hammer, Ranger relic bow, Mage relic staff, and paired Rogue relic daggers. They follow the weapon-family board while remaining neutral interchangeable gear rather than character-specific signature weapons.
 - The enemy and arena files are replacement-ready production assets informed by the reference boards. They are not additional canonical character sheets and must not redefine the playable cast.
 
 ## Systems / Equipment Reference
