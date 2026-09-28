@@ -26,6 +26,14 @@ func run_tests() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await process_frame
+	for asset_path in [
+		"res://art/sprites/relic_beast_base.png",
+		"res://art/sprites/enemies/razor_imp.png",
+		"res://art/sprites/enemies/mossback_brute.png",
+		"res://art/sprites/enemies/lantern_hexer.png",
+		"res://art/backgrounds/treasure_ruins_arena.png"
+	]:
+		check(load(asset_path) is Texture2D, "%s imports as a Texture2D" % asset_path)
 	game.inventory.reset_to_starter()
 	game.start_run()
 	var identity_build = BuildSystem.new()

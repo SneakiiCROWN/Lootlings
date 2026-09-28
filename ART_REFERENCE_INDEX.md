@@ -70,6 +70,15 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - Physical Relic build: Pebblewyrm-inspired rock, armour, and heavy-impact language.
 - Glimmerfin and Gloomlet remain canonical future class references; they are not implemented as playable systems in this pass.
 
+## Runtime Presentation Assets
+
+- `art/sprites/relic_beast_base.png` is the transparent runtime cutout of the canonical neutral mascot artwork. It preserves the source character rather than repainting it.
+- `art/sprites/enemies/razor_imp.png` is the first-pass Scrapper/skirmisher cutout: charcoal ruin scavenger, red crystal spikes, and oversized improvised club.
+- `art/sprites/enemies/mossback_brute.png` is the first-pass tank cutout: broad mossy ruin beast with a battered wooden shield. It is an enemy species, not Mosskin.
+- `art/sprites/enemies/lantern_hexer.png` is the first-pass ranged cutout: narrow floating hooded spirit with a lantern staff and violet hex. It is not Gloomlet or another playable Lootling.
+- `art/backgrounds/treasure_ruins_arena.png` is the layered portrait arena backdrop derived from the gameplay/polish boards: moonlit ruins, lanterns, crystals, treasure, and a readable stone combat platform.
+- The enemy and arena files are replacement-ready production assets informed by the reference boards. They are not additional canonical character sheets and must not redefine the playable cast.
+
 ## Systems / Equipment Reference
 
 - `57b7aeaf-2dbf-4d29-8ae8-35455e05bc19.png`

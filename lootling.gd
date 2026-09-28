@@ -8,6 +8,7 @@ const ItemCatalog = preload("res://item_catalog.gd")
 const LootSystem = preload("res://loot_system.gd")
 const InventorySystem = preload("res://inventory_system.gd")
 const ShopSystem = preload("res://shop_system.gd")
+const ARENA_BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
@@ -250,13 +251,13 @@ func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
 		box.bg_color = fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
-		box.border_color = border
-		box.set_border_width_all(2)
+		box.border_color = border.lightened(0.08)
+		box.set_border_width_all(3 if state_name == "focus" else 2)
 		box.set_corner_radius_all(14)
 		box.content_margin_left = 16
 		box.content_margin_right = 16
-		box.shadow_color = Color(0, 0, 0, 0.28)
-		box.shadow_size = 6 if state_name == "normal" else 2
+		box.shadow_color = Color(0.01, 0.015, 0.05, 0.58)
+		box.shadow_size = 8 if state_name == "normal" else 3
 		button.add_theme_stylebox_override(state_name, box)
 
 func make_panel(rect: Rect2, color: Color) -> Panel:
@@ -265,8 +266,8 @@ func make_panel(rect: Rect2, color: Color) -> Panel:
 	panel.size = rect.size
 	var box := StyleBoxFlat.new()
 	box.bg_color = color
-	box.border_color = Color("#7289d6")
-	box.set_border_width_all(2)
+	box.border_color = Color("#c89b52")
+	box.set_border_width_all(3)
 	box.set_corner_radius_all(20)
 	box.shadow_color = Color(0, 0, 0, 0.4)
 	box.shadow_size = 12
@@ -1108,21 +1109,25 @@ func _draw() -> void:
 	draw_moment_overlay()
 
 func draw_background() -> void:
-	draw_rect(Rect2(0, 0, 480, 854), Color("#101831"))
-	draw_circle(Vector2(405, 310), 72, Color("#21335c"))
-	draw_circle(Vector2(388, 293), 58, Color("#172447"))
-	for i in range(9):
-		var color := Color("#18264a") if i % 2 == 0 else Color("#15213f")
-		draw_circle(Vector2(25 + i * 63, 275 + (i % 3) * 28), 115, color)
-	draw_rect(Rect2(0, 510, 480, 304), Color("#243652"))
-	draw_colored_polygon(PackedVector2Array([Vector2(0,545),Vector2(110,500),Vector2(220,548),Vector2(340,495),Vector2(480,540),Vector2(480,650),Vector2(0,650)]), Color("#314b64"))
-	draw_line(Vector2(0, 511), Vector2(480, 511), Color("#49667c"), 3)
-	for i in range(12):
-		draw_circle(Vector2(18 + i * 43, 613 + (i % 4) * 29), 5, Color("#3f5c6d"))
+	draw_rect(Rect2(0, 0, 480, 854), Color("#080d20"))
+	var texture_size := ARENA_BACKGROUND.get_size()
+	var target := Rect2(0, 146, 480, 568)
+	var crop_height: float = texture_size.x * target.size.y / target.size.x
+	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
+	draw_texture_rect_region(ARENA_BACKGROUND, target, source)
+	# Quiet the combat band slightly while keeping the lanterns and moon visible.
+	draw_rect(Rect2(0, 182, 480, 382), Color("#08122922"), true)
+	draw_rect(Rect2(0, 558, 480, 156), Color("#07102142"), true)
+	draw_line(Vector2(0, 514), Vector2(480, 514), Color("#f3c56a55"), 2)
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0, 0, 480, 146), Color("#0b1229e8"), true)
-	draw_rect(Rect2(0, 144, 480, 2), Color("#4e6394"), true)
+	draw_rect(Rect2(0, 0, 480, 146), Color("#080e24f5"), true)
+	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
+	draw_rect(Rect2(0, 142, 480, 4), Color("#ad8040"), true)
+	draw_rect(Rect2(12, 13, 205, 53), Color("#111a38cc"), true)
+	draw_rect(Rect2(12, 13, 205, 53), Color("#7d643d"), false, 2)
+	draw_rect(Rect2(330, 13, 136, 53), Color("#111a38cc"), true)
+	draw_rect(Rect2(330, 13, 136, 53), Color("#7d643d"), false, 2)
 	draw_string(title_font, Vector2(18, 35), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 25, Color("#ffe178"))
 	draw_string(body_font, Vector2(18, 62), "WAVE %02d / %02d" % [wave, RUN_LAST_WAVE], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("#bac9eb"))
 	draw_circle(Vector2(353, 29), 11, Color("#f7c94c"))
@@ -1132,7 +1137,9 @@ func draw_hud() -> void:
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
 	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14)
 	var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
-	draw_string(body_font, Vector2(60, 169), "%s     %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "ENCOUNTER", mini(wave_kills + (0 if enemy_alive else 1), wave_target), wave_target], HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color("#9fb0d4"))
+	draw_rect(Rect2(91, 151, 298, 25), Color("#0a1129d9"), true)
+	draw_line(Vector2(110, 176), Vector2(370, 176), Color("#bd904a99"), 2)
+	draw_string(body_font, Vector2(60, 169), "%s     %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "ENCOUNTER", mini(wave_kills + (0 if enemy_alive else 1), wave_target), wave_target], HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color("#d8e3ff"))
 
 func draw_arena(shake: Vector2) -> void:
 	var enemy_color := Color("#ff6f87") if enemy_is_boss else Color("#bf80ff") if enemy_is_miniboss else Color("#73d7a2")
@@ -1143,7 +1150,7 @@ func draw_arena(shake: Vector2) -> void:
 		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
 	elif state == "playing":
 		draw_string(body_font, Vector2(90, 236), "Next foe incoming...", HORIZONTAL_ALIGNMENT_CENTER, 300, 17, Color("#aebee8"))
-	var idle_bob := sin(run_time * 5.2) * 2.0
+	var idle_bob := sin(run_time * 4.3) * 3.0
 	var lunge := attack_anim / 0.22 * 10.0
 	var player_pos := Vector2(player_x + lunge, 472 + idle_bob) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
@@ -1173,14 +1180,15 @@ func draw_enemy(pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	creature_renderer.draw_enemy(self, pos, color, extra_scale)
 
 func draw_stats_strip() -> void:
-	draw_rect(Rect2(18, 714, 444, 84), Color("#101831ee"), true)
-	draw_rect(Rect2(18, 714, 444, 84), Color("#526b9b"), false, 2)
+	draw_rect(Rect2(18, 714, 444, 84), Color("#0a1028f5"), true)
+	draw_rect(Rect2(18, 714, 444, 84), Color("#b88a47"), false, 2)
 	var identity := build.dominant()
 	var build_title := "RELIC CORE  -  DORMANT" if identity == "Neutral" else "%s CORE  -  %s" % [identity.to_upper(), build.tier_name(identity)]
 	draw_string(body_font, Vector2(31, 735), build_title, HORIZONTAL_ALIGNMENT_LEFT, 300, 11, build.color())
 	var lines := ["DMG  %.0f" % (base_damage * equipment_damage_multiplier()), "RATE  %.2fs" % current_attack_interval(), "CRIT  %d%%" % int(effective_crit_chance() * 100.0), "HITS  x%d" % multi_hits]
 	for i in range(4):
-		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#1d2a4a"), true)
+		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#182442"), true)
+		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#4f638e"), false, 1)
 		draw_string(body_font, Vector2(27 + i * 108, 760), lines[i], HORIZONTAL_ALIGNMENT_CENTER, 102, 13, Color("#e3edff"))
 	draw_string(body_font, Vector2(30, 787), "%s  |  %s  |  %d SCRAP" % [inventory.weapon_family(), build_summary(), inventory.scrap], HORIZONTAL_ALIGNMENT_CENTER, 420, 12, Color("#9fb4dd"))
 

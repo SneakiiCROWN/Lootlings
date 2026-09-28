@@ -1,6 +1,9 @@
 extends RefCounted
 
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
+const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
+const MOSSBACK_BRUTE_TEXTURE = preload("res://art/sprites/enemies/mossback_brute.png")
+const LANTERN_HEXER_TEXTURE = preload("res://art/sprites/enemies/lantern_hexer.png")
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	var identity: String = g.build.dominant()
@@ -17,9 +20,16 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		g.draw_circle(aura_pos, 2.5 + evolution_tier, aura_color)
 	g.draw_set_transform(pos + Vector2(-4, 46), 0.0, Vector2(1.0, 0.30))
 	g.draw_circle(Vector2.ZERO, 55, Color("#07101f88"))
-	g.draw_set_transform(pos, -0.018, Vector2(scale_x * float(g.player_facing), scale_y))
+	var idle_tilt: float = sin(float(g.run_time) * 2.4) * 0.012
+	var attack_pose: float = clampf(float(g.attack_anim) / 0.22, 0.0, 1.0)
+	var pose_rotation: float = idle_tilt + attack_pose * 0.085
+	var pose_scale := Vector2(scale_x * (1.0 + attack_pose * 0.045) * float(g.player_facing), scale_y * (1.0 - attack_pose * 0.035))
+	if hurt:
+		pose_rotation -= 0.065 * float(g.player_facing)
+		pose_scale *= Vector2(1.06, 0.94)
+	g.draw_set_transform(pos, pose_rotation, pose_scale)
 	var tint := Color("#ffb9b9") if hurt else Color.WHITE
-	g.draw_texture_rect(MASCOT_TEXTURE, Rect2(-88, -120, 176, 176), false, tint)
+	g.draw_texture_rect(MASCOT_TEXTURE, Rect2(-96, -128, 192, 192), false, tint)
 	# Relic builds add readable effects around the canonical chest core without repainting the mascot.
 	if identity != "Neutral":
 		var glow := core_color
@@ -167,6 +177,34 @@ func draw_daggers(g, pos: Vector2, angle: float, growth: float, color: Color) ->
 		g.draw_line(offset + Vector2(8, -8), offset + Vector2(27, 8), Color("#e6bd63"), 4)
 
 func draw_enemy(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
+	if not g.enemy_is_boss and not g.enemy_is_miniboss:
+		draw_enemy_sprite(g, pos, color, extra_scale)
+		return
+	draw_enemy_procedural(g, pos, color, extra_scale)
+
+func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
+	var texture: Texture2D = RAZOR_IMP_TEXTURE
+	var sprite_rect := Rect2(-64, -56, 128, 107)
+	match g.enemy_archetype:
+		"tank":
+			texture = MOSSBACK_BRUTE_TEXTURE
+			sprite_rect = Rect2(-74, -46, 148, 99)
+		"hexer":
+			texture = LANTERN_HEXER_TEXTURE
+			sprite_rect = Rect2(-55, -76, 110, 131)
+	var tint := Color.WHITE
+	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
+		tint = Color("#fff2ca")
+	tint.a = color.a
+	var hit_scale := Vector2(1.13, 0.82) if g.enemy_squash > 0.0 and g.enemy_alive else Vector2.ONE
+	var recoil_tilt := clampf(float(g.enemy_recoil) / 24.0, -1.0, 1.0) * 0.08
+	g.draw_set_transform(pos + Vector2(0, 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
+	g.draw_circle(Vector2.ZERO, 48.0 if g.enemy_archetype == "tank" else 39.0, Color(0.015, 0.025, 0.06, 0.48 * color.a))
+	g.draw_set_transform(pos, recoil_tilt, hit_scale * extra_scale)
+	g.draw_texture_rect(texture, sprite_rect, false, tint)
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+func draw_enemy_procedural(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	var hit_scale := Vector2(1.16, 0.78) if g.enemy_squash > 0.0 and g.enemy_alive else Vector2.ONE
 	g.draw_set_transform(pos, 0.0, hit_scale * extra_scale)
 	var radius := 58.0 if g.enemy_is_boss else 48.0 if g.enemy_is_miniboss else 39.0
