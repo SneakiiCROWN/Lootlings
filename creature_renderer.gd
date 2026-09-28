@@ -4,6 +4,8 @@ const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
 const MOSSBACK_BRUTE_TEXTURE = preload("res://art/sprites/enemies/mossback_brute.png")
 const LANTERN_HEXER_TEXTURE = preload("res://art/sprites/enemies/lantern_hexer.png")
+const GRUMP_KNIGHT_TEXTURE = preload("res://art/sprites/enemies/grump_knight.png")
+const HOARD_DRAGON_TEXTURE = preload("res://art/sprites/enemies/hoard_dragon.png")
 const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
@@ -170,21 +172,37 @@ func draw_weapon_sprite(g, texture: Texture2D, pivot: Vector2, rect: Rect2, rota
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_enemy(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
-	if not g.enemy_is_boss and not g.enemy_is_miniboss:
-		draw_enemy_sprite(g, pos, color, extra_scale)
-		return
-	draw_enemy_procedural(g, pos, color, extra_scale)
+	draw_enemy_sprite(g, pos, color, extra_scale)
 
 func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	var texture: Texture2D = RAZOR_IMP_TEXTURE
 	var sprite_rect := Rect2(-64, -56, 128, 107)
-	match g.enemy_archetype:
-		"tank":
-			texture = MOSSBACK_BRUTE_TEXTURE
-			sprite_rect = Rect2(-74, -46, 148, 99)
-		"hexer":
-			texture = LANTERN_HEXER_TEXTURE
-			sprite_rect = Rect2(-55, -76, 110, 131)
+	var shadow_radius := 39.0
+	var threat_color := Color.TRANSPARENT
+	if g.enemy_is_boss:
+		texture = HOARD_DRAGON_TEXTURE
+		sprite_rect = Rect2(-104, -108, 208, 174)
+		shadow_radius = 78.0
+		threat_color = Color("#a94dff2e")
+	elif g.enemy_is_miniboss:
+		texture = GRUMP_KNIGHT_TEXTURE
+		sprite_rect = Rect2(-87, -86, 174, 145)
+		shadow_radius = 62.0
+		threat_color = Color("#ffb33e2b")
+	else:
+		match g.enemy_archetype:
+			"tank":
+				texture = MOSSBACK_BRUTE_TEXTURE
+				sprite_rect = Rect2(-74, -46, 148, 99)
+				shadow_radius = 48.0
+			"hexer":
+				texture = LANTERN_HEXER_TEXTURE
+				sprite_rect = Rect2(-55, -76, 110, 131)
+	if threat_color.a > 0.0:
+		threat_color.a *= color.a
+		g.draw_set_transform(pos + Vector2(0, -4), 0.0, Vector2(1.0, 0.72) * extra_scale)
+		g.draw_circle(Vector2.ZERO, shadow_radius + 14.0, threat_color)
+		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var tint := Color.WHITE
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
 		tint = Color("#fff2ca")
@@ -192,7 +210,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	var hit_scale := Vector2(1.13, 0.82) if g.enemy_squash > 0.0 and g.enemy_alive else Vector2.ONE
 	var recoil_tilt := clampf(float(g.enemy_recoil) / 24.0, -1.0, 1.0) * 0.08
 	g.draw_set_transform(pos + Vector2(0, 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
-	g.draw_circle(Vector2.ZERO, 48.0 if g.enemy_archetype == "tank" else 39.0, Color(0.015, 0.025, 0.06, 0.48 * color.a))
+	g.draw_circle(Vector2.ZERO, shadow_radius, Color(0.015, 0.025, 0.06, 0.52 * color.a))
 	g.draw_set_transform(pos, recoil_tilt, hit_scale * extra_scale)
 	g.draw_texture_rect(texture, sprite_rect, false, tint)
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)

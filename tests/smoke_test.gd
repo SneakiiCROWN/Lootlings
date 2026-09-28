@@ -31,6 +31,8 @@ func run_tests() -> void:
 		"res://art/sprites/enemies/razor_imp.png",
 		"res://art/sprites/enemies/mossback_brute.png",
 		"res://art/sprites/enemies/lantern_hexer.png",
+		"res://art/sprites/enemies/grump_knight.png",
+		"res://art/sprites/enemies/hoard_dragon.png",
 		"res://art/backgrounds/treasure_ruins_arena.png",
 		"res://art/sprites/weapons/vanguard_hammer.png",
 		"res://art/sprites/weapons/ranger_bow.png",
@@ -56,6 +58,8 @@ func run_tests() -> void:
 		check(not miniboss_drop.is_empty() and ItemCatalog.rarity_rank(miniboss_drop.rarity) >= 1, "miniboss loot is guaranteed Rare or better")
 	var boss_drop: Dictionary = test_loot.roll_drop(false, true)
 	check(not boss_drop.is_empty() and ItemCatalog.rarity_rank(boss_drop.rarity) >= 2, "boss loot is guaranteed Epic or better")
+	var comparison: String = game.build_item_comparison(ItemCatalog.create_item("mimic_mallet", "EPIC", 776), ItemCatalog.create_item("scrapfang_blade", "COMMON", 775))
+	check(comparison.contains("#69e6b0") and comparison.contains("#ff7d88"), "loot comparison marks gains green and losses red")
 	var test_inventory = InventorySystem.new()
 	var rare_bow := ItemCatalog.create_item("bonebow", "RARE", 777)
 	test_inventory.equip(rare_bow)

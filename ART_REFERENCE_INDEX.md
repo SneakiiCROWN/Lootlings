@@ -76,6 +76,8 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `art/sprites/enemies/razor_imp.png` is the first-pass Scrapper/skirmisher cutout: charcoal ruin scavenger, red crystal spikes, and oversized improvised club.
 - `art/sprites/enemies/mossback_brute.png` is the first-pass tank cutout: broad mossy ruin beast with a battered wooden shield. It is an enemy species, not Mosskin.
 - `art/sprites/enemies/lantern_hexer.png` is the first-pass ranged cutout: narrow floating hooded spirit with a lantern staff and violet hex. It is not Gloomlet or another playable Lootling.
+- `art/sprites/enemies/grump_knight.png` is the wave 8 elite Treasure Guardian cutout: a crowned stone-fur brute with relic-crystal armour and an oversized locked-chest hammer.
+- `art/sprites/enemies/hoard_dragon.png` is the wave 15 Ancient Hoarder cutout: a coiled charcoal-and-stone dragon with gold bindings and violet relic-crystal spines.
 - `art/backgrounds/treasure_ruins_arena.png` is the layered portrait arena backdrop derived from the gameplay/polish boards: moonlit ruins, lanterns, crystals, treasure, and a readable stone combat platform.
 - `art/sprites/weapons/` contains transparent painterly cutouts for the four implemented equipment families: oversized Vanguard relic hammer, Ranger relic bow, Mage relic staff, and paired Rogue relic daggers. They follow the weapon-family board while remaining neutral interchangeable gear rather than character-specific signature weapons.
 - The enemy and arena files are replacement-ready production assets informed by the reference boards. They are not additional canonical character sheets and must not redefine the playable cast.

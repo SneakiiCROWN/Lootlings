@@ -106,6 +106,11 @@ var enemy_squash := 0.0
 var enemy_death_anim := 0.0
 var enemy_entry_anim := 0.0
 var impact_flash := 0.0
+var crit_flash := 0.0
+var element_flash := 0.0
+var element_flash_color := Color.WHITE
+var death_burst := 0.0
+var death_burst_color := Color.WHITE
 var tap_pulse := 0.0
 var upgrade_flash := 0.0
 var wave_banner_timer := 0.0
@@ -130,7 +135,7 @@ var help_label: Label
 var item_panel: Panel
 var item_title: Label
 var item_description: Label
-var item_compare: Label
+var item_compare: RichTextLabel
 var item_equip_button: Button
 var item_keep_button: Button
 var item_scrap_button: Button
@@ -198,14 +203,21 @@ func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
 	item_panel.visible = false
 	item_title = make_label(item_panel, "LOOT FOUND!", 27, Rect2(20, 18, 392, 45), HORIZONTAL_ALIGNMENT_CENTER, Color.WHITE)
-	item_description = make_label(item_panel, "", 18, Rect2(28, 82, 376, 146), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
+	item_description = make_label(item_panel, "", 17, Rect2(28, 76, 376, 112), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
 	item_description.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	item_compare = make_label(item_panel, "", 15, Rect2(28, 235, 376, 92), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
-	item_compare.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	item_compare.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	item_compare = RichTextLabel.new()
+	item_compare.position = Vector2(36, 194)
+	item_compare.size = Vector2(360, 132)
+	item_compare.bbcode_enabled = true
+	item_compare.fit_content = false
+	item_compare.scroll_active = false
+	item_compare.add_theme_font_size_override("normal_font_size", 15)
+	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
+	item_panel.add_child(item_compare)
 	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 345), Vector2(176, 62), Color("#295d50"), Color("#69e6b0"), accept_item_equip)
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 345), Vector2(176, 62), Color("#29486b"), Color("#74caff"), accept_item_keep)
+	item_keep_button.add_theme_font_size_override("font_size", 15)
 	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 426), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), accept_item_scrap)
 
 func build_merchant_ui() -> void:
@@ -348,6 +360,9 @@ func start_run() -> void:
 	attack_anim = 0.0
 	enemy_recoil = 0.0
 	enemy_death_anim = 0.0
+	crit_flash = 0.0
+	element_flash = 0.0
+	death_burst = 0.0
 	wave_banner_text = "WAVE 1"
 	wave_banner_color = Color("#8fdcff")
 	wave_banner_timer = 1.8
@@ -359,7 +374,7 @@ func start_run() -> void:
 	help_label.visible = true
 	run_shards_earned = 0
 	status_message = "A new run begins!"
-	status_clock = 2.5
+	status_clock = 1.4
 	spawn_enemy()
 	queue_redraw()
 
@@ -566,10 +581,11 @@ func perform_player_attack(is_tap: bool) -> void:
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool) -> void:
 	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
-	enemy_flash = 0.11
+	enemy_flash = 0.13 if is_crit else 0.10
 	enemy_squash = 0.16
-	enemy_recoil = 28.0 if is_crit else 17.0 if is_tap else 12.0
-	impact_flash = 0.10 if is_crit else 0.045
+	enemy_recoil = 34.0 if is_crit else 20.0 if is_tap else 13.0
+	impact_flash = 0.12 if is_crit else 0.052
+	crit_flash = 0.18 if is_crit else crit_flash
 	screen_shake = 0.075 if is_crit else 0.035
 	var text := ("CRIT! %.0f" if is_crit else "%.0f") % amount
 	if is_tap and not is_crit:
@@ -625,6 +641,8 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 	enemy_flash = 0.08
 	enemy_recoil = 22.0
 	impact_flash = 0.06
+	element_flash = 0.24
+	element_flash_color = color
 	add_float("ARC %.0f" % amount, Vector2(324, 390), color, 22)
 	add_particles(Vector2(350, 455), color, 9)
 	carried_shockwave += amount * 0.18 if build.count("Lightning") >= 5 else 0.0
@@ -667,6 +685,8 @@ func kill_enemy() -> void:
 	spawn_clock = 0.72
 	enemy_death_anim = 0.62
 	impact_flash = 0.12
+	death_burst = 0.46
+	death_burst_color = Color("#b75cff") if enemy_is_boss else Color("#ffba55") if enemy_is_miniboss else Color("#ffcf72")
 	enemy_hp = 0.0
 	total_kills += 1
 	wave_kills += 1
@@ -685,11 +705,11 @@ func kill_enemy() -> void:
 		add_float("GEAR BURST %.0f" % gear_explosion, Vector2(290, 405), Color("#ffd17a"), 18)
 	spawn_item_drop()
 	add_xp(xp_reward)
-	add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 19)
+	add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
 	add_particles(Vector2(365, 470), Color("#ffd65a"), 26 if enemy_is_boss else 18)
 	add_reward_burst(reward, xp_reward)
-	status_message = "%s defeated!" % enemy_name
-	status_clock = 1.2
+	status_message = "MINIBOSS DEFEATED" if enemy_is_miniboss else ""
+	status_clock = 0.9 if enemy_is_miniboss else 0.0
 	if enemy_is_boss:
 		pending_victory = true
 		item_review_due = true
@@ -759,21 +779,66 @@ func show_next_item() -> void:
 	current_item = pending_items.pop_front()
 	var rarity: String = current_item.get("rarity", "COMMON")
 	var color := ItemCatalog.rarity_color(rarity)
-	item_title.text = "%s  %s" % [rarity, current_item.get("name", "Unknown Loot")]
+	item_title.text = "%s  •  %s" % [rarity, current_item.get("name", "Unknown Loot")]
 	item_title.add_theme_color_override("font_color", color)
-	item_description.text = "%s  -  %s\n\n%s" % [current_item.get("slot", "Item"), current_item.get("family", "GEAR"), current_item.get("desc", "")]
+	item_description.text = "%s  •  %s\n%s\n%s" % [current_item.get("slot", "Item").to_upper(), current_item.get("family", "GEAR"), current_item.get("desc", ""), ItemCatalog.describe_effects(current_item)]
 	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
-	var equipped_text := "Empty slot"
-	if not equipped.is_empty():
-		equipped_text = "Equipped: %s [%s]\n%s" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), ItemCatalog.describe_effects(equipped)]
-	item_compare.text = "%s\n\nFound: %s" % [equipped_text, ItemCatalog.describe_effects(current_item)]
+	item_compare.text = build_item_comparison(current_item, equipped)
 	item_keep_button.disabled = inventory.stash.size() >= InventorySystem.MAX_STASH
-	item_keep_button.text = "KEEP (%d/%d)" % [inventory.stash.size(), InventorySystem.MAX_STASH]
+	item_keep_button.text = "KEEP IN STASH\n%d / %d" % [inventory.stash.size(), InventorySystem.MAX_STASH]
 	item_scrap_button.text = "SCRAP  +%d" % ItemCatalog.scrap_value(current_item)
 	apply_button_style(item_equip_button, Color("#295d50"), color)
 	item_panel.visible = true
 	help_label.visible = false
 	queue_redraw()
+
+func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
+	if equipped.is_empty():
+		return "[color=#8fa4ce]EQUIPPED[/color]  Empty slot\n[color=#69e6b0]▲ EVERYTHING IS A GAIN[/color]"
+	var result := "[color=#8fa4ce]EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), ItemCatalog.describe_effects(equipped)]
+	var found_effects: Dictionary = found.get("effects", {})
+	var equipped_effects: Dictionary = equipped.get("effects", {})
+	var keys: Array = found_effects.keys()
+	for key in equipped_effects.keys():
+		if not key in keys:
+			keys.append(key)
+	var changes: Array[String] = []
+	for key in keys:
+		if key == "repeat_every":
+			if found_effects.has(key) and not equipped_effects.has(key):
+				changes.append("[color=#69e6b0]▲ GAINS SPELL REPEAT[/color]")
+			elif equipped_effects.has(key) and not found_effects.has(key):
+				changes.append("[color=#ff7d88]▼ LOSES SPELL REPEAT[/color]")
+			continue
+		var found_value := float(found_effects.get(key, 0.0))
+		var equipped_value := float(equipped_effects.get(key, 0.0))
+		var delta := found_value - equipped_value
+		if key == "attack_slow":
+			delta = -delta
+		if absf(delta) < 0.001:
+			continue
+		var gain := delta > 0.0
+		var arrow := "▲" if gain else "▼"
+		var change_color := "#69e6b0" if gain else "#ff7d88"
+		changes.append("[color=%s]%s %s[/color]" % [change_color, arrow, format_effect_delta(key, absf(delta))])
+		if changes.size() >= 3:
+			break
+	if changes.is_empty():
+		changes.append("[color=#c7d4ee]• SIDEGRADE — DIFFERENT EFFECT PROFILE[/color]")
+	return result + "\n".join(changes)
+
+func format_effect_delta(key: String, amount: float) -> String:
+	var labels := {
+		"damage_mult":"DAMAGE", "attack_speed":"ATTACK RATE", "attack_slow":"ATTACK RATE",
+		"crit":"CRIT", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"COINS",
+		"execute":"EXECUTE", "fire_damage":"BURN POWER", "crit_lightning":"CRIT SPARK",
+		"poison_bonus":"POISON STACK", "poison_duration":"POISON TIME", "boss_damage":"BOSS DAMAGE",
+		"heavy_bonus":"HEAVY POWER", "kill_explosion":"KILL BURST", "low_health_damage":"LOW-HP POWER"
+	}
+	var label: String = labels.get(key, key.replace("_", " ").to_upper())
+	if key == "max_hp" or key == "poison_bonus":
+		return "+%.0f %s" % [amount, label]
+	return "+%.0f%% %s" % [amount * 100.0, label]
 
 func accept_item_equip() -> void:
 	if state != "item" or current_item.is_empty():
@@ -1038,6 +1103,9 @@ func update_effects(delta: float) -> void:
 	enemy_death_anim = maxf(0.0, enemy_death_anim - delta)
 	enemy_entry_anim = maxf(0.0, enemy_entry_anim - delta)
 	impact_flash = maxf(0.0, impact_flash - delta)
+	crit_flash = maxf(0.0, crit_flash - delta)
+	element_flash = maxf(0.0, element_flash - delta)
+	death_burst = maxf(0.0, death_burst - delta)
 	tap_pulse = maxf(0.0, tap_pulse - delta)
 	upgrade_flash = maxf(0.0, upgrade_flash - delta)
 	wave_banner_timer = maxf(0.0, wave_banner_timer - delta)
@@ -1105,7 +1173,8 @@ func add_particles(pos: Vector2, color: Color, count: int) -> void:
 		particles.append({"pos":pos, "vel":Vector2(rng.randf_range(-105, 105), rng.randf_range(-155, -25)), "color":color, "life":rng.randf_range(0.25, 0.55), "max_life":0.55})
 
 func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
-	var coin_count := mini(7, maxi(3, int(coin_reward / 8) + 3))
+	var coin_cap := 10 if enemy_is_boss else 8 if enemy_is_miniboss else 7
+	var coin_count := mini(coin_cap, maxi(3, int(coin_reward / 7) + 3))
 	for i in range(coin_count):
 		var start := Vector2(360, 450) + Vector2(rng.randf_range(-24, 24), rng.randf_range(-18, 20))
 		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "delay":i * 0.045, "life":0.72, "max_life":0.72})
@@ -1167,8 +1236,6 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_alive:
 		draw_string(body_font, Vector2(40, 210), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, 19, Color("#f4f7ff"))
 		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
-	elif state == "playing":
-		draw_string(body_font, Vector2(90, 236), "Next foe incoming...", HORIZONTAL_ALIGNMENT_CENTER, 300, 17, Color("#aebee8"))
 	var idle_bob := sin(run_time * 4.3) * 3.0
 	var lunge := attack_anim / 0.22 * 10.0
 	var player_pos := Vector2(player_x + lunge, 472 + idle_bob) + shake
@@ -1176,7 +1243,11 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_alive:
 		var entry_offset := ease(enemy_entry_anim / 0.55, 2.0) * 95.0
 		var behavior_offset := Vector2.ZERO
-		if not enemy_is_boss and not enemy_is_miniboss:
+		if enemy_is_boss:
+			behavior_offset = Vector2(sin(run_time * 1.7) * 2.0, sin(run_time * 2.1) * 2.5)
+		elif enemy_is_miniboss:
+			behavior_offset = Vector2(0.0, sin(run_time * 2.0) * 1.2)
+		else:
 			match enemy_archetype:
 				"skirmisher": behavior_offset = Vector2(-maxf(0.0, 1.0 - enemy_attack_clock / 0.18) * 18.0, sin(run_time * 8.0) * 3.0)
 				"tank": behavior_offset = Vector2(0, sin(run_time * 2.2) * 1.0)
@@ -1204,14 +1275,18 @@ func draw_stats_strip() -> void:
 	draw_rect(Rect2(18, 714, 444, 84), Color("#0a1028f5"), true)
 	draw_rect(Rect2(18, 714, 444, 84), Color("#b88a47"), false, 2)
 	var identity := build.dominant()
-	var build_title := "RELIC CORE  -  DORMANT" if identity == "Neutral" else "%s CORE  -  %s" % [identity.to_upper(), build.tier_name(identity)]
-	draw_string(body_font, Vector2(31, 735), build_title, HORIZONTAL_ALIGNMENT_LEFT, 300, 11, build.color())
-	var lines := ["DMG  %.0f" % (base_damage * equipment_damage_multiplier()), "RATE  %.2fs" % current_attack_interval(), "CRIT  %d%%" % int(effective_crit_chance() * 100.0), "HITS  x%d" % multi_hits]
+	var core_title := "DORMANT CORE" if identity == "Neutral" else "%s CORE • %s" % [identity.to_upper(), build.tier_name(identity)]
+	draw_circle(Vector2(33, 730), 6, build.color())
+	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [inventory.weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
+	draw_string(body_font, Vector2(344, 735), "◆ %d" % inventory.scrap, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
+	var labels := ["DAMAGE", "RATE", "CRIT", "HITS"]
+	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
 	for i in range(4):
-		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#182442"), true)
-		draw_rect(Rect2(27 + i * 108, 742, 102, 24), Color("#4f638e"), false, 1)
-		draw_string(body_font, Vector2(27 + i * 108, 760), lines[i], HORIZONTAL_ALIGNMENT_CENTER, 102, 13, Color("#e3edff"))
-	draw_string(body_font, Vector2(30, 787), "%s  |  %s  |  %d SCRAP" % [inventory.weapon_family(), build_summary(), inventory.scrap], HORIZONTAL_ALIGNMENT_CENTER, 420, 12, Color("#9fb4dd"))
+		var card := Rect2(27 + i * 108, 742, 102, 47)
+		draw_rect(card, Color("#182442"), true)
+		draw_rect(card, Color("#4f638e"), false, 1)
+		draw_string(body_font, Vector2(card.position.x, 756), labels[i], HORIZONTAL_ALIGNMENT_CENTER, card.size.x, 9, Color("#91a7d2"))
+		draw_string(title_font, Vector2(card.position.x, 780), values[i], HORIZONTAL_ALIGNMENT_CENTER, card.size.x, 18, Color("#f4f7ff"))
 
 func build_summary() -> String:
 	return build.short_summary()
@@ -1234,6 +1309,7 @@ func draw_effects() -> void:
 		if pickup.kind == "coin":
 			draw_circle(pickup.pos, 7.0 * pop, Color("#f4bd3e"))
 			draw_circle(pickup.pos, 4.0 * pop, Color("#fff09a"))
+			draw_line(pickup.pos + Vector2(-3, 0) * pop, pickup.pos + Vector2(3, 0) * pop, Color("#fff8c8"), 1.5)
 		else:
 			var radius := 7.0 * pop
 			draw_colored_polygon(PackedVector2Array([pickup.pos + Vector2(0,-radius),pickup.pos + Vector2(radius,0),pickup.pos + Vector2(0,radius),pickup.pos + Vector2(-radius,0)]), Color("#70e5ff"))
@@ -1242,6 +1318,28 @@ func draw_effects() -> void:
 		var color: Color = particle.color
 		color.a = alpha
 		draw_circle(particle.pos, 3.0 + 3.0 * alpha, color)
+	var impact_center := Vector2(ENEMY_X + enemy_recoil, 455)
+	if crit_flash > 0.0:
+		var crit_ratio := clampf(crit_flash / 0.18, 0.0, 1.0)
+		for ray in range(8):
+			var direction := Vector2.RIGHT.rotated(TAU * ray / 8.0)
+			draw_line(impact_center + direction * (32.0 - crit_ratio * 8.0), impact_center + direction * (54.0 + (1.0 - crit_ratio) * 16.0), Color(1.0, 0.88, 0.32, crit_ratio), 3.0)
+		draw_arc(impact_center, 28.0 + (1.0 - crit_ratio) * 24.0, 0.0, TAU, 24, Color(1.0, 0.95, 0.64, crit_ratio), 3.0)
+	if element_flash > 0.0:
+		var element_ratio := clampf(element_flash / 0.24, 0.0, 1.0)
+		var ring_color := element_flash_color
+		ring_color.a = element_ratio * 0.82
+		draw_arc(impact_center, 30.0 + (1.0 - element_ratio) * 34.0, -0.4, 5.2, 28, ring_color, 4.0)
+		draw_arc(impact_center, 39.0 + (1.0 - element_ratio) * 20.0, 2.7, 6.0, 18, ring_color.lightened(0.25), 2.0)
+	if death_burst > 0.0:
+		var death_ratio := clampf(death_burst / 0.46, 0.0, 1.0)
+		var burst_color := death_burst_color
+		burst_color.a = death_ratio * 0.75
+		var burst_center := Vector2(ENEMY_X, 462)
+		draw_arc(burst_center, 34.0 + (1.0 - death_ratio) * 62.0, 0.0, TAU, 32, burst_color, 5.0 * death_ratio + 1.0)
+		for ray in range(10):
+			var direction := Vector2.RIGHT.rotated(TAU * ray / 10.0 + 0.16)
+			draw_line(burst_center + direction * 28.0, burst_center + direction * (58.0 + (1.0 - death_ratio) * 30.0), burst_color, 3.0)
 	for item in floating_texts:
 		var alpha: float = clampf(item.life / item.max_life, 0.0, 1.0)
 		var color: Color = item.color
@@ -1287,7 +1385,13 @@ func draw_moment_overlay() -> void:
 		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
 		var banner_color := wave_banner_color
 		banner_color.a = fade
-		draw_rect(Rect2(24, 294, 432, 64), Color(0.03, 0.06, 0.16, 0.86 * fade), true)
-		draw_rect(Rect2(24, 294, 432, 2), banner_color, true)
-		draw_rect(Rect2(24, 356, 432, 2), banner_color, true)
-		draw_string(title_font, Vector2(36, 337), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 408, 25, banner_color)
+		var important := wave_banner_text.contains("BOSS") or wave_banner_text.contains("CORE") or wave_banner_text.contains("FINAL")
+		if important:
+			draw_rect(Rect2(24, 294, 432, 64), Color(0.03, 0.06, 0.16, 0.86 * fade), true)
+			draw_rect(Rect2(24, 294, 432, 2), banner_color, true)
+			draw_rect(Rect2(24, 356, 432, 2), banner_color, true)
+			draw_string(title_font, Vector2(36, 337), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 408, 25, banner_color)
+		else:
+			draw_rect(Rect2(140, 181, 200, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
+			draw_rect(Rect2(140, 181, 200, 2), banner_color, true)
+			draw_string(title_font, Vector2(150, 208), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 180, 17, banner_color)
