@@ -38,6 +38,7 @@ var xp_needed := 32.0
 var pending_levels := 0
 var run_time := 0.0
 var player_x := PLAYER_HOME_X
+var player_facing := 1
 var player_hp := 100.0
 var player_max_hp := 100.0
 var base_damage := 11.0
@@ -93,6 +94,7 @@ var merchant_due := false
 var item_review_due := false
 var return_to_merchant := false
 var equipment_hp_bonus := 0.0
+var boss_reward_options: Array = []
 var screen_shake := 0.0
 var enemy_flash := 0.0
 var player_flash := 0.0
@@ -136,6 +138,8 @@ var merchant_title: Label
 var merchant_buttons: Array[Button] = []
 var merchant_reroll_button: Button
 var merchant_continue_button: Button
+var boss_reward_panel: Panel
+var boss_reward_buttons: Array[Button] = []
 
 func _ready() -> void:
 	rng.randomize()
@@ -185,6 +189,7 @@ func build_overlay_ui() -> void:
 	help_label = make_label(self, "TAP / CLICK / SPACE = bonus attack", 14, Rect2(20, 815, 440, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#a9b7d7"))
 	build_item_ui()
 	build_merchant_ui()
+	build_boss_reward_ui()
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
@@ -215,6 +220,20 @@ func build_merchant_ui() -> void:
 		merchant_buttons.append(button)
 	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(25, 462), Vector2(185, 64), Color("#3e315c"), Color("#c89bff"), reroll_merchant)
 	merchant_continue_button = make_action_button(merchant_panel, "CONTINUE", Vector2(230, 462), Vector2(185, 64), Color("#295d50"), Color("#69e6b0"), leave_merchant)
+
+func build_boss_reward_ui() -> void:
+	boss_reward_panel = make_panel(Rect2(20, 155, 440, 570), Color("#17142ff8"))
+	boss_reward_panel.visible = false
+	make_label(boss_reward_panel, "BOSS HOARD", 30, Rect2(20, 18, 400, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffd36a"))
+	make_label(boss_reward_panel, "Choose one relic-grade reward", 16, Rect2(20, 64, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9c9ff"))
+	for i in range(3):
+		var button := Button.new()
+		button.position = Vector2(25, 112 + i * 130)
+		button.size = Vector2(390, 108)
+		button.add_theme_font_size_override("font_size", 17)
+		button.pressed.connect(choose_boss_reward.bind(i))
+		boss_reward_panel.add_child(button)
+		boss_reward_buttons.append(button)
 
 func make_action_button(parent: Node, text_value: String, pos: Vector2, button_size: Vector2, fill: Color, border: Color, callback: Callable) -> Button:
 	var button := Button.new()
@@ -278,6 +297,7 @@ func start_run() -> void:
 	pending_levels = 0
 	run_time = 0.0
 	player_x = PLAYER_HOME_X
+	player_facing = 1
 	var meta_bonus := 1.0 + float(meta_power) * 0.05
 	equipment_hp_bonus = inventory.effect_total("max_hp")
 	player_max_hp = maxf(40.0, 100.0 * meta_bonus + equipment_hp_bonus)
@@ -313,6 +333,7 @@ func start_run() -> void:
 	loot_drops.clear()
 	pending_items.clear()
 	current_item.clear()
+	boss_reward_options.clear()
 	pending_victory = false
 	merchant_due = false
 	item_review_due = false
@@ -329,6 +350,7 @@ func start_run() -> void:
 	result_panel.visible = false
 	item_panel.visible = false
 	merchant_panel.visible = false
+	boss_reward_panel.visible = false
 	help_label.visible = true
 	run_shards_earned = 0
 	status_message = "A new run begins!"
@@ -339,13 +361,14 @@ func start_run() -> void:
 func spawn_enemy() -> void:
 	enemy_is_miniboss = wave == 8
 	enemy_is_boss = wave == RUN_LAST_WAVE
-	var progress := pow(1.18, wave - 1)
+	# Steady curve with explicit special-enemy spikes; regular archetypes stay closer together.
+	var progress := pow(1.15, wave - 1)
 	var type_bonus := 1.0
 	if enemy_is_boss:
-		type_bonus = 5.2
+		type_bonus = 4.8
 		enemy_name = "THE HOARD DRAGON"
 	elif enemy_is_miniboss:
-		type_bonus = 2.8
+		type_bonus = 2.65
 		enemy_name = "GRUMP KNIGHT"
 	else:
 		var archetypes := ["skirmisher", "tank", "hexer"]
@@ -361,11 +384,11 @@ func spawn_enemy() -> void:
 	if not enemy_is_boss and not enemy_is_miniboss:
 		match enemy_archetype:
 			"skirmisher":
-				enemy_max_hp *= 0.78
+				enemy_max_hp *= 0.86
 				enemy_attack_interval *= 0.62
 				enemy_damage *= 0.72
 			"tank":
-				enemy_max_hp *= 1.65
+				enemy_max_hp *= 1.48
 				enemy_attack_interval *= 1.28
 				enemy_damage *= 0.9
 				enemy_hit_multiplier = 0.82
@@ -412,7 +435,15 @@ func _process(delta: float) -> void:
 		tap_combo = 0
 	player_hp = minf(player_max_hp, player_hp + regen_per_second * delta)
 	if not enemy_alive:
+		# Never replace a defeated foe while its visible loot reveal is still resolving.
+		if not loot_drops.is_empty():
+			queue_redraw()
+			return
 		if loot_drops.is_empty() and item_review_due:
+			if not boss_reward_options.is_empty():
+				show_boss_reward()
+				queue_redraw()
+				return
 			if not pending_items.is_empty():
 				show_next_item()
 				queue_redraw()
@@ -675,20 +706,47 @@ func kill_enemy() -> void:
 	carried_shockwave = minf(carried_shockwave, base_damage * 12.0)
 
 func spawn_item_drop() -> void:
-	var item: Dictionary = loot_system.roll_drop(enemy_is_miniboss, enemy_is_boss)
-	if item.is_empty():
-		return
-	var rarity_color := ItemCatalog.rarity_color(item.rarity)
-	loot_drops.append({
-		"item":item,
-		"pos":Vector2(365, 430),
-		"vel":Vector2(rng.randf_range(-70.0, -25.0), rng.randf_range(-235.0, -190.0)),
-		"pickup":1.05,
-		"bounces":0,
-		"color":rarity_color
-	})
+	var drop_count := 3 if enemy_is_boss else 1
+	for drop_index in range(drop_count):
+		var item: Dictionary = loot_system.roll_drop(enemy_is_miniboss, enemy_is_boss)
+		if item.is_empty():
+			continue
+		if enemy_is_boss:
+			boss_reward_options.append(item)
+		var rarity_color := ItemCatalog.rarity_color(item.rarity)
+		loot_drops.append({
+			"item":item,
+			"boss_choice":enemy_is_boss,
+			"pos":Vector2(345 + drop_index * 20, 430),
+			"vel":Vector2(-75.0 + drop_index * 52.0, rng.randf_range(-250.0, -205.0)),
+			"pickup":1.15 + drop_index * 0.08,
+			"bounces":0,
+			"color":rarity_color
+		})
 	spawn_clock = maxf(spawn_clock, 1.2)
-	add_float("%s LOOT!" % item.rarity, Vector2(290, 335), rarity_color, 21)
+	if enemy_is_boss:
+		add_float("BOSS HOARD!", Vector2(290, 335), Color("#ffd36a"), 25)
+	elif not loot_drops.is_empty():
+		add_float("%s LOOT!" % loot_drops.back().item.rarity, Vector2(290, 335), loot_drops.back().color, 21)
+
+func show_boss_reward() -> void:
+	state = "boss_reward"
+	boss_reward_panel.visible = true
+	help_label.visible = false
+	for i in range(boss_reward_buttons.size()):
+		var item: Dictionary = boss_reward_options[i]
+		boss_reward_buttons[i].text = "%s  %s\n%s  -  %s\n%s" % [item.rarity, item.name, item.slot, item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
+		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
+
+func choose_boss_reward(index: int) -> void:
+	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
+		return
+	var chosen: Dictionary = boss_reward_options[index]
+	boss_reward_options.clear()
+	boss_reward_panel.visible = false
+	pending_items.push_front(chosen)
+	state = "playing"
+	show_next_item()
 
 func show_next_item() -> void:
 	if pending_items.is_empty():
@@ -913,6 +971,7 @@ func end_run(victory: bool) -> void:
 	upgrade_panel.visible = false
 	item_panel.visible = false
 	merchant_panel.visible = false
+	boss_reward_panel.visible = false
 	result_panel.visible = true
 	help_label.visible = false
 	run_shards_earned = (10 + level * 2 + wave) if victory else max(2, int(level + wave * 0.5))
@@ -1012,8 +1071,9 @@ func update_effects(delta: float) -> void:
 			drop.bounces += 1
 	for i in range(loot_drops.size() - 1, -1, -1):
 		if loot_drops[i].pickup <= 0.0:
-			var found: Dictionary = loot_drops[i].item
-			pending_items.append(found)
+			if not bool(loot_drops[i].get("boss_choice", false)):
+				var found: Dictionary = loot_drops[i].item
+				pending_items.append(found)
 			add_particles(loot_drops[i].pos, loot_drops[i].color, 18)
 			loot_drops.remove_at(i)
 
@@ -1137,13 +1197,7 @@ func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: S
 
 func draw_effects() -> void:
 	for drop in loot_drops:
-		var color: Color = drop.color
-		var beam := color
-		beam.a = 0.18 + sin(run_time * 9.0) * 0.05
-		draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(-16, 5), drop.pos + Vector2(-5, -96), drop.pos + Vector2(5, -96), drop.pos + Vector2(16, 5)]), beam)
-		draw_circle(drop.pos, 15, Color("#11172b"))
-		draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-12),drop.pos + Vector2(12,0),drop.pos + Vector2(0,12),drop.pos + Vector2(-12,0)]), color)
-		draw_circle(drop.pos, 5, color.lightened(0.45))
+		draw_loot_drop(drop)
 	for pickup in reward_pickups:
 		if pickup.delay > 0.0:
 			continue
@@ -1164,6 +1218,33 @@ func draw_effects() -> void:
 		var color: Color = item.color
 		color.a = alpha
 		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
+
+func draw_loot_drop(drop: Dictionary) -> void:
+	var color: Color = drop.color
+	var beam := color
+	beam.a = 0.17 + sin(run_time * 9.0 + drop.pos.x) * 0.05
+	draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(-18, 8), drop.pos + Vector2(-6, -105), drop.pos + Vector2(6, -105), drop.pos + Vector2(18, 8)]), beam)
+	var pulse := 1.0 + sin(run_time * 7.0 + drop.pos.x) * 0.08
+	var halo := color
+	halo.a = 0.22
+	draw_circle(drop.pos, 22.0 * pulse, halo)
+	draw_circle(drop.pos, 16.0 * pulse, Color("#10182cea"))
+	draw_arc(drop.pos, 19.0 * pulse, run_time * 2.2, run_time * 2.2 + 4.7, 22, color.lightened(0.28), 3)
+	var slot: String = drop.item.get("slot", "Relic")
+	match slot:
+		"Weapon":
+			draw_line(drop.pos + Vector2(-8, 9), drop.pos + Vector2(8, -9), color.lightened(0.45), 5)
+			draw_line(drop.pos + Vector2(-9, 1), drop.pos + Vector2(1, 11), Color("#f6d77b"), 3)
+		"Armour":
+			draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-10),drop.pos + Vector2(10,-5),drop.pos + Vector2(7,8),drop.pos + Vector2(0,12),drop.pos + Vector2(-7,8),drop.pos + Vector2(-10,-5)]), color)
+		"Rune":
+			for ray in range(4):
+				var direction := Vector2.RIGHT.rotated(ray * PI * 0.5)
+				draw_line(drop.pos - direction * 10.0, drop.pos + direction * 10.0, color.lightened(0.45), 3)
+			draw_circle(drop.pos, 5, Color.WHITE)
+		_:
+			draw_arc(drop.pos, 9, 0, TAU, 20, color.lightened(0.42), 5)
+			draw_circle(drop.pos, 3, Color("#fff2bd"))
 
 func draw_moment_overlay() -> void:
 	if impact_flash > 0.0:

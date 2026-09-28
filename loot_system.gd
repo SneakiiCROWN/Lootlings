@@ -2,7 +2,7 @@ extends RefCounted
 
 const ItemCatalog = preload("res://item_catalog.gd")
 
-const NORMAL_DROP_CHANCE := 0.12
+const NORMAL_DROP_CHANCE := 0.07
 const NORMAL_RARITY_WEIGHTS := [70.0, 24.0, 5.0, 1.0]
 const MINIBOSS_RARITY_WEIGHTS := [0.0, 74.0, 23.0, 3.0]
 const BOSS_RARITY_WEIGHTS := [0.0, 0.0, 88.0, 12.0]
@@ -32,6 +32,21 @@ func generate_shop_item(minimum_rarity: String = "COMMON") -> Dictionary:
 	if ItemCatalog.rarity_rank(rarity) < minimum_rank:
 		rarity = minimum_rarity
 	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	var result := ItemCatalog.create_item(source.id, rarity, serial)
+	serial += 1
+	return result
+
+func generate_shop_item_for_slot(slot: String, minimum_rarity: String = "COMMON") -> Dictionary:
+	var pool: Array = []
+	for source in ItemCatalog.ITEMS:
+		if source.get("slot", "") == slot:
+			pool.append(source)
+	if pool.is_empty():
+		return generate_shop_item(minimum_rarity)
+	var rarity := weighted_rarity([58.0, 31.0, 9.0, 2.0])
+	if ItemCatalog.rarity_rank(rarity) < ItemCatalog.rarity_rank(minimum_rarity):
+		rarity = minimum_rarity
+	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
 	serial += 1
 	return result

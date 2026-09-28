@@ -1,6 +1,45 @@
 extends RefCounted
 
+const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
+
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
+	var identity: String = g.build.dominant()
+	var core_color: Color = g.build.color(identity)
+	var evolution_tier: int = g.build.tier(identity)
+	var weapon_growth: float = 1.0 + float(g.build.weapon_tier()) * 0.14
+	var scale_y := 0.92 if g.squash > 0.0 else 1.0
+	var scale_x := 1.08 if g.squash > 0.0 else 1.0
+	for aura_index in range(2 + evolution_tier * 2):
+		var angle: float = float(g.run_time) * (1.1 + aura_index * 0.08) + TAU * aura_index / float(2 + evolution_tier * 2)
+		var aura_pos := pos + Vector2(cos(angle) * (58 + evolution_tier * 6), sin(angle) * (43 + evolution_tier * 4))
+		var aura_color := core_color
+		aura_color.a = 0.18 if identity == "Neutral" else 0.34
+		g.draw_circle(aura_pos, 2.5 + evolution_tier, aura_color)
+	g.draw_set_transform(pos + Vector2(-4, 46), 0.0, Vector2(1.0, 0.30))
+	g.draw_circle(Vector2.ZERO, 55, Color("#07101f88"))
+	g.draw_set_transform(pos, -0.018, Vector2(scale_x * float(g.player_facing), scale_y))
+	var tint := Color("#ffb9b9") if hurt else Color.WHITE
+	g.draw_texture_rect(MASCOT_TEXTURE, Rect2(-88, -120, 176, 176), false, tint)
+	# Relic builds add readable effects around the canonical chest core without repainting the mascot.
+	if identity != "Neutral":
+		var glow := core_color
+		glow.a = 0.20 + evolution_tier * 0.05
+		g.draw_circle(Vector2(17, 3), 12 + evolution_tier * 3, glow)
+		g.draw_arc(Vector2(17, 3), 14 + evolution_tier * 3, g.run_time * 2.0, g.run_time * 2.0 + 4.9, 18, core_color.lightened(0.25), 2 + evolution_tier)
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var windup := clampf(1.0 - g.attack_clock / 0.16, 0.0, 1.0) if g.attack_anim <= 0.0 else 0.0
+	var weapon_angle := lerpf(-0.28, -0.72, windup)
+	if g.attack_anim > 0.0:
+		weapon_angle = lerpf(-0.28, 0.42, g.attack_anim / 0.22)
+	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
+	match g.inventory.weapon_family():
+		"RANGER": draw_bow(g, pos + Vector2(5, 0), weapon_angle, weapon_growth, weapon_color)
+		"MAGE": draw_staff(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color)
+		"ROGUE": draw_daggers(g, pos + Vector2(7, 0), weapon_angle, weapon_growth, weapon_color)
+		_: draw_vanguard(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color, identity)
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+func draw_lootling_procedural(g, pos: Vector2, hurt: bool) -> void:
 	var body_color := Color("#fff2d6") if hurt else Color("#f0d5aa")
 	var fur_shadow := Color("#b77d59")
 	var dark_fur := Color("#4c312f")

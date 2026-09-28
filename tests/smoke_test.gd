@@ -150,6 +150,9 @@ func run_tests() -> void:
 				game.choose_upgrade((run_index + game.level) % 3)
 			elif game.state == "item":
 				game.accept_item_equip()
+			elif game.state == "boss_reward":
+				check(game.boss_reward_options.size() == 3, "boss reward presents three meaningful Epic+ choices")
+				game.choose_boss_reward((run_index + 1) % 3)
 			elif game.state == "merchant":
 				game.leave_merchant()
 			else:
@@ -161,7 +164,7 @@ func run_tests() -> void:
 			elapsed += 0.05
 		if game.state == "result" and game.player_hp > 0.0 and game.wave == game.RUN_LAST_WAVE:
 			victories += 1
-		print("BALANCE RUN %d: wave=%d level=%d hp=%.0f time=%.1fs" % [run_index + 1, game.wave, game.level, game.player_hp, elapsed])
+		print("BALANCE RUN %d: wave=%d level=%d hp=%.0f time=%.1fs state=%s alive=%s loot=%d options=%d victory=%s review=%s" % [run_index + 1, game.wave, game.level, game.player_hp, elapsed, game.state, game.enemy_alive, game.loot_drops.size(), game.boss_reward_options.size(), game.pending_victory, game.item_review_due])
 	check(victories >= 1, "a modest tapping strategy can complete a balanced run")
 	game.queue_free()
 	await process_frame
@@ -180,7 +183,8 @@ func upgrade_by_id(id: String) -> Dictionary:
 
 func resolve_interstitials(game, upgrade_index: int) -> void:
 	for drop in game.loot_drops:
-		game.pending_items.append(drop.item)
+		if not bool(drop.get("boss_choice", false)):
+			game.pending_items.append(drop.item)
 	game.loot_drops.clear()
 	var safety := 0
 	while safety < 30:
@@ -190,8 +194,13 @@ func resolve_interstitials(game, upgrade_index: int) -> void:
 			game.choose_upgrade(upgrade_index)
 		elif game.state == "item":
 			game.accept_item_scrap()
+		elif game.state == "boss_reward":
+			check(game.boss_reward_options.size() == 3, "boss reward presents three meaningful Epic+ choices")
+			game.choose_boss_reward(0)
 		elif game.state == "merchant":
 			game.leave_merchant()
+		elif not game.boss_reward_options.is_empty():
+			game.show_boss_reward()
 		elif not game.pending_items.is_empty():
 			game.show_next_item()
 		elif game.pending_victory:

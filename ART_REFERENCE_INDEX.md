@@ -76,3 +76,15 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - Canonical overview of the neutral Relic Beast plus the six separate characters, class roles, weapon examples, weapon evolution, armour sets, cosmetic skins, jewellery/charms, automatic spells, companions, internal-to-themed rarity language, and oddity items.
 - Current-system cues adopted from this sheet: weapon families remain interchangeable; weapons may later evolve; equipment and automatic runes are separate slots; internal Common/Rare/Epic/Legendary tiers can later display as Lootlings-themed names; oddity items should carry playful names and unusual effects.
 - This overview does not merge the neutral mascot with Emberhorn or any other class character.
+
+## Gameplay / Polish Target References
+
+- `0cc45861-dbca-4f15-9802-4cff35b9f689.png` - between-wave merchant target: one Weapon, one Armour, one Charm, and one Utility lane with strong rarity framing.
+- `119513c5-b4ac-4cb1-b390-b2760552e46d.png` - enemy-role and progression target: grunt, ranged hexer, charger, elite miniboss, and boss silhouettes with deliberate milestone spikes.
+- `2ee15214-2655-4c9f-8396-f26278b508d1.png` - special reward target: choose one of three high-value rewards rather than receiving all three.
+- `416738a3-c30b-4897-9931-7972ab39384b.png` - broad gameplay presentation overview covering combat readability, loot popups, exploration framing, and cast separation.
+- `63c5675b-9b06-4a60-9fc5-ef9128e4b025.png` - game-loop/shop-flow reference; reinforces run Coins for shops and limited meaningful reward choices.
+- `d38459e5-a06f-436e-acd2-45de17beaf4c.png` - 2D polish target for sprite/cutout characters, readable item beams, layered arena depth, and distinct enemy silhouettes.
+- `e5ec5e8a-75b2-4f36-958b-309440b69cbe.png` - weapon-family and rarity-language sheet for Vanguard, Ranger, Mage, and Rogue. The `(1)` file is an identical retained duplicate.
+- `f83b7cd9-f1f4-4a45-8e3a-42788ff54760.png` - consolidated north-star handoff for reward, shop, enemy scale, and visual priorities. The `(1)` file is an identical retained duplicate.
+- These sheets are presentation/system targets, not replacements for `Lootlings_Main_Mascot_RelicBeast_Canonical.png`, which remains the immutable base-player character source.

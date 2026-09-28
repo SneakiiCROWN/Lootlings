@@ -8,8 +8,9 @@ var rerolls := 0
 func generate_stock(loot_system, wave: int) -> void:
 	stock.clear()
 	var minimum := "RARE" if wave >= 11 else "COMMON"
-	for i in range(3):
-		var item: Dictionary = loot_system.generate_shop_item(minimum if i == 0 else "COMMON")
+	# Three clear gear lanes plus the existing reroll utility make four shop actions.
+	for slot in ["Weapon", "Armour", "Relic"]:
+		var item: Dictionary = loot_system.generate_shop_item_for_slot(slot, minimum if slot == "Weapon" else "COMMON")
 		item.price = price_for(item, wave)
 		stock.append(item)
 
