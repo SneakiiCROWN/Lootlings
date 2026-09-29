@@ -9,10 +9,12 @@ const LootSystem = preload("res://loot_system.gd")
 const InventorySystem = preload("res://inventory_system.gd")
 const ShopSystem = preload("res://shop_system.gd")
 const HideoutUI = preload("res://hideout_ui.gd")
+const HideoutShopSystem = preload("res://hideout_shop_system.gd")
 const ARENA_BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
+const HIDEOUT_SHOP_SAVE_PATH := "user://lootlings_hideout_shop.cfg"
 const RUN_LAST_WAVE := 15
 const ENEMIES_PER_WAVE := 3
 const PLAYER_HOME_X := 102.0
@@ -27,6 +29,7 @@ var creature_renderer = CreatureRenderer.new()
 var loot_system = LootSystem.new()
 var inventory = InventorySystem.new()
 var shop = ShopSystem.new()
+var hideout_shop = HideoutShopSystem.new()
 var title_font: Font
 var body_font: Font
 var state := "hideout"
@@ -161,6 +164,8 @@ func _ready() -> void:
 	build_overlay_ui()
 	load_meta()
 	inventory.load(INVENTORY_SAVE_PATH)
+	hideout_shop.load(HIDEOUT_SHOP_SAVE_PATH)
+	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	build_hideout()
 	show_hideout()
 	queue_redraw()
@@ -205,7 +210,11 @@ func build_hideout() -> void:
 	hideout_ui.stash_equip_requested.connect(equip_stash_item)
 	hideout_ui.stash_scrap_requested.connect(scrap_stash_item)
 	hideout_ui.upgrade_requested.connect(buy_meta_power)
-	hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+	hideout_ui.shop_offer_requested.connect(buy_hideout_offer)
+	hideout_ui.shop_cache_requested.connect(use_mystery_cache)
+	hideout_ui.shop_expansion_requested.connect(buy_stash_expansion)
+	hideout_ui.shop_reroll_requested.connect(reroll_hideout_shop)
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 
 func show_hideout() -> void:
 	state = "hideout"
@@ -216,7 +225,7 @@ func show_hideout() -> void:
 	boss_reward_panel.visible = false
 	help_label.visible = false
 	hideout_ui.visible = true
-	hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 	hideout_ui.show_home()
 	queue_redraw()
 
@@ -225,14 +234,92 @@ func equip_stash_item(index: int) -> void:
 		return
 	if inventory.equip_from_stash(index):
 		inventory.save(INVENTORY_SAVE_PATH)
-		hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 
 func scrap_stash_item(index: int) -> void:
 	if state != "hideout":
 		return
 	if inventory.scrap_from_stash(index) > 0:
 		inventory.save(INVENTORY_SAVE_PATH)
-		hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+
+func buy_hideout_offer(index: int) -> void:
+	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
+		return
+	if index < 0 or index >= hideout_shop.stock.size():
+		return
+	if inventory.stash.size() >= inventory.stash_capacity:
+		hideout_ui.show_shop_message("STASH FULL\nMake room before buying equipment.", "#ff9b8f")
+		return
+	var offer: Dictionary = hideout_shop.stock[index]
+	var price := int(offer.get("price", 0))
+	if inventory.scrap < price:
+		hideout_ui.show_shop_message("Not enough Scrap for this offer.", "#ffbd69")
+		return
+	inventory.scrap -= price
+	var purchased := hideout_shop.take_offer(index)
+	if not inventory.keep(purchased):
+		inventory.scrap += price
+		hideout_ui.show_shop_message("STASH FULL\nNo Scrap was spent.", "#ff9b8f")
+		return
+	save_hideout_economy()
+	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
+
+func use_mystery_cache() -> void:
+	if state != "hideout":
+		return
+	if not hideout_shop.pending_cache_item.is_empty():
+		if inventory.stash.size() >= inventory.stash_capacity:
+			hideout_ui.show_shop_message("STASH FULL\nMake room before claiming the revealed item.", "#ff9b8f")
+			return
+		var claimed := hideout_shop.claim_cache()
+		if inventory.keep(claimed):
+			save_hideout_economy()
+			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
+		return
+	if hideout_shop.cache_bought_this_cycle:
+		hideout_ui.show_shop_message("Mystery Cache already opened.\nComplete a run to refresh it.", "#aebde0")
+		return
+	if inventory.stash.size() >= inventory.stash_capacity:
+		hideout_ui.show_shop_message("STASH FULL\nMake room before opening a cache.", "#ff9b8f")
+		return
+	if inventory.scrap < hideout_shop.CACHE_COST:
+		hideout_ui.show_shop_message("Not enough Scrap for a Mystery Cache.", "#ffbd69")
+		return
+	inventory.scrap -= hideout_shop.CACHE_COST
+	hideout_shop.reveal_cache()
+	save_hideout_economy()
+	hideout_ui.refresh_shop()
+
+func buy_stash_expansion() -> void:
+	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
+		return
+	var price := hideout_shop.expansion_cost(inventory.stash_capacity)
+	if price <= 0 or inventory.scrap < price:
+		return
+	inventory.scrap -= price
+	if not inventory.expand_stash():
+		inventory.scrap += price
+		return
+	save_hideout_economy()
+	hideout_ui.show_shop_message("STASH EXPANDED\nCapacity increased to %d slots." % inventory.stash_capacity, "#72c8ff")
+
+func reroll_hideout_shop() -> void:
+	if state != "hideout" or hideout_shop.rerolled_this_cycle or not hideout_shop.pending_cache_item.is_empty():
+		return
+	if inventory.scrap < hideout_shop.REROLL_COST:
+		return
+	inventory.scrap -= hideout_shop.REROLL_COST
+	if not hideout_shop.reroll():
+		inventory.scrap += hideout_shop.REROLL_COST
+		return
+	save_hideout_economy()
+	hideout_ui.show_shop_message("Fresh salvage has arrived.", "#ffe178")
+
+func save_hideout_economy() -> void:
+	inventory.save(INVENTORY_SAVE_PATH)
+	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
@@ -800,7 +887,7 @@ func show_boss_reward() -> void:
 	help_label.visible = false
 	for i in range(boss_reward_buttons.size()):
 		var item: Dictionary = boss_reward_options[i]
-		boss_reward_buttons[i].text = "%s  %s\n%s  -  %s\n%s" % [item.rarity, item.name, item.slot, item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
+		boss_reward_buttons[i].text = "%s  %s\n%s  -  %s\n%s" % [item.rarity, item.name, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
 
 func choose_boss_reward(index: int) -> void:
@@ -823,11 +910,11 @@ func show_next_item() -> void:
 	var color := ItemCatalog.rarity_color(rarity)
 	item_title.text = "%s  •  %s" % [rarity, current_item.get("name", "Unknown Loot")]
 	item_title.add_theme_color_override("font_color", color)
-	item_description.text = "%s  •  %s\n%s\n%s" % [current_item.get("slot", "Item").to_upper(), current_item.get("family", "GEAR"), current_item.get("desc", ""), ItemCatalog.describe_effects(current_item)]
+	item_description.text = "%s  •  %s\n%s\n%s" % [ItemCatalog.display_slot(current_item.get("slot", "Item")), current_item.get("family", "GEAR"), current_item.get("desc", ""), ItemCatalog.describe_effects(current_item)]
 	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
 	item_compare.text = build_item_comparison(current_item, equipped)
-	item_keep_button.disabled = inventory.stash.size() >= InventorySystem.MAX_STASH
-	item_keep_button.text = "KEEP IN STASH\n%d / %d" % [inventory.stash.size(), InventorySystem.MAX_STASH]
+	item_keep_button.disabled = inventory.stash.size() >= inventory.stash_capacity
+	item_keep_button.text = "KEEP IN STASH\n%d / %d" % [inventory.stash.size(), inventory.stash_capacity]
 	item_scrap_button.text = "SCRAP  +%d" % ItemCatalog.scrap_value(current_item)
 	apply_button_style(item_equip_button, Color("#295d50"), color)
 	item_panel.visible = true
@@ -961,7 +1048,7 @@ func refresh_merchant_ui() -> void:
 		var item: Dictionary = shop.stock[i]
 		var price := int(item.get("price", 0))
 		var slot_icon := "⚔" if item.slot == "Weapon" else "◆" if item.slot == "Armour" else "✦"
-		button.text = "%s  %s OFFER    ● %d\n%s  [%s]\n%s" % [slot_icon, item.slot.to_upper(), price, item.name, item.rarity, ItemCatalog.describe_effects(item)]
+		button.text = "%s  %s OFFER    ● %d\n%s  [%s]\n%s" % [slot_icon, ItemCatalog.display_slot(item.get("slot", "Item")), price, item.name, item.rarity, ItemCatalog.describe_effects(item)]
 		button.disabled = coins < price
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
 	var reroll_price := shop.reroll_cost(wave)
@@ -1096,6 +1183,8 @@ func end_run(victory: bool) -> void:
 	run_shards_earned = (10 + level * 2 + wave) if victory else max(2, int(level + wave * 0.5))
 	meta_shards += run_shards_earned
 	save_meta()
+	hideout_shop.refresh_stock()
+	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	var notable_loot := "None"
@@ -1121,7 +1210,7 @@ func buy_meta_power() -> void:
 
 func refresh_hideout() -> void:
 	if hideout_ui != null:
-		hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 
 func load_meta() -> void:
 	var progress := MetaStore.load_progress(SAVE_PATH)

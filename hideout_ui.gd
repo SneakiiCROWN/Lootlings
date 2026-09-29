@@ -4,6 +4,10 @@ signal play_requested
 signal stash_equip_requested(index: int)
 signal stash_scrap_requested(index: int)
 signal upgrade_requested
+signal shop_offer_requested(index: int)
+signal shop_cache_requested
+signal shop_expansion_requested
+signal shop_reroll_requested
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
@@ -11,15 +15,19 @@ const BACKGROUND_TEXTURE = preload("res://art/backgrounds/treasure_ruins_arena.p
 
 var current_screen := "home"
 var current_inventory
+var current_shop
 var comparison_callable: Callable
 var shards := 0
 var power := 0
 var entries: Array = []
+var stash_filter := "ALL"
+var filter_buttons := {}
 
 var home_content: Control
 var stash_content: Control
 var upgrade_content: Control
 var coming_content: Control
+var shop_content: Control
 var resource_label: Label
 var loadout_label: Label
 var stash_title: Label
@@ -30,6 +38,12 @@ var stash_scrap_button: Button
 var upgrade_summary: Label
 var upgrade_button: Button
 var coming_title: Label
+var shop_scrap_label: Label
+var shop_offer_buttons: Array[Button] = []
+var shop_cache_button: Button
+var shop_expansion_button: Button
+var shop_reroll_button: Button
+var shop_status: RichTextLabel
 var selected_entry := -1
 
 func _ready() -> void:
@@ -38,10 +52,12 @@ func _ready() -> void:
 	build_home()
 	build_stash()
 	build_upgrades()
+	build_shop()
 	build_coming_soon()
 
-func configure(inventory, shard_count: int, power_level: int, compare: Callable) -> void:
+func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable) -> void:
 	current_inventory = inventory
+	current_shop = shop
 	shards = shard_count
 	power = power_level
 	comparison_callable = compare
@@ -65,6 +81,12 @@ func show_upgrades() -> void:
 	refresh_upgrades()
 	queue_redraw()
 
+func show_shop() -> void:
+	current_screen = "shop"
+	set_screen(shop_content)
+	refresh_shop()
+	queue_redraw()
+
 func show_coming_soon(section_name: String) -> void:
 	current_screen = "coming"
 	coming_title.text = "%s\n\nCOMING SOON\n\nThis wing of the Hideout is still under construction." % section_name
@@ -75,10 +97,11 @@ func refresh_current_screen() -> void:
 	match current_screen:
 		"stash": refresh_stash()
 		"upgrades": refresh_upgrades()
+		"shop": refresh_shop()
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
-	for screen in [home_content, stash_content, upgrade_content, coming_content]:
+	for screen in [home_content, stash_content, upgrade_content, shop_content, coming_content]:
 		if screen != null:
 			screen.visible = screen == active
 
@@ -100,7 +123,7 @@ func build_home() -> void:
 	var lootbook_button := make_button(home_content, "LOOTBOOK", Rect2(24, 532, 207, 70), Color("#26344e"), Color("#7185aa"), 18)
 	lootbook_button.pressed.connect(show_coming_soon.bind("LOOTBOOK"))
 	var shop_button := make_button(home_content, "SHOP", Rect2(249, 532, 207, 70), Color("#26344e"), Color("#7185aa"), 18)
-	shop_button.pressed.connect(show_coming_soon.bind("HIDEOUT SHOP"))
+	shop_button.pressed.connect(show_shop)
 	make_label(home_content, "Prepare your gear, then brave the 15-wave treasure ruins.", 14, Rect2(35, 622, 410, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func build_stash() -> void:
@@ -111,10 +134,16 @@ func build_stash() -> void:
 	var back := make_button(stash_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	stash_title = make_label(stash_content, "STASH", 28, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	var scroll_panel := make_panel(stash_content, Rect2(20, 88, 440, 270), Color("#0b1229ef"), Color("#7194c4"))
+	var filters := ["ALL", "WEAPON", "ARMOUR", "CHARM", "RUNE"]
+	for index in range(filters.size()):
+		var filter_name: String = filters[index]
+		var filter_button := make_button(stash_content, filter_name, Rect2(20 + index * 89, 78, 84, 40), Color("#1c2948"), Color("#6f89b5"), 11)
+		filter_button.pressed.connect(set_stash_filter.bind(filter_name))
+		filter_buttons[filter_name] = filter_button
+	var scroll_panel := make_panel(stash_content, Rect2(20, 130, 440, 228), Color("#0b1229ef"), Color("#7194c4"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(10, 12)
-	scroll.size = Vector2(420, 246)
+	scroll.size = Vector2(420, 204)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll_panel.add_child(scroll)
 	stash_list = VBoxContainer.new()
@@ -152,6 +181,37 @@ func build_upgrades() -> void:
 	upgrade_button.pressed.connect(func(): upgrade_requested.emit())
 	make_label(upgrade_content, "Star Shards are persistent. Run Coins reset every run.", 14, Rect2(48, 598, 384, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
+func build_shop() -> void:
+	shop_content = Control.new()
+	shop_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	shop_content.visible = false
+	add_child(shop_content)
+	var back := make_button(shop_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
+	back.pressed.connect(show_home)
+	make_label(shop_content, "SALVAGER'S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	shop_scrap_label = make_label(shop_content, "", 15, Rect2(150, 65, 310, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
+	var offers_panel := make_panel(shop_content, Rect2(20, 101, 440, 300), Color("#0b1229ef"), Color("#c99a4e"))
+	for index in range(3):
+		var offer_button := make_button(offers_panel, "", Rect2(12, 12 + index * 94, 416, 82), Color("#172442"), Color("#b7c0ca"), 14)
+		offer_button.pressed.connect(request_shop_offer.bind(index))
+		shop_offer_buttons.append(offer_button)
+	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(20, 420, 210, 82), Color("#3f315f"), Color("#c99cff"), 15)
+	shop_cache_button.pressed.connect(func(): shop_cache_requested.emit())
+	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(250, 420, 210, 82), Color("#21455b"), Color("#72c8ff"), 15)
+	shop_expansion_button.pressed.connect(func(): shop_expansion_requested.emit())
+	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 516, 294, 54), Color("#34405b"), Color("#91a6ce"), 14)
+	shop_reroll_button.pressed.connect(func(): shop_reroll_requested.emit())
+	var status_panel := make_panel(shop_content, Rect2(20, 590, 440, 158), Color("#0d1530f2"), Color("#8ea2c8"))
+	shop_status = RichTextLabel.new()
+	shop_status.position = Vector2(16, 12)
+	shop_status.size = Vector2(408, 134)
+	shop_status.bbcode_enabled = true
+	shop_status.fit_content = false
+	shop_status.scroll_active = false
+	shop_status.add_theme_font_size_override("normal_font_size", 14)
+	shop_status.add_theme_color_override("default_color", Color("#e5edff"))
+	status_panel.add_child(shop_status)
+
 func build_coming_soon() -> void:
 	coming_content = Control.new()
 	coming_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -176,27 +236,32 @@ func refresh_home() -> void:
 func refresh_stash() -> void:
 	if current_inventory == null or stash_list == null:
 		return
-	stash_title.text = "STASH  •  %d / %d STORED" % [current_inventory.stash.size(), current_inventory.MAX_STASH]
+	stash_title.text = "STASH  •  %d / %d STORED" % [current_inventory.stash.size(), current_inventory.stash_capacity]
+	for filter_name in filter_buttons:
+		var filter_button: Button = filter_buttons[filter_name]
+		filter_button.disabled = filter_name == stash_filter
 	for child in stash_list.get_children():
 		stash_list.remove_child(child)
 		child.queue_free()
 	entries.clear()
 	for slot in current_inventory.SLOTS:
 		var equipped: Dictionary = current_inventory.equipped_item(slot)
-		if not equipped.is_empty():
+		if not equipped.is_empty() and item_matches_filter(equipped):
 			entries.append({"item":equipped, "equipped":true, "stash_index":-1})
 	for index in range(current_inventory.stash.size()):
-		entries.append({"item":current_inventory.stash[index], "equipped":false, "stash_index":index})
+		var stored_item: Dictionary = current_inventory.stash[index]
+		if item_matches_filter(stored_item):
+			entries.append({"item":stored_item, "equipped":false, "stash_index":index})
 	for entry_index in range(entries.size()):
 		var entry: Dictionary = entries[entry_index]
 		var item: Dictionary = entry.item
 		var marker := "EQUIPPED" if entry.equipped else "STORED"
 		var family := "  •  %s" % item.get("family", "") if item.has("family") else ""
-		var button := make_button(stash_list, "%s  •  %s%s\n%s  [%s]" % [marker, item.get("slot", "ITEM").to_upper(), family, item.get("name", "Unknown"), item.get("rarity", "COMMON")], Rect2(0, 0, 402, 64), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 14)
+		var button := make_button(stash_list, "%s  •  %s%s\n%s  [%s]" % [marker, ItemCatalog.display_slot(item.get("slot", "Item")), family, item.get("name", "Unknown"), item.get("rarity", "COMMON")], Rect2(0, 0, 402, 64), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 14)
 		button.custom_minimum_size = Vector2(402, 64)
 		button.pressed.connect(select_entry.bind(entry_index))
 	if entries.is_empty():
-		stash_detail.text = "[center][color=#8fa4ce]No equipment found.[/color][/center]"
+		stash_detail.text = "[center][color=#8fa4ce]No %s equipment found.[/color][/center]" % stash_filter.to_lower()
 		stash_equip_button.disabled = true
 		stash_scrap_button.disabled = true
 	else:
@@ -210,7 +275,7 @@ func select_entry(entry_index: int) -> void:
 	var item: Dictionary = entry.item
 	var rarity: String = item.get("rarity", "COMMON")
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
-	var header := "[center][font_size=22][color=#%s]%s[/color][/font_size]\n%s  •  %s[/center]\n\n" % [color, item.get("name", "Unknown"), item.get("slot", "ITEM").to_upper(), item.get("family", "GEAR")]
+	var header := "[center][font_size=22][color=#%s]%s[/color][/font_size]\n%s  •  %s[/center]\n\n" % [color, item.get("name", "Unknown"), ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR")]
 	if entry.equipped:
 		stash_detail.text = header + "[center][color=#69e6b0]CURRENTLY EQUIPPED[/color]\n%s\n\n%s[/center]" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
 		stash_equip_button.disabled = true
@@ -233,6 +298,59 @@ func refresh_upgrades() -> void:
 	upgrade_button.text = "POWER +5%%\nCOST  ✦ %d" % cost
 	upgrade_button.disabled = shards < cost or power >= 100
 
+func refresh_shop() -> void:
+	if current_inventory == null or current_shop == null or shop_scrap_label == null:
+		return
+	shop_scrap_label.text = "◆ %d SCRAP  •  %d / %d STASH" % [current_inventory.scrap, current_inventory.stash.size(), current_inventory.stash_capacity]
+	var reveal_pending: bool = not current_shop.pending_cache_item.is_empty()
+	for index in range(shop_offer_buttons.size()):
+		var button: Button = shop_offer_buttons[index]
+		if index >= current_shop.stock.size():
+			button.text = "SOLD  •  Refreshes after the next run"
+			button.disabled = true
+			continue
+		var item: Dictionary = current_shop.stock[index]
+		button.text = "%s  •  %s\n%s  [%s]\n◆ %d SCRAP" % [ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR"), item.get("name", "Unknown"), item.get("rarity", "COMMON"), item.get("price", 0)]
+		button.disabled = reveal_pending or current_inventory.scrap < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
+		apply_button_style(button, Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")))
+	var expansion_cost: int = current_shop.expansion_cost(current_inventory.stash_capacity)
+	shop_expansion_button.text = "STASH EXPANSION\n%d → %d SLOTS\n◆ %d" % [current_inventory.stash_capacity, current_inventory.next_stash_capacity(), expansion_cost] if expansion_cost > 0 else "STASH EXPANSION\nMAXIMUM 24 SLOTS"
+	shop_expansion_button.disabled = expansion_cost <= 0 or current_inventory.scrap < expansion_cost or reveal_pending
+	shop_reroll_button.text = "REROLL ONCE  •  ◆ %d" % current_shop.REROLL_COST if not current_shop.rerolled_this_cycle else "REROLL USED THIS RUN"
+	shop_reroll_button.disabled = current_shop.rerolled_this_cycle or current_inventory.scrap < current_shop.REROLL_COST or reveal_pending
+	if reveal_pending:
+		var item: Dictionary = current_shop.pending_cache_item
+		var color := ItemCatalog.rarity_color(item.get("rarity", "COMMON")).to_html(false)
+		shop_cache_button.text = "CLAIM REVEALED ITEM"
+		shop_cache_button.disabled = current_inventory.stash.size() >= current_inventory.stash_capacity
+		shop_status.text = "[center][color=#ffe178]MYSTERY CACHE REVEAL[/color]\n[font_size=20][color=#%s]%s[/color][/font_size]\n%s  •  %s\n%s[/center]" % [color, item.get("name", "Unknown"), item.get("rarity", "COMMON"), ItemCatalog.display_slot(item.get("slot", "Item")), ItemCatalog.describe_effects(item)]
+	else:
+		if current_shop.cache_bought_this_cycle:
+			shop_cache_button.text = "CACHE OPENED\nREFRESHES AFTER RUN"
+			shop_cache_button.disabled = true
+		else:
+			shop_cache_button.text = "MYSTERY CACHE\nREVEAL 1 ITEM\n◆ %d" % current_shop.CACHE_COST
+			shop_cache_button.disabled = current_inventory.scrap < current_shop.CACHE_COST or current_inventory.stash.size() >= current_inventory.stash_capacity
+		if current_inventory.stash.size() >= current_inventory.stash_capacity:
+			shop_status.text = "[center][color=#ff9b8f]STASH FULL[/color]\nScrap or equip stored gear to make room.\nNothing will be overwritten.[/center]"
+		elif shop_status.text.is_empty() or shop_status.text.contains("MYSTERY CACHE REVEAL") or shop_status.text.contains("STASH FULL"):
+			shop_status.text = "[center][color=#ffe39a]Persistent equipment, paid with Scrap.[/color]\nOffers refresh after every completed run.\nPremium boss and world drops remain stronger.[/center]"
+
+func show_shop_message(message: String, color: String = "#e5edff") -> void:
+	shop_status.text = "[center][color=%s]%s[/color][/center]" % [color, message]
+	refresh_shop()
+
+func set_stash_filter(filter_name: String) -> void:
+	stash_filter = filter_name
+	selected_entry = -1
+	refresh_stash()
+
+func item_matches_filter(item: Dictionary) -> bool:
+	if stash_filter == "ALL":
+		return true
+	var internal_filter := "Relic" if stash_filter == "CHARM" else stash_filter.capitalize()
+	return item.get("slot", "") == internal_filter
+
 func request_stash_equip() -> void:
 	if selected_entry < 0 or selected_entry >= entries.size():
 		return
@@ -246,6 +364,9 @@ func request_stash_scrap() -> void:
 	var entry: Dictionary = entries[selected_entry]
 	if not entry.equipped:
 		stash_scrap_requested.emit(int(entry.stash_index))
+
+func request_shop_offer(index: int) -> void:
+	shop_offer_requested.emit(index)
 
 func _draw() -> void:
 	draw_rect(Rect2(0, 0, 480, 854), Color("#070c1d"))
@@ -298,6 +419,11 @@ func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: 
 	button.position = rect.position
 	button.size = rect.size
 	button.add_theme_font_size_override("font_size", font_size)
+	apply_button_style(button, fill, border)
+	parent.add_child(button)
+	return button
+
+func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
 		box.bg_color = fill.darkened(0.30) if state_name == "disabled" else fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
@@ -308,5 +434,3 @@ func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: 
 		box.shadow_size = 7 if state_name == "normal" else 3
 		button.add_theme_stylebox_override(state_name, box)
 	button.add_theme_color_override("font_disabled_color", Color("#76819a"))
-	parent.add_child(button)
-	return button

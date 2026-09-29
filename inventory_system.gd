@@ -2,11 +2,13 @@ extends RefCounted
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const SLOTS := ["Weapon", "Armour", "Relic", "Rune"]
-const MAX_STASH := 12
+const STASH_CAPACITY_STEPS := [12, 18, 24]
+const DEFAULT_STASH_CAPACITY := 12
 
 var equipped := {}
 var stash: Array = []
 var scrap := 0
+var stash_capacity := DEFAULT_STASH_CAPACITY
 
 func _init() -> void:
 	reset_to_starter()
@@ -18,6 +20,7 @@ func reset_to_starter() -> void:
 	equipped.Weapon = ItemCatalog.create_item("scrapfang_blade", "COMMON", -1)
 	stash.clear()
 	scrap = 0
+	stash_capacity = DEFAULT_STASH_CAPACITY
 
 func equip(item: Dictionary) -> Dictionary:
 	var slot: String = item.get("slot", "")
@@ -26,7 +29,7 @@ func equip(item: Dictionary) -> Dictionary:
 	var old: Dictionary = equipped.get(slot, {})
 	var auto_scrap := 0
 	if not old.is_empty() and old.get("serial", 0) != -1:
-		if stash.size() < MAX_STASH:
+		if stash.size() < stash_capacity:
 			stash.append(old.duplicate(true))
 		else:
 			auto_scrap = ItemCatalog.scrap_value(old)
@@ -35,7 +38,7 @@ func equip(item: Dictionary) -> Dictionary:
 	return {"old":old, "scrapped":auto_scrap}
 
 func keep(item: Dictionary) -> bool:
-	if stash.size() >= MAX_STASH:
+	if stash.size() >= stash_capacity:
 		return false
 	stash.append(item.duplicate(true))
 	return true
@@ -72,6 +75,22 @@ func salvage(item: Dictionary) -> int:
 	scrap += value
 	return value
 
+func can_expand_stash() -> bool:
+	return stash_capacity < STASH_CAPACITY_STEPS.back()
+
+func next_stash_capacity() -> int:
+	for capacity in STASH_CAPACITY_STEPS:
+		if capacity > stash_capacity:
+			return capacity
+	return stash_capacity
+
+func expand_stash() -> bool:
+	var next_capacity := next_stash_capacity()
+	if next_capacity <= stash_capacity:
+		return false
+	stash_capacity = next_capacity
+	return true
+
 func equipped_item(slot: String) -> Dictionary:
 	return equipped.get(slot, {})
 
@@ -88,9 +107,10 @@ func effect_total(key: String) -> float:
 
 func save(path: String) -> Error:
 	var config := ConfigFile.new()
-	config.set_value("inventory", "version", 1)
+	config.set_value("inventory", "version", 2)
 	config.set_value("inventory", "scrap", clampi(scrap, 0, 999999))
-	config.set_value("inventory", "stash", stash.slice(0, MAX_STASH))
+	config.set_value("inventory", "stash_capacity", stash_capacity)
+	config.set_value("inventory", "stash", stash.slice(0, stash_capacity))
 	config.set_value("inventory", "equipped", equipped)
 	return config.save(path)
 
@@ -99,8 +119,10 @@ func load(path: String) -> void:
 	if config.load(path) != OK:
 		return
 	scrap = clampi(int(config.get_value("inventory", "scrap", 0)), 0, 999999)
+	var loaded_capacity := int(config.get_value("inventory", "stash_capacity", DEFAULT_STASH_CAPACITY))
+	stash_capacity = loaded_capacity if loaded_capacity in STASH_CAPACITY_STEPS else DEFAULT_STASH_CAPACITY
 	var loaded_stash = config.get_value("inventory", "stash", [])
-	stash = loaded_stash.slice(0, MAX_STASH) if loaded_stash is Array else []
+	stash = loaded_stash.slice(0, stash_capacity) if loaded_stash is Array else []
 	var loaded_equipped = config.get_value("inventory", "equipped", {})
 	if loaded_equipped is Dictionary:
 		for slot in SLOTS:

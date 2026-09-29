@@ -50,6 +50,9 @@ static func rarity_rank(rarity: String) -> int:
 static func rarity_color(rarity: String) -> Color:
 	return RARITY_COLORS.get(rarity, RARITY_COLORS.COMMON)
 
+static func display_slot(slot: String) -> String:
+	return "CHARM" if slot == "Relic" else slot.to_upper()
+
 static func scrap_value(item: Dictionary) -> int:
 	return [3, 8, 18, 45][rarity_rank(item.get("rarity", "COMMON"))]
 

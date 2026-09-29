@@ -7,6 +7,7 @@ const LootSystem = preload("res://loot_system.gd")
 const InventorySystem = preload("res://inventory_system.gd")
 const ShopSystem = preload("res://shop_system.gd")
 const MetaStore = preload("res://meta_store.gd")
+const HideoutShopSystem = preload("res://hideout_shop_system.gd")
 
 var failures: Array[String] = []
 
@@ -43,7 +44,82 @@ func run_tests() -> void:
 		"res://art/sprites/weapons/rogue_daggers.png"
 	]:
 		check(load(asset_path) is Texture2D, "%s imports as a Texture2D" % asset_path)
+	check(ItemCatalog.display_slot("Relic") == "CHARM" and ItemCatalog.display_slot("Rune") == "RUNE", "equipment terminology separates Charm from the Relic Core")
+	var persistent_shop = HideoutShopSystem.new(4455)
+	persistent_shop.ensure_stock()
+	check(persistent_shop.stock.size() == 3, "Hideout Shop generates three persistent equipment offers")
+	for offer in persistent_shop.stock:
+		check(offer.get("rarity", "") != "LEGENDARY" and int(offer.get("price", 0)) > 0, "Hideout Shop offers use conservative rarity and centralized Scrap prices")
+	var persistent_shop_path := "user://lootlings_hideout_shop_smoke.cfg"
+	check(persistent_shop.save(persistent_shop_path) == OK, "Hideout Shop stock saves successfully")
+	var loaded_shop = HideoutShopSystem.new(4466)
+	loaded_shop.load(persistent_shop_path)
+	check(loaded_shop.stock.size() == 3 and loaded_shop.cycle == persistent_shop.cycle, "Hideout Shop stock persists across reloads")
+	check(loaded_shop.reroll() and not loaded_shop.reroll(), "Hideout Shop allows only one paid reroll per completed-run cycle")
+	while not loaded_shop.stock.is_empty():
+		loaded_shop.take_offer(0)
+	loaded_shop.save(persistent_shop_path)
+	var sold_out_shop = HideoutShopSystem.new(4467)
+	sold_out_shop.load(persistent_shop_path)
+	check(sold_out_shop.stock.is_empty() and sold_out_shop.cycle == loaded_shop.cycle, "sold-out Hideout stock stays sold out until a run completes")
+	var capacity_inventory = InventorySystem.new()
+	check(capacity_inventory.expand_stash() and capacity_inventory.stash_capacity == 18, "first Stash expansion increases capacity to 18")
+	check(capacity_inventory.expand_stash() and capacity_inventory.stash_capacity == 24 and not capacity_inventory.expand_stash(), "second Stash expansion reaches the data-driven 24-slot maximum")
 	game.inventory.reset_to_starter()
+	game.inventory.scrap = 999
+	game.hideout_shop = HideoutShopSystem.new(4477)
+	game.hideout_shop.ensure_stock()
+	game.hideout_ui.configure(game.inventory, game.hideout_shop, game.meta_shards, game.meta_power, Callable(game, "build_item_comparison"))
+	for fill_index in range(game.inventory.stash_capacity):
+		game.inventory.keep(ItemCatalog.create_item("ember_pop", "COMMON", 8000 + fill_index))
+	var full_scrap_before: int = game.inventory.scrap
+	var full_stock_before: int = game.hideout_shop.stock.size()
+	game.buy_hideout_offer(0)
+	check(game.inventory.stash.size() == game.inventory.stash_capacity and game.inventory.scrap == full_scrap_before and game.hideout_shop.stock.size() == full_stock_before, "a full Stash safely rejects Shop purchases without spending Scrap")
+	game.inventory.scrap_from_stash(0)
+	var bought_item: Dictionary = game.hideout_shop.stock[0].duplicate(true)
+	var bought_price: int = bought_item.price
+	var buy_scrap_before: int = game.inventory.scrap
+	game.buy_hideout_offer(0)
+	check(game.inventory.stash.size() == game.inventory.stash_capacity and game.inventory.scrap == buy_scrap_before - bought_price and game.hideout_shop.stock.size() == full_stock_before - 1, "buying Hideout equipment spends Scrap and sends the item to Stash")
+	var purchased_index := -1
+	for stash_index in range(game.inventory.stash.size()):
+		if game.inventory.stash[stash_index].get("serial", 0) == bought_item.get("serial", -1):
+			purchased_index = stash_index
+			break
+	check(purchased_index >= 0, "the purchased equipment can be located in the persistent Stash")
+	if purchased_index >= 0:
+		game.equip_stash_item(purchased_index)
+		var purchased_reload = InventorySystem.new()
+		purchased_reload.load(game.INVENTORY_SAVE_PATH)
+		check(purchased_reload.equipped_item(bought_item.slot).get("serial", 0) == bought_item.serial, "purchased gear can be equipped and persists")
+	game.inventory.reset_to_starter()
+	game.inventory.scrap = 999
+	game.hideout_shop = HideoutShopSystem.new(4488)
+	game.hideout_shop.ensure_stock()
+	game.hideout_ui.configure(game.inventory, game.hideout_shop, game.meta_shards, game.meta_power, Callable(game, "build_item_comparison"))
+	var cache_scrap_before: int = game.inventory.scrap
+	game.use_mystery_cache()
+	check(not game.hideout_shop.pending_cache_item.is_empty() and game.inventory.stash.is_empty() and game.inventory.scrap == cache_scrap_before - game.hideout_shop.CACHE_COST, "Mystery Cache reveals an item before adding it to Stash")
+	game.use_mystery_cache()
+	check(game.hideout_shop.pending_cache_item.is_empty() and game.inventory.stash.size() == 1, "the revealed Mystery Cache item is awarded on claim")
+	var cache_claimed_scrap: int = game.inventory.scrap
+	game.use_mystery_cache()
+	check(game.inventory.stash.size() == 1 and game.inventory.scrap == cache_claimed_scrap, "only one Mystery Cache can be opened per completed-run cycle")
+	var expansion_scrap_before: int = game.inventory.scrap
+	var expansion_cost: int = game.hideout_shop.expansion_cost(game.inventory.stash_capacity)
+	game.buy_stash_expansion()
+	check(game.inventory.stash_capacity == 18 and game.inventory.scrap == expansion_scrap_before - expansion_cost, "Stash Expansion purchases 12 to 18 slots with Scrap")
+	var expanded_reload = InventorySystem.new()
+	expanded_reload.load(game.INVENTORY_SAVE_PATH)
+	check(expanded_reload.stash_capacity == 18 and expanded_reload.scrap == game.inventory.scrap, "Stash capacity and Scrap persist across reloads")
+	var old_cycle: int = game.hideout_shop.cycle
+	game.start_run()
+	game.end_run(false)
+	check(game.hideout_shop.cycle == old_cycle + 1 and game.hideout_shop.stock.size() == 3 and not game.hideout_shop.rerolled_this_cycle and not game.hideout_shop.cache_bought_this_cycle, "Hideout Shop stock and cache refresh after a completed run")
+	game.inventory.reset_to_starter()
+	game.inventory.save(game.INVENTORY_SAVE_PATH)
+	game.show_hideout()
 	game.start_run()
 	var hideout_kept_item := ItemCatalog.create_item("mossguard_harness", "RARE", 7701)
 	game.current_item = hideout_kept_item
@@ -95,6 +171,16 @@ func run_tests() -> void:
 	var loaded_inventory = InventorySystem.new()
 	loaded_inventory.load(inventory_test_path)
 	check(loaded_inventory.weapon_family() == "RANGER" and loaded_inventory.equipped_item("Armour").get("serial", 0) == 778 and loaded_inventory.stash.is_empty() and loaded_inventory.scrap == test_inventory.scrap, "Hideout equipment and Scrap persist through save/load")
+	var legacy_inventory_path := "user://lootlings_inventory_legacy_smoke.cfg"
+	var legacy_config := ConfigFile.new()
+	legacy_config.set_value("inventory", "version", 1)
+	legacy_config.set_value("inventory", "scrap", 17)
+	legacy_config.set_value("inventory", "stash", [ItemCatalog.create_item("stormspark", "COMMON", 780)])
+	legacy_config.set_value("inventory", "equipped", test_inventory.equipped)
+	legacy_config.save(legacy_inventory_path)
+	var legacy_inventory = InventorySystem.new()
+	legacy_inventory.load(legacy_inventory_path)
+	check(legacy_inventory.stash_capacity == 12 and legacy_inventory.stash.size() == 1 and legacy_inventory.scrap == 17, "version 1 inventory saves load with the original 12-slot capacity")
 	var test_shop = ShopSystem.new()
 	test_shop.generate_stock(test_loot, 6)
 	check(test_shop.stock.size() == 3 and int(test_shop.stock[0].price) > 0, "merchant generates three priced choices")
