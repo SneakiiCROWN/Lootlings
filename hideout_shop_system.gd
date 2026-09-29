@@ -58,7 +58,7 @@ func take_offer(index: int) -> Dictionary:
 	if index < 0 or index >= stock.size():
 		return {}
 	var item: Dictionary = stock[index]
-	stock.remove_at(index)
+	stock[index] = {}
 	return item
 
 func reveal_cache() -> Dictionary:
@@ -131,6 +131,8 @@ func validated_items(raw_items, include_price: bool) -> Array:
 		return result
 	for raw_item in raw_items:
 		if not raw_item is Dictionary or raw_item.is_empty():
+			if include_price:
+				result.append({})
 			continue
 		var definition := ItemCatalog.definition(raw_item.get("id", ""))
 		var rarity: String = raw_item.get("rarity", "COMMON")
@@ -142,6 +144,8 @@ func validated_items(raw_items, include_price: bool) -> Array:
 		result.append(item)
 		if include_price and result.size() >= 3:
 			break
+	while include_price and result.size() < 3:
+		result.append({})
 	return result
 
 func serial_for(offset: int) -> int:

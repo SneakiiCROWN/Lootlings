@@ -1,22 +1,30 @@
 # Lootlings Project State
 
 ## CURRENT STATE
-Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wave run and functional Hideout meta economy. The Hideout now supports loadout management, permanent Relic Training, and a persistent Scrap-funded equipment shop while preserving the established run, combat, rewards, and visuals. Stable fallback `0d3b54e` is the previous verified Hideout checkpoint.
+Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wave run and a place-first interactive Hideout. The working meta economy, Stash, Relic Training, Shop, run, combat, rewards, and saves are preserved while major Hideout destinations now read as locations in a living home-base scene. Stable fallback `8ba758d` is the previous verified persistent-Shop checkpoint.
 
 ## WHAT WORKS
 - Automatic approach and attacks; tap/click/Space adds combo-scaled bonus attacks.
 - Hideout → Play → existing 15-wave run → Results → Return to Hideout is the new complete game loop. The previous run can still end in victory or defeat without a softlock.
 - The Hideout Home screen presents the exact canonical neutral mascot, persistent Scrap/Star Shards/power, equipped Weapon/Armour/Charm, weapon family, neutral Core identity, and large mobile buttons.
+- Hideout Home is now an illustrated interactive hub: expedition gate starts Play, glowing Relic shrine opens Training, lantern-lit Salvager cart opens Shop, gear chest opens Stash, and archive shelves open Lootbook. Accessible labels remain, but the destinations are embedded into the environment instead of a stacked menu.
+- The canonical mascot remains unchanged and now idles at the center of the Hideout with a subtle bob/contact shadow. Lantern flicker, Relic glow, drifting motes, and small environmental movement add restrained scene life without obstructing tap targets.
+- The former dominant loadout panel is reduced to a compact bottom expedition ribbon showing weapon/family, armour, Charm, and separate Relic Core identity.
 - Stash is functional outside runs: equipped and stored gear are clearly separated; every item exposes rarity, slot, family, description/effects, and green/red same-slot comparison; stored items can be equipped or scrapped. All changes save immediately.
 - Upgrades now owns the existing permanent +5% Damage/Max HP progression. It clearly shows level, total benefit, escalating Star Shard cost, and the separation between persistent Shards and run-only Coins.
 - The Salvager's Shop is a functional persistent Hideout Shop with three rotating equipment offers, a Mystery Cache, one paid reroll per completed-run cycle, and finite Stash Expansion. Purchases use Scrap and go only to the persistent Stash.
+- The Shop is presented as a warm merchant stall with the canonical mascot visiting, a distinct non-playable hooded keeper, canopy/counter/lantern props, and three fixed item displays. Tapping a display opens a detailed purchase card; buying leaves that exact display visibly `SOLD OUT`.
+- Mystery Cache, Stash Expansion, reroll, Scrap budget, purchase feedback, and reveal/claim flow remain unchanged underneath their new scene presentation. Cache reveal, stock changes, and purchases provide clear visual state feedback.
 - Shop offers are Common/Rare-heavy with only a small Epic chance and no normal Legendary offer path. Prices, rarity weights, cache cost, reroll cost, and capacity costs are centralized in one tuning file so boss/world drops remain the premium source.
 - Mystery Cache uses a separate conservative rarity table and a two-step reveal/claim flow. The revealed item persists safely if the player leaves before claiming it.
 - Shop stock persists across restarts, including sold-out state, and refreshes only after a completed victory or defeat. Restarting the app cannot refresh offers. Lootbook remains an honest `Coming Soon` destination.
 - Stash Expansion persists through the data-driven 12 → 18 → 24 progression. Full-Stash purchases and cache openings are visibly blocked without spending Scrap or overwriting gear.
 - Stash now has simple ALL/WEAPON/ARMOUR/CHARM/RUNE filters. Equipped and stored cards remain distinct, and equipped gear cannot be scrapped from this interface.
+- Stash is framed as a cool treasure-vault/gear-chest space with compact icon-led rarity cards and the selected item promoted into the existing large comparison card. Filters, capacity, Equip/Scrap, protection, and comparison behavior are unchanged.
 - Player-facing equipment terminology is standardized to WEAPON, ARMOUR, CHARM, and RUNE. The internal `Relic` equipment key remains unchanged for save compatibility, while RELIC CORE continues to describe the separate run-build system.
 - Results now summarizes victory/defeat, wave reached, enemies defeated, Run Coins earned/spent/left, Scrap gained, Star Shards gained, and up to two notable kept/equipped loot names, then offers one `Return to Hideout` action.
+- Active combat now has a small deliberate pause button. `RUN PAUSED` offers Resume or Abandon; Abandon requires a second confirmation with Stay/Return Home. Confirming discards only current run progress/unclaimed rewards, grants no result currency, does not refresh Hideout Shop stock, and returns directly to the Hideout.
+- Hideout destination changes use a short 0.22-second fade, while native pressed/hover states provide immediate interaction feedback and leave clean attachment points for future UI audio.
 - Enemy health, retaliation, death, Coins, XP, level-ups, wave scaling, miniboss, boss, victory, and defeat remain unchanged.
 - Three-choice paused level-ups with 18 stacking upgrades. Fire, Lightning, Poison, and Physical Relic builds still combine freely with equipment.
 - Four interchangeable weapon combat styles, with no permanent class lock: heavy/defensive Vanguard, ranged/rapid Ranger, ranged/proc Mage, and fast/crit/execute Rogue.
@@ -45,7 +53,7 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Enemy HP now follows a smoother 1.15 per-wave curve; regular skirmisher/tank variance was narrowed while miniboss and boss multipliers remain clear deliberate spikes.
 - Layered combat feel remains intact: windup/follow-through, recoil, squash/knockback, restrained shake/flash, crits, death animation, tap combo, arcing Coin/XP rewards, and wave/boss banners.
 - The newly added canonical systems overview is indexed in `ART_REFERENCE_INDEX.md`; all canonical images remain reference-only and are not loaded at runtime.
-- Automated smoke coverage now includes Hideout Shop generation/persistence, conservative offer bounds, full-Stash rejection, purchase/equip persistence, Mystery Cache reveal/claim, one-reroll rule, completed-run refresh, sold-out restart protection, both Stash expansions, legacy version-1 inventory migration, filters/terminology foundations, and all prior Hideout/combat/run regressions.
+- Automated smoke coverage now includes all Hideout destinations, stable Shop display slots, inspect/buy foundations, pause freeze/resume, two-step abandon confirmation/cancel, reward-free abandon, no-refresh abandon, and all prior Shop/economy/save/combat/run regressions.
 
 ## CONTROLS
 - Tap/click the arena or press Space: bonus attack.
@@ -77,7 +85,7 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - `tests/smoke_test.gd` - end-to-end regression, persistence checks, and seeded balance simulation.
 
 ## SYSTEMS
-- Top-level flow starts in `hideout`; run states remain `playing`, `upgrade`, `item`, `merchant`, `boss_reward`, and `result`.
+- Top-level flow starts in `hideout`; run states include `playing`, `paused`, `abandon_confirm`, `upgrade`, `item`, `merchant`, `boss_reward`, and `result`.
 - Three regular enemies per wave; waves 8 and 15 are single special encounters.
 - Combat style is driven by the equipped Weapon family. Relic build is independent, allowing combinations such as Fire Ranger, Lightning Mage, Poison Rogue, and Physical Vanguard.
 - Player-facing equipment slots are Weapon, Armour, Charm, and Rune. The internal `Relic` key is retained only for compatibility; Relic Core/build identity remains separate. Stash capacity progresses through 12, 18, and 24 slots.
@@ -85,8 +93,8 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Save paths remain compatible: `user://lootlings_save.cfg` stores Star Shards/power; version-2 `user://lootlings_inventory.cfg` adds Stash capacity while loading version-1 saves at 12 slots; `user://lootlings_hideout_shop.cfg` stores stock/cycle/reroll/pending-cache state. Purchases and claims save immediately.
 
 ## VALIDATION
-- Headless asset import/parser and full smoke/regression suites pass. Hideout Shop/economy/capacity/legacy-save assertions pass alongside all prior combat, loot, merchant, persistence, boss-reward, and Texture2D checks. Current seeded tapping balance remains 4 victories in 5 runs.
-- Real OpenGL 480x854 captures pass on the Godot 4.7.2 Compatibility renderer (NVIDIA GeForce RTX 4080 SUPER). Shop offers, cache reveal, expansion/reroll actions, Stash filters, and CHARM terminology were inspected for clipping, hierarchy, disabled states, and mobile tap targets.
+- Headless asset import/parser and full smoke/regression suites pass. Pause/abandon and interactive-destination assertions pass alongside all prior Shop, economy, capacity, legacy-save, combat, loot, persistence, and boss-reward checks. Current seeded tapping balance remains 4 victories in 5 runs.
+- Real OpenGL 480x854 captures pass on the Godot 4.7.2 Compatibility renderer (NVIDIA GeForce RTX 4080 SUPER). Living Hideout, merchant stall, detailed offer purchase, vault Stash, Relic Training, archive, active-combat pause button, paused menu, and abandon confirmation were inspected for clipping, hierarchy, readability, and mobile tap targets.
 - The Windows sandbox may print a root-certificate-store warning during headless tests; it does not affect gameplay or test results.
 
 ## KNOWN LIMITATIONS
@@ -96,9 +104,10 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Scrap now funds the persistent Hideout Shop, Mystery Cache, reroll, and capacity expansion; Forge remains intentionally unimplemented.
 - Merchant stock is intentionally equipment-only in this first pass; healing/run-upgrade stock can be assessed after playtesting the core shop economy.
 - Lootbook remains Coming Soon. The Hideout Shop intentionally sells only the existing catalog and has no real-world timer, premium currency, or unlimited inventory.
+- Hideout/Shop/vault/shrine/archive environment props remain lightweight code-drawn presentation intended to be replacement-ready when final location art is supplied. No canonical character art was repainted or redesigned.
 
 ## LAST COMPLETED CHECKPOINT
-Persistent Hideout economy checkpoint - functional Scrap shop, safe cache reveal/claim, run-completion stock refresh, finite Stash Expansion, mobile filters, and Charm/Relic Core terminology separation without combat changes.
+Place-first Hideout presentation checkpoint - living interactive hub, merchant-stall Shop with inspect-before-buy displays, vault-styled Stash, lightweight transitions, and safe pause/confirmed-abandon flow without system or balance changes.
 
 ## NEXT MANUAL PLAYTEST
-Use an existing save to buy and equip each offer type, confirm full-Stash rejection, reveal a Mystery Cache and leave/re-enter before claiming it, use the single reroll, then complete a run and verify fresh stock. Purchase both capacity upgrades over time and relaunch to confirm capacity/Scrap persistence. Reconfirm Run Coins stay exclusive to the Pack Peddler, Star Shards stay exclusive to Relic Training, and premium boss drops remain more exciting than normal Shop stock.
+Tap every environmental destination repeatedly at phone size, including Shop offer inspect/buy/sold states, cache reveal, Stash filters/comparisons, shrine upgrade, archive return, and expedition gate. During a run verify Pause→Resume, Pause→Abandon→Stay, and Pause→Abandon→Return Home; confirm abandon grants nothing and stock does not refresh, while ordinary victory/defeat still refresh stock and award the established results.

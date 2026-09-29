@@ -30,6 +30,15 @@ func run_tests() -> void:
 	await process_frame
 	check(game.state == "hideout" and game.hideout_ui.visible, "the game opens in the Hideout")
 	check(game.hideout_ui.current_screen == "home", "the Hideout opens on its Home screen")
+	game.hideout_ui.show_stash()
+	check(game.hideout_ui.current_screen == "stash", "the Hideout gear chest opens Stash")
+	game.hideout_ui.show_shop()
+	check(game.hideout_ui.current_screen == "shop", "the Hideout merchant stall opens Shop")
+	game.hideout_ui.show_upgrades()
+	check(game.hideout_ui.current_screen == "upgrades", "the Hideout Relic shrine opens Training")
+	game.hideout_ui.show_coming_soon("LOOTBOOK")
+	check(game.hideout_ui.current_screen == "coming", "the Hideout archive opens Lootbook Coming Soon")
+	game.hideout_ui.show_home()
 	for asset_path in [
 		"res://art/sprites/relic_beast_base.png",
 		"res://art/sprites/enemies/razor_imp.png",
@@ -56,12 +65,16 @@ func run_tests() -> void:
 	loaded_shop.load(persistent_shop_path)
 	check(loaded_shop.stock.size() == 3 and loaded_shop.cycle == persistent_shop.cycle, "Hideout Shop stock persists across reloads")
 	check(loaded_shop.reroll() and not loaded_shop.reroll(), "Hideout Shop allows only one paid reroll per completed-run cycle")
-	while not loaded_shop.stock.is_empty():
-		loaded_shop.take_offer(0)
+	for sold_index in range(loaded_shop.stock.size()):
+		loaded_shop.take_offer(sold_index)
 	loaded_shop.save(persistent_shop_path)
 	var sold_out_shop = HideoutShopSystem.new(4467)
 	sold_out_shop.load(persistent_shop_path)
-	check(sold_out_shop.stock.is_empty() and sold_out_shop.cycle == loaded_shop.cycle, "sold-out Hideout stock stays sold out until a run completes")
+	var sold_slots := 0
+	for sold_offer in sold_out_shop.stock:
+		if sold_offer.is_empty():
+			sold_slots += 1
+	check(sold_slots == 3 and sold_out_shop.cycle == loaded_shop.cycle, "sold-out Hideout stock stays sold out until a run completes")
 	var capacity_inventory = InventorySystem.new()
 	check(capacity_inventory.expand_stash() and capacity_inventory.stash_capacity == 18, "first Stash expansion increases capacity to 18")
 	check(capacity_inventory.expand_stash() and capacity_inventory.stash_capacity == 24 and not capacity_inventory.expand_stash(), "second Stash expansion reaches the data-driven 24-slot maximum")
@@ -81,7 +94,7 @@ func run_tests() -> void:
 	var bought_price: int = bought_item.price
 	var buy_scrap_before: int = game.inventory.scrap
 	game.buy_hideout_offer(0)
-	check(game.inventory.stash.size() == game.inventory.stash_capacity and game.inventory.scrap == buy_scrap_before - bought_price and game.hideout_shop.stock.size() == full_stock_before - 1, "buying Hideout equipment spends Scrap and sends the item to Stash")
+	check(game.inventory.stash.size() == game.inventory.stash_capacity and game.inventory.scrap == buy_scrap_before - bought_price and game.hideout_shop.stock[0].is_empty(), "buying Hideout equipment spends Scrap, marks its display sold, and sends the item to Stash")
 	var purchased_index := -1
 	for stash_index in range(game.inventory.stash.size()):
 		if game.inventory.stash[stash_index].get("serial", 0) == bought_item.get("serial", -1):
@@ -120,6 +133,27 @@ func run_tests() -> void:
 	game.inventory.reset_to_starter()
 	game.inventory.save(game.INVENTORY_SAVE_PATH)
 	game.show_hideout()
+	var abandon_shop_cycle: int = game.hideout_shop.cycle
+	var abandon_shards: int = game.meta_shards
+	var abandon_scrap: int = game.inventory.scrap
+	game.start_run()
+	game.coins = 77
+	game.pending_items.append(ItemCatalog.create_item("glimmerstaff", "EPIC", 7699))
+	var paused_run_time: float = game.run_time
+	game.pause_run()
+	game._process(1.0)
+	check(game.state == "paused" and is_equal_approx(game.run_time, paused_run_time), "Pause freezes active run progression")
+	game.resume_run()
+	check(game.state == "playing", "Resume returns safely to active combat")
+	game.pause_run()
+	game.request_abandon_run()
+	check(game.state == "abandon_confirm", "Abandon requires a separate confirmation step")
+	game.cancel_abandon_run()
+	check(game.state == "paused", "Stay returns to the paused run without loss")
+	game.request_abandon_run()
+	game.confirm_abandon_run()
+	check(game.state == "hideout" and game.coins == 0 and game.pending_items.is_empty() and not game.result_panel.visible, "confirmed abandon discards run-only progress and returns directly to Hideout")
+	check(game.hideout_shop.cycle == abandon_shop_cycle and game.meta_shards == abandon_shards and game.inventory.scrap == abandon_scrap, "abandon grants no rewards and does not refresh Shop or alter persistent currency")
 	game.start_run()
 	var hideout_kept_item := ItemCatalog.create_item("mossguard_harness", "RARE", 7701)
 	game.current_item = hideout_kept_item

@@ -155,6 +155,9 @@ var merchant_reroll_button: Button
 var merchant_continue_button: Button
 var boss_reward_panel: Panel
 var boss_reward_buttons: Array[Button] = []
+var pause_button: Button
+var pause_panel: Panel
+var abandon_panel: Panel
 var hideout_ui
 
 func _ready() -> void:
@@ -202,6 +205,32 @@ func build_overlay_ui() -> void:
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
+	build_pause_ui()
+
+func build_pause_ui() -> void:
+	pause_button = Button.new()
+	pause_button.text = "Ⅱ"
+	pause_button.position = Vector2(424, 108)
+	pause_button.size = Vector2(42, 42)
+	pause_button.add_theme_font_size_override("font_size", 18)
+	apply_button_style(pause_button, Color("#172442df"), Color("#8fa6cf"))
+	pause_button.pressed.connect(pause_run)
+	pause_button.visible = false
+	add_child(pause_button)
+	pause_panel = make_panel(Rect2(55, 244, 370, 326), Color("#101731f8"))
+	pause_panel.visible = false
+	make_label(pause_panel, "RUN PAUSED", 31, Rect2(20, 32, 330, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(pause_panel, "The treasure ruins will wait.", 15, Rect2(25, 86, 320, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0"))
+	make_action_button(pause_panel, "RESUME", Vector2(35, 140), Vector2(300, 64), Color("#285c4c"), Color("#69e6b0"), resume_run)
+	make_action_button(pause_panel, "ABANDON RUN", Vector2(35, 226), Vector2(300, 62), Color("#54302d"), Color("#ff8d88"), request_abandon_run)
+	abandon_panel = make_panel(Rect2(44, 225, 392, 374), Color("#12172ffb"))
+	abandon_panel.visible = false
+	make_label(abandon_panel, "RETURN TO HIDEOUT?", 28, Rect2(20, 30, 352, 46), HORIZONTAL_ALIGNMENT_CENTER, Color("#ff9b8f"))
+	var warning := make_label(abandon_panel, "Current run progress and unclaimed\nrun rewards will be lost.", 16, Rect2(24, 96, 344, 106), HORIZONTAL_ALIGNMENT_CENTER, Color("#e6edff"))
+	warning.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	warning.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	make_action_button(abandon_panel, "STAY", Vector2(28, 246), Vector2(158, 68), Color("#263b58"), Color("#79a9d9"), cancel_abandon_run)
+	make_action_button(abandon_panel, "RETURN HOME", Vector2(206, 246), Vector2(158, 68), Color("#5a302c"), Color("#ff8d88"), confirm_abandon_run)
 
 func build_hideout() -> void:
 	hideout_ui = HideoutUI.new()
@@ -218,6 +247,10 @@ func build_hideout() -> void:
 
 func show_hideout() -> void:
 	state = "hideout"
+	if pause_button != null:
+		pause_button.visible = false
+		pause_panel.visible = false
+		abandon_panel.visible = false
 	result_panel.visible = false
 	upgrade_panel.visible = false
 	item_panel.visible = false
@@ -228,6 +261,58 @@ func show_hideout() -> void:
 	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 	hideout_ui.show_home()
 	queue_redraw()
+
+func pause_run() -> void:
+	if state != "playing":
+		return
+	state = "paused"
+	pause_button.visible = false
+	pause_panel.visible = true
+	abandon_panel.visible = false
+	queue_redraw()
+
+func resume_run() -> void:
+	if state != "paused":
+		return
+	state = "playing"
+	pause_panel.visible = false
+	pause_button.visible = true
+	queue_redraw()
+
+func request_abandon_run() -> void:
+	if state != "paused":
+		return
+	state = "abandon_confirm"
+	pause_panel.visible = false
+	abandon_panel.visible = true
+	queue_redraw()
+
+func cancel_abandon_run() -> void:
+	if state != "abandon_confirm":
+		return
+	state = "paused"
+	abandon_panel.visible = false
+	pause_panel.visible = true
+	queue_redraw()
+
+func confirm_abandon_run() -> void:
+	if state != "abandon_confirm":
+		return
+	# No result rewards, Shop refresh, or unclaimed loot processing occurs on abandon.
+	pending_levels = 0
+	pending_items.clear()
+	loot_drops.clear()
+	boss_reward_options.clear()
+	current_item.clear()
+	pending_victory = false
+	merchant_due = false
+	item_review_due = false
+	return_to_merchant = false
+	coins = 0
+	run_coins_earned = 0
+	run_coins_spent = 0
+	run_shards_earned = 0
+	show_hideout()
 
 func equip_stash_item(index: int) -> void:
 	if state != "hideout":
@@ -247,6 +332,8 @@ func buy_hideout_offer(index: int) -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
 		return
 	if index < 0 or index >= hideout_shop.stock.size():
+		return
+	if hideout_shop.stock[index].is_empty():
 		return
 	if inventory.stash.size() >= inventory.stash_capacity:
 		hideout_ui.show_shop_message("STASH FULL\nMake room before buying equipment.", "#ff9b8f")
@@ -428,6 +515,10 @@ func start_run() -> void:
 	state = "playing"
 	if hideout_ui != null:
 		hideout_ui.visible = false
+	if pause_button != null:
+		pause_button.visible = true
+		pause_panel.visible = false
+		abandon_panel.visible = false
 	wave = 1
 	wave_kills = 0
 	total_kills = 0
@@ -572,6 +663,11 @@ func spawn_enemy() -> void:
 		carried_shockwave = 0.0
 
 func _process(delta: float) -> void:
+	if pause_button != null:
+		pause_button.visible = state == "playing"
+	if state == "paused" or state == "abandon_confirm":
+		queue_redraw()
+		return
 	update_effects(delta)
 	if state != "playing":
 		queue_redraw()
