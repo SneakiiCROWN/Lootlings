@@ -1,26 +1,28 @@
 # Lootlings Project State
 
 ## CURRENT STATE
-Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wave run and a place-first interactive Hideout. The working meta economy, Stash, Relic Training, Shop, run, combat, rewards, and saves are preserved while major Hideout destinations now read as locations in a living home-base scene. Stable fallback `8ba758d` is the previous verified persistent-Shop checkpoint.
+Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wave run and a fully illustrated interactive Hideout. The working meta economy, Stash, Relic Training, Shop, run, combat, rewards, and saves are preserved while Home, Salvager, Stash, and Shrine now use dedicated painted environments. Stable fallback `43f63f9` is the previous verified place-first Hideout checkpoint.
 
 ## WHAT WORKS
 - Automatic approach and attacks; tap/click/Space adds combo-scaled bonus attacks.
 - Hideout → Play → existing 15-wave run → Results → Return to Hideout is the new complete game loop. The previous run can still end in victory or defeat without a softlock.
 - The Hideout Home screen presents the exact canonical neutral mascot, persistent Scrap/Star Shards/power, equipped Weapon/Armour/Charm, weapon family, neutral Core identity, and large mobile buttons.
-- Hideout Home is now an illustrated interactive hub: expedition gate starts Play, glowing Relic shrine opens Training, lantern-lit Salvager cart opens Shop, gear chest opens Stash, and archive shelves open Lootbook. Accessible labels remain, but the destinations are embedded into the environment instead of a stacked menu.
-- The canonical mascot remains unchanged and now idles at the center of the Hideout with a subtle bob/contact shadow. Lantern flicker, Relic glow, drifting motes, and small environmental movement add restrained scene life without obstructing tap targets.
+- Hideout Home now uses a dedicated 480x854 treasure-den environment instead of the combat arena plus code-drawn props. The Expedition Gate, Relic Shrine, Salvager stall, Stash vault, Archive, lanterns, rugs, tools, treasure, and moonlit ruin depth are physical parts of the scene. Accessible translucent hotspots preserve the existing navigation.
+- The canonical mascot remains unchanged and idles at the center of the Hideout with a subtle bob/contact shadow. Drifting motes add restrained scene life while the painted lantern, Relic, water, cloth, and moonlight details establish the environmental mood without obstructing tap targets.
 - The former dominant loadout panel is reduced to a compact bottom expedition ribbon showing weapon/family, armour, Charm, and separate Relic Core identity.
 - Stash is functional outside runs: equipped and stored gear are clearly separated; every item exposes rarity, slot, family, description/effects, and green/red same-slot comparison; stored items can be equipped or scrapped. All changes save immediately.
 - Upgrades now owns the existing permanent +5% Damage/Max HP progression. It clearly shows level, total benefit, escalating Star Shard cost, and the separation between persistent Shards and run-only Coins.
 - The Salvager's Shop is a functional persistent Hideout Shop with three rotating equipment offers, a Mystery Cache, one paid reroll per completed-run cycle, and finite Stash Expansion. Purchases use Scrap and go only to the persistent Stash.
-- The Shop is presented as a warm merchant stall with the canonical mascot visiting, a distinct non-playable hooded keeper, canopy/counter/lantern props, and three fixed item displays. Tapping a display opens a detailed purchase card; buying leaves that exact display visibly `SOLD OUT`.
+- The Shop now has a dedicated illustrated salvage-stall environment and an original non-playable goblin-like Salvager artisan with goggles, tools, apron, counter, lanterns, scrap bins, Mystery Cache, and three physical offer plinths. The exact canonical mascot remains a separate visiting sprite. Tapping a translucent display opens the unchanged purchase card; buying leaves that exact display visibly `SOLD OUT`.
 - Mystery Cache, Stash Expansion, reroll, Scrap budget, purchase feedback, and reveal/claim flow remain unchanged underneath their new scene presentation. Cache reveal, stock changes, and purchases provide clear visual state feedback.
 - Shop offers are Common/Rare-heavy with only a small Epic chance and no normal Legendary offer path. Prices, rarity weights, cache cost, reroll cost, and capacity costs are centralized in one tuning file so boss/world drops remain the premium source.
 - Mystery Cache uses a separate conservative rarity table and a two-step reveal/claim flow. The revealed item persists safely if the player leaves before claiming it.
 - Shop stock persists across restarts, including sold-out state, and refreshes only after a completed victory or defeat. Restarting the app cannot refresh offers. Lootbook remains an honest `Coming Soon` destination.
 - Stash Expansion persists through the data-driven 12 → 18 → 24 progression. Full-Stash purchases and cache openings are visibly blocked without spending Scrap or overwriting gear.
 - Stash now has simple ALL/WEAPON/ARMOUR/CHARM/RUNE filters. Equipped and stored cards remain distinct, and equipped gear cannot be scrapped from this interface.
-- Stash is framed as a cool treasure-vault/gear-chest space with compact icon-led rarity cards and the selected item promoted into the existing large comparison card. Filters, capacity, Equip/Scrap, protection, and comparison behavior are unchanged.
+- Stash now uses a dedicated illustrated moonlit equipment vault with an open treasure chest, armour, weapon racks, charms, lanterns, rarity gems, and a calmer center for functional overlays. Its upper art receives more screen space, while compact rarity cards and the selected comparison card preserve filters, capacity, Equip/Scrap, and protection behavior. Weapon items reuse the existing family weapon sprites as real card thumbnails.
+- Relic Training now uses a dedicated violet/cyan shrine chamber with a physical Relic Core altar, candles, carvings, offerings, and a staged mascot-to-core light connection. The exact canonical mascot remains a separate overlay; the permanent-power logic and costs are unchanged.
+- Lootbook remains Coming Soon, but the notice now sits over the illustrated Hideout/Archive environment instead of a generated code-drawn bookshelf wall.
 - Player-facing equipment terminology is standardized to WEAPON, ARMOUR, CHARM, and RUNE. The internal `Relic` equipment key remains unchanged for save compatibility, while RELIC CORE continues to describe the separate run-build system.
 - Results now summarizes victory/defeat, wave reached, enemies defeated, Run Coins earned/spent/left, Scrap gained, Star Shards gained, and up to two notable kept/equipped loot names, then offers one `Return to Hideout` action.
 - Active combat now has a small deliberate pause button. `RUN PAUSED` offers Resume or Abandon; Abandon requires a second confirmation with Stay/Return Home. Confirming discards only current run progress/unclaimed rewards, grants no result currency, does not refresh Hideout Shop stock, and returns directly to the Hideout.
@@ -78,6 +80,10 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - `art/sprites/relic_beast_base.png` - transparent canonical mascot game sprite; generated by background extraction only from the canonical source artwork.
 - `art/sprites/enemies/` - transparent Razor Imp, Mossback Brute, Lantern Hexer, Grump Knight, and Hoard Dragon cutouts.
 - `art/backgrounds/treasure_ruins_arena.png` - layered portrait gameplay arena.
+- `art/backgrounds/lootlings_hideout.png` - dedicated painted Home hub with five physical destinations and central mascot stage.
+- `art/backgrounds/salvager_shop.png` - illustrated Salvager NPC, counter, offer plinths, Mystery Cache, and salvage-stall environment.
+- `art/backgrounds/stash_vault.png` - illustrated equipment vault, open gear chest, racks, armour, charms, and comparison-space backdrop.
+- `art/backgrounds/relic_shrine.png` - illustrated Relic Training chamber, core altar, mascot stage, and upgrade-space backdrop.
 - `art/sprites/weapons/` - transparent painterly Vanguard hammer, Ranger bow, Mage staff, and Rogue dagger-pair cutouts.
 - `meta_store.gd` - validated Star Shard/permanent-power persistence.
 - `ART_REFERENCE_INDEX.md` - canonical filename/identity/system reference map.
@@ -89,12 +95,12 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Three regular enemies per wave; waves 8 and 15 are single special encounters.
 - Combat style is driven by the equipped Weapon family. Relic build is independent, allowing combinations such as Fire Ranger, Lightning Mage, Poison Rogue, and Physical Vanguard.
 - Player-facing equipment slots are Weapon, Armour, Charm, and Rune. The internal `Relic` key is retained only for compatibility; Relic Core/build identity remains separate. Stash capacity progresses through 12, 18, and 24 slots.
-- The player, all five reachable enemy roles, four weapon families, and arena are texture-based. Loot glyphs, particles, and UI decoration remain lightweight draw calls or standard Controls.
+- The player, all five reachable enemy roles, four weapon families, combat arena, Hideout Home, Salvager Shop, Stash, and Relic Shrine are texture-based. Loot glyphs, particles, and UI decoration remain lightweight draw calls or standard Controls.
 - Save paths remain compatible: `user://lootlings_save.cfg` stores Star Shards/power; version-2 `user://lootlings_inventory.cfg` adds Stash capacity while loading version-1 saves at 12 slots; `user://lootlings_hideout_shop.cfg` stores stock/cycle/reroll/pending-cache state. Purchases and claims save immediately.
 
 ## VALIDATION
 - Headless asset import/parser and full smoke/regression suites pass. Pause/abandon and interactive-destination assertions pass alongside all prior Shop, economy, capacity, legacy-save, combat, loot, persistence, and boss-reward checks. Current seeded tapping balance remains 4 victories in 5 runs.
-- Real OpenGL 480x854 captures pass on the Godot 4.7.2 Compatibility renderer (NVIDIA GeForce RTX 4080 SUPER). Living Hideout, merchant stall, detailed offer purchase, vault Stash, Relic Training, archive, active-combat pause button, paused menu, and abandon confirmation were inspected for clipping, hierarchy, readability, and mobile tap targets.
+- Real OpenGL 480x854 captures pass on the Godot 4.7.2 Compatibility renderer (NVIDIA GeForce RTX 4080 SUPER). Painted Home, illustrated Salvager/Shop, equipment-vault Stash, Relic Shrine, and Archive notice were re-inspected for clipping, hierarchy, readability, mascot fidelity, background visibility, and mobile tap targets. The unchanged combat view also renders normally.
 - The Windows sandbox may print a root-certificate-store warning during headless tests; it does not affect gameplay or test results.
 
 ## KNOWN LIMITATIONS
@@ -103,11 +109,11 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Weapon evolution paths are represented in catalog data for safe future extension; this checkpoint does not implement mutation choices or a large evolution tree.
 - Scrap now funds the persistent Hideout Shop, Mystery Cache, reroll, and capacity expansion; Forge remains intentionally unimplemented.
 - Merchant stock is intentionally equipment-only in this first pass; healing/run-upgrade stock can be assessed after playtesting the core shop economy.
-- Lootbook remains Coming Soon. The Hideout Shop intentionally sells only the existing catalog and has no real-world timer, premium currency, or unlimited inventory.
-- Hideout/Shop/vault/shrine/archive environment props remain lightweight code-drawn presentation intended to be replacement-ready when final location art is supplied. No canonical character art was repainted or redesigned.
+- Lootbook remains Coming Soon. Its physical Archive nook exists in the Home art, but a full collectible compendium is intentionally deferred. The Hideout Shop intentionally sells only the existing catalog and has no real-world timer, premium currency, or unlimited inventory.
+- Armour, Charm, and Rune list entries still use readable category glyphs because dedicated item art does not exist yet; weapon entries use the four existing painted family sprites. Loot particles and some UI decoration remain procedural/Control-based. No canonical character art was repainted or redesigned.
 
 ## LAST COMPLETED CHECKPOINT
-Place-first Hideout presentation checkpoint - living interactive hub, merchant-stall Shop with inspect-before-buy displays, vault-styled Stash, lightweight transitions, and safe pause/confirmed-abandon flow without system or balance changes.
+Illustrated Hideout checkpoint - dedicated painted Home, Salvager Shop/NPC, equipment-vault Stash, and Relic Shrine environments replace code-drawn location props while preserving every existing interaction, economy, save, and run system.
 
 ## NEXT MANUAL PLAYTEST
-Tap every environmental destination repeatedly at phone size, including Shop offer inspect/buy/sold states, cache reveal, Stash filters/comparisons, shrine upgrade, archive return, and expedition gate. During a run verify Pause→Resume, Pause→Abandon→Stay, and Pause→Abandon→Return Home; confirm abandon grants nothing and stock does not refresh, while ordinary victory/defeat still refresh stock and award the established results.
+At phone size, tap the edges and centers of every illustrated Home destination and confirm the labels remain readable over the art. In Shop, inspect a weapon thumbnail, buy an offer, verify its physical plinth becomes SOLD OUT, then test Cache reveal/claim and return. In Stash, scroll long inventories and compare/equip/scrap both weapon and non-weapon items. In Relic Training, buy one upgrade and confirm the shrine presentation stays readable. Enter a run once to confirm the Expedition Gate still transitions into unchanged combat.
