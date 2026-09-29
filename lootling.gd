@@ -8,6 +8,7 @@ const ItemCatalog = preload("res://item_catalog.gd")
 const LootSystem = preload("res://loot_system.gd")
 const InventorySystem = preload("res://inventory_system.gd")
 const ShopSystem = preload("res://shop_system.gd")
+const HideoutUI = preload("res://hideout_ui.gd")
 const ARENA_BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
@@ -28,7 +29,7 @@ var inventory = InventorySystem.new()
 var shop = ShopSystem.new()
 var title_font: Font
 var body_font: Font
-var state := "playing"
+var state := "hideout"
 var wave := 1
 var wave_kills := 0
 var total_kills := 0
@@ -123,13 +124,16 @@ var combo_clock := 0.0
 var meta_shards := 0
 var meta_power := 0
 var run_shards_earned := 0
+var run_coins_earned := 0
+var run_coins_spent := 0
+var run_start_scrap := 0
+var run_kept_loot: Array[String] = []
 var upgrade_panel: Panel
 var upgrade_title: Label
 var upgrade_buttons: Array[Button] = []
 var result_panel: Panel
 var result_title: Label
 var result_summary: Label
-var meta_button: Button
 var restart_button: Button
 var help_label: Label
 var item_panel: Panel
@@ -148,6 +152,7 @@ var merchant_reroll_button: Button
 var merchant_continue_button: Button
 var boss_reward_panel: Panel
 var boss_reward_buttons: Array[Button] = []
+var hideout_ui
 
 func _ready() -> void:
 	rng.randomize()
@@ -156,7 +161,8 @@ func _ready() -> void:
 	build_overlay_ui()
 	load_meta()
 	inventory.load(INVENTORY_SAVE_PATH)
-	start_run()
+	build_hideout()
+	show_hideout()
 	queue_redraw()
 
 func build_overlay_ui() -> void:
@@ -177,27 +183,56 @@ func build_overlay_ui() -> void:
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
 	result_panel.visible = false
 	result_title = make_label(result_panel, "RUN COMPLETE!", 34, Rect2(20, 25, 384, 55), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	result_summary = make_label(result_panel, "", 20, Rect2(35, 100, 354, 190), HORIZONTAL_ALIGNMENT_CENTER, Color("#e9efff"))
+	result_summary = make_label(result_panel, "", 18, Rect2(35, 94, 354, 275), HORIZONTAL_ALIGNMENT_CENTER, Color("#e9efff"))
 	result_summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	meta_button = Button.new()
-	meta_button.position = Vector2(47, 320)
-	meta_button.size = Vector2(330, 72)
-	meta_button.add_theme_font_size_override("font_size", 18)
-	apply_button_style(meta_button, Color("#24365f"), Color("#72b8ff"))
-	meta_button.pressed.connect(buy_meta_power)
-	result_panel.add_child(meta_button)
 	restart_button = Button.new()
-	restart_button.text = "START ANOTHER RUN"
-	restart_button.position = Vector2(47, 415)
+	restart_button.text = "RETURN TO HIDEOUT"
+	restart_button.position = Vector2(47, 410)
 	restart_button.size = Vector2(330, 78)
 	restart_button.add_theme_font_size_override("font_size", 20)
 	apply_button_style(restart_button, Color("#795523"), Color("#ffd468"))
-	restart_button.pressed.connect(start_run)
+	restart_button.pressed.connect(show_hideout)
 	result_panel.add_child(restart_button)
 	help_label = make_label(self, "TAP / CLICK / SPACE = bonus attack", 14, Rect2(20, 815, 440, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#a9b7d7"))
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
+
+func build_hideout() -> void:
+	hideout_ui = HideoutUI.new()
+	add_child(hideout_ui)
+	hideout_ui.play_requested.connect(start_run)
+	hideout_ui.stash_equip_requested.connect(equip_stash_item)
+	hideout_ui.stash_scrap_requested.connect(scrap_stash_item)
+	hideout_ui.upgrade_requested.connect(buy_meta_power)
+	hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+
+func show_hideout() -> void:
+	state = "hideout"
+	result_panel.visible = false
+	upgrade_panel.visible = false
+	item_panel.visible = false
+	merchant_panel.visible = false
+	boss_reward_panel.visible = false
+	help_label.visible = false
+	hideout_ui.visible = true
+	hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+	hideout_ui.show_home()
+	queue_redraw()
+
+func equip_stash_item(index: int) -> void:
+	if state != "hideout":
+		return
+	if inventory.equip_from_stash(index):
+		inventory.save(INVENTORY_SAVE_PATH)
+		hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+
+func scrap_stash_item(index: int) -> void:
+	if state != "hideout":
+		return
+	if inventory.scrap_from_stash(index) > 0:
+		inventory.save(INVENTORY_SAVE_PATH)
+		hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
@@ -304,6 +339,8 @@ func make_label(parent: Node, text_value: String, size_value: int, rect: Rect2, 
 
 func start_run() -> void:
 	state = "playing"
+	if hideout_ui != null:
+		hideout_ui.visible = false
 	wave = 1
 	wave_kills = 0
 	total_kills = 0
@@ -373,6 +410,10 @@ func start_run() -> void:
 	boss_reward_panel.visible = false
 	help_label.visible = true
 	run_shards_earned = 0
+	run_coins_earned = 0
+	run_coins_spent = 0
+	run_start_scrap = inventory.scrap
+	run_kept_loot.clear()
 	status_message = "A new run begins!"
 	status_clock = 1.4
 	spawn_enemy()
@@ -692,6 +733,7 @@ func kill_enemy() -> void:
 	wave_kills += 1
 	var reward := int(round((5.0 + wave * 1.8) * reward_mult * (1.0 + inventory.effect_total("coin_mult")) * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0)))
 	coins += reward
+	run_coins_earned += reward
 	var xp_reward := (13.0 + wave * 2.2) * reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0)
 	var fire_count: int = build.count("Fire")
 	if fire_count >= 3 or wildfire_power > 0:
@@ -844,6 +886,8 @@ func accept_item_equip() -> void:
 	if state != "item" or current_item.is_empty():
 		return
 	var item_name: String = current_item.get("name", "Loot")
+	if not item_name in run_kept_loot:
+		run_kept_loot.append(item_name)
 	var result: Dictionary = inventory.equip(current_item)
 	refresh_equipment_health()
 	inventory.save(INVENTORY_SAVE_PATH)
@@ -857,6 +901,9 @@ func accept_item_keep() -> void:
 		return
 	if not inventory.keep(current_item):
 		return
+	var kept_name: String = current_item.get("name", "Loot")
+	if not kept_name in run_kept_loot:
+		run_kept_loot.append(kept_name)
 	inventory.save(INVENTORY_SAVE_PATH)
 	status_message = "%s sent to stash." % current_item.get("name", "Loot")
 	finish_item_decision()
@@ -928,6 +975,7 @@ func buy_merchant_item(index: int) -> void:
 	if coins < price:
 		return
 	coins -= price
+	run_coins_spent += price
 	var bought: Dictionary = shop.take(index)
 	merchant_panel.visible = false
 	return_to_merchant = true
@@ -942,6 +990,7 @@ func reroll_merchant() -> void:
 	if coins < price:
 		return
 	coins -= price
+	run_coins_spent += price
 	shop.reroll(loot_system, wave)
 	refresh_merchant_ui()
 
@@ -1049,27 +1098,30 @@ func end_run(victory: bool) -> void:
 	save_meta()
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
-	result_summary.text = "Wave %d / %d\nLevel %d  -  %d enemies\n%d coins  -  %d scrap\n%s equipped\n\n+%d star shards\nPermanent power: +%d%%" % [wave, RUN_LAST_WAVE, level, total_kills, coins, inventory.scrap, inventory.equipped_item("Weapon").get("name", "No weapon"), run_shards_earned, meta_power * 5]
+	var notable_loot := "None"
+	if not run_kept_loot.is_empty():
+		notable_loot = run_kept_loot[0]
+		if run_kept_loot.size() > 1:
+			notable_loot += ", " + run_kept_loot[1]
+	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
+	result_summary.text = "%s\n\nWave reached  %d / %d\nEnemies defeated  %d\nRun Coins  %d earned  •  %d spent  •  %d left\nScrap gained  +%d\nStar Shards gained  +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", wave, RUN_LAST_WAVE, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot]
 	if victory:
 		for burst in range(4):
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
-	refresh_meta_button()
 
 func buy_meta_power() -> void:
-	if state != "result":
+	if state != "hideout":
 		return
 	var cost := 10 + meta_power * 5
 	if meta_shards >= cost:
 		meta_shards -= cost
 		meta_power += 1
 		save_meta()
-		refresh_meta_button()
-		result_summary.text += "\nPower upgraded!"
+		refresh_hideout()
 
-func refresh_meta_button() -> void:
-	var cost := 10 + meta_power * 5
-	meta_button.text = "PERMANENT POWER +5%%\nCost %d shards  -  You have %d" % [cost, meta_shards]
-	meta_button.disabled = meta_shards < cost
+func refresh_hideout() -> void:
+	if hideout_ui != null:
+		hideout_ui.configure(inventory, meta_shards, meta_power, Callable(self, "build_item_comparison"))
 
 func load_meta() -> void:
 	var progress := MetaStore.load_progress(SAVE_PATH)

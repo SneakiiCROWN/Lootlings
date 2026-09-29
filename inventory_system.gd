@@ -40,6 +40,33 @@ func keep(item: Dictionary) -> bool:
 	stash.append(item.duplicate(true))
 	return true
 
+func equip_from_stash(index: int) -> bool:
+	if index < 0 or index >= stash.size():
+		return false
+	var selected = stash[index]
+	if not selected is Dictionary:
+		return false
+	var item: Dictionary = selected
+	var slot: String = item.get("slot", "")
+	if not slot in SLOTS:
+		return false
+	stash.remove_at(index)
+	var old: Dictionary = equipped.get(slot, {})
+	if not old.is_empty() and old.get("serial", 0) != -1:
+		stash.append(old.duplicate(true))
+	equipped[slot] = item.duplicate(true)
+	return true
+
+func scrap_from_stash(index: int) -> int:
+	if index < 0 or index >= stash.size():
+		return 0
+	var selected = stash[index]
+	if not selected is Dictionary:
+		return 0
+	var item: Dictionary = selected
+	stash.remove_at(index)
+	return salvage(item)
+
 func salvage(item: Dictionary) -> int:
 	var value := ItemCatalog.scrap_value(item)
 	scrap += value

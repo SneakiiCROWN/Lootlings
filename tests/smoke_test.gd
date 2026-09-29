@@ -6,6 +6,7 @@ const ItemCatalog = preload("res://item_catalog.gd")
 const LootSystem = preload("res://loot_system.gd")
 const InventorySystem = preload("res://inventory_system.gd")
 const ShopSystem = preload("res://shop_system.gd")
+const MetaStore = preload("res://meta_store.gd")
 
 var failures: Array[String] = []
 
@@ -26,6 +27,8 @@ func run_tests() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await process_frame
+	check(game.state == "hideout" and game.hideout_ui.visible, "the game opens in the Hideout")
+	check(game.hideout_ui.current_screen == "home", "the Hideout opens on its Home screen")
 	for asset_path in [
 		"res://art/sprites/relic_beast_base.png",
 		"res://art/sprites/enemies/razor_imp.png",
@@ -41,6 +44,19 @@ func run_tests() -> void:
 	]:
 		check(load(asset_path) is Texture2D, "%s imports as a Texture2D" % asset_path)
 	game.inventory.reset_to_starter()
+	game.start_run()
+	var hideout_kept_item := ItemCatalog.create_item("mossguard_harness", "RARE", 7701)
+	game.current_item = hideout_kept_item
+	game.state = "item"
+	game.accept_item_keep()
+	game.show_hideout()
+	check(game.inventory.stash.size() == 1 and game.inventory.stash[0].get("serial", 0) == 7701, "loot kept during a run appears in the Hideout stash")
+	game.equip_stash_item(0)
+	var persisted_game_inventory = InventorySystem.new()
+	persisted_game_inventory.load(game.INVENTORY_SAVE_PATH)
+	check(persisted_game_inventory.equipped_item("Armour").get("serial", 0) == 7701, "equipping from the Hideout persists across an inventory reload")
+	game.inventory.reset_to_starter()
+	game.inventory.save(game.INVENTORY_SAVE_PATH)
 	game.start_run()
 	var identity_build = BuildSystem.new()
 	identity_build.add_upgrade(upgrade_by_id("ignite"))
@@ -64,15 +80,21 @@ func run_tests() -> void:
 	var rare_bow := ItemCatalog.create_item("bonebow", "RARE", 777)
 	test_inventory.equip(rare_bow)
 	check(test_inventory.weapon_family() == "RANGER" and test_inventory.effect_total("crit") > 0.0, "equipped weapon exposes its combat family and affixes")
-	check(test_inventory.keep(ItemCatalog.create_item("mossguard_harness", "COMMON", 778)), "found gear can be kept in the stash")
+	var stored_armour := ItemCatalog.create_item("mossguard_harness", "COMMON", 778)
+	check(test_inventory.keep(stored_armour), "found gear can be kept in the stash")
+	check(test_inventory.equip_from_stash(0), "stored gear can be equipped from the Hideout stash")
+	check(test_inventory.equipped_item("Armour").get("serial", 0) == 778 and test_inventory.stash.is_empty(), "stash equip updates the correct equipment slot")
+	var stored_relic := ItemCatalog.create_item("ember_pop", "EPIC", 779)
+	check(test_inventory.keep(stored_relic), "a second item can be stored for salvage testing")
 	var scrap_before: int = test_inventory.scrap
-	test_inventory.salvage(ItemCatalog.create_item("ember_pop", "EPIC", 779))
-	check(test_inventory.scrap > scrap_before, "salvaging converts gear into persistent scrap")
+	var expected_scrap := ItemCatalog.scrap_value(stored_relic)
+	check(test_inventory.scrap_from_stash(0) == expected_scrap, "stored gear can be scrapped from the Hideout stash")
+	check(test_inventory.scrap == scrap_before + expected_scrap and test_inventory.stash.is_empty(), "stash salvage removes the item and grants persistent Scrap")
 	var inventory_test_path := "user://lootlings_inventory_smoke.cfg"
 	check(test_inventory.save(inventory_test_path) == OK, "inventory and scrap save successfully")
 	var loaded_inventory = InventorySystem.new()
 	loaded_inventory.load(inventory_test_path)
-	check(loaded_inventory.weapon_family() == "RANGER" and loaded_inventory.stash.size() == 1 and loaded_inventory.scrap == test_inventory.scrap, "equipped gear, stash, and scrap persist through save/load")
+	check(loaded_inventory.weapon_family() == "RANGER" and loaded_inventory.equipped_item("Armour").get("serial", 0) == 778 and loaded_inventory.stash.is_empty() and loaded_inventory.scrap == test_inventory.scrap, "Hideout equipment and Scrap persist through save/load")
 	var test_shop = ShopSystem.new()
 	test_shop.generate_stock(test_loot, 6)
 	check(test_shop.stock.size() == 3 and int(test_shop.stock[0].price) > 0, "merchant generates three priced choices")
@@ -146,12 +168,30 @@ func run_tests() -> void:
 	check(game.state == "result" and game.wave == game.RUN_LAST_WAVE, "boss victory reaches results")
 	check(game.total_kills >= 40, "waves and miniboss produced the expected enemy sequence")
 	check(game.meta_shards > 0, "run rewards permanent-progression currency")
+	check(game.restart_button.text == "RETURN TO HIDEOUT", "results provide one clear return to the Hideout")
+	check(game.result_summary.text.contains("Run Coins") and game.result_summary.text.contains("Scrap gained") and game.result_summary.text.contains("Star Shards gained"), "results summarize the run economy and rewards")
+	game.show_hideout()
+	check(game.state == "hideout" and game.hideout_ui.visible, "results return safely to the Hideout")
+	var original_shards: int = game.meta_shards
+	var original_power: int = game.meta_power
+	game.meta_shards = 100
+	game.meta_power = 0
+	game.show_hideout()
+	game.buy_meta_power()
+	check(game.meta_power == 1 and game.meta_shards == 90, "permanent +5% power is purchased only from Hideout Upgrades")
+	var persisted_meta: Dictionary = MetaStore.load_progress(game.SAVE_PATH)
+	check(int(persisted_meta.get("power", -1)) == 1 and int(persisted_meta.get("shards", -1)) == 90, "Hideout upgrades persist immediately")
+	game.meta_shards = original_shards
+	game.meta_power = original_power
+	game.save_meta()
 	game.start_run()
-	check(game.state == "playing" and game.wave == 1 and game.enemy_alive, "another run restarts cleanly")
+	check(game.state == "playing" and not game.hideout_ui.visible and game.wave == 1 and game.enemy_alive, "Play starts another run cleanly from the Hideout")
 	game.player_hp = 1.0
 	game.enemy_damage = 999.0
 	game.perform_enemy_attack()
 	check(game.state == "result" and game.player_hp == 0.0, "defeat reaches results without a softlock")
+	game.show_hideout()
+	check(game.state == "hideout", "defeat can return to the Hideout")
 	seed(424242)
 	var victories := 0
 	for run_index in range(5):
