@@ -1,7 +1,7 @@
 # Lootlings Project State
 
 ## CURRENT STATE
-Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wave run and a fully illustrated interactive Hideout. The working meta economy, Stash, Relic Training, Shop, run, combat, rewards, and saves are preserved while menu overlays now defer to the painted environments, reward actions have concise tactile feedback, and the final boss uses a corrected readable sprite. Stable fallback `4f92742` is the previous verified illustrated-Hideout checkpoint.
+Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wave run, three visually distinct expedition zones, and a fully illustrated interactive Hideout. Combat now moves between regular foes with substantially less dead air, accepts one short buffered approach tap, and uses cleaner modal/message hierarchy. The working meta economy, Stash, Relic Training, Shop, combat/build rules, rewards, and saves remain compatible. Stable fallback `a14cf2bd7d122cf01ff43657b52e575658d609b2` is the previous verified checkpoint.
 
 ## WHAT WORKS
 - Automatic approach and attacks; tap/click/Space adds combo-scaled bonus attacks.
@@ -28,6 +28,17 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Active combat now has a small deliberate pause button. `RUN PAUSED` offers Resume or Abandon; Abandon requires a second confirmation with Stay/Return Home. Confirming discards only current run progress/unclaimed rewards, grants no result currency, does not refresh Hideout Shop stock, and returns directly to the Hideout.
 - Hideout destination changes use a short 0.22-second fade, while native pressed/hover states provide immediate interaction feedback and leave clean attachment points for future UI audio.
 - Enemy health, retaliation, death, Coins, XP, level-ups, wave scaling, miniboss, boss, victory, and defeat remain unchanged.
+- The expedition is now data-driven through `zone_catalog.gd`: waves 1–5 are Outer Treasure Ruins, 6–10 are Salvage Warrens, and 11–15 are Hoard Depths. Every zone has a stable ID, name, wave range, background, accent/atmosphere, regular-enemy definitions, deterministic composition table, boss hooks, and future music/loot-theme hooks.
+- Wave 6 introduces Cinder Gnawer, Scrap Golem, and Kiln Wisp; wave 11 introduces Gemfang Wyrmling, Vaultbound Sentinel, and Shardseer. These replacement-ready painted enemy cutouts preserve the validated skirmisher/tank/caster mechanics while changing zone identity and silhouette.
+- Same-wave normal kills now hand off in 0.48 seconds and use only a small player backstep. New waves, zones, and special encounters retain deliberate repositioning. Coin/XP travel continues while the next regular enemy enters, while a real equipment drop still protects a 1.2-second reveal window.
+- Newly spawned enemies receive a predictable first-hit clock rather than stale timing. No raw damage, attack-rate, HP, healing, boss, loot-odds, or reward values were changed in this checkpoint.
+- One bonus tap can buffer for up to 0.45 seconds during final approach, with an immediate ring response and a 0.11-second request ceiling. It fires once on reaching attack range; burst input cannot queue an attack backlog. The permanent help line disappears after the first successful tap.
+- Weapon-family idle transform timing now communicates weight (Vanguard), rhythm (Ranger/Mage), or sharpness (Rogue); tap strikes receive slightly stronger lean/stretch. Skirmishers, tanks, casters, minibosses, and bosses receive restrained role-specific transform motion, with a small caster pre-cast glow.
+- Ordinary wave and upgrade events now use a single confirmation lane. Heavy Physical hits combine their identity and damage into one `QUAKE` result instead of stacking `QUAKE BONK` and damage text.
+- The encounter counter reads `FOE 1 / 3` while the first foe is active. Combat-only encounter/name/HP/status/build-strip elements are suppressed during upgrade, equipment, merchant, boss-reward, result, and zone-transition states.
+- Pack Peddler keeps the same stock, prices, reroll, and Continue behavior in a shorter, more translucent roadside-stop panel that shows more of the active zone and keeps Run Coins prominent.
+- Wave 5 and 10 interstitial work resolves before a short 0.85-second travel card. `DESCENDING INTO THE EMBERWORKS / SALVAGE WARRENS` and `THE VAULT OPENS / HOARD DEPTHS` then hand off to the next zone without stacked wave banners.
+- Zone ambience is bounded draw-time presentation rather than accumulating nodes: cool motes in Outer Ruins, ember drift in Salvage Warrens, and restrained gold/violet glints in Hoard Depths.
 - Three-choice paused level-ups with 18 stacking upgrades. Fire, Lightning, Poison, and Physical Relic builds still combine freely with equipment.
 - Four interchangeable weapon combat styles, with no permanent class lock: heavy/defensive Vanguard, ranged/rapid Ranger, ranged/proc Mage, and fast/crit/execute Rogue.
 - Small data-driven equipment catalog covering Weapon, Armour, Relic, and Rune slots with named effects and future weapon-evolution metadata.
@@ -77,10 +88,13 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - `loot_system.gd` - centralized drop chances, rarity tables, seeded item rolls, and shop rolls.
 - `inventory_system.gd` - equipped slots, stash, salvage, effect aggregation, and persistence.
 - `shop_system.gd` - merchant stock, prices, reroll costs, and purchases.
+- `zone_catalog.gd` - stable zone IDs, wave ranges, backgrounds, palettes, enemy identity/composition data, special-enemy hooks, and future audio/loot-theme hooks.
 - `creature_renderer.gd` - canonical player-sprite presentation plus regular, miniboss, boss, and weapon sprite selection.
 - `art/sprites/relic_beast_base.png` - transparent canonical mascot game sprite; generated by background extraction only from the canonical source artwork.
-- `art/sprites/enemies/` - transparent Razor Imp, Mossback Brute, Lantern Hexer, Grump Knight, and Hoard Dragon cutouts.
+- `art/sprites/enemies/` - transparent zone atlases plus Razor Imp, Mossback Brute, Lantern Hexer, Grump Knight, and Hoard Dragon cutouts.
 - `art/backgrounds/treasure_ruins_arena.png` - layered portrait gameplay arena.
+- `art/backgrounds/salvage_warrens_arena.png` - dedicated ancient-forge Salvage Warrens arena.
+- `art/backgrounds/hoard_depths_arena.png` - dedicated sealed-vault Hoard Depths arena.
 - `art/backgrounds/lootlings_hideout.png` - dedicated painted Home hub with five physical destinations and central mascot stage.
 - `art/backgrounds/salvager_shop.png` - illustrated Salvager NPC, counter, offer plinths, Mystery Cache, and salvage-stall environment.
 - `art/backgrounds/stash_vault.png` - illustrated equipment vault, open gear chest, racks, armour, charms, and comparison-space backdrop.
@@ -90,18 +104,29 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - `ART_REFERENCE_INDEX.md` - canonical filename/identity/system reference map.
 - `art/reference/canonical/` - canonical visual source of truth; no runtime dependency.
 - `tests/smoke_test.gd` - end-to-end regression, persistence checks, and seeded balance simulation.
+- `tests/balance_audit.gd` - reproducible 48-run weapon/Core/seed matrix with run-time, win, level, HP, Coin, spend, Scrap, kill, and purchase reporting.
 
 ## SYSTEMS
-- Top-level flow starts in `hideout`; run states include `playing`, `paused`, `abandon_confirm`, `upgrade`, `item`, `merchant`, `boss_reward`, and `result`.
+- Top-level flow starts in `hideout`; run states include `playing`, `zone_transition`, `paused`, `abandon_confirm`, `upgrade`, `item`, `merchant`, `boss_reward`, and `result`.
 - Three regular enemies per wave; waves 8 and 15 are single special encounters.
 - Combat style is driven by the equipped Weapon family. Relic build is independent, allowing combinations such as Fire Ranger, Lightning Mage, Poison Rogue, and Physical Vanguard.
 - Player-facing equipment slots are Weapon, Armour, Charm, and Rune. The internal `Relic` key is retained only for compatibility; Relic Core/build identity remains separate. Stash capacity progresses through 12, 18, and 24 slots.
-- The player, all five reachable enemy roles, four weapon families, combat arena, Hideout Home, Salvager Shop, Stash, and Relic Shrine are texture-based. Loot glyphs, particles, and UI decoration remain lightweight draw calls or standard Controls.
+- The player, all eleven reachable enemy identities, four weapon families, three combat arenas, Hideout Home, Salvager Shop, Stash, and Relic Shrine are texture-based. Loot glyphs, particles, and UI decoration remain lightweight draw calls or standard Controls.
 - Save paths remain compatible: `user://lootlings_save.cfg` stores Star Shards/power; version-2 `user://lootlings_inventory.cfg` adds Stash capacity while loading version-1 saves at 12 slots; `user://lootlings_hideout_shop.cfg` stores stock/cycle/reroll/pending-cache state. Purchases and claims save immediately.
 
+## BALANCE / ECONOMY AUDIT
+- Current player baseline remains 11 damage, 0.85-second base attack interval, 8% crit at 2x, and 0.65x tap power before equipment/build modifiers. Weapon personalities remain Vanguard slow/heavy, Ranger quick, Mage measured/proc-driven, and Rogue fastest/crit-driven.
+- Enemy HP remains `(24 + 7 × wave) × 1.15^(wave-1)` before archetype/special multipliers; regular role multipliers, enemy damage/intervals, 20% completed-wave heal, miniboss 2.65x HP, and boss 4.8x HP are unchanged. The heal materially helps marginal builds but did not erase the spread in the matrix.
+- XP remains `13 + 2.2 × wave` before special/reward modifiers; level requirements remain `32 + 15 × current level`. Upgrade/Core timing therefore changes only when an existing build earns bonus XP.
+- A permanent 48-run deterministic audit now covers four weapons × four Core biases × three seeds. Poison won 12/12 and reached roughly level 14.7–18.7, while the other twelve pairings won 5/36 and usually reached level 8.7–11.7. This is a clear Poison/Relic Magnet sustain-and-reward outlier; no broad tuning was hidden into this presentation/tempo checkpoint.
+- The normal five-seed tapping regression remains 4/5 wins. Its completed-run times are now 102.0–182.6 seconds (one defeat at 94.0 seconds); the faster shape comes from handoff/repositioning cleanup rather than stat buffs.
+- Run Coin income exceeded the two merchant opportunities in every audit pairing: average earned values ranged about 515–2,272 while average spend was about 86–144. Every policy run bought one affordable item at each stop (2/run). Merchant prices remain `[18, 34, 62, 105] + 2 × wave`, with rerolls `12 + 2 × wave + 7 × prior rerolls`.
+- Loot remains 7% on regular foes, guaranteed Rare+ at Grump Knight, and a three-item Epic+ Hoard Dragon choice. The aggressive audit policy scrapped roughly 38–71 value per run; inventory/save behavior, rarity tables, Scrap yields, Star Shards, persistent Shop/cache/reroll/capacity prices, and auto-scrap protection were not changed.
+- Recommended later tuning work is a larger player-policy sample focused on Poison's XP/Coin/sustain coupling and whether Run Coin sinks should be deeper. Preserve the present raw tuning until that targeted pass can separate simulator policy bias from real play.
+
 ## VALIDATION
-- Headless asset import/parser, normal runtime, and the full smoke/regression suite pass. Pause/abandon, reward-free abandon/no-refresh behavior, interactive destinations, Shop/economy, capacity, legacy-save, combat, loot, persistence, and boss-reward assertions pass. Current seeded tapping balance remains the established 4 victories in 5 runs.
-- Real OpenGL 480x854 captures pass on the Godot 4.7.2 Compatibility renderer (NVIDIA GeForce RTX 4080 SUPER). Home and its unobtrusive hotspots; Shop selected/purchased/sold/cache states; Stash; Relic Training; normal/miniboss/boss combat; Core awakening; normal and boss death/reward travel; boss choice; victory/defeat; Pause; and Abandon were visually inspected for clipping, hierarchy, readability, art separation, and phone-size presentation.
+- Headless asset import/parser, normal runtime, full smoke/regression/persistence/economy suite, and the new 48-run audit pass. Pause/abandon, reward-free abandon/no-refresh behavior, interactive destinations, save compatibility, merchant/item flow, tap buffering/ceiling, no-drop/drop timing, zone handoff, combat, loot, and boss-reward assertions pass. Current seeded tapping balance remains the established 4 victories in 5 runs.
+- Real OpenGL 480x854 captures pass on the Godot 4.7.2 Compatibility renderer (NVIDIA GeForce RTX 4080 SUPER). All three arenas, all six new regular enemies, both travel cards, Pack Peddler, level-up modal, buffered tap response, no-gear rapid handoff with Coin/XP still travelling, and protected real-gear reveal were inspected at gameplay scale. Previously validated unchanged Hideout, Stash, Shrine, special-enemy, item, pause/abandon, result, and return-home paths remain covered by the regression suite.
 - The Windows sandbox may print a root-certificate-store warning during headless tests; it does not affect gameplay or test results.
 
 ## KNOWN LIMITATIONS
@@ -112,9 +137,12 @@ Playable Godot 4.7.2 portrait vertical slice with a cohesive sprite-based 15-wav
 - Merchant stock is intentionally equipment-only in this first pass; healing/run-upgrade stock can be assessed after playtesting the core shop economy.
 - Lootbook remains Coming Soon. Its physical Archive nook exists in the Home art, but a full collectible compendium is intentionally deferred. The Hideout Shop intentionally sells only the existing catalog and has no real-world timer, premium currency, or unlimited inventory.
 - Armour, Charm, and Rune list entries still use readable category glyphs because dedicated item art does not exist yet; weapon entries use the four existing painted family sprites. Loot particles and some UI decoration remain procedural/Control-based. No canonical character art was repainted or redesigned.
+- New regular-zone enemies use one three-cell bitmap atlas per zone and lightweight transform motion rather than frame-by-frame animation. Zone selection is data-driven, but this first expedition's five-wave composition tables are deterministic rather than procedurally shuffled.
+- The accepted Hoard Dragon remains unchanged. Its rear body/coil/tail taper still deserves a small targeted future art-QA cleanup; do not redesign the whole boss to address it.
+- Stable zone/music/loot hooks now support future expedition or mode definitions, but Dungeons, Rogue Runs, Endless, Raids, social systems, and networking are intentionally not implemented.
 
 ## LAST COMPLETED CHECKPOINT
-UI-integration and reward-juice checkpoint - painted Hideout destinations remain visually dominant, Shop/Stash/Shrine actions receive concise confirmation, combat reward travel and message hierarchy are cleaner, and the malformed Hoard Dragon is replaced by a coherent two-forelimb serpentine boss while preserving balance, economy, saves, and run rules.
+Three-zone expedition and combat-tempo checkpoint - the 15-wave run now travels through distinct data-driven regions and enemy families, normal handoffs/taps feel faster, modal/message hierarchy is cleaner, and a reproducible 48-run audit records balance/economy outliers without changing the validated stats, saves, or economies.
 
 ## NEXT MANUAL PLAYTEST
-At phone size, test Home hotspot edges/pressed states, then buy an offer and watch its plinth become SOLD OUT. Reveal/claim a Mystery Cache, Equip and Scrap once in Stash, and buy one Relic Training upgrade to assess the new local feedback. In a full run, watch normal and boss reward travel, trigger a Core awakening, verify temporary messages no longer cover enemy identity, and inspect the Hoard Dragon both entering and dying before choosing one boss reward. Finally verify Pause/Resume and Abandon return cleanly to the unchanged Hideout economy.
+At phone size, play one complete expedition with a melee/Vanguard weapon and deliberately tap during each zone's enemy approach. Confirm same-wave enemies flow in while Coin/XP continues travelling, real equipment still gets a readable reveal, the one-tap buffer never repeats, and help disappears after the first tap. At waves 5 and 10, finish any item/upgrade/merchant decisions and verify one clean travel card precedes the next region. Compare all three enemy silhouettes in each new zone, then watch Grump Knight and the unchanged Hoard Dragon entrances. Finally assess Poison versus a non-Poison Core across two runs and note whether merchant Coins feel too abundant in real play.

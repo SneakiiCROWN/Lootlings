@@ -6,6 +6,8 @@ const MOSSBACK_BRUTE_TEXTURE = preload("res://art/sprites/enemies/mossback_brute
 const LANTERN_HEXER_TEXTURE = preload("res://art/sprites/enemies/lantern_hexer.png")
 const GRUMP_KNIGHT_TEXTURE = preload("res://art/sprites/enemies/grump_knight.png")
 const HOARD_DRAGON_TEXTURE = preload("res://art/sprites/enemies/hoard_dragon.png")
+const EMBERWORKS_ENEMIES_TEXTURE = preload("res://art/sprites/enemies/emberworks_enemies.png")
+const HOARD_DEPTHS_ENEMIES_TEXTURE = preload("res://art/sprites/enemies/hoard_depths_enemies.png")
 const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
@@ -26,10 +28,28 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		g.draw_circle(aura_pos, 2.5 + evolution_tier, aura_color)
 	g.draw_set_transform(pos + Vector2(-4, 46), 0.0, Vector2(1.0, 0.30))
 	g.draw_circle(Vector2.ZERO, 55, Color("#07101f88"))
-	var idle_tilt: float = sin(float(g.run_time) * 2.4) * 0.012
+	var family: String = g.inventory.weapon_family()
+	var idle_speed := 2.4
+	var idle_amount := 0.012
+	match family:
+		"VANGUARD":
+			idle_speed = 1.8
+			idle_amount = 0.009
+		"RANGER":
+			idle_speed = 2.8
+			idle_amount = 0.014
+		"MAGE":
+			idle_speed = 2.1
+			idle_amount = 0.012
+		"ROGUE":
+			idle_speed = 4.0
+			idle_amount = 0.018
+	var idle_tilt: float = sin(float(g.run_time) * idle_speed) * idle_amount
 	var attack_pose: float = clampf(float(g.attack_anim) / 0.22, 0.0, 1.0)
-	var pose_rotation: float = idle_tilt + attack_pose * 0.085
-	var pose_scale := Vector2(scale_x * (1.0 + attack_pose * 0.045) * float(g.player_facing), scale_y * (1.0 - attack_pose * 0.035))
+	var attack_tilt := 0.11 if g.attack_was_tap else 0.085
+	var attack_stretch := 0.060 if g.attack_was_tap else 0.045
+	var pose_rotation: float = idle_tilt + attack_pose * attack_tilt
+	var pose_scale := Vector2(scale_x * (1.0 + attack_pose * attack_stretch) * float(g.player_facing), scale_y * (1.0 - attack_pose * 0.035))
 	if hurt:
 		pose_rotation -= 0.065 * float(g.player_facing)
 		pose_scale *= Vector2(1.06, 0.94)
@@ -48,7 +68,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	if g.attack_anim > 0.0:
 		weapon_angle = lerpf(-0.28, 0.42, g.attack_anim / 0.22)
 	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
-	match g.inventory.weapon_family():
+	match family:
 		"RANGER": draw_bow(g, pos + Vector2(5, 0), weapon_angle, weapon_growth, weapon_color)
 		"MAGE": draw_staff(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color)
 		"ROGUE": draw_daggers(g, pos + Vector2(7, 0), weapon_angle, weapon_growth, weapon_color)
@@ -177,6 +197,7 @@ func draw_enemy(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void
 func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	var texture: Texture2D = RAZOR_IMP_TEXTURE
 	var sprite_rect := Rect2(-64, -56, 128, 107)
+	var atlas_region := Rect2()
 	var shadow_radius := 39.0
 	var threat_color := Color.TRANSPARENT
 	if g.enemy_is_boss:
@@ -190,14 +211,25 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		shadow_radius = 62.0
 		threat_color = Color("#ffb33e2b")
 	else:
-		match g.enemy_archetype:
-			"tank":
-				texture = MOSSBACK_BRUTE_TEXTURE
-				sprite_rect = Rect2(-74, -46, 148, 99)
-				shadow_radius = 48.0
-			"hexer":
-				texture = LANTERN_HEXER_TEXTURE
-				sprite_rect = Rect2(-55, -76, 110, 131)
+		if g.current_zone_id == "emberworks" or g.current_zone_id == "hoard_depths":
+			texture = EMBERWORKS_ENEMIES_TEXTURE if g.current_zone_id == "emberworks" else HOARD_DEPTHS_ENEMIES_TEXTURE
+			var atlas_index := 1 if g.enemy_archetype == "tank" else 2 if g.enemy_archetype == "hexer" else 0
+			atlas_region = Rect2(atlas_index * 724, 0, 724, 724)
+			match g.enemy_archetype:
+				"tank":
+					sprite_rect = Rect2(-78, -61, 156, 116)
+					shadow_radius = 50.0
+				"hexer": sprite_rect = Rect2(-58, -79, 116, 137)
+				_: sprite_rect = Rect2(-67, -64, 134, 115)
+		else:
+			match g.enemy_archetype:
+				"tank":
+					texture = MOSSBACK_BRUTE_TEXTURE
+					sprite_rect = Rect2(-74, -46, 148, 99)
+					shadow_radius = 48.0
+				"hexer":
+					texture = LANTERN_HEXER_TEXTURE
+					sprite_rect = Rect2(-55, -76, 110, 131)
 	# A restrained local value break keeps painted creatures readable against the rich ruin art.
 	g.draw_set_transform(pos + Vector2(0, -5), 0.0, Vector2(1.0, 0.76) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius + 16.0, Color(0.015, 0.025, 0.065, 0.18 * color.a))
@@ -224,10 +256,29 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	tint.a = color.a
 	var hit_scale := Vector2(1.13, 0.82) if g.enemy_squash > 0.0 and g.enemy_alive else Vector2.ONE
 	var recoil_tilt := clampf(float(g.enemy_recoil) / 24.0, -1.0, 1.0) * 0.08
+	var personality_scale := Vector2.ONE
+	var personality_tilt := 0.0
+	if g.enemy_is_boss:
+		personality_scale = Vector2(1.0 + sin(g.run_time * 1.35) * 0.012, 1.0 - sin(g.run_time * 1.35) * 0.014)
+	elif g.enemy_is_miniboss:
+		personality_scale = Vector2(1.0 + sin(g.run_time * 1.8) * 0.010, 1.0 - sin(g.run_time * 1.8) * 0.012)
+	else:
+		match g.enemy_archetype:
+			"skirmisher":
+				personality_tilt = sin(g.run_time * 7.5) * 0.025
+				personality_scale = Vector2(1.0, 1.0 + sin(g.run_time * 7.5) * 0.025)
+			"tank": personality_scale = Vector2(1.0 + sin(g.run_time * 2.0) * 0.012, 1.0 - sin(g.run_time * 2.0) * 0.018)
+			"hexer": personality_tilt = sin(g.run_time * 2.6) * 0.018
 	g.draw_set_transform(pos + Vector2(0, 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius, Color(0.015, 0.025, 0.06, 0.52 * color.a))
-	g.draw_set_transform(pos, recoil_tilt, hit_scale * extra_scale)
-	g.draw_texture_rect(texture, sprite_rect, false, tint)
+	var cast_charge := clampf(1.0 - float(g.enemy_attack_clock) / 0.30, 0.0, 1.0) if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else 0.0
+	if cast_charge > 0.0:
+		g.draw_circle(Vector2(pos.x - 25, pos.y - 24), 8.0 + cast_charge * 9.0, Color(0.72, 0.38, 1.0, cast_charge * 0.24))
+	g.draw_set_transform(pos, recoil_tilt + personality_tilt, hit_scale * personality_scale * extra_scale)
+	if atlas_region.size.x > 0.0:
+		g.draw_texture_rect_region(texture, sprite_rect, atlas_region, tint)
+	else:
+		g.draw_texture_rect(texture, sprite_rect, false, tint)
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_enemy_procedural(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:

@@ -8,6 +8,7 @@ const InventorySystem = preload("res://inventory_system.gd")
 const ShopSystem = preload("res://shop_system.gd")
 const MetaStore = preload("res://meta_store.gd")
 const HideoutShopSystem = preload("res://hideout_shop_system.gd")
+const ZoneCatalog = preload("res://zone_catalog.gd")
 
 var failures: Array[String] = []
 
@@ -28,6 +29,8 @@ func run_tests() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await process_frame
+	check(ZoneCatalog.all_zone_ids() == ["outer_ruins", "emberworks", "hoard_depths"], "the expedition exposes three stable ordered zone IDs")
+	check(ZoneCatalog.for_wave(1).id == "outer_ruins" and ZoneCatalog.for_wave(6).id == "emberworks" and ZoneCatalog.for_wave(11).id == "hoard_depths", "wave ranges resolve to the intended zone data")
 	check(game.state == "hideout" and game.hideout_ui.visible, "the game opens in the Hideout")
 	check(game.hideout_ui.current_screen == "home", "the Hideout opens on its Home screen")
 	game.hideout_ui.show_stash()
@@ -264,8 +267,25 @@ func run_tests() -> void:
 			"venom": check(game.enemy_poison_stacks > 0, "Poison upgrades stack damage over time")
 			"heavy": check(hp_before - game.enemy_hp > game.base_damage * 1.7, "Physical upgrades trigger heavy rhythm hits")
 	game.start_run()
+	game.pending_levels = 1
+	game.show_upgrade_choices()
+	game.choose_upgrade(0)
+	check(game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "upgrade selection uses one confirmation lane without duplicate acquired text")
+	game.start_run()
 	check(game.state == "playing", "a run starts in gameplay")
 	check(game.enemy_alive and game.enemy_hp > 0.0, "first enemy spawns with health")
+	check(game.current_zone_id == "outer_ruins" and game.enemy_name == "MOSSBACK BRUTE", "Zone 1 uses its deterministic opening composition")
+	check(game.attack_clock <= 0.34, "a new foe starts with a predictable bounded first-hit clock")
+	game.player_x = game.target_player_x() - 20.0
+	var buffered_hp: float = game.enemy_hp
+	game.request_tap_attack()
+	check(game.tap_buffer_timer > 0.0 and game.tap_buffer_flash > 0.0, "a tap near attack range registers one visible short buffer")
+	game._process(0.15)
+	check(game.enemy_hp < buffered_hp and game.tap_buffer_timer == 0.0 and game.tap_tutorial_seen, "the buffered tap executes once as soon as attack range is reached")
+	var sequence_before_burst: int = game.attack_sequence
+	for burst_index in range(20):
+		game.request_tap_attack()
+	check(game.attack_sequence == sequence_before_burst + 1, "an extreme same-frame input burst cannot queue unlimited tap attacks")
 	game.player_x = game.PLAYER_ATTACK_X
 	game.perform_player_attack(true)
 	check(game.enemy_hp < game.enemy_max_hp, "tap attack damages the enemy")
@@ -274,6 +294,45 @@ func run_tests() -> void:
 	game.damage_enemy(game.enemy_max_hp * 10.0, false, false)
 	check(game.enemy_death_anim > 0.0 and not game.reward_pickups.is_empty(), "enemy death launches reward feedback")
 	check(game.coins > coins_before_kill, "enemy kills award in-run Coins")
+	game.start_run()
+	game.enemy_is_boss = false
+	game.enemy_is_miniboss = false
+	var found_no_drop := false
+	for no_drop_seed in range(1, 40):
+		game.loot_system.rng.seed = no_drop_seed
+		game.loot_drops.clear()
+		if not game.spawn_item_drop():
+			found_no_drop = true
+			break
+	check(found_no_drop and game.loot_drops.is_empty(), "normal enemies can resolve without an equipment reveal")
+	game.spawn_clock = 0.48
+	check(is_equal_approx(game.spawn_clock, 0.48), "a no-gear regular kill keeps the short handoff timing")
+	game.start_run()
+	game.wave_kills = 2
+	for normal_wave_seed in range(1, 40):
+		game.loot_system.rng.seed = normal_wave_seed
+		if game.loot_system.roll_drop(false, false).is_empty():
+			game.loot_system.rng.seed = normal_wave_seed
+			break
+	game.kill_enemy()
+	check(game.wave == 2 and game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "ordinary wave completion uses one compact callout without duplicate status text")
+	game.wave = 8
+	game.spawn_enemy()
+	game.kill_enemy()
+	check(not game.loot_drops.is_empty() and game.spawn_clock >= 1.2, "real guaranteed loot retains its protected reveal window")
+	game.loot_drops.clear()
+	game.pending_items.clear()
+	game.item_review_due = false
+	game.merchant_due = false
+	game.pending_zone_transition = true
+	game.wave = 11
+	game.enemy_alive = false
+	game.state = "playing"
+	game._process(0.05)
+	check(game.state == "zone_transition" and game.current_zone_id == "hoard_depths", "a pending zone change starts only after interstitial work clears")
+	game._process(0.90)
+	check(game.state == "playing" and game.enemy_alive and game.current_zone_id == "hoard_depths", "the short zone transition resolves into the next zone")
+	game.start_run()
 	var guard := 0
 	while game.state != "result" and guard < 100:
 		guard += 1

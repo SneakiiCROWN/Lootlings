@@ -79,6 +79,10 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `art/sprites/enemies/grump_knight.png` is the wave 8 elite Treasure Guardian cutout: a crowned stone-fur brute with relic-crystal armour and an oversized locked-chest hammer.
 - `art/sprites/enemies/hoard_dragon.png` is the wave 15 Ancient Hoarder cutout: a single coherent serpentine body with one readable head/jaw and tail, exactly two intentional forelimbs, gold relic bindings, and a controlled violet crystal ridge.
 - `art/backgrounds/treasure_ruins_arena.png` is the layered portrait arena backdrop derived from the gameplay/polish boards: moonlit ruins, lanterns, crystals, treasure, and a readable stone combat platform.
+- `art/backgrounds/salvage_warrens_arena.png` is the non-canonical runtime arena for the Salvage Warrens/Emberworks: bronze forge ruins, chains, scrap, furnaces, and a clean warm combat platform.
+- `art/backgrounds/hoard_depths_arena.png` is the non-canonical runtime arena for the Hoard Depths: a monumental sealed vault, dark stone, deliberate gold and violet accents, and a clean final-region combat platform.
+- `art/sprites/enemies/emberworks_enemies.png` is a replacement-ready transparent three-cell atlas for Cinder Gnawer, Scrap Golem, and Kiln Wisp. They reuse skirmisher/tank/caster mechanics without representing canonical playable Lootlings.
+- `art/sprites/enemies/hoard_depths_enemies.png` is a replacement-ready transparent three-cell atlas for Gemfang Wyrmling, Vaultbound Sentinel, and Shardseer. Each has a distinct readable body plan and role silhouette at 480x854.
 - `art/sprites/weapons/` contains transparent painterly cutouts for the four implemented equipment families: oversized Vanguard relic hammer, Ranger relic bow, Mage relic staff, and paired Rogue relic daggers. They follow the weapon-family board while remaining neutral interchangeable gear rather than character-specific signature weapons.
 - The enemy and arena files are replacement-ready production assets informed by the reference boards. They are not additional canonical character sheets and must not redefine the playable cast.
 
