@@ -15,7 +15,7 @@ func generate_stock(loot_system, wave: int) -> void:
 		stock.append(item)
 
 func price_for(item: Dictionary, wave: int) -> int:
-	# Run Coins are plentiful by design; meaningful rarity steps make each of the two stops a choice.
+	# Run Scrip is plentiful by design; meaningful rarity steps make each of the two stops a choice.
 	return [58, 108, 185, 320][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 6
 
 func reroll_cost(wave: int) -> int:

@@ -61,6 +61,20 @@ static func archetype_for(zone: Dictionary, wave: int, kill_index: int) -> Strin
 	var composition := composition_for(zone, wave)
 	return composition[clampi(kill_index, 0, composition.size() - 1)]
 
+# Encounter containers are intentionally solo today, but the stable shape supports
+# deliberate duos/swarms later without changing zone or enemy IDs.
+static func encounter_for(zone: Dictionary, wave: int, encounter_index: int) -> Dictionary:
+	return {
+		"id":"%s_w%02d_e%02d" % [zone.id, wave, encounter_index],
+		"kind":"solo",
+		"members":[archetype_for(zone, wave, encounter_index)],
+		"targeting":"frontmost",
+		"shared_reward":true
+	}
+
+static func supported_encounter_kinds() -> Array[String]:
+	return ["solo", "duo", "small_swarm"]
+
 static func all_zone_ids() -> Array[String]:
 	var result: Array[String] = []
 	for zone in ZONES:

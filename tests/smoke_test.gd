@@ -9,6 +9,10 @@ const ShopSystem = preload("res://shop_system.gd")
 const MetaStore = preload("res://meta_store.gd")
 const HideoutShopSystem = preload("res://hideout_shop_system.gd")
 const ZoneCatalog = preload("res://zone_catalog.gd")
+const ProfileStore = preload("res://profile_store.gd")
+const SettingsStore = preload("res://settings_store.gd")
+const ChestCatalog = preload("res://chest_catalog.gd")
+const AnalyticsLogger = preload("res://analytics_logger.gd")
 
 var failures: Array[String] = []
 
@@ -29,10 +33,55 @@ func run_tests() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await process_frame
+	check(game.state == "boot" and game.startup_ui.visible and not game.hideout_ui.visible, "the game opens with the skippable Relic Core boot presentation")
+	var blank_profile := ProfileStore.create_default()
+	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision"), "fresh local profiles have stable identity and future account-link fields without forcing a name")
+	check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0 and AudioServer.get_bus_index("UI") >= 0 and AudioServer.get_bus_index("Ambience") >= 0, "Godot-native audio buses are available")
+	game.startup_ui.configure(blank_profile, false, game.audio_settings)
+	game.startup_ui.skip_boot()
+	check(game.startup_ui.current_screen == "profile_create", "a fresh install receives one lightweight welcome/profile step")
+	game.startup_ui.name_edit.text = "Smoke Seeker"
+	game.startup_ui.nickname_edit.text = "Nib"
+	game.startup_ui.save_profile()
+	check(game.startup_ui.current_screen == "title" and game.state == "boot", "first-launch profile creation leads to the title without entering gameplay")
+	var original_uuid: String = game.profile.player_uuid
+	var persisted_profile: Dictionary = ProfileStore.load_profile(game.PROFILE_SAVE_PATH)
+	check(persisted_profile.display_name == "Smoke Seeker" and persisted_profile.lootling_nickname == "Nib" and persisted_profile.player_uuid == original_uuid, "display name, optional nickname, and stable UUID persist")
+	game.startup_ui.configure(persisted_profile, true, game.audio_settings)
+	game.startup_ui.skip_boot()
+	check(game.startup_ui.current_screen == "title", "normal launch with a profile never asks for the display name again")
+	game.startup_ui.show_profile(false)
+	game.startup_ui.name_edit.text = "Smoke Captain"
+	game.startup_ui.save_profile()
+	check(game.profile.display_name == "Smoke Captain" and game.profile.player_uuid == original_uuid, "display-name editing never changes the internal player UUID")
+	game.startup_ui.show_settings()
+	game.startup_ui.setting_sliders.music.value = 0.31
+	game.startup_ui.setting_mutes.sfx.button_pressed = true
+	game.startup_ui.save_settings()
+	var persisted_settings := SettingsStore.load_settings(game.SETTINGS_SAVE_PATH)
+	check(is_equal_approx(float(persisted_settings.music), 0.31) and bool(persisted_settings.sfx_muted) and AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")), "volume and mute settings persist and apply to the live bus")
+	var legacy_meta_path := "user://lootlings_meta_legacy_smoke.cfg"
+	var legacy_meta := ConfigFile.new()
+	legacy_meta.set_value("progress", "version", 1)
+	legacy_meta.set_value("progress", "shards", 23)
+	legacy_meta.set_value("progress", "power", 4)
+	legacy_meta.save(legacy_meta_path)
+	var migrated_meta := MetaStore.load_progress(legacy_meta_path)
+	check(migrated_meta.shards == 23 and migrated_meta.power == 4 and migrated_meta.gold == 0, "version-1 meta saves migrate without losing Shards or power")
+	var analytics_smoke_path := "user://lootlings_analytics_smoke.jsonl"
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(analytics_smoke_path))
+	AnalyticsLogger.log_event(analytics_smoke_path, "profile_created", {"display_name":"Private Smoke Name", "lootling_nickname":"Private Nickname", "result":"ok"})
+	var analytics_smoke_file := FileAccess.open(analytics_smoke_path, FileAccess.READ)
+	var analytics_text := analytics_smoke_file.get_as_text() if analytics_smoke_file != null else ""
+	check(analytics_text.contains("profile_created") and analytics_text.contains("result") and not analytics_text.contains("Private Smoke Name") and not analytics_text.contains("Private Nickname"), "local analytics records schema events without profile names")
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(analytics_smoke_path))
+	game.enter_hideout_from_title()
 	check(ZoneCatalog.all_zone_ids() == ["outer_ruins", "emberworks", "hoard_depths"], "the expedition exposes three stable ordered zone IDs")
 	check(ZoneCatalog.for_wave(1).id == "outer_ruins" and ZoneCatalog.for_wave(6).id == "emberworks" and ZoneCatalog.for_wave(11).id == "hoard_depths", "wave ranges resolve to the intended zone data")
-	check(game.state == "hideout" and game.hideout_ui.visible, "the game opens in the Hideout")
+	check(game.state == "hideout" and game.hideout_ui.visible and not game.startup_ui.visible, "the title enters the existing Hideout")
 	check(game.hideout_ui.current_screen == "home", "the Hideout opens on its Home screen")
+	check(ChestCatalog.is_valid("scavenged_cache") and ChestCatalog.definition("hoard_chest").rolls == 3 and ChestCatalog.PRESENTATION_PHASES.back() == "reveal", "stable chest definitions expose bounded reward-presentation phases")
+	check(ZoneCatalog.encounter_for(ZoneCatalog.for_wave(1), 1, 0).kind == "solo" and "small_swarm" in ZoneCatalog.supported_encounter_kinds(), "encounter data is future-ready for deliberate duos and small swarms")
 	game.hideout_ui.show_stash()
 	check(game.hideout_ui.current_screen == "stash", "the Hideout gear chest opens Stash")
 	game.hideout_ui.show_shop()
@@ -130,9 +179,11 @@ func run_tests() -> void:
 	expanded_reload.load(game.INVENTORY_SAVE_PATH)
 	check(expanded_reload.stash_capacity == 18 and expanded_reload.scrap == game.inventory.scrap, "Stash capacity and Scrap persist across reloads")
 	var old_cycle: int = game.hideout_shop.cycle
+	var gold_before_completed_run: int = game.gold
 	game.start_run()
 	game.end_run(false)
 	check(game.hideout_shop.cycle == old_cycle + 1 and game.hideout_shop.stock.size() == 3 and not game.hideout_shop.rerolled_this_cycle and not game.hideout_shop.cache_bought_this_cycle, "Hideout Shop stock and cache refresh after a completed run")
+	check(game.gold > gold_before_completed_run and MetaStore.load_progress(game.SAVE_PATH).gold == game.gold, "completed runs award persistent Gold and save it immediately")
 	game.inventory.reset_to_starter()
 	game.inventory.save(game.INVENTORY_SAVE_PATH)
 	game.show_hideout()
@@ -158,6 +209,7 @@ func run_tests() -> void:
 	check(game.state == "hideout" and game.coins == 0 and game.pending_items.is_empty() and not game.result_panel.visible, "confirmed abandon discards run-only progress and returns directly to Hideout")
 	check(game.hideout_shop.cycle == abandon_shop_cycle and game.meta_shards == abandon_shards and game.inventory.scrap == abandon_scrap, "abandon grants no rewards and does not refresh Shop or alter persistent currency")
 	game.start_run()
+	check(game.coins == 0, "Run Scrip always resets when a new run begins")
 	var hideout_kept_item := ItemCatalog.create_item("mossguard_harness", "RARE", 7701)
 	game.current_item = hideout_kept_item
 	game.state = "item"
@@ -247,7 +299,7 @@ func run_tests() -> void:
 	game.enemy_is_boss = true
 	check(game.target_player_x() == 184.0, "boss silhouettes receive the widest melee resting separation")
 	game.apply_upgrade_effect(upgrade_by_id("greed"))
-	check(game.build.count("Poison") == 0 and is_equal_approx(game.coin_reward_mult, 1.25) and is_equal_approx(game.xp_reward_mult, 1.15), "Relic Magnet is neutral utility with separated restrained Coin and XP bonuses")
+	check(game.build.count("Poison") == 0 and is_equal_approx(game.coin_reward_mult, 1.25) and is_equal_approx(game.xp_reward_mult, 1.15), "Relic Magnet is neutral utility with separated restrained Run Scrip and XP bonuses")
 	game.start_run()
 	game.coins = 999
 	game.wave = 6
@@ -255,12 +307,12 @@ func run_tests() -> void:
 	var coins_before_purchase: int = game.coins
 	var purchase_price: int = game.shop.stock[0].price
 	game.buy_merchant_item(0)
-	check(game.coins == coins_before_purchase - purchase_price and game.state == "item", "merchant purchase spends Coins and opens the item decision")
+	check(game.coins == coins_before_purchase - purchase_price and game.state == "item", "merchant purchase spends Run Scrip and opens the item decision")
 	game.accept_item_scrap()
 	check(game.state == "merchant", "merchant purchase returns safely to the shop")
 	var coins_before_reroll: int = game.coins
 	game.reroll_merchant()
-	check(game.coins < coins_before_reroll and game.shop.rerolls == 1, "merchant reroll spends Coins")
+	check(game.coins < coins_before_reroll and game.shop.rerolls == 1, "merchant reroll spends Run Scrip")
 	game.leave_merchant()
 	for mechanic_id in ["ignite", "storm", "venom", "heavy"]:
 		game.start_run()
@@ -313,7 +365,7 @@ func run_tests() -> void:
 	var coins_before_kill: int = game.coins
 	game.damage_enemy(game.enemy_max_hp * 10.0, false, false)
 	check(game.enemy_death_anim > 0.0 and not game.reward_pickups.is_empty(), "enemy death launches reward feedback")
-	check(game.coins > coins_before_kill, "enemy kills award in-run Coins")
+	check(game.coins > coins_before_kill, "enemy kills award temporary Run Scrip")
 	game.start_run()
 	game.enemy_is_boss = false
 	game.enemy_is_miniboss = false
@@ -398,9 +450,9 @@ func run_tests() -> void:
 	check(game.total_kills >= 40, "waves and miniboss produced the expected enemy sequence")
 	check(game.meta_shards > 0, "run rewards permanent-progression currency")
 	check(game.restart_button.text == "RETURN TO HIDEOUT", "results provide one clear return to the Hideout")
-	check(game.result_summary.text.contains("RUN COINS") and game.result_summary.text.contains("RUN REWARDS"), "results summarize the run economy and rewards")
+	check(game.result_summary.text.contains("RUN SCRIP") and game.result_summary.text.contains("RUN REWARDS") and game.result_summary.text.contains("Gold +"), "results separate temporary Run Scrip from persistent Gold rewards")
 	var large_result: String = game.format_result_summary(true, 9999, 9999, 9999, 8888, 1111, 7777, 6666, "A Very Long Legendary Item Name")
-	check(large_result.contains("Earned     9999\nSpent      8888\nLeft       1111"), "four-digit Run Coin values use separate responsive result rows")
+	check(large_result.contains("Earned     9999\nSpent      8888\nLeft       1111"), "four-digit Run Scrip values use separate responsive result rows")
 	game.show_hideout()
 	check(game.state == "hideout" and game.hideout_ui.visible, "results return safely to the Hideout")
 	var original_shards: int = game.meta_shards
@@ -411,7 +463,7 @@ func run_tests() -> void:
 	game.buy_meta_power()
 	check(game.meta_power == 1 and game.meta_shards == 90, "permanent +5% power is purchased only from Hideout Upgrades")
 	var persisted_meta: Dictionary = MetaStore.load_progress(game.SAVE_PATH)
-	check(int(persisted_meta.get("power", -1)) == 1 and int(persisted_meta.get("shards", -1)) == 90, "Hideout upgrades persist immediately")
+	check(int(persisted_meta.get("power", -1)) == 1 and int(persisted_meta.get("shards", -1)) == 90 and int(persisted_meta.get("gold", -1)) == game.gold, "Hideout upgrades and Gold persist immediately")
 	game.meta_shards = original_shards
 	game.meta_power = original_power
 	game.save_meta()

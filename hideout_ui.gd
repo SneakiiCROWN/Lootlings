@@ -8,6 +8,7 @@ signal shop_offer_requested(index: int)
 signal shop_cache_requested
 signal shop_expansion_requested
 signal shop_reroll_requested
+signal ui_event(event_name: String)
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
@@ -26,6 +27,8 @@ var current_shop
 var comparison_callable: Callable
 var shards := 0
 var power := 0
+var gold := 0
+var profile := {}
 var entries: Array = []
 var stash_filter := "ALL"
 var filter_buttons := {}
@@ -66,6 +69,19 @@ var last_scrap := -1
 var shrine_pulse := 0.0
 var cache_pulse := 0.0
 var ui_sparks: Array = []
+var speech_panel: Panel
+var speech_label: Label
+var speech_timer := 4.5
+var speech_visible_timer := 0.0
+var speech_index := 0
+const AMBIENT_LINES := [
+	"That chest blinked. Not my problem.",
+	"Polished it twice. Still cursed-looking.",
+	"The shiny pile is load-bearing.",
+	"Legendary? Give it a confident label.",
+	"No, the tiny hammer is the spare.",
+	"Someone looted the snack barrel. Rude."
+]
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -78,11 +94,13 @@ func _ready() -> void:
 	build_transition_overlay()
 	set_process(true)
 
-func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable) -> void:
+func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable, gold_count: int = 0, profile_data: Dictionary = {}) -> void:
 	current_inventory = inventory
 	current_shop = shop
 	shards = shard_count
 	power = power_level
+	gold = gold_count
+	profile = profile_data.duplicate(true)
 	comparison_callable = compare
 	refresh_current_screen()
 
@@ -128,13 +146,15 @@ func set_screen(active: Control) -> void:
 		if screen != null:
 			screen.visible = screen == active
 	play_transition()
+	ui_event.emit("menu_transition")
 
 func build_home() -> void:
 	home_content = Control.new()
 	home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(home_content)
 	make_label(home_content, "LOOTLINGS HIDEOUT", 30, Rect2(20, 20, 440, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	resource_label = make_label(home_content, "", 15, Rect2(38, 66, 404, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
+	resource_label = make_label(home_content, "", 13, Rect2(30, 60, 420, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
+	resource_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var play_button := make_hotspot_button(home_content, "EXPEDITION GATE\nBEGIN RUN", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
 	play_button.pressed.connect(func(): play_requested.emit())
 	var upgrades_button := make_hotspot_button(home_content, "RELIC SHRINE\nUPGRADES", Rect2(14, 244, 138, 112), Color("#c99cff"), 15)
@@ -149,6 +169,13 @@ func build_home() -> void:
 	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
 	loadout_label = make_label(loadout_panel, "", 11, Rect2(14, 27, 384, 54), HORIZONTAL_ALIGNMENT_CENTER, Color("#e6edff"))
 	loadout_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	speech_panel = make_panel(home_content, Rect2(150, 588, 180, 58), Color("#10182be8"), Color("#d8bd7b"))
+	speech_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	speech_panel.visible = false
+	speech_label = make_label(speech_panel, "", 12, Rect2(12, 7, 156, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#f3edda"))
+	speech_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	speech_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	speech_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func build_stash() -> void:
 	stash_content = Control.new()
@@ -203,7 +230,7 @@ func build_upgrades() -> void:
 	upgrade_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 154, 300, 58), Color("#49346b"), Color("#d19cff"), 17)
 	upgrade_button.pressed.connect(func(): upgrade_requested.emit())
-	make_label(upgrade_content, "Star Shards are persistent. Run Coins reset every run.", 13, Rect2(48, 640, 384, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	make_label(upgrade_content, "Star Shards are persistent. Run Scrip resets every run.", 13, Rect2(48, 640, 384, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -262,7 +289,10 @@ func refresh_home() -> void:
 		return
 	var scrap_changed: bool = last_scrap >= 0 and last_scrap != int(current_inventory.scrap)
 	last_scrap = current_inventory.scrap
-	resource_label.text = "◆ %d SCRAP       ✦ %d STAR SHARDS       POWER +%d%%" % [current_inventory.scrap, shards, power * 5]
+	var display_name := str(profile.get("display_name", "TREASURE SEEKER")).to_upper()
+	if display_name.is_empty():
+		display_name = "TREASURE SEEKER"
+	resource_label.text = "%s  •  ● %d GOLD\n◆ %d SCRAP     ✦ %d SHARDS     POWER +%d%%" % [display_name, gold, current_inventory.scrap, shards, power * 5]
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
@@ -515,6 +545,19 @@ func _process(delta: float) -> void:
 	scene_time += delta
 	shrine_pulse = maxf(0.0, shrine_pulse - delta)
 	cache_pulse = maxf(0.0, cache_pulse - delta)
+	if current_screen == "home":
+		if speech_visible_timer > 0.0:
+			speech_visible_timer -= delta
+			if speech_visible_timer <= 0.0 and speech_panel != null:
+				speech_panel.visible = false
+				speech_timer = 7.0 + fmod(scene_time, 4.0)
+		else:
+			speech_timer -= delta
+			if speech_timer <= 0.0 and speech_panel != null:
+				speech_label.text = AMBIENT_LINES[speech_index % AMBIENT_LINES.size()]
+				speech_index += 1
+				speech_panel.visible = true
+				speech_visible_timer = 3.2
 	for spark in ui_sparks:
 		spark.life -= delta
 		spark.pos += spark.vel * delta
@@ -566,6 +609,11 @@ func draw_home_scene() -> void:
 	for index in range(6):
 		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
 		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
+	# One bounded background scavenger gives the hub life without permanent nodes.
+	var critter_x := 52.0 + fmod(scene_time * 7.0, 76.0)
+	draw_circle(Vector2(critter_x, 665), 8.0, Color("#17233cc9"))
+	draw_colored_polygon(PackedVector2Array([Vector2(critter_x - 7, 660), Vector2(critter_x - 3, 650), Vector2(critter_x + 1, 660)]), Color("#17233cc9"))
+	draw_circle(Vector2(critter_x + 3, 663), 1.5, Color("#ffe178"))
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
@@ -690,6 +738,7 @@ func wire_press_feedback(button: Button) -> void:
 	button.pivot_offset = button.size * 0.5
 	button.button_down.connect(animate_press.bind(button))
 	button.button_up.connect(animate_release.bind(button))
+	button.pressed.connect(func(): ui_event.emit("ui_press"))
 
 func animate_press(button: Button) -> void:
 	button.pivot_offset = button.size * 0.5

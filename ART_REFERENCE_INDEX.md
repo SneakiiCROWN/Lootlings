@@ -99,7 +99,7 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `119513c5-b4ac-4cb1-b390-b2760552e46d.png` - enemy-role and progression target: grunt, ranged hexer, charger, elite miniboss, and boss silhouettes with deliberate milestone spikes.
 - `2ee15214-2655-4c9f-8396-f26278b508d1.png` - special reward target: choose one of three high-value rewards rather than receiving all three.
 - `416738a3-c30b-4897-9931-7972ab39384b.png` - broad gameplay presentation overview covering combat readability, loot popups, exploration framing, and cast separation.
-- `63c5675b-9b06-4a60-9fc5-ef9128e4b025.png` - game-loop/shop-flow reference; reinforces run Coins for shops and limited meaningful reward choices.
+- `63c5675b-9b06-4a60-9fc5-ef9128e4b025.png` - game-loop/shop-flow reference; reinforces temporary Run Scrip for shops and limited meaningful reward choices.
 - `d38459e5-a06f-436e-acd2-45de17beaf4c.png` - 2D polish target for sprite/cutout characters, readable item beams, layered arena depth, and distinct enemy silhouettes.
 - `e5ec5e8a-75b2-4f36-958b-309440b69cbe.png` - weapon-family and rarity-language sheet for Vanguard, Ranger, Mage, and Rogue. The `(1)` file is an identical retained duplicate.
 - `f83b7cd9-f1f4-4a45-8e3a-42788ff54760.png` - consolidated north-star handoff for reward, shop, enemy scale, and visual priorities. The `(1)` file is an identical retained duplicate.

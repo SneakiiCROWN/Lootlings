@@ -11,10 +11,18 @@ const ShopSystem = preload("res://shop_system.gd")
 const HideoutUI = preload("res://hideout_ui.gd")
 const HideoutShopSystem = preload("res://hideout_shop_system.gd")
 const ZoneCatalog = preload("res://zone_catalog.gd")
+const ProfileStore = preload("res://profile_store.gd")
+const SettingsStore = preload("res://settings_store.gd")
+const AnalyticsLogger = preload("res://analytics_logger.gd")
+const AudioManager = preload("res://audio_manager.gd")
+const StartupUI = preload("res://startup_ui.gd")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
 const HIDEOUT_SHOP_SAVE_PATH := "user://lootlings_hideout_shop.cfg"
+const PROFILE_SAVE_PATH := "user://lootlings_profile.cfg"
+const SETTINGS_SAVE_PATH := "user://lootlings_settings.cfg"
+const ANALYTICS_PATH := "user://lootlings_events.jsonl"
 const RUN_LAST_WAVE := 15
 const ENEMIES_PER_WAVE := 3
 const PLAYER_HOME_X := 102.0
@@ -32,7 +40,7 @@ var shop = ShopSystem.new()
 var hideout_shop = HideoutShopSystem.new()
 var title_font: Font
 var body_font: Font
-var state := "hideout"
+var state := "boot"
 var wave := 1
 var wave_kills := 0
 var last_spawned_wave := 0
@@ -147,6 +155,8 @@ var tap_buffer_flash := 0.0
 var tap_tutorial_seen := false
 var meta_shards := 0
 var meta_power := 0
+var gold := 0
+var run_gold_earned := 0
 var run_shards_earned := 0
 var run_coins_earned := 0
 var run_coins_spent := 0
@@ -181,6 +191,10 @@ var pause_button: Button
 var pause_panel: Panel
 var abandon_panel: Panel
 var hideout_ui
+var startup_ui
+var audio_manager
+var profile := {}
+var audio_settings := {}
 
 func _ready() -> void:
 	rng.randomize()
@@ -188,12 +202,57 @@ func _ready() -> void:
 	body_font = ThemeDB.fallback_font
 	build_overlay_ui()
 	load_meta()
+	profile = ProfileStore.load_profile(PROFILE_SAVE_PATH)
+	audio_settings = SettingsStore.load_settings(SETTINGS_SAVE_PATH)
 	inventory.load(INVENTORY_SAVE_PATH)
 	hideout_shop.load(HIDEOUT_SHOP_SAVE_PATH)
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	build_hideout()
-	show_hideout()
+	build_foundation_services()
+	show_startup()
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
+
+func build_foundation_services() -> void:
+	audio_manager = AudioManager.new()
+	add_child(audio_manager)
+	audio_manager.apply_settings(audio_settings)
+	startup_ui = StartupUI.new()
+	add_child(startup_ui)
+	startup_ui.enter_hideout.connect(enter_hideout_from_title)
+	startup_ui.profile_changed.connect(save_profile_data)
+	startup_ui.settings_changed.connect(save_audio_settings)
+	startup_ui.ui_event.connect(play_audio_event)
+	startup_ui.configure(profile, ProfileStore.is_created(profile), audio_settings)
+
+func show_startup() -> void:
+	state = "boot"
+	hideout_ui.visible = false
+	startup_ui.visible = true
+	startup_ui.show_boot()
+	audio_manager.set_music("TITLE")
+
+func enter_hideout_from_title() -> void:
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "title_enter")
+	show_hideout()
+
+func save_profile_data(updated_profile: Dictionary) -> void:
+	var was_created := ProfileStore.is_created(profile)
+	var old_name := str(profile.get("display_name", ""))
+	profile = updated_profile.duplicate(true)
+	ProfileStore.save_profile(PROFILE_SAVE_PATH, profile)
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "display_name_changed" if was_created and old_name != profile.display_name else "profile_created")
+	if hideout_ui != null:
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+
+func save_audio_settings(updated_settings: Dictionary) -> void:
+	audio_settings = updated_settings.duplicate(true)
+	SettingsStore.save_settings(SETTINGS_SAVE_PATH, audio_settings)
+	audio_manager.apply_settings(audio_settings)
+
+func play_audio_event(event_name: String) -> void:
+	if audio_manager != null:
+		audio_manager.play_event(event_name)
 
 func build_overlay_ui() -> void:
 	upgrade_panel = make_panel(Rect2(22, 205, 436, 470), Color("#172042f2"))
@@ -269,10 +328,14 @@ func build_hideout() -> void:
 	hideout_ui.shop_cache_requested.connect(use_mystery_cache)
 	hideout_ui.shop_expansion_requested.connect(buy_stash_expansion)
 	hideout_ui.shop_reroll_requested.connect(reroll_hideout_shop)
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+	hideout_ui.ui_event.connect(play_audio_event)
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+	hideout_ui.visible = false
 
 func show_hideout() -> void:
 	state = "hideout"
+	if startup_ui != null:
+		startup_ui.visible = false
 	if pause_button != null:
 		pause_button.visible = false
 		pause_panel.visible = false
@@ -284,8 +347,12 @@ func show_hideout() -> void:
 	boss_reward_panel.visible = false
 	help_label.visible = false
 	hideout_ui.visible = true
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
 	hideout_ui.show_home()
+	play_audio_event("menu_transition")
+	if audio_manager != null:
+		audio_manager.set_music("HIDEOUT")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "hideout_enter", {"gold":gold, "scrap":inventory.scrap, "shards":meta_shards})
 	queue_redraw()
 
 func pause_run() -> void:
@@ -340,6 +407,7 @@ func confirm_abandon_run() -> void:
 	run_coins_earned = 0
 	run_coins_spent = 0
 	run_shards_earned = 0
+	run_gold_earned = 0
 	show_hideout()
 
 func equip_stash_item(index: int) -> void:
@@ -347,16 +415,20 @@ func equip_stash_item(index: int) -> void:
 		return
 	if inventory.equip_from_stash(index):
 		inventory.save(INVENTORY_SAVE_PATH)
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
 		hideout_ui.play_stash_feedback("equip")
+		play_audio_event("equip")
+		AnalyticsLogger.log_event(ANALYTICS_PATH, "gear_equip", {"source":"stash"})
 
 func scrap_stash_item(index: int) -> void:
 	if state != "hideout":
 		return
 	if inventory.scrap_from_stash(index) > 0:
 		inventory.save(INVENTORY_SAVE_PATH)
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
 		hideout_ui.play_stash_feedback("scrap")
+		play_audio_event("scrap")
+		AnalyticsLogger.log_event(ANALYTICS_PATH, "scrap_earned", {"source":"stash"})
 
 func buy_hideout_offer(index: int) -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
@@ -382,6 +454,8 @@ func buy_hideout_offer(index: int) -> void:
 	save_hideout_economy()
 	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
 	hideout_ui.play_shop_purchase(index, ItemCatalog.rarity_color(purchased.get("rarity", "COMMON")))
+	play_audio_event("shop_purchase")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"scrap", "price":price, "item_id":purchased.get("id", "")})
 
 func use_mystery_cache() -> void:
 	if state != "hideout":
@@ -395,6 +469,7 @@ func use_mystery_cache() -> void:
 			save_hideout_economy()
 			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
 			hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(claimed.get("rarity", "COMMON")))
+			play_audio_event("rarity_reveal")
 		return
 	if hideout_shop.cache_bought_this_cycle:
 		hideout_ui.show_shop_message("Mystery Cache already opened.\nComplete a run to refresh it.", "#aebde0")
@@ -410,6 +485,8 @@ func use_mystery_cache() -> void:
 	save_hideout_economy()
 	hideout_ui.refresh_shop()
 	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")))
+	play_audio_event("chest_open")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"scrap"})
 
 func buy_stash_expansion() -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
@@ -439,7 +516,7 @@ func reroll_hideout_shop() -> void:
 func save_hideout_economy() -> void:
 	inventory.save(INVENTORY_SAVE_PATH)
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
@@ -505,6 +582,7 @@ func make_action_button(parent: Node, text_value: String, pos: Vector2, button_s
 	button.add_theme_font_size_override("font_size", 18)
 	apply_button_style(button, fill, border)
 	button.pressed.connect(callback)
+	button.pressed.connect(play_audio_event.bind("ui_press"))
 	parent.add_child(button)
 	return button
 
@@ -557,6 +635,8 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 
 func start_run() -> void:
 	state = "playing"
+	if startup_ui != null:
+		startup_ui.visible = false
 	if hideout_ui != null:
 		hideout_ui.visible = false
 	if pause_button != null:
@@ -650,6 +730,7 @@ func start_run() -> void:
 	boss_reward_panel.visible = false
 	help_label.visible = true
 	run_shards_earned = 0
+	run_gold_earned = 0
 	run_coins_earned = 0
 	run_coins_spent = 0
 	run_damage_taken = 0.0
@@ -658,12 +739,20 @@ func start_run() -> void:
 	status_message = ""
 	status_clock = 0.0
 	spawn_enemy()
+	play_audio_event("menu_close")
+	if audio_manager != null:
+		audio_manager.set_music("OUTER_RUINS")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "run_start", {"run_version":1, "zone_id":current_zone_id})
 	queue_redraw()
 
 func spawn_enemy() -> void:
 	var new_wave := wave != last_spawned_wave
 	current_zone = ZoneCatalog.for_wave(wave)
 	current_zone_id = current_zone.id
+	if new_wave:
+		AnalyticsLogger.log_event(ANALYTICS_PATH, "zone_enter", {"zone_id":current_zone_id, "wave":wave})
+		if audio_manager != null:
+			audio_manager.set_music("BOSS" if wave == RUN_LAST_WAVE else "SALVAGE_WARRENS" if current_zone_id == "emberworks" else "HOARD_DEPTHS" if current_zone_id == "hoard_depths" else "OUTER_RUINS")
 	enemy_is_miniboss = wave == 8
 	enemy_is_boss = wave == RUN_LAST_WAVE
 	# Steady curve with explicit special-enemy spikes; regular archetypes stay closer together.
@@ -738,6 +827,7 @@ func begin_zone_transition() -> void:
 	wave_banner_timer = 0.0
 	status_clock = 0.0
 	help_label.visible = false
+	play_audio_event("zone_transition")
 
 func begin_special_intro() -> void:
 	state = "special_intro"
@@ -752,6 +842,7 @@ func begin_special_intro() -> void:
 	wave_banner_timer = 0.80
 	status_clock = 0.0
 	help_label.visible = false
+	play_audio_event("boss_warning")
 
 func _process(delta: float) -> void:
 	if pause_button != null:
@@ -908,6 +999,7 @@ func perform_player_attack(is_tap: bool) -> void:
 	if is_tap:
 		tap_tutorial_seen = true
 		help_label.visible = false
+		play_audio_event("tap_attack")
 	var hit_count := 1 if is_tap else multi_hits + int(inventory.effect_total("extra_hits"))
 	var damage_scale := tap_mult if is_tap else 1.0
 	attack_sequence += 1
@@ -961,6 +1053,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		hit_stop_timer = maxf(hit_stop_timer, 0.038 if is_crit else 0.030)
 	elif is_tap:
 		hit_stop_timer = maxf(hit_stop_timer, 0.014)
+	play_audio_event("crit" if is_crit else "heavy_hit" if is_heavy else "normal_hit")
 	var text := ("CRIT! %.0f" if is_crit else "%.0f") % amount
 	var text_size := 29 if is_crit else 20
 	var text_color := Color("#fff178") if is_crit else Color.WHITE
@@ -1005,6 +1098,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	var effective_armor := armor + inventory.effect_total("armor") + style_armor
 	var damage := enemy_damage * damage_scale * (1.0 - minf(effective_armor, 0.72))
 	player_hp -= damage
+	play_audio_event("player_hurt")
 	run_damage_taken += damage
 	player_flash = 0.13
 	screen_shake = 0.08
@@ -1072,6 +1166,11 @@ func kill_enemy() -> void:
 	death_burst_color = Color("#b75cff") if enemy_is_boss else Color("#ffba55") if enemy_is_miniboss else Color("#ffcf72")
 	enemy_hp = 0.0
 	total_kills += 1
+	play_audio_event("boss_death" if enemy_is_boss else "enemy_death")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "boss_kill" if enemy_is_boss else "enemy_kill", {"enemy_id":enemy_name.to_lower().replace(" ", "_"), "wave":wave, "zone_id":current_zone_id})
+	if enemy_is_boss:
+		profile.bosses_slain = int(profile.get("bosses_slain", 0)) + 1
+		ProfileStore.save_profile(PROFILE_SAVE_PATH, profile)
 	wave_kills += 1
 	var reward := int(round((5.0 + wave * 1.8) * coin_reward_mult * (1.0 + inventory.effect_total("coin_mult")) * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0)))
 	coins += reward
@@ -1090,9 +1189,11 @@ func kill_enemy() -> void:
 	var equipment_dropped := spawn_item_drop()
 	if equipment_dropped:
 		spawn_clock = maxf(spawn_clock, 1.2)
+		play_audio_event("equipment_drop")
+		AnalyticsLogger.log_event(ANALYTICS_PATH, "gear_drop", {"wave":wave, "boss":enemy_is_boss, "miniboss":enemy_is_miniboss})
 	add_xp(xp_reward)
 	if not enemy_is_boss:
-		add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
+		add_float("+%d SCRIP" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
 	add_particles(Vector2(365, 470), Color("#ffd65a"), 32 if enemy_is_boss else 22 if enemy_is_miniboss else 16)
 	add_reward_burst(reward, xp_reward)
 	status_message = "MINIBOSS DEFEATED" if enemy_is_miniboss else ""
@@ -1161,6 +1262,7 @@ func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
 		return
 	var chosen: Dictionary = boss_reward_options[index]
+	play_audio_event("rarity_reveal")
 	boss_reward_options.clear()
 	boss_reward_panel.visible = false
 	pending_items.push_front(chosen)
@@ -1228,7 +1330,7 @@ func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 func format_effect_delta(key: String, amount: float) -> String:
 	var labels := {
 		"damage_mult":"DAMAGE", "attack_speed":"ATTACK RATE", "attack_slow":"ATTACK RATE",
-		"crit":"CRIT", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"COINS",
+		"crit":"CRIT", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"RUN SCRIP",
 		"execute":"EXECUTE", "fire_damage":"BURN POWER", "crit_lightning":"CRIT SPARK",
 		"poison_bonus":"POISON STACK", "poison_duration":"POISON TIME", "boss_damage":"BOSS DAMAGE",
 		"heavy_bonus":"HEAVY POWER", "kill_explosion":"KILL BURST", "low_health_damage":"LOW-HP POWER"
@@ -1253,6 +1355,8 @@ func accept_item_equip() -> void:
 	player_reward_flash = 0.55
 	player_reward_color = Color("#69e6b0")
 	add_particles(Vector2(player_x, 470), player_reward_color, 14)
+	play_audio_event("equip")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "gear_equip", {"source":"run", "item_id":current_item.get("id", "")})
 	finish_item_decision()
 
 func accept_item_keep() -> void:
@@ -1279,6 +1383,8 @@ func accept_item_scrap() -> void:
 	player_reward_flash = 0.55
 	player_reward_color = Color("#ffbd69")
 	add_particles(Vector2(player_x, 470), player_reward_color, 16)
+	play_audio_event("scrap")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "scrap_earned", {"source":"run_loot", "amount":value})
 	finish_item_decision()
 
 func finish_item_decision() -> void:
@@ -1316,7 +1422,7 @@ func show_merchant() -> void:
 
 func refresh_merchant_ui() -> void:
 	merchant_title.text = "PACK PEDDLER"
-	merchant_coin_label.text = "●  %d RUN COINS" % coins
+	merchant_coin_label.text = "◆  %d RUN SCRIP" % coins
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
 		if i >= shop.stock.size():
@@ -1341,6 +1447,8 @@ func buy_merchant_item(index: int) -> void:
 		return
 	coins -= price
 	run_coins_spent += price
+	play_audio_event("shop_purchase")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "scrip_spent", {"amount":price, "source":"pack_peddler"})
 	var bought: Dictionary = shop.take(index)
 	merchant_panel.visible = false
 	return_to_merchant = true
@@ -1356,6 +1464,8 @@ func reroll_merchant() -> void:
 		return
 	coins -= price
 	run_coins_spent += price
+	play_audio_event("ui_press")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "scrip_spent", {"amount":price, "source":"pack_peddler_reroll"})
 	shop.reroll(loot_system, wave)
 	refresh_merchant_ui()
 
@@ -1376,6 +1486,8 @@ func add_xp(amount: float) -> void:
 		level += 1
 		xp_needed = 32.0 + level * 15.0
 		pending_levels += 1
+		play_audio_event("level_up")
+		AnalyticsLogger.log_event(ANALYTICS_PATH, "level_up", {"level":level, "wave":wave})
 	if pending_levels > 0 and state == "playing":
 		show_upgrade_choices()
 
@@ -1404,12 +1516,15 @@ func choose_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size():
 		return
 	var up: Dictionary = selected_upgrades[index]
+	play_audio_event("upgrade_select")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "upgrade_pick", {"upgrade_id":up.get("id", ""), "level":level})
 	var previous_dominant: String = build.dominant()
 	var previous_tier: int = build.tier(previous_dominant)
 	apply_upgrade_effect(up)
 	var new_dominant: String = build.dominant()
 	var transformed := new_dominant != "Neutral" and (new_dominant != previous_dominant or build.tier(new_dominant) > previous_tier)
 	if transformed:
+		play_audio_event("core_awaken")
 		wave_banner_text = "%s CORE  -  %s" % [new_dominant.to_upper(), build.tier_name(new_dominant)]
 		wave_banner_timer = 1.8
 		upgrade_flash = 1.1
@@ -1470,7 +1585,9 @@ func end_run(victory: bool) -> void:
 	result_panel.visible = true
 	help_label.visible = false
 	run_shards_earned = (10 + level * 2 + wave) if victory else max(2, int(level + wave * 0.5))
+	run_gold_earned = (160 + wave * 6) if victory else maxi(20, wave * 5)
 	meta_shards += run_shards_earned
+	gold += run_gold_earned
 	save_meta()
 	hideout_shop.refresh_stock()
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
@@ -1482,13 +1599,18 @@ func end_run(victory: bool) -> void:
 		if run_kept_loot.size() > 1:
 			notable_loot += ", " + run_kept_loot[1]
 	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
-	result_summary.text = format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot)
+	result_summary.text = format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned)
+	play_audio_event("victory" if victory else "defeat")
+	if audio_manager != null:
+		audio_manager.set_music("VICTORY" if victory else "DEFEAT")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "gold_earned", {"amount":run_gold_earned, "source":"run_result", "victory":victory})
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "run_end", {"victory":victory, "wave":wave, "kills":total_kills, "gold":run_gold_earned, "scrip_earned":run_coins_earned, "scrip_spent":run_coins_spent})
 	if victory:
 		for burst in range(4):
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
 
-func format_result_summary(victory: bool, reached_wave: int, kills: int, earned: int, spent: int, left: int, scrap_gained: int, shards_gained: int, notable_loot: String) -> String:
-	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN COINS\nEarned     %d\nSpent      %d\nLeft       %d\n\nRUN REWARDS\nScrap  +%d  •  Star Shards  +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, scrap_gained, shards_gained, notable_loot]
+func format_result_summary(victory: bool, reached_wave: int, kills: int, earned: int, spent: int, left: int, scrap_gained: int, shards_gained: int, notable_loot: String, gold_gained: int = 0) -> String:
+	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nLeft       %d\n\nRUN REWARDS\nGold +%d  •  Scrap +%d  •  Shards +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
 
 func buy_meta_power() -> void:
 	if state != "hideout":
@@ -1500,18 +1622,20 @@ func buy_meta_power() -> void:
 		save_meta()
 		refresh_hideout()
 		hideout_ui.play_shrine_upgrade()
+		play_audio_event("core_awaken")
 
 func refresh_hideout() -> void:
 	if hideout_ui != null:
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
 
 func load_meta() -> void:
 	var progress := MetaStore.load_progress(SAVE_PATH)
 	meta_shards = progress.shards
 	meta_power = progress.power
+	gold = progress.gold
 
 func save_meta() -> void:
-	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power)
+	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state != "playing":
@@ -1577,8 +1701,12 @@ func update_effects(delta: float) -> void:
 	for i in range(reward_pickups.size() - 1, -1, -1):
 		if reward_pickups[i].life <= 0.0:
 			if reward_pickups[i].kind == "coin":
+				if coin_counter_flash <= 0.0:
+					play_audio_event("resource_pickup")
 				coin_counter_flash = 0.24
 			else:
+				if xp_counter_flash <= 0.0:
+					play_audio_event("xp_pickup")
 				xp_counter_flash = 0.24
 			reward_pickups.remove_at(i)
 	for drop in loot_drops:
@@ -1588,6 +1716,8 @@ func update_effects(delta: float) -> void:
 		drop.vel.y += drop_gravity * delta
 		drop.pos += drop.vel * delta
 		if drop.pos.y >= 540.0 and drop.vel.y > 0.0:
+			if int(drop.bounces) == 0 and bool(drop.get("boss_choice", false)):
+				play_audio_event("chest_land")
 			drop.pos.y = 540.0
 			drop.vel.y = -drop.vel.y * (0.44 if int(drop.bounces) == 0 else 0.18)
 			drop.vel.x *= 0.68
@@ -1599,6 +1729,7 @@ func update_effects(delta: float) -> void:
 				var found: Dictionary = loot_drops[i].item
 				pending_items.append(found)
 			add_particles(loot_drops[i].pos, loot_drops[i].color, 18)
+			play_audio_event("rarity_reveal")
 			loot_drops.remove_at(i)
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
@@ -1607,7 +1738,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	var lane := "damage"
 	if text_value.begins_with("-"):
 		lane = "player"
-	elif text_value.contains("COINS") or text_value.contains("LOOT") or text_value.contains("HOARD"):
+	elif text_value.contains("SCRIP") or text_value.contains("LOOT") or text_value.contains("HOARD"):
 		lane = "reward"
 	elif is_dot or prefix in ["WARD"]:
 		lane = "secondary"
@@ -1707,8 +1838,15 @@ func draw_hud() -> void:
 	draw_string(title_font, Vector2(18, 35), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 25, Color("#ffe178"))
 	draw_string(body_font, Vector2(18, 62), "WAVE %02d / %02d" % [wave, RUN_LAST_WAVE], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
-	draw_circle(Vector2(353, 29), 11 + coin_pulse * 4.0, Color(1.0, 0.80, 0.26, 0.50 + coin_pulse * 0.45))
-	draw_circle(Vector2(353, 29), 6 + coin_pulse * 2.0, Color("#ffe990"))
+	var scrip_center := Vector2(353, 29)
+	var scrip_radius := 10.0 + coin_pulse * 3.0
+	draw_colored_polygon(PackedVector2Array([
+		scrip_center + Vector2(0, -scrip_radius),
+		scrip_center + Vector2(scrip_radius * 0.72, 0),
+		scrip_center + Vector2(0, scrip_radius),
+		scrip_center + Vector2(-scrip_radius * 0.72, 0)
+	]), Color(1.0, 0.80, 0.26, 0.64 + coin_pulse * 0.30))
+	draw_line(scrip_center + Vector2(0, -6), scrip_center + Vector2(0, 6), Color("#fff5bb"), 2.0)
 	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 90, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(337, 63), "LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 125, 15, Color("#9fddff"))
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
@@ -1811,9 +1949,14 @@ func draw_effects() -> void:
 	for pickup in reward_pickups:
 		var pop := clampf(pickup.life / pickup.max_life * 2.0, 0.0, 1.0)
 		if pickup.kind == "coin":
-			draw_circle(pickup.pos, 7.0 * pop, Color("#f4bd3e"))
-			draw_circle(pickup.pos, 4.0 * pop, Color("#fff09a"))
-			draw_line(pickup.pos + Vector2(-3, 0) * pop, pickup.pos + Vector2(3, 0) * pop, Color("#fff8c8"), 1.5)
+			var radius := 8.0 * pop
+			draw_colored_polygon(PackedVector2Array([
+				pickup.pos + Vector2(0, -radius),
+				pickup.pos + Vector2(radius * 0.70, 0),
+				pickup.pos + Vector2(0, radius),
+				pickup.pos + Vector2(-radius * 0.70, 0)
+			]), Color("#f4bd3e"))
+			draw_line(pickup.pos + Vector2(0, -4) * pop, pickup.pos + Vector2(0, 4) * pop, Color("#fff8c8"), 1.5)
 		else:
 			var radius := 7.0 * pop
 			draw_colored_polygon(PackedVector2Array([pickup.pos + Vector2(0,-radius),pickup.pos + Vector2(radius,0),pickup.pos + Vector2(0,radius),pickup.pos + Vector2(-radius,0)]), Color("#70e5ff"))

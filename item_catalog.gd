@@ -17,7 +17,7 @@ const ITEMS := [
 	{"id":"moonbite_daggers", "name":"Moonbite Daggers", "slot":"Weapon", "family":"ROGUE", "icon":"DAGGERS", "evolution_path":["Crescent Twins", "Eclipse Fangs"], "desc":"Fast blades sharpen crits and executions.", "effects":{"crit":0.09, "execute":0.05}},
 	{"id":"mossguard_harness", "name":"Mossguard Harness", "slot":"Armour", "icon":"GUARD", "desc":"Living bark cushions hits and grows vitality.", "effects":{"max_hp":32.0, "armor":0.07}},
 	{"id":"ironpaw_plate", "name":"Ironpaw Plate", "slot":"Armour", "icon":"PLATE", "desc":"Heavy plating trades speed for force.", "effects":{"max_hp":48.0, "damage_mult":0.12, "attack_slow":0.10}},
-	{"id":"hoarders_locket", "name":"Hoarder's Locket", "slot":"Relic", "icon":"LOCKET", "desc":"Enemies spill more coins.", "effects":{"coin_mult":0.35}},
+	{"id":"hoarders_locket", "name":"Hoarder's Locket", "slot":"Relic", "icon":"LOCKET", "desc":"Enemies spill more Run Scrip.", "effects":{"coin_mult":0.35}},
 	{"id":"cursed_ring", "name":"Definitely Not Cursed Ring", "slot":"Relic", "icon":"RING", "desc":"Huge power while hurt. Probably safe.", "effects":{"low_health_damage":0.48, "max_hp":-12.0}},
 	{"id":"ember_pop", "name":"Ember Pop Rune", "slot":"Rune", "icon":"FIRE", "desc":"Burns hit harder and kills may erupt.", "effects":{"fire_damage":0.28, "kill_explosion":0.30}},
 	{"id":"stormspark", "name":"Stormspark Rune", "slot":"Rune", "icon":"SPARK", "desc":"Critical hits call a lightning spark.", "effects":{"crit_lightning":0.55}},
@@ -65,7 +65,7 @@ static func describe_effects(item: Dictionary) -> String:
 	if effects.has("crit"): parts.append("%+.0f%% crit" % (effects.crit * 100.0))
 	if effects.has("max_hp"): parts.append("%+.0f max HP" % effects.max_hp)
 	if effects.has("armor"): parts.append("%+.0f%% armour" % (effects.armor * 100.0))
-	if effects.has("coin_mult"): parts.append("%+.0f%% coins" % (effects.coin_mult * 100.0))
+	if effects.has("coin_mult"): parts.append("%+.0f%% Run Scrip" % (effects.coin_mult * 100.0))
 	if effects.has("execute"): parts.append("%+.0f%% execute threshold" % (effects.execute * 100.0))
 	if effects.has("repeat_every"): parts.append("repeat every %d attacks" % effects.repeat_every)
 	if effects.has("crit_lightning"): parts.append("crits spark lightning")

@@ -89,7 +89,7 @@ Combat should emphasize:
 - impact
 - enemy reaction
 - clear crit feedback
-- visible coin / XP rewards
+- visible Run Scrip / XP rewards
 - restrained screen shake
 - satisfying but readable particles
 
