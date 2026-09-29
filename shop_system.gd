@@ -15,10 +15,11 @@ func generate_stock(loot_system, wave: int) -> void:
 		stock.append(item)
 
 func price_for(item: Dictionary, wave: int) -> int:
-	return [18, 34, 62, 105][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 2
+	# Run Coins are plentiful by design; meaningful rarity steps make each of the two stops a choice.
+	return [58, 108, 185, 320][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 6
 
 func reroll_cost(wave: int) -> int:
-	return 12 + wave * 2 + rerolls * 7
+	return 55 + wave * 6 + rerolls * 25
 
 func reroll(loot_system, wave: int) -> void:
 	rerolls += 1

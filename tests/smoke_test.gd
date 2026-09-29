@@ -221,6 +221,11 @@ func run_tests() -> void:
 	var test_shop = ShopSystem.new()
 	test_shop.generate_stock(test_loot, 6)
 	check(test_shop.stock.size() == 3 and int(test_shop.stock[0].price) > 0, "merchant generates three priced choices")
+	var common_price_wave_6 := test_shop.price_for(ItemCatalog.create_item("mossguard_harness", "COMMON", 901), 6)
+	var rare_price_wave_6 := test_shop.price_for(ItemCatalog.create_item("mossguard_harness", "RARE", 902), 6)
+	var rare_price_wave_11 := test_shop.price_for(ItemCatalog.create_item("mossguard_harness", "RARE", 903), 11)
+	check(common_price_wave_6 == 94 and rare_price_wave_6 == 144 and rare_price_wave_11 == 174, "merchant prices use the tuned rarity and later-stop curve")
+	check(test_shop.reroll_cost(6) == 91 and test_shop.reroll_cost(11) == 121, "merchant rerolls are meaningful wave-scaled decisions")
 	var first_serial: int = test_shop.stock[0].serial
 	test_shop.reroll(test_loot, 6)
 	check(test_shop.stock.size() == 3 and int(test_shop.stock[0].serial) != first_serial, "merchant reroll replaces its stock")
@@ -234,6 +239,15 @@ func run_tests() -> void:
 	game.inventory.equip(ItemCatalog.create_item("glimmerstaff", "COMMON", 883))
 	check(game.target_player_x() < game.PLAYER_ATTACK_X, "Mage weapons maintain ranged spellcaster spacing")
 	game.inventory.equipped = original_equipped
+	game.start_run()
+	game.enemy_archetype = "tank"
+	game.enemy_is_miniboss = false
+	game.enemy_is_boss = false
+	check(game.target_player_x() == 212.0, "melee combat keeps a separate resting anchor against tanks")
+	game.enemy_is_boss = true
+	check(game.target_player_x() == 184.0, "boss silhouettes receive the widest melee resting separation")
+	game.apply_upgrade_effect(upgrade_by_id("greed"))
+	check(game.build.count("Poison") == 0 and is_equal_approx(game.coin_reward_mult, 1.25) and is_equal_approx(game.xp_reward_mult, 1.15), "Relic Magnet is neutral utility with separated restrained Coin and XP bonuses")
 	game.start_run()
 	game.coins = 999
 	game.wave = 6
@@ -269,10 +283,16 @@ func run_tests() -> void:
 	game.start_run()
 	game.pending_levels = 1
 	game.show_upgrade_choices()
+	for upgrade in GameCatalog.UPGRADES:
+		var clean_card: String = game.format_upgrade_card(upgrade, 1)
+		check(clean_card.contains(str(upgrade.name)) and clean_card.contains("STACK  ×1") and not clean_card.contains("(x1)"), "upgrade card formats %s without merging stack text into its mechanic" % upgrade.id)
+	check(game.upgrade_buttons.all(func(button): return button.size.x <= game.upgrade_panel.size.x - 40.0 and button.clip_text), "all upgrade cards remain constrained to the level-up panel")
 	game.choose_upgrade(0)
 	check(game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "upgrade selection uses one confirmation lane without duplicate acquired text")
 	game.start_run()
 	check(game.state == "playing", "a run starts in gameplay")
+	check(game.wave_banner_text == "WAVE 1" and game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "run start uses one concise presentation lane")
+	check(game.pause_button.position.y + game.pause_button.size.y < 77.0, "Pause occupies a deliberate top-HUD slot above the XP and HP bars")
 	check(game.enemy_alive and game.enemy_hp > 0.0, "first enemy spawns with health")
 	check(game.current_zone_id == "outer_ruins" and game.enemy_name == "MOSSBACK BRUTE", "Zone 1 uses its deterministic opening composition")
 	check(game.attack_clock <= 0.34, "a new foe starts with a predictable bounded first-hit clock")
@@ -323,7 +343,37 @@ func run_tests() -> void:
 	game.loot_drops.clear()
 	game.pending_items.clear()
 	game.item_review_due = false
+	game.wave = 8
+	game.enemy_alive = false
+	game.spawn_clock = 0.0
+	game.special_intro_wave = 0
+	game.state = "playing"
+	game._process(0.05)
+	check(game.state == "special_intro" and game.wave_banner_text == "MINIBOSS AHEAD", "miniboss uses a dedicated short pre-intro")
+	game._process(0.81)
+	check(game.state == "playing" and game.enemy_is_miniboss and game.wave_banner_timer == 0.0, "miniboss spawn removes the pre-intro instead of adding a duplicate boss banner")
+	game.start_run()
+	var long_item := ItemCatalog.create_item("cursed_ring", "LEGENDARY", 9901)
+	long_item.name = "Definitely Not Cursed Ring of Unreasonably Long Future Naming"
+	game.pending_items.append(long_item)
+	game.show_next_item()
+	check(game.item_title.get_theme_font_size("font_size") >= 18 and game.item_title.position.x + game.item_title.size.x <= game.item_panel.size.x, "long item titles wrap or reduce safely inside the item modal")
+	game.accept_item_scrap()
+	game.start_run()
+	game.wave = game.RUN_LAST_WAVE
+	game.spawn_enemy()
+	game.kill_enemy()
+	var boss_launches := {}
+	for hoard_drop in game.loot_drops:
+		boss_launches[roundi(hoard_drop.vel.x)] = true
+	check(game.loot_drops.size() == 3 and boss_launches.size() == 3, "Hoard Dragon visibly ejects three rewards on distinct arcs")
+	check(game.loot_drops.all(func(drop): return drop.pickup <= 1.15 and bool(drop.boss_choice)), "boss loot spectacle remains short and protected before choice")
+	game.loot_drops.clear()
+	game.pending_items.clear()
+	game.boss_reward_options.clear()
+	game.item_review_due = false
 	game.merchant_due = false
+	game.pending_victory = false
 	game.pending_zone_transition = true
 	game.wave = 11
 	game.enemy_alive = false
@@ -348,7 +398,9 @@ func run_tests() -> void:
 	check(game.total_kills >= 40, "waves and miniboss produced the expected enemy sequence")
 	check(game.meta_shards > 0, "run rewards permanent-progression currency")
 	check(game.restart_button.text == "RETURN TO HIDEOUT", "results provide one clear return to the Hideout")
-	check(game.result_summary.text.contains("Run Coins") and game.result_summary.text.contains("Scrap gained") and game.result_summary.text.contains("Star Shards gained"), "results summarize the run economy and rewards")
+	check(game.result_summary.text.contains("RUN COINS") and game.result_summary.text.contains("RUN REWARDS"), "results summarize the run economy and rewards")
+	var large_result: String = game.format_result_summary(true, 9999, 9999, 9999, 8888, 1111, 7777, 6666, "A Very Long Legendary Item Name")
+	check(large_result.contains("Earned     9999\nSpent      8888\nLeft       1111"), "four-digit Run Coin values use separate responsive result rows")
 	game.show_hideout()
 	check(game.state == "hideout" and game.hideout_ui.visible, "results return safely to the Hideout")
 	var original_shards: int = game.meta_shards

@@ -18,7 +18,7 @@ const UPGRADES := [
 	{"id":"venom", "name":"VENOM COAT", "desc":"Hits stack poison damage", "icon":"TOXIN", "rarity":"COMMON", "tags":["Poison"]},
 	{"id":"plague", "name":"PLAGUE SIPHON", "desc":"Poison damage heals you", "icon":"SIPHON", "rarity":"EPIC", "tags":["Poison", "Poison"]},
 	{"id":"armor", "name":"SCAVENGER PLATE", "desc":"+30 HP, 8% less damage", "icon":"HP", "rarity":"COMMON", "tags":["Physical"]},
-	{"id":"greed", "name":"RELIC MAGNET", "desc":"+50% coins and XP", "icon":"LOOT", "rarity":"RARE", "tags":["Poison"]}
+	{"id":"greed", "name":"RELIC MAGNET", "desc":"+25% coins, +15% XP", "icon":"LOOT", "rarity":"RARE", "tags":[]}
 ]
 
 static func rarity_color(rarity: String) -> Color:

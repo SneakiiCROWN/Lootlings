@@ -294,10 +294,15 @@ func refresh_stash() -> void:
 		var item: Dictionary = entry.item
 		var marker := "EQUIPPED" if entry.equipped else "STORED"
 		var family := "  •  %s" % item.get("family", "") if item.has("family") else ""
-		var button := make_button(stash_list, "%s  •  %s%s\n%s  [%s]" % [marker, slot_icon(item.get("slot", "")), family, item.get("name", "Unknown"), item.get("rarity", "COMMON")], Rect2(0, 0, 402, 64), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 14)
-		button.custom_minimum_size = Vector2(402, 64)
+		var button := make_button(stash_list, "%s  •  %s%s\n%s  [%s]" % [marker, slot_icon(item.get("slot", "")), family, item.get("name", "Unknown"), item.get("rarity", "COMMON")], Rect2(0, 0, 402, 68), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 13)
+		button.custom_minimum_size = Vector2(402, 68)
+		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		button.clip_text = true
 		apply_item_thumbnail(button, item)
 		button.pressed.connect(select_entry.bind(entry_index))
+	var bottom_padding := Control.new()
+	bottom_padding.custom_minimum_size = Vector2(402, 16)
+	stash_list.add_child(bottom_padding)
 	if entries.is_empty():
 		stash_detail.text = "[center][color=#8fa4ce]No %s equipment found.[/color][/center]" % stash_filter.to_lower()
 		stash_equip_button.disabled = true
