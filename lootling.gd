@@ -115,6 +115,11 @@ var element_flash := 0.0
 var element_flash_color := Color.WHITE
 var death_burst := 0.0
 var death_burst_color := Color.WHITE
+var hit_stop_timer := 0.0
+var coin_counter_flash := 0.0
+var xp_counter_flash := 0.0
+var player_reward_flash := 0.0
+var player_reward_color := Color.WHITE
 var tap_pulse := 0.0
 var upgrade_flash := 0.0
 var wave_banner_timer := 0.0
@@ -320,6 +325,7 @@ func equip_stash_item(index: int) -> void:
 	if inventory.equip_from_stash(index):
 		inventory.save(INVENTORY_SAVE_PATH)
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.play_stash_feedback("equip")
 
 func scrap_stash_item(index: int) -> void:
 	if state != "hideout":
@@ -327,6 +333,7 @@ func scrap_stash_item(index: int) -> void:
 	if inventory.scrap_from_stash(index) > 0:
 		inventory.save(INVENTORY_SAVE_PATH)
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"))
+		hideout_ui.play_stash_feedback("scrap")
 
 func buy_hideout_offer(index: int) -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
@@ -351,6 +358,7 @@ func buy_hideout_offer(index: int) -> void:
 		return
 	save_hideout_economy()
 	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
+	hideout_ui.play_shop_purchase(index, ItemCatalog.rarity_color(purchased.get("rarity", "COMMON")))
 
 func use_mystery_cache() -> void:
 	if state != "hideout":
@@ -363,6 +371,7 @@ func use_mystery_cache() -> void:
 		if inventory.keep(claimed):
 			save_hideout_economy()
 			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
+			hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(claimed.get("rarity", "COMMON")))
 		return
 	if hideout_shop.cache_bought_this_cycle:
 		hideout_ui.show_shop_message("Mystery Cache already opened.\nComplete a run to refresh it.", "#aebde0")
@@ -377,6 +386,7 @@ func use_mystery_cache() -> void:
 	hideout_shop.reveal_cache()
 	save_hideout_economy()
 	hideout_ui.refresh_shop()
+	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")))
 
 func buy_stash_expansion() -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
@@ -455,7 +465,8 @@ func build_boss_reward_ui() -> void:
 		var button := Button.new()
 		button.position = Vector2(25, 112 + i * 130)
 		button.size = Vector2(390, 108)
-		button.add_theme_font_size_override("font_size", 17)
+		button.add_theme_font_size_override("font_size", 15)
+		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.pressed.connect(choose_boss_reward.bind(i))
 		boss_reward_panel.add_child(button)
 		boss_reward_buttons.append(button)
@@ -578,6 +589,10 @@ func start_run() -> void:
 	crit_flash = 0.0
 	element_flash = 0.0
 	death_burst = 0.0
+	hit_stop_timer = 0.0
+	coin_counter_flash = 0.0
+	xp_counter_flash = 0.0
+	player_reward_flash = 0.0
 	wave_banner_text = "WAVE 1"
 	wave_banner_color = Color("#8fdcff")
 	wave_banner_timer = 1.8
@@ -668,7 +683,11 @@ func _process(delta: float) -> void:
 	if state == "paused" or state == "abandon_confirm":
 		queue_redraw()
 		return
-	update_effects(delta)
+	var visual_delta := delta
+	if hit_stop_timer > 0.0:
+		hit_stop_timer = maxf(0.0, hit_stop_timer - delta)
+		visual_delta *= 0.12
+	update_effects(visual_delta)
 	if state != "playing":
 		queue_redraw()
 		return
@@ -781,7 +800,7 @@ func perform_player_attack(is_tap: bool) -> void:
 			break
 		var is_crit := rng.randf() < effective_crit_chance()
 		var damage := base_damage * damage_scale * equipment_damage_multiplier() * (crit_mult if is_crit else 1.0) * rng.randf_range(0.92, 1.08)
-		damage_enemy(damage, is_crit, is_tap)
+		damage_enemy(damage, is_crit, is_tap, is_heavy)
 		if enemy_alive and is_crit and inventory.effect_total("crit_lightning") > 0.0:
 			deal_elemental_hit(base_damage * inventory.effect_total("crit_lightning"), "Lightning")
 		if hit_count > 1 and hit_index < hit_count - 1:
@@ -802,15 +821,19 @@ func perform_player_attack(is_tap: bool) -> void:
 	squash = 0.16
 	attack_anim = 0.22
 
-func damage_enemy(amount: float, is_crit: bool, is_tap: bool) -> void:
+func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
 	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
 	enemy_flash = 0.13 if is_crit else 0.10
 	enemy_squash = 0.16
-	enemy_recoil = 34.0 if is_crit else 20.0 if is_tap else 13.0
+	enemy_recoil = 40.0 if is_crit else 27.0 if is_heavy else 22.0 if is_tap else 15.0
 	impact_flash = 0.12 if is_crit else 0.052
 	crit_flash = 0.18 if is_crit else crit_flash
 	screen_shake = 0.075 if is_crit else 0.035
+	if is_crit or is_heavy:
+		hit_stop_timer = maxf(hit_stop_timer, 0.038 if is_crit else 0.030)
+	elif is_tap:
+		hit_stop_timer = maxf(hit_stop_timer, 0.014)
 	var text := ("CRIT! %.0f" if is_crit else "%.0f") % amount
 	if is_tap and not is_crit:
 		text = "TAP %.0f" % amount
@@ -906,10 +929,10 @@ func update_elemental_damage(delta: float) -> void:
 
 func kill_enemy() -> void:
 	enemy_alive = false
-	spawn_clock = 0.72
-	enemy_death_anim = 0.62
+	spawn_clock = 0.92 if enemy_is_boss else 0.78 if enemy_is_miniboss else 0.72
+	enemy_death_anim = 0.82 if enemy_is_boss else 0.70 if enemy_is_miniboss else 0.62
 	impact_flash = 0.12
-	death_burst = 0.46
+	death_burst = 0.70 if enemy_is_boss else 0.56 if enemy_is_miniboss else 0.46
 	death_burst_color = Color("#b75cff") if enemy_is_boss else Color("#ffba55") if enemy_is_miniboss else Color("#ffcf72")
 	enemy_hp = 0.0
 	total_kills += 1
@@ -930,8 +953,9 @@ func kill_enemy() -> void:
 		add_float("GEAR BURST %.0f" % gear_explosion, Vector2(290, 405), Color("#ffd17a"), 18)
 	spawn_item_drop()
 	add_xp(xp_reward)
-	add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
-	add_particles(Vector2(365, 470), Color("#ffd65a"), 26 if enemy_is_boss else 18)
+	if not enemy_is_boss:
+		add_float("+%d COINS" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
+	add_particles(Vector2(365, 470), Color("#ffd65a"), 32 if enemy_is_boss else 22 if enemy_is_miniboss else 16)
 	add_reward_burst(reward, xp_reward)
 	status_message = "MINIBOSS DEFEATED" if enemy_is_miniboss else ""
 	status_clock = 0.9 if enemy_is_miniboss else 0.0
@@ -964,16 +988,18 @@ func spawn_item_drop() -> void:
 		var rarity_color := ItemCatalog.rarity_color(item.rarity)
 		loot_drops.append({
 			"item":item,
+			"rarity":item.get("rarity", "COMMON"),
 			"boss_choice":enemy_is_boss,
 			"pos":Vector2(345 + drop_index * 20, 430),
 			"vel":Vector2(-75.0 + drop_index * 52.0, rng.randf_range(-250.0, -205.0)),
 			"pickup":1.15 + drop_index * 0.08,
 			"bounces":0,
+			"squash":0.0,
 			"color":rarity_color
 		})
 	spawn_clock = maxf(spawn_clock, 1.2)
 	if enemy_is_boss:
-		add_float("BOSS HOARD!", Vector2(290, 335), Color("#ffd36a"), 25)
+		add_float("BOSS HOARD!", Vector2(245, 335), Color("#ffd36a"), 22)
 	elif not loot_drops.is_empty():
 		add_float("%s LOOT!" % loot_drops.back().item.rarity, Vector2(290, 335), loot_drops.back().color, 21)
 
@@ -1077,6 +1103,9 @@ func accept_item_equip() -> void:
 	status_message = "%s equipped!" % item_name
 	if int(result.get("scrapped", 0)) > 0:
 		status_message += " Old gear auto-scrapped."
+	player_reward_flash = 0.55
+	player_reward_color = Color("#69e6b0")
+	add_particles(Vector2(player_x, 470), player_reward_color, 14)
 	finish_item_decision()
 
 func accept_item_keep() -> void:
@@ -1089,6 +1118,9 @@ func accept_item_keep() -> void:
 		run_kept_loot.append(kept_name)
 	inventory.save(INVENTORY_SAVE_PATH)
 	status_message = "%s sent to stash." % current_item.get("name", "Loot")
+	player_reward_flash = 0.55
+	player_reward_color = Color("#72c8ff")
+	add_particles(Vector2(player_x, 470), player_reward_color, 12)
 	finish_item_decision()
 
 func accept_item_scrap() -> void:
@@ -1097,6 +1129,9 @@ func accept_item_scrap() -> void:
 	var value := inventory.salvage(current_item)
 	inventory.save(INVENTORY_SAVE_PATH)
 	status_message = "Loot scrapped for %d scrap." % value
+	player_reward_flash = 0.55
+	player_reward_color = Color("#ffbd69")
+	add_particles(Vector2(player_x, 470), player_reward_color, 16)
 	finish_item_decision()
 
 func finish_item_decision() -> void:
@@ -1226,13 +1261,15 @@ func choose_upgrade(index: int) -> void:
 		wave_banner_timer = 1.8
 		upgrade_flash = 1.1
 		add_particles(Vector2(player_x, 470), build.color(), 34)
+		status_message = ""
+		status_clock = 0.0
 	else:
 		wave_banner_text = "%s EQUIPPED" % up.name
 		wave_banner_timer = 1.15
 		add_particles(Vector2(player_x, 470), build.color(), 20)
+		status_message = "%s acquired!" % up.name
+		status_clock = 1.4
 	wave_banner_color = build.color()
-	status_message = "%s acquired!" % up.name
-	status_clock = 2.0
 	pending_levels -= 1
 	upgrade_panel.visible = false
 	if pending_levels > 0:
@@ -1303,6 +1340,7 @@ func buy_meta_power() -> void:
 		meta_power += 1
 		save_meta()
 		refresh_hideout()
+		hideout_ui.play_shrine_upgrade()
 
 func refresh_hideout() -> void:
 	if hideout_ui != null:
@@ -1343,6 +1381,9 @@ func update_effects(delta: float) -> void:
 	crit_flash = maxf(0.0, crit_flash - delta)
 	element_flash = maxf(0.0, element_flash - delta)
 	death_burst = maxf(0.0, death_burst - delta)
+	coin_counter_flash = maxf(0.0, coin_counter_flash - delta)
+	xp_counter_flash = maxf(0.0, xp_counter_flash - delta)
+	player_reward_flash = maxf(0.0, player_reward_flash - delta)
 	tap_pulse = maxf(0.0, tap_pulse - delta)
 	upgrade_flash = maxf(0.0, upgrade_flash - delta)
 	wave_banner_timer = maxf(0.0, wave_banner_timer - delta)
@@ -1363,15 +1404,25 @@ func update_effects(delta: float) -> void:
 	for pickup in reward_pickups:
 		if pickup.delay > 0.0:
 			pickup.delay -= delta
+			pickup.vel.y += 420.0 * delta
+			pickup.pos += pickup.vel * delta
+			if pickup.pos.y > 500.0:
+				pickup.pos.y = 500.0
+				pickup.vel.y = -absf(pickup.vel.y) * 0.34
 			continue
 		pickup.life -= delta
 		var progress: float = 1.0 - clampf(pickup.life / pickup.max_life, 0.0, 1.0)
 		pickup.pos = pickup.start.lerp(pickup.target, progress) + Vector2(0, -sin(progress * PI) * 72.0)
 	for i in range(reward_pickups.size() - 1, -1, -1):
 		if reward_pickups[i].life <= 0.0:
+			if reward_pickups[i].kind == "coin":
+				coin_counter_flash = 0.24
+			else:
+				xp_counter_flash = 0.24
 			reward_pickups.remove_at(i)
 	for drop in loot_drops:
 		drop.pickup -= delta
+		drop.squash = maxf(0.0, float(drop.get("squash", 0.0)) - delta)
 		drop.vel.y += 340.0 * delta
 		drop.pos += drop.vel * delta
 		if drop.pos.y >= 540.0 and drop.vel.y > 0.0:
@@ -1379,6 +1430,7 @@ func update_effects(delta: float) -> void:
 			drop.vel.y = -drop.vel.y * (0.44 if int(drop.bounces) == 0 else 0.18)
 			drop.vel.x *= 0.68
 			drop.bounces += 1
+			drop.squash = 0.12
 	for i in range(loot_drops.size() - 1, -1, -1):
 		if loot_drops[i].pickup <= 0.0:
 			if not bool(loot_drops[i].get("boss_choice", false)):
@@ -1402,7 +1454,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	pos.x += (-10.0 if nearby % 2 == 0 else 10.0) * min(nearby, 2)
 	var duration := 0.68 if size_value < 25 else 0.82
 	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":duration, "max_life":duration})
-	while floating_texts.size() > 7:
+	while floating_texts.size() > 5:
 		floating_texts.pop_front()
 
 func add_particles(pos: Vector2, color: Color, count: int) -> void:
@@ -1410,15 +1462,15 @@ func add_particles(pos: Vector2, color: Color, count: int) -> void:
 		particles.append({"pos":pos, "vel":Vector2(rng.randf_range(-105, 105), rng.randf_range(-155, -25)), "color":color, "life":rng.randf_range(0.25, 0.55), "max_life":0.55})
 
 func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
-	var coin_cap := 10 if enemy_is_boss else 8 if enemy_is_miniboss else 7
+	var coin_cap := 14 if enemy_is_boss else 9 if enemy_is_miniboss else 7
 	var coin_count := mini(coin_cap, maxi(3, int(coin_reward / 7) + 3))
 	for i in range(coin_count):
 		var start := Vector2(360, 450) + Vector2(rng.randf_range(-24, 24), rng.randf_range(-18, 20))
-		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "delay":i * 0.045, "life":0.72, "max_life":0.72})
-	var xp_count := mini(5, maxi(2, int(xp_reward / 25.0) + 2))
+		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "vel":Vector2(rng.randf_range(-130.0, 85.0), rng.randf_range(-230.0, -120.0)), "delay":0.16 + i * 0.035, "life":0.72, "max_life":0.72})
+	var xp_count := mini(7 if enemy_is_boss else 5, maxi(2, int(xp_reward / 25.0) + 2))
 	for i in range(xp_count):
 		var start := Vector2(365, 450) + Vector2(rng.randf_range(-28, 28), rng.randf_range(-15, 22))
-		reward_pickups.append({"kind":"xp", "start":start, "pos":start, "target":Vector2(250, 92), "delay":0.10 + i * 0.055, "life":0.78, "max_life":0.78})
+		reward_pickups.append({"kind":"xp", "start":start, "pos":start, "target":Vector2(250, 92), "vel":Vector2(rng.randf_range(-95.0, 110.0), rng.randf_range(-210.0, -105.0)), "delay":0.20 + i * 0.045, "life":0.78, "max_life":0.78})
 
 func _draw() -> void:
 	var sx := size.x / DESIGN_SIZE.x
@@ -1455,11 +1507,15 @@ func draw_hud() -> void:
 	draw_rect(Rect2(330, 13, 136, 53), Color("#7d643d"), false, 2)
 	draw_string(title_font, Vector2(18, 35), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 25, Color("#ffe178"))
 	draw_string(body_font, Vector2(18, 62), "WAVE %02d / %02d" % [wave, RUN_LAST_WAVE], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("#bac9eb"))
-	draw_circle(Vector2(353, 29), 11, Color("#f7c94c"))
-	draw_circle(Vector2(353, 29), 6, Color("#ffe990"))
-	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 90, 18, Color("#ffe078"))
+	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
+	draw_circle(Vector2(353, 29), 11 + coin_pulse * 4.0, Color(1.0, 0.80, 0.26, 0.50 + coin_pulse * 0.45))
+	draw_circle(Vector2(353, 29), 6 + coin_pulse * 2.0, Color("#ffe990"))
+	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 90, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(337, 63), "LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 125, 15, Color("#9fddff"))
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
+	if xp_counter_flash > 0.0:
+		var xp_pulse := xp_counter_flash / 0.24
+		draw_rect(Rect2(18, 77, 444, 18), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
 	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14)
 	var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
 	draw_rect(Rect2(91, 151, 298, 25), Color("#0a1129d9"), true)
@@ -1492,7 +1548,8 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 467) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
 	elif enemy_death_anim > 0.0:
-		var death_progress := 1.0 - enemy_death_anim / 0.62
+		var death_duration := 0.82 if enemy_is_boss else 0.70 if enemy_is_miniboss else 0.62
+		var death_progress := 1.0 - enemy_death_anim / death_duration
 		var death_color := enemy_color
 		death_color.a = 1.0 - death_progress
 		draw_enemy(Vector2(ENEMY_X + death_progress * 35.0, 467 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
@@ -1540,8 +1597,6 @@ func draw_effects() -> void:
 	for drop in loot_drops:
 		draw_loot_drop(drop)
 	for pickup in reward_pickups:
-		if pickup.delay > 0.0:
-			continue
 		var pop := clampf(pickup.life / pickup.max_life * 2.0, 0.0, 1.0)
 		if pickup.kind == "coin":
 			draw_circle(pickup.pos, 7.0 * pop, Color("#f4bd3e"))
@@ -1569,14 +1624,28 @@ func draw_effects() -> void:
 		draw_arc(impact_center, 30.0 + (1.0 - element_ratio) * 34.0, -0.4, 5.2, 28, ring_color, 4.0)
 		draw_arc(impact_center, 39.0 + (1.0 - element_ratio) * 20.0, 2.7, 6.0, 18, ring_color.lightened(0.25), 2.0)
 	if death_burst > 0.0:
-		var death_ratio := clampf(death_burst / 0.46, 0.0, 1.0)
+		var burst_duration := 0.70 if enemy_is_boss else 0.56 if enemy_is_miniboss else 0.46
+		var death_ratio := clampf(death_burst / burst_duration, 0.0, 1.0)
 		var burst_color := death_burst_color
 		burst_color.a = death_ratio * 0.75
 		var burst_center := Vector2(ENEMY_X, 462)
 		draw_arc(burst_center, 34.0 + (1.0 - death_ratio) * 62.0, 0.0, TAU, 32, burst_color, 5.0 * death_ratio + 1.0)
-		for ray in range(10):
-			var direction := Vector2.RIGHT.rotated(TAU * ray / 10.0 + 0.16)
+		var ray_count := 14 if enemy_is_boss else 11 if enemy_is_miniboss else 10
+		for ray in range(ray_count):
+			var direction := Vector2.RIGHT.rotated(TAU * ray / float(ray_count) + 0.16)
 			draw_line(burst_center + direction * 28.0, burst_center + direction * (58.0 + (1.0 - death_ratio) * 30.0), burst_color, 3.0)
+	if upgrade_flash > 0.0:
+		var core_ratio := clampf(upgrade_flash / 1.1, 0.0, 1.0)
+		var core_color := build.color()
+		core_color.a = core_ratio * 0.75
+		var core_center := Vector2(player_x + 16, 474)
+		draw_arc(core_center, 18.0 + (1.0 - core_ratio) * 62.0, 0.0, TAU, 36, core_color, 5.0)
+		draw_arc(core_center, 30.0 + (1.0 - core_ratio) * 84.0, -0.5, 4.9, 30, core_color.lightened(0.3), 2.5)
+	if player_reward_flash > 0.0:
+		var reward_ratio := player_reward_flash / 0.55
+		var reward_color := player_reward_color
+		reward_color.a = reward_ratio * 0.8
+		draw_arc(Vector2(player_x, 470), 35.0 + (1.0 - reward_ratio) * 48.0, 0.0, TAU, 30, reward_color, 4.0)
 	for item in floating_texts:
 		var alpha: float = clampf(item.life / item.max_life, 0.0, 1.0)
 		var color: Color = item.color
@@ -1586,15 +1655,25 @@ func draw_effects() -> void:
 
 func draw_loot_drop(drop: Dictionary) -> void:
 	var color: Color = drop.color
-	var beam := color
-	beam.a = 0.17 + sin(run_time * 9.0 + drop.pos.x) * 0.05
-	draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(-18, 8), drop.pos + Vector2(-6, -105), drop.pos + Vector2(6, -105), drop.pos + Vector2(18, 8)]), beam)
-	var pulse := 1.0 + sin(run_time * 7.0 + drop.pos.x) * 0.08
+	var rarity: String = drop.get("rarity", drop.item.get("rarity", "COMMON"))
+	var rarity_rank := 3 if rarity == "LEGENDARY" else 2 if rarity == "EPIC" else 1 if rarity == "RARE" else 0
+	if rarity_rank > 0:
+		var beam := color
+		beam.a = (0.08 if rarity_rank == 1 else 0.17 if rarity_rank == 2 else 0.24) + sin(run_time * 9.0 + drop.pos.x) * 0.035
+		var beam_width := 11.0 + rarity_rank * 4.0
+		var beam_height := 62.0 + rarity_rank * 22.0
+		draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(-beam_width, 8), drop.pos + Vector2(-5, -beam_height), drop.pos + Vector2(5, -beam_height), drop.pos + Vector2(beam_width, 8)]), beam)
+	var squash_ratio := clampf(float(drop.get("squash", 0.0)) / 0.12, 0.0, 1.0)
+	var pulse := 1.0 + sin(run_time * 7.0 + drop.pos.x) * (0.04 + rarity_rank * 0.02) + squash_ratio * 0.12
 	var halo := color
-	halo.a = 0.22
-	draw_circle(drop.pos, 22.0 * pulse, halo)
+	halo.a = 0.12 + rarity_rank * 0.07
+	draw_circle(drop.pos, (19.0 + rarity_rank * 2.5) * pulse, halo)
 	draw_circle(drop.pos, 16.0 * pulse, Color("#10182cea"))
-	draw_arc(drop.pos, 19.0 * pulse, run_time * 2.2, run_time * 2.2 + 4.7, 22, color.lightened(0.28), 3)
+	draw_arc(drop.pos, (18.0 + rarity_rank) * pulse, run_time * 2.2, run_time * 2.2 + 4.0 + rarity_rank * 0.32, 22, color.lightened(0.28), 2.0 + rarity_rank * 0.65)
+	if rarity_rank >= 2:
+		for glint in range(4 if rarity_rank == 2 else 6):
+			var direction := Vector2.RIGHT.rotated(run_time * 0.8 + TAU * glint / float(4 if rarity_rank == 2 else 6))
+			draw_line(drop.pos + direction * 22.0, drop.pos + direction * (28.0 + rarity_rank * 4.0), color.lightened(0.5), 2.0)
 	var slot: String = drop.item.get("slot", "Relic")
 	match slot:
 		"Weapon":
@@ -1622,13 +1701,13 @@ func draw_moment_overlay() -> void:
 		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
 		var banner_color := wave_banner_color
 		banner_color.a = fade
-		var important := wave_banner_text.contains("BOSS") or wave_banner_text.contains("CORE") or wave_banner_text.contains("FINAL")
+		var important := wave_banner_text.contains("BOSS") or wave_banner_text.contains("FINAL")
 		if important:
-			draw_rect(Rect2(24, 294, 432, 64), Color(0.03, 0.06, 0.16, 0.86 * fade), true)
-			draw_rect(Rect2(24, 294, 432, 2), banner_color, true)
-			draw_rect(Rect2(24, 356, 432, 2), banner_color, true)
-			draw_string(title_font, Vector2(36, 337), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 408, 25, banner_color)
+			draw_rect(Rect2(72, 276, 336, 50), Color(0.03, 0.06, 0.16, 0.78 * fade), true)
+			draw_rect(Rect2(72, 276, 336, 2), banner_color, true)
+			draw_rect(Rect2(72, 324, 336, 2), banner_color, true)
+			draw_string(title_font, Vector2(84, 310), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 312, 20, banner_color)
 		else:
-			draw_rect(Rect2(140, 181, 200, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
-			draw_rect(Rect2(140, 181, 200, 2), banner_color, true)
-			draw_string(title_font, Vector2(150, 208), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 180, 17, banner_color)
+			draw_rect(Rect2(100, 264, 280, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
+			draw_rect(Rect2(100, 264, 280, 2), banner_color, true)
+			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)

@@ -37,13 +37,16 @@ var coming_content: Control
 var shop_content: Control
 var resource_label: Label
 var loadout_label: Label
+var loadout_panel: Panel
 var stash_title: Label
 var stash_list: VBoxContainer
 var stash_detail: RichTextLabel
+var stash_detail_panel: Panel
 var stash_equip_button: Button
 var stash_scrap_button: Button
 var upgrade_summary: Label
 var upgrade_button: Button
+var upgrade_panel: Panel
 var coming_title: Label
 var shop_scrap_label: Label
 var shop_offer_buttons: Array[Button] = []
@@ -53,10 +56,16 @@ var shop_reroll_button: Button
 var shop_status: RichTextLabel
 var shop_detail: RichTextLabel
 var shop_buy_button: Button
+var shop_detail_panel: Panel
+var shop_status_panel: Panel
 var selected_entry := -1
 var selected_shop_offer := -1
 var scene_time := 0.0
 var transition_overlay: ColorRect
+var last_scrap := -1
+var shrine_pulse := 0.0
+var cache_pulse := 0.0
+var ui_sparks: Array = []
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -136,9 +145,9 @@ func build_home() -> void:
 	stash_button.pressed.connect(show_stash)
 	var lootbook_button := make_hotspot_button(home_content, "ARCHIVE\nLOOTBOOK", Rect2(316, 476, 150, 110), Color("#91a6ce"), 15)
 	lootbook_button.pressed.connect(show_coming_soon.bind("LOOTBOOK"))
-	var loadout_panel := make_panel(home_content, Rect2(24, 678, 432, 116), Color("#0c1430df"), Color("#c99a4e"))
-	make_label(loadout_panel, "EXPEDITION LOADOUT", 15, Rect2(12, 8, 408, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
-	loadout_label = make_label(loadout_panel, "", 12, Rect2(16, 34, 400, 72), HORIZONTAL_ALIGNMENT_CENTER, Color("#e6edff"))
+	loadout_panel = make_panel(home_content, Rect2(34, 704, 412, 88), Color("#0c1430c9"), Color("#c99a4e"))
+	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
+	loadout_label = make_label(loadout_panel, "", 11, Rect2(14, 27, 384, 54), HORIZONTAL_ALIGNMENT_CENTER, Color("#e6edff"))
 	loadout_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func build_stash() -> void:
@@ -165,7 +174,7 @@ func build_stash() -> void:
 	stash_list.custom_minimum_size = Vector2(402, 0)
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
-	var detail_panel := make_panel(stash_content, Rect2(20, 486, 440, 190), Color("#0d1530e8"), Color("#c99a4e"))
+	stash_detail_panel = make_panel(stash_content, Rect2(20, 486, 440, 190), Color("#0d1530dc"), Color("#c99a4e"))
 	stash_detail = RichTextLabel.new()
 	stash_detail.position = Vector2(18, 16)
 	stash_detail.size = Vector2(404, 158)
@@ -173,7 +182,7 @@ func build_stash() -> void:
 	stash_detail.scroll_active = false
 	stash_detail.add_theme_font_size_override("normal_font_size", 15)
 	stash_detail.add_theme_color_override("default_color", Color("#e5edff"))
-	detail_panel.add_child(stash_detail)
+	stash_detail_panel.add_child(stash_detail)
 	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 694, 210, 66), Color("#285c4c"), Color("#69e6b0"), 18)
 	stash_equip_button.pressed.connect(request_stash_equip)
 	stash_scrap_button = make_button(stash_content, "SCRAP", Rect2(250, 694, 210, 66), Color("#5a3828"), Color("#ffbd69"), 18)
@@ -187,14 +196,14 @@ func build_upgrades() -> void:
 	var back := make_button(upgrade_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(upgrade_content, "RELIC TRAINING", 29, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	var panel := make_panel(upgrade_content, Rect2(34, 350, 412, 284), Color("#101634e8"), Color("#b78cff"))
-	make_label(panel, "PERMANENT POWER", 22, Rect2(20, 18, 372, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
-	upgrade_summary = make_label(panel, "", 17, Rect2(32, 55, 348, 128), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
+	upgrade_panel = make_panel(upgrade_content, Rect2(48, 390, 384, 228), Color("#101634ce"), Color("#b78cff"))
+	make_label(upgrade_panel, "PERMANENT POWER", 20, Rect2(20, 12, 344, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
+	upgrade_summary = make_label(upgrade_panel, "", 15, Rect2(28, 43, 328, 102), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
 	upgrade_summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	upgrade_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	upgrade_button = make_button(panel, "UPGRADE", Rect2(48, 194, 316, 70), Color("#49346b"), Color("#d19cff"), 18)
+	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 154, 300, 58), Color("#49346b"), Color("#d19cff"), 17)
 	upgrade_button.pressed.connect(func(): upgrade_requested.emit())
-	make_label(upgrade_content, "Star Shards are persistent. Run Coins reset every run.", 14, Rect2(48, 650, 384, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	make_label(upgrade_content, "Star Shards are persistent. Run Coins reset every run.", 13, Rect2(48, 640, 384, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -209,15 +218,15 @@ func build_shop() -> void:
 		var offer_button := make_button(shop_content, "", Rect2(20 + index * 147, 196, 137, 120), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
-	var detail_panel := make_panel(shop_content, Rect2(20, 334, 440, 172), Color("#0d1530f2"), Color("#c99a4e"))
+	shop_detail_panel = make_panel(shop_content, Rect2(20, 344, 440, 158), Color("#0d1530e6"), Color("#c99a4e"))
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(16, 12)
 	shop_detail.size = Vector2(274, 148)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = false
 	shop_detail.add_theme_font_size_override("normal_font_size", 14)
-	detail_panel.add_child(shop_detail)
-	shop_buy_button = make_button(detail_panel, "SELECT AN OFFER", Rect2(302, 42, 122, 86), Color("#6b4a1e"), Color("#ffd468"), 13)
+	shop_detail_panel.add_child(shop_detail)
+	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(302, 36, 122, 82), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
 	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(20, 525, 210, 76), Color("#3f315f"), Color("#c99cff"), 14)
 	shop_cache_button.pressed.connect(func(): shop_cache_requested.emit())
@@ -225,7 +234,7 @@ func build_shop() -> void:
 	shop_expansion_button.pressed.connect(func(): shop_expansion_requested.emit())
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 615, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
 	shop_reroll_button.pressed.connect(func(): shop_reroll_requested.emit())
-	var status_panel := make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530f2"), Color("#8ea2c8"))
+	shop_status_panel = make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530dc"), Color("#8ea2c8"))
 	shop_status = RichTextLabel.new()
 	shop_status.position = Vector2(14, 10)
 	shop_status.size = Vector2(412, 72)
@@ -234,7 +243,7 @@ func build_shop() -> void:
 	shop_status.scroll_active = false
 	shop_status.add_theme_font_size_override("normal_font_size", 14)
 	shop_status.add_theme_color_override("default_color", Color("#e5edff"))
-	status_panel.add_child(shop_status)
+	shop_status_panel.add_child(shop_status)
 
 func build_coming_soon() -> void:
 	coming_content = Control.new()
@@ -251,11 +260,15 @@ func build_coming_soon() -> void:
 func refresh_home() -> void:
 	if current_inventory == null or resource_label == null:
 		return
+	var scrap_changed: bool = last_scrap >= 0 and last_scrap != int(current_inventory.scrap)
+	last_scrap = current_inventory.scrap
 	resource_label.text = "◆ %d SCRAP       ✦ %d STAR SHARDS       POWER +%d%%" % [current_inventory.scrap, shards, power * 5]
+	if scrap_changed and current_screen == "home":
+		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
 	var armour: Dictionary = current_inventory.equipped_item("Armour")
 	var charm: Dictionary = current_inventory.equipped_item("Relic")
-	loadout_label.text = "⚔ %s  •  %s FAMILY\n◆ %s  •  ✦ %s\nRELIC CORE  •  NEUTRAL" % [item_name_or_empty(weapon), current_inventory.weapon_family(), item_name_or_empty(armour), item_name_or_empty(charm)]
+	loadout_label.text = "⚔ %s  •  %s     ◆ %s\n✦ %s     ◈ NEUTRAL CORE" % [item_name_or_empty(weapon), current_inventory.weapon_family(), item_name_or_empty(armour), item_name_or_empty(charm)]
 
 func refresh_stash() -> void:
 	if current_inventory == null or stash_list == null:
@@ -296,6 +309,8 @@ func select_entry(entry_index: int) -> void:
 	if entry_index < 0 or entry_index >= entries.size():
 		return
 	selected_entry = entry_index
+	if entry_index < stash_list.get_child_count():
+		pulse_control(stash_list.get_child(entry_index), Color("#72c8ff"))
 	var entry: Dictionary = entries[entry_index]
 	var item: Dictionary = entry.item
 	var rarity: String = item.get("rarity", "COMMON")
@@ -319,7 +334,7 @@ func refresh_upgrades() -> void:
 	if upgrade_summary == null:
 		return
 	var cost := 10 + power * 5
-	upgrade_summary.text = "CURRENT LEVEL  %d\n\n+%d%% base Damage and Max HP\nfor every future run\n\nSTAR SHARDS  ✦ %d" % [power, power * 5, shards]
+	upgrade_summary.text = "LEVEL %d  •  TOTAL +%d%%\nDamage and Max HP every run\n\n✦ %d STAR SHARDS" % [power, power * 5, shards]
 	upgrade_button.text = "POWER +5%%\nCOST  ✦ %d" % cost
 	upgrade_button.disabled = shards < cost or power >= 100
 
@@ -331,18 +346,18 @@ func refresh_shop() -> void:
 	for index in range(shop_offer_buttons.size()):
 		var button: Button = shop_offer_buttons[index]
 		if index >= current_shop.stock.size() or current_shop.stock[index].is_empty():
-			button.text = "SOLD OUT\n\nReturns after\nthe next run"
+			button.text = "SOLD OUT\nREFRESHES AFTER RUN"
 			button.disabled = true
 			button.icon = null
 			button.alignment = HORIZONTAL_ALIGNMENT_CENTER
-			apply_button_style(button, Color("#202432"), Color("#596070"))
+			apply_sold_display_style(button)
 			if selected_shop_offer == index:
 				selected_shop_offer = -1
 			continue
 		var item: Dictionary = current_shop.stock[index]
 		button.text = "%s\n%s\n[%s]\n◆ %d" % [slot_icon(item.get("slot", "")), item.get("name", "Unknown"), item.get("rarity", "COMMON"), item.get("price", 0)]
 		button.disabled = reveal_pending
-		apply_display_button_style(button, ItemCatalog.rarity_color(item.get("rarity", "COMMON")))
+		apply_display_button_style(button, ItemCatalog.rarity_color(item.get("rarity", "COMMON")), selected_shop_offer == index)
 		apply_item_thumbnail(button, item)
 	refresh_shop_detail(reveal_pending)
 	var expansion_cost: int = current_shop.expansion_cost(current_inventory.stash_capacity)
@@ -370,10 +385,12 @@ func refresh_shop() -> void:
 
 func refresh_shop_detail(reveal_pending: bool) -> void:
 	if selected_shop_offer < 0 or selected_shop_offer >= current_shop.stock.size() or current_shop.stock[selected_shop_offer].is_empty():
-		shop_detail.text = "[center][color=#aebde0]Tap a displayed item to inspect it.[/color]\n\nThree pieces recovered for this visit.[/center]"
+		shop_detail_panel.visible = false
+		shop_detail.text = ""
 		shop_buy_button.text = "SELECT\nAN OFFER"
 		shop_buy_button.disabled = true
 		return
+	shop_detail_panel.visible = true
 	var item: Dictionary = current_shop.stock[selected_shop_offer]
 	var rarity: String = item.get("rarity", "COMMON")
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
@@ -415,11 +432,38 @@ func select_shop_offer(index: int) -> void:
 		return
 	selected_shop_offer = index
 	refresh_shop_detail(not current_shop.pending_cache_item.is_empty())
+	refresh_shop()
+	pulse_control(shop_offer_buttons[index], ItemCatalog.rarity_color(current_shop.stock[index].get("rarity", "COMMON")))
 	queue_redraw()
 
 func request_selected_shop_offer() -> void:
 	if selected_shop_offer >= 0:
 		shop_offer_requested.emit(selected_shop_offer)
+
+func play_shop_purchase(index: int, rarity_color: Color) -> void:
+	if index >= 0 and index < shop_offer_buttons.size():
+		pulse_control(shop_offer_buttons[index], rarity_color)
+		spawn_ui_burst(Vector2(88 + index * 147, 258), rarity_color, 12)
+	pulse_control(shop_scrap_label, Color("#9fddff"))
+
+func play_cache_reveal(rarity_color: Color) -> void:
+	cache_pulse = 0.72
+	shake_control(shop_cache_button)
+	pulse_control(shop_status_panel, rarity_color)
+	spawn_ui_burst(Vector2(125, 562), rarity_color, 18)
+
+func play_stash_feedback(kind: String) -> void:
+	var target := stash_equip_button if kind == "equip" else stash_scrap_button
+	var color := Color("#69e6b0") if kind == "equip" else Color("#ffbd69")
+	pulse_control(target, color)
+	pulse_control(stash_detail_panel, color)
+	spawn_ui_burst(target.position + target.size * 0.5, color, 12)
+
+func play_shrine_upgrade() -> void:
+	shrine_pulse = 0.72
+	pulse_control(upgrade_panel, Color("#d19cff"))
+	pulse_control(upgrade_button, Color("#f0d5ff"))
+	spawn_ui_burst(Vector2(315, 252), Color("#c99cff"), 20)
 
 func slot_icon(slot: String) -> String:
 	match slot:
@@ -464,6 +508,15 @@ func play_transition() -> void:
 
 func _process(delta: float) -> void:
 	scene_time += delta
+	shrine_pulse = maxf(0.0, shrine_pulse - delta)
+	cache_pulse = maxf(0.0, cache_pulse - delta)
+	for spark in ui_sparks:
+		spark.life -= delta
+		spark.pos += spark.vel * delta
+		spark.vel *= 0.94
+	for index in range(ui_sparks.size() - 1, -1, -1):
+		if ui_sparks[index].life <= 0.0:
+			ui_sparks.remove_at(index)
 	if visible:
 		queue_redraw()
 
@@ -489,6 +542,7 @@ func _draw() -> void:
 		"stash": draw_stash_scene()
 		"upgrades": draw_shrine_scene()
 		"coming": draw_archive_scene()
+	draw_ui_sparks()
 
 func background_for_screen() -> Texture2D:
 	match current_screen:
@@ -511,6 +565,15 @@ func draw_home_scene() -> void:
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
 	draw_texture_rect(MASCOT_TEXTURE, Rect2(25, 105 + sin(scene_time * 2.0) * 2.0, 96, 96), false, Color.WHITE)
+	if current_shop != null:
+		for index in range(mini(3, current_shop.stock.size())):
+			if current_shop.stock[index].is_empty():
+				var center := Vector2(88 + index * 147, 256)
+				draw_line(center + Vector2(-34, -22), center + Vector2(34, 22), Color("#714a50aa"), 5)
+				draw_line(center + Vector2(-34, 22), center + Vector2(34, -22), Color("#714a50aa"), 5)
+	if cache_pulse > 0.0:
+		var ratio := cache_pulse / 0.72
+		draw_arc(Vector2(125, 562), 34.0 + (1.0 - ratio) * 34.0, 0.0, TAU, 28, Color(0.78, 0.55, 1.0, ratio * 0.75), 4.0)
 
 func draw_stash_scene() -> void:
 	pass
@@ -519,6 +582,9 @@ func draw_shrine_scene() -> void:
 	var bob := sin(scene_time * 2.0) * 2.5
 	draw_texture_rect(MASCOT_TEXTURE, Rect2(34, 142 + bob, 150, 150), false, Color.WHITE)
 	draw_circle(Vector2(240, 234), 12 + sin(scene_time * 2.4) * 2.0, Color(0.68, 0.42, 1.0, 0.12))
+	if shrine_pulse > 0.0:
+		var ratio := shrine_pulse / 0.72
+		draw_arc(Vector2(315, 252), 28.0 + (1.0 - ratio) * 72.0, 0.0, TAU, 36, Color(0.76, 0.53, 1.0, ratio * 0.82), 5.0)
 
 func draw_archive_scene() -> void:
 	# The physical Archive nook remains visible behind the deferred Lootbook notice.
@@ -561,6 +627,7 @@ func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: 
 	button.add_theme_font_size_override("font_size", font_size)
 	apply_button_style(button, fill, border)
 	parent.add_child(button)
+	wire_press_feedback(button)
 	return button
 
 func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color, font_size: int) -> Button:
@@ -575,22 +642,23 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	button.add_theme_constant_override("outline_size", 6)
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
-		box.bg_color = Color(0.025, 0.055, 0.12, 0.12 if state_name == "normal" else 0.42)
+		box.bg_color = Color(0.025, 0.055, 0.12, 0.025 if state_name == "normal" else 0.42)
 		if state_name == "hover": box.bg_color = Color(accent.r, accent.g, accent.b, 0.30)
 		if state_name == "pressed": box.bg_color = Color(accent.r, accent.g, accent.b, 0.40)
-		box.border_color = Color(accent.r, accent.g, accent.b, 0.34 if state_name == "normal" else 0.9)
-		box.set_border_width_all(1 if state_name == "normal" else 3)
+		box.border_color = Color(accent.r, accent.g, accent.b, 0.14 if state_name == "normal" else 0.9)
+		box.set_border_width_all(0 if state_name == "normal" else 3)
 		box.set_corner_radius_all(18)
-		box.shadow_color = Color(accent.r, accent.g, accent.b, 0.22)
-		box.shadow_size = 10 if state_name == "normal" else 5
+		box.shadow_color = Color(accent.r, accent.g, accent.b, 0.10 if state_name == "normal" else 0.22)
+		box.shadow_size = 4 if state_name == "normal" else 5
 		button.add_theme_stylebox_override(state_name, box)
 	parent.add_child(button)
+	wire_press_feedback(button)
 	return button
 
-func apply_display_button_style(button: Button, border: Color) -> void:
+func apply_display_button_style(button: Button, border: Color, selected: bool = false) -> void:
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
-		var alpha := 0.50
+		var alpha := 0.42 if selected else 0.24
 		if state_name == "hover": alpha = 0.72
 		elif state_name == "pressed": alpha = 0.82
 		elif state_name == "disabled": alpha = 0.32
@@ -602,6 +670,65 @@ func apply_display_button_style(button: Button, border: Color) -> void:
 		box.shadow_size = 5
 		button.add_theme_stylebox_override(state_name, box)
 	button.add_theme_color_override("font_disabled_color", Color("#76819a"))
+
+func apply_sold_display_style(button: Button) -> void:
+	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
+		var box := StyleBoxFlat.new()
+		box.bg_color = Color(0.05, 0.055, 0.08, 0.16)
+		box.border_color = Color("#71617066")
+		box.set_border_width_all(1)
+		box.set_corner_radius_all(14)
+		button.add_theme_stylebox_override(state_name, box)
+	button.add_theme_color_override("font_disabled_color", Color("#a396aa"))
+
+func wire_press_feedback(button: Button) -> void:
+	button.pivot_offset = button.size * 0.5
+	button.button_down.connect(animate_press.bind(button))
+	button.button_up.connect(animate_release.bind(button))
+
+func animate_press(button: Button) -> void:
+	button.pivot_offset = button.size * 0.5
+	var tween := create_tween()
+	tween.tween_property(button, "scale", Vector2(0.965, 0.965), 0.06).set_trans(Tween.TRANS_QUAD)
+
+func animate_release(button: Button) -> void:
+	var tween := create_tween()
+	tween.tween_property(button, "scale", Vector2(1.025, 1.025), 0.08).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(button, "scale", Vector2.ONE, 0.10).set_trans(Tween.TRANS_QUAD)
+
+func pulse_control(control: Control, color: Color) -> void:
+	if control == null:
+		return
+	control.pivot_offset = control.size * 0.5
+	control.scale = Vector2(0.96, 0.96)
+	control.modulate = color.lightened(0.35)
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(control, "scale", Vector2(1.035, 1.035), 0.12).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(control, "modulate", Color.WHITE, 0.22).set_trans(Tween.TRANS_QUAD)
+	tween.chain().tween_property(control, "scale", Vector2.ONE, 0.12).set_trans(Tween.TRANS_QUAD)
+
+func shake_control(control: Control) -> void:
+	if control == null:
+		return
+	control.pivot_offset = control.size * 0.5
+	var tween := create_tween()
+	for angle in [-0.035, 0.04, -0.025, 0.018, 0.0]:
+		tween.tween_property(control, "rotation", angle, 0.045)
+	tween.tween_property(control, "scale", Vector2(1.06, 1.06), 0.10).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(control, "scale", Vector2.ONE, 0.14)
+
+func spawn_ui_burst(pos: Vector2, color: Color, count: int) -> void:
+	for index in range(count):
+		var angle := TAU * float(index) / float(count)
+		ui_sparks.append({"pos":pos, "vel":Vector2.RIGHT.rotated(angle) * (38.0 + float(index % 4) * 12.0), "color":color, "life":0.42, "max_life":0.42})
+
+func draw_ui_sparks() -> void:
+	for spark in ui_sparks:
+		var alpha: float = clampf(spark.life / spark.max_life, 0.0, 1.0)
+		var color: Color = spark.color
+		color.a = alpha * 0.9
+		draw_circle(spark.pos, 2.0 + alpha * 2.5, color)
 
 func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:

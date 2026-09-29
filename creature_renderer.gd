@@ -198,10 +198,25 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 			"hexer":
 				texture = LANTERN_HEXER_TEXTURE
 				sprite_rect = Rect2(-55, -76, 110, 131)
+	# A restrained local value break keeps painted creatures readable against the rich ruin art.
+	g.draw_set_transform(pos + Vector2(0, -5), 0.0, Vector2(1.0, 0.76) * extra_scale)
+	g.draw_circle(Vector2.ZERO, shadow_radius + 16.0, Color(0.015, 0.025, 0.065, 0.18 * color.a))
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if threat_color.a > 0.0:
 		threat_color.a *= color.a
 		g.draw_set_transform(pos + Vector2(0, -4), 0.0, Vector2(1.0, 0.72) * extra_scale)
 		g.draw_circle(Vector2.ZERO, shadow_radius + 14.0, threat_color)
+		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if g.enemy_is_boss:
+		# Hoard Guardian motif: one slow relic halo with two controlled violet seals.
+		var halo_angle := float(g.run_time) * 0.22
+		g.draw_set_transform(pos, 0.0, Vector2.ONE * extra_scale)
+		g.draw_arc(Vector2.ZERO, 97.0, halo_angle, halo_angle + 4.55, 38, Color("#d7aa5066"), 3.0)
+		for seal_index in range(2):
+			var seal_angle := halo_angle + 0.35 + seal_index * 2.85
+			var seal_pos := Vector2.RIGHT.rotated(seal_angle) * 97.0
+			g.draw_circle(seal_pos, 5.0, Color("#b968ff99"))
+			g.draw_circle(seal_pos, 2.2, Color("#f0d5ff"))
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var tint := Color.WHITE
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
