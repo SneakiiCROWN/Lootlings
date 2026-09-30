@@ -5,12 +5,16 @@ const SPEAKER_COOLDOWN := 4.5
 
 const POOLS := {
 	"idle":[
+		{"speaker":"Salvager", "text":"If it sparks, it's either valuable or educational.", "weight":3.0},
+		{"speaker":"Salvager", "text":"That dent? Structural personality.", "weight":2.0},
 		{"speaker":"Salvager", "text":"If it rattles, it is either valuable or awake.", "weight":3.0},
 		{"speaker":"Salvager", "text":"I sorted the Scrap. It immediately unsorted itself.", "weight":2.0},
 		{"speaker":"Archivist", "text":"Today's footnotes contain more teeth than expected.", "weight":3.0},
 		{"speaker":"Archivist", "text":"The quiet books are always the suspicious ones.", "weight":2.0},
 		{"speaker":"Relic Keeper", "text":"The Core is humming. Politely, for once.", "weight":3.0},
 		{"speaker":"Relic Keeper", "text":"Ancient power also needs dusting.", "weight":2.0},
+		{"speaker":"Relic Keeper", "text":"A bright relic is not necessarily a kind one.", "weight":2.0},
+		{"speaker":"Archivist", "text":"History is mostly people opening things labelled DO NOT OPEN.", "weight":2.0},
 		{"speaker":"Mascot", "text":"Treasure first. Snack inventory second.", "weight":2.0}
 	],
 	"tapped":[
@@ -54,6 +58,16 @@ const POOLS := {
 		{"speaker":"Archivist", "text":"The Hoard Dragon falls. Ink, please. The dramatic ink.", "weight":3.0},
 		{"speaker":"Salvager", "text":"Dragon-grade dents! My favourite kind.", "weight":2.0},
 		{"speaker":"Relic Keeper", "text":"The deep vault is quiet. For now.", "weight":3.0}
+	],
+	"travel":[
+		{"speaker":"Mascot", "text":"Oversized weapons are a feature, not a workplace incident.", "weight":2.0},
+		{"speaker":"Archivist", "text":"Different weapons should change posture, timing, and projectile language.", "weight":2.0},
+		{"speaker":"Salvager", "text":"Run Scrip disappears after a run. Spend it or enjoy the memory.", "weight":2.0},
+		{"speaker":"Relic Keeper", "text":"If something sparkles in Hoard Depths, assume it has opinions.", "weight":2.0}
+	],
+	"variant_seen":[
+		{"speaker":"Archivist", "text":"Variant sighted. I discovered paperwork.", "weight":3.0},
+		{"speaker":"Mascot", "text":"Weird usually means important. Or bitey.", "weight":2.0}
 	],
 	"cache_opened":[
 		{"speaker":"Salvager", "text":"A fine cache. The lock only bit me once.", "weight":3.0},

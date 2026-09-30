@@ -9,6 +9,7 @@ const ZONES := [
 		"id":"outer_ruins", "name":"OUTER TREASURE RUINS", "waves":Vector2i(1, 5),
 		"background":OUTER_RUINS_BACKGROUND, "accent":Color("#72c8ff"), "ambient":"motes",
 		"entry":"THE EXPEDITION BEGINS", "future_music":"outer_ruins", "future_loot_theme":"relic_ruins",
+		"variant_pool":["hasty", "armoured", "volatile", "gilded"], "hazard_hooks":["loose_coins", "cracked_pots"], "prop_hooks":["relic_arch", "market_stall", "hanging_vines"],
 		"enemies":{
 			"skirmisher":{"id":"razor_imp", "name":"RAZOR IMP"},
 			"tank":{"id":"mossback_brute", "name":"MOSSBACK BRUTE"},
@@ -21,6 +22,7 @@ const ZONES := [
 		"id":"emberworks", "name":"SALVAGE WARRENS", "waves":Vector2i(6, 10),
 		"background":EMBERWORKS_BACKGROUND, "accent":Color("#ff9b55"), "ambient":"embers",
 		"entry":"DESCENDING INTO THE EMBERWORKS", "future_music":"emberworks", "future_loot_theme":"forge_salvage",
+		"variant_pool":["hasty", "armoured", "volatile", "overcharged", "gilded"], "hazard_hooks":["steam_puff", "rolling_cart"], "prop_hooks":["gear_door", "chain_lift", "scrap_pile"],
 		"enemies":{
 			"skirmisher":{"id":"cinder_gnawer", "name":"CINDER GNAWER"},
 			"tank":{"id":"scrap_golem", "name":"SCRAP GOLEM"},
@@ -33,6 +35,7 @@ const ZONES := [
 		"id":"hoard_depths", "name":"HOARD DEPTHS", "waves":Vector2i(11, 15),
 		"background":HOARD_DEPTHS_BACKGROUND, "accent":Color("#d4a856"), "ambient":"glints",
 		"entry":"THE VAULT OPENS", "future_music":"hoard_depths", "future_loot_theme":"ancient_hoard",
+		"variant_pool":["armoured", "cursed", "frostbitten", "rootbound", "gilded"], "hazard_hooks":["coin_slide", "vault_pulse"], "prop_hooks":["giant_lock", "gem_tower", "dragon_marks"],
 		"enemies":{
 			"skirmisher":{"id":"gemfang_wyrmling", "name":"GEMFANG WYRMLING"},
 			"tank":{"id":"vaultbound_sentinel", "name":"VAULTBOUND SENTINEL"},
@@ -74,6 +77,9 @@ static func encounter_for(zone: Dictionary, wave: int, encounter_index: int) -> 
 
 static func supported_encounter_kinds() -> Array[String]:
 	return ["solo", "duo", "small_swarm"]
+
+static func variant_pool_for(zone: Dictionary) -> Array:
+	return zone.get("variant_pool", []).duplicate()
 
 static func all_zone_ids() -> Array[String]:
 	var result: Array[String] = []

@@ -1,0 +1,17 @@
+Priority,Area,Target,Timing
+P0,Content source-of-truth ingestion,Read master bible/catalog/manifest and map to current systems,Now
+P0,Runtime safety,"Preserve saves, balance contracts, stable combat cadence and current art",Now
+P0,Content implementation status,Create status ledger: DEFINED / LIVE / ASSET_NEEDED / FUTURE,Now
+P1,Enemy variety,"Broaden variants, solo/duo/group/swarm compositions using existing safe assets",Now
+P1,Weapons / loot,"Expand weapon families, ammo/projectile definitions, affixes, Signature Loot and evolution data",Now
+P1,World life / dialogue,"Contextual NPC/world dialogue pools, event text, loading quips, flavor",Now
+P1,Chest / reward spectacle,Improve reusable rarity profiles and reward pacing without fake art,Now
+P1,HUD / menus,"Reduce boxiness, improve hierarchy/transitions/readability on 480x854",Now
+P1,Debug / QA,Add jumps/forces for every new system so human playtesting is fast,Now
+P2,Zone content,"Expand metadata, encounter tables, hazards, props and future background layer hooks",Now if stable
+P2,Achievements,Expand curated trophy pool and progress hooks; preserve future platform IDs,Now if stable
+P2,Starter roster,Keep named characters catalogued/locked until clean runtime sprites exist,Architecture only
+P3,Dedicated character animation art,Idle/anticipate/attack/hurt/victory/death per named Lootling,Asset sprint later
+P3,Hoard Dragon replacement,Dedicated clean boss art,Asset sprint later
+P3,Online/social backend,Friends/clans/parties/raids/trading,Future
+P3,Real-money monetization,Not part of this pass,Future only

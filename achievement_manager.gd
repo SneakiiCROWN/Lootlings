@@ -30,7 +30,16 @@ const DEFINITIONS := [
 	{"id":"scrap_hoard", "name":"Useful Eventually", "category":"Collection", "desc":"Hold 250 Scrap at once.", "target":250},
 	{"id":"hideout_social", "name":"Everybody Knows Your Name", "category":"Hideout", "desc":"Visit every Hideout destination.", "target":5},
 	{"id":"relic_student", "name":"Core Curriculum", "category":"Mastery", "desc":"Reach a Relic Training milestone.", "target":1},
-	{"id":"bonk_nothing", "name":"Strategic Air Bonk", "category":"Secret", "desc":"???", "revealed_desc":"Try to attack while no foe is present.", "target":1, "secret":true}
+	{"id":"bonk_nothing", "name":"Strategic Air Bonk", "category":"Secret", "desc":"???", "revealed_desc":"Try to attack while no foe is present.", "target":1, "secret":true},
+	{"id":"thousand_kills", "name":"Local Ecosystem Concern", "category":"Combat", "desc":"Defeat 1,000 enemies.", "target":1000},
+	{"id":"variant_hunter", "name":"Variant Hunter", "category":"Combat", "desc":"Defeat every live enemy variant.", "target":8},
+	{"id":"gilded_first", "name":"Shiny Target", "category":"Combat", "desc":"Defeat a Gilded enemy.", "target":1},
+	{"id":"first_frostbitten", "name":"Cold Reception", "category":"Combat", "desc":"Defeat a Frostbitten enemy.", "target":1},
+	{"id":"signature_set", "name":"Autograph Collector", "category":"Loot", "desc":"Discover all six live Signature effects.", "target":6},
+	{"id":"chest_50", "name":"Chronic Curiosity", "category":"Loot", "desc":"Open 50 chests.", "target":50},
+	{"id":"hoard_legendary", "name":"The Good Noise", "category":"Loot", "desc":"Reveal a Legendary from a Hoard Chest.", "target":1},
+	{"id":"weapon_families", "name":"Try Everything Once", "category":"Collection", "desc":"Equip each current combat weapon family.", "target":4},
+	{"id":"dragon_problem", "name":"Dragon Problem", "category":"Bosses", "desc":"Defeat the Hoard Dragon 10 times.", "target":10}
 ]
 
 var path := "user://lootlings_achievements.cfg"

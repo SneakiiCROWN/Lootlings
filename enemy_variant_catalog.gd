@@ -5,16 +5,25 @@ const VARIANTS := {
 	"armoured":{"name":"ARMOURED", "hp":1.16, "damage":0.96, "interval":1.10, "hit":0.94, "coin":1.10, "xp":1.08, "accent":Color("#9eb7d0"), "icon":"◆"},
 	"volatile":{"name":"VOLATILE", "hp":0.94, "damage":1.04, "interval":1.0, "hit":1.0, "coin":1.12, "xp":1.08, "accent":Color("#ff7d62"), "icon":"✦"},
 	"cursed":{"name":"CURSED", "hp":1.0, "damage":1.10, "interval":0.96, "hit":1.0, "coin":1.12, "xp":1.10, "accent":Color("#ba7cff"), "icon":"◇"},
-	"gilded":{"name":"GILDED", "hp":1.12, "damage":1.02, "interval":1.04, "hit":1.0, "coin":1.38, "xp":1.18, "accent":Color("#ffd45f"), "icon":"¤"}
+	"gilded":{"name":"GILDED", "hp":1.12, "damage":1.02, "interval":1.04, "hit":1.0, "coin":1.38, "xp":1.18, "accent":Color("#ffd45f"), "icon":"¤"},
+	"frostbitten":{"name":"FROSTBITTEN", "hp":0.98, "damage":0.96, "interval":1.04, "hit":1.0, "coin":1.12, "xp":1.10, "accent":Color("#9fe7ff"), "icon":"❄", "special":"slow_pulse"},
+	"overcharged":{"name":"OVERCHARGED", "hp":0.96, "damage":1.02, "interval":0.98, "hit":1.0, "coin":1.14, "xp":1.10, "accent":Color("#6ee8ff"), "icon":"ϟ", "special":"third_spark"},
+	"rootbound":{"name":"ROOTBOUND", "hp":1.08, "damage":0.96, "interval":1.08, "hit":0.94, "coin":1.12, "xp":1.12, "accent":Color("#7fd58b"), "icon":"♧", "special":"opening_guard"}
 }
 
-static func roll(rng: RandomNumberGenerator, wave: int, is_special: bool) -> String:
+const ZONE_POOLS := {
+	"outer_ruins":["hasty", "armoured", "volatile", "gilded"],
+	"emberworks":["hasty", "armoured", "volatile", "overcharged", "gilded"],
+	"hoard_depths":["armoured", "cursed", "frostbitten", "rootbound", "gilded"]
+}
+
+static func roll(rng: RandomNumberGenerator, wave: int, is_special: bool, zone_id: String = "") -> String:
 	if is_special or wave <= 1:
 		return ""
 	var chance := 0.10 if wave <= 5 else 0.14 if wave <= 10 else 0.17
 	if rng.randf() >= chance:
 		return ""
-	var ids := VARIANTS.keys()
+	var ids: Array = ZONE_POOLS.get(zone_id, VARIANTS.keys())
 	return str(ids[rng.randi_range(0, ids.size() - 1)])
 
 static func definition(id: String) -> Dictionary:
@@ -31,4 +40,13 @@ static func apply(id: String, stats: Dictionary) -> Dictionary:
 	result.hit = float(result.hit) * float(data.hit)
 	result.coin = float(data.coin)
 	result.xp = float(data.xp)
+	return result
+
+static func special(id: String) -> String:
+	return str(definition(id).get("special", ""))
+
+static func live_ids() -> Array[String]:
+	var result: Array[String] = []
+	for id in VARIANTS:
+		result.append(id)
 	return result

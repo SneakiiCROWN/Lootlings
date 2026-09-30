@@ -466,7 +466,7 @@ func select_entry(entry_index: int) -> void:
 	var item: Dictionary = entry.item
 	var rarity: String = item.get("rarity", "COMMON")
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
-	var header := "[center][font_size=22][color=#%s]%s[/color][/font_size]\n%s  •  %s[/center]\n\n" % [color, item.get("name", "Unknown"), ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR")]
+	var header := "[center][font_size=22][color=#%s]%s[/color][/font_size]\n%s[/center]\n\n" % [color, item.get("name", "Unknown"), ItemCatalog.display_identity(item)]
 	if entry.equipped:
 		stash_detail.text = header + "[center][color=#69e6b0]CURRENTLY EQUIPPED[/color]\n%s\n\n%s[/center]" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
 		stash_equip_button.disabled = true

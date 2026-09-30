@@ -12,6 +12,18 @@ const CHESTS := {
 	"hoard_chest":{
 		"id":"hoard_chest", "name":"HOARD CHEST", "rarity_floor":"EPIC",
 		"rolls":3, "special_pool":true, "accent":Color("#ffd36a")
+	},
+	"cursed_coffer":{
+		"id":"cursed_coffer", "name":"CURSED COFFER", "rarity_floor":"RARE",
+		"rolls":2, "special_pool":true, "accent":Color("#9d64e8"), "status":"DEFINED_DATA"
+	},
+	"mimic_husk":{
+		"id":"mimic_husk", "name":"MIMIC HUSK", "rarity_floor":"RARE",
+		"rolls":2, "special_pool":true, "accent":Color("#ff8a62"), "status":"ASSET_NEEDED"
+	},
+	"starfall_vault":{
+		"id":"starfall_vault", "name":"STARFALL VAULT", "rarity_floor":"LEGENDARY",
+		"rolls":3, "special_pool":true, "accent":Color("#fff2c4"), "status":"FUTURE"
 	}
 }
 

@@ -13,8 +13,9 @@ const CHEST_PROFILES := {
 	"scavenged_cache":{"name":"Scavenged Cache", "scale":0.82, "arc_count":1, "audio":"chest_open"},
 	"relic_chest":{"name":"Relic Chest", "scale":1.0, "arc_count":1, "audio":"chest_open"},
 	"hoard_chest":{"name":"Hoard Chest", "scale":1.12, "arc_count":3, "audio":"chest_open"},
-	"cursed_chest":{"name":"Cursed Chest", "scale":1.05, "arc_count":2, "audio":"chest_open"},
-	"mimic_chest":{"name":"Mimic Chest", "scale":1.0, "arc_count":2, "audio":"chest_open"},
+	"cursed_coffer":{"name":"Cursed Coffer", "scale":1.05, "arc_count":2, "audio":"chest_open"},
+	"mimic_husk":{"name":"Mimic Husk", "scale":1.0, "arc_count":2, "audio":"chest_open"},
+	"starfall_vault":{"name":"Starfall Vault", "scale":1.18, "arc_count":3, "audio":"legendary_reveal"},
 	"event_chest":{"name":"Event Chest", "scale":1.1, "arc_count":3, "audio":"chest_open"}
 }
 

@@ -108,6 +108,9 @@ var enemy_reward_multiplier := 1.0
 var enemy_xp_multiplier := 1.0
 var enemy_attack_count := 0
 var enemy_first_crit_used := false
+var enemy_frostbell_used := false
+var enemy_variant_guarded := false
+var enemy_post_guard_hit_multiplier := 1.0
 var enemy_alive := true
 var spawn_clock := 0.0
 var carried_shockwave := 0.0
@@ -237,6 +240,7 @@ var enemy_serial := 0
 var profile := {}
 var audio_settings := {}
 var achievements = AchievementManager.new()
+var last_lantern_spent := false
 
 func _ready() -> void:
 	rng.randomize()
@@ -328,6 +332,9 @@ func debug_action(action: String, payload) -> String:
 		"variant":
 			debug_force_variant(str(payload))
 			return "Enemy variant set to %s." % str(payload)
+		"signature":
+			debug_force_signature(str(payload))
+			return "Equipped Signature %s for this test." % str(payload)
 		"achievement":
 			if str(payload) == "reset": achievements.reset()
 			else: award_achievement(str(payload))
@@ -387,6 +394,7 @@ func debug_force_variant(id: String) -> void:
 		return
 	var base_stats := {"hp":enemy_max_hp, "damage":enemy_damage, "interval":enemy_attack_interval, "hit":enemy_hit_multiplier}
 	var variant := EnemyVariantCatalog.definition(id)
+	enemy_post_guard_hit_multiplier = enemy_hit_multiplier
 	var modified := EnemyVariantCatalog.apply(id, base_stats)
 	enemy_variant_id = id
 	enemy_variant_name = str(variant.name)
@@ -399,6 +407,15 @@ func debug_force_variant(id: String) -> void:
 	enemy_hit_multiplier = float(modified.hit)
 	enemy_reward_multiplier = float(modified.coin)
 	enemy_xp_multiplier = float(modified.xp)
+	enemy_variant_guarded = id == "rootbound"
+
+func debug_force_signature(id: String) -> void:
+	debug_ensure_run()
+	var source_id := "bonebow" if id in ["crooked_constellation", "frostbell_chime"] else "mossguard_harness"
+	var item := ItemCatalog.create_item(source_id, "LEGENDARY", rng.randi())
+	item = AffixCatalog.apply(item, [id])
+	inventory.equip(item)
+	refresh_equipment_health()
 
 func debug_show_result(victory: bool) -> void:
 	state = "result"
@@ -501,6 +518,8 @@ func award_item_discovery(item: Dictionary) -> void:
 		award_achievement("first_legendary")
 	if not item.get("signature_hooks", []).is_empty():
 		award_achievement("signature_find")
+		for hook in item.get("signature_hooks", []):
+			award_unique_achievement("signature_set", str(hook))
 
 func award_unique_achievement(id: String, key: String) -> void:
 	if not achievements.mark_unique(id, key):
@@ -510,6 +529,11 @@ func award_unique_achievement(id: String, key: String) -> void:
 	if presentation_director != null:
 		presentation_director.present_toast("TROPHY UNLOCKED  •  %s" % str(entry.get("name", "Achievement")), achievements.display_description(entry), Color("#ffd36a"))
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "achievement_unlocked", {"achievement_id":id})
+
+func award_current_weapon_family() -> void:
+	var weapon := inventory.equipped_item("Weapon")
+	if not weapon.is_empty():
+		award_unique_achievement("weapon_families", str(weapon.get("family", "VANGUARD")))
 
 func build_overlay_ui() -> void:
 	upgrade_panel = make_panel(Rect2(22, 205, 436, 470), Color("#172042f2"))
@@ -687,6 +711,7 @@ func equip_stash_item(index: int) -> void:
 	if state != "hideout":
 		return
 	if inventory.equip_from_stash(index):
+		award_current_weapon_family()
 		inventory.save(INVENTORY_SAVE_PATH)
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 		hideout_ui.play_stash_feedback("equip")
@@ -759,6 +784,7 @@ func use_mystery_cache() -> void:
 	inventory.scrap -= hideout_shop.CACHE_COST
 	hideout_shop.reveal_cache()
 	award_achievement("ten_chests")
+	award_achievement("chest_50")
 	award_item_discovery(hideout_shop.pending_cache_item)
 	save_hideout_economy()
 	hideout_ui.refresh_shop()
@@ -794,6 +820,7 @@ func use_gold_cache() -> void:
 	gold -= hideout_shop.GOLD_CACHE_COST
 	hideout_shop.reveal_gold_cache()
 	award_achievement("ten_chests")
+	award_achievement("chest_50")
 	award_item_discovery(hideout_shop.pending_cache_item)
 	save_meta()
 	save_hideout_economy()
@@ -873,6 +900,7 @@ func build_item_ui() -> void:
 	item_description = make_label(item_panel, "", 15, Rect2(148, 74, 256, 116), HORIZONTAL_ALIGNMENT_LEFT, Color("#e8efff"))
 	item_description.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	item_description.clip_text = true
 	item_compare = RichTextLabel.new()
 	item_compare.position = Vector2(36, 194)
 	item_compare.size = Vector2(360, 132)
@@ -1018,6 +1046,7 @@ func start_run() -> void:
 	special_intro_timer = 0.0
 	special_intro_wave = 0
 	total_kills = 0
+	last_lantern_spent = false
 	coins = 0
 	level = 1
 	xp = 0.0
@@ -1167,7 +1196,8 @@ func spawn_enemy() -> void:
 				enemy_max_hp *= 0.9
 				enemy_attack_interval *= 1.08
 				enemy_damage *= 0.88
-		enemy_variant_id = EnemyVariantCatalog.roll(rng, wave, false)
+		enemy_post_guard_hit_multiplier = enemy_hit_multiplier
+		enemy_variant_id = EnemyVariantCatalog.roll(rng, wave, false, current_zone_id)
 		if not enemy_variant_id.is_empty():
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
 			var modified := EnemyVariantCatalog.apply(enemy_variant_id, {"hp":enemy_max_hp, "damage":enemy_damage, "interval":enemy_attack_interval, "hit":enemy_hit_multiplier})
@@ -1184,6 +1214,8 @@ func spawn_enemy() -> void:
 	enemy_attack_clock = enemy_attack_interval
 	enemy_attack_count = 0
 	enemy_first_crit_used = false
+	enemy_frostbell_used = false
+	enemy_variant_guarded = enemy_variant_id == "rootbound"
 	enemy_burn_dps = 0.0
 	enemy_burn_time = 0.0
 	enemy_poison_stacks = 0
@@ -1479,6 +1511,16 @@ func resolve_player_attack(is_tap: bool) -> void:
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
 	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
+	if inventory.has_signature("frostbell_chime") and not enemy_frostbell_used:
+		enemy_frostbell_used = true
+		enemy_attack_clock += 0.32
+		add_float("FROSTBELL", Vector2(300, 372), Color("#a8ecff"), 15)
+		add_particles(Vector2(346, 442), Color("#a8ecff"), 6)
+	if enemy_variant_guarded and enemy_hp / maxf(1.0, enemy_max_hp) <= 0.72:
+		enemy_variant_guarded = false
+		enemy_hit_multiplier = enemy_post_guard_hit_multiplier
+		add_float("ROOT GUARD BROKEN", Vector2(275, 400), enemy_variant_color, 14)
+		add_particles(Vector2(350, 468), enemy_variant_color, 7)
 	enemy_flash = 0.13 if is_crit else 0.10
 	enemy_squash = 0.16
 	enemy_recoil = 40.0 if is_crit else 27.0 if is_heavy else 22.0 if is_tap else 15.0
@@ -1537,6 +1579,13 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	var style_armor := 0.04 if current_weapon_family() == "VANGUARD" else 0.0
 	var effective_armor := armor + inventory.effect_total("armor") + style_armor
 	var damage := enemy_damage * damage_scale * (1.0 - minf(effective_armor, 0.72))
+	if enemy_variant_id == "overcharged" and enemy_attack_count % 3 == 0:
+		damage *= 1.22
+		add_float("SPARK SURGE", Vector2(250, 392), enemy_variant_color, 15)
+		add_particles(Vector2(260, 448), enemy_variant_color, 7)
+	if enemy_variant_id == "frostbitten" and enemy_attack_count % 3 == 0:
+		attack_clock += 0.18
+		add_float("FROST DELAY", Vector2(150, 405), enemy_variant_color, 14)
 	player_hp -= damage
 	play_audio_event("player_hurt")
 	run_damage_taken += damage
@@ -1544,6 +1593,14 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	screen_shake = 0.08
 	add_float("-%.0f" % damage, Vector2(150, 432), Color("#ff7a84"), 19)
 	add_particles(Vector2(170, 478), Color("#ff768c"), 5)
+	if player_hp <= 0.0 and inventory.has_signature("last_lantern") and not last_lantern_spent:
+		last_lantern_spent = true
+		player_hp = 1.0
+		enemy_attack_clock += 1.0
+		add_float("LAST LANTERN", Vector2(118, 380), Color("#ffd77a"), 20)
+		add_particles(Vector2(170, 458), Color("#ffd77a"), 14)
+		play_audio_event("rare_reveal")
+		return
 	if player_hp <= 0.0:
 		player_hp = 0.0
 		end_run(false)
@@ -1606,11 +1663,19 @@ func kill_enemy() -> void:
 	enemy_hp = 0.0
 	total_kills += 1
 	award_achievement("hundred_kills")
+	award_achievement("thousand_kills")
+	if not enemy_variant_id.is_empty():
+		award_unique_achievement("variant_hunter", enemy_variant_id)
+		if enemy_variant_id == "gilded":
+			award_achievement("gilded_first")
+		elif enemy_variant_id == "frostbitten":
+			award_achievement("first_frostbitten")
 	if enemy_is_miniboss:
 		award_achievement("first_miniboss")
 	if enemy_is_boss:
 		award_achievement("hoard_dragon")
 		award_achievement("dragon_regular")
+		award_achievement("dragon_problem")
 	play_audio_event("boss_death" if enemy_is_boss else "enemy_death")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "boss_kill" if enemy_is_boss else "enemy_kill", {"enemy_id":enemy_name.to_lower().replace(" ", "_"), "wave":wave, "zone_id":current_zone_id})
 	if enemy_is_boss:
@@ -1746,6 +1811,7 @@ func open_hoard_chest() -> void:
 	hoard_chest_button.visible = false
 	play_audio_event("chest_windup")
 	award_achievement("ten_chests")
+	award_achievement("chest_50")
 	add_particles(Vector2(240, 492), Color("#ffd36a"), 16)
 	impact_flash = 0.14
 
@@ -1766,6 +1832,8 @@ func eject_hoard_loot() -> void:
 	spawn_clock = 1.2
 	add_float("HOARD ERUPTS!", Vector2(165, 350), Color("#ffd36a"), 21)
 	play_audio_event("legendary_reveal" if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY") else "epic_reveal")
+	if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY"):
+		award_achievement("hoard_legendary")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"hoard_chest", "rolls":boss_reward_options.size()})
 
 func show_boss_reward() -> void:
@@ -1774,7 +1842,7 @@ func show_boss_reward() -> void:
 	help_label.visible = false
 	for i in range(boss_reward_buttons.size()):
 		var item: Dictionary = boss_reward_options[i]
-		boss_reward_buttons[i].text = "                 %s  •  %s\n                 %s  •  %s\n                 %s" % [item.rarity, item.name, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
+		boss_reward_buttons[i].text = "                 %s  •  %s\n                 %s\n                 %s" % [item.rarity, item.name, ItemCatalog.display_identity(item), ItemCatalog.describe_effects(item)]
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
 		boss_reward_icons[i].configure(item)
 	if presentation_director != null:
@@ -1804,7 +1872,7 @@ func show_next_item() -> void:
 	fit_label_font(item_title, title_text, 376.0)
 	item_title.add_theme_color_override("font_color", color)
 	item_icon.configure(current_item)
-	item_description.text = "%s  •  %s\n%s\n%s" % [ItemCatalog.display_slot(current_item.get("slot", "Item")), current_item.get("family", "GEAR"), current_item.get("desc", ""), ItemCatalog.describe_effects(current_item)]
+	item_description.text = "%s\n%s\n%s" % [ItemCatalog.display_identity(current_item), current_item.get("desc", ""), ItemCatalog.describe_headline_effects(current_item, 1)]
 	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
 	item_compare.text = build_item_comparison(current_item, equipped)
 	item_keep_button.disabled = inventory.stash.size() >= inventory.stash_capacity
@@ -1879,6 +1947,7 @@ func accept_item_equip() -> void:
 	if not item_name in run_kept_loot:
 		run_kept_loot.append(item_name)
 	var result: Dictionary = inventory.equip(current_item)
+	award_current_weapon_family()
 	refresh_equipment_health()
 	inventory.save(INVENTORY_SAVE_PATH)
 	var filled_slots := 0

@@ -130,3 +130,12 @@ This roadmap preserves product direction; it is not a promise to build every sys
 - Signature Loot V1 has curated compatibility rules, eight additional bases and four behaviour hooks; large item-volume expansion and full weapon evolution remain future work.
 - Eighteen local-first trophies persist offline and display in the Hideout Archive. Provider ID fields/live platform submission remain future integration work.
 - The seven-identity LootlingCatalog and first-profile selector are live. Only Relic Beast is player-facing until clean standalone runtime art exists for each named character.
+
+## Master Production Handoff v2 content checkpoint
+
+- `CONTENT_IMPLEMENTATION_STATUS.md` is the authoritative project ledger for what is live, data-defined, asset-blocked, future or deferred.
+- Eight regular-enemy variants are live and zone weighted. Duo/small-swarm/mimic/treasure-escape contracts are defined but remain gated on simultaneous targeting, AoE, aggregation and dedicated runtime art.
+- The curated live equipment pool expands to 35 bases and 20 standard affixes. Six behaviour-changing Signatures are implemented; nine additional Signature contracts cannot roll until their mechanics are complete.
+- The complete approved 12-family weapon catalog, six projectile profiles and 36 evolution lines now have stable data. Five art-ready weapon types are live; seven stay asset-gated. Forge/evolution activation remains a later system.
+- Six chest identities and nine future zone arcs now have replacement-ready data, while only validated Act I scenes and three chest reward flows remain live.
+- The Trophy Archive expands to 28 local achievements. Provider mappings remain preparation only; platform authentication/submission is future work.

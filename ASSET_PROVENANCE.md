@@ -1,5 +1,11 @@
 # Lootlings Asset Provenance
 
+## Master Production Handoff v2 (reference only)
+
+- `art/reference/Lootlings_Master_Production_Handoff_v2/` and `art/reference/Lootlings_Art_Production_Pack_v1/` were supplied directly by the project owner as the authoritative pre-production content/art handoff for this repository.
+- Their large visual boards, canonical sheets, catalogs and manifest are design references, not runtime sprites. None are loaded by game code.
+- Runtime activation remains gated by `CONTENT_IMPLEMENTATION_STATUS.md`; dedicated transparent assets are required before named Lootlings, locked weapon families, future chests or future zones become player-facing.
+
 This file records important runtime assets. Canonical reference art remains the project owner's source of truth and is not automatically licensed for redistribution outside the project.
 
 | Asset/path | Purpose | Creator/source | Licence/permission record | Date added | Status |

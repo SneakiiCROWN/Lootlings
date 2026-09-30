@@ -21,6 +21,8 @@ const AffixCatalog = preload("res://affix_catalog.gd")
 const AchievementManager = preload("res://achievement_manager.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const RewardRevealCatalog = preload("res://reward_reveal_catalog.gd")
+const WeaponCatalog = preload("res://weapon_catalog.gd")
+const WorldContentCatalog = preload("res://world_content_catalog.gd")
 
 var failures: Array[String] = []
 
@@ -59,6 +61,17 @@ func run_tests() -> void:
 		variants_b.append(EnemyVariantCatalog.roll(variant_rng_b, 9, false))
 	check(variants_a == variants_b and variants_a.any(func(id): return not id.is_empty()), "enemy variants spawn conservatively and deterministically from gameplay RNG")
 	check(EnemyVariantCatalog.roll(variant_rng_a, 15, true).is_empty(), "bosses and minibosses are excluded from regular enemy variants")
+	check(EnemyVariantCatalog.VARIANTS.size() == 8 and EnemyVariantCatalog.special("overcharged") == "third_spark" and EnemyVariantCatalog.special("rootbound") == "opening_guard", "eight live enemy variants expose readable data and explicit special mechanics")
+	var zone_variant_rng := RandomNumberGenerator.new()
+	zone_variant_rng.seed = 99117
+	for zone_sample in range(120):
+		var zone_pick := EnemyVariantCatalog.roll(zone_variant_rng, 12, false, "hoard_depths")
+		check(zone_pick.is_empty() or zone_pick in EnemyVariantCatalog.ZONE_POOLS.hoard_depths, "zone-weighted variant rolls never escape the Hoard Depths pool")
+	check(WeaponCatalog.FAMILIES.size() == 12 and WeaponCatalog.PROJECTILES.size() == 6 and WeaponCatalog.live_ids() == ["greatsword", "maul", "daggers", "bow", "staff"], "the master twelve-family weapon catalog gates activation to five art-ready runtime families")
+	check(WeaponCatalog.evolution_for("bow", "Crooked Bow") == ["Crooked Bow", "Ruin Longbow", "Starstring"], "weapon evolution data preserves named three-stage master lines")
+	check(WorldContentCatalog.FUTURE_ZONES.size() == 9 and WorldContentCatalog.FUTURE_ZONES.first_hoard.status == "FUTURE", "future zone metadata is replacement-ready without activating missing art")
+	check(ItemCatalog.ITEMS.size() >= 35 and ItemCatalog.definition("moonbranch").weapon_type == "bow" and ItemCatalog.definition("vault_receipt").slot == "Relic", "the live equipment pool expands with curated master-catalog identities while preserving slot contracts")
+	check(AffixCatalog.AFFIXES.size() == 20 and AffixCatalog.SIGNATURES.size() == 15 and not bool(AffixCatalog.SIGNATURES.aftershock_receipt.live), "expanded affix and Signature catalogs keep unimplemented behaviours out of live rolls")
 	var reveal_durations: Array[float] = []
 	for reveal_rarity in ItemCatalog.RARITIES:
 		var reveal := RewardRevealCatalog.for_rewards("scavenged_cache", [ItemCatalog.create_item("mossguard_harness", reveal_rarity, 700)])
@@ -174,7 +187,7 @@ func run_tests() -> void:
 	check(ZoneCatalog.for_wave(1).id == "outer_ruins" and ZoneCatalog.for_wave(6).id == "emberworks" and ZoneCatalog.for_wave(11).id == "hoard_depths", "wave ranges resolve to the intended zone data")
 	check(game.state == "hideout" and game.hideout_ui.visible and not game.startup_ui.visible, "the title enters the existing Hideout")
 	check(game.hideout_ui.current_screen == "home", "the Hideout opens on its Home screen")
-	check(ChestCatalog.is_valid("scavenged_cache") and ChestCatalog.definition("hoard_chest").rolls == 3 and ChestCatalog.PRESENTATION_PHASES.back() == "reveal", "stable chest definitions expose bounded reward-presentation phases")
+	check(ChestCatalog.CHESTS.size() == 6 and ChestCatalog.is_valid("scavenged_cache") and ChestCatalog.definition("hoard_chest").rolls == 3 and ChestCatalog.PRESENTATION_PHASES.back() == "reveal", "stable and future chest definitions expose bounded reward-presentation phases without changing live rewards")
 	check(ZoneCatalog.encounter_for(ZoneCatalog.for_wave(1), 1, 0).kind == "solo" and "small_swarm" in ZoneCatalog.supported_encounter_kinds(), "encounter data is future-ready for deliberate duos and small swarms")
 	game.hideout_ui.show_stash()
 	check(game.hideout_ui.current_screen == "stash", "the Hideout gear chest opens Stash")
@@ -448,6 +461,22 @@ func run_tests() -> void:
 	game.perform_enemy_attack()
 	check(is_equal_approx(game.player_hp, god_hp_before), "development god mode is a real incoming-damage guard")
 	game.debug_god_mode = false
+	var lantern_item := AffixCatalog.apply(ItemCatalog.create_item("mossguard_harness", "LEGENDARY", 889), ["last_lantern"])
+	game.inventory.equip(lantern_item)
+	game.last_lantern_spent = false
+	game.player_hp = 1.0
+	game.enemy_damage = 999.0
+	game.perform_enemy_attack()
+	check(is_equal_approx(game.player_hp, 1.0) and game.last_lantern_spent and game.state == "playing", "Last Lantern prevents fatal damage exactly once without ending the run")
+	game.inventory.equipped = original_equipped.duplicate(true)
+	game.start_run()
+	var frostbell_item := AffixCatalog.apply(ItemCatalog.create_item("bonebow", "LEGENDARY", 890), ["frostbell_chime"])
+	game.inventory.equip(frostbell_item)
+	game.enemy_attack_clock = 0.0
+	game.damage_enemy(1.0, false, false)
+	check(game.enemy_frostbell_used and game.enemy_attack_clock >= 0.32, "Frostbell Chime visibly delays the first enemy action once per foe")
+	game.inventory.equipped = original_equipped.duplicate(true)
+	game.start_run()
 	game.enemy_archetype = "tank"
 	game.enemy_is_miniboss = false
 	game.enemy_is_boss = false
@@ -634,7 +663,10 @@ func run_tests() -> void:
 	check(game.state == "playing" and not game.hideout_ui.visible and game.wave == 1 and game.enemy_alive, "Play starts another run cleanly from the Hideout")
 	game.player_hp = 1.0
 	game.enemy_damage = 999.0
+	game.enemy_archetype = "skirmisher"
 	game.perform_enemy_attack()
+	if game.state != "result":
+		game.perform_enemy_attack()
 	check(game.state == "result" and game.player_hp == 0.0, "defeat reaches results without a softlock")
 	game.show_hideout()
 	check(game.state == "hideout", "defeat can return to the Hideout")

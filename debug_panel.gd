@@ -98,7 +98,11 @@ func build_ui() -> void:
 	])
 	add_section(list, "ENEMY VARIANTS", [
 		["HASTY", "variant", "hasty"], ["ARMOURED", "variant", "armoured"], ["VOLATILE", "variant", "volatile"],
-		["CURSED", "variant", "cursed"], ["GILDED", "variant", "gilded"], ["", "noop", null]
+		["CURSED", "variant", "cursed"], ["GILDED", "variant", "gilded"], ["FROST", "variant", "frostbitten"],
+		["CHARGED", "variant", "overcharged"], ["ROOTBOUND", "variant", "rootbound"], ["", "noop", null]
+	])
+	add_section(list, "SIGNATURE LOOT", [
+		["CROOKED", "signature", "crooked_constellation"], ["FROSTBELL", "signature", "frostbell_chime"], ["LANTERN", "signature", "last_lantern"]
 	])
 	add_section(list, "TROPHY QA", [
 		["UNLOCK DRAGON", "achievement", "hoard_dragon"], ["UNLOCK EPIC", "achievement", "first_epic"], ["RESET TROPHIES", "achievement", "reset"]
