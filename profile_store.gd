@@ -1,6 +1,6 @@
 extends RefCounted
 
-const SCHEMA_VERSION := 1
+const SCHEMA_VERSION := 2
 
 static func create_default() -> Dictionary:
 	return {
@@ -13,6 +13,7 @@ static func create_default() -> Dictionary:
 		"banner_id":"outer_ruins",
 		"current_lootling_id":"relic_beast",
 		"cosmetic_ids":[],
+		"customisation":{"skin_id":"", "head_id":"", "core_effect_id":"", "weapon_skin_id":"", "trail_id":"", "victory_pose_id":"", "emote_id":""},
 		"favourite_weapon_id":"scrapfang_blade",
 		"selected_badge_ids":[],
 		"bosses_slain":0,

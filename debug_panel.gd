@@ -96,6 +96,13 @@ func build_ui() -> void:
 		["NEUTRAL", "core", "Neutral"], ["FIRE", "core", "Fire"], ["LIGHTNING", "core", "Lightning"],
 		["POISON", "core", "Poison"], ["PHYSICAL", "core", "Physical"], ["+ UPGRADE", "upgrade", null]
 	])
+	add_section(list, "ENEMY VARIANTS", [
+		["HASTY", "variant", "hasty"], ["ARMOURED", "variant", "armoured"], ["VOLATILE", "variant", "volatile"],
+		["CURSED", "variant", "cursed"], ["GILDED", "variant", "gilded"], ["", "noop", null]
+	])
+	add_section(list, "TROPHY QA", [
+		["UNLOCK DRAGON", "achievement", "hoard_dragon"], ["UNLOCK EPIC", "achievement", "first_epic"], ["RESET TROPHIES", "achievement", "reset"]
+	])
 	add_section(list, "TEST SPEED", [
 		["1×", "speed", 1.0], ["2×", "speed", 2.0], ["4×", "speed", 4.0]
 	])

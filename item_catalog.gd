@@ -1,5 +1,7 @@
 extends RefCounted
 
+const AffixCatalog = preload("res://affix_catalog.gd")
+
 const RARITIES := ["COMMON", "RARE", "EPIC", "LEGENDARY"]
 const RARITY_COLORS := {
 	"COMMON": Color("#b7c0ca"),
@@ -22,7 +24,15 @@ const ITEMS := [
 	{"id":"ember_pop", "name":"Ember Pop Rune", "slot":"Rune", "icon":"FIRE", "desc":"Burns hit harder and kills may erupt.", "effects":{"fire_damage":0.28, "kill_explosion":0.30}},
 	{"id":"stormspark", "name":"Stormspark Rune", "slot":"Rune", "icon":"SPARK", "desc":"Critical hits call a lightning spark.", "effects":{"crit_lightning":0.55}},
 	{"id":"toxic_burst", "name":"Toxic Burst Rune", "slot":"Rune", "icon":"TOXIN", "desc":"Poison stacks faster and lingers longer.", "effects":{"poison_bonus":1, "poison_duration":0.45}},
-	{"id":"ground_slam", "name":"Ground Slam Rune", "slot":"Rune", "icon":"SLAM", "desc":"Heavy hits punish bosses.", "effects":{"boss_damage":0.30, "heavy_bonus":0.35}}
+	{"id":"ground_slam", "name":"Ground Slam Rune", "slot":"Rune", "icon":"SLAM", "desc":"Heavy hits punish bosses.", "effects":{"boss_damage":0.30, "heavy_bonus":0.35}},
+	{"id":"sunken_cleaver", "name":"Sunken Cleaver", "slot":"Weapon", "family":"VANGUARD", "icon":"BLADE", "desc":"A salt-dark blade that lands like an anchor.", "effects":{"damage_mult":0.17, "boss_damage":0.08}},
+	{"id":"crooked_longbow", "name":"Crooked Longbow", "slot":"Weapon", "family":"RANGER", "icon":"BOW", "desc":"Ugly, eager and remarkably accurate.", "effects":{"attack_speed":0.09, "crit":0.05}},
+	{"id":"ruinweave_coat", "name":"Ruinweave Coat", "slot":"Armour", "icon":"GUARD", "desc":"Many pockets. Some are structural.", "effects":{"max_hp":25.0, "armor":0.045, "coin_mult":0.08}},
+	{"id":"dragon_scale_patch", "name":"Dragon-Scale Patch", "slot":"Armour", "icon":"PLATE", "desc":"One scale is still technically armour.", "effects":{"max_hp":38.0, "boss_damage":0.08}},
+	{"id":"lucky_bell", "name":"Suspicious Lucky Bell", "slot":"Relic", "icon":"LOCKET", "desc":"Rings when treasure is pretending not to exist.", "effects":{"coin_mult":0.20, "crit":0.025}},
+	{"id":"relic_magnet_charm", "name":"Relic Magnet Charm", "slot":"Relic", "icon":"RING", "desc":"Tugs loose relic energy into useful patterns.", "effects":{"attack_speed":0.04, "crit_lightning":0.18}},
+	{"id":"echo_rune", "name":"Echo Rune", "slot":"Rune", "icon":"SPARK", "desc":"The ruins remember a good hit.", "effects":{"kill_explosion":0.22, "heavy_bonus":0.14}},
+	{"id":"mire_rune", "name":"Mire Rune", "slot":"Rune", "icon":"TOXIN", "desc":"A patient little curse in polished stone.", "effects":{"poison_bonus":1, "poison_duration":0.25}}
 ]
 
 static func definition(id: String) -> Dictionary:
@@ -42,7 +52,13 @@ static func create_item(id: String, rarity: String, serial: int = 0) -> Dictiona
 	for key in ["damage_mult", "attack_speed", "crit", "max_hp", "armor", "coin_mult", "low_health_damage", "fire_damage", "crit_lightning", "poison_duration", "boss_damage", "heavy_bonus", "kill_explosion", "execute"]:
 		if item.effects.has(key):
 			item.effects[key] = float(item.effects[key]) * scale
+	item.affix_ids = []
+	item.affix_names = []
+	item.signature_hooks = []
 	return item
+
+static func create_affixed_item(id: String, rarity: String, serial: int, affix_ids: Array) -> Dictionary:
+	return AffixCatalog.apply(create_item(id, rarity, serial), affix_ids)
 
 static func rarity_rank(rarity: String) -> int:
 	return maxi(0, RARITIES.find(rarity))
@@ -75,4 +91,6 @@ static func describe_effects(item: Dictionary) -> String:
 	if effects.has("low_health_damage"): parts.append("power surges at low HP")
 	if effects.has("boss_damage"): parts.append("%+.0f%% boss damage" % (effects.boss_damage * 100.0))
 	if effects.has("heavy_bonus"): parts.append("stronger heavy rhythm hits")
+	for line in AffixCatalog.descriptions(item):
+		parts.append(line)
 	return "  /  ".join(parts)

@@ -10,6 +10,7 @@ const ProfileStore = preload("res://profile_store.gd")
 const SettingsStore = preload("res://settings_store.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
+const LootlingCatalog = preload("res://lootling_catalog.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
@@ -23,6 +24,7 @@ var boot_content: Control
 var title_content: Control
 var profile_content: Control
 var settings_content: Control
+var lootling_content: Control
 var name_edit: LineEdit
 var nickname_edit: LineEdit
 var profile_heading: Label
@@ -37,6 +39,7 @@ func _ready() -> void:
 	build_boot()
 	build_title()
 	build_profile()
+	build_lootling_select()
 	build_settings()
 	presentation = PresentationDirector.new()
 	add_child(presentation)
@@ -142,6 +145,40 @@ func build_settings() -> void:
 	var back := make_button(panel, "SAVE & RETURN", Rect2(42, 624, 340, 62), Color("#49346b"), Color("#d19cff"), 18)
 	back.pressed.connect(save_settings)
 
+func build_lootling_select() -> void:
+	lootling_content = Control.new()
+	lootling_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	lootling_content.visible = false
+	add_child(lootling_content)
+	var panel := make_panel(lootling_content, Rect2(24, 66, 432, 730), Color("#0b1430f4"), Color("#d1a85a"))
+	make_label(panel, "CHOOSE YOUR LOOTLING", 27, Rect2(20, 24, 392, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(panel, "Your first expedition begins with the Relic Beast.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	var portrait := TextureRect.new()
+	portrait.texture = MASCOT_TEXTURE
+	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	portrait.position = Vector2(92, 102)
+	portrait.size = Vector2(248, 244)
+	panel.add_child(portrait)
+	make_label(panel, "RELIC BEAST", 25, Rect2(40, 346, 352, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
+	make_label(panel, str(LootlingCatalog.definition("relic_beast").lore), 14, Rect2(48, 384, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
+	var locked_text := "COMING WITH CLEAN RUNTIME ART\nEmberhorn  •  Mosskin  •  Moonkip\nPebblewyrm  •  Glimmerfin  •  Gloomlet"
+	var locked := make_label(panel, locked_text, 10, Rect2(35, 459, 362, 88), HORIZONTAL_ALIGNMENT_CENTER, Color("#7f91b5"))
+	locked.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	locked.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var confirm := make_button(panel, "CHOOSE RELIC BEAST", Rect2(48, 600, 336, 72), Color("#285c4c"), Color("#69e6b0"), 19)
+	confirm.pressed.connect(confirm_lootling)
+
+func show_lootling_select() -> void:
+	current_screen = "lootling_select"
+	set_screen(lootling_content)
+
+func confirm_lootling() -> void:
+	profile.current_lootling_id = "relic_beast"
+	profile_changed.emit(profile.duplicate(true))
+	ui_event.emit("upgrade_select")
+	profile_completed.emit()
+
 func show_boot() -> void:
 	current_screen = "boot"
 	boot_timer = 0.0
@@ -192,7 +229,7 @@ func save_profile() -> void:
 	profile_changed.emit(profile.duplicate(true))
 	ui_event.emit("upgrade_select")
 	if was_first_launch:
-		profile_completed.emit()
+		show_lootling_select()
 	else:
 		show_title()
 
@@ -220,7 +257,7 @@ func refresh_settings() -> void:
 		setting_mutes[channel].button_pressed = bool(settings.get(channel + "_muted", false))
 
 func set_screen(active: Control) -> void:
-	var screens := [boot_content, title_content, profile_content, settings_content]
+	var screens := [boot_content, title_content, profile_content, settings_content, lootling_content]
 	if presentation != null:
 		presentation.switch_screen(screens, active, 0.24)
 	else:

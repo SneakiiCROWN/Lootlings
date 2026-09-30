@@ -104,3 +104,14 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `e5ec5e8a-75b2-4f36-958b-309440b69cbe.png` - weapon-family and rarity-language sheet for Vanguard, Ranger, Mage, and Rogue. The `(1)` file is an identical retained duplicate.
 - `f83b7cd9-f1f4-4a45-8e3a-42788ff54760.png` - consolidated north-star handoff for reward, shop, enemy scale, and visual priorities. The `(1)` file is an identical retained duplicate.
 - These sheets are presentation/system targets, not replacements for `Lootlings_Main_Mascot_RelicBeast_Canonical.png`, which remains the immutable base-player character source.
+
+## Runtime art still required for roster unlocks
+
+Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin and Gloomlet are catalogued but intentionally unavailable in the player-facing selector. To enable any one of them, supply:
+
+- one clean transparent standalone idle/neutral PNG, isolated from the canonical design without repainting, redesign or sheet debris;
+- consistent phone-readable framing and scale with `art/sprites/relic_beast_base.png`, including complete ears/horns/tail/gear/Core and safe transparent margins;
+- preserved canonical face, proportions, palette, clothing, weapon/class cues and personality;
+- ideally separate clean anticipation/attack, hurt and victory/reward cutouts later, though the pose layer can safely ship an identity from one high-quality idle cutout first.
+
+Do not automatically remove backgrounds from the existing character sheets, crop a single panel containing labels/effects, or use the neutral Relic Beast as a combat substitute after another identity is selected.

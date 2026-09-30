@@ -13,6 +13,10 @@ var active_tween: Tween
 var flash_tween: Tween
 var control_tweens := {}
 var travel_active := false
+var toast_panel: Panel
+var toast_title: Label
+var toast_subtitle: Label
+var toast_tween: Tween
 
 func _ready() -> void:
 	name = "PresentationDirector"
@@ -71,6 +75,33 @@ func build_overlay() -> void:
 	travel_progress.show_percentage = false
 	travel_progress.visible = false
 	travel_panel.add_child(travel_progress)
+	toast_panel = Panel.new()
+	toast_panel.position = Vector2(56, 92)
+	toast_panel.size = Vector2(368, 90)
+	var toast_style := StyleBoxFlat.new()
+	toast_style.bg_color = Color("#091127f2")
+	toast_style.border_color = Color("#ffd36a")
+	toast_style.set_border_width_all(2)
+	toast_style.set_corner_radius_all(16)
+	toast_style.shadow_color = Color("#02040bb0")
+	toast_style.shadow_size = 10
+	toast_panel.add_theme_stylebox_override("panel", toast_style)
+	toast_panel.visible = false
+	add_child(toast_panel)
+	toast_title = Label.new()
+	toast_title.position = Vector2(18, 12)
+	toast_title.size = Vector2(332, 28)
+	toast_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	toast_title.add_theme_font_size_override("font_size", 17)
+	toast_title.add_theme_color_override("font_color", Color("#ffe178"))
+	toast_panel.add_child(toast_title)
+	toast_subtitle = Label.new()
+	toast_subtitle.position = Vector2(18, 43)
+	toast_subtitle.size = Vector2(332, 30)
+	toast_subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	toast_subtitle.add_theme_font_size_override("font_size", 12)
+	toast_subtitle.add_theme_color_override("font_color", Color("#d9e5ff"))
+	toast_panel.add_child(toast_subtitle)
 
 func switch_screen(screens: Array, active: Control, duration: float = 0.22) -> void:
 	for screen in screens:
@@ -105,6 +136,27 @@ func present_card(control: Control, accent: Color = Color("#d1a85a"), duration: 
 	tween.tween_property(control, "scale", Vector2.ONE, duration).set_delay(delay).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(control, "position", target_position, duration).set_delay(delay).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	flash(accent, minf(0.16, duration))
+
+func present_toast(title: String, subtitle: String, accent: Color = Color("#ffd36a")) -> void:
+	if toast_tween != null and toast_tween.is_valid():
+		toast_tween.kill()
+	toast_title.text = title
+	toast_title.add_theme_color_override("font_color", accent.lightened(0.18))
+	toast_subtitle.text = subtitle
+	var style: StyleBoxFlat = toast_panel.get_theme_stylebox("panel").duplicate()
+	style.border_color = accent
+	toast_panel.add_theme_stylebox_override("panel", style)
+	toast_panel.visible = true
+	toast_panel.position = Vector2(56, 70)
+	toast_panel.modulate = Color(1, 1, 1, 0)
+	toast_tween = create_tween()
+	toast_tween.set_parallel(true)
+	toast_tween.tween_property(toast_panel, "position:y", 92.0, 0.24).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	toast_tween.tween_property(toast_panel, "modulate:a", 1.0, 0.18)
+	toast_tween.set_parallel(false)
+	toast_tween.tween_interval(2.2)
+	toast_tween.tween_property(toast_panel, "modulate:a", 0.0, 0.25)
+	toast_tween.tween_callback(func(): toast_panel.visible = false)
 
 func flash(accent: Color, duration: float = 0.18) -> void:
 	if travel_active or veil == null:

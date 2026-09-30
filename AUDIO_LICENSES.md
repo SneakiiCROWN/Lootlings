@@ -6,6 +6,8 @@ No external audio files are included.
 
 All current audio is original project procedural synthesis. Event feedback remains generated once at startup from project-authored tone, harmonic, pseudo-noise, pitch-sweep, envelope, and controlled timbre-variant combinations. The eight location/result score cues are project-generated 48-second A/variation/B/bridge/return phrases prebaked to WAV so entering a location does not synthesize audio on the gameplay thread. They have no third-party creator, source URL, attribution, or external licence dependency and remain production-direction placeholders rather than final mastered signature music.
 
+The character-feel checkpoint adds an original low chest-wind-up cue plus a short player-local Music-player duck/restore envelope for the reward micro-silence. It creates no new external asset or licence dependency, does not alter saved bus volumes/mutes, and restores the active music voice smoothly after the reveal.
+
 | Filename | Purpose | Creator/source | Licence | Date acquired | Status |
 |---|---|---|---|---|---|
 | Runtime-generated (no file) | Layered UI, four weapon-family, enemy-family, combat, loot, rarity, chest, Core, boss, victory/defeat feedback with bounded non-repeating frequent-event variants | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |

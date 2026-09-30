@@ -105,6 +105,13 @@ func effect_total(key: String) -> float:
 			total += float(item.effects[key])
 	return total
 
+func has_signature(hook: String) -> bool:
+	for slot in SLOTS:
+		var item: Dictionary = equipped.get(slot, {})
+		if hook in item.get("signature_hooks", []):
+			return true
+	return false
+
 func save(path: String) -> Error:
 	var config := ConfigFile.new()
 	config.set_value("inventory", "version", 2)

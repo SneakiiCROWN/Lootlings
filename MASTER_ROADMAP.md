@@ -122,3 +122,11 @@ This roadmap preserves product direction; it is not a promise to build every sys
 - Local analytics contains no personal information and can later route through a consented provider interface.
 - Run seeds/content versions, player IDs, clan/party IDs, item ownership IDs, and cloud revisions remain distinct.
 - Track important asset/audio provenance and licences. Never assume an internet asset is commercially safe.
+
+## Foundation shipped at the character-feel checkpoint
+
+- Weapon-specific data-driven key poses and bounded actor-edge readability are live without cadence changes.
+- Hasty, Armoured, Volatile, Cursed and Gilded regular-enemy variants are deterministic, visibly disclosed and conservatively weighted.
+- Signature Loot V1 has curated compatibility rules, eight additional bases and four behaviour hooks; large item-volume expansion and full weapon evolution remain future work.
+- Eighteen local-first trophies persist offline and display in the Hideout Archive. Provider ID fields/live platform submission remain future integration work.
+- The seven-identity LootlingCatalog and first-profile selector are live. Only Relic Beast is player-facing until clean standalone runtime art exists for each named character.

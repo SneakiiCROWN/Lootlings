@@ -13,12 +13,14 @@ signal gold_upgrade_requested(upgrade_id: String)
 signal profile_requested
 signal title_requested
 signal ui_event(event_name: String)
+signal destination_visited(destination_id: String)
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
 const DialogueDirector = preload("res://dialogue_director.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
+const AchievementManager = preload("res://achievement_manager.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const HIDEOUT_BACKGROUND = preload("res://art/backgrounds/lootlings_hideout.png")
 const SHOP_BACKGROUND = preload("res://art/backgrounds/salvager_shop.png")
@@ -47,6 +49,10 @@ var stash_content: Control
 var upgrade_content: Control
 var coming_content: Control
 var shop_content: Control
+var achievement_content: Control
+var achievement_list: VBoxContainer
+var achievement_manager
+var visited_destinations := {}
 var resource_label: Label
 var loadout_label: Label
 var loadout_panel: Panel
@@ -80,6 +86,8 @@ var presentation
 var last_scrap := -1
 var shrine_pulse := 0.0
 var cache_pulse := 0.0
+var cache_pulse_duration := 0.72
+var cache_pulse_color := Color("#c99cff")
 var ui_sparks: Array = []
 var speech_panel: Panel
 var speech_label: Label
@@ -103,13 +111,14 @@ func _ready() -> void:
 	build_stash()
 	build_upgrades()
 	build_shop()
+	build_achievements()
 	build_coming_soon()
 	build_dialogue_overlay()
 	build_transition_overlay()
 	presentation.bind_buttons(self)
 	set_process(true)
 
-func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable, gold_count: int = 0, profile_data: Dictionary = {}, gold_upgrade_data: Dictionary = {}) -> void:
+func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable, gold_count: int = 0, profile_data: Dictionary = {}, gold_upgrade_data: Dictionary = {}, achievements = null) -> void:
 	current_inventory = inventory
 	current_shop = shop
 	shards = shard_count
@@ -118,6 +127,7 @@ func configure(inventory, shop, shard_count: int, power_level: int, compare: Cal
 	profile = profile_data.duplicate(true)
 	gold_upgrades = gold_upgrade_data.duplicate(true)
 	comparison_callable = compare
+	achievement_manager = achievements
 	refresh_current_screen()
 
 func show_home() -> void:
@@ -131,6 +141,7 @@ func show_home() -> void:
 	elif hideout_visits == 0:
 		request_dialogue("first_visit")
 	hideout_visits += 1
+	visit_destination("home")
 	queue_redraw()
 
 func show_stash() -> void:
@@ -138,6 +149,7 @@ func show_stash() -> void:
 	current_screen = "stash"
 	set_screen(stash_content)
 	refresh_stash()
+	visit_destination("stash")
 	queue_redraw()
 
 func show_upgrades() -> void:
@@ -145,6 +157,7 @@ func show_upgrades() -> void:
 	current_screen = "upgrades"
 	set_screen(upgrade_content)
 	refresh_upgrades()
+	visit_destination("shrine")
 	queue_redraw()
 
 func show_shop() -> void:
@@ -152,7 +165,22 @@ func show_shop() -> void:
 	current_screen = "shop"
 	set_screen(shop_content)
 	refresh_shop()
+	visit_destination("shop")
 	queue_redraw()
+
+func show_achievements() -> void:
+	dismiss_dialogue()
+	current_screen = "achievements"
+	set_screen(achievement_content)
+	refresh_achievements()
+	visit_destination("archive")
+	queue_redraw()
+
+func visit_destination(id: String) -> void:
+	if visited_destinations.has(id):
+		return
+	visited_destinations[id] = true
+	destination_visited.emit(id)
 
 func show_coming_soon(section_name: String) -> void:
 	dismiss_dialogue()
@@ -166,10 +194,11 @@ func refresh_current_screen() -> void:
 		"stash": refresh_stash()
 		"upgrades": refresh_upgrades()
 		"shop": refresh_shop()
+		"achievements": refresh_achievements()
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
-	var screens := [home_content, stash_content, upgrade_content, shop_content, coming_content]
+	var screens := [home_content, stash_content, upgrade_content, shop_content, achievement_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -193,7 +222,8 @@ func build_home() -> void:
 	var stash_button := make_hotspot_button(home_content, "GEAR CHEST\nSTASH", Rect2(14, 476, 150, 110), Color("#72c8ff"), 15)
 	stash_button.pressed.connect(show_stash)
 	var lootbook_button := make_hotspot_button(home_content, "ARCHIVE\nLOOTBOOK", Rect2(316, 476, 150, 110), Color("#91a6ce"), 15)
-	lootbook_button.pressed.connect(show_coming_soon.bind("LOOTBOOK"))
+	lootbook_button.text = "ARCHIVE\nTROPHIES"
+	lootbook_button.pressed.connect(show_achievements)
 	loadout_panel = make_panel(home_content, Rect2(34, 704, 412, 88), Color("#0c1430c9"), Color("#c99a4e"))
 	LootlingsUI.apply_material(loadout_panel, "leather", 16)
 	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
@@ -327,6 +357,48 @@ func build_coming_soon() -> void:
 	coming_title = make_label(panel, "", 23, Rect2(28, 58, 348, 210), HORIZONTAL_ALIGNMENT_CENTER, Color("#dce6ff"))
 	coming_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	coming_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+
+func build_achievements() -> void:
+	achievement_content = Control.new()
+	achievement_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	achievement_content.visible = false
+	add_child(achievement_content)
+	var back := make_button(achievement_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
+	back.pressed.connect(show_home)
+	make_label(achievement_content, "TROPHY ARCHIVE", 28, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	var panel := make_panel(achievement_content, Rect2(20, 92, 440, 692), Color("#0b1229e8"), Color("#c99a4e"))
+	LootlingsUI.apply_material(panel, "relic", 16)
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(12, 14)
+	scroll.size = Vector2(416, 664)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	panel.add_child(scroll)
+	achievement_list = VBoxContainer.new()
+	achievement_list.custom_minimum_size = Vector2(398, 0)
+	achievement_list.add_theme_constant_override("separation", 8)
+	scroll.add_child(achievement_list)
+
+func refresh_achievements() -> void:
+	if achievement_list == null:
+		return
+	for child in achievement_list.get_children():
+		achievement_list.remove_child(child)
+		child.queue_free()
+	var unlocked_count: int = int(achievement_manager.unlocked.size()) if achievement_manager != null else 0
+	var heading := make_label(achievement_list, "%d / %d TROPHIES RECOVERED" % [unlocked_count, AchievementManager.DEFINITIONS.size()], 15, Rect2(0, 0, 398, 34), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	heading.custom_minimum_size = Vector2(398, 34)
+	for entry in AchievementManager.DEFINITIONS:
+		var unlocked: bool = achievement_manager != null and bool(achievement_manager.is_unlocked(str(entry.id)))
+		var current := int(achievement_manager.progress.get(entry.id, 0)) if achievement_manager != null else 0
+		var target := int(entry.get("target", 1))
+		var secret: bool = bool(entry.get("secret", false)) and not unlocked
+		var title := "???" if secret else str(entry.name)
+		var description := "Secret trophy" if secret else str(entry.get("revealed_desc", entry.desc))
+		var text := "%s  %s\n%s\n%s  •  %d / %d" % ["★" if unlocked else "◇", title, description, str(entry.category).to_upper(), mini(current, target), target]
+		var card := make_label(achievement_list, text, 12, Rect2(0, 0, 398, 76), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff0af") if unlocked else Color("#a8b5d0"))
+		card.custom_minimum_size = Vector2(398, 76)
+		card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		card.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func refresh_home() -> void:
 	if current_inventory == null or resource_label == null:
@@ -551,11 +623,13 @@ func play_shop_purchase(index: int, rarity_color: Color) -> void:
 		spawn_ui_burst(Vector2(88 + index * 147, 258), rarity_color, 12)
 	pulse_control(shop_scrap_label, Color("#9fddff"))
 
-func play_cache_reveal(rarity_color: Color) -> void:
-	cache_pulse = 0.72
+func play_cache_reveal(rarity_color: Color, reveal_profile: Dictionary = {}) -> void:
+	cache_pulse_duration = maxf(0.34, float(reveal_profile.get("anticipation", 0.52)) + 0.28)
+	cache_pulse = cache_pulse_duration
+	cache_pulse_color = rarity_color
 	shake_control(shop_cache_button)
 	pulse_control(shop_status_panel, rarity_color)
-	spawn_ui_burst(Vector2(125, 562), rarity_color, 18)
+	spawn_ui_burst(Vector2(125, 562), rarity_color, int(reveal_profile.get("particles", 18)))
 
 func play_stash_feedback(kind: String) -> void:
 	var target := stash_equip_button if kind == "equip" else stash_scrap_button
@@ -754,6 +828,7 @@ func _draw() -> void:
 		"stash": draw_stash_scene()
 		"upgrades": draw_shrine_scene()
 		"coming": draw_archive_scene()
+		"achievements": draw_archive_scene()
 	draw_ui_sparks()
 
 func background_for_screen() -> Texture2D:
@@ -835,8 +910,10 @@ func draw_shop_scene() -> void:
 				draw_line(center + Vector2(-34, -22), center + Vector2(34, 22), Color("#714a50aa"), 5)
 				draw_line(center + Vector2(-34, 22), center + Vector2(34, -22), Color("#714a50aa"), 5)
 	if cache_pulse > 0.0:
-		var ratio := cache_pulse / 0.72
-		draw_arc(Vector2(125, 562), 34.0 + (1.0 - ratio) * 34.0, 0.0, TAU, 28, Color(0.78, 0.55, 1.0, ratio * 0.75), 4.0)
+		var ratio := cache_pulse / cache_pulse_duration
+		var pulse_color := cache_pulse_color
+		pulse_color.a = ratio * 0.75
+		draw_arc(Vector2(125, 562), 34.0 + (1.0 - ratio) * 34.0, 0.0, TAU, 28, pulse_color, 4.0)
 
 func draw_stash_scene() -> void:
 	draw_hideout_light(Vector2(58, 177), 18.0, 0.030, 0.2)

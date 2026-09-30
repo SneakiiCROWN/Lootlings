@@ -114,6 +114,16 @@ Upgrade choices should be large and easy to understand, with:
 
 Bosses, minibosses, victory, defeat, rare upgrades, and major rewards should have stronger presentation than ordinary gameplay moments.
 
+## Character Feel / Variety Contracts
+
+- Combat animation is pose-driven: anticipation, attack/release, impact, recovery, hurt and reward reaction use bounded root/body/weapon transforms. Presentation must never silently change validated damage or attack cadence.
+- Actor separation uses a thin local edge on player/enemy sprites only. Bosses may receive a slightly stronger edge; backgrounds, particles and interface elements remain unoutlined.
+- Regular variants must be data-driven, deterministic from gameplay RNG, visibly named/cued and uncommon. Wave 1 and bosses are protected. Visual/dialogue randomness must never consume gameplay rolls.
+- Rarity may add curated compatible affixes. Legendary equipment should prefer a behavior hook over pure scalar inflation. Existing equipment IDs and old save dictionaries remain valid.
+- Achievement progress is local-first and offline-safe. Secrets conceal their description until unlocked; future platform provider IDs map onto stable internal IDs rather than replacing them.
+- Starter selection must be honest: a Lootling appears as playable only when a clean canonical runtime sprite exists. Character-sheet crops and spawning a different identity after selection are prohibited.
+- Major chest reveals follow restrained hierarchy: wind-up, a short quiet beat, eruption, visible reward arcs/settling and then the existing decision flow. Common rewards remain brisk; Hoard rewards earn the strongest reveal.
+
 ## Art Production Rule
 
 Current procedural art is placeholder only.

@@ -1,5 +1,7 @@
 extends RefCounted
 
+const ActionPoseCatalog = preload("res://action_pose_catalog.gd")
+
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
 const MOSSBACK_BRUTE_TEXTURE = preload("res://art/sprites/enemies/mossback_brute.png")
@@ -29,35 +31,19 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	g.draw_set_transform(pos + Vector2(-4, 46), 0.0, Vector2(1.0, 0.30))
 	g.draw_circle(Vector2.ZERO, 55, Color("#07101f88"))
 	var family: String = g.current_weapon_family()
-	var idle_speed := 2.4
-	var idle_amount := 0.012
-	match family:
-		"VANGUARD":
-			idle_speed = 1.8
-			idle_amount = 0.009
-		"RANGER":
-			idle_speed = 2.8
-			idle_amount = 0.014
-		"MAGE":
-			idle_speed = 2.1
-			idle_amount = 0.012
-		"ROGUE":
-			idle_speed = 4.0
-			idle_amount = 0.018
-	var idle_tilt: float = sin(float(g.run_time) * idle_speed) * idle_amount
-	var idle_breath: float = sin(float(g.run_time) * 1.9) * 0.010
+	var pose := ActionPoseCatalog.sample(family, float(g.run_time), float(g.attack_clock), float(g.current_attack_interval()), float(g.attack_anim), hurt, float(g.player_reward_flash))
 	var reaction_ratio: float = clampf(float(g.player_idle_reaction) / 0.34, 0.0, 1.0)
 	var idle_reaction: float = sin(reaction_ratio * PI) * 0.022 * float(g.player_idle_reaction_direction)
-	var attack_pose: float = clampf(float(g.attack_anim) / 0.22, 0.0, 1.0)
-	var attack_tilt := 0.11 if g.attack_was_tap else 0.085
-	var attack_stretch := 0.060 if g.attack_was_tap else 0.045
-	var pose_rotation: float = idle_tilt + idle_reaction + attack_pose * attack_tilt
-	var pose_scale := Vector2(scale_x * (1.0 + idle_breath + attack_pose * attack_stretch) * float(g.player_facing), scale_y * (1.0 - idle_breath * 0.72 - attack_pose * 0.035))
+	var pose_rotation: float = float(pose.rotation) + idle_reaction
+	var pose_scale: Vector2 = Vector2(scale_x, scale_y) * Vector2(pose.scale)
+	pose_scale.x *= float(g.player_facing)
 	if hurt:
-		pose_rotation -= 0.065 * float(g.player_facing)
 		pose_scale *= Vector2(1.06, 0.94)
-	g.draw_set_transform(pos, pose_rotation, pose_scale)
+	g.draw_set_transform(pos + Vector2(pose.offset), pose_rotation * float(g.player_facing), pose_scale)
 	var tint := Color("#ffb9b9") if hurt else Color.WHITE
+	var outline := Color("#101426d9")
+	for edge in [Vector2(-2, 0), Vector2(2, 0), Vector2(0, -2), Vector2(0, 2)]:
+		g.draw_texture_rect(MASCOT_TEXTURE, Rect2(Vector2(-96, -128) + edge, Vector2(192, 192)), false, outline)
 	g.draw_texture_rect(MASCOT_TEXTURE, Rect2(-96, -128, 192, 192), false, tint)
 	# Relic builds add readable effects around the canonical chest core without repainting the mascot.
 	if identity != "Neutral":
@@ -66,8 +52,8 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		g.draw_circle(Vector2(17, 3), 12 + evolution_tier * 3, glow)
 		g.draw_arc(Vector2(17, 3), 14 + evolution_tier * 3, g.run_time * 2.0, g.run_time * 2.0 + 4.9, 18, core_color.lightened(0.25), 2 + evolution_tier)
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	var windup := clampf(1.0 - g.attack_clock / 0.16, 0.0, 1.0) if g.attack_anim <= 0.0 else 0.0
-	var weapon_angle := weapon_pose_angle(family, windup, clampf(g.attack_anim / 0.22, 0.0, 1.0))
+	var windup: float = float(pose.anticipate)
+	var weapon_angle := weapon_pose_angle(family, windup, float(pose.release))
 	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
 	match family:
 		"RANGER": draw_bow(g, pos + Vector2(5, 0), weapon_angle, weapon_growth, weapon_color)
@@ -287,6 +273,17 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	if cast_charge > 0.0:
 		g.draw_circle(Vector2(pos.x - 25, pos.y - 24), 8.0 + cast_charge * 9.0, Color(0.72, 0.38, 1.0, cast_charge * 0.24))
 	g.draw_set_transform(pos, recoil_tilt + personality_tilt, hit_scale * personality_scale * extra_scale)
+	var edge_strength := 3.0 if g.enemy_is_boss else 2.5 if g.enemy_is_miniboss else 1.75
+	var outline_color := Color("#0c1024df")
+	if not str(g.enemy_variant_id).is_empty():
+		var variant_color: Color = g.enemy_variant_color
+		outline_color = Color(variant_color.r * 0.30, variant_color.g * 0.30, variant_color.b * 0.30, 0.94 * color.a)
+	for edge in [Vector2(-edge_strength, 0), Vector2(edge_strength, 0), Vector2(0, -edge_strength), Vector2(0, edge_strength)]:
+		var edge_rect := Rect2(sprite_rect.position + edge, sprite_rect.size)
+		if atlas_region.size.x > 0.0:
+			g.draw_texture_rect_region(texture, edge_rect, atlas_region, outline_color)
+		else:
+			g.draw_texture_rect(texture, edge_rect, false, outline_color)
 	if atlas_region.size.x > 0.0:
 		g.draw_texture_rect_region(texture, sprite_rect, atlas_region, tint)
 	else:

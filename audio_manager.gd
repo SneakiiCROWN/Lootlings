@@ -23,7 +23,7 @@ const EVENT_SPECS := {
 	"xp_pickup":["SFX", 720.0, 0.10, 0.32], "equipment_drop":["SFX", 230.0, 0.24, 0.58],
 	"rarity_reveal":["SFX", 680.0, 0.25, 0.42], "rare_reveal":["SFX", 720.0, 0.28, 0.46],
 	"epic_reveal":["SFX", 560.0, 0.40, 0.64], "legendary_reveal":["SFX", 440.0, 0.58, 0.76],
-	"chest_land":["SFX", 82.0, 0.22, 0.68], "chest_open":["SFX", 310.0, 0.46, 0.72],
+	"chest_land":["SFX", 82.0, 0.22, 0.68], "chest_windup":["SFX", 126.0, 0.58, 0.42], "chest_open":["SFX", 310.0, 0.46, 0.72],
 	"level_up":["SFX", 660.0, 0.34, 0.60],
 	"upgrade_select":["UI", 840.0, 0.16, 0.24], "core_awaken":["SFX", 420.0, 0.42, 0.58],
 	"equip":["UI", 510.0, 0.13, 0.23], "scrap":["SFX", 190.0, 0.12, 0.24],
@@ -41,10 +41,11 @@ var output_enabled := true
 var last_variant := {}
 var event_sequence := {}
 var last_event_msec := {}
+var duck_tween: Tween
 
 const VARIANT_EVENTS := ["tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
 const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
-const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "player_hurt", "enemy_death", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_open", "level_up", "core_awaken", "boss_warning", "boss_death", "victory", "defeat"]
+const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "player_hurt", "enemy_death", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_windup", "chest_open", "level_up", "core_awaken", "boss_warning", "boss_death", "victory", "defeat"]
 
 func _ready() -> void:
 	ensure_buses()
@@ -151,7 +152,18 @@ func set_music(cue: String) -> void:
 			stream.loop_end = int(stream.get_length() * stream.mix_rate)
 		music_streams[cue] = stream
 	music_player.stream = music_streams[cue]
+	music_player.volume_db = 0.0
 	music_player.play()
+
+func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
+	if not output_enabled or music_player == null:
+		return
+	if duck_tween != null and duck_tween.is_valid():
+		duck_tween.kill()
+	duck_tween = create_tween()
+	duck_tween.tween_property(music_player, "volume_db", depth_db, 0.045)
+	duck_tween.tween_interval(maxf(0.04, duration))
+	duck_tween.tween_property(music_player, "volume_db", 0.0, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func make_tone(frequency: float, duration: float, gain: float, event_name: String, variant: int = 0) -> AudioStreamWAV:
 	var sample_rate := 22050

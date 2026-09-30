@@ -15,6 +15,12 @@ const ChestCatalog = preload("res://chest_catalog.gd")
 const AnalyticsLogger = preload("res://analytics_logger.gd")
 const DebugPanel = preload("res://debug_panel.gd")
 const DialogueDirector = preload("res://dialogue_director.gd")
+const ActionPoseCatalog = preload("res://action_pose_catalog.gd")
+const EnemyVariantCatalog = preload("res://enemy_variant_catalog.gd")
+const AffixCatalog = preload("res://affix_catalog.gd")
+const AchievementManager = preload("res://achievement_manager.gd")
+const LootlingCatalog = preload("res://lootling_catalog.gd")
+const RewardRevealCatalog = preload("res://reward_reveal_catalog.gd")
 
 var failures: Array[String] = []
 
@@ -37,7 +43,45 @@ func run_tests() -> void:
 	await process_frame
 	check(game.state == "boot" and game.startup_ui.visible and not game.hideout_ui.visible, "the game opens with the skippable Relic Core boot presentation")
 	var blank_profile := ProfileStore.create_default()
-	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision"), "fresh local profiles have stable identity and future account-link fields without forcing a name")
+	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision") and blank_profile.has("customisation"), "fresh local profiles have stable identity and future account/customisation fields without forcing a name")
+	check(LootlingCatalog.selectable_ids() == ["relic_beast"] and LootlingCatalog.ENTRIES.size() == 7 and LootlingCatalog.definition("emberhorn").has("victory_pose") and LootlingCatalog.definition("mosskin").has("cosmetic_slots"), "starter catalog exposes only the clean Relic Beast runtime sprite while retaining complete metadata for all seven identities")
+	var vanguard_pose := ActionPoseCatalog.sample("VANGUARD", 1.0, 0.02, 1.0, 0.0, false)
+	var ranger_pose := ActionPoseCatalog.sample("RANGER", 1.0, 0.02, 1.0, 0.0, false)
+	check(vanguard_pose.phase == "ANTICIPATE" and not is_equal_approx(float(vanguard_pose.rotation), float(ranger_pose.rotation)), "data-driven action poses preserve distinct Vanguard and Ranger anticipation silhouettes")
+	var variant_rng_a := RandomNumberGenerator.new()
+	var variant_rng_b := RandomNumberGenerator.new()
+	variant_rng_a.seed = 44123
+	variant_rng_b.seed = 44123
+	var variants_a: Array[String] = []
+	var variants_b: Array[String] = []
+	for variant_sample in range(80):
+		variants_a.append(EnemyVariantCatalog.roll(variant_rng_a, 9, false))
+		variants_b.append(EnemyVariantCatalog.roll(variant_rng_b, 9, false))
+	check(variants_a == variants_b and variants_a.any(func(id): return not id.is_empty()), "enemy variants spawn conservatively and deterministically from gameplay RNG")
+	check(EnemyVariantCatalog.roll(variant_rng_a, 15, true).is_empty(), "bosses and minibosses are excluded from regular enemy variants")
+	var reveal_durations: Array[float] = []
+	for reveal_rarity in ItemCatalog.RARITIES:
+		var reveal := RewardRevealCatalog.for_rewards("scavenged_cache", [ItemCatalog.create_item("mossguard_harness", reveal_rarity, 700)])
+		reveal_durations.append(float(reveal.anticipation))
+	check(reveal_durations[0] < reveal_durations[1] and reveal_durations[1] < reveal_durations[2] and reveal_durations[2] < reveal_durations[3], "reward reveal anticipation scales from Common through Legendary without changing contents")
+	var legendary_hoard := RewardRevealCatalog.for_rewards("hoard_chest", [ItemCatalog.create_item("bonebow", "EPIC", 703), ItemCatalog.create_item("stormspark", "LEGENDARY", 704), ItemCatalog.create_item("ironpaw_plate", "EPIC", 705)])
+	check(legendary_hoard.rarity == "LEGENDARY" and int(legendary_hoard.arc_count) == 3 and float(legendary_hoard.shake) > 0.10, "a Legendary inside the three-item Hoard dominates the reusable reveal profile")
+	var signature_item := ItemCatalog.create_item("bonebow", "LEGENDARY", 701)
+	signature_item = AffixCatalog.apply(signature_item, ["keen", "crooked_constellation"])
+	check(signature_item.affix_ids == ["keen", "crooked_constellation"] and "crooked_volley" in signature_item.signature_hooks, "Signature Loot applies compatible affixes and a behaviour hook without changing the base item ID")
+	var incompatible_item := AffixCatalog.apply(ItemCatalog.create_item("mossguard_harness", "LEGENDARY", 702), ["crooked_constellation"])
+	check(incompatible_item.affix_ids.is_empty(), "Signature Loot rejects invalid slot/family combinations")
+	var achievement_path := "user://smoke_achievements.cfg"
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(achievement_path))
+	var trophy_manager := AchievementManager.new(achievement_path)
+	check(not trophy_manager.is_unlocked("ten_chests") and trophy_manager.add_progress("ten_chests", 9) == false and trophy_manager.add_progress("ten_chests") == true, "achievement counters unlock exactly at their target")
+	var reloaded_trophies := AchievementManager.new(achievement_path)
+	check(reloaded_trophies.is_unlocked("ten_chests") and int(reloaded_trophies.progress.ten_chests) == 10, "achievement unlock state and progress persist locally")
+	for destination_id in ["home", "stash", "shrine", "shop", "archive"]:
+		reloaded_trophies.mark_unique("hideout_social", destination_id)
+	check(reloaded_trophies.is_unlocked("hideout_social") and int(reloaded_trophies.progress.hideout_social) == 5, "unique achievement progress persists distinct destination keys")
+	check(reloaded_trophies.display_description(AchievementManager.definition_for("bonk_nothing")) == "???", "secret achievements conceal their description until unlocked")
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(achievement_path))
 	check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0 and AudioServer.get_bus_index("UI") >= 0 and AudioServer.get_bus_index("Ambience") >= 0, "Godot-native audio buses are available")
 	check(DebugPanel.allowed(true) and not DebugPanel.allowed(false), "development toolkit has an explicit release-build gate")
 	check(game.debug_enabled and game.debug_panel != null and not game.debug_panel.visible, "development toolkit exists but starts hidden in debug builds")
@@ -90,8 +134,10 @@ func run_tests() -> void:
 	game.startup_ui.name_edit.text = "Smoke Seeker"
 	game.startup_ui.nickname_edit.text = "Nib"
 	game.startup_ui.save_profile()
+	check(game.startup_ui.current_screen == "lootling_select", "new profiles continue into the starter Lootling selector")
+	game.startup_ui.confirm_lootling()
 	await create_timer(0.55).timeout
-	check(game.state == "hideout" and game.hideout_ui.visible, "first-launch profile creation continues directly into the Hideout")
+	check(game.state == "hideout" and game.hideout_ui.visible, "starter confirmation continues directly into the Hideout")
 	var original_uuid: String = game.profile.player_uuid
 	var persisted_profile: Dictionary = ProfileStore.load_profile(game.PROFILE_SAVE_PATH)
 	check(persisted_profile.display_name == "Smoke Seeker" and persisted_profile.lootling_nickname == "Nib" and persisted_profile.player_uuid == original_uuid, "display name, optional nickname, and stable UUID persist")
@@ -312,7 +358,7 @@ func run_tests() -> void:
 	var comparison: String = game.build_item_comparison(ItemCatalog.create_item("mimic_mallet", "EPIC", 776), ItemCatalog.create_item("scrapfang_blade", "COMMON", 775))
 	check(comparison.contains("#69e6b0") and comparison.contains("#ff7d88"), "loot comparison marks gains green and losses red")
 	var test_inventory = InventorySystem.new()
-	var rare_bow := ItemCatalog.create_item("bonebow", "RARE", 777)
+	var rare_bow := AffixCatalog.apply(ItemCatalog.create_item("bonebow", "LEGENDARY", 777), ["keen", "crooked_constellation"])
 	test_inventory.equip(rare_bow)
 	check(test_inventory.weapon_family() == "RANGER" and test_inventory.effect_total("crit") > 0.0, "equipped weapon exposes its combat family and affixes")
 	var stored_armour := ItemCatalog.create_item("mossguard_harness", "COMMON", 778)
@@ -329,7 +375,7 @@ func run_tests() -> void:
 	check(test_inventory.save(inventory_test_path) == OK, "inventory and scrap save successfully")
 	var loaded_inventory = InventorySystem.new()
 	loaded_inventory.load(inventory_test_path)
-	check(loaded_inventory.weapon_family() == "RANGER" and loaded_inventory.equipped_item("Armour").get("serial", 0) == 778 and loaded_inventory.stash.is_empty() and loaded_inventory.scrap == test_inventory.scrap, "Hideout equipment and Scrap persist through save/load")
+	check(loaded_inventory.weapon_family() == "RANGER" and loaded_inventory.has_signature("crooked_volley") and loaded_inventory.equipped_item("Armour").get("serial", 0) == 778 and loaded_inventory.stash.is_empty() and loaded_inventory.scrap == test_inventory.scrap, "Hideout equipment, Signature hooks and Scrap persist through save/load")
 	var legacy_inventory_path := "user://lootlings_inventory_legacy_smoke.cfg"
 	var legacy_config := ConfigFile.new()
 	legacy_config.set_value("inventory", "version", 1)
@@ -529,7 +575,9 @@ func run_tests() -> void:
 	game._process(0.70)
 	check(game.hoard_chest_phase == "ready" and game.hoard_chest_button.visible, "Hoard Chest lands and presents an obvious tap-to-open action")
 	game.open_hoard_chest()
-	game._process(0.50)
+	game._process(float(game.hoard_reveal_profile.anticipation) + 0.02)
+	check(game.hoard_chest_phase == "silence", "Hoard Chest reveal includes a brief anticipation silence before eruption")
+	game._process(float(game.hoard_reveal_profile.silence) + 0.02)
 	var boss_launches := {}
 	for hoard_drop in game.loot_drops:
 		boss_launches[roundi(hoard_drop.vel.x)] = true
@@ -658,7 +706,8 @@ func resolve_interstitials(game, upgrade_index: int) -> void:
 		elif game.state == "hoard_chest":
 			game._process(0.7)
 			game.open_hoard_chest()
-			game._process(0.5)
+			game._process(float(game.hoard_reveal_profile.anticipation) + 0.02)
+			game._process(float(game.hoard_reveal_profile.silence) + 0.02)
 		elif game.state == "merchant":
 			game.leave_merchant()
 		elif not game.boss_reward_options.is_empty():

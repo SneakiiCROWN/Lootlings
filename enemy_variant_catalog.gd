@@ -1,0 +1,34 @@
+extends RefCounted
+
+const VARIANTS := {
+	"hasty":{"name":"HASTY", "hp":0.92, "damage":0.96, "interval":0.84, "hit":1.0, "coin":1.05, "xp":1.03, "accent":Color("#ff9a70"), "icon":"»"},
+	"armoured":{"name":"ARMOURED", "hp":1.16, "damage":0.96, "interval":1.10, "hit":0.94, "coin":1.10, "xp":1.08, "accent":Color("#9eb7d0"), "icon":"◆"},
+	"volatile":{"name":"VOLATILE", "hp":0.94, "damage":1.04, "interval":1.0, "hit":1.0, "coin":1.12, "xp":1.08, "accent":Color("#ff7d62"), "icon":"✦"},
+	"cursed":{"name":"CURSED", "hp":1.0, "damage":1.10, "interval":0.96, "hit":1.0, "coin":1.12, "xp":1.10, "accent":Color("#ba7cff"), "icon":"◇"},
+	"gilded":{"name":"GILDED", "hp":1.12, "damage":1.02, "interval":1.04, "hit":1.0, "coin":1.38, "xp":1.18, "accent":Color("#ffd45f"), "icon":"¤"}
+}
+
+static func roll(rng: RandomNumberGenerator, wave: int, is_special: bool) -> String:
+	if is_special or wave <= 1:
+		return ""
+	var chance := 0.10 if wave <= 5 else 0.14 if wave <= 10 else 0.17
+	if rng.randf() >= chance:
+		return ""
+	var ids := VARIANTS.keys()
+	return str(ids[rng.randi_range(0, ids.size() - 1)])
+
+static func definition(id: String) -> Dictionary:
+	return VARIANTS.get(id, {})
+
+static func apply(id: String, stats: Dictionary) -> Dictionary:
+	var result := stats.duplicate(true)
+	var data := definition(id)
+	if data.is_empty():
+		return result
+	result.hp = float(result.hp) * float(data.hp)
+	result.damage = float(result.damage) * float(data.damage)
+	result.interval = float(result.interval) * float(data.interval)
+	result.hit = float(result.hit) * float(data.hit)
+	result.coin = float(data.coin)
+	result.xp = float(data.xp)
+	return result

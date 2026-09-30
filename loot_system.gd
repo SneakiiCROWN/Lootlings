@@ -1,6 +1,7 @@
 extends RefCounted
 
 const ItemCatalog = preload("res://item_catalog.gd")
+const AffixCatalog = preload("res://affix_catalog.gd")
 
 const NORMAL_DROP_CHANCE := 0.07
 const NORMAL_RARITY_WEIGHTS := [70.0, 24.0, 5.0, 1.0]
@@ -23,6 +24,7 @@ func roll_drop(is_miniboss: bool, is_boss: bool) -> Dictionary:
 	var rarity := weighted_rarity(weights)
 	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
+	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
 	return result
 
@@ -33,6 +35,7 @@ func generate_shop_item(minimum_rarity: String = "COMMON") -> Dictionary:
 		rarity = minimum_rarity
 	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
+	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
 	return result
 
@@ -48,6 +51,7 @@ func generate_shop_item_for_slot(slot: String, minimum_rarity: String = "COMMON"
 		rarity = minimum_rarity
 	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
+	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
 	return result
 
