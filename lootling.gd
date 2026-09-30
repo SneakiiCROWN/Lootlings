@@ -17,6 +17,10 @@ const AnalyticsLogger = preload("res://analytics_logger.gd")
 const AudioManager = preload("res://audio_manager.gd")
 const StartupUI = preload("res://startup_ui.gd")
 const ItemIcon = preload("res://item_icon.gd")
+const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
+const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
+const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
+const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
@@ -190,6 +194,7 @@ var merchant_title: Label
 var merchant_subtitle: Label
 var merchant_coin_label: Label
 var merchant_buttons: Array[Button] = []
+var merchant_icons: Array = []
 var merchant_reroll_button: Button
 var merchant_continue_button: Button
 var boss_reward_panel: Panel
@@ -611,11 +616,11 @@ func build_item_ui() -> void:
 	item_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_title.clip_text = true
 	item_icon = ItemIcon.new()
-	item_icon.position = Vector2(28, 78)
-	item_icon.size = Vector2(96, 96)
+	item_icon.position = Vector2(24, 74)
+	item_icon.size = Vector2(112, 112)
 	item_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	item_panel.add_child(item_icon)
-	item_description = make_label(item_panel, "", 16, Rect2(132, 76, 272, 112), HORIZONTAL_ALIGNMENT_LEFT, Color("#e8efff"))
+	item_description = make_label(item_panel, "", 15, Rect2(148, 74, 256, 116), HORIZONTAL_ALIGNMENT_LEFT, Color("#e8efff"))
 	item_description.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_compare = RichTextLabel.new()
@@ -646,6 +651,13 @@ func build_merchant_ui() -> void:
 		button.pressed.connect(buy_merchant_item.bind(i))
 		merchant_panel.add_child(button)
 		merchant_buttons.append(button)
+		var icon := ItemIcon.new()
+		icon.name = "OfferIcon%d" % i
+		icon.position = Vector2(28, 119 + i * 108)
+		icon.size = Vector2(64, 64)
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		merchant_panel.add_child(icon)
+		merchant_icons.append(icon)
 	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 452), Vector2(180, 62), Color("#3e315c"), Color("#c89bff"), reroll_merchant)
 	merchant_continue_button = make_action_button(merchant_panel, "CONTINUE", Vector2(224, 452), Vector2(180, 62), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
@@ -1604,16 +1616,36 @@ func refresh_merchant_ui() -> void:
 		if i >= shop.stock.size():
 			button.text = "SOLD"
 			button.disabled = true
+			button.icon = null
+			merchant_icons[i].visible = false
 			continue
 		var item: Dictionary = shop.stock[i]
 		var price := int(item.get("price", 0))
-		var slot_icon := "⚔" if item.slot == "Weapon" else "◆" if item.slot == "Armour" else "✦"
-		button.text = "%s  %s OFFER    ● %d\n%s  [%s]\n%s" % [slot_icon, ItemCatalog.display_slot(item.get("slot", "Item")), price, item.name, item.rarity, ItemCatalog.describe_effects(item)]
+		apply_merchant_thumbnail(button, merchant_icons[i], item)
+		var indent := "" if item.get("slot", "") == "Weapon" else "             "
+		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, ItemCatalog.describe_effects(item)]
 		button.disabled = coins < price
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
 	var reroll_price := shop.reroll_cost(wave)
 	merchant_reroll_button.text = "REROLL  %d" % reroll_price
 	merchant_reroll_button.disabled = coins < reroll_price
+
+func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dictionary) -> void:
+	category_icon.visible = item.get("slot", "") != "Weapon"
+	category_icon.configure(item)
+	button.icon = merchant_weapon_texture(item)
+	button.expand_icon = true
+	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	button.add_theme_constant_override("icon_max_width", 62)
+
+func merchant_weapon_texture(item: Dictionary) -> Texture2D:
+	if item.get("slot", "") != "Weapon":
+		return null
+	match item.get("family", "VANGUARD"):
+		"RANGER": return RANGER_WEAPON_TEXTURE
+		"MAGE": return MAGE_WEAPON_TEXTURE
+		"ROGUE": return ROGUE_WEAPON_TEXTURE
+	return VANGUARD_WEAPON_TEXTURE
 
 func buy_merchant_item(index: int) -> void:
 	if state != "merchant" or index < 0 or index >= shop.stock.size():
@@ -1980,7 +2012,10 @@ func draw_background() -> void:
 	var texture_size := arena_background.get_size()
 	var target := Rect2(0, 146, 480, 568)
 	var crop_height: float = texture_size.x * target.size.y / target.size.x
-	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
+	var source_height := minf(texture_size.y, crop_height)
+	var max_source_y := maxf(0.0, texture_size.y - source_height)
+	var depth_drift := sin(run_time * 0.20) * minf(2.5, max_source_y * 0.5)
+	var source := Rect2(0, clampf(max_source_y * 0.5 + depth_drift, 0.0, max_source_y), texture_size.x, source_height)
 	draw_texture_rect_region(arena_background, target, source)
 	# Quiet the combat band slightly while keeping the lanterns and moon visible.
 	var plane_tint := Color("#17100c28") if current_zone_id == "emberworks" else Color("#09082230") if current_zone_id == "hoard_depths" else Color("#08122922")
@@ -2131,6 +2166,10 @@ func draw_effects() -> void:
 		draw_loot_drop(drop)
 	for pickup in reward_pickups:
 		var pop := clampf(pickup.life / pickup.max_life * 2.0, 0.0, 1.0)
+		# Avoid submitting a four-point polygon collapsed to one position on its
+		# final frame; Godot correctly reports that as invalid triangulation.
+		if pop <= 0.01:
+			continue
 		if pickup.kind == "coin":
 			var radius := 8.0 * pop
 			draw_colored_polygon(PackedVector2Array([

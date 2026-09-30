@@ -45,11 +45,12 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 			idle_speed = 4.0
 			idle_amount = 0.018
 	var idle_tilt: float = sin(float(g.run_time) * idle_speed) * idle_amount
+	var idle_breath: float = sin(float(g.run_time) * 1.9) * 0.010
 	var attack_pose: float = clampf(float(g.attack_anim) / 0.22, 0.0, 1.0)
 	var attack_tilt := 0.11 if g.attack_was_tap else 0.085
 	var attack_stretch := 0.060 if g.attack_was_tap else 0.045
 	var pose_rotation: float = idle_tilt + attack_pose * attack_tilt
-	var pose_scale := Vector2(scale_x * (1.0 + attack_pose * attack_stretch) * float(g.player_facing), scale_y * (1.0 - attack_pose * 0.035))
+	var pose_scale := Vector2(scale_x * (1.0 + idle_breath + attack_pose * attack_stretch) * float(g.player_facing), scale_y * (1.0 - idle_breath * 0.72 - attack_pose * 0.035))
 	if hurt:
 		pose_rotation -= 0.065 * float(g.player_facing)
 		pose_scale *= Vector2(1.06, 0.94)

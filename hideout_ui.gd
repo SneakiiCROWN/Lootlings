@@ -666,10 +666,18 @@ func background_for_screen() -> Texture2D:
 func draw_home_scene() -> void:
 	# Canonical resident mascot, gently breathing in the painted Hideout.
 	var bob := sin(scene_time * 2.0) * 4.0
+	var breathe := 1.0 + sin(scene_time * 1.65) * 0.010
+	draw_hideout_light(Vector2(179, 244), 20.0, 0.040, 0.0)
+	draw_hideout_light(Vector2(302, 244), 20.0, 0.040, 1.3)
+	draw_hideout_light(Vector2(442, 169), 17.0, 0.030, 2.1)
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.26))
 	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	draw_texture_rect(MASCOT_TEXTURE, Rect2(151, 333 + bob, 178, 178), false, Color.WHITE)
+	draw_set_transform(Vector2(240, 422 + bob), sin(scene_time * 1.15) * 0.006, Vector2(breathe, 1.0 / breathe))
+	draw_texture_rect(MASCOT_TEXTURE, Rect2(-89, -89, 178, 178), false, Color.WHITE)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var core_pulse := 0.07 + maxf(0.0, sin(scene_time * 2.6)) * 0.07
+	draw_circle(Vector2(256, 425 + bob), 10.0 + sin(scene_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
 	for index in range(6):
 		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
 		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
@@ -697,7 +705,13 @@ func draw_home_scene() -> void:
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
-	draw_texture_rect(MASCOT_TEXTURE, Rect2(25, 105 + sin(scene_time * 2.0) * 2.0, 96, 96), false, Color.WHITE)
+	draw_hideout_light(Vector2(39, 160), 18.0, 0.035, 0.4)
+	draw_hideout_light(Vector2(443, 145), 20.0, 0.035, 2.2)
+	var visitor_bob := sin(scene_time * 2.0) * 2.0
+	var visitor_breath := 1.0 + sin(scene_time * 1.7) * 0.009
+	draw_set_transform(Vector2(73, 153 + visitor_bob), sin(scene_time * 1.2) * 0.005, Vector2(visitor_breath, 1.0 / visitor_breath))
+	draw_texture_rect(MASCOT_TEXTURE, Rect2(-48, -48, 96, 96), false, Color.WHITE)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
 			if current_shop.stock[index].is_empty():
@@ -709,15 +723,28 @@ func draw_shop_scene() -> void:
 		draw_arc(Vector2(125, 562), 34.0 + (1.0 - ratio) * 34.0, 0.0, TAU, 28, Color(0.78, 0.55, 1.0, ratio * 0.75), 4.0)
 
 func draw_stash_scene() -> void:
-	pass
+	draw_hideout_light(Vector2(58, 177), 18.0, 0.030, 0.2)
+	draw_hideout_light(Vector2(424, 190), 18.0, 0.030, 1.8)
+	var glint_alpha := maxf(0.0, sin(scene_time * 1.8)) * 0.34
+	draw_line(Vector2(238, 181), Vector2(250, 181), Color(0.55, 0.84, 1.0, glint_alpha), 1.5)
+	draw_line(Vector2(244, 175), Vector2(244, 187), Color(0.55, 0.84, 1.0, glint_alpha), 1.5)
 
 func draw_shrine_scene() -> void:
 	var bob := sin(scene_time * 2.0) * 2.5
-	draw_texture_rect(MASCOT_TEXTURE, Rect2(34, 142 + bob, 150, 150), false, Color.WHITE)
+	draw_hideout_light(Vector2(74, 320), 16.0, 0.028, 0.0)
+	draw_hideout_light(Vector2(406, 320), 16.0, 0.028, 1.7)
+	var breathe := 1.0 + sin(scene_time * 1.7) * 0.009
+	draw_set_transform(Vector2(109, 217 + bob), sin(scene_time * 1.1) * 0.005, Vector2(breathe, 1.0 / breathe))
+	draw_texture_rect(MASCOT_TEXTURE, Rect2(-75, -75, 150, 150), false, Color.WHITE)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_circle(Vector2(240, 234), 12 + sin(scene_time * 2.4) * 2.0, Color(0.68, 0.42, 1.0, 0.12))
 	if shrine_pulse > 0.0:
 		var ratio := shrine_pulse / 0.72
 		draw_arc(Vector2(315, 252), 28.0 + (1.0 - ratio) * 72.0, 0.0, TAU, 36, Color(0.76, 0.53, 1.0, ratio * 0.82), 5.0)
+
+func draw_hideout_light(position: Vector2, radius: float, base_alpha: float, phase: float) -> void:
+	var flicker := base_alpha + maxf(0.0, sin(scene_time * 3.1 + phase)) * base_alpha * 0.55
+	draw_circle(position, radius + sin(scene_time * 2.3 + phase) * 1.5, Color(1.0, 0.64, 0.24, flicker))
 
 func draw_archive_scene() -> void:
 	# The physical Archive nook remains visible behind the deferred Lootbook notice.
