@@ -13,10 +13,10 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 ## 1. Foundation — Active
 
-- Boot ignition, title-first first-launch/returning flow, offline profile, settings, five-bus anti-fatigue procedural mix, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
+- Boot ignition, title-first first-launch/returning flow, offline profile, settings, five-bus anti-fatigue mix with original 48-second prebaked adventure cues, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
 - Current canonical Relic Beast, Hideout, three-zone expedition, 15-wave loop, merchant, Stash, Shrine, rewards, and saves remain the playable baseline.
 - Debug builds include a gated F1 development toolkit for encounter, reward, Core, weapon, economy, speed, result, and exact Lootlings-save QA. Vanguard/Rogue resolve as melee while Ranger/Mage use bounded projectiles whose visible arrival matches damage.
-- Current world-life layer includes bounded Hideout residents, contextual speech, randomized mascot micro-reaction, Profile/Title navigation, and a responsive Relic Shrine interaction. Next foundation work: accessibility controls, input remapping where useful, save backup/recovery, device lifecycle handling, production audio, and wider shared-component adoption.
+- Current world-life layer includes bounded Hideout residents, contextual weighted dialogue with cooldown/history, randomized room micro-events and mascot micro-reaction, shared screen/travel direction, Profile/Title navigation, and a responsive Relic Shrine interaction. Next foundation work: accessibility controls, input remapping where useful, save backup/recovery, device lifecycle handling, final production audio/mastering, and wider shared-component adoption.
 
 ## 2. Loot / Items
 

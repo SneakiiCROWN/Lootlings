@@ -9,6 +9,7 @@ signal ui_event(event_name: String)
 const ProfileStore = preload("res://profile_store.gd")
 const SettingsStore = preload("res://settings_store.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
+const PresentationDirector = preload("res://presentation_director.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
@@ -28,6 +29,7 @@ var profile_heading: Label
 var profile_id_label: Label
 var setting_sliders := {}
 var setting_mutes := {}
+var presentation
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -36,6 +38,9 @@ func _ready() -> void:
 	build_title()
 	build_profile()
 	build_settings()
+	presentation = PresentationDirector.new()
+	add_child(presentation)
+	presentation.bind_buttons(self)
 	set_process(true)
 
 func configure(profile_data: Dictionary, has_profile: bool, settings_data: Dictionary) -> void:
@@ -215,8 +220,12 @@ func refresh_settings() -> void:
 		setting_mutes[channel].button_pressed = bool(settings.get(channel + "_muted", false))
 
 func set_screen(active: Control) -> void:
-	for screen in [boot_content, title_content, profile_content, settings_content]:
-		screen.visible = screen == active
+	var screens := [boot_content, title_content, profile_content, settings_content]
+	if presentation != null:
+		presentation.switch_screen(screens, active, 0.24)
+	else:
+		for screen in screens:
+			screen.visible = screen == active
 	queue_redraw()
 
 func _process(delta: float) -> void:

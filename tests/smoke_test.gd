@@ -14,6 +14,7 @@ const SettingsStore = preload("res://settings_store.gd")
 const ChestCatalog = preload("res://chest_catalog.gd")
 const AnalyticsLogger = preload("res://analytics_logger.gd")
 const DebugPanel = preload("res://debug_panel.gd")
+const DialogueDirector = preload("res://dialogue_director.gd")
 
 var failures: Array[String] = []
 
@@ -40,18 +41,47 @@ func run_tests() -> void:
 	check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0 and AudioServer.get_bus_index("UI") >= 0 and AudioServer.get_bus_index("Ambience") >= 0, "Godot-native audio buses are available")
 	check(DebugPanel.allowed(true) and not DebugPanel.allowed(false), "development toolkit has an explicit release-build gate")
 	check(game.debug_enabled and game.debug_panel != null and not game.debug_panel.visible, "development toolkit exists but starts hidden in debug builds")
-	game.debug_panel.toggle()
+	check(game.presentation_director != null and game.presentation_director.has_method("set_loading_progress"), "one reusable presentation director owns menu, reward, and travel transitions")
+	game.debug_panel.open()
 	check(game.debug_panel.visible and paused, "development panel visibly pauses the game while open")
-	game.debug_panel.toggle()
-	check(not game.debug_panel.visible and not paused, "closing the development panel resumes normal processing")
+	var close_event := InputEventKey.new()
+	close_event.keycode = KEY_F1
+	close_event.pressed = true
+	game.debug_panel._unhandled_input(close_event)
+	check(not game.debug_panel.visible and not paused, "F1 closes the development panel and resumes normal processing")
+	game.debug_panel.open()
+	check(game.debug_panel.visible and paused, "development panel can reopen after keyboard close")
+	close_event.keycode = KEY_ESCAPE
+	game.debug_panel._unhandled_input(close_event)
+	check(not game.debug_panel.visible and not paused, "Escape closes the development panel without leaving a stuck pause")
+	game.debug_panel.open()
+	game.debug_panel.close_button.pressed.emit()
+	check(not game.debug_panel.visible and not paused, "visible close button closes the development panel and restores pause state")
 	var variant_a: int = game.audio_manager.choose_variant("normal_hit", 4)
 	var variant_b: int = game.audio_manager.choose_variant("normal_hit", 4)
 	check(variant_a != variant_b, "frequent procedural audio avoids immediate variant repetition")
 	var hit_variant_a = game.audio_manager.make_tone(125.0, 0.11, 0.56, "normal_hit", 0)
 	var hit_variant_b = game.audio_manager.make_tone(125.0, 0.11, 0.56, "normal_hit", 1)
 	check(hit_variant_a.data != hit_variant_b.data, "frequent audio variants change timbre rather than only selecting a new index")
-	var long_music = game.audio_manager.make_ambient_loop(196.0)
-	check(long_music.data.size() == 12 * 22050 * 2, "procedural music uses a longer twelve-second A/B phrase")
+	var long_music = game.audio_manager.make_ambient_loop(196.0, "OUTER_RUINS")
+	check(long_music.data.size() == 48 * 16000 * 2, "procedural score uses a precomputed 48-second multi-section phrase")
+	check(long_music.loop_mode == AudioStreamWAV.LOOP_FORWARD and long_music.loop_end == 48 * 16000, "long-form score loops cleanly without runtime synthesis")
+	var hideout_music = game.audio_manager.make_ambient_loop(196.0, "HIDEOUT")
+	check(long_music.data != hideout_music.data, "location scores vary instrumentation as well as base pitch")
+	var music_peak := 0
+	for sample_offset in range(0, long_music.data.size(), 400):
+		music_peak = maxi(music_peak, absi(long_music.data.decode_s16(sample_offset)))
+	check(music_peak < 32767, "procedural score retains peak headroom and does not hard clip")
+	for music_path in game.audio_manager.MUSIC_PATHS.values():
+		check(ResourceLoader.exists(music_path), "prebaked long-form score cue is importable: %s" % music_path)
+	var dialogue_test := DialogueDirector.new(7731)
+	var first_line: Dictionary = dialogue_test.choose("tapped", "Salvager")
+	var blocked_line: Dictionary = dialogue_test.choose("tapped", "Salvager")
+	check(first_line.get("speaker", "") == "Salvager" and not first_line.get("text", "").is_empty(), "context dialogue honours the requested speaker")
+	check(blocked_line.is_empty(), "context dialogue enforces a per-speaker cooldown")
+	dialogue_test.update(DialogueDirector.SPEAKER_COOLDOWN + 0.1)
+	var second_line: Dictionary = dialogue_test.choose("tapped", "Salvager")
+	check(not second_line.is_empty() and second_line.text != first_line.text, "context dialogue avoids immediate repeated lines after cooldown")
 	game.startup_ui.configure(blank_profile, false, game.audio_settings)
 	game.startup_ui.skip_boot()
 	check(game.startup_ui.current_screen == "title", "a fresh install sees the Lootlings title before onboarding")
@@ -60,6 +90,7 @@ func run_tests() -> void:
 	game.startup_ui.name_edit.text = "Smoke Seeker"
 	game.startup_ui.nickname_edit.text = "Nib"
 	game.startup_ui.save_profile()
+	await create_timer(0.55).timeout
 	check(game.state == "hideout" and game.hideout_ui.visible, "first-launch profile creation continues directly into the Hideout")
 	var original_uuid: String = game.profile.player_uuid
 	var persisted_profile: Dictionary = ProfileStore.load_profile(game.PROFILE_SAVE_PATH)

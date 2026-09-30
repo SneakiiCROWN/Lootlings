@@ -1,10 +1,20 @@
 extends Node
 
 const BUS_NAMES := ["Master", "Music", "SFX", "UI", "Ambience"]
+const MUSIC_PATHS := {
+	"TITLE":"res://art/audio/music/title.wav", "HIDEOUT":"res://art/audio/music/hideout.wav",
+	"OUTER_RUINS":"res://art/audio/music/outer_ruins.wav", "SALVAGE_WARRENS":"res://art/audio/music/salvage_warrens.wav",
+	"HOARD_DEPTHS":"res://art/audio/music/hoard_depths.wav", "BOSS":"res://art/audio/music/boss.wav",
+	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav"
+}
 const EVENT_SPECS := {
 	"ui_press":["UI", 720.0, 0.045, 0.20], "menu_open":["UI", 520.0, 0.10, 0.18],
 	"menu_close":["UI", 360.0, 0.08, 0.16], "menu_transition":["UI", 610.0, 0.12, 0.16],
 	"tap_attack":["SFX", 210.0, 0.08, 0.42], "normal_hit":["SFX", 125.0, 0.11, 0.56],
+	"ranger_release":["SFX", 760.0, 0.13, 0.34], "mage_cast":["SFX", 430.0, 0.22, 0.38],
+	"vanguard_swing":["SFX", 92.0, 0.16, 0.48], "rogue_slash":["SFX", 1040.0, 0.10, 0.32],
+	"enemy_skirmisher":["SFX", 180.0, 0.12, 0.28], "enemy_tank":["SFX", 68.0, 0.19, 0.38],
+	"enemy_hexer":["SFX", 350.0, 0.22, 0.32],
 	"heavy_hit":["SFX", 76.0, 0.20, 0.68], "crit":["SFX", 980.0, 0.20, 0.66],
 	"boss_hit":["SFX", 62.0, 0.22, 0.74],
 	"enemy_hurt":["SFX", 145.0, 0.07, 0.26], "player_hurt":["SFX", 92.0, 0.14, 0.44],
@@ -32,7 +42,7 @@ var last_variant := {}
 var event_sequence := {}
 var last_event_msec := {}
 
-const VARIANT_EVENTS := ["tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop"]
+const VARIANT_EVENTS := ["tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
 const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
 const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "player_hurt", "enemy_death", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_open", "level_up", "core_awaken", "boss_warning", "boss_death", "victory", "defeat"]
 
@@ -101,7 +111,9 @@ func play_event(event_name: String) -> void:
 	player.stream = variants[variant_index]
 	var pitch_range := 0.018 if event_name in IMPORTANT_EVENTS else 0.032
 	player.pitch_scale = 1.0 + randf_range(-pitch_range, pitch_range)
-	player.volume_db = randf_range(-0.65, 0.15) if event_name in IMPORTANT_EVENTS else randf_range(-1.8, -0.5)
+	# Reserve a little true-peak headroom for music + reward/boss transients while
+	# keeping important cues perceptually forward through timbre and duration.
+	player.volume_db = randf_range(-2.3, -1.0) if event_name in IMPORTANT_EVENTS else randf_range(-3.0, -1.8)
 	player.play()
 
 func choose_variant(event_name: String, variant_count: int) -> int:
@@ -126,12 +138,18 @@ func set_music(cue: String) -> void:
 	if cue.is_empty():
 		music_player.stop()
 		return
-	var base_frequency: float = float({
-		"TITLE":196.0, "HIDEOUT":220.0, "OUTER_RUINS":246.0, "SALVAGE_WARRENS":164.0,
-		"HOARD_DEPTHS":130.0, "BOSS":98.0, "VICTORY":330.0, "DEFEAT":146.0
-	}.get(cue, 196.0))
+	if not MUSIC_PATHS.has(cue):
+		return
 	if not music_streams.has(cue):
-		music_streams[cue] = make_ambient_loop(base_frequency)
+		# Generated once during development and imported as an ordinary WAV. Keep
+		# only the active long-form score resident so travel never stalls Android.
+		music_streams.clear()
+		var stream = ResourceLoader.load(MUSIC_PATHS[cue], "", ResourceLoader.CACHE_MODE_IGNORE)
+		if stream is AudioStreamWAV:
+			stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+			stream.loop_begin = 0
+			stream.loop_end = int(stream.get_length() * stream.mix_rate)
+		music_streams[cue] = stream
 	music_player.stream = music_streams[cue]
 	music_player.play()
 
@@ -163,6 +181,14 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 			wave += sin(TAU * 1380.0 * time) * exp(-progress * 12.0) * 0.34
 		if event_name == "chest_open":
 			wave = noise * exp(-progress * 7.0) * 0.48 + sin(TAU * frequency * (0.65 + progress) * time) * 0.52
+		if event_name == "ranger_release":
+			wave = noise * exp(-progress * 22.0) * 0.32 + sin(TAU * frequency * (1.2 - progress * 0.35) * time) * 0.46
+		if event_name == "mage_cast" or event_name == "enemy_hexer":
+			wave = sin(TAU * frequency * (0.58 + progress * 1.2) * time) * 0.42 + sin(TAU * frequency * 1.51 * time) * 0.22 * sin(PI * progress)
+		if event_name == "vanguard_swing" or event_name == "enemy_tank":
+			wave = sin(TAU * frequency * (1.5 - progress) * time) * 0.48 + noise * exp(-progress * 9.0) * 0.42
+		if event_name == "rogue_slash" or event_name == "enemy_skirmisher":
+			wave = noise * exp(-progress * 18.0) * 0.42 + sin(TAU * frequency * (1.35 - progress * 0.55) * time) * 0.40
 		var shaped := wave * envelope * gain
 		shaped /= 1.0 + absf(shaped) * 0.32
 		data.encode_s16(sample_index * 2, int(clampf(shaped, -0.98, 0.98) * 32767.0))
@@ -173,29 +199,57 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 	stream.data = data
 	return stream
 
-func make_ambient_loop(base_frequency: float) -> AudioStreamWAV:
-	var sample_rate := 22050
-	var duration := 12.0
+func make_ambient_loop(base_frequency: float, cue: String = "OUTER_RUINS") -> AudioStreamWAV:
+	# A precomputed 48-second five-part phrase: A, variation, B, quiet bridge,
+	# and return. It is long enough to avoid obvious cycling while remaining a
+	# compact mono buffer suitable for mobile and creates no runtime synthesis.
+	var sample_rate := 16000
+	var duration := 48.0
 	var sample_count := int(duration * sample_rate)
 	var data := PackedByteArray()
 	data.resize(sample_count * 2)
+	var notes: Array[float] = [1.0, 1.25, 1.5, 1.125, 1.0, 1.333, 1.5, 1.20,
+		1.0, 1.5, 1.25, 1.333, 1.125, 1.5, 1.20, 1.0,
+		0.75, 1.0, 1.25, 1.5, 1.333, 1.125, 1.0, 0.75,
+		1.0, 1.125, 1.0, 0.75, 1.0, 1.25, 1.5, 1.0]
+	var dark_cue := cue in ["HOARD_DEPTHS", "BOSS", "DEFEAT"]
+	var mechanical_cue := cue == "SALVAGE_WARRENS"
+	var safe_cue := cue in ["TITLE", "HIDEOUT"]
 	for sample_index in range(sample_count):
 		var time := float(sample_index) / sample_rate
 		var phrase := fmod(time, 1.5) / 1.5
-		var pulse := 0.5 + 0.5 * sin(TAU * time / duration)
-		var note_step := int(floor(time / 1.5)) % 8
-		var note_ratio: float = [1.0, 1.25, 1.5, 1.125, 1.0, 1.333, 1.5, 1.20][note_step]
-		var section_b := note_step >= 4
-		var wave := sin(TAU * base_frequency * 0.5 * time) * 0.078
-		wave += sin(TAU * base_frequency * note_ratio * time) * 0.056 * pow(1.0 - phrase, 1.4)
-		wave += sin(TAU * base_frequency * 1.5 * time) * 0.032 * pulse
-		wave += sin(TAU * base_frequency * 0.25 * time) * 0.036
-		wave += sin(TAU * base_frequency * 0.75 * time) * 0.018 * (0.35 + pulse * 0.65)
-		if section_b:
-			wave += sin(TAU * base_frequency * 2.0 * time) * 0.014 * pow(1.0 - phrase, 2.0)
-		if base_frequency < 150.0:
-			wave += sin(TAU * base_frequency * 0.5 * time) * 0.045 * (0.35 + 0.65 * pow(1.0 - fmod(time, 0.75) / 0.75, 3.0))
-		data.encode_s16(sample_index * 2, int(clampf(wave, -1.0, 1.0) * 32767.0))
+		var step := mini(int(floor(time / 1.5)), notes.size() - 1)
+		var section := mini(4, int(floor(time / 9.6)))
+		var note_ratio := notes[step]
+		var beat := fmod(time, 0.75) / 0.75
+		var pluck_env := pow(1.0 - phrase, 3.2)
+		var drum_env := pow(1.0 - beat, 8.0)
+		var slow_pulse := 0.5 + 0.5 * sin(TAU * time / 12.0)
+		var quiet := 0.48 if section == 3 else 1.0
+		var wave := sin(TAU * base_frequency * 0.25 * time) * (0.034 if dark_cue else 0.025)
+		# Warm pad: detuned low harmonics rather than a single exposed sine.
+		wave += sin(TAU * base_frequency * 0.5 * time) * 0.038 * quiet
+		wave += sin(TAU * base_frequency * 0.503 * time + 0.7) * 0.025 * quiet
+		wave += sin(TAU * base_frequency * 0.75 * time) * 0.016 * slow_pulse
+		# Pluck and bell motif; sections vary register and density.
+		var pluck_frequency := base_frequency * note_ratio * (0.5 if dark_cue else 1.0)
+		wave += (sin(TAU * pluck_frequency * time) * 0.038 + sin(TAU * pluck_frequency * 2.01 * time) * 0.014) * pluck_env * quiet
+		if section in [1, 2, 4] and step % 2 == 0:
+			wave += sin(TAU * pluck_frequency * 2.5 * time) * 0.017 * pow(1.0 - phrase, 2.0)
+		# Low adventure drum and deterministic filtered-noise percussion.
+		var pseudo_noise := sin(float(sample_index + step * 97) * 12.9898) * sin(float(sample_index + 31) * 0.731)
+		var drum_gain := 0.040 if dark_cue else 0.026
+		wave += sin(TAU * (56.0 + base_frequency * 0.08) * time) * drum_env * drum_gain * quiet
+		if mechanical_cue and step % 2 == 1:
+			wave += pseudo_noise * pow(1.0 - phrase, 13.0) * 0.028
+		elif not safe_cue and step % 4 == 3:
+			wave += pseudo_noise * pow(1.0 - phrase, 16.0) * 0.012
+		# Relic sparkle is sparse and intentionally absent through the bridge.
+		if section != 3 and step % 4 == 2:
+			wave += sin(TAU * base_frequency * 3.0 * time) * pow(1.0 - phrase, 5.0) * 0.010
+		var loop_edge := clampf(minf(time, duration - time) / 0.055, 0.0, 1.0)
+		wave *= loop_edge
+		data.encode_s16(sample_index * 2, int(clampf(wave, -0.92, 0.92) * 32767.0))
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS
 	stream.mix_rate = sample_rate

@@ -4,9 +4,11 @@ var game
 var info_label: Label
 var status_label: Label
 var reset_button: Button
+var close_button: Button
 var reset_armed := false
 var reset_timer := 0.0
 var refresh_timer := 0.0
+var previous_tree_pause := false
 
 static func allowed(debug_build: bool) -> bool:
 	return debug_build
@@ -37,11 +39,20 @@ func build_ui() -> void:
 	box.set_corner_radius_all(14)
 	panel.add_theme_stylebox_override("panel", box)
 	add_child(panel)
-	var title := make_label("DEVELOPMENT ONLY  •  F1 TO CLOSE", 19, Color("#ff8191"))
+	var title := make_label("DEVELOPMENT ONLY", 19, Color("#ff8191"))
 	title.position = Vector2(16, 12)
-	title.size = Vector2(424, 30)
+	title.size = Vector2(360, 30)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	panel.add_child(title)
+	close_button = Button.new()
+	close_button.text = "×"
+	close_button.position = Vector2(394, 8)
+	close_button.size = Vector2(42, 38)
+	close_button.focus_mode = Control.FOCUS_NONE
+	close_button.add_theme_font_size_override("font_size", 24)
+	close_button.tooltip_text = "Close development panel (F1 / Escape)"
+	close_button.pressed.connect(close)
+	panel.add_child(close_button)
 	info_label = make_label("", 12, Color("#d9e5ff"))
 	info_label.position = Vector2(20, 44)
 	info_label.size = Vector2(416, 70)
@@ -142,10 +153,31 @@ func run_action(action: String, payload) -> void:
 	refresh_info()
 
 func toggle() -> void:
-	visible = not visible
-	get_tree().paused = visible
 	if visible:
-		refresh_info()
+		close()
+	else:
+		open()
+
+func open() -> void:
+	if visible:
+		return
+	previous_tree_pause = get_tree().paused
+	visible = true
+	get_tree().paused = true
+	refresh_info()
+
+func close() -> void:
+	if not visible:
+		return
+	visible = false
+	get_tree().paused = previous_tree_pause
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not visible or not event is InputEventKey:
+		return
+	if event.pressed and not event.echo and event.keycode in [KEY_F1, KEY_ESCAPE]:
+		close()
+		get_viewport().set_input_as_handled()
 
 func refresh_info() -> void:
 	if game == null or info_label == null:
@@ -165,3 +197,7 @@ func _process(delta: float) -> void:
 			reset_armed = false
 			reset_button.text = "RESET LOOTLINGS TEST SAVES"
 			status_label.text = "Reset confirmation expired."
+
+func _exit_tree() -> void:
+	if visible and get_tree() != null:
+		get_tree().paused = previous_tree_pause

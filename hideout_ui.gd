@@ -16,6 +16,9 @@ signal ui_event(event_name: String)
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
+const PresentationDirector = preload("res://presentation_director.gd")
+const DialogueDirector = preload("res://dialogue_director.gd")
+const LootlingsUI = preload("res://lootlings_ui.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const HIDEOUT_BACKGROUND = preload("res://art/backgrounds/lootlings_hideout.png")
 const SHOP_BACKGROUND = preload("res://art/backgrounds/salvager_shop.png")
@@ -73,6 +76,7 @@ var selected_entry := -1
 var selected_shop_offer := -1
 var scene_time := 0.0
 var transition_overlay: ColorRect
+var presentation
 var last_scrap := -1
 var shrine_pulse := 0.0
 var cache_pulse := 0.0
@@ -81,29 +85,28 @@ var speech_panel: Panel
 var speech_label: Label
 var speech_timer := 4.5
 var speech_visible_timer := 0.0
-var speech_index := 0
-const AMBIENT_LINES := [
-	"That chest blinked. Not my problem.",
-	"Polished it twice. Still cursed-looking.",
-	"The shiny pile is load-bearing.",
-	"Legendary? Give it a confident label.",
-	"No, the tiny hammer is the spare.",
-	"Someone looted the snack barrel. Rude.",
-	"I fixed it. Probably.",
-	"Rare means expensive. That's science.",
-	"Nobody saw me take that Gold.",
-	"The Archivist filed that under 'ominous'."
-]
+var dialogue
+var queued_dialogue_context := ""
+var queued_dialogue_priority := -1
+var hideout_visits := 0
+var life_rng := RandomNumberGenerator.new()
+var life_event := ""
+var life_event_clock := 6.0
+var life_event_time := 0.0
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	dialogue = DialogueDirector.new()
+	life_rng.randomize()
 	build_home()
 	build_stash()
 	build_upgrades()
 	build_shop()
 	build_coming_soon()
+	build_dialogue_overlay()
 	build_transition_overlay()
+	presentation.bind_buttons(self)
 	set_process(true)
 
 func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable, gold_count: int = 0, profile_data: Dictionary = {}, gold_upgrade_data: Dictionary = {}) -> void:
@@ -121,27 +124,38 @@ func show_home() -> void:
 	current_screen = "home"
 	set_screen(home_content)
 	refresh_home()
+	if not queued_dialogue_context.is_empty():
+		request_dialogue(queued_dialogue_context)
+		queued_dialogue_context = ""
+		queued_dialogue_priority = -1
+	elif hideout_visits == 0:
+		request_dialogue("first_visit")
+	hideout_visits += 1
 	queue_redraw()
 
 func show_stash() -> void:
+	dismiss_dialogue()
 	current_screen = "stash"
 	set_screen(stash_content)
 	refresh_stash()
 	queue_redraw()
 
 func show_upgrades() -> void:
+	dismiss_dialogue()
 	current_screen = "upgrades"
 	set_screen(upgrade_content)
 	refresh_upgrades()
 	queue_redraw()
 
 func show_shop() -> void:
+	dismiss_dialogue()
 	current_screen = "shop"
 	set_screen(shop_content)
 	refresh_shop()
 	queue_redraw()
 
 func show_coming_soon(section_name: String) -> void:
+	dismiss_dialogue()
 	current_screen = "coming"
 	coming_title.text = "%s\n\nCOMING SOON\n\nThis wing of the Hideout is still under construction." % section_name
 	set_screen(coming_content)
@@ -155,10 +169,8 @@ func refresh_current_screen() -> void:
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
-	for screen in [home_content, stash_content, upgrade_content, shop_content, coming_content]:
-		if screen != null:
-			screen.visible = screen == active
-	play_transition()
+	var screens := [home_content, stash_content, upgrade_content, shop_content, coming_content]
+	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
 func build_home() -> void:
@@ -183,16 +195,14 @@ func build_home() -> void:
 	var lootbook_button := make_hotspot_button(home_content, "ARCHIVE\nLOOTBOOK", Rect2(316, 476, 150, 110), Color("#91a6ce"), 15)
 	lootbook_button.pressed.connect(show_coming_soon.bind("LOOTBOOK"))
 	loadout_panel = make_panel(home_content, Rect2(34, 704, 412, 88), Color("#0c1430c9"), Color("#c99a4e"))
+	LootlingsUI.apply_material(loadout_panel, "leather", 16)
 	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
 	loadout_label = make_label(loadout_panel, "", 11, Rect2(14, 27, 384, 54), HORIZONTAL_ALIGNMENT_CENTER, Color("#e6edff"))
 	loadout_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	speech_panel = make_panel(home_content, Rect2(150, 588, 180, 58), Color("#10182be8"), Color("#d8bd7b"))
-	speech_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	speech_panel.visible = false
-	speech_label = make_label(speech_panel, "", 12, Rect2(12, 7, 156, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#f3edda"))
-	speech_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	speech_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	speech_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	make_npc_hotspot(home_content, Rect2(354, 382, 72, 82), "Salvager")
+	make_npc_hotspot(home_content, Rect2(50, 378, 72, 92), "Relic Keeper")
+	make_npc_hotspot(home_content, Rect2(350, 586, 78, 72), "Archivist")
+	make_npc_hotspot(home_content, Rect2(204, 382, 76, 102), "Mascot")
 
 func build_stash() -> void:
 	stash_content = Control.new()
@@ -209,6 +219,7 @@ func build_stash() -> void:
 		filter_button.pressed.connect(set_stash_filter.bind(filter_name))
 		filter_buttons[filter_name] = filter_button
 	var scroll_panel := make_panel(stash_content, Rect2(20, 282, 440, 190), Color("#0b1229d6"), Color("#7194c4"))
+	LootlingsUI.apply_material(scroll_panel, "leather", 16)
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(10, 12)
 	scroll.size = Vector2(420, 166)
@@ -219,6 +230,7 @@ func build_stash() -> void:
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
 	stash_detail_panel = make_panel(stash_content, Rect2(20, 486, 440, 190), Color("#0d1530dc"), Color("#c99a4e"))
+	LootlingsUI.apply_material(stash_detail_panel, "leather", 16)
 	stash_detail = RichTextLabel.new()
 	stash_detail.position = Vector2(18, 16)
 	stash_detail.size = Vector2(404, 158)
@@ -241,6 +253,7 @@ func build_upgrades() -> void:
 	back.pressed.connect(show_home)
 	make_label(upgrade_content, "RELIC TRAINING", 29, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	upgrade_panel = make_panel(upgrade_content, Rect2(48, 354, 384, 202), Color("#101634ce"), Color("#b78cff"))
+	LootlingsUI.apply_material(upgrade_panel, "relic")
 	make_label(upgrade_panel, "PERMANENT POWER", 20, Rect2(20, 12, 344, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
 	upgrade_summary = make_label(upgrade_panel, "", 14, Rect2(28, 40, 328, 68), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
 	upgrade_summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -248,6 +261,7 @@ func build_upgrades() -> void:
 	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 126, 300, 60), Color("#49346b"), Color("#d19cff"), 17)
 	upgrade_button.pressed.connect(func(): upgrade_requested.emit())
 	var utility_panel := make_panel(upgrade_content, Rect2(30, 576, 420, 216), Color("#0d1530e8"), Color("#d1a85a"))
+	LootlingsUI.apply_material(utility_panel, "relic", 18)
 	make_label(utility_panel, "HIDEOUT IMPROVEMENTS  •  GOLD", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	for index in range(3):
 		var upgrade_id: String = ["bedroll", "whetstone", "pouch"][index]
@@ -272,6 +286,7 @@ func build_shop() -> void:
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
 	shop_detail_panel = make_panel(shop_content, Rect2(20, 344, 440, 158), Color("#0d1530e6"), Color("#c99a4e"))
+	LootlingsUI.apply_material(shop_detail_panel, "salvage", 16)
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(16, 12)
 	shop_detail.size = Vector2(274, 148)
@@ -290,6 +305,7 @@ func build_shop() -> void:
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 615, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
 	shop_reroll_button.pressed.connect(func(): shop_reroll_requested.emit())
 	shop_status_panel = make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530dc"), Color("#8ea2c8"))
+	LootlingsUI.apply_material(shop_status_panel, "salvage", 16)
 	shop_status = RichTextLabel.new()
 	shop_status.position = Vector2(14, 10)
 	shop_status.size = Vector2(412, 72)
@@ -436,10 +452,12 @@ func refresh_shop() -> void:
 				selected_shop_offer = -1
 			continue
 		var item: Dictionary = current_shop.stock[index]
-		button.text = "%s\n%s\n[%s]\n◆ %d" % [slot_icon(item.get("slot", "")), item.get("name", "Unknown"), item.get("rarity", "COMMON"), item.get("price", 0)]
+		button.text = "\n\n%s\n[%s]  ◆ %d" % [item.get("name", "Unknown"), item.get("rarity", "COMMON"), item.get("price", 0)]
+		button.add_theme_font_size_override("font_size", 10 if str(item.get("name", "")).length() > 18 else 11)
+		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.disabled = reveal_pending
 		apply_display_button_style(button, ItemCatalog.rarity_color(item.get("rarity", "COMMON")), selected_shop_offer == index)
-		apply_item_thumbnail(button, item)
+		apply_item_thumbnail(button, item, true)
 	refresh_shop_detail(reveal_pending)
 	var expansion_cost: int = current_shop.expansion_cost(current_inventory.stash_capacity)
 	shop_expansion_button.text = "STASH EXPANSION\n%d → %d SLOTS\n◆ %d" % [current_inventory.stash_capacity, current_inventory.next_stash_capacity(), expansion_cost] if expansion_cost > 0 else "STASH EXPANSION\nMAXIMUM 24 SLOTS"
@@ -569,59 +587,141 @@ func weapon_texture_for_item(item: Dictionary) -> Texture2D:
 		"ROGUE": return ROGUE_WEAPON_TEXTURE
 	return VANGUARD_WEAPON_TEXTURE
 
-func apply_item_thumbnail(button: Button, item: Dictionary) -> void:
+func apply_item_thumbnail(button: Button, item: Dictionary, card_layout: bool = false) -> void:
 	var old_icon := button.get_node_or_null("CategoryIcon")
 	if old_icon != null:
 		old_icon.queue_free()
-	button.icon = weapon_texture_for_item(item)
+	button.icon = null if card_layout else weapon_texture_for_item(item)
 	button.expand_icon = true
 	if button.icon != null:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.add_theme_constant_override("icon_max_width", 46)
 	else:
-		button.alignment = HORIZONTAL_ALIGNMENT_RIGHT
-		var category_icon := ItemIcon.new()
-		category_icon.name = "CategoryIcon"
-		category_icon.position = Vector2(4, maxf(4.0, (button.size.y - 40.0) * 0.5))
-		category_icon.size = Vector2(40, 40)
-		category_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		category_icon.configure(item)
-		button.add_child(category_icon)
+		button.alignment = HORIZONTAL_ALIGNMENT_CENTER if card_layout else HORIZONTAL_ALIGNMENT_RIGHT
+		var weapon_texture := weapon_texture_for_item(item)
+		if card_layout and weapon_texture != null:
+			var weapon_icon := TextureRect.new()
+			weapon_icon.name = "CategoryIcon"
+			weapon_icon.position = Vector2((button.size.x - 46.0) * 0.5, 4)
+			weapon_icon.size = Vector2(46, 46)
+			weapon_icon.texture = weapon_texture
+			weapon_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			weapon_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			weapon_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			button.add_child(weapon_icon)
+		else:
+			var category_icon := ItemIcon.new()
+			category_icon.name = "CategoryIcon"
+			category_icon.position = Vector2((button.size.x - 42.0) * 0.5, 5) if card_layout else Vector2(4, maxf(4.0, (button.size.y - 40.0) * 0.5))
+			category_icon.size = Vector2(42, 42) if card_layout else Vector2(40, 40)
+			category_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			category_icon.configure(item)
+			button.add_child(category_icon)
+
+func dismiss_dialogue() -> void:
+	if speech_panel != null:
+		speech_panel.visible = false
+	speech_visible_timer = 0.0
+	speech_timer = 6.0
 
 func build_transition_overlay() -> void:
-	transition_overlay = ColorRect.new()
-	transition_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	transition_overlay.color = Color(0.02, 0.04, 0.10, 0.0)
-	transition_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(transition_overlay)
+	presentation = PresentationDirector.new()
+	add_child(presentation)
+
+func build_dialogue_overlay() -> void:
+	speech_panel = make_panel(self, Rect2(128, 560, 224, 76), Color("#10182bf2"), Color("#d8bd7b"))
+	speech_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	speech_panel.visible = false
+	speech_panel.z_index = 80
+	speech_label = make_label(speech_panel, "", 12, Rect2(12, 7, 200, 62), HORIZONTAL_ALIGNMENT_CENTER, Color("#f3edda"))
+	speech_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	speech_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	speech_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func make_npc_hotspot(parent: Control, rect: Rect2, speaker: String) -> void:
+	var hotspot := Button.new()
+	hotspot.position = rect.position
+	hotspot.size = rect.size
+	hotspot.flat = true
+	hotspot.focus_mode = Control.FOCUS_NONE
+	hotspot.tooltip_text = "Talk to %s" % speaker
+	hotspot.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	hotspot.pressed.connect(request_dialogue.bind("tapped", speaker))
+	parent.add_child(hotspot)
+
+func queue_dialogue_context(context: String) -> void:
+	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "large_hoard":5}
+	var priority := int(priorities.get(context, 1))
+	if priority < queued_dialogue_priority:
+		return
+	queued_dialogue_context = context
+	queued_dialogue_priority = priority
+	speech_visible_timer = 0.0
+	if speech_panel != null:
+		speech_panel.visible = false
+
+func request_dialogue(context: String = "idle", requested_speaker: String = "") -> void:
+	if dialogue == null or speech_panel == null or speech_visible_timer > 0.0:
+		return
+	var entry: Dictionary = dialogue.choose(context, requested_speaker)
+	if entry.is_empty():
+		return
+	var speaker := str(entry.speaker)
+	speech_label.text = "%s\n%s" % [speaker.to_upper(), str(entry.text)]
+	speech_panel.position = dialogue_anchor(speaker)
+	speech_panel.visible = true
+	speech_panel.modulate = Color(1, 1, 1, 0)
+	speech_panel.scale = Vector2(0.96, 0.96)
+	speech_panel.pivot_offset = speech_panel.size * 0.5
+	var tween := create_tween().set_parallel(true)
+	tween.tween_property(speech_panel, "modulate", Color.WHITE, 0.16)
+	tween.tween_property(speech_panel, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	speech_visible_timer = 3.4
+
+func dialogue_anchor(speaker: String) -> Vector2:
+	if current_screen == "shop":
+		return Vector2(222, 116) if speaker == "Salvager" else Vector2(126, 166)
+	if current_screen == "upgrades":
+		return Vector2(226, 264) if speaker == "Relic Keeper" else Vector2(126, 270)
+	if current_screen == "stash":
+		return Vector2(126, 188)
+	match speaker:
+		"Salvager": return Vector2(238, 326)
+		"Relic Keeper": return Vector2(18, 326)
+		"Archivist": return Vector2(236, 520)
+		_: return Vector2(128, 500)
 
 func play_transition() -> void:
-	if transition_overlay == null:
+	if presentation == null:
 		return
-	transition_overlay.move_to_front()
-	transition_overlay.color.a = 0.34
-	var tween := create_tween()
-	tween.tween_property(transition_overlay, "color:a", 0.0, 0.22).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	presentation.flash(Color("#7d93bd"), 0.18)
 
 func _process(delta: float) -> void:
 	scene_time += delta
+	if dialogue != null:
+		dialogue.update(delta)
+	if not visible:
+		return
+	if current_screen == "home":
+		life_event_clock -= delta
+		life_event_time = maxf(0.0, life_event_time - delta)
+		if life_event_clock <= 0.0:
+			life_event = ["critter", "coin", "chest", "motes"][life_rng.randi_range(0, 3)]
+			life_event_time = life_rng.randf_range(1.4, 3.2)
+			life_event_clock = life_rng.randf_range(8.0, 15.0)
 	shrine_pulse = maxf(0.0, shrine_pulse - delta)
 	cache_pulse = maxf(0.0, cache_pulse - delta)
-	if current_screen == "home":
-		if speech_visible_timer > 0.0:
-			speech_visible_timer -= delta
-			if speech_visible_timer <= 0.0 and speech_panel != null:
-				speech_panel.visible = false
-				speech_timer = 7.0 + fmod(scene_time, 4.0)
-		else:
-			speech_timer -= delta
-			if speech_timer <= 0.0 and speech_panel != null:
-				speech_label.text = AMBIENT_LINES[speech_index % AMBIENT_LINES.size()]
-				var speaker_positions := [Vector2(274, 458), Vector2(28, 458), Vector2(272, 650)]
-				speech_panel.position = speaker_positions[speech_index % speaker_positions.size()]
-				speech_index += 1
-				speech_panel.visible = true
-				speech_visible_timer = 3.2
+	if speech_visible_timer > 0.0:
+		speech_visible_timer -= delta
+		if speech_visible_timer <= 0.0 and speech_panel != null:
+			speech_panel.visible = false
+			speech_timer = 8.0 + fmod(scene_time, 5.0)
+	elif current_screen == "home":
+		speech_timer -= delta
+		if speech_timer <= 0.0 and speech_panel != null:
+			request_dialogue("rare" if dialogue.rng.randf() < 0.08 else "idle")
+			if speech_visible_timer <= 0.0:
+				speech_timer = 2.0
 	for spark in ui_sparks:
 		spark.life -= delta
 		spark.pos += spark.vel * delta
@@ -681,11 +781,27 @@ func draw_home_scene() -> void:
 	for index in range(6):
 		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
 		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
-	# Bounded ambient residents add life without AI/pathfinding or permanent nodes.
-	var critter_x := 52.0 + fmod(scene_time * 7.0, 76.0)
-	draw_circle(Vector2(critter_x, 665), 8.0, Color("#17233cc9"))
-	draw_colored_polygon(PackedVector2Array([Vector2(critter_x - 7, 660), Vector2(critter_x - 3, 650), Vector2(critter_x + 1, 660)]), Color("#17233cc9"))
-	draw_circle(Vector2(critter_x + 3, 663), 1.5, Color("#ffe178"))
+	# Rare bounded micro-events prevent the Hideout from reading as a static
+	# painting without creating autonomous nodes or permanent particle systems.
+	if life_event_time > 0.0:
+		var event_phase := life_event_time
+		match life_event:
+			"critter":
+				var critter_x := 44.0 + fmod((3.2 - event_phase) * 86.0, 126.0)
+				draw_circle(Vector2(critter_x, 665), 8.0, Color("#17233cc9"))
+				draw_colored_polygon(PackedVector2Array([Vector2(critter_x - 7, 660), Vector2(critter_x - 3, 650), Vector2(critter_x + 1, 660)]), Color("#17233cc9"))
+				draw_circle(Vector2(critter_x + 3, 663), 1.5, Color("#ffe178"))
+			"coin":
+				var coin_x := 310.0 + minf(1.0, 3.2 - event_phase) * 52.0
+				draw_circle(Vector2(coin_x, 668 + absf(sin(scene_time * 9.0)) * -7.0), 5.0, Color("#ffd468"), false, 2.0)
+			"chest":
+				var twitch := sin(scene_time * 18.0) * 2.5
+				draw_rect(Rect2(38 + twitch, 612, 38, 27), Color("#704328"), true)
+				draw_line(Vector2(38 + twitch, 622), Vector2(76 + twitch, 622), Color("#d5a85a"), 3.0)
+			"motes":
+				for mote_index in range(5):
+					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
+					draw_circle(mote_pos, 2.0, Color(0.78, 0.55, 1.0, 0.48))
 	var salvage_bob := sin(scene_time * 3.1) * 2.0
 	draw_circle(Vector2(390, 414 + salvage_bob), 18, Color("#6d7b48"))
 	draw_circle(Vector2(383, 408 + salvage_bob), 5, Color("#d9e7b0"))
@@ -842,6 +958,7 @@ func apply_sold_display_style(button: Button) -> void:
 	button.add_theme_color_override("font_disabled_color", Color("#a396aa"))
 
 func wire_press_feedback(button: Button) -> void:
+	button.set_meta("presentation_bound", true)
 	button.pivot_offset = button.size * 0.5
 	button.button_down.connect(animate_press.bind(button))
 	button.button_up.connect(animate_release.bind(button))

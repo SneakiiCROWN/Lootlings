@@ -4,11 +4,18 @@
 
 No external audio files are included.
 
-All current placeholder feedback and ambience are generated at runtime by `audio_manager.gd` using original synthesized waveforms. Layered event transients use project-authored tone, harmonic, pseudo-noise, pitch-sweep, envelope, and controlled timbre-variant combinations; twelve-second A/B location loops use original note/rhythm structures. They have no third-party creator, source URL, or external licence dependency and remain placeholder—not final signature music or production sound design.
+All current audio is original project procedural synthesis. Event feedback remains generated once at startup from project-authored tone, harmonic, pseudo-noise, pitch-sweep, envelope, and controlled timbre-variant combinations. The eight location/result score cues are project-generated 48-second A/variation/B/bridge/return phrases prebaked to WAV so entering a location does not synthesize audio on the gameplay thread. They have no third-party creator, source URL, attribution, or external licence dependency and remain production-direction placeholders rather than final mastered signature music.
 
 | Filename | Purpose | Creator/source | Licence | Date acquired | Status |
 |---|---|---|---|---|---|
-| Runtime-generated (no file) | Layered UI, combat, loot, rarity, chest, Core, boss, victory/defeat feedback with bounded non-repeating frequent-event variants | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Placeholder |
-| Runtime-generated (no file) | Audible Title, Hideout, three-zone, Boss, Victory, and Defeat twelve-second A/B tonal/rhythmic loops | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Placeholder |
+| Runtime-generated (no file) | Layered UI, four weapon-family, enemy-family, combat, loot, rarity, chest, Core, boss, victory/defeat feedback with bounded non-repeating frequent-event variants | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/title.wav` | 48-second mystery/treasure invitation score | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/hideout.wav` | 48-second warm scavenger-home score | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/outer_ruins.wav` | 48-second magical adventure/discovery score | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/salvage_warrens.wav` | 48-second warm mechanical/scavenger score | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/hoard_depths.wav` | 48-second ancient treasure/deeper mystery score | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/boss.wav` | 48-second related urgent boss motif | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/victory.wav` | 48-second brighter resolving phrase used for result ambience | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
+| `art/audio/music/defeat.wav` | 48-second restrained, cheeky low phrase used for result ambience | Lootlings project procedural synthesis | Original project work | 2026-09-30 | Production-direction placeholder |
 
 Any future audio addition must record filename, creator, direct source, exact commercial-use licence, acquisition date, attribution requirements, modifications, and placeholder/final status before entering the repository.

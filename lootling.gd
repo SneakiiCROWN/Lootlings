@@ -18,6 +18,8 @@ const AudioManager = preload("res://audio_manager.gd")
 const StartupUI = preload("res://startup_ui.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const DebugPanel = preload("res://debug_panel.gd")
+const PresentationDirector = preload("res://presentation_director.gd")
+const LootlingsUI = preload("res://lootlings_ui.gd")
 const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
@@ -154,6 +156,8 @@ var coin_counter_flash := 0.0
 var xp_counter_flash := 0.0
 var player_reward_flash := 0.0
 var player_reward_color := Color.WHITE
+var rarity_reveal_flash := 0.0
+var rarity_reveal_color := Color.WHITE
 var tap_pulse := 0.0
 var upgrade_flash := 0.0
 var wave_banner_timer := 0.0
@@ -212,6 +216,7 @@ var abandon_panel: Panel
 var hideout_ui
 var startup_ui
 var audio_manager
+var presentation_director
 var debug_panel
 var debug_enabled := false
 var debug_god_mode := false
@@ -235,10 +240,16 @@ func _ready() -> void:
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	build_hideout()
 	build_foundation_services()
+	build_presentation_director()
 	build_debug_tools()
 	show_startup()
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
+
+func build_presentation_director() -> void:
+	presentation_director = PresentationDirector.new()
+	add_child(presentation_director)
+	presentation_director.bind_buttons(self)
 
 func build_debug_tools() -> void:
 	debug_enabled = DebugPanel.allowed(OS.is_debug_build())
@@ -374,8 +385,8 @@ func build_foundation_services() -> void:
 	audio_manager.apply_settings(audio_settings)
 	startup_ui = StartupUI.new()
 	add_child(startup_ui)
-	startup_ui.enter_hideout.connect(enter_hideout_from_title)
-	startup_ui.profile_completed.connect(enter_hideout_from_title)
+	startup_ui.enter_hideout.connect(request_enter_hideout)
+	startup_ui.profile_completed.connect(request_enter_hideout)
 	startup_ui.profile_changed.connect(save_profile_data)
 	startup_ui.settings_changed.connect(save_audio_settings)
 	startup_ui.ui_event.connect(play_audio_event)
@@ -392,10 +403,19 @@ func enter_hideout_from_title() -> void:
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "title_enter")
 	show_hideout()
 
+func request_enter_hideout() -> void:
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "title_enter")
+	if presentation_director == null:
+		show_hideout()
+		return
+	presentation_director.play_travel("THE HIDEOUT", "Warm lanterns, stranger treasure, and one suspiciously empty snack barrel.", Color("#ffd468"), Callable(self, "show_hideout"), 0.48)
+
 func show_profile_from_hideout() -> void:
 	hideout_ui.visible = false
 	startup_ui.visible = true
 	startup_ui.show_profile(false)
+	if presentation_director != null:
+		presentation_director.present_card(startup_ui, Color("#72c8ff"), 0.22)
 
 func show_title_from_hideout() -> void:
 	hideout_ui.visible = false
@@ -403,6 +423,8 @@ func show_title_from_hideout() -> void:
 	startup_ui.show_title()
 	state = "boot"
 	audio_manager.set_music("TITLE")
+	if presentation_director != null:
+		presentation_director.present_card(startup_ui, Color("#d1a85a"), 0.22)
 
 func save_profile_data(updated_profile: Dictionary) -> void:
 	var was_created := ProfileStore.is_created(profile)
@@ -424,6 +446,7 @@ func play_audio_event(event_name: String) -> void:
 
 func build_overlay_ui() -> void:
 	upgrade_panel = make_panel(Rect2(22, 205, 436, 470), Color("#172042f2"))
+	LootlingsUI.apply_material(upgrade_panel, "relic")
 	upgrade_panel.visible = false
 	upgrade_title = make_label(upgrade_panel, "LEVEL UP!", 30, Rect2(20, 18, 396, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	for i in range(3):
@@ -441,6 +464,7 @@ func build_overlay_ui() -> void:
 		upgrade_buttons.append(button)
 	make_label(upgrade_panel, "Every pick stacks. Make something silly.", 15, Rect2(20, 438, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
+	LootlingsUI.apply_material(result_panel, "hoard")
 	result_panel.visible = false
 	result_title = make_label(result_panel, "RUN COMPLETE!", 34, Rect2(20, 25, 384, 55), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	result_summary = make_label(result_panel, "", 16, Rect2(35, 84, 354, 318), HORIZONTAL_ALIGNMENT_CENTER, Color("#e9efff"))
@@ -489,7 +513,7 @@ func build_pause_ui() -> void:
 func build_hideout() -> void:
 	hideout_ui = HideoutUI.new()
 	add_child(hideout_ui)
-	hideout_ui.play_requested.connect(start_run)
+	hideout_ui.play_requested.connect(request_start_run)
 	hideout_ui.stash_equip_requested.connect(equip_stash_item)
 	hideout_ui.stash_scrap_requested.connect(scrap_stash_item)
 	hideout_ui.upgrade_requested.connect(buy_meta_power)
@@ -504,6 +528,14 @@ func build_hideout() -> void:
 	hideout_ui.ui_event.connect(play_audio_event)
 	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 	hideout_ui.visible = false
+
+func request_start_run() -> void:
+	if state != "hideout":
+		return
+	if presentation_director == null:
+		start_run()
+		return
+	presentation_director.play_travel("EXPEDITION DEPARTING", "The Relic Gate wakes. Outer Ruins ahead.", Color("#72c8ff"), Callable(self, "start_run"), 0.68)
 
 func show_hideout() -> void:
 	state = "hideout"
@@ -627,6 +659,7 @@ func buy_hideout_offer(index: int) -> void:
 	save_hideout_economy()
 	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
 	hideout_ui.play_shop_purchase(index, ItemCatalog.rarity_color(purchased.get("rarity", "COMMON")))
+	hideout_ui.request_dialogue("shop_purchase", "Salvager")
 	play_audio_event("shop_purchase")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"scrap", "price":price, "item_id":purchased.get("id", "")})
 
@@ -660,6 +693,7 @@ func use_mystery_cache() -> void:
 	save_hideout_economy()
 	hideout_ui.refresh_shop()
 	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")))
+	hideout_ui.request_dialogue("cache_opened", "Salvager")
 	play_audio_event("chest_open")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"scrap"})
 
@@ -692,6 +726,7 @@ func use_gold_cache() -> void:
 	save_meta()
 	save_hideout_economy()
 	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")))
+	hideout_ui.request_dialogue("cache_opened", "Salvager")
 	play_audio_event("chest_land")
 	play_audio_event("chest_open")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"gold", "price":hideout_shop.GOLD_CACHE_COST})
@@ -716,6 +751,7 @@ func buy_gold_upgrade(upgrade_id: String) -> void:
 	refresh_hideout()
 	hideout_ui.show_upgrades()
 	hideout_ui.play_shrine_upgrade()
+	hideout_ui.request_dialogue("shrine_upgrade", "Relic Keeper")
 	play_audio_event("shop_purchase")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"gold", "price":price, "upgrade_id":upgrade_id, "rank":rank + 1})
 
@@ -751,6 +787,7 @@ func save_hideout_economy() -> void:
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
+	LootlingsUI.apply_material(item_panel, "leather")
 	item_panel.visible = false
 	item_title = make_label(item_panel, "LOOT FOUND!", 27, Rect2(22, 8, 388, 64), HORIZONTAL_ALIGNMENT_CENTER, Color.WHITE)
 	item_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -780,6 +817,7 @@ func build_item_ui() -> void:
 
 func build_merchant_ui() -> void:
 	merchant_panel = make_panel(Rect2(28, 170, 424, 540), Color("#11182ee8"))
+	LootlingsUI.apply_material(merchant_panel, "salvage")
 	merchant_panel.visible = false
 	merchant_title = make_label(merchant_panel, "PACK PEDDLER", 29, Rect2(20, 12, 384, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	merchant_subtitle = make_label(merchant_panel, "ROADSIDE STOP  •  BETWEEN WAVES", 13, Rect2(26, 50, 372, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#d3b777"))
@@ -804,6 +842,7 @@ func build_merchant_ui() -> void:
 
 func build_boss_reward_ui() -> void:
 	boss_reward_panel = make_panel(Rect2(20, 155, 440, 570), Color("#17142ff8"))
+	LootlingsUI.apply_material(boss_reward_panel, "hoard")
 	boss_reward_panel.visible = false
 	make_label(boss_reward_panel, "BOSS HOARD", 30, Rect2(20, 18, 400, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffd36a"))
 	make_label(boss_reward_panel, "Choose one relic-grade reward", 16, Rect2(20, 64, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9c9ff"))
@@ -980,6 +1019,7 @@ func start_run() -> void:
 	coin_counter_flash = 0.0
 	xp_counter_flash = 0.0
 	player_reward_flash = 0.0
+	rarity_reveal_flash = 0.0
 	wave_banner_text = "WAVE 1"
 	wave_banner_color = Color("#8fdcff")
 	wave_banner_timer = 1.25
@@ -1090,6 +1130,13 @@ func begin_zone_transition() -> void:
 	status_clock = 0.0
 	help_label.visible = false
 	play_audio_event("zone_transition")
+	if presentation_director != null:
+		var flavor := "Deeper ruins. Stranger treasure."
+		if current_zone_id == "emberworks":
+			flavor = "Warm gears turn beneath the rubble. Mind the sparks."
+		elif current_zone_id == "hoard_depths":
+			flavor = "Ancient locks stir. Something enormous counts its coins."
+		presentation_director.play_travel(zone_transition_title, "%s\n%s" % [zone_transition_subtitle, flavor], current_zone.accent, Callable(), 0.78)
 
 func begin_special_intro() -> void:
 	state = "special_intro"
@@ -1265,8 +1312,8 @@ func perform_player_attack(is_tap: bool) -> void:
 	if is_tap:
 		tap_tutorial_seen = true
 		help_label.visible = false
-		play_audio_event("tap_attack")
 	var family := current_weapon_family()
+	play_audio_event({"VANGUARD":"vanguard_swing", "RANGER":"ranger_release", "MAGE":"mage_cast", "ROGUE":"rogue_slash"}.get(family, "tap_attack"))
 	if family in ["RANGER", "MAGE"]:
 		var travel_time := 0.12 if family == "RANGER" else 0.17
 		if is_tap:
@@ -1325,7 +1372,6 @@ func resolve_player_attack(is_tap: bool) -> void:
 			if spell_identity == "Neutral":
 				spell_identity = "Lightning"
 			deal_elemental_hit(base_damage * 0.62, spell_identity)
-			add_float("RELIC SPELL!", Vector2(250, 365), build.color(spell_identity), 18)
 	squash = 0.16
 	attack_anim = 0.22
 	attack_was_tap = is_tap
@@ -1352,7 +1398,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		text_size = 26 if is_crit else 22
 		text_color = build.color("Physical").lightened(0.25)
 	elif is_tap and not is_crit:
-		text = "TAP %.0f" % amount
+		text = "%.0f" % amount
 	add_float(text, Vector2(300 + rng.randf_range(-10, 10), 408), text_color, text_size)
 	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7)
 	player_hp = minf(player_max_hp, player_hp + amount * life_steal)
@@ -1378,6 +1424,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		return
 	enemy_attack_anim = 0.18
 	enemy_attack_count += 1
+	play_audio_event({"skirmisher":"enemy_skirmisher", "tank":"enemy_tank", "hexer":"enemy_hexer"}.get(enemy_archetype, "enemy_skirmisher"))
 	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
 		var ward := enemy_max_hp * 0.07
 		enemy_hp = minf(enemy_max_hp, enemy_hp + ward)
@@ -1413,7 +1460,7 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 	element_flash = 0.24
 	element_flash_color = color
 	element_flash_identity = identity
-	add_float("ARC %.0f" % amount, Vector2(324, 390), color, 22)
+	add_float("%.0f" % amount, Vector2(324, 390), color, 19)
 	add_particles(Vector2(350, 455), color, 9)
 	carried_shockwave += amount * 0.18 if build.count("Lightning") >= 5 else 0.0
 	if enemy_hp <= 0.0:
@@ -1541,8 +1588,6 @@ func spawn_item_drop() -> bool:
 		})
 	if enemy_is_boss:
 		add_float("BOSS HOARD!", Vector2(245, 335), Color("#ffd36a"), 22)
-	elif not loot_drops.is_empty():
-		add_float("%s LOOT!" % loot_drops.back().item.rarity, Vector2(290, 335), loot_drops.back().color, 21)
 	return spawned_count > 0
 
 func prepare_hoard_chest() -> void:
@@ -1607,6 +1652,8 @@ func show_boss_reward() -> void:
 		boss_reward_buttons[i].text = "                 %s  •  %s\n                 %s  •  %s\n                 %s" % [item.rarity, item.name, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
 		boss_reward_icons[i].configure(item)
+	if presentation_director != null:
+		presentation_director.present_card(boss_reward_panel, Color("#ffd36a"), 0.34)
 
 func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
@@ -1640,6 +1687,8 @@ func show_next_item() -> void:
 	item_scrap_button.text = "SCRAP  +%d" % ItemCatalog.scrap_value(current_item)
 	apply_button_style(item_equip_button, Color("#295d50"), color)
 	item_panel.visible = true
+	if presentation_director != null:
+		presentation_director.present_card(item_panel, color, 0.27)
 	help_label.visible = false
 	queue_redraw()
 
@@ -1715,6 +1764,7 @@ func accept_item_equip() -> void:
 	add_particles(Vector2(player_x, 470), player_reward_color, 14)
 	play_audio_event("equip")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "gear_equip", {"source":"run", "item_id":current_item.get("id", "")})
+	queue_loot_dialogue(current_item)
 	finish_item_decision()
 
 func accept_item_keep() -> void:
@@ -1730,6 +1780,7 @@ func accept_item_keep() -> void:
 	player_reward_flash = 0.55
 	player_reward_color = Color("#72c8ff")
 	add_particles(Vector2(player_x, 470), player_reward_color, 12)
+	queue_loot_dialogue(current_item)
 	finish_item_decision()
 
 func accept_item_scrap() -> void:
@@ -1762,6 +1813,13 @@ func finish_item_decision() -> void:
 		state = "playing"
 		help_label.visible = not tap_tutorial_seen
 
+func queue_loot_dialogue(item: Dictionary) -> void:
+	var rarity := str(item.get("rarity", "COMMON"))
+	if rarity == "LEGENDARY":
+		hideout_ui.queue_dialogue_context("legendary_find")
+	elif rarity == "EPIC":
+		hideout_ui.queue_dialogue_context("epic_find")
+
 func refresh_equipment_health() -> void:
 	var new_bonus := inventory.effect_total("max_hp")
 	var difference := new_bonus - equipment_hp_bonus
@@ -1777,6 +1835,8 @@ func show_merchant() -> void:
 	merchant_panel.visible = true
 	help_label.visible = false
 	refresh_merchant_ui()
+	if presentation_director != null:
+		presentation_director.present_card(merchant_panel, Color("#d3a45e"), 0.26)
 
 func refresh_merchant_ui() -> void:
 	merchant_title.text = "PACK PEDDLER"
@@ -1883,6 +1943,8 @@ func show_upgrade_choices() -> void:
 		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
 	upgrade_title.text = "LEVEL %d - PICK ONE" % level
 	upgrade_panel.visible = true
+	if presentation_director != null:
+		presentation_director.present_card(upgrade_panel, build.color(), 0.27)
 
 func format_upgrade_card(up: Dictionary, stacks: int) -> String:
 	var tags: Array = up.get("tags", [])
@@ -1978,11 +2040,19 @@ func end_run(victory: bool) -> void:
 			notable_loot += ", " + run_kept_loot[1]
 	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
 	result_summary.text = format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned)
+	if presentation_director != null:
+		presentation_director.present_card(result_panel, Color("#ffe178") if victory else Color("#ff8995"), 0.34)
 	play_audio_event("victory" if victory else "defeat")
 	if audio_manager != null:
 		audio_manager.set_music("VICTORY" if victory else "DEFEAT")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "gold_earned", {"amount":run_gold_earned, "source":"run_result", "victory":victory})
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "run_end", {"victory":victory, "wave":wave, "kills":total_kills, "gold":run_gold_earned, "scrip_earned":run_coins_earned, "scrip_spent":run_coins_spent})
+	if victory:
+		hideout_ui.queue_dialogue_context("boss_defeated")
+	elif wave <= 5:
+		hideout_ui.queue_dialogue_context("early_defeat")
+	else:
+		hideout_ui.queue_dialogue_context("returning")
 	if victory:
 		for burst in range(4):
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
@@ -2000,6 +2070,7 @@ func buy_meta_power() -> void:
 		save_meta()
 		refresh_hideout()
 		hideout_ui.play_shrine_upgrade()
+		hideout_ui.request_dialogue("shrine_upgrade", "Relic Keeper")
 		play_audio_event("core_awaken")
 
 func refresh_hideout() -> void:
@@ -2018,8 +2089,9 @@ func save_meta() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if debug_enabled and event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F1:
-		debug_panel.toggle()
-		get_viewport().set_input_as_handled()
+		if debug_panel != null and not debug_panel.visible:
+			debug_panel.open()
+			get_viewport().set_input_as_handled()
 		return
 	if debug_enabled and debug_panel != null and debug_panel.visible:
 		return
@@ -2064,6 +2136,7 @@ func update_effects(delta: float) -> void:
 	coin_counter_flash = maxf(0.0, coin_counter_flash - delta)
 	xp_counter_flash = maxf(0.0, xp_counter_flash - delta)
 	player_reward_flash = maxf(0.0, player_reward_flash - delta)
+	rarity_reveal_flash = maxf(0.0, rarity_reveal_flash - delta)
 	tap_buffer_flash = maxf(0.0, tap_buffer_flash - delta)
 	tap_pulse = maxf(0.0, tap_pulse - delta)
 	upgrade_flash = maxf(0.0, upgrade_flash - delta)
@@ -2127,6 +2200,9 @@ func update_effects(delta: float) -> void:
 				pending_items.append(revealed_item)
 			add_particles(loot_drops[i].pos, loot_drops[i].color, 18)
 			play_rarity_audio(revealed_item.get("rarity", "COMMON"))
+			if revealed_item.get("rarity", "COMMON") in ["EPIC", "LEGENDARY"]:
+				rarity_reveal_flash = 0.34 if revealed_item.get("rarity", "") == "LEGENDARY" else 0.22
+				rarity_reveal_color = loot_drops[i].color
 			loot_drops.remove_at(i)
 
 func update_attack_projectiles(delta: float) -> void:
@@ -2537,8 +2613,18 @@ func draw_loot_drop(drop: Dictionary) -> void:
 			draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-14),drop.pos + Vector2(6,-7),drop.pos + Vector2(0,-1),drop.pos + Vector2(-6,-7)]), Color("#fff2bd"))
 	var category := ItemCatalog.display_slot(slot).to_upper()
 	draw_string(body_font, drop.pos + Vector2(-40, 34), category, HORIZONTAL_ALIGNMENT_CENTER, 80, 10, Color("#f5f7ff"))
+	if int(drop.get("bounces", 0)) > 0 or float(drop.get("pickup", 1.0)) < 0.58:
+		var item_name := str(drop.item.get("name", "MYSTERY LOOT")).to_upper()
+		draw_rect(Rect2(drop.pos.x - 70, drop.pos.y + 39, 140, 20), Color("#071027dc"), true)
+		draw_string(body_font, drop.pos + Vector2(-66, 54), item_name, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, color.lightened(0.34))
 
 func draw_moment_overlay() -> void:
+	if rarity_reveal_flash > 0.0:
+		var rarity_alpha := clampf(rarity_reveal_flash / 0.34, 0.0, 1.0)
+		var rarity_edge := rarity_reveal_color
+		rarity_edge.a = rarity_alpha * 0.72
+		draw_rect(Rect2(5, 151, 470, 545), rarity_edge, false, 5.0)
+		draw_circle(Vector2(240, 430), 84.0 + (1.0 - rarity_alpha) * 76.0, Color(rarity_edge.r, rarity_edge.g, rarity_edge.b, rarity_alpha * 0.08))
 	if impact_flash > 0.0:
 		var flash_alpha := clampf(impact_flash * 1.8, 0.0, 0.16)
 		draw_rect(Rect2(0, 146, 480, 555), Color(1.0, 0.94, 0.68, flash_alpha), true)
@@ -2559,7 +2645,7 @@ func draw_moment_overlay() -> void:
 			draw_rect(Rect2(100, 264, 280, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
 			draw_rect(Rect2(100, 264, 280, 2), banner_color, true)
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
-	if state == "zone_transition":
+	if state == "zone_transition" and (presentation_director == null or not presentation_director.travel_active):
 		var transition_ratio := clampf(zone_transition_timer / 0.85, 0.0, 1.0)
 		draw_rect(Rect2(0, 146, 480, 568), Color(0.02, 0.03, 0.09, 0.72 * transition_ratio), true)
 		var title_color: Color = current_zone.accent
