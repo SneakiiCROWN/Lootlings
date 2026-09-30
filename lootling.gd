@@ -16,6 +16,7 @@ const SettingsStore = preload("res://settings_store.gd")
 const AnalyticsLogger = preload("res://analytics_logger.gd")
 const AudioManager = preload("res://audio_manager.gd")
 const StartupUI = preload("res://startup_ui.gd")
+const ItemIcon = preload("res://item_icon.gd")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
@@ -118,6 +119,9 @@ var item_review_due := false
 var return_to_merchant := false
 var equipment_hp_bonus := 0.0
 var boss_reward_options: Array = []
+var hoard_chest_phase := ""
+var hoard_chest_timer := 0.0
+var hoard_chest_y := 330.0
 var screen_shake := 0.0
 var enemy_flash := 0.0
 var player_flash := 0.0
@@ -133,6 +137,7 @@ var impact_flash := 0.0
 var crit_flash := 0.0
 var element_flash := 0.0
 var element_flash_color := Color.WHITE
+var element_flash_identity := ""
 var death_burst := 0.0
 var death_burst_color := Color.WHITE
 var hit_stop_timer := 0.0
@@ -156,6 +161,7 @@ var tap_tutorial_seen := false
 var meta_shards := 0
 var meta_power := 0
 var gold := 0
+var gold_upgrades := {"bedroll":0, "whetstone":0, "pouch":0}
 var run_gold_earned := 0
 var run_shards_earned := 0
 var run_coins_earned := 0
@@ -178,6 +184,7 @@ var item_compare: RichTextLabel
 var item_equip_button: Button
 var item_keep_button: Button
 var item_scrap_button: Button
+var item_icon
 var merchant_panel: Panel
 var merchant_title: Label
 var merchant_subtitle: Label
@@ -187,6 +194,8 @@ var merchant_reroll_button: Button
 var merchant_continue_button: Button
 var boss_reward_panel: Panel
 var boss_reward_buttons: Array[Button] = []
+var boss_reward_icons: Array = []
+var hoard_chest_button: Button
 var pause_button: Button
 var pause_panel: Panel
 var abandon_panel: Panel
@@ -220,6 +229,7 @@ func build_foundation_services() -> void:
 	startup_ui = StartupUI.new()
 	add_child(startup_ui)
 	startup_ui.enter_hideout.connect(enter_hideout_from_title)
+	startup_ui.profile_completed.connect(enter_hideout_from_title)
 	startup_ui.profile_changed.connect(save_profile_data)
 	startup_ui.settings_changed.connect(save_audio_settings)
 	startup_ui.ui_event.connect(play_audio_event)
@@ -236,6 +246,18 @@ func enter_hideout_from_title() -> void:
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "title_enter")
 	show_hideout()
 
+func show_profile_from_hideout() -> void:
+	hideout_ui.visible = false
+	startup_ui.visible = true
+	startup_ui.show_profile(false)
+
+func show_title_from_hideout() -> void:
+	hideout_ui.visible = false
+	startup_ui.visible = true
+	startup_ui.show_title()
+	state = "boot"
+	audio_manager.set_music("TITLE")
+
 func save_profile_data(updated_profile: Dictionary) -> void:
 	var was_created := ProfileStore.is_created(profile)
 	var old_name := str(profile.get("display_name", ""))
@@ -243,7 +265,7 @@ func save_profile_data(updated_profile: Dictionary) -> void:
 	ProfileStore.save_profile(PROFILE_SAVE_PATH, profile)
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "display_name_changed" if was_created and old_name != profile.display_name else "profile_created")
 	if hideout_ui != null:
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 
 func save_audio_settings(updated_settings: Dictionary) -> void:
 	audio_settings = updated_settings.duplicate(true)
@@ -290,6 +312,7 @@ func build_overlay_ui() -> void:
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
+	build_hoard_chest_ui()
 	build_pause_ui()
 
 func build_pause_ui() -> void:
@@ -326,10 +349,14 @@ func build_hideout() -> void:
 	hideout_ui.upgrade_requested.connect(buy_meta_power)
 	hideout_ui.shop_offer_requested.connect(buy_hideout_offer)
 	hideout_ui.shop_cache_requested.connect(use_mystery_cache)
+	hideout_ui.shop_gold_cache_requested.connect(use_gold_cache)
 	hideout_ui.shop_expansion_requested.connect(buy_stash_expansion)
 	hideout_ui.shop_reroll_requested.connect(reroll_hideout_shop)
+	hideout_ui.gold_upgrade_requested.connect(buy_gold_upgrade)
+	hideout_ui.profile_requested.connect(show_profile_from_hideout)
+	hideout_ui.title_requested.connect(show_title_from_hideout)
 	hideout_ui.ui_event.connect(play_audio_event)
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 	hideout_ui.visible = false
 
 func show_hideout() -> void:
@@ -347,7 +374,7 @@ func show_hideout() -> void:
 	boss_reward_panel.visible = false
 	help_label.visible = false
 	hideout_ui.visible = true
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 	hideout_ui.show_home()
 	play_audio_event("menu_transition")
 	if audio_manager != null:
@@ -415,7 +442,7 @@ func equip_stash_item(index: int) -> void:
 		return
 	if inventory.equip_from_stash(index):
 		inventory.save(INVENTORY_SAVE_PATH)
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 		hideout_ui.play_stash_feedback("equip")
 		play_audio_event("equip")
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "gear_equip", {"source":"stash"})
@@ -425,7 +452,7 @@ func scrap_stash_item(index: int) -> void:
 		return
 	if inventory.scrap_from_stash(index) > 0:
 		inventory.save(INVENTORY_SAVE_PATH)
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 		hideout_ui.play_stash_feedback("scrap")
 		play_audio_event("scrap")
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "scrap_earned", {"source":"stash"})
@@ -461,6 +488,8 @@ func use_mystery_cache() -> void:
 	if state != "hideout":
 		return
 	if not hideout_shop.pending_cache_item.is_empty():
+		if hideout_shop.pending_cache_currency != "scrap":
+			return
 		if inventory.stash.size() >= inventory.stash_capacity:
 			hideout_ui.show_shop_message("STASH FULL\nMake room before claiming the revealed item.", "#ff9b8f")
 			return
@@ -469,7 +498,7 @@ func use_mystery_cache() -> void:
 			save_hideout_economy()
 			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
 			hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(claimed.get("rarity", "COMMON")))
-			play_audio_event("rarity_reveal")
+			play_rarity_audio(claimed.get("rarity", "COMMON"))
 		return
 	if hideout_shop.cache_bought_this_cycle:
 		hideout_ui.show_shop_message("Mystery Cache already opened.\nComplete a run to refresh it.", "#aebde0")
@@ -487,6 +516,62 @@ func use_mystery_cache() -> void:
 	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")))
 	play_audio_event("chest_open")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"scrap"})
+
+func use_gold_cache() -> void:
+	if state != "hideout":
+		return
+	if not hideout_shop.pending_cache_item.is_empty():
+		if hideout_shop.pending_cache_currency != "gold":
+			return
+		if inventory.stash.size() >= inventory.stash_capacity:
+			hideout_ui.show_shop_message("STASH FULL\nMake room before claiming the revealed item.", "#ff9b8f")
+			return
+		var claimed := hideout_shop.claim_cache()
+		if inventory.keep(claimed):
+			save_hideout_economy()
+			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
+			play_rarity_audio(claimed.get("rarity", "COMMON"))
+		return
+	if hideout_shop.gold_cache_bought_this_cycle:
+		hideout_ui.show_shop_message("Scavenged Cache already opened.\nComplete a run to refresh it.", "#aebde0")
+		return
+	if inventory.stash.size() >= inventory.stash_capacity:
+		hideout_ui.show_shop_message("STASH FULL\nMake room before opening a cache.", "#ff9b8f")
+		return
+	if gold < hideout_shop.GOLD_CACHE_COST:
+		hideout_ui.show_shop_message("Not enough Gold for a Scavenged Cache.", "#ffbd69")
+		return
+	gold -= hideout_shop.GOLD_CACHE_COST
+	hideout_shop.reveal_gold_cache()
+	save_meta()
+	save_hideout_economy()
+	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")))
+	play_audio_event("chest_land")
+	play_audio_event("chest_open")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"gold", "price":hideout_shop.GOLD_CACHE_COST})
+
+func buy_gold_upgrade(upgrade_id: String) -> void:
+	if state != "hideout" or not upgrade_id in gold_upgrades:
+		return
+	var costs := {
+		"bedroll":[250,450,700,1000,1400],
+		"whetstone":[300,525,800,1150,1600],
+		"pouch":[225,400,650,950,1300]
+	}
+	var rank := int(gold_upgrades[upgrade_id])
+	if rank >= 5:
+		return
+	var price: int = costs[upgrade_id][rank]
+	if gold < price:
+		return
+	gold -= price
+	gold_upgrades[upgrade_id] = rank + 1
+	save_meta()
+	refresh_hideout()
+	hideout_ui.show_upgrades()
+	hideout_ui.play_shrine_upgrade()
+	play_audio_event("shop_purchase")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"gold", "price":price, "upgrade_id":upgrade_id, "rank":rank + 1})
 
 func buy_stash_expansion() -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
@@ -516,7 +601,7 @@ func reroll_hideout_shop() -> void:
 func save_hideout_economy() -> void:
 	inventory.save(INVENTORY_SAVE_PATH)
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
@@ -525,7 +610,12 @@ func build_item_ui() -> void:
 	item_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_title.clip_text = true
-	item_description = make_label(item_panel, "", 17, Rect2(28, 76, 376, 112), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
+	item_icon = ItemIcon.new()
+	item_icon.position = Vector2(28, 78)
+	item_icon.size = Vector2(96, 96)
+	item_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	item_panel.add_child(item_icon)
+	item_description = make_label(item_panel, "", 16, Rect2(132, 76, 272, 112), HORIZONTAL_ALIGNMENT_LEFT, Color("#e8efff"))
 	item_description.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_compare = RichTextLabel.new()
@@ -573,6 +663,16 @@ func build_boss_reward_ui() -> void:
 		button.pressed.connect(choose_boss_reward.bind(i))
 		boss_reward_panel.add_child(button)
 		boss_reward_buttons.append(button)
+		var icon := ItemIcon.new()
+		icon.position = Vector2(33, 120 + i * 130)
+		icon.size = Vector2(88, 88)
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		boss_reward_panel.add_child(icon)
+		boss_reward_icons.append(icon)
+
+func build_hoard_chest_ui() -> void:
+	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
+	hoard_chest_button.visible = false
 
 func make_action_button(parent: Node, text_value: String, pos: Vector2, button_size: Vector2, fill: Color, border: Color, callback: Callable) -> Button:
 	var button := Button.new()
@@ -663,9 +763,10 @@ func start_run() -> void:
 	player_facing = 1
 	var meta_bonus := 1.0 + float(meta_power) * 0.05
 	equipment_hp_bonus = inventory.effect_total("max_hp")
-	player_max_hp = maxf(40.0, 100.0 * meta_bonus + equipment_hp_bonus)
+	player_max_hp = maxf(40.0, 100.0 * meta_bonus + equipment_hp_bonus + int(gold_upgrades.get("bedroll", 0)) * 4.0)
 	player_hp = player_max_hp
-	base_damage = 11.0 * meta_bonus
+	base_damage = 11.0 * meta_bonus + int(gold_upgrades.get("whetstone", 0)) * 0.6
+	coins = int(gold_upgrades.get("pouch", 0)) * 8
 	attack_interval = 0.85
 	attack_clock = 0.3
 	crit_chance = 0.08
@@ -702,6 +803,10 @@ func start_run() -> void:
 	pending_items.clear()
 	current_item.clear()
 	boss_reward_options.clear()
+	hoard_chest_phase = ""
+	hoard_chest_timer = 0.0
+	if hoard_chest_button != null:
+		hoard_chest_button.visible = false
 	pending_victory = false
 	merchant_due = false
 	item_review_due = false
@@ -855,6 +960,10 @@ func _process(delta: float) -> void:
 		hit_stop_timer = maxf(0.0, hit_stop_timer - delta)
 		visual_delta *= 0.12
 	update_effects(visual_delta)
+	if state == "hoard_chest":
+		update_hoard_chest(delta)
+		queue_redraw()
+		return
 	if state == "zone_transition":
 		zone_transition_timer = maxf(0.0, zone_transition_timer - delta)
 		if zone_transition_timer <= 0.0:
@@ -1053,7 +1162,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		hit_stop_timer = maxf(hit_stop_timer, 0.038 if is_crit else 0.030)
 	elif is_tap:
 		hit_stop_timer = maxf(hit_stop_timer, 0.014)
-	play_audio_event("crit" if is_crit else "heavy_hit" if is_heavy else "normal_hit")
+	play_audio_event("crit" if is_crit else "boss_hit" if enemy_is_boss else "heavy_hit" if is_heavy else "normal_hit")
 	var text := ("CRIT! %.0f" if is_crit else "%.0f") % amount
 	var text_size := 29 if is_crit else 20
 	var text_color := Color("#fff178") if is_crit else Color.WHITE
@@ -1119,6 +1228,7 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 	impact_flash = 0.06
 	element_flash = 0.24
 	element_flash_color = color
+	element_flash_identity = identity
 	add_float("ARC %.0f" % amount, Vector2(324, 390), color, 22)
 	add_particles(Vector2(350, 455), color, 9)
 	carried_shockwave += amount * 0.18 if build.count("Lightning") >= 5 else 0.0
@@ -1186,7 +1296,11 @@ func kill_enemy() -> void:
 	if gear_explosion > 0.0:
 		carried_shockwave += gear_explosion
 		add_float("GEAR BURST %.0f" % gear_explosion, Vector2(290, 405), Color("#ffd17a"), 18)
-	var equipment_dropped := spawn_item_drop()
+	var equipment_dropped := false
+	if enemy_is_boss:
+		prepare_hoard_chest()
+	else:
+		equipment_dropped = spawn_item_drop()
 	if equipment_dropped:
 		spawn_clock = maxf(spawn_clock, 1.2)
 		play_audio_event("equipment_drop")
@@ -1249,20 +1363,74 @@ func spawn_item_drop() -> bool:
 		add_float("%s LOOT!" % loot_drops.back().item.rarity, Vector2(290, 335), loot_drops.back().color, 21)
 	return spawned_count > 0
 
+func prepare_hoard_chest() -> void:
+	boss_reward_options.clear()
+	for drop_index in range(3):
+		var item: Dictionary = loot_system.roll_drop(false, true)
+		if not item.is_empty():
+			boss_reward_options.append(item)
+	hoard_chest_phase = "fall"
+	hoard_chest_timer = 0.62
+	hoard_chest_y = 300.0
+	state = "hoard_chest"
+	help_label.visible = false
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open_ready", {"chest_id":"hoard_chest", "rolls":boss_reward_options.size()})
+
+func update_hoard_chest(delta: float) -> void:
+	hoard_chest_timer = maxf(0.0, hoard_chest_timer - delta)
+	if hoard_chest_phase == "fall":
+		var progress := 1.0 - hoard_chest_timer / 0.62
+		hoard_chest_y = lerpf(278.0, 493.0, ease(clampf(progress, 0.0, 1.0), 2.0))
+		if hoard_chest_timer <= 0.0:
+			hoard_chest_phase = "ready"
+			hoard_chest_y = 493.0
+			screen_shake = 0.10
+			play_audio_event("chest_land")
+			hoard_chest_button.visible = true
+	elif hoard_chest_phase == "opening" and hoard_chest_timer <= 0.0:
+		eject_hoard_loot()
+
+func open_hoard_chest() -> void:
+	if state != "hoard_chest" or hoard_chest_phase != "ready":
+		return
+	hoard_chest_phase = "opening"
+	hoard_chest_timer = 0.48
+	hoard_chest_button.visible = false
+	play_audio_event("chest_open")
+	add_particles(Vector2(240, 492), Color("#ffd36a"), 34)
+	impact_flash = 0.14
+
+func eject_hoard_loot() -> void:
+	for drop_index in range(boss_reward_options.size()):
+		var item: Dictionary = boss_reward_options[drop_index]
+		loot_drops.append({
+			"item":item, "rarity":item.get("rarity", "EPIC"), "boss_choice":true,
+			"pos":Vector2(240, 474), "vel":Vector2([-155.0, -18.0, 128.0][drop_index], [-310.0, -355.0, -292.0][drop_index]),
+			"pickup":0.92 + drop_index * 0.10, "bounces":0, "squash":0.0,
+			"color":ItemCatalog.rarity_color(item.get("rarity", "EPIC"))
+		})
+	hoard_chest_phase = ""
+	state = "playing"
+	spawn_clock = 1.2
+	add_float("HOARD ERUPTS!", Vector2(165, 350), Color("#ffd36a"), 21)
+	play_audio_event("legendary_reveal" if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY") else "epic_reveal")
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"hoard_chest", "rolls":boss_reward_options.size()})
+
 func show_boss_reward() -> void:
 	state = "boss_reward"
 	boss_reward_panel.visible = true
 	help_label.visible = false
 	for i in range(boss_reward_buttons.size()):
 		var item: Dictionary = boss_reward_options[i]
-		boss_reward_buttons[i].text = "%s  %s\n%s  -  %s\n%s" % [item.rarity, item.name, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
+		boss_reward_buttons[i].text = "                 %s  •  %s\n                 %s  •  %s\n                 %s" % [item.rarity, item.name, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("family", "GEAR"), ItemCatalog.describe_effects(item)]
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
+		boss_reward_icons[i].configure(item)
 
 func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
 		return
 	var chosen: Dictionary = boss_reward_options[index]
-	play_audio_event("rarity_reveal")
+	play_rarity_audio(chosen.get("rarity", "EPIC"))
 	boss_reward_options.clear()
 	boss_reward_panel.visible = false
 	pending_items.push_front(chosen)
@@ -1281,6 +1449,7 @@ func show_next_item() -> void:
 	item_title.text = title_text
 	fit_label_font(item_title, title_text, 376.0)
 	item_title.add_theme_color_override("font_color", color)
+	item_icon.configure(current_item)
 	item_description.text = "%s  •  %s\n%s\n%s" % [ItemCatalog.display_slot(current_item.get("slot", "Item")), current_item.get("family", "GEAR"), current_item.get("desc", ""), ItemCatalog.describe_effects(current_item)]
 	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
 	item_compare.text = build_item_comparison(current_item, equipped)
@@ -1291,6 +1460,13 @@ func show_next_item() -> void:
 	item_panel.visible = true
 	help_label.visible = false
 	queue_redraw()
+
+func play_rarity_audio(rarity: String) -> void:
+	match rarity:
+		"LEGENDARY": play_audio_event("legendary_reveal")
+		"EPIC": play_audio_event("epic_reveal")
+		"RARE": play_audio_event("rare_reveal")
+		_: play_audio_event("rarity_reveal")
 
 func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 	if equipped.is_empty():
@@ -1626,18 +1802,23 @@ func buy_meta_power() -> void:
 
 func refresh_hideout() -> void:
 	if hideout_ui != null:
-		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile)
+		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades)
 
 func load_meta() -> void:
 	var progress := MetaStore.load_progress(SAVE_PATH)
 	meta_shards = progress.shards
 	meta_power = progress.power
 	gold = progress.gold
+	gold_upgrades = progress.get("gold_upgrades", {"bedroll":0, "whetstone":0, "pouch":0}).duplicate(true)
 
 func save_meta() -> void:
-	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold)
+	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if state == "hoard_chest" and hoard_chest_phase == "ready" and ((event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed) or (event is InputEventKey and event.pressed and event.keycode == KEY_SPACE)):
+		open_hoard_chest()
+		get_viewport().set_input_as_handled()
+		return
 	if state != "playing":
 		return
 	var tapped := false
@@ -1702,7 +1883,7 @@ func update_effects(delta: float) -> void:
 		if reward_pickups[i].life <= 0.0:
 			if reward_pickups[i].kind == "coin":
 				if coin_counter_flash <= 0.0:
-					play_audio_event("resource_pickup")
+					play_audio_event("scrip_pickup")
 				coin_counter_flash = 0.24
 			else:
 				if xp_counter_flash <= 0.0:
@@ -1725,11 +1906,11 @@ func update_effects(delta: float) -> void:
 			drop.squash = 0.12
 	for i in range(loot_drops.size() - 1, -1, -1):
 		if loot_drops[i].pickup <= 0.0:
+			var revealed_item: Dictionary = loot_drops[i].item
 			if not bool(loot_drops[i].get("boss_choice", false)):
-				var found: Dictionary = loot_drops[i].item
-				pending_items.append(found)
+				pending_items.append(revealed_item)
 			add_particles(loot_drops[i].pos, loot_drops[i].color, 18)
-			play_audio_event("rarity_reveal")
+			play_rarity_audio(revealed_item.get("rarity", "COMMON"))
 			loot_drops.remove_at(i)
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
@@ -1944,6 +2125,8 @@ func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: S
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:
+	if state == "hoard_chest":
+		draw_hoard_chest()
 	for drop in loot_drops:
 		draw_loot_drop(drop)
 	for pickup in reward_pickups:
@@ -1978,6 +2161,21 @@ func draw_effects() -> void:
 		ring_color.a = element_ratio * 0.82
 		draw_arc(impact_center, 30.0 + (1.0 - element_ratio) * 34.0, -0.4, 5.2, 28, ring_color, 4.0)
 		draw_arc(impact_center, 39.0 + (1.0 - element_ratio) * 20.0, 2.7, 6.0, 18, ring_color.lightened(0.25), 2.0)
+		match element_flash_identity:
+			"Fire":
+				for ember in range(5):
+					draw_circle(impact_center + Vector2(-16 + ember * 8, -18 - ember % 2 * 9) * (1.0 - element_ratio * 0.25), 3.0 + element_ratio * 2.0, Color(1.0, 0.38, 0.12, element_ratio))
+			"Lightning":
+				for arc in range(3):
+					var offset := Vector2(-24 + arc * 18, -22 + arc * 5)
+					draw_polyline(PackedVector2Array([impact_center + offset, impact_center + offset + Vector2(8,-9), impact_center + offset + Vector2(3,7), impact_center + offset + Vector2(16,1)]), Color(0.65, 0.92, 1.0, element_ratio), 3.0)
+			"Poison":
+				for drip in range(4):
+					draw_circle(impact_center + Vector2(-18 + drip * 12, 10 + (1.0 - element_ratio) * 20), 4.0, Color(0.55, 1.0, 0.38, element_ratio * 0.85))
+			"Physical":
+				for debris in range(5):
+					var direction := Vector2.RIGHT.rotated(-2.7 + debris * 0.35)
+					draw_rect(Rect2(impact_center + direction * (28 + (1.0 - element_ratio) * 20), Vector2(5, 4)), Color(0.86, 0.67, 0.34, element_ratio), true)
 	if death_burst > 0.0:
 		var burst_duration := 0.90 if enemy_is_boss else 0.56 if enemy_is_miniboss else 0.46
 		var death_ratio := clampf(death_burst / burst_duration, 0.0, 1.0)
@@ -2010,6 +2208,22 @@ func draw_effects() -> void:
 		color.a = alpha
 		draw_string(body_font, item.pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, Color(0.02, 0.03, 0.08, alpha * 0.80))
 		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
+
+func draw_hoard_chest() -> void:
+	var center := Vector2(240, hoard_chest_y)
+	var ready_pulse := (0.5 + 0.5 * sin(run_time * 5.0)) if hoard_chest_phase == "ready" else 0.0
+	var opening := clampf(hoard_chest_timer / 0.48, 0.0, 1.0) if hoard_chest_phase == "opening" else 1.0
+	draw_set_transform(center, sin(run_time * 18.0) * 0.018 * ready_pulse, Vector2(1.0 + ready_pulse * 0.025, 1.0 - ready_pulse * 0.018))
+	draw_circle(Vector2(0, 18), 55 + ready_pulse * 9, Color(1.0, 0.72, 0.20, 0.10 + ready_pulse * 0.12))
+	draw_rect(Rect2(-52, -20, 104, 58), Color("#603718"), true)
+	draw_rect(Rect2(-52, -20, 104, 58), Color("#ffd36a"), false, 4)
+	draw_arc(Vector2(0, -19), 50, PI, TAU, 24, Color("#7a4822"), 30)
+	draw_arc(Vector2(0, -19), 50, PI, TAU, 24, Color("#ffd36a"), 4)
+	draw_rect(Rect2(-10, -9, 20, 31), Color("#c99cff"), true)
+	draw_colored_polygon(PackedVector2Array([Vector2(0,-5),Vector2(7,5),Vector2(0,15),Vector2(-7,5)]), Color("#fff0a8"))
+	if hoard_chest_phase == "opening":
+		draw_arc(Vector2.ZERO, 64 + (1.0 - opening) * 42, 0, TAU, 32, Color(1.0, 0.87, 0.38, opening), 5)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_loot_drop(drop: Dictionary) -> void:
 	var color: Color = drop.color

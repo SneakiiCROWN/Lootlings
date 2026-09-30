@@ -6,11 +6,16 @@ signal stash_scrap_requested(index: int)
 signal upgrade_requested
 signal shop_offer_requested(index: int)
 signal shop_cache_requested
+signal shop_gold_cache_requested
 signal shop_expansion_requested
 signal shop_reroll_requested
+signal gold_upgrade_requested(upgrade_id: String)
+signal profile_requested
+signal title_requested
 signal ui_event(event_name: String)
 
 const ItemCatalog = preload("res://item_catalog.gd")
+const ItemIcon = preload("res://item_icon.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const HIDEOUT_BACKGROUND = preload("res://art/backgrounds/lootlings_hideout.png")
 const SHOP_BACKGROUND = preload("res://art/backgrounds/salvager_shop.png")
@@ -28,6 +33,7 @@ var comparison_callable: Callable
 var shards := 0
 var power := 0
 var gold := 0
+var gold_upgrades := {"bedroll":0, "whetstone":0, "pouch":0}
 var profile := {}
 var entries: Array = []
 var stash_filter := "ALL"
@@ -50,10 +56,12 @@ var stash_scrap_button: Button
 var upgrade_summary: Label
 var upgrade_button: Button
 var upgrade_panel: Panel
+var gold_upgrade_buttons := {}
 var coming_title: Label
 var shop_scrap_label: Label
 var shop_offer_buttons: Array[Button] = []
 var shop_cache_button: Button
+var shop_gold_cache_button: Button
 var shop_expansion_button: Button
 var shop_reroll_button: Button
 var shop_status: RichTextLabel
@@ -80,7 +88,11 @@ const AMBIENT_LINES := [
 	"The shiny pile is load-bearing.",
 	"Legendary? Give it a confident label.",
 	"No, the tiny hammer is the spare.",
-	"Someone looted the snack barrel. Rude."
+	"Someone looted the snack barrel. Rude.",
+	"I fixed it. Probably.",
+	"Rare means expensive. That's science.",
+	"Nobody saw me take that Gold.",
+	"The Archivist filed that under 'ominous'."
 ]
 
 func _ready() -> void:
@@ -94,13 +106,14 @@ func _ready() -> void:
 	build_transition_overlay()
 	set_process(true)
 
-func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable, gold_count: int = 0, profile_data: Dictionary = {}) -> void:
+func configure(inventory, shop, shard_count: int, power_level: int, compare: Callable, gold_count: int = 0, profile_data: Dictionary = {}, gold_upgrade_data: Dictionary = {}) -> void:
 	current_inventory = inventory
 	current_shop = shop
 	shards = shard_count
 	power = power_level
 	gold = gold_count
 	profile = profile_data.duplicate(true)
+	gold_upgrades = gold_upgrade_data.duplicate(true)
 	comparison_callable = compare
 	refresh_current_screen()
 
@@ -152,7 +165,11 @@ func build_home() -> void:
 	home_content = Control.new()
 	home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(home_content)
-	make_label(home_content, "LOOTLINGS HIDEOUT", 30, Rect2(20, 20, 440, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(home_content, "LOOTLINGS HIDEOUT", 26, Rect2(90, 20, 300, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	var profile_button := make_button(home_content, "PROFILE", Rect2(10, 16, 78, 38), Color("#172442c8"), Color("#72c8ff"), 10)
+	profile_button.pressed.connect(func(): profile_requested.emit())
+	var title_button := make_button(home_content, "TITLE", Rect2(392, 16, 78, 38), Color("#172442c8"), Color("#d1a85a"), 10)
+	title_button.pressed.connect(func(): title_requested.emit())
 	resource_label = make_label(home_content, "", 13, Rect2(30, 60, 420, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
 	resource_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var play_button := make_hotspot_button(home_content, "EXPEDITION GATE\nBEGIN RUN", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
@@ -223,14 +240,23 @@ func build_upgrades() -> void:
 	var back := make_button(upgrade_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(upgrade_content, "RELIC TRAINING", 29, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	upgrade_panel = make_panel(upgrade_content, Rect2(48, 390, 384, 228), Color("#101634ce"), Color("#b78cff"))
+	upgrade_panel = make_panel(upgrade_content, Rect2(48, 354, 384, 202), Color("#101634ce"), Color("#b78cff"))
 	make_label(upgrade_panel, "PERMANENT POWER", 20, Rect2(20, 12, 344, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
-	upgrade_summary = make_label(upgrade_panel, "", 15, Rect2(28, 43, 328, 102), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
+	upgrade_summary = make_label(upgrade_panel, "", 14, Rect2(28, 40, 328, 68), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
 	upgrade_summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	upgrade_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 154, 300, 58), Color("#49346b"), Color("#d19cff"), 17)
+	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 126, 300, 60), Color("#49346b"), Color("#d19cff"), 17)
 	upgrade_button.pressed.connect(func(): upgrade_requested.emit())
-	make_label(upgrade_content, "Star Shards are persistent. Run Scrip resets every run.", 13, Rect2(48, 640, 384, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0")).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	var utility_panel := make_panel(upgrade_content, Rect2(30, 576, 420, 216), Color("#0d1530e8"), Color("#d1a85a"))
+	make_label(utility_panel, "HIDEOUT IMPROVEMENTS  •  GOLD", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	for index in range(3):
+		var upgrade_id: String = ["bedroll", "whetstone", "pouch"][index]
+		var button := make_button(utility_panel, "", Rect2(14, 38 + index * 55, 392, 48), Color("#25304a"), Color("#d1a85a"), 12)
+		button.pressed.connect(request_gold_upgrade.bind(upgrade_id))
+		gold_upgrade_buttons[upgrade_id] = button
+
+func request_gold_upgrade(upgrade_id: String) -> void:
+	gold_upgrade_requested.emit(upgrade_id)
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -255,9 +281,11 @@ func build_shop() -> void:
 	shop_detail_panel.add_child(shop_detail)
 	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(302, 36, 122, 82), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
-	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(20, 525, 210, 76), Color("#3f315f"), Color("#c99cff"), 14)
+	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 525, 137, 76), Color("#5a3f20"), Color("#ffd36a"), 12)
+	shop_gold_cache_button.pressed.connect(func(): shop_gold_cache_requested.emit())
+	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 525, 137, 76), Color("#3f315f"), Color("#c99cff"), 12)
 	shop_cache_button.pressed.connect(func(): shop_cache_requested.emit())
-	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(250, 525, 210, 76), Color("#21455b"), Color("#72c8ff"), 14)
+	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 525, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
 	shop_expansion_button.pressed.connect(func(): shop_expansion_requested.emit())
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 615, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
 	shop_reroll_button.pressed.connect(func(): shop_reroll_requested.emit())
@@ -369,15 +397,33 @@ func refresh_upgrades() -> void:
 	if upgrade_summary == null:
 		return
 	var cost := 10 + power * 5
-	upgrade_summary.text = "LEVEL %d  •  TOTAL +%d%%\nDamage and Max HP every run\n\n✦ %d STAR SHARDS" % [power, power * 5, shards]
+	upgrade_summary.text = "LEVEL %d  •  TOTAL +%d%%\nDamage + Max HP every run\n✦ %d STAR SHARDS" % [power, power * 5, shards]
 	upgrade_button.text = "POWER +5%%\nCOST  ✦ %d" % cost
 	upgrade_button.disabled = shards < cost or power >= 100
+	var definitions := {
+		"bedroll":["STURDY BEDROLL", "+4 starting HP", [250,450,700,1000,1400]],
+		"whetstone":["RELIC WHETSTONE", "+0.6 starting damage", [300,525,800,1150,1600]],
+		"pouch":["FIELD POUCH", "+8 starting Run Scrip", [225,400,650,950,1300]]
+	}
+	for upgrade_id in gold_upgrade_buttons:
+		var rank := int(gold_upgrades.get(upgrade_id, 0))
+		var data: Array = definitions[upgrade_id]
+		var button: Button = gold_upgrade_buttons[upgrade_id]
+		if rank >= 5:
+			button.text = "%s  •  RANK 5/5  •  MAXED" % data[0]
+			button.disabled = true
+		else:
+			var price: int = data[2][rank]
+			button.text = "%s  •  RANK %d/5\n%s     ● %d" % [data[0], rank, data[1], price]
+			button.disabled = gold < price
 
 func refresh_shop() -> void:
 	if current_inventory == null or current_shop == null or shop_scrap_label == null:
 		return
-	shop_scrap_label.text = "◆ %d SCRAP  •  %d / %d STASH" % [current_inventory.scrap, current_inventory.stash.size(), current_inventory.stash_capacity]
+	shop_scrap_label.text = "● %d GOLD  •  ◆ %d SCRAP  •  %d/%d STASH" % [gold, current_inventory.scrap, current_inventory.stash.size(), current_inventory.stash_capacity]
 	var reveal_pending: bool = not current_shop.pending_cache_item.is_empty()
+	shop_gold_cache_button.text = "SCAVENGED CACHE\n● %d GOLD" % current_shop.GOLD_CACHE_COST
+	shop_gold_cache_button.disabled = reveal_pending or current_shop.gold_cache_bought_this_cycle or gold < current_shop.GOLD_CACHE_COST or current_inventory.stash.size() >= current_inventory.stash_capacity
 	for index in range(shop_offer_buttons.size()):
 		var button: Button = shop_offer_buttons[index]
 		if index >= current_shop.stock.size() or current_shop.stock[index].is_empty():
@@ -403,9 +449,12 @@ func refresh_shop() -> void:
 	if reveal_pending:
 		var item: Dictionary = current_shop.pending_cache_item
 		var color := ItemCatalog.rarity_color(item.get("rarity", "COMMON")).to_html(false)
-		shop_cache_button.text = "CLAIM REVEALED ITEM"
-		shop_cache_button.disabled = current_inventory.stash.size() >= current_inventory.stash_capacity
-		shop_status.text = "[center][color=#ffe178]MYSTERY CACHE REVEAL[/color]\n[font_size=20][color=#%s]%s[/color][/font_size]\n%s  •  %s\n%s[/center]" % [color, item.get("name", "Unknown"), item.get("rarity", "COMMON"), ItemCatalog.display_slot(item.get("slot", "Item")), ItemCatalog.describe_effects(item)]
+		var is_gold_cache: bool = current_shop.pending_cache_currency == "gold"
+		shop_cache_button.text = "CLAIM REVEALED ITEM" if not is_gold_cache else "MYSTERY CACHE"
+		shop_cache_button.disabled = is_gold_cache or current_inventory.stash.size() >= current_inventory.stash_capacity
+		shop_gold_cache_button.text = "CLAIM REVEALED ITEM" if is_gold_cache else "SCAVENGED CACHE"
+		shop_gold_cache_button.disabled = not is_gold_cache or current_inventory.stash.size() >= current_inventory.stash_capacity
+		shop_status.text = "[center][color=#ffe178]%s REVEAL[/color]\n[font_size=20][color=#%s]%s[/color][/font_size]\n%s  •  %s\n%s[/center]" % ["SCAVENGED CACHE" if is_gold_cache else "MYSTERY CACHE", color, item.get("name", "Unknown"), item.get("rarity", "COMMON"), ItemCatalog.display_slot(item.get("slot", "Item")), ItemCatalog.describe_effects(item)]
 	else:
 		if current_shop.cache_bought_this_cycle:
 			shop_cache_button.text = "CACHE OPENED\nREFRESHES AFTER RUN"
@@ -413,9 +462,12 @@ func refresh_shop() -> void:
 		else:
 			shop_cache_button.text = "MYSTERY CACHE\nREVEAL 1 ITEM\n◆ %d" % current_shop.CACHE_COST
 			shop_cache_button.disabled = current_inventory.scrap < current_shop.CACHE_COST or current_inventory.stash.size() >= current_inventory.stash_capacity
+		if current_shop.gold_cache_bought_this_cycle:
+			shop_gold_cache_button.text = "GOLD CACHE OPENED\nREFRESHES AFTER RUN"
+			shop_gold_cache_button.disabled = true
 		if current_inventory.stash.size() >= current_inventory.stash_capacity:
 			shop_status.text = "[center][color=#ff9b8f]STASH FULL[/color]\nScrap or equip stored gear to make room.\nNothing will be overwritten.[/center]"
-		elif shop_status.text.is_empty() or shop_status.text.contains("MYSTERY CACHE REVEAL") or shop_status.text.contains("STASH FULL"):
+		elif shop_status.text.is_empty() or shop_status.text.contains("MYSTERY CACHE REVEAL") or shop_status.text.contains("SCAVENGED CACHE REVEAL") or shop_status.text.contains("STASH FULL"):
 			shop_status.text = "[center][color=#ffe39a]Persistent gear • paid with Scrap[/color]\nStock refreshes after a completed run.[/center]"
 
 func refresh_shop_detail(reveal_pending: bool) -> void:
@@ -502,11 +554,11 @@ func play_shrine_upgrade() -> void:
 
 func slot_icon(slot: String) -> String:
 	match slot:
-		"Weapon": return "⚔  WEAPON"
-		"Armour": return "◆  ARMOUR"
-		"Relic": return "✦  CHARM"
-		"Rune": return "◈  RUNE"
-	return "◇  GEAR"
+		"Weapon": return "WEAPON"
+		"Armour": return "ARMOUR"
+		"Relic": return "CHARM"
+		"Rune": return "RUNE"
+	return "GEAR"
 
 func weapon_texture_for_item(item: Dictionary) -> Texture2D:
 	if item.get("slot", "") != "Weapon":
@@ -518,13 +570,23 @@ func weapon_texture_for_item(item: Dictionary) -> Texture2D:
 	return VANGUARD_WEAPON_TEXTURE
 
 func apply_item_thumbnail(button: Button, item: Dictionary) -> void:
+	var old_icon := button.get_node_or_null("CategoryIcon")
+	if old_icon != null:
+		old_icon.queue_free()
 	button.icon = weapon_texture_for_item(item)
 	button.expand_icon = true
 	if button.icon != null:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.add_theme_constant_override("icon_max_width", 46)
 	else:
-		button.alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		var category_icon := ItemIcon.new()
+		category_icon.name = "CategoryIcon"
+		category_icon.position = Vector2(4, maxf(4.0, (button.size.y - 40.0) * 0.5))
+		category_icon.size = Vector2(40, 40)
+		category_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		category_icon.configure(item)
+		button.add_child(category_icon)
 
 func build_transition_overlay() -> void:
 	transition_overlay = ColorRect.new()
@@ -555,6 +617,8 @@ func _process(delta: float) -> void:
 			speech_timer -= delta
 			if speech_timer <= 0.0 and speech_panel != null:
 				speech_label.text = AMBIENT_LINES[speech_index % AMBIENT_LINES.size()]
+				var speaker_positions := [Vector2(274, 458), Vector2(28, 458), Vector2(272, 650)]
+				speech_panel.position = speaker_positions[speech_index % speaker_positions.size()]
 				speech_index += 1
 				speech_panel.visible = true
 				speech_visible_timer = 3.2
@@ -609,11 +673,27 @@ func draw_home_scene() -> void:
 	for index in range(6):
 		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
 		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
-	# One bounded background scavenger gives the hub life without permanent nodes.
+	# Bounded ambient residents add life without AI/pathfinding or permanent nodes.
 	var critter_x := 52.0 + fmod(scene_time * 7.0, 76.0)
 	draw_circle(Vector2(critter_x, 665), 8.0, Color("#17233cc9"))
 	draw_colored_polygon(PackedVector2Array([Vector2(critter_x - 7, 660), Vector2(critter_x - 3, 650), Vector2(critter_x + 1, 660)]), Color("#17233cc9"))
 	draw_circle(Vector2(critter_x + 3, 663), 1.5, Color("#ffe178"))
+	var salvage_bob := sin(scene_time * 3.1) * 2.0
+	draw_circle(Vector2(390, 414 + salvage_bob), 18, Color("#6d7b48"))
+	draw_circle(Vector2(383, 408 + salvage_bob), 5, Color("#d9e7b0"))
+	draw_circle(Vector2(397, 408 + salvage_bob), 5, Color("#d9e7b0"))
+	draw_rect(Rect2(377, 430 + salvage_bob, 27, 25), Color("#8a4f2d"), true)
+	draw_line(Vector2(405, 436 + salvage_bob), Vector2(416, 426 + salvage_bob + sin(scene_time * 8.0) * 5.0), Color("#d6b56b"), 4)
+	var keeper_bob := sin(scene_time * 1.8 + 1.0) * 1.5
+	draw_circle(Vector2(86, 409 + keeper_bob), 19, Color("#493f70"))
+	draw_colored_polygon(PackedVector2Array([Vector2(67,426 + keeper_bob),Vector2(105,426 + keeper_bob),Vector2(111,465 + keeper_bob),Vector2(61,465 + keeper_bob)]), Color("#2c294b"))
+	draw_circle(Vector2(86, 412 + keeper_bob), 3, Color("#c99cff"))
+	var archivist_bob := sin(scene_time * 2.1) * 1.5
+	draw_circle(Vector2(390, 610 + archivist_bob), 14, Color("#5a6685"))
+	draw_rect(Rect2(370, 625 + archivist_bob, 38, 24), Color("#70422c"), true)
+	draw_line(Vector2(389, 625 + archivist_bob), Vector2(389, 649 + archivist_bob), Color("#d8bd7b"), 2)
+	if sin(scene_time * 2.6) > 0.92:
+		draw_circle(Vector2(414, 620 + archivist_bob), 3, Color("#ffe178"))
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

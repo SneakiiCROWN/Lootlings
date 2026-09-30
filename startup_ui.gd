@@ -1,6 +1,7 @@
 extends Control
 
 signal enter_hideout
+signal profile_completed
 signal profile_changed(profile: Dictionary)
 signal settings_changed(settings: Dictionary)
 signal ui_event(event_name: String)
@@ -64,12 +65,12 @@ func build_title() -> void:
 	make_label(title_content, "LOOTLINGS", 48, Rect2(24, 45, 432, 66), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	make_label(title_content, "RELICS. RUINS. RIDICULOUS WEAPONS.", 13, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
 	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 596, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
-	play.pressed.connect(func(): ui_event.emit("ui_press"); enter_hideout.emit())
+	play.pressed.connect(request_play)
 	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 692, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
 	profile_button.pressed.connect(func(): ui_event.emit("menu_open"); show_profile(false))
 	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 692, 160, 62), Color("#17294be8"), Color("#c99cff"), 17)
 	settings_button.pressed.connect(func(): ui_event.emit("menu_open"); show_settings())
-	make_label(title_content, "LOCAL / OFFLINE READY", 12, Rect2(80, 776, 320, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#92a3c6"))
+	make_label(title_content, "THE HOARD IS WAITING", 12, Rect2(80, 776, 320, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#c9b47c"))
 
 func build_profile() -> void:
 	profile_content = Control.new()
@@ -94,11 +95,13 @@ func build_profile() -> void:
 	nickname_edit.placeholder_text = "Leave blank for now"
 	nickname_edit.add_theme_font_size_override("font_size", 18)
 	panel.add_child(nickname_edit)
-	make_label(panel, "PROFILE ICON", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
-	make_label(panel, "◈  RELIC BEAST     •     TITLE: RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
-	profile_id_label = make_label(panel, "", 11, Rect2(38, 414, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#8294ba"))
+	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
+	make_label(panel, "◈  RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
+	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
+	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	profile_id_label = make_label(panel, "", 10, Rect2(38, 444, 336, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#7183a8"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	var identity_note := make_label(panel, "Your display name can change.\nYour private player ID always stays stable.", 13, Rect2(45, 466, 322, 72), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c7e3"))
+	var identity_note := make_label(panel, "Names can be changed here.\nYour support ID stays private.", 13, Rect2(45, 476, 322, 54), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c7e3"))
 	identity_note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	identity_note.clip_text = true
 	var save := make_button(panel, "SAVE PROFILE", Rect2(40, 553, 332, 66), Color("#285c4c"), Color("#69e6b0"), 19)
@@ -142,8 +145,12 @@ func show_boot() -> void:
 
 func skip_boot() -> void:
 	ui_event.emit("ui_press")
+	show_title()
+
+func request_play() -> void:
+	ui_event.emit("ui_press")
 	if profile_exists:
-		show_title()
+		enter_hideout.emit()
 	else:
 		show_profile(true)
 
@@ -175,10 +182,14 @@ func save_profile() -> void:
 	if not previous_name.is_empty() and previous_name != cleaned_name:
 		profile.rename_metadata.last_rename_unix = int(Time.get_unix_time_from_system())
 		profile.rename_metadata.rename_count = int(profile.rename_metadata.get("rename_count", 0)) + 1
+	var was_first_launch := not profile_exists
 	profile_exists = true
 	profile_changed.emit(profile.duplicate(true))
 	ui_event.emit("upgrade_select")
-	show_title()
+	if was_first_launch:
+		profile_completed.emit()
+	else:
+		show_title()
 
 func save_settings() -> void:
 	for channel in SettingsStore.CHANNELS:
@@ -194,7 +205,7 @@ func refresh_profile() -> void:
 	name_edit.text = str(profile.get("display_name", ""))
 	nickname_edit.text = str(profile.get("lootling_nickname", ""))
 	var uuid := str(profile.get("player_uuid", ""))
-	profile_id_label.text = "LOCAL PLAYER ID\n%s" % uuid
+	profile_id_label.text = "ACCOUNT INFO  •  SUPPORT ID …%s" % uuid.right(8)
 
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
@@ -228,14 +239,24 @@ func _draw() -> void:
 	draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
 	if current_screen == "title":
 		var bob := sin(scene_time * 2.0) * 5.0
+		var breathe := 1.0 + sin(scene_time * 1.7) * 0.012
 		draw_set_transform(Vector2(240, 425 + bob), 0.0, Vector2(1.0, 0.28))
 		draw_circle(Vector2.ZERO, 88, Color("#020615a8"))
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-		draw_texture_rect(MASCOT_TEXTURE, Rect2(115, 245 + bob, 250, 250), false, Color.WHITE)
+		draw_set_transform(Vector2(240, 370 + bob), sin(scene_time * 1.15) * 0.008, Vector2(breathe, 1.0 / breathe))
+		draw_texture_rect(MASCOT_TEXTURE, Rect2(-125, -125, 250, 250), false, Color.WHITE)
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		var core_alpha := 0.14 + maxf(0.0, sin(scene_time * 2.8)) * 0.16
+		draw_circle(Vector2(241, 395 + bob), 13.0 + sin(scene_time * 2.8) * 2.0, Color(0.76, 0.52, 1.0, core_alpha))
 		for index in range(10):
 			var angle := scene_time * (0.18 + index * 0.006) + index * 0.63
 			var radius := 118.0 + (index % 3) * 26.0
 			draw_circle(Vector2(240, 390) + Vector2.RIGHT.rotated(angle) * radius, 1.5 + index % 2, Color(0.95, 0.75, 0.34, 0.30))
+		for glint in range(3):
+			var glint_pos := Vector2(75 + glint * 165, 190 + glint * 82)
+			var glint_alpha := maxf(0.0, sin(scene_time * 1.4 + glint * 2.1)) * 0.45
+			draw_line(glint_pos + Vector2(-5, 0), glint_pos + Vector2(5, 0), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
+			draw_line(glint_pos + Vector2(0, -5), glint_pos + Vector2(0, 5), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
 	elif current_screen in ["profile", "profile_create", "settings"]:
 		draw_texture_rect(MASCOT_TEXTURE, Rect2(352, 4, 116, 116), false, Color(1, 1, 1, 0.86))
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)

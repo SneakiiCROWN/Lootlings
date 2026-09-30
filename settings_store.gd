@@ -5,7 +5,7 @@ const CHANNELS := ["master", "music", "sfx", "ui", "ambience"]
 static func defaults() -> Dictionary:
 	return {
 		"version":1,
-		"master":0.85, "music":0.65, "sfx":0.85, "ui":0.80, "ambience":0.55,
+		"master":0.90, "music":0.58, "sfx":0.92, "ui":0.84, "ambience":0.62,
 		"master_muted":false, "music_muted":false, "sfx_muted":false,
 		"ui_muted":false, "ambience_muted":false
 	}

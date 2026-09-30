@@ -4,18 +4,22 @@ const BUS_NAMES := ["Master", "Music", "SFX", "UI", "Ambience"]
 const EVENT_SPECS := {
 	"ui_press":["UI", 720.0, 0.045, 0.20], "menu_open":["UI", 520.0, 0.10, 0.18],
 	"menu_close":["UI", 360.0, 0.08, 0.16], "menu_transition":["UI", 610.0, 0.12, 0.16],
-	"tap_attack":["SFX", 185.0, 0.055, 0.24], "normal_hit":["SFX", 115.0, 0.075, 0.30],
-	"heavy_hit":["SFX", 72.0, 0.13, 0.38], "crit":["SFX", 920.0, 0.12, 0.30],
+	"tap_attack":["SFX", 210.0, 0.07, 0.38], "normal_hit":["SFX", 125.0, 0.10, 0.52],
+	"heavy_hit":["SFX", 76.0, 0.18, 0.62], "crit":["SFX", 980.0, 0.18, 0.58],
+	"boss_hit":["SFX", 62.0, 0.20, 0.68],
 	"enemy_hurt":["SFX", 145.0, 0.06, 0.22], "player_hurt":["SFX", 92.0, 0.12, 0.30],
-	"enemy_death":["SFX", 78.0, 0.18, 0.32], "resource_pickup":["SFX", 1040.0, 0.08, 0.20],
-	"xp_pickup":["SFX", 780.0, 0.07, 0.16], "equipment_drop":["SFX", 240.0, 0.16, 0.28],
-	"rarity_reveal":["SFX", 680.0, 0.24, 0.26], "chest_land":["SFX", 88.0, 0.15, 0.34],
-	"chest_open":["SFX", 330.0, 0.28, 0.28], "level_up":["SFX", 660.0, 0.24, 0.27],
+	"enemy_death":["SFX", 82.0, 0.22, 0.50], "gold_pickup":["SFX", 1180.0, 0.10, 0.38],
+	"scrip_pickup":["SFX", 940.0, 0.09, 0.34], "resource_pickup":["SFX", 940.0, 0.09, 0.34],
+	"xp_pickup":["SFX", 720.0, 0.10, 0.30], "equipment_drop":["SFX", 230.0, 0.22, 0.50],
+	"rarity_reveal":["SFX", 680.0, 0.25, 0.42], "rare_reveal":["SFX", 720.0, 0.28, 0.46],
+	"epic_reveal":["SFX", 560.0, 0.38, 0.58], "legendary_reveal":["SFX", 440.0, 0.55, 0.70],
+	"chest_land":["SFX", 82.0, 0.20, 0.62], "chest_open":["SFX", 310.0, 0.42, 0.64],
+	"level_up":["SFX", 660.0, 0.32, 0.54],
 	"upgrade_select":["UI", 840.0, 0.16, 0.24], "core_awaken":["SFX", 420.0, 0.34, 0.30],
 	"equip":["UI", 510.0, 0.13, 0.23], "scrap":["SFX", 190.0, 0.12, 0.24],
 	"shop_purchase":["UI", 940.0, 0.16, 0.25], "boss_warning":["SFX", 64.0, 0.30, 0.35],
-	"boss_death":["SFX", 55.0, 0.42, 0.40], "zone_transition":["Ambience", 260.0, 0.38, 0.18],
-	"victory":["Music", 520.0, 0.55, 0.28], "defeat":["Music", 145.0, 0.50, 0.24]
+	"boss_death":["SFX", 52.0, 0.70, 0.72], "zone_transition":["Ambience", 240.0, 0.55, 0.42],
+	"victory":["Music", 520.0, 0.70, 0.52], "defeat":["Music", 145.0, 0.55, 0.38]
 }
 
 var players := {}
@@ -103,11 +107,22 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 	data.resize(sample_count * 2)
 	for sample_index in range(sample_count):
 		var time := float(sample_index) / sample_rate
-		var envelope := pow(1.0 - float(sample_index) / sample_count, 2.0)
-		var sweep := 1.0 - 0.22 * float(sample_index) / sample_count
-		var wave := sin(TAU * frequency * sweep * time)
-		if event_name in ["normal_hit", "heavy_hit", "enemy_death", "boss_death", "chest_land"]:
-			wave = wave * 0.55 + sin(TAU * frequency * 0.51 * time) * 0.25 + randf_range(-0.16, 0.16)
+		var progress := float(sample_index) / sample_count
+		var envelope := pow(1.0 - progress, 2.2)
+		var sweep := 1.18 - 0.48 * progress
+		var noise := sin(float(sample_index) * 12.9898) * sin(float(sample_index) * 0.731)
+		var wave := sin(TAU * frequency * sweep * time) * 0.58
+		wave += sin(TAU * frequency * 2.01 * time) * 0.18 * (1.0 - progress)
+		if event_name in ["normal_hit", "heavy_hit", "boss_hit", "enemy_death", "boss_death", "chest_land", "scrap"]:
+			var transient := exp(-progress * (18.0 if event_name == "normal_hit" else 10.0))
+			wave = wave * 0.36 + sin(TAU * frequency * 0.48 * time) * 0.42 + noise * transient * 0.72
+		if event_name in ["crit", "rare_reveal", "epic_reveal", "legendary_reveal", "level_up", "core_awaken", "victory"]:
+			wave += sin(TAU * frequency * (1.0 + floor(progress * 3.0) * 0.25) * time) * 0.32
+			wave += sin(TAU * frequency * 1.5 * time) * 0.18 * sin(PI * progress)
+		if event_name in ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "shop_purchase"]:
+			wave += sin(TAU * frequency * 1.5 * time) * 0.30 * sin(PI * progress)
+		if event_name == "chest_open":
+			wave = noise * exp(-progress * 7.0) * 0.48 + sin(TAU * frequency * (0.65 + progress) * time) * 0.52
 		data.encode_s16(sample_index * 2, int(clampf(wave * envelope * gain, -1.0, 1.0) * 32767.0))
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS
@@ -118,16 +133,22 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 
 func make_ambient_loop(base_frequency: float) -> AudioStreamWAV:
 	var sample_rate := 22050
-	var duration := 4.0
+	var duration := 6.0
 	var sample_count := int(duration * sample_rate)
 	var data := PackedByteArray()
 	data.resize(sample_count * 2)
 	for sample_index in range(sample_count):
 		var time := float(sample_index) / sample_rate
+		var phrase := fmod(time, 1.5) / 1.5
 		var pulse := 0.5 + 0.5 * sin(TAU * time / duration)
-		var wave := sin(TAU * base_frequency * time) * 0.035
-		wave += sin(TAU * base_frequency * 1.5 * time) * 0.018 * pulse
-		wave += sin(TAU * base_frequency * 0.5 * time) * 0.022
+		var note_step := int(floor(time / 1.5)) % 4
+		var note_ratio: float = [1.0, 1.25, 1.5, 1.125][note_step]
+		var wave := sin(TAU * base_frequency * 0.5 * time) * 0.070
+		wave += sin(TAU * base_frequency * note_ratio * time) * 0.050 * pow(1.0 - phrase, 1.4)
+		wave += sin(TAU * base_frequency * 1.5 * time) * 0.028 * pulse
+		wave += sin(TAU * base_frequency * 0.25 * time) * 0.030
+		if base_frequency < 150.0:
+			wave += sin(TAU * base_frequency * 0.5 * time) * 0.045 * (0.35 + 0.65 * pow(1.0 - fmod(time, 0.75) / 0.75, 3.0))
 		data.encode_s16(sample_index * 2, int(clampf(wave, -1.0, 1.0) * 32767.0))
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS

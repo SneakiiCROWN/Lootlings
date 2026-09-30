@@ -13,20 +13,23 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 ## 1. Foundation — Active
 
-- Boot ignition, title/menu, offline profile, settings, audio buses, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
+- Boot ignition, title-first first-launch/returning flow, offline profile, settings, five-bus audible procedural mix, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
 - Current canonical Relic Beast, Hideout, three-zone expedition, 15-wave loop, merchant, Stash, Shrine, rewards, and saves remain the playable baseline.
-- Next foundation work: accessibility controls, input remapping where useful, save backup/recovery, device lifecycle handling, and a shared UI component resource.
+- Current world-life layer includes bounded Hideout residents, contextual speech, Profile/Title navigation, and a responsive Relic Shrine interaction. Next foundation work: accessibility controls, input remapping where useful, save backup/recovery, device lifecycle handling, production audio, and wider shared-component adoption.
 
 ## 2. Loot / Items
 
 - Deepen data-driven affixes, rarity identity, unique effects, Legendary mechanics, boss/zone pools, weapon evolution, restrained sets/synergies, and cosmetic variants.
 - Stable chest IDs begin with `scavenged_cache`, `relic_chest`, and `hoard_chest`. Shared presentation phases: drop → land → anticipation → open → burst → eject → settle → reveal.
-- Future sources: bosses, milestones, Gold/Scrap purchases, quests, dungeons, rare world finds, mimics, events, clans, and raids.
+- Hoard Chest is live at the final boss: physical landing, tap-to-open, three Epic+ arcs, settle, then unchanged choose-one. Scavenged Cache has a conservative once-per-run-cycle 180-Gold Hideout source with protected reveal/claim. Relic Chest remains the next presentation candidate for Grump Knight.
+- Weapon thumbnails use painted family art; Armour, Charm, and Rune use shared replacement-ready code-native silhouettes across item review, Boss Hoard, Stash, and Salvager. Future work should replace these with bespoke painted category/item art without changing IDs.
+- Future sources: milestones, quests, dungeons, rare world finds, mimics, events, clans, and raids.
 - Preserve rarity odds independently from presentation intensity.
 
 ## 3. Meta Progression
 
-- Evolve the current +5% Damage/Max HP training into a small controlled board: Vitality, Might, starting utility, chest quality/luck, Stash utility, starting bonuses, and future Forge connections.
+- The first capped Gold utility board is live: five Bedroll ranks (+4 starting HP each), five Whetstone ranks (+0.6 starting damage each), and five Field Pouch ranks (+8 starting Run Scrip each), costing 11,650 Gold in total. Keep it small; do not turn this into exponential power.
+- Evolve the current +5% Damage/Max HP Star Shard training only through a deliberately controlled board: Vitality, Might, chest quality/luck, Stash utility, starting bonuses, and future Forge connections.
 - Avoid exponential power creep and keep earlier zones meaningful.
 - Gold is broad everyday progression currency; Scrap remains gear/salvage focused; Star Shards remain rare Relic progression.
 

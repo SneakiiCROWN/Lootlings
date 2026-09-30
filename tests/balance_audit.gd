@@ -30,6 +30,7 @@ func run_audit() -> void:
 				game.inventory.equip(ItemCatalog.create_item(WEAPONS[weapon_family], "COMMON", 700000 + completed))
 				game.meta_power = 0
 				game.meta_shards = 0
+				game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
 				seed(510000 + completed)
 				game.start_run()
 				game.rng.seed = 610000 + completed
@@ -47,6 +48,10 @@ func run_audit() -> void:
 						"upgrade": game.choose_upgrade(pick_core_upgrade(game, core_identity))
 						"item": game.accept_item_scrap()
 						"boss_reward": game.choose_boss_reward(0)
+						"hoard_chest":
+							game._process(0.08)
+							if game.hoard_chest_phase == "ready":
+								game.open_hoard_chest()
 						"merchant":
 							var buys_this_stop := int(purchases_by_wave.get(game.wave, 0))
 							var affordable_index := cheapest_affordable_offer(game)

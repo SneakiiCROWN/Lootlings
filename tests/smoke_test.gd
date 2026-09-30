@@ -39,11 +39,13 @@ func run_tests() -> void:
 	check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0 and AudioServer.get_bus_index("UI") >= 0 and AudioServer.get_bus_index("Ambience") >= 0, "Godot-native audio buses are available")
 	game.startup_ui.configure(blank_profile, false, game.audio_settings)
 	game.startup_ui.skip_boot()
-	check(game.startup_ui.current_screen == "profile_create", "a fresh install receives one lightweight welcome/profile step")
+	check(game.startup_ui.current_screen == "title", "a fresh install sees the Lootlings title before onboarding")
+	game.startup_ui.request_play()
+	check(game.startup_ui.current_screen == "profile_create", "first Play opens one lightweight welcome/profile step")
 	game.startup_ui.name_edit.text = "Smoke Seeker"
 	game.startup_ui.nickname_edit.text = "Nib"
 	game.startup_ui.save_profile()
-	check(game.startup_ui.current_screen == "title" and game.state == "boot", "first-launch profile creation leads to the title without entering gameplay")
+	check(game.state == "hideout" and game.hideout_ui.visible, "first-launch profile creation continues directly into the Hideout")
 	var original_uuid: String = game.profile.player_uuid
 	var persisted_profile: Dictionary = ProfileStore.load_profile(game.PROFILE_SAVE_PATH)
 	check(persisted_profile.display_name == "Smoke Seeker" and persisted_profile.lootling_nickname == "Nib" and persisted_profile.player_uuid == original_uuid, "display name, optional nickname, and stable UUID persist")
@@ -171,6 +173,28 @@ func run_tests() -> void:
 	var cache_claimed_scrap: int = game.inventory.scrap
 	game.use_mystery_cache()
 	check(game.inventory.stash.size() == 1 and game.inventory.scrap == cache_claimed_scrap, "only one Mystery Cache can be opened per completed-run cycle")
+	game.inventory.reset_to_starter()
+	game.hideout_shop = HideoutShopSystem.new(4490)
+	game.hideout_shop.ensure_stock()
+	game.gold = 500
+	game.hideout_ui.configure(game.inventory, game.hideout_shop, game.meta_shards, game.meta_power, Callable(game, "build_item_comparison"), game.gold, game.profile, game.gold_upgrades)
+	game.use_gold_cache()
+	check(game.gold == 500 - game.hideout_shop.GOLD_CACHE_COST and game.hideout_shop.pending_cache_currency == "gold" and not game.hideout_shop.pending_cache_item.is_empty(), "Scavenged Cache spends conservative persistent Gold and reveals before claiming")
+	game.use_gold_cache()
+	check(game.hideout_shop.pending_cache_item.is_empty() and game.inventory.stash.size() == 1 and game.hideout_shop.gold_cache_bought_this_cycle, "Gold cache claim safely enters the Stash and is capped once per completed run")
+	game.gold = 2000
+	game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
+	game.buy_gold_upgrade("bedroll")
+	game.buy_gold_upgrade("whetstone")
+	game.buy_gold_upgrade("pouch")
+	check(game.gold_upgrades == {"bedroll":1, "whetstone":1, "pouch":1} and game.gold == 1225, "capped Hideout utility upgrades spend Gold at centralized early-rank costs")
+	game.start_run()
+	check(is_equal_approx(game.player_max_hp, 104.0) and is_equal_approx(game.base_damage, 11.6) and game.coins == 8, "Bedroll, Whetstone, and Field Pouch apply small flat starting bonuses")
+	game.show_hideout()
+	game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
+	game.gold = 0
+	game.save_meta()
+	game.inventory.scrap = 999
 	var expansion_scrap_before: int = game.inventory.scrap
 	var expansion_cost: int = game.hideout_shop.expansion_cost(game.inventory.stash_capacity)
 	game.buy_stash_expansion()
@@ -182,7 +206,7 @@ func run_tests() -> void:
 	var gold_before_completed_run: int = game.gold
 	game.start_run()
 	game.end_run(false)
-	check(game.hideout_shop.cycle == old_cycle + 1 and game.hideout_shop.stock.size() == 3 and not game.hideout_shop.rerolled_this_cycle and not game.hideout_shop.cache_bought_this_cycle, "Hideout Shop stock and cache refresh after a completed run")
+	check(game.hideout_shop.cycle == old_cycle + 1 and game.hideout_shop.stock.size() == 3 and not game.hideout_shop.rerolled_this_cycle and not game.hideout_shop.cache_bought_this_cycle and not game.hideout_shop.gold_cache_bought_this_cycle, "Hideout Shop stock and both caches refresh after a completed run")
 	check(game.gold > gold_before_completed_run and MetaStore.load_progress(game.SAVE_PATH).gold == game.gold, "completed runs award persistent Gold and save it immediately")
 	game.inventory.reset_to_starter()
 	game.inventory.save(game.INVENTORY_SAVE_PATH)
@@ -415,6 +439,11 @@ func run_tests() -> void:
 	game.wave = game.RUN_LAST_WAVE
 	game.spawn_enemy()
 	game.kill_enemy()
+	check(game.state == "hoard_chest" and game.hoard_chest_phase == "fall" and game.boss_reward_options.size() == 3, "Hoard Dragon death creates a physical Hoard Chest before reward cards")
+	game._process(0.70)
+	check(game.hoard_chest_phase == "ready" and game.hoard_chest_button.visible, "Hoard Chest lands and presents an obvious tap-to-open action")
+	game.open_hoard_chest()
+	game._process(0.50)
 	var boss_launches := {}
 	for hoard_drop in game.loot_drops:
 		boss_launches[roundi(hoard_drop.vel.x)] = true
@@ -492,6 +521,10 @@ func run_tests() -> void:
 			elif game.state == "boss_reward":
 				check(game.boss_reward_options.size() == 3, "boss reward presents three meaningful Epic+ choices")
 				game.choose_boss_reward((run_index + 1) % 3)
+			elif game.state == "hoard_chest":
+				game._process(0.08)
+				if game.hoard_chest_phase == "ready":
+					game.open_hoard_chest()
 			elif game.state == "merchant":
 				game.leave_merchant()
 			else:
@@ -536,6 +569,10 @@ func resolve_interstitials(game, upgrade_index: int) -> void:
 		elif game.state == "boss_reward":
 			check(game.boss_reward_options.size() == 3, "boss reward presents three meaningful Epic+ choices")
 			game.choose_boss_reward(0)
+		elif game.state == "hoard_chest":
+			game._process(0.7)
+			game.open_hoard_chest()
+			game._process(0.5)
 		elif game.state == "merchant":
 			game.leave_merchant()
 		elif not game.boss_reward_options.is_empty():
