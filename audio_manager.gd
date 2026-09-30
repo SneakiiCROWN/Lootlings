@@ -28,6 +28,13 @@ var music_player: AudioStreamPlayer
 var current_music := ""
 var music_streams := {}
 var output_enabled := true
+var last_variant := {}
+var event_sequence := {}
+var last_event_msec := {}
+
+const VARIANT_EVENTS := ["tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop"]
+const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
+const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "player_hurt", "enemy_death", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_open", "level_up", "core_awaken", "boss_warning", "boss_death", "victory", "defeat"]
 
 func _ready() -> void:
 	ensure_buses()
@@ -36,7 +43,7 @@ func _ready() -> void:
 		return
 	for bus_name in ["SFX", "UI", "Ambience", "Music"]:
 		players[bus_name] = []
-		for index in range(4 if bus_name == "SFX" else 2):
+		for index in range(6 if bus_name == "SFX" else 2):
 			var player := AudioStreamPlayer.new()
 			player.bus = bus_name
 			add_child(player)
@@ -46,7 +53,11 @@ func _ready() -> void:
 	add_child(music_player)
 	for event_name in EVENT_SPECS:
 		var spec: Array = EVENT_SPECS[event_name]
-		streams[event_name] = make_tone(float(spec[1]), float(spec[2]), float(spec[3]), event_name)
+		var variant_count := 4 if event_name in VARIANT_EVENTS else 1
+		var variants: Array[AudioStreamWAV] = []
+		for variant in range(variant_count):
+			variants.append(make_tone(float(spec[1]), float(spec[2]), float(spec[3]), event_name, variant))
+		streams[event_name] = variants
 
 func ensure_buses() -> void:
 	for bus_name in BUS_NAMES:
@@ -67,19 +78,43 @@ func apply_settings(settings: Dictionary) -> void:
 func play_event(event_name: String) -> void:
 	if not output_enabled or not EVENT_SPECS.has(event_name):
 		return
+	var now := Time.get_ticks_msec()
+	if event_name in PICKUP_EVENTS and now - int(last_event_msec.get(event_name, -1000)) < 65:
+		return
+	last_event_msec[event_name] = now
 	var spec: Array = EVENT_SPECS[event_name]
 	var bus_name: String = spec[0]
 	var pool: Array = players.get(bus_name, [])
 	if pool.is_empty():
 		return
-	var player: AudioStreamPlayer = pool[0]
+	var player: AudioStreamPlayer
 	for candidate in pool:
 		if not candidate.playing:
 			player = candidate
 			break
-	player.stream = streams[event_name]
-	player.pitch_scale = 1.0 + randf_range(-0.025, 0.025)
+	if player == null:
+		if event_name not in IMPORTANT_EVENTS:
+			return
+		player = pool[0]
+	var variants: Array = streams[event_name]
+	var variant_index := choose_variant(event_name, variants.size())
+	player.stream = variants[variant_index]
+	var pitch_range := 0.018 if event_name in IMPORTANT_EVENTS else 0.032
+	player.pitch_scale = 1.0 + randf_range(-pitch_range, pitch_range)
+	player.volume_db = randf_range(-0.65, 0.15) if event_name in IMPORTANT_EVENTS else randf_range(-1.8, -0.5)
 	player.play()
+
+func choose_variant(event_name: String, variant_count: int) -> int:
+	if variant_count <= 1:
+		last_variant[event_name] = 0
+		return 0
+	var sequence := int(event_sequence.get(event_name, 0)) + 1
+	event_sequence[event_name] = sequence
+	var candidate := sequence % variant_count
+	if candidate == int(last_variant.get(event_name, -1)):
+		candidate = (candidate + 1) % variant_count
+	last_variant[event_name] = candidate
+	return candidate
 
 func set_music(cue: String) -> void:
 	if not output_enabled:
@@ -100,7 +135,7 @@ func set_music(cue: String) -> void:
 	music_player.stream = music_streams[cue]
 	music_player.play()
 
-func make_tone(frequency: float, duration: float, gain: float, event_name: String) -> AudioStreamWAV:
+func make_tone(frequency: float, duration: float, gain: float, event_name: String, variant: int = 0) -> AudioStreamWAV:
 	var sample_rate := 22050
 	var sample_count := maxi(1, int(duration * sample_rate))
 	var data := PackedByteArray()
@@ -109,9 +144,10 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 		var time := float(sample_index) / sample_rate
 		var progress := float(sample_index) / sample_count
 		var envelope := pow(1.0 - progress, 2.2)
-		var sweep := 1.18 - 0.48 * progress
-		var noise := sin(float(sample_index) * 12.9898) * sin(float(sample_index) * 0.731)
-		var wave := sin(TAU * frequency * sweep * time) * 0.58
+		var variant_tone := 1.0 + (float(variant) - 1.5) * 0.018
+		var sweep := 1.18 - (0.45 + variant * 0.018) * progress
+		var noise := sin(float(sample_index + variant * 17) * 12.9898) * sin(float(sample_index + variant * 31) * 0.731)
+		var wave := sin(TAU * frequency * variant_tone * sweep * time + variant * 0.21) * 0.58
 		wave += sin(TAU * frequency * 2.01 * time) * 0.18 * (1.0 - progress)
 		if event_name in ["normal_hit", "heavy_hit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "boss_death", "chest_land", "scrap"]:
 			var transient := exp(-progress * (18.0 if event_name == "normal_hit" else 10.0))
@@ -139,7 +175,7 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 
 func make_ambient_loop(base_frequency: float) -> AudioStreamWAV:
 	var sample_rate := 22050
-	var duration := 6.0
+	var duration := 12.0
 	var sample_count := int(duration * sample_rate)
 	var data := PackedByteArray()
 	data.resize(sample_count * 2)
@@ -147,13 +183,16 @@ func make_ambient_loop(base_frequency: float) -> AudioStreamWAV:
 		var time := float(sample_index) / sample_rate
 		var phrase := fmod(time, 1.5) / 1.5
 		var pulse := 0.5 + 0.5 * sin(TAU * time / duration)
-		var note_step := int(floor(time / 1.5)) % 4
-		var note_ratio: float = [1.0, 1.25, 1.5, 1.125][note_step]
+		var note_step := int(floor(time / 1.5)) % 8
+		var note_ratio: float = [1.0, 1.25, 1.5, 1.125, 1.0, 1.333, 1.5, 1.20][note_step]
+		var section_b := note_step >= 4
 		var wave := sin(TAU * base_frequency * 0.5 * time) * 0.078
 		wave += sin(TAU * base_frequency * note_ratio * time) * 0.056 * pow(1.0 - phrase, 1.4)
 		wave += sin(TAU * base_frequency * 1.5 * time) * 0.032 * pulse
 		wave += sin(TAU * base_frequency * 0.25 * time) * 0.036
 		wave += sin(TAU * base_frequency * 0.75 * time) * 0.018 * (0.35 + pulse * 0.65)
+		if section_b:
+			wave += sin(TAU * base_frequency * 2.0 * time) * 0.014 * pow(1.0 - phrase, 2.0)
 		if base_frequency < 150.0:
 			wave += sin(TAU * base_frequency * 0.5 * time) * 0.045 * (0.35 + 0.65 * pow(1.0 - fmod(time, 0.75) / 0.75, 3.0))
 		data.encode_s16(sample_index * 2, int(clampf(wave, -1.0, 1.0) * 32767.0))

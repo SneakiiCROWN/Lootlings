@@ -13,6 +13,7 @@ const ProfileStore = preload("res://profile_store.gd")
 const SettingsStore = preload("res://settings_store.gd")
 const ChestCatalog = preload("res://chest_catalog.gd")
 const AnalyticsLogger = preload("res://analytics_logger.gd")
+const DebugPanel = preload("res://debug_panel.gd")
 
 var failures: Array[String] = []
 
@@ -37,6 +38,20 @@ func run_tests() -> void:
 	var blank_profile := ProfileStore.create_default()
 	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision"), "fresh local profiles have stable identity and future account-link fields without forcing a name")
 	check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0 and AudioServer.get_bus_index("UI") >= 0 and AudioServer.get_bus_index("Ambience") >= 0, "Godot-native audio buses are available")
+	check(DebugPanel.allowed(true) and not DebugPanel.allowed(false), "development toolkit has an explicit release-build gate")
+	check(game.debug_enabled and game.debug_panel != null and not game.debug_panel.visible, "development toolkit exists but starts hidden in debug builds")
+	game.debug_panel.toggle()
+	check(game.debug_panel.visible and paused, "development panel visibly pauses the game while open")
+	game.debug_panel.toggle()
+	check(not game.debug_panel.visible and not paused, "closing the development panel resumes normal processing")
+	var variant_a: int = game.audio_manager.choose_variant("normal_hit", 4)
+	var variant_b: int = game.audio_manager.choose_variant("normal_hit", 4)
+	check(variant_a != variant_b, "frequent procedural audio avoids immediate variant repetition")
+	var hit_variant_a = game.audio_manager.make_tone(125.0, 0.11, 0.56, "normal_hit", 0)
+	var hit_variant_b = game.audio_manager.make_tone(125.0, 0.11, 0.56, "normal_hit", 1)
+	check(hit_variant_a.data != hit_variant_b.data, "frequent audio variants change timbre rather than only selecting a new index")
+	var long_music = game.audio_manager.make_ambient_loop(196.0)
+	check(long_music.data.size() == 12 * 22050 * 2, "procedural music uses a longer twelve-second A/B phrase")
 	game.startup_ui.configure(blank_profile, false, game.audio_settings)
 	game.startup_ui.skip_boot()
 	check(game.startup_ui.current_screen == "title", "a fresh install sees the Lootlings title before onboarding")
@@ -314,8 +329,48 @@ func run_tests() -> void:
 	check(game.effective_crit_chance() > game.crit_chance and game.current_attack_interval() < vanguard_interval, "Rogue weapons provide fast crit-focused combat")
 	game.inventory.equip(ItemCatalog.create_item("glimmerstaff", "COMMON", 883))
 	check(game.target_player_x() < game.PLAYER_ATTACK_X, "Mage weapons maintain ranged spellcaster spacing")
+	check(game.creature_renderer.weapon_pose_angle("RANGER", 0.0, 1.0) < 0.10 and game.creature_renderer.weapon_pose_angle("MAGE", 0.0, 1.0) < -0.30, "Ranger releases forward while Mage raises the staff instead of swinging like melee")
+	var equipped_family_before_debug: String = game.inventory.weapon_family()
+	game.debug_weapon_family_override = "ROGUE"
+	check(game.current_weapon_family() == "ROGUE" and game.inventory.weapon_family() == equipped_family_before_debug, "debug weapon presentation overrides stay session-only and do not mutate equipment")
+	game.debug_weapon_family_override = ""
+	game.state = "playing"
+	game.enemy_alive = true
+	game.enemy_serial += 1
+	game.player_x = game.target_player_x()
+	game.enemy_hp = 999.0
+	game.enemy_max_hp = 999.0
+	var ranged_hp_before: float = game.enemy_hp
+	game.perform_player_attack(false)
+	check(game.attack_projectiles.size() == 1 and is_equal_approx(game.enemy_hp, ranged_hp_before), "Mage attacks launch a readable projectile before damage resolves")
+	game.update_attack_projectiles(0.3)
+	check(game.attack_projectiles.is_empty() and game.enemy_hp < ranged_hp_before, "Mage projectile resolves damage on arrival")
+	game.inventory.equip(ItemCatalog.create_item("bonebow", "COMMON", 884))
+	game.enemy_hp = 999.0
+	ranged_hp_before = game.enemy_hp
+	game.perform_player_attack(false)
+	check(game.attack_projectiles.size() == 1 and is_equal_approx(game.enemy_hp, ranged_hp_before), "Ranger attacks launch an arrow before damage resolves")
+	game.update_attack_projectiles(0.3)
+	check(game.attack_projectiles.is_empty() and game.enemy_hp < ranged_hp_before, "Ranger arrow resolves damage on arrival")
+	game.inventory.equip(ItemCatalog.create_item("scrapfang_blade", "COMMON", 885))
+	game.player_x = game.target_player_x()
+	game.enemy_hp = 999.0
+	var melee_hp_before: float = game.enemy_hp
+	game.perform_player_attack(false)
+	check(game.attack_projectiles.is_empty() and game.enemy_hp < melee_hp_before, "Vanguard remains immediate close-range melee")
+	game.inventory.equip(ItemCatalog.create_item("moonbite_daggers", "COMMON", 886))
+	game.player_x = game.target_player_x()
+	game.enemy_hp = 999.0
+	melee_hp_before = game.enemy_hp
+	game.perform_player_attack(false)
+	check(game.attack_projectiles.is_empty() and game.enemy_hp < melee_hp_before, "Rogue remains immediate close-range melee")
 	game.inventory.equipped = original_equipped
 	game.start_run()
+	game.debug_god_mode = true
+	var god_hp_before: float = game.player_hp
+	game.perform_enemy_attack()
+	check(is_equal_approx(game.player_hp, god_hp_before), "development god mode is a real incoming-damage guard")
+	game.debug_god_mode = false
 	game.enemy_archetype = "tank"
 	game.enemy_is_miniboss = false
 	game.enemy_is_boss = false

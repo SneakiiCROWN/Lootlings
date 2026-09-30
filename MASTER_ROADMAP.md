@@ -13,9 +13,10 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 ## 1. Foundation — Active
 
-- Boot ignition, title-first first-launch/returning flow, offline profile, settings, five-bus audible procedural mix, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
+- Boot ignition, title-first first-launch/returning flow, offline profile, settings, five-bus anti-fatigue procedural mix, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
 - Current canonical Relic Beast, Hideout, three-zone expedition, 15-wave loop, merchant, Stash, Shrine, rewards, and saves remain the playable baseline.
-- Current world-life layer includes bounded Hideout residents, contextual speech, Profile/Title navigation, and a responsive Relic Shrine interaction. Next foundation work: accessibility controls, input remapping where useful, save backup/recovery, device lifecycle handling, production audio, and wider shared-component adoption.
+- Debug builds include a gated F1 development toolkit for encounter, reward, Core, weapon, economy, speed, result, and exact Lootlings-save QA. Vanguard/Rogue resolve as melee while Ranger/Mage use bounded projectiles whose visible arrival matches damage.
+- Current world-life layer includes bounded Hideout residents, contextual speech, randomized mascot micro-reaction, Profile/Title navigation, and a responsive Relic Shrine interaction. Next foundation work: accessibility controls, input remapping where useful, save backup/recovery, device lifecycle handling, production audio, and wider shared-component adoption.
 
 ## 2. Loot / Items
 
@@ -37,6 +38,7 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 - Preserve the canonical neutral Relic Beast. Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, and Gloomlet remain separate canonical identities.
 - Profile hooks support current Lootling, optional nickname, profile icon, title, banner, badges, favourite weapon, and cosmetic IDs.
+- Starter roster/selection should begin only when clean transparent runtime sprites can represent the canonical identities. Do not use malformed sheet crops or invented substitutes merely to activate the profile hook.
 - Future cosmetic slots: horn/ear accessory, head/hood, scarf/cape, armour appearance, satchel, Core effect, weapon skin, aura/trail, emote, victory pose, icon, title, and banner.
 - Cosmetics should normally express identity, not raw power.
 

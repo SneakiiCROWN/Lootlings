@@ -17,6 +17,7 @@ const AnalyticsLogger = preload("res://analytics_logger.gd")
 const AudioManager = preload("res://audio_manager.gd")
 const StartupUI = preload("res://startup_ui.gd")
 const ItemIcon = preload("res://item_icon.gd")
+const DebugPanel = preload("res://debug_panel.gd")
 const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
@@ -37,6 +38,7 @@ const ENEMY_X := 372.0
 const UPGRADES := GameCatalog.UPGRADES
 
 var rng := RandomNumberGenerator.new()
+var visual_rng := RandomNumberGenerator.new()
 var build = BuildSystem.new()
 var creature_renderer = CreatureRenderer.new()
 var loot_system = LootSystem.new()
@@ -132,6 +134,9 @@ var player_flash := 0.0
 var squash := 0.0
 var attack_anim := 0.0
 var attack_was_tap := false
+var player_idle_reaction := 0.0
+var player_idle_reaction_clock := 3.0
+var player_idle_reaction_direction := 1.0
 var enemy_attack_anim := 0.0
 var enemy_recoil := 0.0
 var enemy_squash := 0.0
@@ -207,11 +212,18 @@ var abandon_panel: Panel
 var hideout_ui
 var startup_ui
 var audio_manager
+var debug_panel
+var debug_enabled := false
+var debug_god_mode := false
+var debug_weapon_family_override := ""
+var attack_projectiles: Array = []
+var enemy_serial := 0
 var profile := {}
 var audio_settings := {}
 
 func _ready() -> void:
 	rng.randomize()
+	visual_rng.randomize()
 	title_font = ThemeDB.fallback_font
 	body_font = ThemeDB.fallback_font
 	build_overlay_ui()
@@ -223,9 +235,138 @@ func _ready() -> void:
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	build_hideout()
 	build_foundation_services()
+	build_debug_tools()
 	show_startup()
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
+
+func build_debug_tools() -> void:
+	debug_enabled = DebugPanel.allowed(OS.is_debug_build())
+	if not debug_enabled:
+		return
+	debug_panel = DebugPanel.new()
+	add_child(debug_panel)
+	debug_panel.configure(self)
+
+func current_weapon_family() -> String:
+	if debug_enabled and not debug_weapon_family_override.is_empty():
+		return debug_weapon_family_override
+	return inventory.weapon_family()
+
+func debug_snapshot() -> String:
+	return "STATE %s  •  WAVE %d  •  SEED %d\nHP %.0f/%.0f  •  %s  •  %s\nBUILD %s" % [state.to_upper(), wave, rng.seed, player_hp, player_max_hp, current_weapon_family(), "GOD ON" if debug_god_mode else "GOD OFF", build.short_summary()]
+
+func debug_action(action: String, payload) -> String:
+	if not debug_enabled:
+		return "Debug tools are disabled."
+	match action:
+		"wave":
+			debug_jump_to_wave(int(payload))
+			return "Jumped to wave %d." % int(payload)
+		"kill":
+			if enemy_alive: kill_enemy()
+			return "Current enemy defeated."
+		"god":
+			debug_god_mode = not debug_god_mode
+			return "God mode %s." % ("enabled" if debug_god_mode else "disabled")
+		"hp":
+			player_hp = player_max_hp if payload == "full" else 1.0
+			return "Player HP set to %.0f." % player_hp
+		"victory", "defeat":
+			debug_show_result(action == "victory")
+			return "Previewing %s without rewards or saves." % action
+		"gold":
+			gold += int(payload); save_meta(); refresh_hideout()
+			return "Added %d Gold and saved." % int(payload)
+		"scrap":
+			inventory.scrap += int(payload); inventory.save(INVENTORY_SAVE_PATH); refresh_hideout()
+			return "Added %d Scrap and saved." % int(payload)
+		"shards":
+			meta_shards += int(payload); save_meta(); refresh_hideout()
+			return "Added %d Star Shards and saved." % int(payload)
+		"scrip":
+			debug_ensure_run(); coins += int(payload)
+			return "Added %d run-only Scrip." % int(payload)
+		"xp":
+			debug_ensure_run(); add_xp(maxf(1.0, xp_needed - xp + 1.0))
+			return "Forced one run level-up."
+		"drop":
+			debug_force_drop(str(payload))
+			return "Spawned %s equipment." % str(payload)
+		"hoard":
+			debug_ensure_run(); enemy_alive = false; pending_victory = false; item_review_due = true; prepare_hoard_chest()
+			return "Spawned live Hoard Chest."
+		"weapon":
+			debug_weapon_family_override = str(payload)
+			return "Weapon presentation set to %s (session only)." % str(payload)
+		"core":
+			debug_set_core(str(payload))
+			return "Core presentation set to %s (run only)." % str(payload)
+		"upgrade":
+			debug_ensure_run(); apply_upgrade_effect(UPGRADES[rng.randi_range(0, UPGRADES.size() - 1)])
+			return "Added one random run upgrade."
+		"speed":
+			Engine.time_scale = float(payload)
+			return "Test speed set to %d×." % int(payload)
+		"reset":
+			debug_reset_lootlings_saves()
+			return "Lootlings test saves reset."
+	return "No action."
+
+func debug_ensure_run() -> void:
+	if state not in ["playing", "upgrade", "item", "merchant", "hoard_chest", "boss_reward"]:
+		start_run()
+
+func debug_jump_to_wave(target_wave: int) -> void:
+	debug_ensure_run()
+	Engine.time_scale = 1.0
+	state = "playing"
+	wave = clampi(target_wave, 1, RUN_LAST_WAVE)
+	wave_kills = 0
+	last_spawned_wave = 0
+	special_intro_wave = wave
+	pending_zone_transition = false
+	pending_victory = false
+	merchant_due = false
+	item_review_due = false
+	pending_items.clear()
+	loot_drops.clear()
+	attack_projectiles.clear()
+	for panel in [upgrade_panel, item_panel, merchant_panel, boss_reward_panel, result_panel]:
+		panel.visible = false
+	spawn_enemy()
+
+func debug_force_drop(rarity: String) -> void:
+	debug_ensure_run()
+	var definition: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	var item := ItemCatalog.create_item(definition.id, rarity, rng.randi())
+	loot_drops.append({"item":item, "rarity":rarity, "boss_choice":false, "pos":Vector2(350, 430), "vel":Vector2(-70, -225), "pickup":1.0, "bounces":0, "squash":0.0, "color":ItemCatalog.rarity_color(rarity)})
+	play_audio_event("equipment_drop")
+
+func debug_set_core(identity: String) -> void:
+	debug_ensure_run()
+	build.reset()
+	if identity != "Neutral":
+		for stack in range(5):
+			build.add_upgrade({"tags":[identity]})
+
+func debug_show_result(victory: bool) -> void:
+	state = "result"
+	for panel in [upgrade_panel, item_panel, merchant_panel, boss_reward_panel]:
+		panel.visible = false
+	result_panel.visible = true
+	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
+	result_summary.text = "DEVELOPMENT PREVIEW\nNo rewards, stock refresh, or save changes.\n\nWave reached  %d / %d\nEnemies  %d" % [wave, RUN_LAST_WAVE, total_kills]
+	help_label.visible = false
+
+func debug_reset_lootlings_saves() -> void:
+	Engine.time_scale = 1.0
+	get_tree().paused = false
+	var exact_paths := [SAVE_PATH, INVENTORY_SAVE_PATH, HIDEOUT_SHOP_SAVE_PATH, PROFILE_SAVE_PATH, SETTINGS_SAVE_PATH, ANALYTICS_PATH]
+	for path in exact_paths:
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	get_tree().reload_current_scene()
 
 func build_foundation_services() -> void:
 	audio_manager = AudioManager.new()
@@ -827,6 +968,8 @@ func start_run() -> void:
 	shop.rerolls = 0
 	attack_anim = 0.0
 	attack_was_tap = false
+	player_idle_reaction = 0.0
+	player_idle_reaction_clock = visual_rng.randf_range(2.6, 5.2)
 	enemy_attack_anim = 0.0
 	enemy_recoil = 0.0
 	enemy_death_anim = 0.0
@@ -863,6 +1006,8 @@ func start_run() -> void:
 	queue_redraw()
 
 func spawn_enemy() -> void:
+	enemy_serial += 1
+	attack_projectiles.clear()
 	var new_wave := wave != last_spawned_wave
 	current_zone = ZoneCatalog.for_wave(wave)
 	current_zone_id = current_zone.id
@@ -1063,7 +1208,7 @@ func _process(delta: float) -> void:
 
 func current_attack_interval() -> float:
 	var result := attack_interval
-	match inventory.weapon_family():
+	match current_weapon_family():
 		"RANGER": result *= 0.78
 		"MAGE": result *= 0.95
 		"ROGUE": result *= 0.68
@@ -1075,7 +1220,7 @@ func current_attack_interval() -> float:
 	return maxf(0.16, result)
 
 func target_player_x() -> float:
-	if inventory.weapon_family() in ["RANGER", "MAGE"]:
+	if current_weapon_family() in ["RANGER", "MAGE"]:
 		return 162.0
 	if enemy_is_boss:
 		return 184.0
@@ -1098,7 +1243,7 @@ func request_tap_attack() -> void:
 	perform_player_attack(true)
 
 func effective_crit_chance() -> float:
-	var family_bonus := 0.10 if inventory.weapon_family() == "ROGUE" else 0.06 if inventory.weapon_family() == "RANGER" else 0.0
+	var family_bonus := 0.10 if current_weapon_family() == "ROGUE" else 0.06 if current_weapon_family() == "RANGER" else 0.0
 	return minf(0.85, crit_chance + inventory.effect_total("crit") + family_bonus)
 
 func equipment_damage_multiplier() -> float:
@@ -1107,7 +1252,7 @@ func equipment_damage_multiplier() -> float:
 		result += inventory.effect_total("low_health_damage")
 	if enemy_is_boss:
 		result += inventory.effect_total("boss_damage")
-	match inventory.weapon_family():
+	match current_weapon_family():
 		"VANGUARD": result *= 1.18
 		"RANGER": result *= 0.82
 		"MAGE": result *= 0.95
@@ -1121,6 +1266,30 @@ func perform_player_attack(is_tap: bool) -> void:
 		tap_tutorial_seen = true
 		help_label.visible = false
 		play_audio_event("tap_attack")
+	var family := current_weapon_family()
+	if family in ["RANGER", "MAGE"]:
+		var travel_time := 0.12 if family == "RANGER" else 0.17
+		if is_tap:
+			travel_time *= 0.82
+		attack_projectiles.append({
+			"family": family,
+			"is_tap": is_tap,
+			"pos": Vector2(player_x + 28.0, 442.0),
+			"start": Vector2(player_x + 28.0, 442.0),
+			"target": Vector2(ENEMY_X - 18.0, 446.0),
+			"life": travel_time,
+			"max_life": travel_time,
+			"enemy_serial": enemy_serial
+		})
+		squash = 0.12
+		attack_anim = 0.22
+		attack_was_tap = is_tap
+		return
+	resolve_player_attack(is_tap)
+
+func resolve_player_attack(is_tap: bool) -> void:
+	if state != "playing" or not enemy_alive:
+		return
 	var hit_count := 1 if is_tap else multi_hits + int(inventory.effect_total("extra_hits"))
 	var damage_scale := tap_mult if is_tap else 1.0
 	attack_sequence += 1
@@ -1149,7 +1318,7 @@ func perform_player_attack(is_tap: bool) -> void:
 	if enemy_alive and lightning_count > 0 and attack_sequence % chain_interval == 0:
 		var chain_damage := base_damage * (0.35 + lightning_count * 0.14) * (1.0 + (multi_hits - 1) * 0.18)
 		deal_elemental_hit(chain_damage, "Lightning")
-	if enemy_alive and inventory.weapon_family() == "MAGE":
+	if enemy_alive and current_weapon_family() == "MAGE":
 		var repeat_every := maxi(3, int(inventory.effect_total("repeat_every"))) if inventory.effect_total("repeat_every") > 0.0 else 4
 		if attack_sequence % repeat_every == 0:
 			var spell_identity := build.dominant()
@@ -1215,7 +1384,10 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		add_float("WARD +%.0f" % ward, Vector2(325, 410), Color("#d194ff"), 17)
 		add_particles(Vector2(365, 465), Color("#b86cff"), 6)
 		return
-	var style_armor := 0.04 if inventory.weapon_family() == "VANGUARD" else 0.0
+	if debug_enabled and debug_god_mode:
+		add_float("BLOCKED", Vector2(135, 430), Color("#8fe7ff"), 15)
+		return
+	var style_armor := 0.04 if current_weapon_family() == "VANGUARD" else 0.0
 	var effective_armor := armor + inventory.effect_total("armor") + style_armor
 	var damage := enemy_damage * damage_scale * (1.0 - minf(effective_armor, 0.72))
 	player_hp -= damage
@@ -1264,12 +1436,10 @@ func update_elemental_damage(delta: float) -> void:
 	if enemy_burn_dps > 0.0:
 		var burn_damage := enemy_burn_dps * 0.4 * enemy_hit_multiplier
 		total_dot += burn_damage
-		add_float("BURN %.0f" % burn_damage, Vector2(322, 400), build.color("Fire"), 15)
 		add_particles(Vector2(360, 446), build.color("Fire"), 2)
 	if enemy_poison_stacks > 0:
 		var poison_damage := base_damage * 0.012 * build.count("Poison") * enemy_poison_stacks * enemy_hit_multiplier
 		total_dot += poison_damage
-		add_float("TOXIN %.0f" % poison_damage, Vector2(350, 430), build.color("Poison"), 15)
 		add_particles(Vector2(375, 480), build.color("Poison"), 2)
 		if plague_power > 0:
 			var siphon_ratio := minf(0.20, 0.10 + plague_power * 0.05)
@@ -1847,6 +2017,12 @@ func save_meta() -> void:
 	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if debug_enabled and event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F1:
+		debug_panel.toggle()
+		get_viewport().set_input_as_handled()
+		return
+	if debug_enabled and debug_panel != null and debug_panel.visible:
+		return
 	if state == "hoard_chest" and hoard_chest_phase == "ready" and ((event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed) or (event is InputEventKey and event.pressed and event.keycode == KEY_SPACE)):
 		open_hoard_chest()
 		get_viewport().set_input_as_handled()
@@ -1870,6 +2046,13 @@ func update_effects(delta: float) -> void:
 	screen_shake = maxf(0.0, screen_shake - delta)
 	squash = maxf(0.0, squash - delta)
 	attack_anim = maxf(0.0, attack_anim - delta)
+	player_idle_reaction = maxf(0.0, player_idle_reaction - delta)
+	if state == "playing" and attack_anim <= 0.0:
+		player_idle_reaction_clock -= delta
+		if player_idle_reaction_clock <= 0.0:
+			player_idle_reaction = 0.34
+			player_idle_reaction_clock = visual_rng.randf_range(3.2, 7.0)
+			player_idle_reaction_direction = -1.0 if visual_rng.randf() < 0.5 else 1.0
 	enemy_attack_anim = maxf(0.0, enemy_attack_anim - delta)
 	enemy_squash = maxf(0.0, enemy_squash - delta)
 	enemy_death_anim = maxf(0.0, enemy_death_anim - delta)
@@ -1886,6 +2069,7 @@ func update_effects(delta: float) -> void:
 	upgrade_flash = maxf(0.0, upgrade_flash - delta)
 	wave_banner_timer = maxf(0.0, wave_banner_timer - delta)
 	enemy_recoil = move_toward(enemy_recoil, 0.0, 115.0 * delta)
+	update_attack_projectiles(delta)
 	for item in floating_texts:
 		item.life -= delta
 		item.pos.y -= 42.0 * delta
@@ -1944,6 +2128,21 @@ func update_effects(delta: float) -> void:
 			add_particles(loot_drops[i].pos, loot_drops[i].color, 18)
 			play_rarity_audio(revealed_item.get("rarity", "COMMON"))
 			loot_drops.remove_at(i)
+
+func update_attack_projectiles(delta: float) -> void:
+	for projectile in attack_projectiles:
+		projectile.life -= delta
+		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
+		projectile.pos = projectile.start.lerp(projectile.target, progress)
+		if projectile.family == "MAGE":
+			projectile.pos.y -= sin(progress * PI) * 18.0
+	for index in range(attack_projectiles.size() - 1, -1, -1):
+		var projectile: Dictionary = attack_projectiles[index]
+		if projectile.life > 0.0:
+			continue
+		attack_projectiles.remove_at(index)
+		if state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
+			resolve_player_attack(bool(projectile.is_tap))
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
 	var is_dot := size_value <= 15
@@ -2089,9 +2288,18 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_alive and show_combat_context and not special_entering:
 		draw_string(body_font, Vector2(40, 210), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, 19, Color("#f4f7ff"))
 		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
+		var status_x := 165.0
+		if enemy_burn_dps > 0.0:
+			draw_status_chip(Vector2(status_x, 261), "BURN", build.color("Fire"))
+			status_x += 80.0
+		if enemy_poison_stacks > 0:
+			draw_status_chip(Vector2(status_x, 261), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"))
 	var idle_bob := sin(run_time * 4.3) * 3.0
 	var attack_ratio := clampf(attack_anim / 0.22, 0.0, 1.0)
-	var lunge_distance := 18.0 if attack_was_tap else 16.0 if inventory.weapon_family() == "VANGUARD" else 13.0
+	var family := current_weapon_family()
+	var lunge_distance := 20.0 if family == "ROGUE" else 17.0 if family == "VANGUARD" else 3.0
+	if attack_was_tap:
+		lunge_distance += 3.0 if family in ["VANGUARD", "ROGUE"] else 1.0
 	var lunge := attack_ratio * lunge_distance
 	var player_pos := Vector2(player_x + lunge, 472 + idle_bob) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
@@ -2137,7 +2345,7 @@ func draw_stats_strip() -> void:
 	var identity := build.dominant()
 	var core_title := "DORMANT CORE" if identity == "Neutral" else "%s CORE • %s" % [identity.to_upper(), build.tier_name(identity)]
 	draw_circle(Vector2(33, 730), 6, build.color())
-	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [inventory.weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
+	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [current_weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
 	draw_string(body_font, Vector2(344, 735), "◆ %d" % inventory.scrap, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
 	var labels := ["DAMAGE", "RATE", "CRIT", "HITS"]
 	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
@@ -2147,6 +2355,13 @@ func draw_stats_strip() -> void:
 		draw_rect(card, Color("#4f638e"), false, 1)
 		draw_string(body_font, Vector2(card.position.x, 756), labels[i], HORIZONTAL_ALIGNMENT_CENTER, card.size.x, 9, Color("#91a7d2"))
 		draw_string(title_font, Vector2(card.position.x, 780), values[i], HORIZONTAL_ALIGNMENT_CENTER, card.size.x, 18, Color("#f4f7ff"))
+
+func draw_status_chip(pos: Vector2, text_value: String, color: Color) -> void:
+	var rect := Rect2(pos.x - 36.0, pos.y - 12.0, 72.0, 19.0)
+	draw_rect(rect, Color("#080f24df"), true)
+	draw_rect(rect, Color(color.r, color.g, color.b, 0.78), false, 1.5)
+	draw_circle(pos + Vector2(-27, -2), 3.0, color)
+	draw_string(body_font, pos + Vector2(-21, 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, 54, 9, Color("#f5f7ff"))
 
 func build_summary() -> String:
 	return build.short_summary()
@@ -2164,6 +2379,7 @@ func draw_effects() -> void:
 		draw_hoard_chest()
 	for drop in loot_drops:
 		draw_loot_drop(drop)
+	draw_attack_projectiles()
 	for pickup in reward_pickups:
 		var pop := clampf(pickup.life / pickup.max_life * 2.0, 0.0, 1.0)
 		# Avoid submitting a four-point polygon collapsed to one position on its
@@ -2247,6 +2463,23 @@ func draw_effects() -> void:
 		color.a = alpha
 		draw_string(body_font, item.pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, Color(0.02, 0.03, 0.08, alpha * 0.80))
 		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
+
+func draw_attack_projectiles() -> void:
+	for projectile in attack_projectiles:
+		var pos: Vector2 = projectile.pos
+		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
+		if projectile.family == "RANGER":
+			var direction := Vector2(1.0, 0.04).normalized()
+			draw_line(pos - direction * 17.0, pos + direction * 9.0, Color("#f3d78c"), 3.0)
+			draw_colored_polygon(PackedVector2Array([pos + direction * 13.0, pos + Vector2(-2,-6), pos + Vector2(-1,6)]), Color("#e8f4ff"))
+			draw_line(pos - direction * 15.0, pos + Vector2(-21,-5), Color(0.58, 0.88, 1.0, 0.58), 2.0)
+		else:
+			var pulse := 1.0 + sin(progress * PI * 4.0) * 0.12
+			var trail := Color(0.60, 0.44, 1.0, 0.34)
+			draw_circle(pos - Vector2(15, 0), 8.0 * pulse, trail)
+			draw_circle(pos, 11.0 * pulse, Color("#8ee8ff"))
+			draw_circle(pos, 6.0 * pulse, Color("#f2e9ff"))
+			draw_arc(pos, 15.0, progress * TAU * 2.0, progress * TAU * 2.0 + 4.4, 14, Color("#c9a4ff"), 2.0)
 
 func draw_hoard_chest() -> void:
 	var center := Vector2(240, hoard_chest_y)

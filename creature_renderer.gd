@@ -28,7 +28,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		g.draw_circle(aura_pos, 2.5 + evolution_tier, aura_color)
 	g.draw_set_transform(pos + Vector2(-4, 46), 0.0, Vector2(1.0, 0.30))
 	g.draw_circle(Vector2.ZERO, 55, Color("#07101f88"))
-	var family: String = g.inventory.weapon_family()
+	var family: String = g.current_weapon_family()
 	var idle_speed := 2.4
 	var idle_amount := 0.012
 	match family:
@@ -46,10 +46,12 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 			idle_amount = 0.018
 	var idle_tilt: float = sin(float(g.run_time) * idle_speed) * idle_amount
 	var idle_breath: float = sin(float(g.run_time) * 1.9) * 0.010
+	var reaction_ratio: float = clampf(float(g.player_idle_reaction) / 0.34, 0.0, 1.0)
+	var idle_reaction: float = sin(reaction_ratio * PI) * 0.022 * float(g.player_idle_reaction_direction)
 	var attack_pose: float = clampf(float(g.attack_anim) / 0.22, 0.0, 1.0)
 	var attack_tilt := 0.11 if g.attack_was_tap else 0.085
 	var attack_stretch := 0.060 if g.attack_was_tap else 0.045
-	var pose_rotation: float = idle_tilt + attack_pose * attack_tilt
+	var pose_rotation: float = idle_tilt + idle_reaction + attack_pose * attack_tilt
 	var pose_scale := Vector2(scale_x * (1.0 + idle_breath + attack_pose * attack_stretch) * float(g.player_facing), scale_y * (1.0 - idle_breath * 0.72 - attack_pose * 0.035))
 	if hurt:
 		pose_rotation -= 0.065 * float(g.player_facing)
@@ -65,9 +67,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		g.draw_arc(Vector2(17, 3), 14 + evolution_tier * 3, g.run_time * 2.0, g.run_time * 2.0 + 4.9, 18, core_color.lightened(0.25), 2 + evolution_tier)
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var windup := clampf(1.0 - g.attack_clock / 0.16, 0.0, 1.0) if g.attack_anim <= 0.0 else 0.0
-	var weapon_angle := lerpf(-0.28, -0.72, windup)
-	if g.attack_anim > 0.0:
-		weapon_angle = lerpf(-0.28, 0.42, g.attack_anim / 0.22)
+	var weapon_angle := weapon_pose_angle(family, windup, clampf(g.attack_anim / 0.22, 0.0, 1.0))
 	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
 	match family:
 		"RANGER": draw_bow(g, pos + Vector2(5, 0), weapon_angle, weapon_growth, weapon_color)
@@ -158,17 +158,28 @@ func draw_lootling_procedural(g, pos: Vector2, hurt: bool) -> void:
 	if evolution_tier > 0:
 		g.draw_arc(Vector2(0, 35), 11 + evolution_tier * 3, g.run_time * 2.0, g.run_time * 2.0 + 4.8, 18, core_color.lightened(0.25), 2 + evolution_tier)
 	var windup := clampf(1.0 - g.attack_clock / 0.16, 0.0, 1.0) if g.attack_anim <= 0.0 else 0.0
-	var weapon_angle := lerpf(-0.28, -0.72, windup)
-	if g.attack_anim > 0.0:
-		weapon_angle = lerpf(-0.28, 0.42, g.attack_anim / 0.22)
 	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
-	var family: String = g.inventory.weapon_family()
+	var family: String = g.current_weapon_family()
+	var weapon_angle := weapon_pose_angle(family, windup, clampf(g.attack_anim / 0.22, 0.0, 1.0))
 	match family:
 		"RANGER": draw_bow(g, pos, weapon_angle, weapon_growth, weapon_color)
 		"MAGE": draw_staff(g, pos, weapon_angle, weapon_growth, weapon_color, core_color)
 		"ROGUE": draw_daggers(g, pos, weapon_angle, weapon_growth, weapon_color)
 		_: draw_vanguard(g, pos, weapon_angle, weapon_growth, weapon_color, core_color, identity)
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+func weapon_pose_angle(family: String, windup: float, attack_pose: float) -> float:
+	match family:
+		"RANGER":
+			# Raise and draw the bow, then give it a small release snap instead of a melee swing.
+			return lerpf(-0.12, 0.04, attack_pose) if attack_pose > 0.0 else lerpf(-0.12, -0.30, windup)
+		"MAGE":
+			# The staff lifts toward the target while the projectile charges/releases.
+			return lerpf(-0.20, -0.42, attack_pose) if attack_pose > 0.0 else lerpf(-0.20, -0.36, windup)
+		"ROGUE":
+			return lerpf(-0.20, 0.62, attack_pose) if attack_pose > 0.0 else lerpf(-0.20, -0.52, windup)
+		_:
+			return lerpf(-0.28, 0.48, attack_pose) if attack_pose > 0.0 else lerpf(-0.28, -0.72, windup)
 
 func draw_vanguard(g, pos: Vector2, angle: float, growth: float, color: Color, core_color: Color, identity: String) -> void:
 	var accent := core_color if identity != "Neutral" else Color("#ffbd55")
