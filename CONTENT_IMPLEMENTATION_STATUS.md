@@ -25,8 +25,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Echoing / Hungry / Hoarder / Shiny | DEFINED_DATA | Master-catalog identities retained for later mechanics/art/collection hooks. |
 | Solo Duelist / Heavy Solo | LIVE | Current single-target combat architecture. |
 | Duos / Guard+Caster / Scraprat Pack / treasure escape / Mimic Room / Elite Guard | DEFINED_DATA | Composition contracts exist; simultaneous targeting and dedicated assets intentionally deferred. |
-| Act II–V zones | LIVE — PARTIAL BETA ART | Mossglass/Frostbell/Cinder have approved painted biomes; Mossglass/Cinder have distinct boss cutouts. Other expanded regions still reuse existing art. Solo mechanics/balance unchanged; multi-actor encounters deferred. |
-| The First Hoard | LIVE — TEMP ART | Ninth unlockable new region; same established reward flow, heavy patrol identity and curated existing loot. Full endgame narrative/bespoke boss remains future. |
+| Act II–V zones | LIVE — BETA SCENERY | Every expanded region has a distinct approved-art composition; Mossglass/Cinder also have distinct boss cutouts. Final high-resolution environments and remaining boss/actor art still needed. Solo mechanics/balance unchanged; multi-actor encounters deferred. |
+| The First Hoard | LIVE — BETA SCENERY | Distinct treasury/throne composition, established reward flow/heavy patrol/curated loot. Bespoke boss mechanics/body remain future. |
 
 ## Loot, weapons, and rewards
 

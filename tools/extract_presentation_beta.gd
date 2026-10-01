@@ -2,7 +2,7 @@ extends SceneTree
 
 const SOURCE := "res://art/reference/phase2_master/"
 
-func clear_backdrop(image: Image) -> void:
+static func clear_backdrop(image: Image) -> void:
 	image.convert(Image.FORMAT_RGBA8)
 	var visited := PackedByteArray()
 	visited.resize(image.get_width() * image.get_height())
@@ -25,6 +25,32 @@ func clear_backdrop(image: Image) -> void:
 		if pixel.a < 0.01 or maxf(pixel.r, maxf(pixel.g, pixel.b)) < 0.055:
 			image.set_pixelv(point, Color.TRANSPARENT)
 			for offset in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]: queue.append(point + offset)
+
+static func retain_largest_body(image: Image) -> Image:
+	var visited := PackedByteArray()
+	visited.resize(image.get_width() * image.get_height())
+	var largest: Array[Vector2i] = []
+	for y in range(image.get_height()):
+		for x in range(image.get_width()):
+			if visited[y * image.get_width() + x] or image.get_pixel(x, y).a < 0.05: continue
+			var component: Array[Vector2i] = [Vector2i(x, y)]
+			visited[y * image.get_width() + x] = 1
+			var cursor := 0
+			while cursor < component.size():
+				var point := component[cursor]
+				cursor += 1
+				for offset in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+					var next: Vector2i = point + offset
+					if next.x < 0 or next.y < 0 or next.x >= image.get_width() or next.y >= image.get_height(): continue
+					var index := next.y * image.get_width() + next.x
+					if not visited[index] and image.get_pixelv(next).a >= 0.05:
+						visited[index] = 1
+						component.append(next)
+			if component.size() > largest.size(): largest = component
+	var result := Image.create(image.get_width(), image.get_height(), false, Image.FORMAT_RGBA8)
+	result.fill(Color.TRANSPARENT)
+	for point in largest: result.set_pixelv(point, image.get_pixelv(point))
+	return result
 
 func _initialize() -> void:
 	var ui := Image.load_from_file(SOURCE + "lootlings_hud_menu_cards_material_reference.png")

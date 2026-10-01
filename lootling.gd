@@ -2699,7 +2699,7 @@ func draw_background() -> void:
 	var depth_drift := sin(run_time * 0.20) * minf(2.5, max_source_y * 0.5)
 	var source := Rect2(0, clampf(max_source_y * 0.5 + depth_drift, 0.0, max_source_y), texture_size.x, source_height)
 	draw_texture_rect_region(arena_background, target, source, current_zone.get("presentation_tint", Color.WHITE))
-	if current_zone_id in ["mossglass_wilds", "frostbell_hollows", "cinder_crown"]:
+	if campaign_id != "act_i":
 		# Reuse painted masonry to anchor feet; scenery is not the collision plane.
 		draw_texture_rect(preload("res://beta_art_catalog.gd").PLATFORM, Rect2(0, 504, 480, 110), false, Color("#ddb99a") if current_zone_id == "cinder_crown" else Color.WHITE)
 	# Quiet the combat band slightly while keeping the lanterns and moon visible.

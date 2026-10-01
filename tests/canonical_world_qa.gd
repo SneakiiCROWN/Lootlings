@@ -46,10 +46,14 @@ func run_qa() -> void:
 		for wave in [1, 6, 11]:
 			var zone := Campaign.zone_for(id, wave)
 			assert(zone.background != null)
-	for id in ["mossglass_wilds", "frostbell_hollows", "cinder_crown"]:
+	var region_paths: Dictionary = {}
+	for id in Campaign.ORDER.slice(1):
 		game.campaign_id = id
 		game.start_run()
 		assert(game.current_zone.background.resource_path.contains("/beta/"))
+		assert(not region_paths.has(game.current_zone.background.resource_path), "Each expanded region needs a distinct composition")
+		region_paths[game.current_zone.background.resource_path] = true
+		assert(game.current_zone.presentation_tint == Color.WHITE)
 		game.wave_banner_timer = 0
 		game.presentation_director.toast_panel.visible = false
 		if native: await capture("canonical_region_" + id)
@@ -90,7 +94,7 @@ func run_qa() -> void:
 	if native: await capture("canonical_dialogue")
 	game.queue_free()
 	await process_frame
-	print("CANONICAL WORLD QA PASSED: six real identities, selectable documented Gloomlet fallback, ten story mappings, three biome integrations, named dialogue")
+	print("CANONICAL WORLD QA PASSED: six real identities, selectable documented Gloomlet fallback, ten story mappings, nine unique region compositions, named dialogue")
 	quit(0)
 
 func capture(label: String) -> void:

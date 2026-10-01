@@ -29,3 +29,18 @@ Offline exporter: `tools/extract_beta_boards.gd`. Exact rectangles/thresholds ar
 `tools/extract_presentation_beta.gd` mechanically exports gold ornament from HUD/material board rectangle (351,1017,214,52) and dark material (1048,351,250,182), blended at 25% into existing leather/relic panel interiors. Original PNGs/caps are preserved; derived assets live at `art/ui/beta/`. The shared renderer adds bounded top/bottom ornament draws. Original currency/rarity icons, states and meter logic remain intact.
 
 Three deliberate adult **bust portraits**, not full-body crops, come from `lootlings_heroes_creatures_demon_cutout_reference.png`: Patch (748,37,230,290), Sera (1124,29,268,310), Ilex (55,556,230,300). Edge-connected black backdrop only is removed, then resized to 256×320; paths `art/sprites/npcs/beta/{patch,sera,ilex}_portrait.png`. Original painted adult hero appearances serve the existing resident roles for beta. No canonical Lootling design is substituted; no new playable humanoid is implied. Portrait stations are framed intentionally; clean full-body resident exports remain outstanding.
+
+## Remaining region beta compositions
+
+`tools/compose_region_beta.gd` records exact untouched source panels and prop placements. All results are 480×568 under `art/backgrounds/beta/`; no source board labels/borders are included. Small source scenes are deliberately softer backdrops, not high-resolution final environment delivery.
+
+| File | Source/composition |
+| --- | --- |
+| `moonfen_marsh.png` | `lootlings_worlds_loot_and_adventure.png` moonlit marsh panel (1234,88,201,224) |
+| `starfall_sanctum.png` | Same board, sanctuary panel (1030,90,188,222) |
+| `skyhook_city.png` | Same board, sunlit city panel (410,91,191,221) |
+| `nullglass_gate.png` | Sanctuary backdrop plus blue portal from approved props board (900,350,391,368), at (70,42,340,350) |
+| `gearworks_foundry.png` | Existing Salvage Warrens painting plus forge from props board (180,731,281,330), at (283,40,176,246); lower sanctuary water strip forms the flooded canal |
+| `first_hoard_throne.png` | Existing Stash Vault painting plus trophy throne from props board (317,347,253,363), at (110,30,260,340) |
+
+Props use edge-connected black removal plus largest connected body to reject detached neighbouring fragments. No palette-swap region is claimed as new scenery. All nine expanded regions use unique imported compositions without additional tint; the common painted contact platform keeps feet readable. Props are inert scenery, not invented encounters/rewards. Act I's three original environments remain unchanged. Higher-resolution coherent world-specific backgrounds remain a final production request.

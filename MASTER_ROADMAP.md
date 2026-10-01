@@ -2,6 +2,8 @@
 
 ## Current canonical-world beta tranche
 
+Region continuation: every expanded campaign region now has a distinct approved-art composition rather than a flat reused-arena recolour. Six additional scenery integrations complete the beta background set; final high-resolution region art and remaining dedicated encounter bodies still need production work. Mechanics and unlock contracts are unchanged.
+
 Continuation: Gloomlet remains selectable using the documented prior temporary art; all seven identities now have Field Notes. Shared panel/material/ornament treatment, readable HUD captions/portrait, painted adult resident busts and selected-character/progression/event reactions are live. Full-body resident sprites and deeper visual expansion remain next, not claims made by portrait integration.
 
 Latest owner authority permits clean approved-board beta extracts. Five named canonical bodies are live, neutral exact; Gloomlet newly gated pending clean export, old saves preserved. Three biomes, market/floor, three distinct held weapons and two regional bosses are integrated. World Bible and Archive Field Notes, region travel writing and named resident/Forge/contract voices establish the world. Sources/limitations: `BETA_ART_PROVENANCE.md`.

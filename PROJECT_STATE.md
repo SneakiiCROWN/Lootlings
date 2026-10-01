@@ -2,6 +2,12 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — campaign region visual identities
+
+All nine expanded regions now have distinct imported beta compositions; Act I retains its three established paintings. Six additions: Moonfen marsh, Starfall sanctuary, Skyhook city, Nullglass portal gallery, flooded Gearworks foundry and First Hoard throne treasury. No global palette swaps: approved scenery panels and clean props are mechanically extracted/recomposed with original sources preserved. Exporter rejects detached fragments; common contact flooring keeps feet anchored. Low-resolution board scenery is intentionally soft behind actors; final high-resolution region exports remain needed. Sources: `BETA_ART_PROVENANCE.md` / `tools/compose_region_beta.gd`.
+
+Parser/import, smoke (unchanged 2/5), 36 regional runs (unchanged 9 wins), ten full reward/unlock paths and native OpenGL 480×854 canonical-world QA pass. Tests assert unique texture paths and untinted presentation for all nine regions. All six new gameplay scenes inspected; corrected a portal seam fragment and Gearworks' missing water before final QA. No stat, cadence, RNG, reward, progression or save changes; fixed-size static textures only, no extra runtime nodes or shader work. Android hardware certification remains pending.
+
 ### Continued overhaul — shared presentation and residents
 
 Gloomlet is selectable again with its explicitly labelled previous temporary stand-in; all seven IDs stay playable. Missing final art is not an availability gate. Field Notes includes all seven origins. This correction supersedes the art gating described in the previous tranche below.

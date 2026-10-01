@@ -79,8 +79,7 @@ static func zone_for(id: String, wave: int) -> Dictionary:
 	result.accent = tuning[4]
 	result.presentation_tint = Color.WHITE.lerp(tuning[4], 0.20)
 	result.background = BetaArt.region_background(id, result.background)
-	if id in ["mossglass_wilds", "frostbell_hollows", "cinder_crown"]:
-		result.presentation_tint = Color.WHITE
+	result.presentation_tint = Color.WHITE
 	result.story_line = Story.region_line(id, 0 if phase == 0 else 1 if phase == 1 else 2)
 	result.hp_scale = float(tuning[0]) * (1.0 + ORDER.find(id) * 0.015)
 	result.interval_scale = float(tuning[1])
