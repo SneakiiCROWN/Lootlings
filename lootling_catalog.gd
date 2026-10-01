@@ -26,9 +26,26 @@ const DEFAULT_FIELDS := {
 	"profile_icon":""
 }
 
+const BASE_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
+static var texture_cache: Dictionary = {}
+
+static func runtime_texture(id: String) -> Texture2D:
+	if not texture_cache.has(id):
+		var entry := definition(id)
+		texture_cache[id] = load(entry.runtime_sprite) if ResourceLoader.exists(entry.runtime_sprite) else BASE_TEXTURE
+	return texture_cache[id]
+
+static func presentation_tint(id: String) -> Color:
+	var entry := definition(id)
+	return Color.WHITE.lerp(entry.accent, 0.42) if entry.temp_art else Color.WHITE
+
 static func definition(id: String) -> Dictionary:
 	var result := DEFAULT_FIELDS.duplicate(true)
 	result.merge(ENTRIES.get(id, ENTRIES.relic_beast), true)
+	if id != "relic_beast" and ENTRIES.has(id) and str(result.runtime_sprite).is_empty():
+		result.runtime_sprite = "res://art/sprites/lootlings/%s_idle.png" % id
+	result.temp_art = not ResourceLoader.exists(str(result.runtime_sprite))
+	result.available = true
 	if result.profile_icon.is_empty() and not result.runtime_sprite.is_empty():
 		result.profile_icon = result.runtime_sprite
 	result.development_available = bool(result.available)
@@ -37,8 +54,7 @@ static func definition(id: String) -> Dictionary:
 static func selectable_ids() -> Array[String]:
 	var result: Array[String] = []
 	for id in ENTRIES:
-		if bool(ENTRIES[id].get("available", false)) and not str(ENTRIES[id].get("runtime_sprite", "")).is_empty():
-			result.append(id)
+		result.append(id)
 	return result
 
 static func is_runtime_ready(id: String) -> bool:

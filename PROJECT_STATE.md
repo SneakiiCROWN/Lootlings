@@ -2,6 +2,10 @@
 
 ## CURRENT STATE
 
+### Playable expansion — tranche A
+
+Seven Lootling IDs are now selectable from the existing first-profile flow or Profile → Change Lootling, persist in the existing schema-2 profile and render through cached catalog hooks in combat, Title and Hideout. Relic Beast remains exact canonical art. The six named identities use an explicitly labelled TEMP ART tinted neutral stand-in, with distinct accent/name and no power difference; this is permitted by the new gameplay-first expansion brief, not final canonical art. Supplying the catalog sprite path replaces the fallback without combat rewrites. Invalid/old selection loads fall back to Relic Beast. Full smoke/persistence regression passes, including reload of all seven IDs and unchanged five-seed results. No art regenerated/cropped.
+
 Playable Godot 4.7.2 portrait vertical slice with a player-facing Boot → Title → Profile/Hideout flow, persistent offline identity, reusable presentation/travel direction, contextual Hideout dialogue/life, an original long-form adventure score, and the validated sprite-based 15-wave expedition. Phase 1 now adds a shared higher-contrast visual shell, clearer upgrade/Peddler hierarchy and styled Results to the Rescue pass's slim HUD, item decisions, badge Archive, projectiles and painted Hoard Chest. The supplied 34-PNG Foundation UI v1 batch now replaces temporary chrome with texture-backed skins, meters, dividers and the brand wordmark; all 55 supplied Wave 2 production icons/crests are now integrated as recorded in `ASSET_NEEDED_PHASE1.md`. The final boss retains its unchanged three-item Epic+ Hoard Chest flow. Persistent Gold, Scrap, Star Shards, and Run Scrip retain separate responsibilities. Stable fallback `5c9df5056f492035689304b46551e817b5caafa2` is the previous verified checkpoint.
 
 ## Phase 2 Master Art Audit — documentation/reference checkpoint

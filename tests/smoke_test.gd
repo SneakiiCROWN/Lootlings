@@ -64,7 +64,12 @@ func run_tests() -> void:
 	check(game.state == "boot" and game.startup_ui.visible and not game.hideout_ui.visible, "the game opens with the skippable Relic Core boot presentation")
 	var blank_profile := ProfileStore.create_default()
 	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision") and blank_profile.has("customisation"), "fresh local profiles have stable identity and future account/customisation fields without forcing a name")
-	check(LootlingCatalog.selectable_ids() == ["relic_beast"] and LootlingCatalog.ENTRIES.size() == 7 and LootlingCatalog.definition("emberhorn").has("victory_pose") and LootlingCatalog.definition("mosskin").has("cosmetic_slots"), "starter catalog exposes only the clean Relic Beast runtime sprite while retaining complete metadata for all seven identities")
+	check(LootlingCatalog.selectable_ids().size() == 7 and not LootlingCatalog.definition("relic_beast").temp_art and LootlingCatalog.definition("emberhorn").temp_art, "seven cosmetic identities expose honest TEMP ART while neutral remains canonical")
+	for identity in LootlingCatalog.selectable_ids():
+		var identity_profile := ProfileStore.create_default()
+		identity_profile.current_lootling_id = identity
+		ProfileStore.save_profile("user://identity_test.cfg", identity_profile)
+		check(ProfileStore.load_profile("user://identity_test.cfg").current_lootling_id == identity and LootlingCatalog.runtime_texture(identity) != null, "selected identity survives reload: %s" % identity)
 	var vanguard_pose := ActionPoseCatalog.sample("VANGUARD", 1.0, 0.02, 1.0, 0.0, false)
 	var ranger_pose := ActionPoseCatalog.sample("RANGER", 1.0, 0.02, 1.0, 0.0, false)
 	check(vanguard_pose.phase == "ANTICIPATE" and not is_equal_approx(float(vanguard_pose.rotation), float(ranger_pose.rotation)), "data-driven action poses preserve distinct Vanguard and Ranger anticipation silhouettes")

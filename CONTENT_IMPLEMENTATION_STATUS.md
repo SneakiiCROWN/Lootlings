@@ -9,7 +9,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Neutral Relic Beast | LIVE | Exact canonical `art/sprites/relic_beast_base.png`; current base player. |
-| Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, Gloomlet | ASSET_NEEDED | Catalog/selector entries exist and stay locked until clean transparent standalone runtime sprites exist. Canonical sheets are reference only. |
+| Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, Gloomlet | LIVE — TEMP ART | Selectable/persistent cosmetic identities; labelled tinted neutral stand-in under latest gameplay-first brief. Canonical final art still required; sheets are not cropped. Cached runtime catalog hooks feed combat/Home/Title. |
 | Additional pose cutouts for all seven Lootlings | DEFERRED | Existing transform-driven pose layer is live. Four optional extra cutouts per identity are LATER; accepted idle art is sufficient for an initial honest identity integration. |
 
 ## Run, enemies, and world

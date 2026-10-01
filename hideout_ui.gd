@@ -20,6 +20,13 @@ const ItemIcon = preload("res://item_icon.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
 const DialogueDirector = preload("res://dialogue_director.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
+const LootlingCatalog = preload("res://lootling_catalog.gd")
+
+func actor_texture() -> Texture2D:
+	return LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast")))
+
+func actor_tint() -> Color:
+	return LootlingCatalog.presentation_tint(str(profile.get("current_lootling_id", "relic_beast")))
 const AchievementManager = preload("res://achievement_manager.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const HIDEOUT_BACKGROUND = preload("res://art/backgrounds/lootlings_hideout.png")
@@ -945,7 +952,7 @@ func draw_home_scene() -> void:
 	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_set_transform(Vector2(240, 422 + bob), sin(scene_time * 1.15) * 0.006, Vector2(breathe, 1.0 / breathe))
-	draw_texture_rect(MASCOT_TEXTURE, Rect2(-89, -89, 178, 178), false, Color.WHITE)
+	draw_texture_rect(actor_texture(), Rect2(-89, -89, 178, 178), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var core_pulse := 0.07 + maxf(0.0, sin(scene_time * 2.6)) * 0.07
 	draw_circle(Vector2(256, 425 + bob), 10.0 + sin(scene_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
@@ -997,7 +1004,7 @@ func draw_shop_scene() -> void:
 	var visitor_bob := sin(scene_time * 2.0) * 2.0
 	var visitor_breath := 1.0 + sin(scene_time * 1.7) * 0.009
 	draw_set_transform(Vector2(73, 153 + visitor_bob), sin(scene_time * 1.2) * 0.005, Vector2(visitor_breath, 1.0 / visitor_breath))
-	draw_texture_rect(MASCOT_TEXTURE, Rect2(-48, -48, 96, 96), false, Color.WHITE)
+	draw_texture_rect(actor_texture(), Rect2(-48, -48, 96, 96), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
@@ -1024,7 +1031,7 @@ func draw_shrine_scene() -> void:
 	draw_hideout_light(Vector2(406, 320), 16.0, 0.028, 1.7)
 	var breathe := 1.0 + sin(scene_time * 1.7) * 0.009
 	draw_set_transform(Vector2(109, 217 + bob), sin(scene_time * 1.1) * 0.005, Vector2(breathe, 1.0 / breathe))
-	draw_texture_rect(MASCOT_TEXTURE, Rect2(-75, -75, 150, 150), false, Color.WHITE)
+	draw_texture_rect(actor_texture(), Rect2(-75, -75, 150, 150), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_circle(Vector2(240, 234), 12 + sin(scene_time * 2.4) * 2.0, Color(0.68, 0.42, 1.0, 0.12))
 	if shrine_pulse > 0.0:

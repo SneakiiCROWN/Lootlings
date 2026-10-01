@@ -4,6 +4,8 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 ## Product Pillars
 
+Latest expansion brief permits honest, labelled TEMP ART to unblock gameplay. Seven cosmetic identities are now selectable/persistent through catalog-based texture hooks; named characters still need final canonical cutouts. Earlier art-only gating notes below describe prior checkpoints, not the new temporary-runtime permission.
+
 - Cute first, badass second: tiny relic-beasts, oversized scavenged equipment, readable silhouettes, and visible Relic Cores.
 - The reward fantasy is physical: chests land, loot ejects, rarity light appears, and rewards settle before menus summarize them.
 - Auto-combat remains watchable; tapping is useful and satisfying without being mandatory.

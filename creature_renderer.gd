@@ -1,6 +1,7 @@
 extends RefCounted
 
 const ActionPoseCatalog = preload("res://action_pose_catalog.gd")
+const LootlingCatalog = preload("res://lootling_catalog.gd")
 
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
@@ -40,11 +41,13 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	if hurt:
 		pose_scale *= Vector2(1.06, 0.94)
 	g.draw_set_transform(pos + Vector2(pose.offset), pose_rotation * float(g.player_facing), pose_scale)
-	var tint := Color("#ffb9b9") if hurt else Color.WHITE
+	var lootling_id: String = str(g.profile.get("current_lootling_id", "relic_beast"))
+	var texture := LootlingCatalog.runtime_texture(lootling_id)
+	var tint := Color("#ffb9b9") if hurt else LootlingCatalog.presentation_tint(lootling_id)
 	var outline := Color("#101426d9")
 	for edge in [Vector2(-2, 0), Vector2(2, 0), Vector2(0, -2), Vector2(0, 2)]:
-		g.draw_texture_rect(MASCOT_TEXTURE, Rect2(Vector2(-96, -128) + edge, Vector2(192, 192)), false, outline)
-	g.draw_texture_rect(MASCOT_TEXTURE, Rect2(-96, -128, 192, 192), false, tint)
+		g.draw_texture_rect(texture, Rect2(Vector2(-96, -128) + edge, Vector2(192, 192)), false, outline)
+	g.draw_texture_rect(texture, Rect2(-96, -128, 192, 192), false, tint)
 	# Relic builds add readable effects around the canonical chest core without repainting the mascot.
 	if identity != "Neutral":
 		var glow := core_color

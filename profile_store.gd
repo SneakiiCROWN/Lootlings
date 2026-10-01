@@ -43,6 +43,8 @@ static func load_profile(path: String) -> Dictionary:
 		profile.player_uuid = create_uuid()
 	profile.display_name = sanitize_name(str(profile.display_name))
 	profile.lootling_nickname = sanitize_name(str(profile.lootling_nickname))
+	if not preload("res://lootling_catalog.gd").ENTRIES.has(str(profile.current_lootling_id)):
+		profile.current_lootling_id = "relic_beast"
 	return profile
 
 static func save_profile(path: String, profile: Dictionary) -> Error:

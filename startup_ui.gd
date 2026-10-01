@@ -32,6 +32,14 @@ var profile_id_label: Label
 var setting_sliders := {}
 var setting_mutes := {}
 var presentation
+var selected_lootling_id := "relic_beast"
+var selector_portrait: TextureRect
+var selector_name: Label
+var selector_lore: Label
+var selector_note: Label
+var selector_confirm: Button
+var profile_identity: Label
+var profile_actor_name: Label
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -107,15 +115,15 @@ func build_profile() -> void:
 	panel.add_child(nickname_edit)
 	LootlingsUI.add_divider(panel, Rect2(38, 304, 336, 10), "gold")
 	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
-	make_label(panel, "RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
+	profile_actor_name = make_label(panel, "RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
 	LootlingsUI.add_icon(panel, Rect2(65, 362, 24, 24), "core_neutral")
 	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
+	profile_identity = identity_card
 	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	profile_id_label = make_label(panel, "", 10, Rect2(38, 444, 336, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#7183a8"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	var identity_note := make_label(panel, "Names can be changed here.\nYour support ID stays private.", 13, Rect2(45, 476, 322, 54), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c7e3"))
-	identity_note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	identity_note.clip_text = true
+	var change := make_button(panel, "CHANGE LOOTLING", Rect2(45, 482, 322, 54), Color("#17294b"), Color("#72c8ff"), 16)
+	change.pressed.connect(show_lootling_select)
 	var save := make_button(panel, "SAVE PROFILE", Rect2(40, 553, 332, 66), Color("#285c4c"), Color("#69e6b0"), 19)
 	save.pressed.connect(save_profile)
 
@@ -158,7 +166,7 @@ func build_lootling_select() -> void:
 	var panel := make_panel(lootling_content, Rect2(24, 66, 432, 730), Color("#0b1430f4"), Color("#d1a85a"))
 	LootlingsUI.apply_material(panel, "relic")
 	make_label(panel, "CHOOSE YOUR LOOTLING", 27, Rect2(20, 24, 392, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(panel, "Your first expedition begins with the Relic Beast.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	make_label(panel, "Seven identities. Equal starting power.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var portrait := TextureRect.new()
 	portrait.texture = MASCOT_TEXTURE
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -166,21 +174,40 @@ func build_lootling_select() -> void:
 	portrait.position = Vector2(92, 102)
 	portrait.size = Vector2(248, 244)
 	panel.add_child(portrait)
-	make_label(panel, "RELIC BEAST", 25, Rect2(40, 346, 352, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
-	make_label(panel, str(LootlingCatalog.definition("relic_beast").lore), 14, Rect2(48, 384, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
-	var locked_text := "COMING WITH CLEAN RUNTIME ART\nEmberhorn  •  Mosskin  •  Moonkip\nPebblewyrm  •  Glimmerfin  •  Gloomlet"
-	var locked := make_label(panel, locked_text, 10, Rect2(35, 459, 362, 88), HORIZONTAL_ALIGNMENT_CENTER, Color("#7f91b5"))
-	locked.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	locked.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	var confirm := make_button(panel, "CHOOSE RELIC BEAST", Rect2(48, 600, 336, 72), Color("#285c4c"), Color("#69e6b0"), 19)
-	confirm.pressed.connect(confirm_lootling)
+	selector_portrait = portrait
+	selector_name = make_label(panel, "", 25, Rect2(40, 346, 352, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
+	selector_lore = make_label(panel, "", 14, Rect2(48, 384, 336, 60), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
+	selector_lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	selector_note = make_label(panel, "", 12, Rect2(35, 450, 362, 70), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	var previous := make_button(panel, "‹ PREVIOUS", Rect2(38, 528, 166, 56), Color("#17294b"), Color("#72c8ff"), 15)
+	var next := make_button(panel, "NEXT ›", Rect2(228, 528, 166, 56), Color("#17294b"), Color("#72c8ff"), 15)
+	previous.pressed.connect(func(): cycle_lootling(-1))
+	next.pressed.connect(func(): cycle_lootling(1))
+	selector_confirm = make_button(panel, "CHOOSE", Rect2(48, 600, 336, 72), Color("#285c4c"), Color("#69e6b0"), 19)
+	selector_confirm.pressed.connect(confirm_lootling)
+
+func cycle_lootling(direction: int) -> void:
+	var ids := LootlingCatalog.selectable_ids()
+	selected_lootling_id = ids[posmod(ids.find(selected_lootling_id) + direction, ids.size())]
+	refresh_selector()
+
+func refresh_selector() -> void:
+	var entry := LootlingCatalog.definition(selected_lootling_id)
+	selector_portrait.texture = LootlingCatalog.runtime_texture(selected_lootling_id)
+	selector_portrait.modulate = LootlingCatalog.presentation_tint(selected_lootling_id)
+	selector_name.text = str(entry.display_name).to_upper()
+	selector_lore.text = str(entry.lore)
+	selector_note.text = "TEMP ART • tinted Relic Beast stand-in\nCanonical sprite pending • cosmetic identity only" if entry.temp_art else "CANONICAL RELIC BEAST\nAny weapon • any Relic build"
+	selector_confirm.text = "CHOOSE %s" % str(entry.display_name).to_upper()
 
 func show_lootling_select() -> void:
+	selected_lootling_id = str(profile.get("current_lootling_id", "relic_beast"))
+	refresh_selector()
 	current_screen = "lootling_select"
 	set_screen(lootling_content)
 
 func confirm_lootling() -> void:
-	profile.current_lootling_id = "relic_beast"
+	profile.current_lootling_id = selected_lootling_id
 	profile_changed.emit(profile.duplicate(true))
 	ui_event.emit("upgrade_select")
 	profile_completed.emit()
@@ -254,6 +281,8 @@ func refresh_profile() -> void:
 	nickname_edit.text = str(profile.get("lootling_nickname", ""))
 	var uuid := str(profile.get("player_uuid", ""))
 	profile_id_label.text = "ACCOUNT INFO  •  SUPPORT ID …%s" % uuid.right(8)
+	profile_identity.text = "CURRENT LOOTLING • %s" % str(LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast"))).display_name).to_upper()
+	profile_actor_name.text = str(LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast"))).display_name).to_upper() + " • RUIN ROOKIE"
 
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
@@ -296,7 +325,7 @@ func _draw() -> void:
 		draw_circle(Vector2.ZERO, 88, Color("#020615a8"))
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		draw_set_transform(Vector2(240, 370 + bob), sin(scene_time * 1.15) * 0.008, Vector2(breathe, 1.0 / breathe))
-		draw_texture_rect(MASCOT_TEXTURE, Rect2(-125, -125, 250, 250), false, Color.WHITE)
+		draw_texture_rect(LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(-125, -125, 250, 250), false, LootlingCatalog.presentation_tint(str(profile.get("current_lootling_id", "relic_beast"))))
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		var core_alpha := 0.14 + maxf(0.0, sin(scene_time * 2.8)) * 0.16
 		draw_circle(Vector2(241, 395 + bob), 13.0 + sin(scene_time * 2.8) * 2.0, Color(0.76, 0.52, 1.0, core_alpha))
@@ -310,7 +339,7 @@ func _draw() -> void:
 			draw_line(glint_pos + Vector2(-5, 0), glint_pos + Vector2(5, 0), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
 			draw_line(glint_pos + Vector2(0, -5), glint_pos + Vector2(0, 5), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
 	elif current_screen in ["profile", "profile_create", "settings"]:
-		draw_texture_rect(MASCOT_TEXTURE, Rect2(352, 4, 116, 116), false, Color(1, 1, 1, 0.86))
+		draw_texture_rect(LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(352, 4, 116, 116), false, LootlingCatalog.presentation_tint(str(profile.get("current_lootling_id", "relic_beast"))))
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:

@@ -16,6 +16,7 @@ const SettingsStore = preload("res://settings_store.gd")
 const AnalyticsLogger = preload("res://analytics_logger.gd")
 const AudioManager = preload("res://audio_manager.gd")
 const StartupUI = preload("res://startup_ui.gd")
+const LootlingCatalog = preload("res://lootling_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const DebugPanel = preload("res://debug_panel.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
@@ -2609,7 +2610,10 @@ func draw_zone_ambient() -> void:
 
 func draw_hud() -> void:
 	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
-	draw_string(title_font, Vector2(18, 36), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 23, Color("#ffe178"))
+	var actor := LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast")))
+	draw_string(title_font, Vector2(18, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 208, 21, Color("#ffe178"))
+	if actor.temp_art:
+		draw_string(body_font, Vector2(18, 71), "TEMP ART • COSMETIC IDENTITY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
 	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
