@@ -1,8 +1,8 @@
 # ASSET_NEEDED — Phase 1 visual shell
 
-The **34-PNG Foundation UI v1 batch is now supplied and integrated unchanged**: wordmark, five panel skins, all 15 button states, two inputs, two HUD shells, six meter frame/fill textures and three dividers. `README_PHASE1_FOUNDATION_UI.md` and `manifest.json` retain the supplied delivery record. Texture-backed nine-slicing replaces the temporary generated bevel chrome. The remaining icon/crest requests below are still outstanding. Upgrade icon sockets remain empty; names/effects are information, not substitute icons. Existing category drawings, currency glyphs and Trophy glyphs remain legacy placeholders, not approved final artwork.
+The **34-PNG Foundation UI v1 and 55-PNG Wave 2 icon batches are supplied and integrated unchanged**. Foundation textures retain their protected nine-slice treatment. Wave 2 replaces currency/Core/status/variant/upgrade/gear/rarity/Trophy placeholders and adds Results crests. The supplied READMEs and `manifest.json` / `manifest_wave2.json` retain the delivery records. Text supports actual icons rather than substituting for production art.
 
-Delivered table rows: brand, panels, buttons, inputs, HUD shells, meters and dividers. Outstanding rows: currencies, Cores/elements, statuses/variants, all 18 upgrade icons, gear categories, rarity marks, Trophy badges and Results crests. No Wave 2 assets were invented or enabled during foundation integration.
+All table rows below are now delivered; the original specifications remain as the delivery reference. No additional art is requested by this integration checkpoint. All 55 Wave 2 assets are mapped to existing runtime identities; conditional icons appear only when their corresponding state is active.
 
 All dimensions below are source pixels; UI reference is portrait **480×854**. Supply PNG sRGB, clean alpha edges where transparent, no baked text/numbers, and no redesign of canonical characters. Gold / purple / cyan remain the identity palette. Frames must scale without stretching corners; supply nine-slice safe margins. No new gameplay rarity, element or currency is requested.
 

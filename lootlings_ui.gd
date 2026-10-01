@@ -10,6 +10,43 @@ const TEXT := Color("#e7edff")
 const TEXT_MUTED := Color("#9fb3d8")
 const WORDMARK = preload("res://art/ui/brand/lootlings_wordmark.png")
 static var skin_cache: Dictionary = {}
+static var icon_cache: Dictionary = {}
+
+static func icon(name: String) -> Texture2D:
+	var path := name if name.begins_with("res://") else "res://art/ui/icons/%s.png" % name
+	if not icon_cache.has(path):
+		icon_cache[path] = load(path)
+	return icon_cache[path]
+
+static func draw_icon(canvas: RID, texture: Texture2D, rect: Rect2) -> void:
+	var extent := texture.get_size() * minf(rect.size.x / texture.get_width(), rect.size.y / texture.get_height())
+	RenderingServer.canvas_item_add_texture_rect(canvas, Rect2(rect.get_center() - extent * 0.5, extent), texture.get_rid(), false, Color.WHITE)
+
+static func add_icon(parent: Control, rect: Rect2, name: String) -> TextureRect:
+	var image := TextureRect.new()
+	image.texture = icon(name)
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.position = rect.position
+	image.size = rect.size
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(image)
+	return image
+
+static func inline_icon(name: String, extent: int = 16) -> String:
+	return "[img=%dx%d]res://art/ui/icons/%s.png[/img]" % [extent, extent, name]
+
+static func rich_label(parent: Control, rect: Rect2, font_size: int, color: Color) -> RichTextLabel:
+	var label := RichTextLabel.new()
+	label.position = rect.position
+	label.size = rect.size
+	label.bbcode_enabled = true
+	label.scroll_active = false
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_font_size_override("normal_font_size", font_size)
+	label.add_theme_color_override("default_color", color)
+	parent.add_child(label)
+	return label
 
 static func skin_style(filename: String, protected_margin: float = 32.0, vertical_margin: float = -1.0) -> StyleBox:
 	var key := "%s:%s:%s" % [filename, protected_margin, vertical_margin]

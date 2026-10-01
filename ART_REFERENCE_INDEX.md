@@ -4,7 +4,11 @@ The unchanged images in `art/reference/canonical/characters/` are the playable i
 
 ## Runtime UI — Foundation UI v1
 
-The user-supplied `art/ui/brand/` and `art/ui/skins/` batch contains exactly 34 PNGs, listed in root `manifest.json` and documented in `README_PHASE1_FOUNDATION_UI.md`. All source PNGs are unchanged. The wordmark, five panel skins, primary/secondary/destructive button states, inputs, HUD shells, separate meter frames/fills and three dividers are integrated. Source-space nine-slicing protects 32px panel corners and 24px button/input caps, rendered at half scale for the portrait UI; protected corners/caps remain intact while safe center/edge regions stretch. Meter source caps are half their respective texture height. No canonical character, weapon, enemy, environment or chest image was changed. Icon-wave assets remain missing and gated as recorded in `ASSET_NEEDED_PHASE1.md`.
+The user-supplied `art/ui/brand/` and `art/ui/skins/` batch contains exactly 34 PNGs, listed in root `manifest.json` and documented in `README_PHASE1_FOUNDATION_UI.md`. All source PNGs are unchanged. The wordmark, five panel skins, primary/secondary/destructive button states, inputs, HUD shells, separate meter frames/fills and three dividers are integrated. Source-space nine-slicing protects 32px panel corners and 24px button/input caps, rendered at half scale for the portrait UI; protected corners/caps remain intact while safe center/edge regions stretch. Meter source caps are half their respective texture height. No canonical character, weapon, enemy, environment or chest image was changed. The delivered Wave 2 icon batch is recorded below and in `ASSET_NEEDED_PHASE1.md`.
+
+## Runtime UI — Wave 2 iconography
+
+The 55 user-supplied PNGs in `art/ui/icons/`, `art/ui/icons/upgrades/`, `art/ui/trophies/` and `art/ui/results/` are listed in `manifest_wave2.json` and documented in `README_PHASE1_WAVE2_ICONOGRAPHY.md`. All are integrated without source edits: four currencies, five Cores, two statuses, eight variants, eighteen upgrades, three gear categories, four rarities, eight Trophy categories, one locked Trophy and two Results crests. Existing weapon and canonical character sprites are unchanged. Icons are aspect-fitted and cached; information labels, rarity names and status counters remain supplementary.
 
 ## Shared Lootling Language
 

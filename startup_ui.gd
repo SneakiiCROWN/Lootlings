@@ -58,7 +58,7 @@ func build_boot() -> void:
 	boot_content = Control.new()
 	boot_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(boot_content)
-	var core := make_label(boot_content, "◇", 82, Rect2(160, 270, 160, 110), HORIZONTAL_ALIGNMENT_CENTER, Color("#c9a2ff"))
+	var core := LootlingsUI.add_icon(boot_content, Rect2(160, 270, 160, 110), "core_neutral")
 	core.name = "CoreGlyph"
 	LootlingsUI.add_wordmark(boot_content, Rect2(30, 350, 420, 100))
 	make_label(boot_content, "RELIC CORE AWAKENING", 14, Rect2(40, 448, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
@@ -107,7 +107,8 @@ func build_profile() -> void:
 	panel.add_child(nickname_edit)
 	LootlingsUI.add_divider(panel, Rect2(38, 304, 336, 10), "gold")
 	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
-	make_label(panel, "◈  RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
+	make_label(panel, "RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
+	LootlingsUI.add_icon(panel, Rect2(65, 362, 24, 24), "core_neutral")
 	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
 	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	profile_id_label = make_label(panel, "", 10, Rect2(38, 444, 336, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#7183a8"))
@@ -274,7 +275,7 @@ func _process(delta: float) -> void:
 	scene_time += delta
 	if current_screen == "boot":
 		boot_timer += delta
-		var glyph := boot_content.get_node_or_null("CoreGlyph") as Label
+		var glyph := boot_content.get_node_or_null("CoreGlyph") as Control
 		if glyph != null:
 			glyph.modulate.a = 0.55 + sin(scene_time * 6.0) * 0.25
 			glyph.scale = Vector2.ONE * (1.0 + sin(scene_time * 4.0) * 0.035)

@@ -202,6 +202,7 @@ var upgrade_title: Label
 var upgrade_buttons: Array[Button] = []
 var result_panel: Panel
 var result_title: Label
+var result_crest: TextureRect
 var result_summary: RichTextLabel
 var upgrade_visuals: Array[Dictionary] = []
 var hud_header_surface := LootlingsUI.skin_style("hud_header_9slice", 32)
@@ -219,7 +220,7 @@ var item_icon
 var merchant_panel: Panel
 var merchant_title: Label
 var merchant_subtitle: Label
-var merchant_coin_label: Label
+var merchant_coin_label: RichTextLabel
 var merchant_buttons: Array[Button] = []
 var merchant_icons: Array = []
 var merchant_visuals: Array[Dictionary] = []
@@ -428,6 +429,7 @@ func debug_show_result(victory: bool) -> void:
 		panel.visible = false
 	result_panel.visible = true
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))
 	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	result_summary.text = style_result_summary("DEVELOPMENT PREVIEW\nNo rewards, stock refresh, or save changes.\n\nWave reached  %d / %d\nEnemies  %d" % [wave, RUN_LAST_WAVE, total_kills])
@@ -566,19 +568,22 @@ func build_overlay_ui() -> void:
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		button.add_child(icon)
-		var kicker := make_label(button, "", 10, Rect2(80, 9, 286, 16), HORIZONTAL_ALIGNMENT_LEFT, Color("#b9a5d5"))
-		var name_label := make_label(button, "", 17, Rect2(80, 28, 286, 25), HORIZONTAL_ALIGNMENT_LEFT, Color.WHITE)
+		var core_icon := LootlingsUI.add_icon(button, Rect2(80, 8, 16, 16), "core_neutral")
+		var rarity_icon := LootlingsUI.add_icon(button, Rect2(338, 29, 28, 28), "rarity_common")
+		var kicker := make_label(button, "", 10, Rect2(102, 9, 264, 16), HORIZONTAL_ALIGNMENT_LEFT, Color("#b9a5d5"))
+		var name_label := make_label(button, "", 17, Rect2(80, 28, 248, 25), HORIZONTAL_ALIGNMENT_LEFT, Color.WHITE)
 		var effect := make_label(button, "", 14, Rect2(80, 57, 286, 32), HORIZONTAL_ALIGNMENT_LEFT, Color("#c9d6e9"))
 		effect.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		for label in [kicker, name_label, effect]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
-		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon})
+		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon, "core":core_icon, "rarity":rarity_icon})
 	make_label(upgrade_panel, "Every pick stacks. Make something silly.", 15, Rect2(20, 438, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
 	LootlingsUI.apply_material(result_panel, "hoard")
 	result_panel.visible = false
-	result_title = make_label(result_panel, "RUN COMPLETE!", 34, Rect2(20, 25, 384, 55), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	result_title = make_label(result_panel, "RUN COMPLETE!", 27, Rect2(96, 25, 308, 55), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	result_crest = LootlingsUI.add_icon(result_panel, Rect2(16, 30, 78, 34), "res://art/ui/results/victory_crest.png")
 	result_summary = RichTextLabel.new()
 	result_summary.position = Vector2(35, 91)
 	result_summary.size = Vector2(354, 318)
@@ -951,7 +956,7 @@ func build_merchant_ui() -> void:
 	merchant_panel.visible = false
 	merchant_title = make_label(merchant_panel, "PACK PEDDLER", 29, Rect2(20, 12, 384, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	merchant_subtitle = make_label(merchant_panel, "ROADSIDE STOP  •  BETWEEN WAVES", 13, Rect2(26, 50, 372, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#d3b777"))
-	merchant_coin_label = make_label(merchant_panel, "", 16, Rect2(54, 74, 316, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe078"))
+	merchant_coin_label = LootlingsUI.rich_label(merchant_panel, Rect2(54, 74, 316, 26), 16, Color("#ffe078"))
 	for i in range(3):
 		var button := Button.new()
 		button.position = Vector2(20, 106 + i * 108)
@@ -2075,7 +2080,7 @@ func show_merchant() -> void:
 
 func refresh_merchant_ui() -> void:
 	merchant_title.text = "PACK PEDDLER"
-	merchant_coin_label.text = "◆  %d RUN SCRIP" % coins
+	merchant_coin_label.text = "[center]%s  %d RUN SCRIP[/center]" % [LootlingsUI.inline_icon("currency_run_scrip", 20), coins]
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
 		if i >= shop.stock.size():
@@ -2200,8 +2205,9 @@ func show_upgrade_choices() -> void:
 		upgrade_visuals[i].kicker.add_theme_color_override("font_color", GameCatalog.rarity_color(up.rarity).lightened(0.20))
 		upgrade_visuals[i].name.text = str(up.name).to_upper()
 		upgrade_visuals[i].effect.text = str(up.desc)
-		# No text token, invented sigil or unrelated gear icon stands in for the
-		# missing production upgrade emblem. The empty reserved slot is honest.
+		upgrade_visuals[i].core.texture = LootlingsUI.icon("core_%s" % (str(tags[0]).to_lower() if not tags.is_empty() else "neutral"))
+		upgrade_visuals[i].rarity.texture = LootlingsUI.icon("rarity_%s" % str(up.rarity).to_lower())
+		# Only the exact supplied production upgrade texture fills this socket.
 		var icon_path := "res://art/ui/icons/upgrades/%s.png" % up.id
 		upgrade_visuals[i].icon.texture = load(icon_path) if ResourceLoader.exists(icon_path) else null
 	upgrade_title.text = "LEVEL %d - PICK ONE" % level
@@ -2302,6 +2308,7 @@ func end_run(victory: bool) -> void:
 	hideout_shop.refresh_stock()
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))
 	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	var notable_loot := "None"
@@ -2333,8 +2340,12 @@ func format_result_summary(victory: bool, reached_wave: int, kills: int, earned:
 
 func style_result_summary(summary: String) -> String:
 	var styled := summary
+	for resource in ["Gold", "Scrap", "Shards"]:
+		var icon_name: String = {"Gold":"gold", "Scrap":"scrap", "Shards":"star_shard"}[resource]
+		styled = styled.replace("%s +" % resource, "%s %s +" % [LootlingsUI.inline_icon("currency_%s" % icon_name), resource])
 	for heading in ["RUN SCRIP", "RUN REWARDS", "NOTABLE LOOT"]:
 		styled = styled.replace(heading, "[font_size=12][color=#dabb79]%s[/color][/font_size]" % heading)
+	styled = styled.replace("[font_size=12][color=#dabb79]RUN SCRIP", "[font_size=12][color=#dabb79]%s RUN SCRIP" % LootlingsUI.inline_icon("currency_run_scrip"))
 	return "[center]%s[/center]" % styled
 
 func buy_meta_power() -> void:
@@ -2603,13 +2614,7 @@ func draw_hud() -> void:
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0
-	draw_colored_polygon(PackedVector2Array([
-		scrip_center + Vector2(0, -scrip_radius),
-		scrip_center + Vector2(scrip_radius * 0.72, 0),
-		scrip_center + Vector2(0, scrip_radius),
-		scrip_center + Vector2(-scrip_radius * 0.72, 0)
-	]), Color(1.0, 0.80, 0.26, 0.64 + coin_pulse * 0.30))
-	draw_line(scrip_center + Vector2(0, -6), scrip_center + Vector2(0, 6), Color("#fff5bb"), 2.0)
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
 	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(334, 61), "RUN SCRIP  •  LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
@@ -2641,13 +2646,13 @@ func draw_arena(shake: Vector2) -> void:
 		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
 		var status_x := 165.0
 		if enemy_burn_dps > 0.0:
-			draw_status_chip(Vector2(status_x, 261), "BURN", build.color("Fire"))
+			draw_status_chip(Vector2(status_x, 261), "BURN", build.color("Fire"), "status_burn")
 			status_x += 80.0
 		if enemy_poison_stacks > 0:
-			draw_status_chip(Vector2(status_x, 261), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"))
+			draw_status_chip(Vector2(status_x, 261), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
 		if not enemy_variant_id.is_empty():
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240, 287), "%s %s" % [variant.icon, enemy_variant_name], enemy_variant_color)
+			draw_status_chip(Vector2(240, 287), enemy_variant_name, enemy_variant_color, "variant_%s" % enemy_variant_id)
 	var idle_bob := sin(run_time * 4.3) * 3.0
 	var attack_ratio := clampf(attack_anim / 0.22, 0.0, 1.0)
 	var family := current_weapon_family()
@@ -2697,9 +2702,12 @@ func draw_stats_strip() -> void:
 	hud_build_surface.draw(get_canvas_item(), Rect2(18, 714, 444, 88))
 	var identity := build.dominant()
 	var core_title := "DORMANT CORE" if identity == "Neutral" else "%s CORE • %s" % [identity.to_upper(), build.tier_name(identity)]
-	draw_circle(Vector2(33, 730), 6, build.color())
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("core_%s" % identity.to_lower()), Rect2(24, 720, 18, 18))
 	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [current_weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
-	draw_string(body_font, Vector2(344, 735), "◆ %d" % inventory.scrap, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
+	var scrap_text := str(inventory.scrap)
+	var scrap_width := body_font.get_string_size(scrap_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_scrap"), Rect2(442 - scrap_width - 23, 721, 18, 18))
+	draw_string(body_font, Vector2(344, 735), scrap_text, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
 	var labels := ["DMG", "INTERVAL", "CRIT CHANCE", "AUTO HITS"]
 	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
 	for i in range(4):
@@ -2709,13 +2717,13 @@ func draw_stats_strip() -> void:
 		draw_string(body_font, Vector2(x, 758), labels[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 9, Color("#91a7d2"))
 		draw_string(title_font, Vector2(x, 785), values[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 18, Color("#f4f7ff"))
 
-func draw_status_chip(pos: Vector2, text_value: String, color: Color) -> void:
-	var width := clampf(body_font.get_string_size(text_value, HORIZONTAL_ALIGNMENT_LEFT, -1, 9).x + 24.0, 72.0, 140.0)
+func draw_status_chip(pos: Vector2, text_value: String, color: Color, icon_name: String) -> void:
+	var width := clampf(body_font.get_string_size(text_value, HORIZONTAL_ALIGNMENT_LEFT, -1, 10).x + 26.0, 72.0, 140.0)
 	var rect := Rect2(pos.x - width * 0.5, pos.y - 12.0, width, 19.0)
 	draw_rect(rect, Color("#080f24df"), true)
 	draw_rect(rect, Color(color.r, color.g, color.b, 0.78), false, 1.5)
-	draw_circle(Vector2(rect.position.x + 9, pos.y - 2), 3.0, color)
-	draw_string(body_font, Vector2(rect.position.x + 16, pos.y + 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, width - 20, 9, Color("#f5f7ff"))
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon(icon_name), Rect2(rect.position + Vector2(3, 2), Vector2(15, 15)))
+	draw_string(body_font, Vector2(rect.position.x + 22, pos.y + 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, width - 25, 10, Color("#f5f7ff"))
 
 func build_summary() -> String:
 	return build.short_summary()
@@ -2813,6 +2821,7 @@ func draw_effects() -> void:
 		var color: Color = item.color
 		color.a = alpha
 		draw_string(body_font, item.pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, Color(0.02, 0.03, 0.08, alpha * 0.80))
+		draw_string_outline(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, 2, Color(0.02, 0.03, 0.08, alpha * 0.92))
 		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
 
 func draw_attack_projectiles() -> void:
@@ -2883,22 +2892,8 @@ func draw_loot_drop(drop: Dictionary) -> void:
 			var direction := Vector2.RIGHT.rotated(run_time * 0.8 + TAU * glint / float(4 if rarity_rank == 2 else 6))
 			draw_line(drop.pos + direction * 22.0, drop.pos + direction * (28.0 + rarity_rank * 4.0), color.lightened(0.5), 2.0)
 	var slot: String = drop.item.get("slot", "Relic")
-	var icon_color := color.lightened(0.42)
-	match slot:
-		"Weapon":
-			draw_line(drop.pos + Vector2(-10, 11), drop.pos + Vector2(10, -11), icon_color, 6)
-			draw_line(drop.pos + Vector2(-10, 1), drop.pos + Vector2(0, 11), Color("#f6d77b"), 4)
-			draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(8,-12), drop.pos + Vector2(13,-14), drop.pos + Vector2(11,-8)]), Color.WHITE)
-		"Armour":
-			var shield := PackedVector2Array([drop.pos + Vector2(0,-13),drop.pos + Vector2(12,-7),drop.pos + Vector2(9,8),drop.pos + Vector2(0,14),drop.pos + Vector2(-9,8),drop.pos + Vector2(-12,-7)])
-			draw_colored_polygon(shield, icon_color)
-			draw_polyline(shield, Color.WHITE, 2.0)
-		"Rune":
-			draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-13),drop.pos + Vector2(11,0),drop.pos + Vector2(0,13),drop.pos + Vector2(-11,0)]), icon_color)
-			draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-6),drop.pos + Vector2(5,0),drop.pos + Vector2(0,6),drop.pos + Vector2(-5,0)]), Color.WHITE)
-		_:
-			draw_arc(drop.pos + Vector2(0, 2), 10, 0, TAU, 20, icon_color, 5)
-			draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(0,-14),drop.pos + Vector2(6,-7),drop.pos + Vector2(0,-1),drop.pos + Vector2(-6,-7)]), Color("#fff2bd"))
+	var loot_texture := merchant_weapon_texture(drop.item) if slot == "Weapon" else LootlingsUI.icon("gear_%s" % ("armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"))
+	LootlingsUI.draw_icon(get_canvas_item(), loot_texture, Rect2(drop.pos - Vector2(18, 18), Vector2(36, 36)))
 	var category := ItemCatalog.display_slot(slot).to_upper()
 	draw_string(body_font, drop.pos + Vector2(-40, 34), category, HORIZONTAL_ALIGNMENT_CENTER, 80, 10, Color("#f5f7ff"))
 	if int(drop.get("bounces", 0)) > 0 or float(drop.get("pickup", 1.0)) < 0.58:

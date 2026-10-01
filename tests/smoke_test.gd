@@ -45,6 +45,11 @@ func run_tests() -> void:
 	root.add_child(game)
 	await process_frame
 	var foundation_manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://manifest.json"))
+	var wave2: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://manifest_wave2.json"))
+	check(wave2.count == 55 and wave2.files.size() == 55, "Wave 2 includes exactly the supplied 55 PNGs")
+	for path in wave2.files:
+		var texture = FoundationUI.icon("res://%s" % path)
+		check(texture is Texture2D and texture.get_width() > 0, "Wave 2 image is a real imported texture: %s" % path)
 	check(foundation_manifest.files.size() == 34, "foundation art manifest contains exactly the 34 supplied PNGs")
 	for asset_path in foundation_manifest.files:
 		var supplied = load("res://%s" % asset_path)
@@ -548,6 +553,9 @@ func run_tests() -> void:
 		check(clean_card.contains(str(upgrade.name)) and clean_card.contains("STACK  ×1") and not clean_card.contains("(x1)"), "upgrade card formats %s without merging stack text into its mechanic" % upgrade.id)
 	check(game.upgrade_buttons.all(func(button): return button.size.x <= game.upgrade_panel.size.x - 40.0 and button.clip_text), "all upgrade cards remain constrained to the level-up panel")
 	check(game.upgrade_visuals.size() == 3 and game.upgrade_visuals.all(func(card): return not card.name.text.is_empty() and not card.effect.text.is_empty()), "upgrade hierarchy retains three readable names and effects")
+	check(game.upgrade_visuals.all(func(card): return card.icon.texture != null and card.icon.texture.resource_path.contains("/upgrades/") and card.core.texture != null and card.rarity.texture != null), "level-up sockets use actual upgrade/Core/rarity textures")
+	check(game.hideout_ui.trophy_texture_path({"category":"Combat"}, false, false).ends_with("trophy_locked.png") and game.hideout_ui.trophy_texture_path({"category":"Combat"}, true, false).ends_with("category_combat.png") and game.hideout_ui.trophy_texture_path({"category":"Secret"}, false, true).ends_with("category_secret.png"), "trophy visual states preserve lock and secret behaviour")
+	check(not game.debug_panel.visible, "ordinary combat/upgrade presentation never opens DEVELOPMENT ONLY")
 	check(game.upgrade_buttons.all(func(button): return button.get_theme_color("font_color").a == 0.0), "legacy text tokens do not render as upgrade icons")
 	game.choose_upgrade(0)
 	check(game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "upgrade selection uses one confirmation lane without duplicate acquired text")

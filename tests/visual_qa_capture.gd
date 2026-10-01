@@ -54,6 +54,8 @@ func capture_screens() -> void:
 		quit(1)
 		return
 	game.hideout_ui.show_achievements()
+	game.achievements.unlock("first_steps")
+	game.hideout_ui.refresh_achievements()
 	await wait_frames(24)
 	if not save_viewport("trophy_archive_qa.png"):
 		quit(1)
@@ -94,6 +96,20 @@ func capture_screens() -> void:
 	if not save_viewport("combat_variant_qa.png"):
 		quit(1)
 		return
+	game.set_process(false)
+	game.enemy_burn_dps = 1.0
+	game.enemy_poison_stacks = 3
+	game.add_float("CRIT! 123", Vector2(270, 388), Color("#ffe178"), 24)
+	game.add_float("QUAKE 87", Vector2(240, 430), Color("#edbfff"), 20)
+	game.queue_redraw()
+	await wait_frames(2)
+	await RenderingServer.frame_post_draw
+	if not save_viewport("wave2_status_feedback_qa.png"):
+		quit(1)
+		return
+	game.enemy_burn_dps = 0.0
+	game.enemy_poison_stacks = 0
+	game.floating_texts.clear()
 	game.set_process(false)
 	var old_hp: float = game.player_hp
 	var old_xp: float = game.xp
@@ -251,6 +267,9 @@ func capture_screens() -> void:
 	quit(0)
 
 func wait_frames(count: int) -> void:
+	# Observe settled production surfaces instead of a partially faded transition.
+	if count >= 8:
+		await create_timer(0.36).timeout
 	for frame in range(count):
 		await process_frame
 		# Forced state jumps happen faster than a real run; unrelated pending
