@@ -86,6 +86,7 @@ func run_qa() -> void:
 		game.inventory.equip(Items.create_item(Weapons.starter(weapon_type).id, "COMMON", 400))
 		game.meta_power = 0
 		game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
+		seed(91001)
 		game.start_run()
 		game.rng.seed = 91001
 		game.loot_system.rng.seed = 81001

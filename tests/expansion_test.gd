@@ -28,8 +28,10 @@ func _initialize() -> void:
 	assert(restored.scrap == 24)
 	# Previous schema: migrate missing evolution without touching existing stats.
 	var old := ConfigFile.new()
+	var legacy_item := original.duplicate(true)
+	legacy_item.erase("evolution_stage")
 	old.set_value("inventory", "version", 2)
-	old.set_value("inventory", "equipped", {"Weapon":original})
+	old.set_value("inventory", "equipped", {"Weapon":legacy_item})
 	old.set_value("inventory", "stash", [Items.create_item("bonebow", "EPIC", 27)])
 	assert(old.save("user://forge_v2.cfg") == OK)
 	restored.load("user://forge_v2.cfg")
@@ -53,6 +55,8 @@ func _initialize() -> void:
 			assert(zone.has("enemies") and zone.has("background") and zone.compositions.size() == 5)
 		for item_id in Campaign.LOOT_POOLS.get(id, []):
 			assert(not Items.definition(item_id).is_empty())
+		if Campaign.REGIONAL_VARIANTS.has(id):
+			assert(not preload("res://enemy_variant_catalog.gd").definition(Campaign.REGIONAL_VARIANTS[id]).is_empty())
 		campaign.finish(id)
 	assert(campaign.save("user://campaign_test.cfg") == OK)
 	var loaded := Campaign.new()

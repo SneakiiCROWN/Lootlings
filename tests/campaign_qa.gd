@@ -34,6 +34,26 @@ func run_qa() -> void:
 		game.startup_ui.cycle_lootling(1)
 		await capture("expansion_character")
 		game.startup_ui.visible = false
+	game.show_hideout()
+	game.campaign.completed.clear()
+	game.campaign.finish("act_i")
+	game.hideout_ui.show_campaign()
+	game.hideout_ui.campaign_list.get_child(1).pressed.emit()
+	assert(game.campaign_id == "mossglass_wilds", "Region card dispatches its own stable ID")
+	await create_timer(1.0).timeout
+	for region in Campaign.REGIONAL_VARIANTS:
+		game.campaign_id = region
+		game.wave = 3
+		game.wave_kills = 0
+		game.spawn_enemy()
+		assert(game.enemy_variant_id == Campaign.REGIONAL_VARIANTS[region])
+		if native: await capture("expansion_variant_" + region)
+	if native and "--screens-only" in OS.get_cmdline_user_args():
+		game.queue_free()
+		await process_frame
+		print("EXPANSION NATIVE SCREEN QA PASSED: Forge, campaign, identity and nine region variant cues")
+		quit(0)
+		return
 	var weapons := ["scrapfang_blade", "bonebow", "glimmerstaff", "moonbite_daggers"]
 	for region in Campaign.ORDER:
 		if region == "act_i":
@@ -45,6 +65,7 @@ func run_qa() -> void:
 			game.meta_power = 0
 			game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
 			game.campaign_id = region
+			seed(510000 + sample)
 			game.start_run()
 			game.rng.seed = 610000 + sample
 			game.loot_system.rng.seed = 710000 + sample

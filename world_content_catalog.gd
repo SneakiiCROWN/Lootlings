@@ -1,6 +1,7 @@
 extends RefCounted
 
-# Replacement-ready metadata. Only Act I zones are runtime-live today.
+# Master art/content metadata. Runtime expedition activation and temporary-art
+# policy are now owned by CampaignSystem; these source art statuses are not gates.
 const FUTURE_ZONES := {
 	"mossglass_wilds":{"name":"MOSSGLASS WILDS", "act":"II", "status":"ASSET_NEEDED", "palette":"jade / glass cyan / soft gold", "enemies":["Mossmaw", "Glasswing", "Rootshell", "Dew Hexer", "Mirror Pup"], "boss":"The Verdant Mirror", "loot":"guard / poison / reflect"},
 	"moonfen":{"name":"MOONFEN CANOPY", "act":"II", "status":"ASSET_NEEDED", "palette":"indigo / cyan / silver", "enemies":["Fen Sneak", "Lantern Toad", "Bog Archer", "Mudcloak", "Moonmoth"], "boss":"Lantern Jackal", "loot":"crit / movement / ranged"},

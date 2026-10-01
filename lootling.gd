@@ -1245,7 +1245,8 @@ func spawn_enemy() -> void:
 	if new_wave:
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "zone_enter", {"zone_id":current_zone_id, "wave":wave})
 		if audio_manager != null:
-			audio_manager.set_music("BOSS" if wave == RUN_LAST_WAVE else "SALVAGE_WARRENS" if current_zone_id == "emberworks" else "HOARD_DEPTHS" if current_zone_id == "hoard_depths" else "OUTER_RUINS")
+			var music_region: String = current_zone.get("future_music", "outer_ruins")
+			audio_manager.set_music("BOSS" if wave == RUN_LAST_WAVE else "SALVAGE_WARRENS" if music_region == "emberworks" else "HOARD_DEPTHS" if music_region == "hoard_depths" else "OUTER_RUINS")
 	enemy_is_miniboss = wave == 8
 	enemy_is_boss = wave == RUN_LAST_WAVE
 	# Steady curve with explicit special-enemy spikes; regular archetypes stay closer together.
@@ -1287,6 +1288,10 @@ func spawn_enemy() -> void:
 				enemy_damage *= 0.88
 		enemy_post_guard_hit_multiplier = enemy_hit_multiplier
 		enemy_variant_id = EnemyVariantCatalog.roll(rng, wave, false, current_zone_id)
+		# New regions showcase an existing readable mechanic on one patrol every
+		# third wave. Bosses/Act I are untouched; no presentation RNG is consumed.
+		if CampaignSystem.REGIONAL_VARIANTS.has(campaign_id) and wave % 3 == 0 and wave_kills == 0:
+			enemy_variant_id = CampaignSystem.REGIONAL_VARIANTS[campaign_id]
 		if not enemy_variant_id.is_empty():
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
 			var modified := EnemyVariantCatalog.apply(enemy_variant_id, {"hp":enemy_max_hp, "damage":enemy_damage, "interval":enemy_attack_interval, "hit":enemy_hit_multiplier})
@@ -2756,7 +2761,7 @@ func draw_arena(shake: Vector2) -> void:
 			status_x += 80.0
 		if enemy_poison_stacks > 0:
 			draw_status_chip(Vector2(status_x, 261), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
-		if not enemy_variant_id.is_empty():
+		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
 			draw_status_chip(Vector2(240, 287), enemy_variant_name, enemy_variant_color, "variant_%s" % enemy_variant_id)
 	var idle_bob := sin(run_time * 4.3) * 3.0

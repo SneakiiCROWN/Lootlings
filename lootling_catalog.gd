@@ -28,6 +28,7 @@ const DEFAULT_FIELDS := {
 
 const BASE_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 static var texture_cache: Dictionary = {}
+static var definition_cache: Dictionary = {}
 
 static func runtime_texture(id: String) -> Texture2D:
 	if not texture_cache.has(id):
@@ -40,6 +41,11 @@ static func presentation_tint(id: String) -> Color:
 	return Color.WHITE.lerp(entry.accent, 0.42) if entry.temp_art else Color.WHITE
 
 static func definition(id: String) -> Dictionary:
+	id = id if ENTRIES.has(id) else "relic_beast"
+	# Read-only catalog entries: no repeated deep copies or filesystem probes
+	# from the combat renderer/HUD. Runtime art changes take effect on restart.
+	if definition_cache.has(id):
+		return definition_cache[id]
 	var result := DEFAULT_FIELDS.duplicate(true)
 	result.merge(ENTRIES.get(id, ENTRIES.relic_beast), true)
 	if id != "relic_beast" and ENTRIES.has(id) and str(result.runtime_sprite).is_empty():
@@ -49,6 +55,7 @@ static func definition(id: String) -> Dictionary:
 	if result.profile_icon.is_empty() and not result.runtime_sprite.is_empty():
 		result.profile_icon = result.runtime_sprite
 	result.development_available = bool(result.available)
+	definition_cache[id] = result
 	return result
 
 static func selectable_ids() -> Array[String]:

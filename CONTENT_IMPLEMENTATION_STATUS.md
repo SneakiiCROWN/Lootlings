@@ -22,7 +22,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Echoing / Hungry / Hoarder / Shiny | DEFINED_DATA | Master-catalog identities retained for later mechanics/art/collection hooks. |
 | Solo Duelist / Heavy Solo | LIVE | Current single-target combat architecture. |
 | Duos / Guard+Caster / Scraprat Pack / treasure escape / Mimic Room / Elite Guard | DEFINED_DATA | Composition contracts exist; simultaneous targeting and dedicated assets intentionally deferred. |
-| Act II–V zones | LIVE — TEMP ART | Eight sequentially unlocked 15-wave solo expeditions; region role mixes, pace/durability, thematic loot, names and tints. Existing actor/boss/environment art reused honestly; bespoke encounter mechanics remain deferred. |
+| Act II–V zones | LIVE — TEMP ART | Eight sequentially unlocked 15-wave solo expeditions; role mixes, pace/durability, themed loot/music, names/tints and readable existing regional-variant patrol mechanics. Existing actor/boss/environment art reused honestly; bespoke bosses and multi-actor encounters remain deferred. |
 | The First Hoard | LIVE — TEMP ART | Ninth unlockable new region; same established reward flow, heavy patrol identity and curated existing loot. Full endgame narrative/bespoke boss remains future. |
 
 ## Loot, weapons, and rewards

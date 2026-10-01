@@ -27,6 +27,13 @@ const LOOT_POOLS := {
 	"skyhook_bastion":["crooked_longbow", "gilded_shortbow", "stormspark"],
 	"first_hoard":["vault_receipt", "bossbane_sigil", "mimic_mallet"]
 }
+const REGIONAL_VARIANTS := {
+	"mossglass_wilds":"rootbound", "moonfen":"hasty",
+	"frostbell_hollows":"frostbitten", "sunken_gearworks":"overcharged",
+	"cinder_crown":"volatile", "starfall_archive":"cursed",
+	"nullglass_expanse":"rootbound", "skyhook_bastion":"hasty",
+	"first_hoard":"armoured"
+}
 
 func available(id: String) -> bool:
 	var index := ORDER.find(id)

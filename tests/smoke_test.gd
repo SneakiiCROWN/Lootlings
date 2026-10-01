@@ -92,7 +92,7 @@ func run_tests() -> void:
 		check(zone_pick.is_empty() or zone_pick in EnemyVariantCatalog.ZONE_POOLS.hoard_depths, "zone-weighted variant rolls never escape the Hoard Depths pool")
 	check(WeaponCatalog.FAMILIES.size() == 12 and WeaponCatalog.PROJECTILES.size() == 6 and WeaponCatalog.live_ids().size() == 12, "twelve weapon families are available; seven Forge starters have temporary art and combat hooks")
 	check(WeaponCatalog.evolution_for("bow", "Crooked Bow") == ["Crooked Bow", "Ruin Longbow", "Starstring"], "weapon evolution data preserves named three-stage master lines")
-	check(WorldContentCatalog.FUTURE_ZONES.size() == 9 and WorldContentCatalog.FUTURE_ZONES.first_hoard.status == "FUTURE", "future zone metadata is replacement-ready without activating missing art")
+	check(WorldContentCatalog.FUTURE_ZONES.size() == 9 and preload("res://campaign_system.gd").ORDER.size() == 10, "nine master zone IDs map into the progressive campaign without replacing source art")
 	check(ItemCatalog.ITEMS.size() >= 35 and ItemCatalog.definition("moonbranch").weapon_type == "bow" and ItemCatalog.definition("vault_receipt").slot == "Relic", "the live equipment pool expands with curated master-catalog identities while preserving slot contracts")
 	check(AffixCatalog.AFFIXES.size() == 20 and AffixCatalog.SIGNATURES.size() == 15 and not bool(AffixCatalog.SIGNATURES.aftershock_receipt.live), "expanded affix and Signature catalogs keep unimplemented behaviours out of live rolls")
 	var reveal_durations: Array[float] = []

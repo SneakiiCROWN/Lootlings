@@ -6,7 +6,7 @@ Local contracts are now player-facing from Expeditions: three persistent, claim-
 
 All twelve weapon families are now available: seven additional approved starter bases are Forge-crafted with distinct tested attack hooks and temporary class art, leaving the established random drop pool intact. Each new starter evolves through its approved first catalog line; other catalog-only lines still need acquisition/gameplay work.
 
-Seven cosmetic Lootlings and ten sequential campaign entries are player-facing. New regions currently use solo encounters, differentiated role mixes/pacing and thematic existing loot, with explicit temporary art. Stash now exposes capped, persistent two-stage weapon evolution for owned bases that already contain evolution paths. Inventory schema 3 and campaign schema 1 are covered by migration/persistence tests. Multi-enemy targeting, additional weapon mechanics, full 36-line acquisition/evolution coverage, gated Signatures, physical lesser chests, dungeon routes and contracts remain the next expansion work; none should be described as shipped yet.
+Seven cosmetic Lootlings and ten sequential campaign entries are player-facing. New regions currently use solo encounters, differentiated role mixes/pacing and thematic existing loot, with explicit temporary art. Stash exposes capped, persistent two-stage weapon evolution for owned bases with evolution paths, and seven additional Forge-acquired weapon mechanics. Inventory schema 3, campaign schema 1 and contracts schema 1 are covered by migration/persistence tests. Multi-enemy targeting, full 36-line acquisition/evolution coverage, gated Signatures, physical lesser chests and dungeon routes remain unfinished expansion scope; none should be described as shipped yet.
 
 This roadmap preserves product direction; it is not a promise to build every system at once. Each stage should reuse stable profile, combat, loot, reward, zone, and save contracts rather than create parallel implementations.
 
@@ -140,6 +140,8 @@ Latest expansion brief permits honest, labelled TEMP ART to unblock gameplay. Se
 - Track important asset/audio provenance and licences. Never assume an internet asset is commercially safe.
 
 ## Foundation shipped at the character-feel checkpoint
+
+Historical checkpoint record: availability below describes what shipped then. The latest expansion summary above and `CONTENT_IMPLEMENTATION_STATUS.md` supersede old art-only activation gates.
 
 - Weapon-specific data-driven key poses and bounded actor-edge readability are live without cadence changes.
 - Hasty, Armoured, Volatile, Cursed and Gilded regular-enemy variants are deterministic, visibly disclosed and conservatively weighted.

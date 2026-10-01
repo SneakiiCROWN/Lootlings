@@ -326,7 +326,7 @@ func build_forge() -> void:
 	forge_list.add_theme_constant_override("separation", 10)
 	scroll.add_child(forge_list)
 	make_panel(forge_content, Rect2(28, 478, 424, 222), Color("#0b1229ec"), Color("#b39466"))
-	forge_detail = make_label(forge_content, "", 19, Rect2(35, 490, 410, 200), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
+	forge_detail = make_label(forge_content, "", 19, Rect2(48, 490, 384, 200), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 725, 370, 70), Color("#493052"), Color("#e2b563"), 19)
 	forge_confirm.pressed.connect(func():
@@ -399,9 +399,13 @@ func show_campaign() -> void:
 		var available: bool = campaign != null and campaign.available(id)
 		var tuning: Array = CampaignSystem.TRAITS.get(id, [])
 		var detail := "Original three-zone adventure" if tuning.is_empty() else str(tuning[3]) + "\nTEMP ART • reused enemies, bosses and scenery"
+		if not tuning.is_empty():
+			detail = "%s patrols • %s\nTEMP ART • reused actors / scenery" % [str(CampaignSystem.REGIONAL_VARIANTS[id]).capitalize(), str(tuning[2]).capitalize()]
 		var status := "CONQUERED" if campaign != null and id in campaign.completed else "PLAY" if available else "LOCKED"
 		var button := make_button(campaign_list, "%s\n%s\n%s" % [CampaignSystem.title(id), detail, status], Rect2(0, 0, 408, 112), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
 		button.custom_minimum_size = Vector2(408, 112)
+		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
+		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
 		button.disabled = not available
 		button.pressed.connect(func(): campaign_requested.emit(id))
 
@@ -433,7 +437,8 @@ func select_forge_recipe(weapon_type: String) -> void:
 	forge_recipe = weapon_type
 	forge_armed = false
 	var item := ForgeSystem.WeaponCatalog.starter(weapon_type)
-	forge_detail.text = "%s\n%s\n\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, item.desc, gold, current_inventory.scrap]
+	var description: String = str(item.desc).replace(" TEMP ART: shared class weapon.", "")
+	forge_detail.text = "%s\n%s\nTEMP ART • shared class weapon\n\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, description, gold, current_inventory.scrap]
 	forge_detail.add_theme_font_size_override("font_size", 17)
 	forge_confirm.text = "MAKE • STORE IN STASH"
 	forge_confirm.disabled = gold < 150 or current_inventory.scrap < 6 or current_inventory.stash.size() >= current_inventory.stash_capacity
