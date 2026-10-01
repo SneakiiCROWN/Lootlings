@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — meaningful owned-weapon evolution
+
+Both existing Forge stages now unlock family-specific combat behaviour for all twelve weapon families, not just renamed +4% damage. Greatsword/Bow/Sling cleave or arc through nearby group foes; Greataxe/Staff add periodic fire power; Maul/Crossbow stagger; Spear strengthens the opening thrust; Daggers finish weakened foes; Claws/Orb restore small amounts of HP; Wand follows the Core element. Stage two strengthens the existing hook. Costs, two-stage cap, additive +4%, rarity, affixes, serials, acquisition/drop pool and inventory schema are unchanged. Hooks derive from persisted weapon type/stage; older evolved saves immediately receive their documented behaviour. Stage-zero formulas/cadence are unchanged.
+
+Forge owned/craft rows now show actual family art; offers and Stash effects explain the behaviour before purchase. No pretend evolution-stage artwork: existing fitted sprites remain until dedicated exports arrive. Corrected two genuine combat defects found during testing: fatal primary hits could redirect remaining hits/procs into another group actor, and Poison siphon could restore HP after defeat. Explicit AoE still reaches other actors. Results now records the actual win outcome, and audit counters use it rather than positive HP. The Stash test now resets its inventory fixture instead of inheriting an earlier suite test's charm.
+
+Passed both-stage trigger/persistence/affix/RNG tests for all twelve families, stage-zero preservation, fatal-hit binding and terminal defeat guards. 48 repeated full evolved group runs: actual wins 0/12 unevolved versus 3/12 stage two; earlier 2/12 unevolved reporting was false post-defeat healing, not actual victories. Accepted campaign audit remains 22/96 actual wins, group/solo matrix 5/12 each, route matrix 12/12 balanced versus 3/12 greedy, smoke 2/5. Save/migration/equipment/economy, weapons, items, chests, 36 regional runs and ten reward/unlock paths passed. Parser/import and native OpenGL 480×854 Forge/combat/full-menu captures passed and were inspected. No final runtime errors/warnings; a first native exit ObjectDB warning did not recur in fresh-profile verbose and final reruns. Bounded attack-time lookups/reused VFX only, no new continuous processing/nodes/shaders. Android hardware QA remains pending.
+
 ### Continued overhaul — seeded Relic Route
 
 Expeditions now offers an eight-stop seeded route after Act I is cleared. Each stop presents two meaningful room choices (final Boss has one): Combat, Elite, Treasure, Merchant, Shrine, Risk, Rest and Boss. Role-mixed patrol forks use the bounded actor adapter; merchants, upgrades, item decisions and the complete Hoard Dragon → physical Hoard Chest → three Epic+ choices reuse existing systems. The initial seed can be changed before entry. Routes are session-only, not resumable saved campaigns.

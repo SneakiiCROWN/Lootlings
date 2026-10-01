@@ -2,6 +2,8 @@
 
 ## Current canonical world / beta authority
 
+Optional owned-weapon evolution adds deterministic family-specific hooks at the existing two Forge stages, alongside the original additive +4% damage. Hooks derive from saved type/stage, with no extra gameplay RNG or hidden rarity scaling. Costs/caps/acquisition rules are unchanged; stage-zero combat remains the reference baseline. Fatal attacks stay bound to their released target except explicit AoE. Results is terminal: no status siphon/evolution healing after defeat, and wins are measured by the actual outcome rather than remaining HP.
+
 Relic Route is an optional eight-stop seeded expedition unlocked after Act I. Choices change encounter roles/resources: Combat, Elite, Treasure, Merchant, Shrine, Risk, Rest and final Boss. It reuses existing combat and reward contracts, with explicit short-mode special scaling. Shrine upgrades are run-only; route victory does not advance campaign unlocks. Permanent reward caps scale with actual kills; entering/abandoning an empty route pays nothing. Final Boss retains the physical Hoard Chest and choose-one-from-three Epic+ contract. Route maps are session-only; ordinary campaign saves and solo balance remain unchanged.
 
 Group patrols are optional Expedition encounters, max three simultaneously active foes. They replace scheduled solo members rather than adding free rewards. Each actor owns HP/status/clock/serial; selection never redirects a released shot. Mage/heavy/strong-Fire attacks may splash other living actors. The validated solo path remains the default and unchanged; bosses retain their established chest contract. No horde spawning or shared HP pool.

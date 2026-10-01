@@ -143,6 +143,7 @@ var loot_drops: Array = []
 var pending_items: Array = []
 var current_item: Dictionary = {}
 var pending_victory := false
+var run_won := false
 var merchant_due := false
 var item_review_due := false
 var return_to_merchant := false
@@ -1325,6 +1326,7 @@ func start_run() -> void:
 	if hoard_chest_button != null:
 		hoard_chest_button.visible = false
 	pending_victory = false
+	run_won = false
 	merchant_due = false
 	item_review_due = false
 	return_to_merchant = false
@@ -1746,6 +1748,7 @@ func resolve_player_attack(is_tap: bool) -> void:
 	if state != "playing" or not enemy_alive:
 		return
 	var aoe_origin := enemy_serial
+	var evolution_opening := not enemy_weapon_opening_used
 	var hit_count := 1 if is_tap else multi_hits + int(inventory.effect_total("extra_hits"))
 	var damage_scale := tap_mult if is_tap else 1.0
 	attack_sequence += 1
@@ -1777,38 +1780,65 @@ func resolve_player_attack(is_tap: bool) -> void:
 		tap_pulse = 0.18
 		damage_scale *= 1.0 + minf(tap_combo, 10) * 0.025
 	for hit_index in range(hit_count):
-		if not enemy_alive:
+		if not enemy_alive or enemy_serial != aoe_origin:
 			break
 		var is_crit := rng.randf() < effective_crit_chance()
 		var damage := base_damage * damage_scale * equipment_damage_multiplier() * (crit_mult if is_crit else 1.0) * rng.randf_range(0.92, 1.08)
 		damage_enemy(damage, is_crit, is_tap, is_heavy and hit_index == 0)
-		if enemy_alive and is_crit and inventory.effect_total("crit_lightning") > 0.0:
+		if enemy_alive and enemy_serial == aoe_origin and is_crit and inventory.effect_total("crit_lightning") > 0.0:
 			deal_elemental_hit(base_damage * inventory.effect_total("crit_lightning"), "Lightning")
-		if enemy_alive and is_crit and inventory.has_signature("first_crit_spark") and not enemy_first_crit_used:
+		if enemy_alive and enemy_serial == aoe_origin and is_crit and inventory.has_signature("first_crit_spark") and not enemy_first_crit_used:
 			enemy_first_crit_used = true
 			deal_elemental_hit(base_damage * 0.42, "Lightning")
 		if hit_count > 1 and hit_index < hit_count - 1:
 			add_particles(Vector2(337, 475), Color("#d6a8ff"), 3)
 	var lightning_count: int = build.count("Lightning")
 	var chain_interval := maxi(3, 6 - mini(lightning_count + storm_power, 3))
-	if enemy_alive and lightning_count > 0 and attack_sequence % chain_interval == 0:
+	if enemy_alive and enemy_serial == aoe_origin and lightning_count > 0 and attack_sequence % chain_interval == 0:
 		var chain_damage := base_damage * (0.35 + lightning_count * 0.14) * (1.0 + (multi_hits - 1) * 0.18)
 		deal_elemental_hit(chain_damage, "Lightning")
-	if enemy_alive and current_weapon_family() == "MAGE":
+	if enemy_alive and enemy_serial == aoe_origin and current_weapon_family() == "MAGE":
 		var repeat_every := maxi(3, int(inventory.effect_total("repeat_every"))) if inventory.effect_total("repeat_every") > 0.0 else 4
 		if attack_sequence % repeat_every == 0:
 			var spell_identity := build.dominant()
 			if spell_identity == "Neutral":
 				spell_identity = "Lightning"
 			deal_elemental_hit(base_damage * 0.62, spell_identity)
-	if enemy_alive and current_weapon_family() == "RANGER" and inventory.has_signature("crooked_volley") and attack_sequence % 5 == 0:
+	if enemy_alive and enemy_serial == aoe_origin and current_weapon_family() == "RANGER" and inventory.has_signature("crooked_volley") and attack_sequence % 5 == 0:
 		deal_elemental_hit(base_damage * 0.34, "Lightning")
 		add_float("CROOKED VOLLEY", Vector2(278, 367), Color("#a8dcff"), 16)
+	apply_weapon_evolution(subtype, aoe_origin, evolution_opening)
 	squash = 0.16
 	if enemy_encounter.active and (current_weapon_family() == "MAGE" or is_heavy or build.count("Fire") >= 3):
 		enemy_encounter.splash(self, base_damage * (0.32 if is_heavy else 0.22), "Physical" if is_heavy else build.dominant(), aoe_origin)
 	attack_anim = 0.22
 	attack_was_tap = is_tap
+
+func apply_weapon_evolution(subtype: String, origin_serial: int, opening: bool) -> void:
+	if state != "playing": return
+	var item: Dictionary = inventory.equipped_item("Weapon")
+	var stage := clampi(int(item.get("evolution_stage", 0)), 0, 2)
+	var weapons = preload("res://weapon_catalog.gd")
+	if stage == 0 or not weapons.EVOLUTION_TRAITS.has(subtype): return
+	var evolution_data: Dictionary = weapons.EVOLUTION_TRAITS[subtype]
+	if bool(evolution_data.get("opening", false)):
+		if not opening: return
+	elif attack_sequence % int(evolution_data.every) != 0: return
+	if bool(evolution_data.get("low_hp", false)) and (enemy_serial != origin_serial or enemy_hp / maxf(1.0, enemy_max_hp) >= 0.35): return
+	if evolution_data.has("heal"):
+		player_hp = minf(player_max_hp, player_hp + float(evolution_data.heal[stage - 1]))
+		add_particles(Vector2(player_x, 438), Color("#95d8ff"), 4)
+	var identity := str(evolution_data.get("element", "Physical"))
+	if identity == "Core":
+		identity = build.dominant()
+		if identity == "Neutral": identity = "Lightning"
+	var extra := base_damage * float(evolution_data.damage[stage - 1]) if evolution_data.has("damage") else 0.0
+	# Released attacks never redirect remaining hits/procs when their foe dies.
+	if enemy_alive and enemy_serial == origin_serial:
+		if evolution_data.has("slow"): enemy_attack_clock += float(evolution_data.slow[stage - 1])
+		if extra > 0: deal_elemental_hit(extra, identity)
+	if extra > 0 and bool(evolution_data.get("splash", false)) and enemy_encounter.active:
+		enemy_encounter.splash(self, extra, identity, origin_serial)
 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
 	amount *= enemy_hit_multiplier
@@ -1926,7 +1956,7 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 		kill_enemy()
 
 func update_elemental_damage(delta: float) -> void:
-	if not enemy_alive:
+	if state != "playing" or not enemy_alive:
 		return
 	enemy_burn_time = maxf(0.0, enemy_burn_time - delta)
 	enemy_poison_time = maxf(0.0, enemy_poison_time - delta)
@@ -2576,6 +2606,7 @@ func apply_upgrade_effect(up: Dictionary) -> void:
 
 func end_run(victory: bool) -> void:
 	if state == "result": return
+	run_won = victory
 	if route_panel != null: route_panel.visible = false
 	state = "result"
 	if pause_button != null: pause_button.visible = false

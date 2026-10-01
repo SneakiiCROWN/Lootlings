@@ -53,7 +53,7 @@ func simulate(weapon: String, run_seed: int, greedy: bool = false) -> Dictionary
 					game.perform_player_attack(true)
 		elapsed += 0.05
 	assert(game.state == "result", "Seeded route softlock: " + weapon)
-	return {"room":game.dungeon.depth + 1, "hp":snappedf(game.player_hp, 0.01), "time":snappedf(elapsed, 0.01), "kills":game.total_kills, "gold":game.run_gold_earned, "shards":game.run_shards_earned}
+	return {"victory":game.run_won, "room":game.dungeon.depth + 1, "hp":snappedf(game.player_hp, 0.01), "time":snappedf(elapsed, 0.01), "kills":game.total_kills, "gold":game.run_gold_earned, "shards":game.run_shards_earned}
 
 func run_qa() -> void:
 	game = load("res://main.tscn").instantiate()
@@ -67,11 +67,11 @@ func run_qa() -> void:
 			var result := simulate(weapon, 4917 + sample)
 			var repeated := simulate(weapon, 4917 + sample)
 			assert(result == repeated, "Route must repeat: %s vs %s" % [result, repeated])
-			wins += 1 if result.hp > 0 else 0
+			wins += 1 if result.victory else 0
 			print("ROUTE RUN %s/%d %s" % [weapon, sample, result])
 			var greedy := simulate(weapon, 4917 + sample, true)
 			assert(greedy == simulate(weapon, 4917 + sample, true))
-			greedy_wins += 1 if greedy.hp > 0 else 0
+			greedy_wins += 1 if greedy.victory else 0
 			print("GREEDY ROUTE %s/%d %s" % [weapon, sample, greedy])
 	print("DUNGEON MATRIX PASSED: 48 seeded full runs/repeats; balanced wins=%d/12 greedy wins=%d/12" % [wins, greedy_wins])
 	game.queue_free()

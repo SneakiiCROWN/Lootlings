@@ -38,6 +38,30 @@ const STARTERS := {
 }
 static var texture_cache := {}
 
+# Optional owned-weapon evolution; stage zero retains the accepted combat path.
+# Values are base-damage fractions, not additional hidden rarity scaling.
+const EVOLUTION_TRAITS := {
+	"greatsword":{"every":4, "damage":[0.18, 0.30], "splash":true, "element":"Physical", "text":"Every fourth hit cleaves for %d%% extra power; splashes nearby foes."},
+	"greataxe":{"every":3, "damage":[0.18, 0.30], "element":"Fire", "text":"Every third chop adds %d%% fire power."},
+	"maul":{"every":4, "damage":[0.12, 0.20], "slow":[0.14, 0.22], "element":"Physical", "text":"Every fourth impact echoes for %d%% power and staggers."},
+	"spear":{"every":1, "opening":true, "damage":[0.16, 0.28], "element":"Physical", "text":"Each foe's opening thrust adds %d%% piercing power."},
+	"daggers":{"every":3, "low_hp":true, "damage":[0.22, 0.34], "element":"Physical", "text":"Every third hit adds %d%% power against foes below 35%% HP."},
+	"claws":{"every":5, "heal":[1.0, 2.0], "text":"Every fifth swipe restores %d HP."},
+	"bow":{"every":5, "damage":[0.18, 0.30], "splash":true, "element":"Lightning", "text":"Every fifth shot arcs for %d%% power through nearby foes."},
+	"crossbow":{"every":3, "damage":[0.10, 0.18], "slow":[0.10, 0.16], "element":"Physical", "text":"Every third trigger adds %d%% bolt power and staggers."},
+	"sling":{"every":3, "damage":[0.16, 0.28], "splash":true, "element":"Physical", "text":"Every third stone shatters for %d%% power; splashes nearby foes."},
+	"staff":{"every":4, "damage":[0.18, 0.30], "element":"Fire", "text":"Every fourth cast adds %d%% fire power."},
+	"wand":{"every":3, "damage":[0.12, 0.22], "element":"Core", "text":"Every third spark adds %d%% power in your Core's element."},
+	"orb":{"every":4, "heal":[1.0, 2.0], "slow":[0.08, 0.14], "text":"Every fourth release restores %d extra HP and delays the foe."},
+}
+
+static func evolution_text(id: String, stage: int) -> String:
+	if stage <= 0 or not EVOLUTION_TRAITS.has(id): return ""
+	var evolution_data: Dictionary = EVOLUTION_TRAITS[id]
+	var values: Array = evolution_data.get("damage", evolution_data.get("heal", []))
+	var value := float(values[clampi(stage, 1, 2) - 1])
+	return str(evolution_data.text) % roundi(value * (100 if evolution_data.has("damage") else 1))
+
 static func starter(id: String) -> Dictionary:
 	if not STARTERS.has(id):
 		return {}

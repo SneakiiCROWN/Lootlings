@@ -32,6 +32,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 
 ## Loot, weapons, and rewards
 
+Current evolution behaviour: all twelve weapon families support their existing two owned stages with family-specific combat hooks and pre-purchase Forge descriptions. Original costs/cap/+4%, affixes/rarity/save IDs and default acquisition pool are retained. Stage-specific painted exports remain needed; this does not activate every catalog-only base/evolution line or gated Signature.
+
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Greatsword, Maul, Bow, Staff, Twin Daggers | LIVE | Correct current combat semantics and safe runtime art families; weapon subtype/evolution/projectile metadata added. |

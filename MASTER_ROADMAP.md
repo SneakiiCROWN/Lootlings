@@ -2,6 +2,8 @@
 
 ## Current canonical-world beta tranche
 
+Owned-weapon evolution is behaviour-bearing for all twelve families through the existing two-stage Forge; costs and save schema unchanged. Art-first Forge rows and explicit previews communicate cleave/arc, stagger, opener, finisher, elemental and recovery hooks. Stage-zero campaign audit remains 22/96 actual victories. Group primary-hit redirection and post-defeat siphon bugs are corrected; reporting now uses the actual Results outcome. Remaining gated Signatures, boss adds/Mimic/treasure escape and appropriate creature outfit overlays remain subsequent work.
+
 Seeded Relic Route is live after Act I: eight bounded room-choice layers reuse combat, merchant, Shrine/upgrade, physical chest, item and Results systems. Optional short-mode special scaling/reward caps are separate from the accepted campaign. Repeated route matrix: 12/12 balanced-path wins versus 3/12 greedy-path wins; no campaign unlock or empty-route payout. Boss adds, treasure escape/Mimic and remaining Signature/evolution behaviour are subsequent scope, not claims made by route delivery.
 
 Simultaneous patrols are opt-in from Expeditions: bounded duos/three-member packs use scheduled role compositions, separate HP/status/targeting, target-bound projectiles and Mage/heavy/Fire AoE. Solo remains default. Boss adds/Mimic/treasure escape remain subsequent work. Twelve paired seeded comparisons preserve 5/12 wins; accepted solo balance remains unchanged.

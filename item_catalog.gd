@@ -112,6 +112,8 @@ static func scrap_value(item: Dictionary) -> int:
 static func describe_effects(item: Dictionary) -> String:
 	var effects: Dictionary = item.get("effects", {})
 	var parts: Array[String] = []
+	var evolved := WeaponCatalog.evolution_text(str(item.get("weapon_type", "")), int(item.get("evolution_stage", 0)))
+	if not evolved.is_empty(): parts.append(evolved)
 	if effects.has("damage_mult"): parts.append("%+.0f%% damage" % (effects.damage_mult * 100.0))
 	if effects.has("attack_speed"): parts.append("%+.0f%% attack speed" % (effects.attack_speed * 100.0))
 	if effects.has("attack_slow"): parts.append("%.0f%% slower attacks" % (effects.attack_slow * 100.0))

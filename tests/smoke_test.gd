@@ -738,7 +738,7 @@ func run_tests() -> void:
 					tap_clock = 0.0
 					game.perform_player_attack(true)
 			elapsed += 0.05
-		if game.state == "result" and game.player_hp > 0.0 and game.wave == game.RUN_LAST_WAVE:
+		if game.state == "result" and game.run_won:
 			victories += 1
 		print("BALANCE RUN %d: wave=%d level=%d hp=%.0f time=%.1fs state=%s alive=%s loot=%d options=%d victory=%s review=%s" % [run_index + 1, game.wave, game.level, game.player_hp, elapsed, game.state, game.enemy_alive, game.loot_drops.size(), game.boss_reward_options.size(), game.pending_victory, game.item_review_due])
 	check(victories >= 1, "a modest tapping strategy can complete a balanced run")

@@ -36,7 +36,7 @@ func simulate(weapon: String, run_seed: int, groups: bool) -> Dictionary:
 		elapsed += 0.05
 		assert(game.enemy_encounter.actors.size() <= 3)
 	assert(game.state == "result", "Encounter softlock: " + weapon)
-	return {"wave":game.wave, "hp":snappedf(game.player_hp, 0.01), "time":snappedf(elapsed, 0.01), "kills":game.total_kills, "coins":game.run_coins_earned, "scrap":game.inventory.scrap}
+	return {"victory":game.run_won, "wave":game.wave, "hp":snappedf(game.player_hp, 0.01), "time":snappedf(elapsed, 0.01), "kills":game.total_kills, "coins":game.run_coins_earned, "scrap":game.inventory.scrap}
 
 func run_qa() -> void:
 	game = load("res://main.tscn").instantiate()
@@ -52,8 +52,8 @@ func run_qa() -> void:
 			var group := simulate(weapon, run_seed, true)
 			var repeat := simulate(weapon, run_seed, true)
 			assert(group == repeat, "Group encounter must be deterministic independently of visual RNG")
-			solo_wins += 1 if solo.hp > 0 else 0
-			group_wins += 1 if group.hp > 0 else 0
+			solo_wins += 1 if solo.victory else 0
+			group_wins += 1 if group.victory else 0
 			print("GROUP MATRIX %s/%d solo=%s group=%s" % [weapon, sample, solo, group])
 	print("ENCOUNTER MATRIX PASSED: 12 solo + 24 group deterministic full runs; wins solo=%d/12 groups=%d/12" % [solo_wins, group_wins])
 	game.queue_free()

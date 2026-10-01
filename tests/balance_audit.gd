@@ -78,7 +78,7 @@ func run_audit() -> void:
 					elapsed += 0.05
 				var row: Dictionary = totals[key]
 				row.runs += 1
-				row.wins += 1 if game.state == "result" and game.player_hp > 0.0 and game.wave == game.RUN_LAST_WAVE else 0
+				row.wins += 1 if game.state == "result" and game.run_won else 0
 				row.time += elapsed
 				row.wave += game.wave
 				row.level += game.level

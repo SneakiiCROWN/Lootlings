@@ -35,6 +35,9 @@ func run_qa() -> void:
 		var weapon := preload("res://weapon_catalog.gd").starter(type)
 		assert(game.merchant_weapon_texture(weapon) == UI.item_texture(weapon))
 	game.show_hideout()
+	# Other isolated suite tests may have persisted an equipped charm. This UI
+	# fixture must select the item it just creates, not a previous test's gear.
+	game.inventory.reset_to_starter()
 	game.inventory.keep(Items.create_item("cursed_ring", "LEGENDARY", 71))
 	game.hideout_ui.show_stash()
 	assert(game.hideout_ui.equipped_slot_buttons.size() == 4)

@@ -359,7 +359,7 @@ func build_forge() -> void:
 	add_child(forge_content)
 	make_button(forge_content, "‹ STASH", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_stash)
 	make_label(forge_content, "WEAPON FORGE", 25, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(forge_content, "Two evolutions • +4% damage each\nKeeps rarity, affixes and weapon identity", 16, Rect2(28, 112, 424, 62), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 16, Rect2(28, 112, 424, 62), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(28, 180)
 	scroll.size = Vector2(424, 285)
@@ -482,8 +482,7 @@ func refresh_forge() -> void:
 			add_forge_entry(item, index)
 	for weapon_type in ForgeSystem.WeaponCatalog.STARTERS:
 		var data := ForgeSystem.WeaponCatalog.definition(weapon_type)
-		var button := make_button(forge_list, "MAKE %s\n150 Gold + 6 Scrap" % str(data.name).to_upper(), Rect2(0, 0, 398, 72), Color("#172442"), Color("#8bbedb"), 15)
-		button.custom_minimum_size = Vector2(398, 72)
+		var button := make_forge_card(ForgeSystem.WeaponCatalog.starter(weapon_type), "MAKE %s\n150 Gold + 6 Scrap" % str(data.name).to_upper(), Color("#8bbedb"))
 		button.pressed.connect(select_forge_recipe.bind(weapon_type))
 	select_forge_weapon(-1)
 
@@ -499,13 +498,27 @@ func select_forge_recipe(weapon_type: String) -> void:
 
 func add_forge_entry(item: Dictionary, index: int) -> void:
 	var label := "%s • %s\n%s / 3  •  %s" % ["EQUIPPED" if index == -1 else "STASH", item.get("name", "Weapon"), ForgeSystem.stage(item) + 1, item.get("rarity", "COMMON")]
-	var button := make_button(forge_list, label, Rect2(0, 0, 398, 72), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 15)
-	button.custom_minimum_size = Vector2(398, 72)
+	var button := make_forge_card(item, label, ItemCatalog.rarity_color(item.get("rarity", "COMMON")))
 	button.pressed.connect(select_forge_weapon.bind(index))
+
+func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
+	var button := make_button(forge_list, "", Rect2(0, 0, 398, 72), Color("#172442"), accent, 15)
+	button.custom_minimum_size = Vector2(398, 72)
+	button.tooltip_text = text
+	var visual := ItemIcon.new()
+	visual.position = Vector2(10, 6)
+	visual.size = Vector2(60, 60)
+	visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(visual)
+	visual.configure(item)
+	var caption := make_label(button, text, 15, Rect2(80, 8, 302, 56), HORIZONTAL_ALIGNMENT_LEFT, Color("#e5ecff"))
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return button
 
 func select_forge_weapon(index: int) -> void:
 	forge_recipe = ""
-	forge_detail.add_theme_font_size_override("font_size", 19)
+	forge_detail.add_theme_font_size_override("font_size", 17)
 	forge_index = index
 	forge_armed = false
 	var item: Dictionary = current_inventory.equipped_item("Weapon") if index == -1 else current_inventory.stash[index]
@@ -513,9 +526,9 @@ func select_forge_weapon(index: int) -> void:
 	forge_confirm.text = "EVOLVE"
 	forge_confirm.disabled = next.is_empty() or gold < int(next.get("gold", 0)) or current_inventory.scrap < int(next.get("scrap", 0))
 	if next.is_empty():
-		forge_detail.text = "%s\n%s" % [item.get("name", "Weapon"), "Fully evolved" if ForgeSystem.stage(item) == 2 else "No evolution line for this weapon yet"]
+		forge_detail.text = "%s\n%s\n%s" % [item.get("name", "Weapon"), "Fully evolved" if ForgeSystem.stage(item) == 2 else "No evolution line for this weapon yet", ForgeSystem.WeaponCatalog.evolution_text(str(item.get("weapon_type", "")), ForgeSystem.stage(item))]
 	else:
-		forge_detail.text = "%s\n↓\n%s\n+4%% damage • permanent\n\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [item.name, next.name, next.gold, next.scrap, gold, current_inventory.scrap]
+		forge_detail.text = "%s\n+4%% damage • permanent\n%s\n\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [next.name, next.behaviour, next.gold, next.scrap, gold, current_inventory.scrap]
 
 func build_upgrades() -> void:
 	upgrade_content = Control.new()

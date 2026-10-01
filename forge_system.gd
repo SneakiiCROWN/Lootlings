@@ -27,7 +27,7 @@ static func offer(item: Dictionary) -> Dictionary:
 	var path: Array = item.get("evolution_path", [])
 	if item.get("slot", "") != "Weapon" or level >= mini(2, path.size()):
 		return {}
-	return {"name":str(path[level]), "gold":GOLD_COSTS[level], "scrap":SCRAP_COSTS[level], "stage":level + 1}
+	return {"name":str(path[level]), "gold":GOLD_COSTS[level], "scrap":SCRAP_COSTS[level], "stage":level + 1, "behaviour":WeaponCatalog.evolution_text(str(item.get("weapon_type", "")), level + 1)}
 
 static func evolve(item: Dictionary) -> Dictionary:
 	var next := offer(item)
