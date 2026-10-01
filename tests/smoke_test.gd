@@ -23,6 +23,7 @@ const LootlingCatalog = preload("res://lootling_catalog.gd")
 const RewardRevealCatalog = preload("res://reward_reveal_catalog.gd")
 const WeaponCatalog = preload("res://weapon_catalog.gd")
 const WorldContentCatalog = preload("res://world_content_catalog.gd")
+const FoundationUI = preload("res://lootlings_ui.gd")
 
 var failures: Array[String] = []
 
@@ -43,6 +44,18 @@ func run_tests() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await process_frame
+	var foundation_manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://manifest.json"))
+	check(foundation_manifest.files.size() == 34, "foundation art manifest contains exactly the 34 supplied PNGs")
+	for asset_path in foundation_manifest.files:
+		var supplied = load("res://%s" % asset_path)
+		check(supplied is Texture2D and supplied.get_width() > 0 and supplied.get_height() > 0, "supplied foundation PNG imports as a texture: %s" % asset_path)
+	for intent in ["primary", "secondary", "destructive"]:
+		for skin_state in ["normal", "hover", "pressed", "disabled", "focus"]:
+			var skin = FoundationUI.button_style(Color.WHITE, Color.WHITE, skin_state, intent)
+			check(skin.texture.resource_path.ends_with("button_%s_%s.png" % [intent, skin_state]) and skin.protected_margin == Vector2(24, 24), "button intent/state uses supplied art and protected caps")
+	check(game.hud_header_surface.texture.resource_path.ends_with("hud_header_9slice.png") and game.hud_build_surface.texture.resource_path.ends_with("hud_build_ribbon_9slice.png"), "HUD uses supplied shells rather than generated chrome")
+	check(game.item_panel.get_theme_stylebox("panel").protected_margin == Vector2(32, 32), "panel skins preserve the supplied 32px source corners")
+	check(game.startup_ui.name_edit.get_theme_stylebox("focus").texture.resource_path.ends_with("input_focus.png"), "profile input uses the supplied focused skin")
 	check(game.state == "boot" and game.startup_ui.visible and not game.hideout_ui.visible, "the game opens with the skippable Relic Core boot presentation")
 	var blank_profile := ProfileStore.create_default()
 	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision") and blank_profile.has("customisation"), "fresh local profiles have stable identity and future account/customisation fields without forcing a name")

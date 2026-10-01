@@ -289,6 +289,7 @@ func build_upgrades() -> void:
 	make_label(upgrade_content, "RELIC TRAINING", 29, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	upgrade_panel = make_panel(upgrade_content, Rect2(48, 354, 384, 202), Color("#101634ce"), Color("#b78cff"))
 	LootlingsUI.apply_material(upgrade_panel, "relic")
+	LootlingsUI.add_divider(upgrade_panel, Rect2(30, 116, 324, 8), "relic")
 	make_label(upgrade_panel, "PERMANENT POWER", 20, Rect2(20, 12, 344, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
 	upgrade_summary = make_label(upgrade_panel, "", 14, Rect2(28, 40, 328, 68), HORIZONTAL_ALIGNMENT_CENTER, Color("#e8efff"))
 	upgrade_summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -330,6 +331,8 @@ func build_shop() -> void:
 	shop_detail.add_theme_font_size_override("normal_font_size", 14)
 	shop_detail_panel.add_child(shop_detail)
 	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(302, 36, 122, 82), Color("#6b4a1e"), Color("#ffd468"), 13)
+	shop_buy_button.set_meta("ui_intent", "primary")
+	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
 	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 525, 137, 76), Color("#5a3f20"), Color("#ffd36a"), 12)
 	shop_gold_cache_button.pressed.connect(func(): shop_gold_cache_requested.emit())
@@ -341,6 +344,7 @@ func build_shop() -> void:
 	shop_reroll_button.pressed.connect(func(): shop_reroll_requested.emit())
 	shop_status_panel = make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530dc"), Color("#8ea2c8"))
 	LootlingsUI.apply_material(shop_status_panel, "salvage", 16)
+	LootlingsUI.add_divider(shop_status_panel, Rect2(28, 4, 384, 8), "salvage")
 	shop_status = RichTextLabel.new()
 	shop_status.position = Vector2(14, 10)
 	shop_status.size = Vector2(412, 72)
@@ -425,6 +429,9 @@ func refresh_achievements() -> void:
 		var progress_text := "COMPLETE" if unlocked else "%d / %d" % [mini(current, target), target]
 		var card := make_button(achievement_grid, "%s\n%s\n%s" % [achievement_badge_symbol(entry, unlocked, secret), title, progress_text], Rect2(0, 0, 127, 112), Color("#392b34") if unlocked else Color("#131a32"), Color("#ffd36a") if unlocked else Color("#58698f"), 11)
 		card.custom_minimum_size = Vector2(127, 112)
+		if unlocked:
+			card.set_meta("ui_intent", "primary")
+			apply_button_style(card, Color("#392b34"), Color("#ffd36a"))
 		card.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.clip_text = true
 		card.tooltip_text = title
@@ -1083,30 +1090,12 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	return button
 
 func apply_display_button_style(button: Button, border: Color, selected: bool = false) -> void:
-	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
-		var box := StyleBoxFlat.new()
-		var alpha := 0.42 if selected else 0.24
-		if state_name == "hover": alpha = 0.72
-		elif state_name == "pressed": alpha = 0.82
-		elif state_name == "disabled": alpha = 0.32
-		box.bg_color = Color(0.025, 0.055, 0.12, alpha)
-		box.border_color = border.darkened(0.45) if state_name == "disabled" else border
-		box.set_border_width_all(2 if state_name == "normal" else 3)
-		box.set_corner_radius_all(14)
-		box.shadow_color = Color(border.r, border.g, border.b, 0.20)
-		box.shadow_size = 5
-		button.add_theme_stylebox_override(state_name, box)
-	button.add_theme_color_override("font_disabled_color", Color("#76819a"))
+	apply_button_style(button, Color("#172442"), border)
+	if selected:
+		button.add_theme_stylebox_override("normal", LootlingsUI.button_style(Color.WHITE, border, "focus"))
 
 func apply_sold_display_style(button: Button) -> void:
-	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
-		var box := StyleBoxFlat.new()
-		box.bg_color = Color(0.05, 0.055, 0.08, 0.16)
-		box.border_color = Color("#71617066")
-		box.set_border_width_all(1)
-		box.set_corner_radius_all(14)
-		button.add_theme_stylebox_override(state_name, box)
-	button.add_theme_color_override("font_disabled_color", Color("#a396aa"))
+	apply_button_style(button, Color("#172442"), Color("#716170"))
 
 func wire_press_feedback(button: Button) -> void:
 	button.set_meta("presentation_bound", true)

@@ -2,6 +2,7 @@ extends SceneTree
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const AffixCatalog = preload("res://affix_catalog.gd")
+const FoundationUI = preload("res://lootlings_ui.gd")
 
 func _initialize() -> void:
 	call_deferred("capture_screens")
@@ -15,6 +16,12 @@ func capture_screens() -> void:
 	root.add_child(game)
 	await wait_frames(4)
 	game.show_startup()
+	game.startup_ui.show_boot()
+	await create_timer(0.35).timeout
+	await wait_frames(8)
+	if not save_viewport("boot_qa.png"):
+		quit(1)
+		return
 	game.startup_ui.show_title()
 	await wait_frames(24)
 	if not save_viewport("title_qa.png"):
@@ -25,6 +32,12 @@ func capture_screens() -> void:
 	if not save_viewport("profile_qa.png"):
 		quit(1)
 		return
+	game.startup_ui.name_edit.grab_focus()
+	await wait_frames(4)
+	if not save_viewport("profile_focus_qa.png"):
+		quit(1)
+		return
+	game.startup_ui.name_edit.release_focus()
 	game.startup_ui.show_settings()
 	await wait_frames(24)
 	if not save_viewport("settings_qa.png"):
@@ -55,6 +68,11 @@ func capture_screens() -> void:
 	if not save_viewport("hideout_shop_qa.png"):
 		quit(1)
 		return
+	game.hideout_ui.select_shop_offer(0)
+	await wait_frames(24)
+	if not save_viewport("shop_selected_qa.png"):
+		quit(1)
+		return
 	game.hideout_ui.show_stash()
 	await wait_frames(24)
 	if not save_viewport("stash_qa.png"):
@@ -76,6 +94,23 @@ func capture_screens() -> void:
 	if not save_viewport("combat_variant_qa.png"):
 		quit(1)
 		return
+	game.set_process(false)
+	var old_hp: float = game.player_hp
+	var old_xp: float = game.xp
+	var old_enemy_hp: float = game.enemy_hp
+	for ratio in [0.0, 0.01, 0.5]:
+		game.player_hp = game.player_max_hp * ratio
+		game.xp = game.xp_needed * ratio
+		game.enemy_hp = game.enemy_max_hp * ratio
+		game.queue_redraw()
+		await wait_frames(2)
+		await RenderingServer.frame_post_draw
+		if not save_viewport("meter_%d_qa.png" % int(ratio * 100)):
+			quit(1)
+			return
+	game.player_hp = old_hp
+	game.xp = old_xp
+	game.enemy_hp = old_enemy_hp
 	game.debug_weapon_family_override = "RANGER"
 	game.set_process(false)
 	game.player_x = game.target_player_x()
@@ -182,6 +217,33 @@ func capture_screens() -> void:
 	if not save_viewport("defeat_qa.png"):
 		quit(1)
 		return
+	var fixture := Control.new()
+	fixture.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	game.add_child(fixture)
+	var background := ColorRect.new()
+	background.color = Color("#0b1430")
+	background.size = Vector2(480, 854)
+	fixture.add_child(background)
+	var intents := ["primary", "secondary", "destructive"]
+	var states := ["normal", "hover", "pressed", "disabled", "focus"]
+	for column in range(3):
+		for row in range(5):
+			var button := Button.new()
+			button.position = Vector2(14 + column * 154, 30 + row * 159)
+			button.size = Vector2(140, 126)
+			button.text = "%s\n%s" % [intents[column].to_upper(), states[row].to_upper()]
+			button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			button.add_theme_font_size_override("font_size", 12)
+			button.set_meta("ui_intent", intents[column])
+			FoundationUI.apply_button(button, Color.WHITE, Color.WHITE)
+			button.add_theme_stylebox_override("normal", button.get_theme_stylebox(states[row]))
+			button.disabled = states[row] == "disabled"
+			fixture.add_child(button)
+	await wait_frames(4)
+	if not save_viewport("foundation_button_states_qa.png"):
+		quit(1)
+		return
+	fixture.queue_free()
 	print("VISUAL QA CAPTURED: major Hideout, combat, reward, pause and results states at %s" % root.content_scale_size)
 	game.queue_free()
 	await process_frame

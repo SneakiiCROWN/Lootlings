@@ -2,6 +2,10 @@
 
 The unchanged images in `art/reference/canonical/characters/` are the playable identity source of truth. Established presentation boards now live in `art/reference/source/established_presentation_boards/`; broad supplied boards/crops are reference-only, never substitute character designs. See `art/reference/docs/REFERENCE_ORGANIZATION.md` and its hash audit for consolidation/recovery.
 
+## Runtime UI — Foundation UI v1
+
+The user-supplied `art/ui/brand/` and `art/ui/skins/` batch contains exactly 34 PNGs, listed in root `manifest.json` and documented in `README_PHASE1_FOUNDATION_UI.md`. All source PNGs are unchanged. The wordmark, five panel skins, primary/secondary/destructive button states, inputs, HUD shells, separate meter frames/fills and three dividers are integrated. Source-space nine-slicing protects 32px panel corners and 24px button/input caps, rendered at half scale for the portrait UI; protected corners/caps remain intact while safe center/edge regions stretch. Meter source caps are half their respective texture height. No canonical character, weapon, enemy, environment or chest image was changed. Icon-wave assets remain missing and gated as recorded in `ASSET_NEEDED_PHASE1.md`.
+
 ## Shared Lootling Language
 
 - Tiny, chunky bodies around 2–2.5 heads tall with very large eyes and ears.

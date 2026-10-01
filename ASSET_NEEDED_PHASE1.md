@@ -1,6 +1,8 @@
 # ASSET_NEEDED — Phase 1 visual shell
 
-These are production-art requests, not implemented art. Current beveled StyleBoxes are **temporary functional chrome**, not painted frames or final material artwork. They contain no invented sigils. Upgrade icon sockets deliberately remain empty until real assets exist; names/effects are information, not substitute icons. Existing category drawings, currency glyphs and Trophy glyphs are legacy placeholders, not approved final artwork.
+The **34-PNG Foundation UI v1 batch is now supplied and integrated unchanged**: wordmark, five panel skins, all 15 button states, two inputs, two HUD shells, six meter frame/fill textures and three dividers. `README_PHASE1_FOUNDATION_UI.md` and `manifest.json` retain the supplied delivery record. Texture-backed nine-slicing replaces the temporary generated bevel chrome. The remaining icon/crest requests below are still outstanding. Upgrade icon sockets remain empty; names/effects are information, not substitute icons. Existing category drawings, currency glyphs and Trophy glyphs remain legacy placeholders, not approved final artwork.
+
+Delivered table rows: brand, panels, buttons, inputs, HUD shells, meters and dividers. Outstanding rows: currencies, Cores/elements, statuses/variants, all 18 upgrade icons, gear categories, rarity marks, Trophy badges and Results crests. No Wave 2 assets were invented or enabled during foundation integration.
 
 All dimensions below are source pixels; UI reference is portrait **480×854**. Supply PNG sRGB, clean alpha edges where transparent, no baked text/numbers, and no redesign of canonical characters. Gold / purple / cyan remain the identity palette. Frames must scale without stretching corners; supply nine-slice safe margins. No new gameplay rarity, element or currency is requested.
 

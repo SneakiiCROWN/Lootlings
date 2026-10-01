@@ -13,7 +13,7 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 ## 1. Foundation — Active
 
-- Phase 1 visual shell is now shared across the existing menus/rewards/HUD without changing their gameplay function. Upgrade cards reserve honest production-icon sockets rather than pseudo-icon words. `ASSET_NEEDED_PHASE1.md` is the delivery contract for painted skins, brand artwork and real iconography; current functional bevel styling and inherited glyphs are not final production art. Further visual phases require those assets rather than more programmer-art substitutes.
+- Phase 1 visual shell now uses the supplied 34-PNG Foundation UI v1 batch across existing menus/rewards/HUD, with source-space nine-slicing and no gameplay changes. Upgrade cards still reserve honest empty production-icon sockets. `ASSET_NEEDED_PHASE1.md` distinguishes delivered foundation textures from outstanding icon/crest artwork; no next asset wave or substitute glyphs were added.
 
 - Boot ignition, title-first first-launch/returning flow, offline profile, settings, five-bus anti-fatigue mix with original 48-second prebaked adventure cues, local analytics abstraction, persistent Gold, Run Scrip terminology, schema migrations, stable IDs, and mobile component language.
 - Current canonical Relic Beast, Hideout, three-zone expedition, 15-wave loop, merchant, Stash, Shrine, rewards, and saves remain the playable baseline.

@@ -204,8 +204,8 @@ var result_panel: Panel
 var result_title: Label
 var result_summary: RichTextLabel
 var upgrade_visuals: Array[Dictionary] = []
-var hud_header_surface := LootlingsUI.panel_style(Color("#121a2c"), Color("#9e8455"), 12)
-var hud_build_surface := LootlingsUI.panel_style(Color("#121928"), Color("#9e8455"), 12)
+var hud_header_surface := LootlingsUI.skin_style("hud_header_9slice", 32)
+var hud_build_surface := LootlingsUI.skin_style("hud_build_ribbon_9slice", 32)
 var restart_button: Button
 var help_label: Label
 var item_panel: Panel
@@ -428,6 +428,7 @@ func debug_show_result(victory: bool) -> void:
 		panel.visible = false
 	result_panel.visible = true
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	result_summary.text = style_result_summary("DEVELOPMENT PREVIEW\nNo rewards, stock refresh, or save changes.\n\nWave reached  %d / %d\nEnemies  %d" % [wave, RUN_LAST_WAVE, total_kills])
 	help_label.visible = false
@@ -586,6 +587,7 @@ func build_overlay_ui() -> void:
 	result_summary.add_theme_font_size_override("normal_font_size", 14)
 	result_summary.add_theme_color_override("default_color", Color("#e9efff"))
 	result_panel.add_child(result_summary)
+	LootlingsUI.add_divider(result_panel, Rect2(50, 80, 324, 10), "gold")
 	restart_button = Button.new()
 	restart_button.text = "RETURN TO HIDEOUT"
 	restart_button.position = Vector2(47, 425)
@@ -612,12 +614,14 @@ func build_pause_ui() -> void:
 	pause_button.visible = false
 	add_child(pause_button)
 	pause_panel = make_panel(Rect2(55, 244, 370, 326), Color("#101731f8"))
+	LootlingsUI.apply_material(pause_panel, "relic")
 	pause_panel.visible = false
 	make_label(pause_panel, "RUN PAUSED", 31, Rect2(20, 32, 330, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	make_label(pause_panel, "The treasure ruins will wait.", 15, Rect2(25, 86, 320, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0"))
 	make_action_button(pause_panel, "RESUME", Vector2(35, 140), Vector2(300, 64), Color("#285c4c"), Color("#69e6b0"), resume_run)
 	make_action_button(pause_panel, "ABANDON RUN", Vector2(35, 226), Vector2(300, 62), Color("#54302d"), Color("#ff8d88"), request_abandon_run)
 	abandon_panel = make_panel(Rect2(44, 225, 392, 374), Color("#12172ffb"))
+	LootlingsUI.apply_material(abandon_panel, "danger")
 	abandon_panel.visible = false
 	make_label(abandon_panel, "RETURN TO HIDEOUT?", 28, Rect2(20, 30, 352, 46), HORIZONTAL_ALIGNMENT_CENTER, Color("#ff9b8f"))
 	var warning := make_label(abandon_panel, "Current run progress and unclaimed\nrun rewards will be lost.", 16, Rect2(24, 96, 344, 106), HORIZONTAL_ALIGNMENT_CENTER, Color("#e6edff"))
@@ -935,6 +939,7 @@ func build_item_ui() -> void:
 	item_compare.add_theme_font_size_override("normal_font_size", 14)
 	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
 	item_panel.add_child(item_compare)
+	LootlingsUI.add_divider(item_panel, Rect2(34, 197, 364, 9), "gold")
 	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 357), Vector2(176, 64), Color("#295d50"), Color("#69e6b0"), accept_item_equip)
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
@@ -2297,6 +2302,7 @@ func end_run(victory: bool) -> void:
 	hideout_shop.refresh_stock()
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	var notable_loot := "None"
 	if not run_kept_loot.is_empty():
@@ -2592,11 +2598,6 @@ func draw_zone_ambient() -> void:
 
 func draw_hud() -> void:
 	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
-	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
-	draw_line(Vector2(0, 143), Vector2(480, 143), Color("#ad8040"), 3)
-	# One anchored relic-metal header replaces the old stack of framed debug boxes.
-	draw_colored_polygon(PackedVector2Array([Vector2(12, 13), Vector2(202, 13), Vector2(214, 25), Vector2(202, 65), Vector2(12, 65)]), Color("#111a34d9"))
-	draw_line(Vector2(12, 65), Vector2(202, 65), Color("#8d6d3d"), 2)
 	draw_string(title_font, Vector2(18, 36), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 23, Color("#ffe178"))
 	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
@@ -2719,8 +2720,9 @@ func draw_status_chip(pos: Vector2, text_value: String, color: Color) -> void:
 func build_summary() -> String:
 	return build.short_summary()
 
-func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: String, font_size: int) -> void:
-	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, fill, back.lightened(0.35))
+func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value: String, font_size: int) -> void:
+	var kind := "xp" if rect.size.y == 18 else "health" if rect.size.y == 25 else "enemy"
+	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind)
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:

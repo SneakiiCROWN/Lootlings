@@ -60,7 +60,7 @@ func build_boot() -> void:
 	add_child(boot_content)
 	var core := make_label(boot_content, "◇", 82, Rect2(160, 270, 160, 110), HORIZONTAL_ALIGNMENT_CENTER, Color("#c9a2ff"))
 	core.name = "CoreGlyph"
-	make_label(boot_content, "LOOTLINGS", 43, Rect2(30, 390, 420, 58), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	LootlingsUI.add_wordmark(boot_content, Rect2(30, 350, 420, 100))
 	make_label(boot_content, "RELIC CORE AWAKENING", 14, Rect2(40, 448, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var skip := make_button(boot_content, "TAP TO BEGIN", Rect2(120, 696, 240, 58), Color("#142144dd"), Color("#d1a85a"), 16)
 	skip.pressed.connect(skip_boot)
@@ -70,7 +70,7 @@ func build_title() -> void:
 	title_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	title_content.visible = false
 	add_child(title_content)
-	make_label(title_content, "LOOTLINGS", 48, Rect2(24, 45, 432, 66), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
 	make_label(title_content, "RELICS. RUINS. RIDICULOUS WEAPONS.", 13, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
 	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 596, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
@@ -105,6 +105,7 @@ func build_profile() -> void:
 	nickname_edit.add_theme_font_size_override("font_size", 18)
 	LootlingsUI.apply_input(nickname_edit)
 	panel.add_child(nickname_edit)
+	LootlingsUI.add_divider(panel, Rect2(38, 304, 336, 10), "gold")
 	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
 	make_label(panel, "◈  RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
 	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
@@ -123,6 +124,7 @@ func build_settings() -> void:
 	settings_content.visible = false
 	add_child(settings_content)
 	var panel := make_panel(settings_content, Rect2(28, 75, 424, 710), Color("#0b1430f4"), Color("#c99cff"))
+	LootlingsUI.apply_material(panel, "relic")
 	make_label(panel, "AUDIO SETTINGS", 29, Rect2(20, 24, 384, 46), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	var channels := SettingsStore.CHANNELS
 	for index in range(channels.size()):
@@ -153,6 +155,7 @@ func build_lootling_select() -> void:
 	lootling_content.visible = false
 	add_child(lootling_content)
 	var panel := make_panel(lootling_content, Rect2(24, 66, 432, 730), Color("#0b1430f4"), Color("#d1a85a"))
+	LootlingsUI.apply_material(panel, "relic")
 	make_label(panel, "CHOOSE YOUR LOOTLING", 27, Rect2(20, 24, 392, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	make_label(panel, "Your first expedition begins with the Relic Beast.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var portrait := TextureRect.new()
