@@ -13,7 +13,7 @@ Target: Godot 4.7.2, portrait 480×854
 - Private GitHub repo SneakiiCROWN/Lootlings on main.
 - Current world/story/catalog/weapon/dialogue docs and code.
 - Prior Lootlings chats and owner decisions.
-- Canva was searched for "Lootlings" and recent designs. No Canva design clearly identified itself as a Lootlings canonical source, so repository/canonical boards remain authoritative.
+- Canva is NOT a source of Lootlings canon. The owner confirmed no Lootlings project currently lives there. Use Canva only when it materially helps production (layout boards, marketing comps, clean presentation sheets, export prep); never treat it as authoritative game content.
 
 ## Locked product DNA
 Cute first, badass second — but the world can also be sexy, glamorous, horrific, warm, funny and brutal.
@@ -41,4 +41,4 @@ Everything remains original Lootlings.
 A concept board is not a runtime asset merely because it looks good. New content needs a stable ID, an honest art path, save-safe data and real phone-size QA before it is "live".
 
 ## Fastest use
-After the current Codex checkpoint, tell Codex to fetch/read this branch and follow 07_CODEX_IMPLEMENTATION_RUNBOOK.md. Do not restart the project or re-audit everything.
+Codex is currently continuing on main after group-combat checkpoint `11964ee`. Let its in-progress seeded-route tranche reach a clean checkpoint first. Then tell Codex to fetch/read this branch and follow `07_CODEX_IMPLEMENTATION_RUNBOOK.md`. Do not restart the project, discard its working tree, or re-audit everything.
