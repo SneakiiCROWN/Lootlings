@@ -55,6 +55,10 @@ static func starter(id: String) -> Dictionary:
 	return data
 
 static func runtime_texture(id: String, fallback: Texture2D) -> Texture2D:
+	# Legacy saves may predate weapon_type. Never cache one class's fallback
+	# under a shared empty key and accidentally render it for another class.
+	if id.is_empty():
+		return fallback
 	if texture_cache.has(id):
 		return texture_cache[id]
 	var path := "res://art/sprites/weapons/%s_held.png" % id

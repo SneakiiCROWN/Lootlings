@@ -77,6 +77,10 @@ func _initialize() -> void:
 	while inventory.stash.size() < inventory.stash_capacity:
 		inventory.keep(Items.create_item("bonebow", "COMMON", 123))
 	assert(not Forge.craft(inventory, gold, "orb", 124).ok)
+	var ranger: Texture2D = load("res://art/sprites/weapons/ranger_bow.png")
+	var mage: Texture2D = load("res://art/sprites/weapons/mage_staff.png")
+	assert(Forge.WeaponCatalog.runtime_texture("", ranger) == ranger)
+	assert(Forge.WeaponCatalog.runtime_texture("", mage) == mage)
 	print("EXPANSION PASSED: Forge costs, cap, insufficient funds, bounds, equipped/stash, v2 migration and partial reload")
 	print("CAMPAIGN PASSED: ten entries, sequential unlocks, no locked completion, all waves, persistence, fresh save")
 	quit(0)

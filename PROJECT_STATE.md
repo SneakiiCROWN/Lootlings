@@ -2,6 +2,10 @@
 
 ## CURRENT STATE
 
+### Playable expansion — local contracts
+
+Expeditions → Local Contracts exposes three persistent jobs rotating among six templates (12/30 kills, miniboss, boss, three chests, victory). Counters come from actual combat death, successful cache/Hoard opening and run victory; claiming rotates without retroactive completion or duplicate active templates. Rewards are 10–20 Gold, manually claimed, with no Scrip/rarity changes and no RNG consumption. `contracts.cfg` schema 1 is separate; missing old files start fresh. Progress saves at chest openings, run Results and claims (unfinished run progress is not guaranteed after force-quit). Bounds, incomplete/double-claim guards, rotation, reload and real event/menu hooks pass automated/native QA. No server/time-based daily claims.
+
 ### Playable expansion — seven additional weapon families
 
 Forge now crafts Scrap Axe, Ruin Pike, Ruin Claws, Scrap Repeater, Pebble Sling, Ruin Wand and Relic Orb into Stash for 150 Gold + 6 Scrap (two-step confirmation, capacity/funds guards). Each maps to its approved catalog family and first evolution line. Existing 35-base drop generation and rarity odds remain unchanged. Twelve families are playable, but named temporary held art/icons reuse class sprites; dedicated `art/sprites/weapons/<family>_held.png` paths feed cached combat/icon texture hooks.

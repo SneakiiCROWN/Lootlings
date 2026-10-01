@@ -41,6 +41,8 @@ const RUN_LAST_WAVE := 15
 const CampaignSystem = preload("res://campaign_system.gd")
 var campaign := CampaignSystem.new()
 var campaign_id := "act_i"
+const ContractSystem = preload("res://contract_system.gd")
+var contracts := ContractSystem.new()
 const ENEMIES_PER_WAVE := 3
 const PLAYER_HOME_X := 102.0
 const PLAYER_ATTACK_X := 245.0
@@ -645,6 +647,8 @@ func build_hideout() -> void:
 	hideout_ui = HideoutUI.new()
 	add_child(hideout_ui)
 	campaign.load_progress("user://campaign.cfg")
+	contracts.load_progress("user://contracts.cfg")
+	hideout_ui.contracts = contracts
 	hideout_ui.campaign = campaign
 	hideout_ui.play_requested.connect(hideout_ui.show_campaign)
 	hideout_ui.campaign_requested.connect(start_campaign)
@@ -659,6 +663,7 @@ func build_hideout() -> void:
 	hideout_ui.gold_upgrade_requested.connect(buy_gold_upgrade)
 	hideout_ui.forge_requested.connect(evolve_owned_weapon)
 	hideout_ui.forge_craft_requested.connect(craft_weapon)
+	hideout_ui.contract_claim_requested.connect(claim_contract)
 	hideout_ui.profile_requested.connect(show_profile_from_hideout)
 	hideout_ui.title_requested.connect(show_title_from_hideout)
 	hideout_ui.destination_visited.connect(func(destination_id): award_unique_achievement("hideout_social", str(destination_id)))
@@ -828,6 +833,7 @@ func use_mystery_cache() -> void:
 		return
 	inventory.scrap -= hideout_shop.CACHE_COST
 	hideout_shop.reveal_cache()
+	record_contract_chest()
 	award_achievement("ten_chests")
 	award_achievement("chest_50")
 	award_item_discovery(hideout_shop.pending_cache_item)
@@ -864,6 +870,7 @@ func use_gold_cache() -> void:
 		return
 	gold -= hideout_shop.GOLD_CACHE_COST
 	hideout_shop.reveal_gold_cache()
+	record_contract_chest()
 	award_achievement("ten_chests")
 	award_achievement("chest_50")
 	award_item_discovery(hideout_shop.pending_cache_item)
@@ -926,6 +933,21 @@ func craft_weapon(weapon_type: String) -> void:
 	save_meta()
 	save_hideout_economy()
 	play_audio_event("shop_purchase")
+
+func claim_contract(slot: int) -> void:
+	if state != "hideout": return
+	var reward := contracts.claim(slot)
+	if reward <= 0: return
+	contracts.save("user://contracts.cfg")
+	gold += reward
+	save_meta()
+	refresh_hideout()
+	hideout_ui.refresh_contracts()
+	play_audio_event("shop_purchase")
+
+func record_contract_chest() -> void:
+	contracts.record("chest")
+	contracts.save("user://contracts.cfg")
 
 func run_zone_for_wave(value: int) -> Dictionary:
 	return CampaignSystem.zone_for(campaign_id, value)
@@ -1755,6 +1777,7 @@ func kill_enemy() -> void:
 	death_burst_color = Color("#b75cff") if enemy_is_boss else Color("#ffba55") if enemy_is_miniboss else Color("#ffcf72")
 	enemy_hp = 0.0
 	total_kills += 1
+	contracts.record("kill")
 	award_achievement("hundred_kills")
 	award_achievement("thousand_kills")
 	if not enemy_variant_id.is_empty():
@@ -1764,7 +1787,10 @@ func kill_enemy() -> void:
 		elif enemy_variant_id == "frostbitten":
 			award_achievement("first_frostbitten")
 	if enemy_is_miniboss:
+		contracts.record("miniboss")
 		award_achievement("first_miniboss")
+	if enemy_is_boss:
+		contracts.record("boss")
 	if enemy_is_boss and campaign_id == "act_i":
 		award_achievement("hoard_dragon")
 		award_achievement("dragon_regular")
@@ -1900,6 +1926,7 @@ func open_hoard_chest() -> void:
 	if state != "hoard_chest" or hoard_chest_phase != "ready":
 		return
 	hoard_chest_phase = "windup"
+	record_contract_chest()
 	hoard_chest_timer = float(hoard_reveal_profile.get("anticipation", 0.62))
 	hoard_chest_button.visible = false
 	play_audio_event("chest_windup")
@@ -2366,6 +2393,7 @@ func end_run(victory: bool) -> void:
 	meta_shards += run_shards_earned
 	gold += run_gold_earned
 	if victory:
+		contracts.record("win")
 		campaign.finish(campaign_id)
 		campaign.save("user://campaign.cfg")
 		award_achievement("first_expedition")
@@ -2376,6 +2404,7 @@ func end_run(victory: bool) -> void:
 	award_achievement("scrap_hoard", inventory.scrap, true)
 	save_meta()
 	hideout_shop.refresh_stock()
+	contracts.save("user://contracts.cfg")
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
 	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))

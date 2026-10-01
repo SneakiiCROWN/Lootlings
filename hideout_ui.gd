@@ -4,6 +4,7 @@ signal play_requested
 signal forge_requested(stash_index: int)
 signal forge_craft_requested(weapon_type: String)
 signal campaign_requested(region_id: String)
+signal contract_claim_requested(slot: int)
 signal stash_equip_requested(index: int)
 signal stash_scrap_requested(index: int)
 signal upgrade_requested
@@ -68,6 +69,9 @@ var forge_recipe := ""
 var campaign_content: Control
 var campaign_list: VBoxContainer
 var campaign
+var contracts
+var contracts_content: Control
+var contract_buttons: Array[Button] = []
 var upgrade_content: Control
 var coming_content: Control
 var shop_content: Control
@@ -138,6 +142,7 @@ func _ready() -> void:
 	build_stash()
 	build_forge()
 	build_campaign()
+	build_contracts()
 	build_upgrades()
 	build_shop()
 	build_achievements()
@@ -224,10 +229,11 @@ func refresh_current_screen() -> void:
 		"upgrades": refresh_upgrades()
 		"shop": refresh_shop()
 		"achievements": refresh_achievements()
+		"contracts": refresh_contracts()
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
-	var screens := [home_content, stash_content, forge_content, campaign_content, upgrade_content, shop_content, achievement_content, coming_content]
+	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -345,12 +351,42 @@ func build_campaign() -> void:
 	make_label(campaign_content, "Conquer a region to unlock the next.\n15 waves • miniboss • boss • merchant stops", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(24, 190)
-	scroll.size = Vector2(432, 612)
+	scroll.size = Vector2(432, 544)
 	campaign_content.add_child(scroll)
 	campaign_list = VBoxContainer.new()
 	campaign_list.custom_minimum_size.x = 408
 	campaign_list.add_theme_constant_override("separation", 12)
 	scroll.add_child(campaign_list)
+	make_button(campaign_content, "LOCAL CONTRACTS", Rect2(55, 755, 370, 66), Color("#172442"), Color("#d4ad65"), 18).pressed.connect(show_contracts)
+
+func build_contracts() -> void:
+	contracts_content = Control.new()
+	contracts_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	contracts_content.visible = false
+	add_child(contracts_content)
+	make_button(contracts_content, "‹ EXPEDITIONS", Rect2(20, 20, 158, 48), Color("#202d4d"), Color("#7f94bc"), 13).pressed.connect(show_campaign)
+	make_label(contracts_content, "CONTRACTS", 26, Rect2(180, 23, 280, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	for slot in range(3):
+		var button := make_button(contracts_content, "", Rect2(30, 210 + slot * 180, 420, 154), Color("#172442"), Color("#d4ad65"), 18)
+		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
+		button.add_theme_color_override("font_disabled_color", Color("#b9cadd"))
+		button.pressed.connect(func(): contract_claim_requested.emit(slot))
+		contract_buttons.append(button)
+
+func show_contracts() -> void:
+	dismiss_dialogue()
+	current_screen = "contracts"
+	set_screen(contracts_content)
+	refresh_contracts()
+
+func refresh_contracts() -> void:
+	if contracts == null: return
+	for slot in range(3):
+		var item: Dictionary = contracts.offer(slot)
+		var ready := int(item.progress) >= int(item.target)
+		contract_buttons[slot].text = "%s\n%d / %d • %s\n%d GOLD\n%s" % [str(item.name).to_upper(), item.progress, item.target, str(item.event).to_upper(), item.gold, "CLAIM REWARD" if ready else "IN PROGRESS"]
+		contract_buttons[slot].disabled = not ready
 
 func show_campaign() -> void:
 	dismiss_dialogue()

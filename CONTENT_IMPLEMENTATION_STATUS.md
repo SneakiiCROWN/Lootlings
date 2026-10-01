@@ -45,6 +45,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 
 ## Hideout, trophies, and platform direction
 
+Local contracts: LIVE. Expeditions → Local Contracts, three simultaneous jobs/six templates; actual kill/miniboss/boss/chest/victory counters, 10–20 Gold claim rewards, local rotation and schema-1 persistence. No backend or daily clock.
+
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Patch, Nym, Quillik, Nibs contextual dialogue | LIVE | Expanded concise weighted pools; cosmetic RNG remains independent. |
