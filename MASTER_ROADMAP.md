@@ -2,6 +2,8 @@
 
 ## Current canonical-world beta tranche
 
+Non-weapon item continuation: seven approved jewellery/relic/rune cutouts give eleven existing bases physical painted identity throughout shared item presentation; actual weapon-family textures also reach world drops. Armour and bells still use delivered category art. Next targeted correction: the equipped Stash detail's clipped effect line, then further safe gear visuals.
+
 Lesser chest continuation: physical approved Scavenged Cache/Relic Chest beta silhouettes now accompany existing shop/miniboss rewards with bounded landing/glow/item emergence. No additional reward or claim rules. Genuine open-lid frames remain a production need; Hoard sequence unchanged. Shared painted Director panels and bounded resident dialogue complete this presentation tranche.
 
 Weapon continuation: four more approved silhouettes (Spear/Crossbow/Claws/Wand) replace class art with fitted grips, clear facing and matching ranged sockets. Eleven families now have distinct art; Relic Sling retains a documented fallback pending a genuinely appropriate sling, not a falsely mapped flail. Evolution-stage art remains future production delivery.

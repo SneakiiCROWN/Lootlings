@@ -2,6 +2,12 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — non-weapon loot art integration
+
+Seven approved transparent beta cutouts now serve eleven existing charm/relic/rune bases: cursed ring, Hoard locket, Relic orbit, Vault scroll, storm crystal, ember stone and nature pendant. Shared item texture lookup feeds item review, Stash rows, shop/merchant icons, physical drops and cache emergence. Weapons dropped in combat now resolve their actual family/stage texture rather than the old class-only fallback. Equipment data, rolls, effects, save IDs and economy are unchanged. Armour/bells and unmapped bases retain the delivered category artwork, not invented substitute items. A clipped tome trial was rejected; the scroll crop was widened after inspection. Originals preserved; exact source rectangles live in the exporter/provenance.
+
+Passed import/parser, focused item-art tests (eleven bases/data immutability/all starter drop textures), smoke/save/migration/economy (unchanged 2/5 victories), expansion, contracts, seven seeded weapon runs and chest regression. Native OpenGL 480×854 item-art and full screen capture passed; reviewed ring/scroll decisions, Stash and shop. Stash equipped-detail clipping remains the next UI correction, not hidden by this asset tranche. Diff whitespace clean.
+
 ### Continued overhaul — physical lesser chest beta presentation
 
 Scavenged Cache reveals at the Salvager now show the approved painted wood/gem chest landing, glowing and ejecting the actual item category/weapon art. Guaranteed miniboss equipment uses the approved purple crystal Relic Chest with the same original 1.15-second automatic pickup deadline. Existing price, roll, claim, probability and reward rules are unchanged; the Hoard Chest is untouched. Complete closed silhouettes are preserved: a split-image lid trial was rejected during native QA. Genuine hinged-open frames remain needed.

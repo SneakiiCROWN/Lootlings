@@ -49,6 +49,10 @@ Props use edge-connected black removal plus largest connected body to reject det
 
 ## Lesser chest continuation
 
+## Non-weapon item continuation
+
+`tools/extract_loot_beta.gd` exports seven cutouts from untouched `lootlings_jewellery_relic_consumable_loot_reference.png`: cursed ring (249,0,244,276), nature pendant (492,0,240,280), Hoard locket (733,0,237,278), Relic orbit (944,280,250,260), Vault scroll (938,548,270,258), storm crystal (494,803,243,282), ember stone (739,804,231,281). Bodies fit 224px within transparent 256×256 under `art/sprites/items/beta/`. The scroll includes its full right edge; a clipped tome trial was rejected and its temporary exports removed. These are beta presentation mappings for existing IDs, not new loot or final per-base artwork. `LootlingsUI.ITEM_ART` records eleven mappings; other bases retain the delivered category icons. No original source image changed.
+
 `tools/extract_chest_beta.gd` exports untouched painted cutouts from `lootlings_chests_shrine_merchant_props_reference.png`: Scavenged wood/gem chest (0,142,291,206), Relic crystal chest (293,58,339,288). Edge-connected backdrop removal and largest foreground component exclude neighbouring props. Each body fits 432px within transparent 512×512, under `art/sprites/rewards/{scavenged,relic}_chest_beta.png`. Original board preserved. Existing Director reuses these static assets for bounded landing, glow and item emergence; no arbitrary split-image "open" frame ships. Production still needs matching separate closed/open/anticipation frames. Hoard artwork and sequence remain unchanged.
 
 `tools/extract_weapon_beta.gd` exports four additional original cutouts from `lootlings_weapon_families_reference.png`: spear (1234,0,214,474), crossbow (698,501,306,281), claws (12,778,246,308), wand (1218,474,230,310). Largest connected foreground preserves the body while rejecting detached neighbours; no redesign. Claw pixels rotate 90° counterclockwise so wrist is left/talons right; crossbow is not mirrored. Bodies fit 432px within transparent 512×512 at `art/sprites/weapons/{spear,crossbow,claws,wand}_held.png`.

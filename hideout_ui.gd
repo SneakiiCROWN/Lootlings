@@ -957,9 +957,7 @@ func play_cache_reveal(rarity_color: Color, reveal_profile: Dictionary = {}, ite
 	cache_pulse = cache_pulse_duration
 	cache_pulse_color = rarity_color
 	var revealed: Dictionary = item if not item.is_empty() else current_shop.pending_cache_item if current_shop != null else {}
-	var texture := weapon_texture_for_item(revealed)
-	if texture == null:
-		texture = LootlingsUI.icon("gear_%s" % ("armour" if revealed.get("slot", "") == "Armour" else "rune" if revealed.get("slot", "") == "Rune" else "charm"))
+	var texture := LootlingsUI.item_texture(revealed)
 	presentation.play_chest_showcase("scavenged", Vector2(240, 428), rarity_color, texture)
 	shake_control(shop_cache_button)
 	pulse_control(shop_status_panel, rarity_color)

@@ -14,6 +14,7 @@ var weapon_type := ""
 var evolution_stage := 0
 var rarity := "COMMON"
 var rarity_color := Color("#8de0a5")
+var painted_texture: Texture2D
 
 func configure(item: Dictionary) -> void:
 	slot = str(item.get("slot", "Relic"))
@@ -22,6 +23,7 @@ func configure(item: Dictionary) -> void:
 	evolution_stage = int(item.get("evolution_stage", 0))
 	rarity = str(item.get("rarity", "COMMON"))
 	rarity_color = ItemCatalog.rarity_color(rarity)
+	painted_texture = LootlingsUI.item_texture(item)
 	queue_redraw()
 
 func _draw() -> void:
@@ -34,7 +36,7 @@ func _draw() -> void:
 		texture = WeaponCatalog.runtime_texture(weapon_type, texture, evolution_stage)
 		LootlingsUI.draw_icon(get_canvas_item(), texture, Rect2(Vector2.ZERO, size))
 	else:
-		var category := "armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"
-		LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("gear_%s" % category), Rect2(Vector2.ZERO, size))
+		draw_circle(center, radius * 1.20, Color(rarity_color, 0.12))
+		LootlingsUI.draw_icon(get_canvas_item(), painted_texture, Rect2(Vector2.ZERO, size))
 	var badge_size := minf(28, minf(size.x, size.y) * 0.28)
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("rarity_%s" % rarity.to_lower()), Rect2(size - Vector2.ONE * badge_size, Vector2.ONE * badge_size))

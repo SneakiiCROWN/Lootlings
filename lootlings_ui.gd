@@ -1,6 +1,15 @@
 extends RefCounted
 
 const TextureSkin = preload("res://ui_surface_style.gd")
+const WeaponArt = preload("res://weapon_catalog.gd")
+const ITEM_ART := {
+	"cursed_ring":"cursed_ring", "hoarders_locket":"hoard_locket",
+	"relic_magnet_charm":"relic_orbit", "vault_receipt":"vault_scroll",
+	"ember_pop":"ember_stone", "stormspark":"storm_crystal",
+	"toxic_burst":"nature_pendant", "mire_rune":"nature_pendant",
+	"ground_slam":"ember_stone", "bossbane_sigil":"ember_stone",
+	"echo_rune":"storm_crystal",
+}
 
 const NAVY := Color("#0b1430")
 const NAVY_DEEP := Color("#071027")
@@ -11,6 +20,17 @@ const TEXT_MUTED := Color("#9fb3d8")
 const WORDMARK = preload("res://art/ui/brand/lootlings_wordmark.png")
 static var skin_cache: Dictionary = {}
 static var icon_cache: Dictionary = {}
+
+static func item_texture(item: Dictionary) -> Texture2D:
+	if item.get("slot", "") == "Weapon":
+		var family := str(item.get("family", "VANGUARD"))
+		var fallback_path: String = {"RANGER":"ranger_bow", "MAGE":"mage_staff", "ROGUE":"rogue_daggers"}.get(family, "vanguard_hammer")
+		return WeaponArt.runtime_texture(str(item.get("weapon_type", "")), icon("res://art/sprites/weapons/%s.png" % fallback_path), int(item.get("evolution_stage", 0)))
+	var id := str(item.get("id", ""))
+	if ITEM_ART.has(id):
+		return icon("res://art/sprites/items/beta/%s.png" % ITEM_ART[id])
+	var slot := str(item.get("slot", "Relic"))
+	return icon("gear_%s" % ("armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"))
 
 static func icon(name: String) -> Texture2D:
 	var path := name if name.begins_with("res://") else "res://art/ui/icons/%s.png" % name

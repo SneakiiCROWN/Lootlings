@@ -2245,11 +2245,7 @@ func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dict
 func merchant_weapon_texture(item: Dictionary) -> Texture2D:
 	if item.get("slot", "") != "Weapon":
 		return null
-	match item.get("family", "VANGUARD"):
-		"RANGER": return RANGER_WEAPON_TEXTURE
-		"MAGE": return MAGE_WEAPON_TEXTURE
-		"ROGUE": return ROGUE_WEAPON_TEXTURE
-	return VANGUARD_WEAPON_TEXTURE
+	return LootlingsUI.item_texture(item)
 
 func buy_merchant_item(index: int) -> void:
 	if state != "merchant" or index < 0 or index >= shop.stock.size():
@@ -3032,7 +3028,7 @@ func draw_loot_drop(drop: Dictionary) -> void:
 			var direction := Vector2.RIGHT.rotated(run_time * 0.8 + TAU * glint / float(4 if rarity_rank == 2 else 6))
 			draw_line(drop.pos + direction * 22.0, drop.pos + direction * (28.0 + rarity_rank * 4.0), color.lightened(0.5), 2.0)
 	var slot: String = drop.item.get("slot", "Relic")
-	var loot_texture := merchant_weapon_texture(drop.item) if slot == "Weapon" else LootlingsUI.icon("gear_%s" % ("armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"))
+	var loot_texture := LootlingsUI.item_texture(drop.item)
 	LootlingsUI.draw_icon(get_canvas_item(), loot_texture, Rect2(drop.pos - Vector2(18, 18), Vector2(36, 36)))
 	var category := ItemCatalog.display_slot(slot).to_upper()
 	draw_string(body_font, drop.pos + Vector2(-40, 34), category, HORIZONTAL_ALIGNMENT_CENTER, 80, 10, Color("#f5f7ff"))
