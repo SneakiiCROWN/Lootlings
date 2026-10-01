@@ -1,0 +1,51 @@
+Current seeded-route tranche is now checkpointed and pushed.
+
+Continue in the SAME Lootlings project and conversation.
+
+Do NOT restart or broadly re-audit the repo.
+Do NOT discard the current tested architecture.
+Do NOT rewrite existing working gameplay just to match a planning document.
+
+Fetch/read the branch:
+chatgpt/master-production-pack-v3-2026-10-02
+
+Start with:
+docs/master_pack_v3/00_READ_ME_FIRST.md
+docs/master_pack_v3/01_AUDIT_SNAPSHOT.md
+docs/master_pack_v3/02_PLAYABLE_ROSTER_AND_CHARACTER_CREATOR.md
+docs/master_pack_v3/03_NPCS_WORLD_AND_STORY.md
+docs/master_pack_v3/04_WEAPONS_POSES_AND_EQUIPMENT.md
+docs/master_pack_v3/05_APPEARANCE_WARDROBE_HAIR_COSMETICS.md
+docs/master_pack_v3/06_CONTENT_ID_MANIFEST.json
+docs/master_pack_v3/07_CODEX_IMPLEMENTATION_RUNBOOK.md
+docs/master_pack_v3/08_ART_PRODUCTION_MANIFEST.md
+docs/master_pack_v3/09_DIALOGUE_QUEST_AND_BANTER_BANK.md
+docs/master_pack_v3/10_QA_SAVE_MIGRATION_AND_CONTENT_GATES.md
+docs/master_pack_v3/11_ADVANCED_CONTENT_PIPELINE.md
+
+Live repo code/tests ALWAYS win on technical conflict.
+The pack is owner-approved expansion direction.
+
+Main goals:
+1. Keep all seven Lootlings selectable.
+2. Add adult human/humanoid playable origins alongside them, not instead of them.
+3. Build a real appearance/customisation layer: broad skin tones, adult body frames, faces, eyes, hair, facial hair, scars, tattoos/warpaint, makeup, outfits, dyes, jewellery/accessories, poses and cosmetics.
+4. Appearance must remain separate from combat power.
+5. Build reusable weapon-family grip/socket/pose logic so all enabled weapons visually fit Lootlings and humanoids instead of floating or pointing backwards.
+6. Use approved beta art aggressively where it is genuinely clean and honest, while keeping it replaceable.
+7. Add the prepared Wardrobe / Appearance / Practice service NPCs only with the systems they actually serve.
+8. Preserve Aurel Reach / Crownfall / First Hoard world canon and use the prepared backstories/dialogue/quest seeds.
+9. Keep the inspiration principles — Witcher 3 lived-in monster hunting, Diablo infernal grandeur/loot spectacle, DOOM demon weight, Borderlands weapon/NPC personality, Skyrim/LOTR old-world exploration, Overwatch readability, Baldur's Gate 3 adult character-expression freedom — without copying protected expression.
+10. Keep the style mix: cute + sexy + badass + glamorous + horrific + funny + warm + dark. Sexy/raunchy humanoid looks are adult-only; Lootlings are not sexualised.
+
+Implementation discipline:
+IMPLEMENT → TEST → RENDER 480x854 → INSPECT → FIX → SAVE/MIGRATION TEST → COMMIT → PUSH → CONTINUE.
+
+Use credits efficiently:
+no broad re-audit;
+reuse current catalogs/renderers/tests;
+batch related work;
+checkpoint coherent tranches;
+do not stop for approval between normal stable checkpoints.
+
+Start with avatar architecture + first humanoid playable milestone, then weapon fitting, creator UI, wardrobe/transmog, NPC services, story/dialogue and final-art replacement in the runbook order.
