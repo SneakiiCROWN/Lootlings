@@ -23,7 +23,7 @@ Future ChatGPT/Codex sessions should recover state from this repository before a
 3. Read this production pack in `docs/master_pack_v3/`, especially:
    - the core master production/spec documents
    - `18_CINEMATICS_STAGE_INTROS_AND_REPLAY.md`
-   - `19_CHARACTER_STORY_PREVIEWS_AND_VIGNETTES.md`
+   - `19_CHARACTER_STORY_PREVIEWS_AND_VIGNETTES.md`\n   - `20_ANIME_GOTH_EMO_METALCORE_FASHION_DIRECTION.md`
 4. Inspect only the latest relevant git diff / recent commits needed to understand unfinished work. Do not re-audit the entire repository unless a genuine inconsistency requires it.
 5. Treat newer tested runtime implementation as authoritative when stale documentation conflicts with it, then reconcile the docs.
 6. Preserve working gameplay, save compatibility, economy, combat and progression unless a deliberate tested migration is required.
@@ -54,7 +54,7 @@ Lootlings is an original fantasy action/loot game with deliberate contrast:
 
 - cute, expressive collectible Lootlings and companions;
 - adult human/humanoid Wanderers with broad appearance/customisation freedom;
-- attractive/glamorous/raunchy adult cosmetic options alongside practical, rugged and heavily armoured ones;
+- attractive/glamorous/raunchy adult cosmetic options alongside practical, rugged and heavily armoured ones;\n- a deliberate anime-influenced goth / emo / alt / metal / metalcore fashion lane for adult Wanderers and selected NPCs, including sexy, elegant, cute, brutal and infernal variants across varied genders, body presentations and skin tones;
 - badass weapons, relic gear and strong silhouettes;
 - frightening infernal/devilish/demonic monsters and bosses;
 - beautiful magical/crystalline/nature environments;
