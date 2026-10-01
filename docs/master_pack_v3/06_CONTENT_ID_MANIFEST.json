@@ -1,0 +1,97 @@
+{
+  "pack_version": 3,
+  "audit_date": "2026-10-02",
+  "authority": "planning-and-integration-manifest; live repo IDs win on conflict",
+  "avatar_kinds": ["lootling", "humanoid"],
+  "lootlings": ["relic_beast", "emberhorn", "mosskin", "moonkip", "pebblewyrm", "glimmerfin", "gloomlet"],
+  "humanoid_origins": [
+    "human_aurelia_voss",
+    "human_kaien_rook",
+    "human_selene_veyra",
+    "human_rex_calder",
+    "human_nessa_vale",
+    "human_corvin_ash",
+    "human_vesper_thread",
+    "human_juno_brass",
+    "human_custom"
+  ],
+  "resident_npcs": [
+    "npc_patch_brasswick",
+    "npc_ilex_quill",
+    "npc_sera_vey",
+    "npc_merrow_vane",
+    "npc_mira_threadlock",
+    "npc_oren_valeglass",
+    "npc_bram_cinderpot",
+    "npc_talli_nock"
+  ],
+  "regions": [
+    "act_i",
+    "mossglass_wilds",
+    "moonfen",
+    "frostbell_hollows",
+    "sunken_gearworks",
+    "cinder_crown",
+    "starfall_archive",
+    "nullglass_expanse",
+    "skyhook_bastion",
+    "first_hoard"
+  ],
+  "weapon_types": [
+    "greatsword",
+    "greataxe",
+    "maul",
+    "spear",
+    "daggers",
+    "claws",
+    "bow",
+    "crossbow",
+    "sling",
+    "staff",
+    "wand",
+    "orb"
+  ],
+  "pose_families": [
+    "heavy_two_hand",
+    "polearm_two_hand",
+    "dual_close",
+    "precision_ranged",
+    "caster_long",
+    "caster_short",
+    "focus_float"
+  ],
+  "body_frames": ["light", "medium", "heavy", "tall"],
+  "outfit_families": [
+    "outfit_salvager",
+    "outfit_lantern_hunter",
+    "outfit_moonfen_rogue",
+    "outfit_starfall_witch",
+    "outfit_quillkeeper_scholar",
+    "outfit_cinder_berserker",
+    "outfit_cinder_battle_glamour",
+    "outfit_frostbell_arcane",
+    "outfit_mossglass_wild",
+    "outfit_skyhook_warden",
+    "outfit_gearworks_tinker",
+    "outfit_nullglass_occult",
+    "outfit_relic_priest",
+    "outfit_hollow_court_spoils",
+    "outfit_first_hoard_ceremonial",
+    "outfit_hideout_casual"
+  ],
+  "humanoid_cosmetic_slots": [
+    "underlayer", "head", "chest", "legs", "gloves", "boots", "shoulders",
+    "cape_or_scarf", "belt_or_satchel", "neck", "ears", "wrists", "rings",
+    "dye_a", "dye_b", "dye_c", "weapon_skin", "aura", "trail", "victory_pose", "emote"
+  ],
+  "lootling_cosmetic_slots": [
+    "skin", "head", "horn_or_ear_accessory", "scarf_or_cape", "partial_armour",
+    "satchel", "core_effect", "weapon_skin", "aura", "trail", "victory", "emote"
+  ],
+  "service_ids": [
+    "salvager", "forge", "archive", "contracts", "field_notes", "shrine",
+    "core_training", "pack_peddler", "route_rumours", "wardrobe", "dye",
+    "hair_style", "appearance_station", "provisions", "training_dummy",
+    "weapon_preview", "pose_preview"
+  ]
+}
