@@ -2,6 +2,8 @@
 
 ## Master production v3 continuation
 
+Illustrated vignette/replay tranche is live: one shared player, selector-origin previews, first resident/Hideout/region meetings, four art-supported boss stings, persistent discovery, Archive replay and Story & Motion preferences. Existing-content scenes are honest painted beta compositions, not final gesture animation. Adult fashion document 20 is authoritative for future additive original looks across varied genders/skin/body/hair/style; the accepted two presets must not be homogenised into a universal template. Future relationship/relic/secret scenes should extend these same hooks only when actual discoveries and appropriate assets exist.
+
 The twenty-document planning pack is integrated alongside the newer tested live code; its pre-route snapshot does not override shipped bounded patrols, seeded eight-room routes or meaningful twelve-family evolution. Adult player identity is now live through additive profile schema 3, two clean authored beta presets, shared avatar resolution and a separate twelve-family grip/projectile contract. All seven Lootlings/Gloomlet remain available. Appearance is stat-free. Full modular body/hair/outfit layers and genuine two-hand poses remain required; see `WANDERER_BETA_ART.md`, not claims of a finished creator.
 
 Continue with reusable skippable vignette/cinematic presentation and Archive replay, then deeper world life/lore, character Wardrobe and approved content/art integration in tested coherent tranches. Do not return to the superseded enemy-crop-first queue or overwrite validated live gameplay with older pack snapshots.

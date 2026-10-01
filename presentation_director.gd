@@ -1,6 +1,7 @@
 extends Control
 
 const UI = preload("res://lootlings_ui.gd")
+const VignettePlayer = preload("res://vignette_player.gd")
 const SCAVENGED_CHEST = preload("res://art/sprites/rewards/scavenged_chest_beta.png")
 const RELIC_CHEST = preload("res://art/sprites/rewards/relic_chest_beta.png")
 
@@ -26,6 +27,7 @@ var chest_showcase_kind := "scavenged"
 var chest_showcase_center := Vector2(240, 428)
 var chest_showcase_color := Color("#ffd36a")
 var chest_showcase_item: Texture2D
+var vignette
 
 func _ready() -> void:
 	name = "PresentationDirector"
@@ -34,6 +36,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	z_index = 900
 	build_overlay()
+	vignette = VignettePlayer.new()
+	add_child(vignette)
 	set_process(false)
 
 func build_overlay() -> void:

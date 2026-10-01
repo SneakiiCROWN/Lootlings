@@ -13,6 +13,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Neutral Relic Beast | LIVE | Exact canonical `art/sprites/relic_beast_base.png`; current base player. |
 | Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin | LIVE — CANONICAL BETA | Original canonical turnaround cutouts, untinted, through existing runtime hooks. High-resolution weaponless production replacements still needed; see BETA_ART_PROVENANCE.md. |
 | Gloomlet | LIVE — TEMP ART | Selection restored; clearly labelled previous temporary neutral stand-in. Missing final art never removes this playable identity. |
+| Adult Wanderers | LIVE — BETA PRESETS | Accepted Vault Runner / Ruin Warden, profile schema 3, stat-neutral identity choices and twelve-family hand/projectile sockets. Not a finished modular creator. Runtime art/provenance needs: WANDERER_BETA_ART.md. |
+| Origin previews / Memory Archive | LIVE — ILLUSTRATED BETA | 33 existing-content scenes, short skippable read-only previews/replays, first meeting/region/supported-boss hooks, persistent discovery and reduced-motion settings. No final limb/gesture animation; VIGNETTE_IMPLEMENTATION.md gives exact scope. |
 | Additional pose cutouts for all seven Lootlings | DEFERRED | Existing transform-driven pose layer is live. Four optional extra cutouts per identity are LATER; accepted idle art is sufficient for an initial honest identity integration. |
 
 ## Run, enemies, and world

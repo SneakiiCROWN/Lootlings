@@ -1,5 +1,7 @@
 # Lootlings Asset Provenance
 
+Current runtime authority permits documented clean owner-approved beta integration; historical reference-only/gating notes below predate that permission and do not disable already-playable identities or weapons. Exact current runtime state is `CONTENT_IMPLEMENTATION_STATUS.md`. Accepted adult beta body outputs/provenance are in `WANDERER_BETA_ART.md` (checkpoint `c6cf4f3`); new illustrated vignettes only reuse existing art and original sound hooks. No external audio/art pack was downloaded for this tranche.
+
 ## Master Production Handoff v2 (reference only)
 
 - `art/reference/docs/` and `art/reference/source/production_boards/` were supplied directly by the project owner as the authoritative pre-production content/art handoff for this repository.

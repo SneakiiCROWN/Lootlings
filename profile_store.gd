@@ -15,6 +15,7 @@ static func create_default() -> Dictionary:
 		"current_lootling_id":"relic_beast",
 		"avatar_mode":"lootling",
 		"wanderer":WandererCatalog.create_default(),
+		"memories":[],
 		"cosmetic_ids":[],
 		"customisation":{"skin_id":"", "head_id":"", "core_effect_id":"", "weapon_skin_id":"", "trail_id":"", "victory_pose_id":"", "emote_id":""},
 		"favourite_weapon_id":"scrapfang_blade",
@@ -50,6 +51,7 @@ static func load_profile(path: String) -> Dictionary:
 		profile.current_lootling_id = "relic_beast"
 	profile.avatar_mode = "wanderer" if str(profile.avatar_mode) == "wanderer" else "lootling"
 	profile.wanderer = WandererCatalog.sanitize(profile.wanderer)
+	profile.memories = sanitize_memories(profile.memories)
 	return profile
 
 static func save_profile(path: String, profile: Dictionary) -> Error:
@@ -62,12 +64,22 @@ static func save_profile(path: String, profile: Dictionary) -> Error:
 	safe_profile.lootling_nickname = sanitize_name(str(safe_profile.lootling_nickname))
 	safe_profile.avatar_mode = "wanderer" if str(safe_profile.avatar_mode) == "wanderer" else "lootling"
 	safe_profile.wanderer = WandererCatalog.sanitize(safe_profile.wanderer)
+	safe_profile.memories = sanitize_memories(safe_profile.memories)
 	for key in safe_profile:
 		config.set_value("profile", key, safe_profile[key])
 	return config.save(path)
 
 static func is_created(profile: Dictionary) -> bool:
 	return not sanitize_name(str(profile.get("display_name", ""))).is_empty()
+
+static func sanitize_memories(value: Variant) -> Array[String]:
+	var result: Array[String] = []
+	if value is Array:
+		for id in value:
+			if id is String and id.length() <= 80 and not id.is_empty() and not id in result:
+				result.append(id)
+			if result.size() >= 128: break
+	return result
 
 static func sanitize_name(value: String) -> String:
 	var cleaned := value.strip_edges().replace("\n", " ").replace("\r", " ")

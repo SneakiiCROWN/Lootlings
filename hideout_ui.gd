@@ -21,6 +21,8 @@ signal gold_upgrade_requested(upgrade_id: String)
 signal profile_requested
 signal title_requested
 signal ui_event(event_name: String)
+signal resident_meeting_requested(speaker: String)
+signal memory_replay_requested(id: String)
 signal destination_visited(destination_id: String)
 
 const ItemCatalog = preload("res://item_catalog.gd")
@@ -38,6 +40,7 @@ const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const WandererCatalog = preload("res://wanderer_catalog.gd")
+const Vignettes = preload("res://vignette_catalog.gd")
 const ForgeSystem = preload("res://forge_system.gd")
 const CampaignSystem = preload("res://campaign_system.gd")
 
@@ -93,6 +96,9 @@ var lore_content: Control
 var lore_detail: RichTextLabel
 var lore_entries: Array = []
 var lore_index := 0
+var memory_content: Control
+var memory_list: VBoxContainer
+var memory_filter := "ALL"
 var achievement_grid: GridContainer
 var achievement_detail: RichTextLabel
 var achievement_summary: Label
@@ -168,6 +174,7 @@ func _ready() -> void:
 	build_shop()
 	build_achievements()
 	build_lore()
+	build_memories()
 	build_coming_soon()
 	build_dialogue_overlay()
 	build_transition_overlay()
@@ -258,7 +265,7 @@ func set_screen(active: Control) -> void:
 	# A screen transition must never leave a resident bubble over unrelated UI.
 	dismiss_dialogue()
 	if presentation != null: presentation.cancel_chest_showcase()
-	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, coming_content]
+	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -673,6 +680,55 @@ func build_lore() -> void:
 	lore_detail.scroll_active = true
 	make_button(lore_content, "‹ PREVIOUS", Rect2(28, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(-1))
 	make_button(lore_content, "NEXT ›", Rect2(248, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(1))
+	make_button(lore_content, "▷ MEMORIES / STORY REPLAY", Rect2(40, 805, 400, 44), Color("#202d4d"), Color("#c99cff"), 14).pressed.connect(show_memories)
+
+func build_memories() -> void:
+	memory_content = Control.new()
+	memory_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	memory_content.visible = false
+	add_child(memory_content)
+	make_button(memory_content, "‹ NOTES", Rect2(20,20,124,48), Color("#202d4d"), Color("#7f94bc"),15).pressed.connect(show_lore)
+	make_label(memory_content, "MEMORY ARCHIVE",25,Rect2(148,23,312,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	make_label(memory_content, "Living paintings • replay never grants rewards",13,Rect2(24,87,432,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	for index in range(4):
+		var filter_name: String = ["ALL","Characters","Regions","Bosses"][index]
+		make_button(memory_content, filter_name.to_upper(), Rect2(20+index*111,186,107,44), Color("#202d4d"),Color("#bba0de"),12).pressed.connect(func(): memory_filter = filter_name; refresh_memories())
+	var panel := make_panel(memory_content, Rect2(20,245,440,550),Color("#090f25d9"),Color("#bba0de"))
+	LootlingsUI.apply_material(panel,"relic")
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(14,14)
+	scroll.size = Vector2(412,522)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	panel.add_child(scroll)
+	memory_list = VBoxContainer.new()
+	memory_list.custom_minimum_size = Vector2(396,0)
+	memory_list.add_theme_constant_override("separation",10)
+	scroll.add_child(memory_list)
+	make_label(memory_content,"Meet residents. Follow trails. Remember.",13,Rect2(24,806,432,30),HORIZONTAL_ALIGNMENT_CENTER,Color("#bca6dc"))
+
+func show_memories() -> void:
+	dismiss_dialogue()
+	current_screen = "memories"
+	set_screen(memory_content)
+	refresh_memories()
+
+func refresh_memories() -> void:
+	for child in memory_list.get_children():
+		memory_list.remove_child(child)
+		child.queue_free()
+	for id in Vignettes.ids():
+		var entry := Vignettes.entry(id,profile)
+		if memory_filter != "ALL" and entry.category != memory_filter: continue
+		var unlocked := Vignettes.available(id,profile)
+		var button := Button.new()
+		button.custom_minimum_size = Vector2(396,80)
+		button.add_theme_font_size_override("font_size",16)
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.text = "▷  %s\n      %s • %.0fs" % [str(entry.name), str(entry.category).to_upper(), float(entry.duration)] if unlocked else "   UNDISCOVERED MEMORY\n   %s • follow its trail" % str(entry.category).to_upper()
+		LootlingsUI.apply_button(button,Color("#17294b"),Color("#c99cff"))
+		button.disabled = not unlocked
+		button.pressed.connect(func(): memory_replay_requested.emit(id))
+		memory_list.add_child(button)
 
 func show_lore() -> void:
 	dismiss_dialogue()
@@ -1128,7 +1184,10 @@ func make_npc_hotspot(parent: Control, rect: Rect2, speaker: String) -> void:
 	hotspot.focus_mode = Control.FOCUS_NONE
 	hotspot.tooltip_text = "Talk to %s" % WorldStory.SPEAKERS.get(speaker, speaker)
 	hotspot.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	hotspot.pressed.connect(request_dialogue.bind("tapped", speaker))
+	hotspot.pressed.connect(func():
+		if speaker == "Mascot": request_dialogue("tapped", speaker)
+		else: resident_meeting_requested.emit(speaker)
+	)
 	parent.add_child(hotspot)
 
 func queue_dialogue_context(context: String) -> void:

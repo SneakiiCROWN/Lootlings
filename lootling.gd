@@ -22,6 +22,7 @@ const WandererPose = preload("res://wanderer_pose_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const DebugPanel = preload("res://debug_panel.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
+const Vignettes = preload("res://vignette_catalog.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const AffixCatalog = preload("res://affix_catalog.gd")
 const EnemyVariantCatalog = preload("res://enemy_variant_catalog.gd")
@@ -247,6 +248,8 @@ var hideout_ui
 var startup_ui
 var audio_manager
 var presentation_director
+var story_run_presentations := false
+var story_life_was_processing := true
 var debug_panel
 var debug_enabled := false
 var debug_god_mode := false
@@ -289,6 +292,8 @@ func _ready() -> void:
 func build_presentation_director() -> void:
 	presentation_director = PresentationDirector.new()
 	add_child(presentation_director)
+	presentation_director.vignette.sound_requested.connect(play_audio_event)
+	presentation_director.vignette.active_changed.connect(on_story_playback_changed)
 	presentation_director.bind_buttons(self)
 
 func build_debug_tools() -> void:
@@ -473,9 +478,11 @@ func build_foundation_services() -> void:
 	startup_ui.profile_changed.connect(save_profile_data)
 	startup_ui.settings_changed.connect(save_audio_settings)
 	startup_ui.ui_event.connect(play_audio_event)
+	startup_ui.story_preview_requested.connect(play_story_preview)
 	startup_ui.configure(profile, ProfileStore.is_created(profile), audio_settings)
 
 func show_startup() -> void:
+	if presentation_director != null: presentation_director.vignette.cancel()
 	state = "boot"
 	hideout_ui.visible = false
 	startup_ui.visible = true
@@ -491,11 +498,57 @@ func request_enter_hideout() -> void:
 	if presentation_director == null:
 		show_hideout()
 		return
-	presentation_director.play_travel("THE HIDEOUT", "Warm lanterns, stranger treasure, and one suspiciously empty snack barrel.", Color("#ffd468"), Callable(self, "show_hideout"), 0.48)
+	presentation_director.play_travel("THE HIDEOUT", "Warm lanterns, stranger treasure, and one suspiciously empty snack barrel.", Color("#ffd468"), func(): show_hideout(); discover_story("story/hideout"), 0.48)
+
+func play_story_preview(id: String, preview_profile: Dictionary) -> void:
+	if presentation_director.vignette.active: return
+	hideout_ui.dismiss_dialogue()
+	presentation_director.vignette.play(Vignettes.entry(id, preview_profile), audio_settings, "preview")
+
+func on_story_playback_changed(playing: bool) -> void:
+	if hideout_ui == null: return
+	if playing:
+		story_life_was_processing = hideout_ui.is_processing()
+		hideout_ui.dismiss_dialogue()
+		hideout_ui.set_process(false)
+	else:
+		hideout_ui.set_process(story_life_was_processing)
+
+func replay_memory(id: String) -> void:
+	if state != "hideout" or presentation_director.vignette.active or not Vignettes.available(id, profile): return
+	hideout_ui.dismiss_dialogue()
+	presentation_director.vignette.play(Vignettes.entry(id, profile), audio_settings, "replay")
+
+func discover_story(id: String, callback: Callable = Callable(), repeat_sting: bool = false) -> void:
+	var entry := Vignettes.entry(id, profile)
+	if entry.is_empty():
+		if callback.is_valid(): callback.call()
+		return
+	if presentation_director.vignette.active: return
+	var seen: bool = id in profile.get("memories", [])
+	if not seen:
+		profile.memories.append(id)
+		ProfileStore.save_profile(PROFILE_SAVE_PATH, profile)
+		hideout_ui.profile = profile.duplicate(true)
+		startup_ui.profile.memories = profile.memories.duplicate()
+	if (not seen and not audio_settings.get("cinematic_first_time", true)) or (seen and repeat_sting and not audio_settings.get("cinematic_repeat_boss", true)) or (seen and not repeat_sting and audio_settings.get("cinematic_auto_skip", true)):
+		if callback.is_valid(): callback.call()
+		return
+	hideout_ui.dismiss_dialogue()
+	presentation_director.vignette.play(entry, audio_settings, "discovery", callback, seen)
+
+func meet_resident(speaker: String) -> void:
+	if state != "hideout": return
+	var id: String = {"Salvager":"patch", "Relic Keeper":"sera", "Archivist":"ilex"}.get(speaker, "")
+	if id.is_empty(): return
+	discover_story("resident/" + id, func():
+		if state == "hideout": hideout_ui.request_dialogue("tapped", speaker)
+	)
 
 func show_profile_from_hideout() -> void:
 	hideout_ui.visible = false
 	startup_ui.visible = true
+	startup_ui.profile = profile.duplicate(true)
 	startup_ui.show_profile(false)
 	if presentation_director != null:
 		presentation_director.present_card(startup_ui, Color("#72c8ff"), 0.22)
@@ -503,6 +556,7 @@ func show_profile_from_hideout() -> void:
 func show_title_from_hideout() -> void:
 	hideout_ui.visible = false
 	startup_ui.visible = true
+	startup_ui.profile = profile.duplicate(true)
 	startup_ui.show_title()
 	state = "boot"
 	audio_manager.set_music("TITLE")
@@ -512,7 +566,10 @@ func show_title_from_hideout() -> void:
 func save_profile_data(updated_profile: Dictionary) -> void:
 	var was_created := ProfileStore.is_created(profile)
 	var old_name := str(profile.get("display_name", ""))
+	var known_memories := ProfileStore.sanitize_memories(profile.get("memories", []))
 	profile = updated_profile.duplicate(true)
+	# A profile form opened before discovery must never erase an earned memory.
+	profile.memories = ProfileStore.sanitize_memories(known_memories + ProfileStore.sanitize_memories(profile.get("memories", [])))
 	ProfileStore.save_profile(PROFILE_SAVE_PATH, profile)
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "display_name_changed" if was_created and old_name != profile.display_name else "profile_created")
 	if hideout_ui != null:
@@ -686,18 +743,33 @@ func build_hideout() -> void:
 	hideout_ui.title_requested.connect(show_title_from_hideout)
 	hideout_ui.destination_visited.connect(func(destination_id): award_unique_achievement("hideout_social", str(destination_id)))
 	hideout_ui.ui_event.connect(play_audio_event)
+	hideout_ui.resident_meeting_requested.connect(meet_resident)
+	hideout_ui.memory_replay_requested.connect(replay_memory)
 	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 	hideout_ui.visible = false
 
 func request_start_run() -> void:
 	if state != "hideout":
 		return
+	if presentation_director != null and (presentation_director.travel_active or presentation_director.vignette.active): return
+	if not dungeon.active:
+		discover_story("region/" + campaign_id, depart_presented_run)
+	else:
+		depart_presented_run()
+
+func depart_presented_run() -> void:
+	if state != "hideout": return
 	if presentation_director == null:
-		start_run()
+		start_presented_run()
 		return
-	presentation_director.play_travel("RELIC ROUTE DEPARTING" if dungeon.active else "EXPEDITION DEPARTING", "Choose a path through the sealed vaults." if dungeon.active else "The Relic Gate wakes. Outer Ruins ahead.", Color("#72c8ff"), Callable(self, "start_run"), 0.68)
+	presentation_director.play_travel("RELIC ROUTE DEPARTING" if dungeon.active else "EXPEDITION DEPARTING", "Choose a path through the sealed vaults." if dungeon.active else "The Relic Gate wakes. %s ahead." % CampaignSystem.title(campaign_id), Color("#72c8ff"), Callable(self, "start_presented_run"), 0.68)
+
+func start_presented_run() -> void:
+	start_run()
+	story_run_presentations = true
 
 func show_hideout() -> void:
+	if presentation_director != null: presentation_director.vignette.cancel()
 	dungeon.active = false
 	if route_panel != null: route_panel.visible = false
 	enemy_encounter.clear()
@@ -941,6 +1013,7 @@ func evolve_owned_weapon(stash_index: int) -> void:
 	hideout_ui.queue_dialogue_context("forge_evolved")
 
 func start_campaign(region_id: String) -> void:
+	if presentation_director.vignette.active or presentation_director.travel_active: return
 	if state != "hideout" or not campaign.available(region_id):
 		return
 	dungeon.active = false
@@ -1065,6 +1138,7 @@ func build_route_ui() -> void:
 	make_action_button(route_panel, "END ROUTE", Vector2(24, 444), Vector2(388, 58), Color("#172442"), Color("#78e4ff"), func(): end_run(false))
 
 func start_dungeon() -> void:
+	if presentation_director.vignette.active or presentation_director.travel_active: return
 	if state != "hideout" or not "act_i" in campaign.completed: return
 	dungeon.setup(dungeon.seed_value, campaign_id if campaign.available(campaign_id) else "act_i")
 	request_start_run()
@@ -1250,6 +1324,8 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	if presentation_director != null: presentation_director.vignette.cancel()
+	story_run_presentations = false # Direct deterministic harnesses omit UI stings.
 	enemy_encounter.clear()
 	loot_system.region_pool = CampaignSystem.LOOT_POOLS.get(campaign_id, []).duplicate()
 	award_achievement("first_steps")
@@ -1538,9 +1614,25 @@ func begin_special_intro() -> void:
 	wave_banner_timer = 0.80
 	status_clock = 0.0
 	help_label.visible = false
-	play_audio_event("boss_warning")
+	if story_run_presentations:
+		var story_id := "boss/grump_knight" if campaign_id == "act_i" and wave == 8 else "boss/hoard_dragon" if campaign_id == "act_i" else "boss/verdant_mirror" if campaign_id == "mossglass_wilds" and wave == RUN_LAST_WAVE else "boss/furnace_regent" if campaign_id == "cinder_crown" and wave == RUN_LAST_WAVE else ""
+		if not story_id.is_empty():
+			discover_story(story_id, finish_story_boss_intro, true)
+	# The illustrated sting owns its sound. Do not double the same SFX voice.
+	if not presentation_director.vignette.active: play_audio_event("boss_warning")
+
+func finish_story_boss_intro() -> void:
+	if state != "special_intro": return
+	special_intro_wave = wave
+	wave_banner_timer = 0
+	state = "playing"
+	spawn_enemy()
 
 func _process(delta: float) -> void:
+	if presentation_director != null and presentation_director.vignette.active:
+		if pause_button != null: pause_button.visible = false
+		queue_redraw()
+		return
 	if pause_button != null:
 		pause_button.visible = state == "playing"
 	if state == "paused" or state == "abandon_confirm":
@@ -2717,6 +2809,7 @@ func save_meta() -> void:
 	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if presentation_director != null and presentation_director.vignette.active: return
 	if debug_enabled and event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F1:
 		if debug_panel != null and not debug_panel.visible:
 			debug_panel.open()

@@ -5,6 +5,7 @@ signal profile_completed
 signal profile_changed(profile: Dictionary)
 signal settings_changed(settings: Dictionary)
 signal ui_event(event_name: String)
+signal story_preview_requested(id: String, preview_profile: Dictionary)
 
 const ProfileStore = preload("res://profile_store.gd")
 const SettingsStore = preload("res://settings_store.gd")
@@ -33,6 +34,8 @@ var profile_heading: Label
 var profile_id_label: Label
 var setting_sliders := {}
 var setting_mutes := {}
+var cinematic_preferences: Panel
+var cinematic_toggles := {}
 var presentation
 var selected_lootling_id := "relic_beast"
 var selector_portrait: TextureRect
@@ -168,8 +171,27 @@ func build_settings() -> void:
 		mute.add_theme_font_size_override("font_size", 12)
 		panel.add_child(mute)
 		setting_mutes[channel] = mute
-	var back := make_button(panel, "SAVE & RETURN", Rect2(42, 624, 340, 62), Color("#49346b"), Color("#d19cff"), 18)
+	var story_settings := make_button(panel, "STORY & MOTION", Rect2(42, 578, 340, 48), Color("#17294b"), Color("#c99cff"), 16)
+	story_settings.pressed.connect(func(): cinematic_preferences.visible = true)
+	var back := make_button(panel, "SAVE & RETURN", Rect2(42, 638, 340, 54), Color("#49346b"), Color("#d19cff"), 18)
 	back.pressed.connect(save_settings)
+	cinematic_preferences = make_panel(settings_content, Rect2(28, 75, 424, 710), Color("#0b1430ff"), Color("#c99cff"))
+	LootlingsUI.apply_material(cinematic_preferences, "relic")
+	cinematic_preferences.visible = false
+	make_label(cinematic_preferences, "STORY & MOTION", 26, Rect2(22,24,380,44), HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	var options := {"cinematic_first_time":"First-time story moments", "cinematic_repeat_boss":"Short repeat boss stings", "cinematic_auto_skip":"Auto-skip viewed moments", "cinematic_reduced_motion":"Reduced cinematic motion", "cinematic_subtitles":"Story captions"}
+	var index := 0
+	for key in options:
+		var toggle := CheckButton.new()
+		toggle.text = str(options[key])
+		toggle.position = Vector2(28,90+index*77)
+		toggle.size = Vector2(368,54)
+		toggle.add_theme_font_size_override("font_size",17)
+		cinematic_preferences.add_child(toggle)
+		cinematic_toggles[key] = toggle
+		index += 1
+	make_label(cinematic_preferences,"Every story moment can be skipped.\nArchive replays never grant rewards.",14,Rect2(26,478,372,46),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	make_button(cinematic_preferences,"DONE",Rect2(42,544,340,52),Color("#17294b"),Color("#72c8ff"),17).pressed.connect(func(): cinematic_preferences.visible = false)
 
 func build_lootling_select() -> void:
 	lootling_content = Control.new()
@@ -198,6 +220,12 @@ func build_lootling_select() -> void:
 	next.pressed.connect(func(): cycle_lootling(1))
 	selector_confirm = make_button(panel, "CHOOSE", Rect2(48, 600, 336, 72), Color("#285c4c"), Color("#69e6b0"), 19)
 	selector_confirm.pressed.connect(confirm_lootling)
+	var story := make_button(panel, "▷ ORIGIN MEMORY", Rect2(78, 680, 276, 44), Color("#17294b"), Color("#c99cff"), 13)
+	story.pressed.connect(func():
+		var preview := profile.duplicate(true)
+		preview.current_lootling_id = selected_lootling_id
+		story_preview_requested.emit("character/" + selected_lootling_id, preview)
+	)
 
 func cycle_lootling(direction: int) -> void:
 	var ids := LootlingCatalog.selectable_ids()
@@ -238,7 +266,7 @@ func build_wanderer_select() -> void:
 	wanderer_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	wanderer_content.visible = false
 	add_child(wanderer_content)
-	var back := make_button(wanderer_content, "‹ LOOTLINGS  /  WANDERERS", Rect2(34, 12, 412, 48), Color("#17294b"), Color("#c99cff"), 15)
+	var back := make_button(wanderer_content, "‹ LOOTLINGS", Rect2(34, 12, 184, 48), Color("#17294b"), Color("#c99cff"), 15)
 	back.pressed.connect(show_lootling_select)
 	var panel := make_panel(wanderer_content, Rect2(24, 70, 432, 742), Color("#0b1430f2"), Color("#d1a85a"))
 	LootlingsUI.apply_material(panel, "relic")
@@ -251,6 +279,13 @@ func build_wanderer_select() -> void:
 	panel.add_child(wanderer_portrait)
 	wanderer_name = make_label(panel, "", 21, Rect2(36, 319, 360, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
 	make_label(panel, "BETA PRESET • appearance only • all weapons", 12, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	var origin_preview := make_button(wanderer_content, "▷ ORIGIN MEMORY", Rect2(234, 12, 212, 48), Color("#17294b"), Color("#c99cff"), 14)
+	origin_preview.pressed.connect(func():
+		var preview := profile.duplicate(true)
+		preview.wanderer.preset_id = selected_wanderer
+		var origin_id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
+		story_preview_requested.emit("origin/" + origin_id, preview)
+	)
 	var previous := make_button(panel, "‹ PRESET", Rect2(32, 274, 120, 44), Color("#17294b"), Color("#72c8ff"), 14)
 	var next := make_button(panel, "PRESET ›", Rect2(280, 274, 120, 44), Color("#17294b"), Color("#72c8ff"), 14)
 	previous.pressed.connect(func(): cycle_wanderer(-1))
@@ -366,6 +401,7 @@ func show_profile(first_launch: bool) -> void:
 func show_settings() -> void:
 	current_screen = "settings"
 	refresh_settings()
+	cinematic_preferences.visible = false
 	set_screen(settings_content)
 
 func save_profile() -> void:
@@ -393,6 +429,7 @@ func save_settings() -> void:
 	for channel in SettingsStore.CHANNELS:
 		settings[channel] = float(setting_sliders[channel].value)
 		settings[channel + "_muted"] = bool(setting_mutes[channel].button_pressed)
+	for key in cinematic_toggles: settings[key] = bool(cinematic_toggles[key].button_pressed)
 	settings_changed.emit(settings.duplicate(true))
 	ui_event.emit("menu_close")
 	show_title()
@@ -413,6 +450,7 @@ func refresh_settings() -> void:
 	for channel in SettingsStore.CHANNELS:
 		setting_sliders[channel].value = float(settings.get(channel, 0.8))
 		setting_mutes[channel].button_pressed = bool(settings.get(channel + "_muted", false))
+	for key in cinematic_toggles: cinematic_toggles[key].button_pressed = bool(settings.get(key, SettingsStore.defaults()[key]))
 
 func set_screen(active: Control) -> void:
 	var screens := [boot_content, title_content, profile_content, settings_content, lootling_content, wanderer_content]

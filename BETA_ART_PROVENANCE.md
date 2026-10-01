@@ -1,5 +1,7 @@
 # Canonical beta art integration — 2026-10-01
 
+Adult Wanderer runtime additions at accepted checkpoint `c6cf4f3` are two original built-in-imagegen outputs, not canonical-sheet extractions: `art/sprites/wanderers/beta/{vault_runner,ruin_warden}_idle.png`. Exact output IDs, prompt summaries, alpha/native QA and future layered-export requirements are recorded in `WANDERER_BETA_ART.md`. They are authored beta presets, not final modular art. The illustrated-memory tranche reuses these bodies, existing canonical/beta actors, resident busts and painted environments; it adds no regenerated art. The seven canonical Lootling identities and Gloomlet fallback remain unchanged.
+
 The latest owner-supplied CANONICAL WORLD / ART / STORY / CONTENT OVERHAUL permits clean approved-board extraction/recomposition for beta, superseding earlier reference-only restrictions. Original sources and their existing hash/index records remain untouched. Owner approval is not an inferred external commercial licence.
 
 Offline exporter: `tools/extract_beta_boards.gd`. Exact rectangles/thresholds are recorded there. It crops original pixels, removes edge-connected backdrop/identified neighbouring seams, uses Lanczos resizing and fits transparent bodies within 512×512. No repainting or invented character identity. Runtime uses imported/cached individual textures, never source boards.
