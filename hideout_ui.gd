@@ -36,14 +36,16 @@ const RESIDENT_PORTRAITS := {
 }
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
+const Avatar = preload("res://avatar_presentation.gd")
+const WandererCatalog = preload("res://wanderer_catalog.gd")
 const ForgeSystem = preload("res://forge_system.gd")
 const CampaignSystem = preload("res://campaign_system.gd")
 
 func actor_texture() -> Texture2D:
-	return LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast")))
+	return Avatar.texture(profile)
 
 func actor_tint() -> Color:
-	return LootlingCatalog.presentation_tint(str(profile.get("current_lootling_id", "relic_beast")))
+	return Avatar.tint(profile)
 const AchievementManager = preload("res://achievement_manager.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const HIDEOUT_BACKGROUND = preload("res://art/backgrounds/lootlings_hideout.png")
@@ -1150,14 +1152,21 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	var voice_name: String = WorldStory.SPEAKERS.get(speaker, speaker)
 	var line := str(entry.text)
 	if context == "tapped" and speaker in WorldStory.RESIDENT_REACTIONS:
-		line = str(WorldStory.RESIDENT_REACTIONS[speaker].get(str(profile.get("current_lootling_id", "relic_beast")), line))
+		if Avatar.is_wanderer(profile):
+			line = {"Salvager":"Coat pockets count as storage. Ask me how I know.", "Relic Keeper":"The Core listens to intent, not your silhouette.", "Archivist":"An origin is a beginning, not a verdict."}.get(speaker, line)
+		else:
+			line = str(WorldStory.RESIDENT_REACTIONS[speaker].get(str(profile.get("current_lootling_id", "relic_beast")), line))
 		if speaker == "Archivist" and campaign != null and not campaign.completed.is_empty():
 			var next_region: String = CampaignSystem.ORDER[mini(campaign.completed.size(), CampaignSystem.ORDER.size() - 1)]
 			line = WorldStory.region_line(next_region, 0)
 	if speaker == "Mascot":
 		var id := str(profile.get("current_lootling_id", "relic_beast"))
-		voice_name = str(LootlingCatalog.definition(id).display_name)
-		line = WorldStory.mascot_line(id, 1 if context == "victory" else 0)
+		voice_name = Avatar.display_name(profile)
+		if Avatar.is_wanderer(profile):
+			var appearance: Dictionary = profile.get("wanderer", {})
+			line = WandererCatalog.bark(appearance, context)
+		else:
+			line = WorldStory.mascot_line(id, 1 if context == "victory" else 0)
 	speech_label.text = "%s\n%s" % [voice_name.to_upper(), line]
 	speech_panel.position = dialogue_anchor(speaker)
 	speech_panel.visible = true
@@ -1263,7 +1272,7 @@ func draw_home_scene() -> void:
 	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_set_transform(Vector2(240, 422 + bob), sin(scene_time * 1.15) * 0.006, Vector2(breathe, 1.0 / breathe))
-	draw_texture_rect(actor_texture(), Rect2(-89, -89, 178, 178), false, actor_tint())
+	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-89, -89, 178, 178)), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var core_pulse := 0.07 + maxf(0.0, sin(scene_time * 2.6)) * 0.07
 	draw_circle(Vector2(256, 425 + bob), 10.0 + sin(scene_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
@@ -1308,7 +1317,7 @@ func draw_shop_scene() -> void:
 	var visitor_bob := sin(scene_time * 2.0) * 2.0
 	var visitor_breath := 1.0 + sin(scene_time * 1.7) * 0.009
 	draw_set_transform(Vector2(73, 153 + visitor_bob), sin(scene_time * 1.2) * 0.005, Vector2(visitor_breath, 1.0 / visitor_breath))
-	draw_texture_rect(actor_texture(), Rect2(-48, -48, 96, 96), false, actor_tint())
+	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-48, -48, 96, 96)), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
@@ -1335,7 +1344,7 @@ func draw_shrine_scene() -> void:
 	draw_hideout_light(Vector2(406, 320), 16.0, 0.028, 1.7)
 	var breathe := 1.0 + sin(scene_time * 1.7) * 0.009
 	draw_set_transform(Vector2(109, 217 + bob), sin(scene_time * 1.1) * 0.005, Vector2(breathe, 1.0 / breathe))
-	draw_texture_rect(actor_texture(), Rect2(-75, -75, 150, 150), false, actor_tint())
+	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-75, -75, 150, 150)), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_circle(Vector2(240, 234), 12 + sin(scene_time * 2.4) * 2.0, Color(0.68, 0.42, 1.0, 0.12))
 	if shrine_pulse > 0.0:

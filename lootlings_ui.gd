@@ -39,8 +39,14 @@ static func icon(name: String) -> Texture2D:
 	return icon_cache[path]
 
 static func draw_icon(canvas: RID, texture: Texture2D, rect: Rect2) -> void:
+	if texture == null:
+		return
 	var extent := texture.get_size() * minf(rect.size.x / texture.get_width(), rect.size.y / texture.get_height())
-	RenderingServer.canvas_item_add_texture_rect(canvas, Rect2(rect.get_center() - extent * 0.5, extent), texture.get_rid(), false, Color.WHITE)
+	var target := Rect2(rect.get_center() - extent * 0.5, extent)
+	if texture is AtlasTexture:
+		RenderingServer.canvas_item_add_texture_rect_region(canvas, target, texture.atlas.get_rid(), texture.region, Color.WHITE)
+	else:
+		RenderingServer.canvas_item_add_texture_rect(canvas, target, texture.get_rid(), false, Color.WHITE)
 
 static func add_icon(parent: Control, rect: Rect2, name: String) -> TextureRect:
 	var image := TextureRect.new()

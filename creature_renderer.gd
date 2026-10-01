@@ -4,6 +4,8 @@ const ActionPoseCatalog = preload("res://action_pose_catalog.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const WeaponCatalog = preload("res://weapon_catalog.gd")
 const BetaArt = preload("res://beta_art_catalog.gd")
+const Avatar = preload("res://avatar_presentation.gd")
+const WandererPose = preload("res://wanderer_pose_catalog.gd")
 
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
@@ -19,6 +21,9 @@ const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
 const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
+	if Avatar.is_wanderer(g.profile):
+		draw_wanderer(g, pos, hurt)
+		return
 	var identity: String = g.build.dominant()
 	var core_color: Color = g.build.color(identity)
 	var evolution_tier: int = g.build.tier(identity)
@@ -65,6 +70,35 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		"MAGE": draw_staff(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color)
 		"ROGUE": draw_daggers(g, pos + Vector2(7, 0), weapon_angle, weapon_growth, weapon_color)
 		_: draw_vanguard(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color, identity)
+	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+func draw_wanderer(g, pos: Vector2, hurt: bool) -> void:
+	var texture := Avatar.texture(g.profile)
+	if texture == null:
+		return # Never disguise a missing humanoid sprite as the canonical mascot.
+	var pose := WandererPose.sample(g, hurt)
+	var root: Transform2D = pose.root
+	root.origin += pos
+	g.draw_set_transform(pos + Vector2(0, 52), 0.0, Vector2(1.0, 0.28))
+	g.draw_circle(Vector2.ZERO, 39, Color("#07101f88"))
+	g.draw_set_transform_matrix(root)
+	var body_rect: Rect2 = pose.body_rect
+	for edge in [Vector2(-1.5,0), Vector2(1.5,0), Vector2(0,-1.5), Vector2(0,1.5)]:
+		g.draw_texture_rect(texture, Rect2(body_rect.position + edge, body_rect.size), false, Color("#101426d9"))
+	g.draw_texture_rect(texture, body_rect, false, Color("#ffb9b9") if hurt else Color.WHITE)
+	var identity: String = g.build.dominant()
+	var accent: Color = g.build.color(identity)
+	if identity != "Neutral":
+		var glow := accent
+		glow.a = 0.20
+		g.draw_circle(Vector2(pose.core), 10, glow)
+		g.draw_arc(Vector2(pose.core), 12, g.run_time, g.run_time + 4.9, 14, accent, 1.5)
+	var weapon_transform := root * Transform2D(float(pose.weapon_rotation), Vector2(pose.hand))
+	g.draw_set_transform_matrix(weapon_transform)
+	var item: Dictionary = g.inventory.equipped_item("Weapon")
+	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE, "MAGE":MAGE_WEAPON_TEXTURE, "ROGUE":ROGUE_WEAPON_TEXTURE}.get(g.current_weapon_family(), VANGUARD_WEAPON_TEXTURE)
+	var weapon_texture := WeaponCatalog.runtime_texture(str(item.get("weapon_type", "")), fallback, int(item.get("evolution_stage", 0)))
+	g.draw_texture_rect(weapon_texture, Rect2(pose.weapon_rect), false, Color.WHITE)
 	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_lootling_procedural(g, pos: Vector2, hurt: bool) -> void:

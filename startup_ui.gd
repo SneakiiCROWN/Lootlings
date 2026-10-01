@@ -11,6 +11,8 @@ const SettingsStore = preload("res://settings_store.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
+const WandererCatalog = preload("res://wanderer_catalog.gd")
+const Avatar = preload("res://avatar_presentation.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
@@ -40,6 +42,16 @@ var selector_note: Label
 var selector_confirm: Button
 var profile_identity: Label
 var profile_actor_name: Label
+var wanderer_content: Control
+var wanderer_portrait: TextureRect
+var wanderer_name: Label
+var wanderer_lore: Label
+var wanderer_origin: OptionButton
+var wanderer_lineage: OptionButton
+var wanderer_pronouns: LineEdit
+var wanderer_voice: OptionButton
+var selected_wanderer := "vault_runner"
+var wanderer_confirm: Button
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -48,6 +60,7 @@ func _ready() -> void:
 	build_title()
 	build_profile()
 	build_lootling_select()
+	build_wanderer_select()
 	build_settings()
 	presentation = PresentationDirector.new()
 	add_child(presentation)
@@ -122,8 +135,8 @@ func build_profile() -> void:
 	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	profile_id_label = make_label(panel, "", 10, Rect2(38, 444, 336, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#7183a8"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	var change := make_button(panel, "CHANGE LOOTLING", Rect2(45, 482, 322, 54), Color("#17294b"), Color("#72c8ff"), 16)
-	change.pressed.connect(show_lootling_select)
+	var change := make_button(panel, "CHANGE AVATAR", Rect2(45, 482, 322, 54), Color("#17294b"), Color("#72c8ff"), 16)
+	change.pressed.connect(func(): show_wanderer_select() if Avatar.is_wanderer(profile) else show_lootling_select())
 	var save := make_button(panel, "SAVE PROFILE", Rect2(40, 553, 332, 66), Color("#285c4c"), Color("#69e6b0"), 19)
 	save.pressed.connect(save_profile)
 
@@ -206,11 +219,118 @@ func show_lootling_select() -> void:
 	refresh_selector()
 	current_screen = "lootling_select"
 	set_screen(lootling_content)
+	if not lootling_content.has_node("AvatarBranch"):
+		var branch := make_button(lootling_content, "LOOTLINGS  /  EXPLORE WANDERERS ›", Rect2(34, 12, 412, 48), Color("#17294b"), Color("#c99cff"), 15)
+		branch.name = "AvatarBranch"
+		branch.pressed.connect(show_wanderer_select)
 
 func confirm_lootling() -> void:
 	if not LootlingCatalog.definition(selected_lootling_id).available:
 		return
 	profile.current_lootling_id = selected_lootling_id
+	profile.avatar_mode = "lootling"
+	profile_changed.emit(profile.duplicate(true))
+	ui_event.emit("upgrade_select")
+	profile_completed.emit()
+
+func build_wanderer_select() -> void:
+	wanderer_content = Control.new()
+	wanderer_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	wanderer_content.visible = false
+	add_child(wanderer_content)
+	var back := make_button(wanderer_content, "‹ LOOTLINGS  /  WANDERERS", Rect2(34, 12, 412, 48), Color("#17294b"), Color("#c99cff"), 15)
+	back.pressed.connect(show_lootling_select)
+	var panel := make_panel(wanderer_content, Rect2(24, 70, 432, 742), Color("#0b1430f2"), Color("#d1a85a"))
+	LootlingsUI.apply_material(panel, "relic")
+	make_label(panel, "YOUR WANDERER", 25, Rect2(28, 18, 376, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	wanderer_portrait = TextureRect.new()
+	wanderer_portrait.position = Vector2(100, 62)
+	wanderer_portrait.size = Vector2(232, 254)
+	wanderer_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	wanderer_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	panel.add_child(wanderer_portrait)
+	wanderer_name = make_label(panel, "", 21, Rect2(36, 319, 360, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
+	make_label(panel, "BETA PRESET • appearance only • all weapons", 12, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	var previous := make_button(panel, "‹ PRESET", Rect2(32, 274, 120, 44), Color("#17294b"), Color("#72c8ff"), 14)
+	var next := make_button(panel, "PRESET ›", Rect2(280, 274, 120, 44), Color("#17294b"), Color("#72c8ff"), 14)
+	previous.pressed.connect(func(): cycle_wanderer(-1))
+	next.pressed.connect(func(): cycle_wanderer(1))
+	wanderer_origin = add_identity_choice(panel, "ORIGIN", Rect2(32, 382, 368, 48), WandererCatalog.ORIGINS)
+	wanderer_origin.item_selected.connect(func(_i): refresh_wanderer_lore())
+	wanderer_lore = make_label(panel, "", 13, Rect2(32, 457, 368, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#c9d8f0"))
+	wanderer_lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	wanderer_lineage = add_identity_choice(panel, "LINEAGE • LORE", Rect2(32, 498, 174, 46), WandererCatalog.LINEAGES)
+	wanderer_voice = add_identity_choice(panel, "BARK STYLE", Rect2(226, 498, 174, 46), {"warm":"Warm", "dry":"Dry", "bold":"Bold", "soft":"Soft", "playful":"Playful", "ominous":"Ominous"})
+	make_label(panel, "PRONOUNS • EDITABLE", 12, Rect2(32, 580, 368, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
+	wanderer_pronouns = LineEdit.new()
+	wanderer_pronouns.position = Vector2(32, 602)
+	wanderer_pronouns.size = Vector2(368, 44)
+	wanderer_pronouns.max_length = 24
+	wanderer_pronouns.add_theme_font_size_override("font_size", 17)
+	LootlingsUI.apply_input(wanderer_pronouns)
+	panel.add_child(wanderer_pronouns)
+	wanderer_confirm = make_button(panel, "CHOOSE WANDERER", Rect2(40, 664, 352, 58), Color("#285c4c"), Color("#69e6b0"), 18)
+	wanderer_confirm.pressed.connect(confirm_wanderer)
+
+func add_identity_choice(parent: Node, heading: String, rect: Rect2, entries: Dictionary) -> OptionButton:
+	make_label(parent, heading, 12, Rect2(rect.position, Vector2(rect.size.x, 20)), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
+	var choice := OptionButton.new()
+	choice.position = rect.position + Vector2(0, 23)
+	choice.size = rect.size
+	choice.add_theme_font_size_override("font_size", 15)
+	LootlingsUI.apply_button(choice, Color("#17294b"), Color("#72c8ff"))
+	for id in entries:
+		var value: Variant = entries[id]
+		choice.add_item(str(value.name) if value is Dictionary else str(value))
+		choice.set_item_metadata(choice.item_count - 1, id)
+	parent.add_child(choice)
+	return choice
+
+func select_identity(choice: OptionButton, id: String) -> void:
+	for index in range(choice.item_count):
+		if str(choice.get_item_metadata(index)) == id:
+			choice.select(index)
+			return
+
+func show_wanderer_select() -> void:
+	var appearance := WandererCatalog.sanitize(profile.get("wanderer", {}))
+	selected_wanderer = str(appearance.preset_id)
+	select_identity(wanderer_origin, str(appearance.origin))
+	select_identity(wanderer_lineage, str(appearance.lineage))
+	select_identity(wanderer_voice, str(appearance.voice))
+	wanderer_pronouns.text = str(appearance.pronouns)
+	refresh_wanderer_selector()
+	current_screen = "wanderer_select"
+	set_screen(wanderer_content)
+
+func cycle_wanderer(direction: int) -> void:
+	var ids := WandererCatalog.selectable_ids()
+	if ids.is_empty():
+		return
+	selected_wanderer = ids[posmod(ids.find(selected_wanderer) + direction, ids.size())]
+	refresh_wanderer_selector()
+
+func refresh_wanderer_selector() -> void:
+	wanderer_portrait.texture = WandererCatalog.runtime_texture(selected_wanderer)
+	wanderer_name.text = str(WandererCatalog.definition(selected_wanderer).display_name).to_upper()
+	wanderer_confirm.disabled = wanderer_portrait.texture == null
+	refresh_wanderer_lore()
+
+func refresh_wanderer_lore() -> void:
+	var id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
+	wanderer_lore.text = str(WandererCatalog.ORIGINS[id].line)
+
+func confirm_wanderer() -> void:
+	if WandererCatalog.runtime_texture(selected_wanderer) == null:
+		return
+	var appearance := WandererCatalog.sanitize(profile.get("wanderer", {}))
+	appearance.preset_id = selected_wanderer
+	appearance.origin = str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
+	appearance.lineage = str(wanderer_lineage.get_item_metadata(wanderer_lineage.selected))
+	appearance.voice = str(wanderer_voice.get_item_metadata(wanderer_voice.selected))
+	appearance.pronouns = wanderer_pronouns.text
+	profile.wanderer = WandererCatalog.sanitize(appearance)
+	profile.avatar_mode = "wanderer"
 	profile_changed.emit(profile.duplicate(true))
 	ui_event.emit("upgrade_select")
 	profile_completed.emit()
@@ -284,8 +404,8 @@ func refresh_profile() -> void:
 	nickname_edit.text = str(profile.get("lootling_nickname", ""))
 	var uuid := str(profile.get("player_uuid", ""))
 	profile_id_label.text = "ACCOUNT INFO  •  SUPPORT ID …%s" % uuid.right(8)
-	profile_identity.text = "CURRENT LOOTLING • %s" % str(LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast"))).display_name).to_upper()
-	profile_actor_name.text = str(LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast"))).display_name).to_upper() + " • RUIN ROOKIE"
+	profile_identity.text = "CURRENT AVATAR • %s" % Avatar.identity_line(profile).to_upper()
+	profile_actor_name.text = Avatar.display_name(profile).to_upper() + " • RUIN ROOKIE"
 
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
@@ -295,7 +415,7 @@ func refresh_settings() -> void:
 		setting_mutes[channel].button_pressed = bool(settings.get(channel + "_muted", false))
 
 func set_screen(active: Control) -> void:
-	var screens := [boot_content, title_content, profile_content, settings_content, lootling_content]
+	var screens := [boot_content, title_content, profile_content, settings_content, lootling_content, wanderer_content]
 	if presentation != null:
 		presentation.switch_screen(screens, active, 0.24)
 	else:
@@ -328,7 +448,10 @@ func _draw() -> void:
 		draw_circle(Vector2.ZERO, 88, Color("#020615a8"))
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		draw_set_transform(Vector2(240, 370 + bob), sin(scene_time * 1.15) * 0.008, Vector2(breathe, 1.0 / breathe))
-		draw_texture_rect(LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(-125, -125, 250, 250), false, LootlingCatalog.presentation_tint(str(profile.get("current_lootling_id", "relic_beast"))))
+		var actor_texture := Avatar.texture(profile)
+		if actor_texture != null:
+			var actor_size := Vector2(250, 250) if not Avatar.is_wanderer(profile) else Vector2(200, 300)
+			draw_texture_rect(actor_texture, Rect2(-actor_size * 0.5, actor_size), false, Avatar.tint(profile))
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		var core_alpha := 0.14 + maxf(0.0, sin(scene_time * 2.8)) * 0.16
 		draw_circle(Vector2(241, 395 + bob), 13.0 + sin(scene_time * 2.8) * 2.0, Color(0.76, 0.52, 1.0, core_alpha))
@@ -342,7 +465,9 @@ func _draw() -> void:
 			draw_line(glint_pos + Vector2(-5, 0), glint_pos + Vector2(5, 0), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
 			draw_line(glint_pos + Vector2(0, -5), glint_pos + Vector2(0, 5), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
 	elif current_screen in ["profile", "profile_create", "settings"]:
-		draw_texture_rect(LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(352, 4, 116, 116), false, LootlingCatalog.presentation_tint(str(profile.get("current_lootling_id", "relic_beast"))))
+		var actor_texture := Avatar.texture(profile)
+		if actor_texture != null:
+			draw_texture_rect(Avatar.portrait(profile), Rect2(352, 4, 116, 116), false, Avatar.tint(profile))
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:

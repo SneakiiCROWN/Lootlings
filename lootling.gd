@@ -17,6 +17,8 @@ const AnalyticsLogger = preload("res://analytics_logger.gd")
 const AudioManager = preload("res://audio_manager.gd")
 const StartupUI = preload("res://startup_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
+const Avatar = preload("res://avatar_presentation.gd")
+const WandererPose = preload("res://wanderer_pose_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const DebugPanel = preload("res://debug_panel.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
@@ -1720,6 +1722,8 @@ func perform_player_attack(is_tap: bool) -> void:
 			travel_time *= (860.0 if family == "RANGER" else 520.0) / float(projectile_profile.speed)
 		if is_tap:
 			travel_time *= 0.82
+		attack_anim = 0.22
+		attack_was_tap = is_tap
 		var launch_position := Vector2(player_x + 58.0, 427.0) if family == "RANGER" else Vector2(player_x + 46.0, 407.0)
 		if subtype == "orb":
 			launch_position = Vector2(player_x + 42.0, 480.0)
@@ -1727,6 +1731,8 @@ func perform_player_attack(is_tap: bool) -> void:
 			launch_position = Vector2(player_x + 127.0, 447.0)
 		elif subtype == "wand":
 			launch_position = Vector2(player_x + 91.0, 393.0)
+		if Avatar.is_wanderer(profile):
+			launch_position = WandererPose.projectile_origin(self)
 		attack_projectiles.append({
 			"family": family,
 			"weapon_type": subtype,
@@ -1739,8 +1745,6 @@ func perform_player_attack(is_tap: bool) -> void:
 			"enemy_serial": enemy_serial
 		})
 		squash = 0.12
-		attack_anim = 0.22
-		attack_was_tap = is_tap
 		return
 	resolve_player_attack(is_tap)
 
@@ -2954,9 +2958,8 @@ func draw_zone_ambient() -> void:
 
 func draw_hud() -> void:
 	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
-	var actor := LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast")))
-	LootlingsUI.draw_icon(get_canvas_item(), LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(12, 17, 42, 42))
-	draw_string(title_font, Vector2(60, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
+	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
+	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
 	var location_line := "ROOM %02d / 08 • RELIC ROUTE" % (dungeon.depth + 1) if dungeon.active else "WAVE %02d • %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()]
 	if dungeon.active and dungeon.depth < 0: location_line = "RELIC ROUTE • CHOOSE PATH"
 	draw_string(body_font, Vector2(60, 59), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))

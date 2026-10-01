@@ -1,5 +1,11 @@
 # Lootlings Master Roadmap
 
+## Master production v3 continuation
+
+The twenty-document planning pack is integrated alongside the newer tested live code; its pre-route snapshot does not override shipped bounded patrols, seeded eight-room routes or meaningful twelve-family evolution. Adult player identity is now live through additive profile schema 3, two clean authored beta presets, shared avatar resolution and a separate twelve-family grip/projectile contract. All seven Lootlings/Gloomlet remain available. Appearance is stat-free. Full modular body/hair/outfit layers and genuine two-hand poses remain required; see `WANDERER_BETA_ART.md`, not claims of a finished creator.
+
+Continue with reusable skippable vignette/cinematic presentation and Archive replay, then deeper world life/lore, character Wardrobe and approved content/art integration in tested coherent tranches. Do not return to the superseded enemy-crop-first queue or overwrite validated live gameplay with older pack snapshots.
+
 ## Current canonical-world beta tranche
 
 Owned-weapon evolution is behaviour-bearing for all twelve families through the existing two-stage Forge; costs and save schema unchanged. Art-first Forge rows and explicit previews communicate cleave/arc, stagger, opener, finisher, elemental and recovery hooks. Stage-zero campaign audit remains 22/96 actual victories. Group primary-hit redirection and post-defeat siphon bugs are corrected; reporting now uses the actual Results outcome. Remaining gated Signatures, boss adds/Mimic/treasure escape and appropriate creature outfit overlays remain subsequent work.
