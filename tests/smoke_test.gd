@@ -378,6 +378,8 @@ func run_tests() -> void:
 	check(not boss_drop.is_empty() and ItemCatalog.rarity_rank(boss_drop.rarity) >= 2, "boss loot is guaranteed Epic or better")
 	var comparison: String = game.build_item_comparison(ItemCatalog.create_item("mimic_mallet", "EPIC", 776), ItemCatalog.create_item("scrapfang_blade", "COMMON", 775))
 	check(comparison.contains("#69e6b0") and comparison.contains("#ff7d88"), "loot comparison marks gains green and losses red")
+	check(game.format_effect_delta("crit", 0.10) == "+10% CRIT CHANCE", "item comparison distinguishes critical-hit chance from critical-hit damage")
+	check(game.item_equip_button.has_meta("presentation_bound") and game.item_keep_button.has_meta("presentation_bound") and game.item_scrap_button.has_meta("presentation_bound"), "item decision buttons retain their shared short tactile feedback")
 	var test_inventory = InventorySystem.new()
 	var rare_bow := AffixCatalog.apply(ItemCatalog.create_item("bonebow", "LEGENDARY", 777), ["keen", "crooked_constellation"])
 	test_inventory.equip(rare_bow)

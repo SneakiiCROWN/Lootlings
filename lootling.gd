@@ -1947,7 +1947,7 @@ func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 func format_effect_delta(key: String, amount: float) -> String:
 	var labels := {
 		"damage_mult":"DAMAGE", "attack_speed":"ATTACK RATE", "attack_slow":"ATTACK RATE",
-		"crit":"CRIT", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"RUN SCRIP",
+		"crit":"CRIT CHANCE", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"RUN SCRIP",
 		"execute":"EXECUTE", "fire_damage":"BURN POWER", "crit_lightning":"CRIT SPARK",
 		"poison_bonus":"POISON STACK", "poison_duration":"POISON TIME", "boss_damage":"BOSS DAMAGE",
 		"heavy_bonus":"HEAVY POWER", "kill_explosion":"KILL BURST", "low_health_damage":"LOW-HP POWER"
@@ -2657,7 +2657,7 @@ func draw_stats_strip() -> void:
 	draw_circle(Vector2(33, 730), 6, build.color())
 	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [current_weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
 	draw_string(body_font, Vector2(344, 735), "◆ %d" % inventory.scrap, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
-	var labels := ["DMG", "RATE", "CRIT", "HITS"]
+	var labels := ["DMG", "INTERVAL", "CRIT CHANCE", "AUTO HITS"]
 	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
 	for i in range(4):
 		var x := 32.0 + i * 105.0
