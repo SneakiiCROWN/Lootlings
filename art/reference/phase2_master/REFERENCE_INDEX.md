@@ -1,0 +1,33 @@
+# Phase 2 Master Reference Audit
+
+Audited 2026-10-01 against stable code `b5cb71355b28367a54de5b993fc1805243154b51`. All 15 original PNGs were visually inspected. There are 14 unique images, all 1448×1086. Every unique byte stream is preserved; one downloaded `(1)` copy is hash-exact redundant. No image was cropped, repainted or enabled at runtime. Parent `art/reference/.gdignore` keeps these boards out of Godot imports.
+
+## Authority and use
+
+These are owner-approved visual references, not verified production sprites or a permission to implement new systems. Canonical character sheets remain in `../canonical/characters/`. In particular, blue-eyed crystal cat concepts do not replace the neutral Relic Beast. Adult characters remain explicitly adults, with personality and practical readable fantasy silhouettes. Gold/purple/cyan UI identity and existing gameplay information architecture remain. Source licensing/provenance is owner-supplied approval; no external commercial licence or third-party clearance is inferred.
+
+No script/resource/document referenced the original Phase 2 filenames before organization. The reference-wide exact-hash scan found only this new duplicate and the intentional existing Emberhorn/class-template identity match; the latter is outside this cleanup and untouched.
+
+## Original-to-final mapping
+
+All retained destinations are in this folder. Original filenames and full SHA-256 hashes allow lossless identification/recovery. The deleted duplicate's identical bytes remain in its retained counterpart.
+
+| Original | Retained descriptive filename | SHA-256 | Visual contents / disposition |
+| --- | --- | --- | --- |
+| `052a2078-950f-43db-a67c-7cb78c7919ec.png` | `lootlings_spell_reward_vfx_reference.png` | `68F23E805561166BB9B661A4947B7E7C5333194DD69862A04DBE4B684BBA842B` | Elemental slashes/projectiles, heal/ward, shadow/portal and treasure bursts; separated still examples, not animation frames. |
+| `2d5271db-3ac0-460d-811b-d9530a6e0eff (1).png` | `lootlings_heroes_creatures_demon_cutout_reference.png` | `289690A98841D87A1EF54CDE4C9F5BB09EDBFF2006AFE7811558A4DB2FDE1DFE` | Exact duplicate of the preceding character sheet; removed only after matching SHA-256. |
+| `2d5271db-3ac0-460d-811b-d9530a6e0eff.png` | `lootlings_heroes_creatures_demon_cutout_reference.png` | `289690A98841D87A1EF54CDE4C9F5BB09EDBFF2006AFE7811558A4DB2FDE1DFE` | Adult huntress/warrior/mage/rogue, cute crystal/nature/fire creatures and infernal monster; not canonical roster replacements. |
+| `478db25c-700b-412c-97da-bddb3b31f95d.png` | `lootlings_enemy_elite_humanoid_reference.png` | `B69924DBEB3F575726232187F9CD2DA548AE791B9EC31CEA55D17897F79BD81F` | Poison goblin caster, armoured warrior, huntress, infernal hound, crystal goblin, nature caster, mushroom brute, vampire, skeletal knight and tusked berserker. |
+| `6446bc06-eafa-406e-ae16-9acfcd50951d.png` | `lootlings_adult_fantasy_outfits_reference.png` | `1AFEABCCAC4E2F544B98AA67702A3003A6230F7A91864FC40D10493156191F9A` | Ten adult humanoid outfit presentations: arcane blue/gold, nature green, crimson, flame and shadow plate/cloth. Not equippable Lootling skins. |
+| `a78a8883-2892-4821-a738-a466ed1e9cb2.png` | `lootlings_boss_demon_mimic_reference.png` | `566C2D5A4929C4AD3CD75FF0F8D13B854BAA236FAEF4815D05E10BFE88B5E81E` | Infernal colossus, ice sorceress, ancient tree guardian, treasure mimic, plague lich and winged shadow sorceress. No automatic mapping to Hoard Dragon. |
+| `be9382ae-eb27-4e92-83fb-dcc59f16ddff.png` | `lootlings_chests_shrine_merchant_props_reference.png` | `3855FF1AD8381C7C2DA6A465C1BB5D3770C613A6C5FF68D24529D5CD4B6BBF46` | Wood/crystal chests, luggage, merchant cart, shrine, trophy pedestal, orbiting rewards, portal, torch, banner, forge, camp, statue and demon hoard. |
+| `d82723c6-85b0-4c91-9cc7-ebf17e929e59.png` | `lootlings_weapon_families_reference.png` | `18A452236BBE0CDB337488C6157839B7D79B49C4D32986F82CC8E6F797C5C978` | Blades, bow, paired daggers, axe, spear, shadow scythe, hammer, nature bow, crossbow, staves, claws, shield, mace, lantern focus and demonic polearm. |
+| `daf45698-5e0b-4227-ae5b-0c713def0fb7.png` | `lootlings_environment_town_forest_infernal_frost_reference.png` | `F17F6589151042BF64B8670867597E92F755423F0E360C8970409AF3811B2B03` | Four opaque scenic concepts: moonlit market/castle, forest crystal shrine, infernal citadel and frozen ruin. Landscape scenes need deliberate portrait composition. |
+| `e29b44ff-158f-4ece-a26b-43602f951767.png` | `lootlings_hud_menu_cards_material_reference.png` | `0E931D2DF3CC953C967B4FA47AF55F34BBFD2019EB921B6A6B4D691214CFD08F` | Portrait/bar frames, boss header, elemental currencies, rarity cards, merchant/inventory grids, action buttons and ornate trim. No baked sheet UI becomes a runtime panel. |
+| `fd16b5d0-2a2f-49db-b704-c953f6550cdf.png` | `lootlings_jewellery_relic_consumable_loot_reference.png` | `FAC7C56EF129C18DD29335847BAA428A8205B3BA28114DD28D4B72F0D2050775` | Rings/amulets, time and orb relics, potion bottles, scrolls/maps, treasure/coins/crystals and creature charms. Consumables are not new current systems. |
+| `lootlings_fantasy_concept_art_board.png` | `lootlings_fantasy_concept_art_board.png` | `FF6B52891F3293B5BADB28CDB8337664F0015E11872B061AEAF941DBB3B15483` | Master direction: cute crystal mascot concepts, adult heroes, infernal demon, support creatures, gear, world/UI/material mood. |
+| `lootlings_fantasy_gear_compendium.png` | `lootlings_fantasy_gear_compendium.png` | `E7C51BD490D1B175FD34D013C825DA9DD35E49D59928E0997967B57AB8D83A65` | Master equipment direction: weapon/outfit families, modular armour, jewellery, artifacts, companions, chests and spell/status themes. |
+| `lootlings_heroes_and_creatures_roster.png` | `lootlings_heroes_and_creatures_roster.png` | `359A2216C167109379138C5AE247021DA343FD6B995200F74E2AE4AF5D581083` | Master reference names: Aurelia, Kaien, Selene, Rex; Pixie, Emberpup, Blossomi; Vulkaroth, Nightveil, Dreadthorn. Reference-only, no corresponding live IDs. |
+| `lootlings_worlds_loot_and_adventure.png` | `lootlings_worlds_loot_and_adventure.png` | `3F0976CF0180AC799A9FDB787F342232DE0134E6EDE05EF1CE8FCDD3A20413C6` | Master world mood: Havencrest, Glimmerwald, Ashen Depths, Stonegate Ruins, Nighthollow; combat, inventory, cards, shop, bosses and map. These names do not rename current zones. |
+
+Production requests and priorities: root `ASSET_NEEDED_PHASE2.md`. None of the boards alone establishes transparent-edge quality, consistent pivots, separated equipment, animation continuity, phone-scale readability or final commercial provenance. Request deliberate individual exports rather than blind sheet crops.

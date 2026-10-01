@@ -10,7 +10,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | --- | --- | --- |
 | Neutral Relic Beast | LIVE | Exact canonical `art/sprites/relic_beast_base.png`; current base player. |
 | Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, Gloomlet | ASSET_NEEDED | Catalog/selector entries exist and stay locked until clean transparent standalone runtime sprites exist. Canonical sheets are reference only. |
-| Five-pose runtime sets for all seven Lootlings | ASSET_NEEDED | Idle/ready, anticipate, attack/release, hurt/recovery, victory/reward. |
+| Additional pose cutouts for all seven Lootlings | DEFERRED | Existing transform-driven pose layer is live. Four optional extra cutouts per identity are LATER; accepted idle art is sufficient for an initial honest identity integration. |
 
 ## Run, enemies, and world
 
@@ -37,7 +37,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Last Lantern / Frostbell Chime | LIVE | New fully implemented behaviour hooks with bounded once-per-run/once-per-foe rules. |
 | Nine additional Signature definitions | DEFINED_DATA | Explicitly excluded from random rolls until each behaviour is implemented and tested. |
 | Weapon evolution lines | DEFINED_DATA | 36 named three-stage lines; no Forge/crafting activation this pass. |
-| Scavenged Cache / Relic Chest / Hoard Chest | LIVE | Contents finalized before data-driven rarity spectacle. |
+| Scavenged Cache / Relic Chest reward contracts | LIVE | Existing cache claim/miniboss item flows; dedicated physical closed/open chest art and texture sequences are not implemented. Do not equate data/reward rules with Hoard's renderer. |
+| Hoard Chest | LIVE | Dedicated painted closed sprite, landing/charge/tap/burst/three Epic+ arcs and choose-one are live. |
 | Cursed Coffer | DEFINED_DATA | Reward/presentation contract only. |
 | Mimic Husk | ASSET_NEEDED | Requires clean chest/enemy states and encounter implementation. |
 | Starfall Vault | FUTURE | Mythic/endgame profile only. |
@@ -52,10 +53,14 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Platform achievement IDs | DEFINED_DATA | Empty provider mapping fields; no authentication/submission. |
 | Networking, clans, raids, secure trading, monetisation | FUTURE | No backend or player-facing promise implemented. |
 
+## Phase 1 delivered / Phase 2 art authority
+
+All 34 Foundation and 55 Wave 2 PNGs are delivered and integrated: shells, meters, controls, category/upgrade/currency/Core/status/variant/rarity/Trophy icons and Results crests are no longer missing programmer-art requests. Dedicated base-item art is distinct from delivered category icons. See `ASSET_NEEDED_PHASE2.md` for the full scoped request and `art/reference/phase2_master/REFERENCE_INDEX.md` for all approved boards. Adult heroes, companions and named board demons/worlds have no corresponding live IDs and remain REFERENCE ONLY. No runtime system was changed by this audit.
+
 ## Dedicated art still required
 
-- Six named Lootling standalone sprites plus five-pose sets, portraits, selector heroes, and attachment anchors.
+- Six exact canonical standalone idle sprites with consistent attachment anchors are needed for roster unlocks; additional pose cutouts are later. Reuse idle exports for portraits/selector previews until dedicated portrait composition is required.
 - Dedicated held/item/evolution art for the seven locked weapon families and their projectiles.
 - Cursed Coffer, Mimic Husk, and Starfall Vault state art.
-- Act II–V background/midground/foreground/postcard/boss layers and their enemy/boss sets.
+- Future zone portrait backgrounds and enemy/boss sets; separate midground/foreground/postcards are optional future deliveries, not additional mandatory duplicates. Exact deferred requests are in `ASSET_NEEDED_PHASE2.md`.
 - Dedicated Hoard Dragon replacement remains an isolated later art sprint.

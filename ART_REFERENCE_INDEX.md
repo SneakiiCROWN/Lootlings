@@ -10,6 +10,10 @@ The user-supplied `art/ui/brand/` and `art/ui/skins/` batch contains exactly 34 
 
 The 55 user-supplied PNGs in `art/ui/icons/`, `art/ui/icons/upgrades/`, `art/ui/trophies/` and `art/ui/results/` are listed in `manifest_wave2.json` and documented in `README_PHASE1_WAVE2_ICONOGRAPHY.md`. All are integrated without source edits: four currencies, five Cores, two statuses, eight variants, eighteen upgrades, three gear categories, four rarities, eight Trophy categories, one locked Trophy and two Results crests. Existing weapon and canonical character sprites are unchanged. Icons are aspect-fitted and cached; information labels, rarity names and status counters remain supplementary.
 
+## Phase 2 approved master references
+
+All 15 newly supplied PNGs were inspected; 14 unique images remain in `art/reference/phase2_master/`. `REFERENCE_INDEX.md` records descriptive names, original names, visual contents and full SHA-256 hashes, including the one removed exact duplicate. The four master boards and ten subject sheets are approved style/content references, not runtime-ready sprites. They do not supersede canonical neutral Relic Beast or the six named identity sheets. Broader adult heroes, companions, demons and world names remain reference-only until actual content contracts exist. Production requirements are deduplicated in root `ASSET_NEEDED_PHASE2.md`; no sheet crops are shipped.
+
 ## Shared Lootling Language
 
 - Tiny, chunky bodies around 2–2.5 heads tall with very large eyes and ears.

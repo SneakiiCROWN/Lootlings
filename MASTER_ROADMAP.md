@@ -11,6 +11,10 @@ This roadmap preserves product direction; it is not a promise to build every sys
 - Offline/local play remains valid. Future online ownership, trading, clans, and purchases must be server-authoritative.
 - Genre inspiration informs pacing and emotion only. Characters, writing, UI, art, audio, names, and systems expression remain original.
 
+## Phase 2 production-art audit
+
+`ASSET_NEEDED_PHASE2.md` is the current deduplicated production request, with REQUIRED NOW / LATER / REFERENCE ONLY gates. All 15 approved images were inspected; 14 unique images remain under `art/reference/phase2_master/` with descriptive names and full hash/original-path records. Canonical identities and delivered Phase 1 art remain authoritative. This audit activates no gameplay content.
+
 ## 1. Foundation — Active
 
 - Phase 1 visual shell uses all 89 supplied Foundation/Wave 2 PNGs across existing menus/rewards/HUD. Protected Foundation nine-slicing is unchanged; actual production icons now fill upgrade sockets and replace legacy gear/Trophy/currency glyphs. `ASSET_NEEDED_PHASE1.md` records delivery of the requested batch. Gameplay is unchanged; no Phase 2 work started.
@@ -25,7 +29,7 @@ This roadmap preserves product direction; it is not a promise to build every sys
 - Deepen data-driven affixes, rarity identity, unique effects, Legendary mechanics, boss/zone pools, weapon evolution, restrained sets/synergies, and cosmetic variants.
 - Stable chest IDs begin with `scavenged_cache`, `relic_chest`, and `hoard_chest`. Shared presentation phases: drop → land → anticipation → open → burst → eject → settle → reveal.
 - Hoard Chest is live at the final boss with a dedicated painted transparent sprite: physical landing, tap-to-open, three Epic+ arcs, settle, then unchanged choose-one. Scavenged Cache has a conservative once-per-run-cycle 180-Gold Hideout source with protected reveal/claim. Relic Chest remains the next presentation candidate for Grump Knight.
-- Weapon thumbnails use painted family art; Armour, Charm, and Rune use shared replacement-ready code-native silhouettes across item review, Boss Hoard, Stash, and Salvager. Future work should replace these with bespoke painted category/item art without changing IDs.
+- Weapon thumbnails use painted family art; Armour, Charm, and Rune use the delivered Wave 2 production category PNGs across item review, Boss Hoard, Stash, and Salvager. Bespoke base-item designs are a later Phase 2 request, not missing category icons. Greatsword still shares the Vanguard hammer sprite and needs a subtype-specific cutout.
 - Future sources: milestones, quests, dungeons, rare world finds, mimics, events, clans, and raids.
 - Preserve rarity odds independently from presentation intensity.
 
@@ -40,7 +44,7 @@ This roadmap preserves product direction; it is not a promise to build every sys
 
 - Preserve the canonical neutral Relic Beast. Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, and Gloomlet remain separate canonical identities.
 - Profile hooks support current Lootling, optional nickname, profile icon, title, banner, badges, favourite weapon, and cosmetic IDs.
-- Starter roster/selection should begin only when clean transparent runtime sprites can represent the canonical identities. Do not use malformed sheet crops or invented substitutes merely to activate the profile hook.
+- The seven-identity catalog and first-profile selector architecture are live; only canonical Relic Beast is currently selectable. Clean transparent sprites and renderer wiring must precede enabling the six named identities. Do not use malformed sheet crops or invented substitutes.
 - Future cosmetic slots: horn/ear accessory, head/hood, scarf/cape, armour appearance, satchel, Core effect, weapon skin, aura/trail, emote, victory pose, icon, title, and banner.
 - Cosmetics should normally express identity, not raw power.
 
@@ -140,4 +144,4 @@ This roadmap preserves product direction; it is not a promise to build every sys
 - The curated live equipment pool expands to 35 bases and 20 standard affixes. Six behaviour-changing Signatures are implemented; nine additional Signature contracts cannot roll until their mechanics are complete.
 - The complete approved 12-family weapon catalog, six projectile profiles and 36 evolution lines now have stable data. Five art-ready weapon types are live; seven stay asset-gated. Forge/evolution activation remains a later system.
 - Six chest identities and nine future zone arcs now have replacement-ready data, while only validated Act I scenes and three chest reward flows remain live.
-- The Trophy Archive expands to 28 local achievements. Provider mappings remain preparation only; platform authentication/submission is future work.
+- The Trophy Archive currently has 27 local achievements (verified against `achievement_manager.gd`). Provider mappings remain preparation only; platform authentication/submission is future work.
