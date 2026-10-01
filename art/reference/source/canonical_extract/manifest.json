@@ -1,0 +1,18 @@
+{
+  "purpose": "Canonical reference extraction from the existing Lootlings art production pack; these are reference crops, not newly invented designs.",
+  "characters": [
+    "relic_beast_pose_reference.png",
+    "emberhorn_pose_reference.png",
+    "mosskin_pose_reference.png",
+    "moonkip_pose_reference.png",
+    "pebblewyrm_pose_reference.png",
+    "glimmerfin_pose_reference.png",
+    "gloomlet_pose_reference.png"
+  ],
+  "notes": [
+    "Use these references to preserve the already-established Lootlings designs.",
+    "Do not treat these crops as final transparent runtime sprites.",
+    "Future final sprite generation should be one character/pose set at a time, using the matching crop as the identity reference.",
+    "The two broad experimental boards generated later in ChatGPT are NOT canonical and should be ignored."
+  ]
+}

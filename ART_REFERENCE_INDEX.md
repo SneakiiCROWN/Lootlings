@@ -1,6 +1,6 @@
 # Canonical Art Reference Index
 
-The images in `art/reference/canonical/` are the visual source of truth. Procedural in-game art is temporary and should preserve these silhouettes, palettes, and class cues until production sprites replace it.
+The unchanged images in `art/reference/canonical/characters/` are the playable identity source of truth. Established presentation boards now live in `art/reference/source/established_presentation_boards/`; broad supplied boards/crops are reference-only, never substitute character designs. See `art/reference/docs/REFERENCE_ORGANIZATION.md` and its hash audit for consolidation/recovery.
 
 ## Shared Lootling Language
 
@@ -77,7 +77,7 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `art/sprites/enemies/mossback_brute.png` is the first-pass tank cutout: broad mossy ruin beast with a battered wooden shield. It is an enemy species, not Mosskin.
 - `art/sprites/enemies/lantern_hexer.png` is the first-pass ranged cutout: narrow floating hooded spirit with a lantern staff and violet hex. It is not Gloomlet or another playable Lootling.
 - `art/sprites/enemies/grump_knight.png` is the wave 8 elite Treasure Guardian cutout: a crowned stone-fur brute with relic-crystal armour and an oversized locked-chest hammer.
-- `art/sprites/enemies/hoard_dragon.png` is the wave 15 Ancient Hoarder cutout: a single coherent serpentine body with one readable head/jaw and tail, exactly two intentional forelimbs, gold relic bindings, and a controlled violet crystal ridge.
+- `art/sprites/enemies/hoard_dragon.png` is the current wave 15 Ancient Hoarder temporary cutout. Its malformed anatomy remains an explicit ART_BLOCKER; a clean transparent single-body Dragon replacement is still required. It was not regenerated in the rescue continuation.
 - `art/backgrounds/treasure_ruins_arena.png` is the layered portrait arena backdrop derived from the gameplay/polish boards: moonlit ruins, lanterns, crystals, treasure, and a readable stone combat platform.
 - `art/backgrounds/salvage_warrens_arena.png` is the non-canonical runtime arena for the Salvage Warrens/Emberworks: bronze forge ruins, chains, scrap, furnaces, and a clean warm combat platform.
 - `art/backgrounds/hoard_depths_arena.png` is the non-canonical runtime arena for the Hoard Depths: a monumental sealed vault, dark stone, deliberate gold and violet accents, and a clean final-region combat platform.
@@ -101,8 +101,8 @@ The images in `art/reference/canonical/` are the visual source of truth. Procedu
 - `416738a3-c30b-4897-9931-7972ab39384b.png` - broad gameplay presentation overview covering combat readability, loot popups, exploration framing, and cast separation.
 - `63c5675b-9b06-4a60-9fc5-ef9128e4b025.png` - game-loop/shop-flow reference; reinforces temporary Run Scrip for shops and limited meaningful reward choices.
 - `d38459e5-a06f-436e-acd2-45de17beaf4c.png` - 2D polish target for sprite/cutout characters, readable item beams, layered arena depth, and distinct enemy silhouettes.
-- `e5ec5e8a-75b2-4f36-958b-309440b69cbe.png` - weapon-family and rarity-language sheet for Vanguard, Ranger, Mage, and Rogue. The `(1)` file is an identical retained duplicate.
-- `f83b7cd9-f1f4-4a45-8e3a-42788ff54760.png` - consolidated north-star handoff for reward, shop, enemy scale, and visual priorities. The `(1)` file is an identical retained duplicate.
+- `e5ec5e8a-75b2-4f36-958b-309440b69cbe.png` - weapon-family and rarity-language sheet for Vanguard, Ranger, Mage, and Rogue. The hash-identical `(1)` copy was removed.
+- `f83b7cd9-f1f4-4a45-8e3a-42788ff54760.png` - consolidated north-star handoff for reward, shop, enemy scale, and visual priorities. The hash-identical `(1)` copy was removed.
 - These sheets are presentation/system targets, not replacements for `Lootlings_Main_Mascot_RelicBeast_Canonical.png`, which remains the immutable base-player character source.
 
 ## Runtime art still required for roster unlocks

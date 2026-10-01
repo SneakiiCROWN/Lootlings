@@ -96,6 +96,11 @@ func run_tests() -> void:
 	check(reloaded_trophies.display_description(AchievementManager.definition_for("bonk_nothing")) == "???", "secret achievements conceal their description until unlocked")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(achievement_path))
 	check(AudioServer.get_bus_index("Music") >= 0 and AudioServer.get_bus_index("SFX") >= 0 and AudioServer.get_bus_index("UI") >= 0 and AudioServer.get_bus_index("Ambience") >= 0, "Godot-native audio buses are available")
+	var master_bus := AudioServer.get_bus_index("Master")
+	var master_is_limited := false
+	for effect_index in range(AudioServer.get_bus_effect_count(master_bus)):
+		master_is_limited = master_is_limited or AudioServer.get_bus_effect(master_bus, effect_index) is AudioEffectLimiter
+	check(master_is_limited, "the player-facing mix has a Master limiter for dense combat/reward overlap")
 	check(DebugPanel.allowed(true) and not DebugPanel.allowed(false), "development toolkit has an explicit release-build gate")
 	check(game.debug_enabled and game.debug_panel != null and not game.debug_panel.visible, "development toolkit exists but starts hidden in debug builds")
 	check(game.presentation_director != null and game.presentation_director.has_method("set_loading_progress"), "one reusable presentation director owns menu, reward, and travel transitions")
@@ -195,6 +200,8 @@ func run_tests() -> void:
 	check(game.hideout_ui.current_screen == "shop", "the Hideout merchant stall opens Shop")
 	game.hideout_ui.show_upgrades()
 	check(game.hideout_ui.current_screen == "upgrades", "the Hideout Relic shrine opens Training")
+	game.hideout_ui.show_achievements()
+	check(game.hideout_ui.current_screen == "achievements" and game.hideout_ui.achievement_grid.columns == 3 and not game.hideout_ui.achievement_detail.text.is_empty(), "the Trophy Archive is a phone-readable badge collection with focused detail")
 	game.hideout_ui.show_coming_soon("LOOTBOOK")
 	check(game.hideout_ui.current_screen == "coming", "the Hideout archive opens Lootbook Coming Soon")
 	game.hideout_ui.show_home()
@@ -209,6 +216,7 @@ func run_tests() -> void:
 		"res://art/sprites/weapons/vanguard_hammer.png",
 		"res://art/sprites/weapons/ranger_bow.png",
 		"res://art/sprites/weapons/mage_staff.png",
+		"res://art/sprites/rewards/hoard_chest.png",
 		"res://art/sprites/weapons/rogue_daggers.png"
 	]:
 		check(load(asset_path) is Texture2D, "%s imports as a Texture2D" % asset_path)

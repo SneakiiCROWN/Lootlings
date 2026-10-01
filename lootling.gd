@@ -28,6 +28,7 @@ const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hamm
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
 const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
+const HOARD_CHEST_TEXTURE = preload("res://art/sprites/rewards/hoard_chest.png")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
 const INVENTORY_SAVE_PATH := "user://lootlings_inventory.cfg"
@@ -885,35 +886,35 @@ func save_hideout_economy() -> void:
 	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 
 func build_item_ui() -> void:
-	item_panel = make_panel(Rect2(24, 174, 432, 520), Color("#111a36f7"))
+	item_panel = make_panel(Rect2(24, 166, 432, 536), Color("#0b1229fc"))
 	LootlingsUI.apply_material(item_panel, "leather")
 	item_panel.visible = false
-	item_title = make_label(item_panel, "LOOT FOUND!", 27, Rect2(22, 8, 388, 64), HORIZONTAL_ALIGNMENT_CENTER, Color.WHITE)
+	item_title = make_label(item_panel, "LOOT FOUND!", 27, Rect2(22, 12, 388, 56), HORIZONTAL_ALIGNMENT_CENTER, Color.WHITE)
 	item_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_title.clip_text = true
 	item_icon = ItemIcon.new()
-	item_icon.position = Vector2(24, 74)
-	item_icon.size = Vector2(112, 112)
+	item_icon.position = Vector2(28, 76)
+	item_icon.size = Vector2(120, 120)
 	item_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	item_panel.add_child(item_icon)
-	item_description = make_label(item_panel, "", 15, Rect2(148, 74, 256, 116), HORIZONTAL_ALIGNMENT_LEFT, Color("#e8efff"))
+	item_description = make_label(item_panel, "", 14, Rect2(164, 78, 240, 116), HORIZONTAL_ALIGNMENT_LEFT, Color("#e8efff"))
 	item_description.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_description.clip_text = true
 	item_compare = RichTextLabel.new()
-	item_compare.position = Vector2(36, 194)
-	item_compare.size = Vector2(360, 132)
+	item_compare.position = Vector2(34, 210)
+	item_compare.size = Vector2(364, 126)
 	item_compare.bbcode_enabled = true
 	item_compare.fit_content = false
 	item_compare.scroll_active = false
-	item_compare.add_theme_font_size_override("normal_font_size", 15)
+	item_compare.add_theme_font_size_override("normal_font_size", 14)
 	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
 	item_panel.add_child(item_compare)
-	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 345), Vector2(176, 62), Color("#295d50"), Color("#69e6b0"), accept_item_equip)
-	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 345), Vector2(176, 62), Color("#29486b"), Color("#74caff"), accept_item_keep)
+	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 357), Vector2(176, 64), Color("#295d50"), Color("#69e6b0"), accept_item_equip)
+	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
-	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 426), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), accept_item_scrap)
+	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), accept_item_scrap)
 
 func build_merchant_ui() -> void:
 	merchant_panel = make_panel(Rect2(28, 170, 424, 540), Color("#11182ee8"))
@@ -1444,12 +1445,13 @@ func perform_player_attack(is_tap: bool) -> void:
 		var travel_time := 0.12 if family == "RANGER" else 0.17
 		if is_tap:
 			travel_time *= 0.82
+		var launch_position := Vector2(player_x + 58.0, 427.0) if family == "RANGER" else Vector2(player_x + 46.0, 407.0)
 		attack_projectiles.append({
 			"family": family,
 			"is_tap": is_tap,
-			"pos": Vector2(player_x + 28.0, 442.0),
-			"start": Vector2(player_x + 28.0, 442.0),
-			"target": Vector2(ENEMY_X - 18.0, 446.0),
+			"pos": launch_position,
+			"start": launch_position,
+			"target": Vector2(ENEMY_X - 28.0, 438.0),
 			"life": travel_time,
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
@@ -1842,11 +1844,25 @@ func show_boss_reward() -> void:
 	help_label.visible = false
 	for i in range(boss_reward_buttons.size()):
 		var item: Dictionary = boss_reward_options[i]
-		boss_reward_buttons[i].text = "                 %s  •  %s\n                 %s\n                 %s" % [item.rarity, item.name, ItemCatalog.display_identity(item), ItemCatalog.describe_effects(item)]
+		boss_reward_buttons[i].text = boss_reward_card_text(item)
+		boss_reward_buttons[i].add_theme_font_size_override("font_size", 13)
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
 		boss_reward_icons[i].configure(item)
 	if presentation_director != null:
 		presentation_director.present_card(boss_reward_panel, Color("#ffd36a"), 0.34)
+
+func boss_reward_card_text(item: Dictionary) -> String:
+	var name := str(item.get("name", "Unknown Loot"))
+	if name.length() > 28:
+		name = name.left(27) + "…"
+	var headline_lines := ItemCatalog.describe_headline_effects(item, 1).split("\n", false)
+	var headline := ""
+	for line in headline_lines:
+		var clean_line := str(line)
+		if clean_line.length() > 38:
+			clean_line = clean_line.left(37) + "…"
+		headline += ("\n                 " if not headline.is_empty() else "") + clean_line
+	return "                 %s  •  %s\n                 %s\n                 %s" % [str(item.get("rarity", "EPIC")), name, ItemCatalog.display_identity(item), headline]
 
 func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
@@ -1895,7 +1911,8 @@ func play_rarity_audio(rarity: String) -> void:
 func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 	if equipped.is_empty():
 		return "[color=#8fa4ce]EQUIPPED[/color]  Empty slot\n[color=#69e6b0]▲ EVERYTHING IS A GAIN[/color]"
-	var result := "[color=#8fa4ce]EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), ItemCatalog.describe_effects(equipped)]
+	var equipped_summary := ItemCatalog.describe_headline_effects(equipped, 1).replace("\n", "  •  ")
+	var result := "[color=#8fa4ce]EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), equipped_summary]
 	var found_effects: Dictionary = found.get("effects", {})
 	var equipped_effects: Dictionary = equipped.get("effects", {})
 	var keys: Array = found_effects.keys()
@@ -2053,7 +2070,10 @@ func refresh_merchant_ui() -> void:
 		var price := int(item.get("price", 0))
 		apply_merchant_thumbnail(button, merchant_icons[i], item)
 		var indent := "" if item.get("slot", "") == "Weapon" else "             "
-		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, ItemCatalog.describe_effects(item)]
+		var headline := ItemCatalog.describe_headline_effects(item, 1).replace("\n", "  •  ")
+		if headline.length() > 43:
+			headline = headline.left(42) + "…"
+		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, headline]
 		button.disabled = coins < price
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
 	var reroll_price := shop.reroll_cost(wave)
@@ -2527,15 +2547,14 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0, 0, 480, 146), Color("#080e24f5"), true)
+	draw_rect(Rect2(0, 0, 480, 146), Color("#070d20f7"), true)
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
-	draw_rect(Rect2(0, 142, 480, 4), Color("#ad8040"), true)
-	draw_rect(Rect2(12, 13, 205, 53), Color("#111a38cc"), true)
-	draw_rect(Rect2(12, 13, 205, 53), Color("#7d643d"), false, 2)
-	draw_rect(Rect2(330, 13, 136, 53), Color("#111a38cc"), true)
-	draw_rect(Rect2(330, 13, 136, 53), Color("#7d643d"), false, 2)
-	draw_string(title_font, Vector2(18, 35), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 25, Color("#ffe178"))
-	draw_string(body_font, Vector2(18, 62), "WAVE %02d / %02d" % [wave, RUN_LAST_WAVE], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("#bac9eb"))
+	draw_line(Vector2(0, 143), Vector2(480, 143), Color("#ad8040"), 3)
+	# One anchored relic-metal header replaces the old stack of framed debug boxes.
+	draw_colored_polygon(PackedVector2Array([Vector2(12, 13), Vector2(202, 13), Vector2(214, 25), Vector2(202, 65), Vector2(12, 65)]), Color("#111a34d9"))
+	draw_line(Vector2(12, 65), Vector2(202, 65), Color("#8d6d3d"), 2)
+	draw_string(title_font, Vector2(18, 36), "LOOTLINGS", HORIZONTAL_ALIGNMENT_LEFT, -1, 23, Color("#ffe178"))
+	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0
@@ -2546,8 +2565,8 @@ func draw_hud() -> void:
 		scrip_center + Vector2(-scrip_radius * 0.72, 0)
 	]), Color(1.0, 0.80, 0.26, 0.64 + coin_pulse * 0.30))
 	draw_line(scrip_center + Vector2(0, -6), scrip_center + Vector2(0, 6), Color("#fff5bb"), 2.0)
-	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 90, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
-	draw_string(body_font, Vector2(337, 63), "LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 125, 15, Color("#9fddff"))
+	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
+	draw_string(body_font, Vector2(334, 61), "RUN SCRIP  •  LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
@@ -2570,7 +2589,9 @@ func draw_arena(shake: Vector2) -> void:
 		enemy_color = Color.WHITE
 	var special_entering := enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18
 	if enemy_alive and show_combat_context and not special_entering:
-		var enemy_name_size := 16 if enemy_name.length() > 25 else 19
+		var enemy_name_size := 19
+		while enemy_name_size > 11 and body_font.get_string_size(enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
+			enemy_name_size -= 1
 		draw_string(body_font, Vector2(40, 210), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, enemy_name_size, Color("#f4f7ff"))
 		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
 		var status_x := 165.0
@@ -2628,21 +2649,22 @@ func draw_enemy(pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	creature_renderer.draw_enemy(self, pos, color, extra_scale)
 
 func draw_stats_strip() -> void:
-	draw_rect(Rect2(18, 714, 444, 84), Color("#0a1028f5"), true)
-	draw_rect(Rect2(18, 714, 444, 84), Color("#b88a47"), false, 2)
+	draw_colored_polygon(PackedVector2Array([Vector2(18, 714), Vector2(462, 714), Vector2(462, 790), Vector2(450, 802), Vector2(30, 802), Vector2(18, 790)]), Color("#091027f3"))
+	draw_line(Vector2(30, 714), Vector2(450, 714), Color("#d2a653"), 2)
+	draw_line(Vector2(30, 801), Vector2(450, 801), Color("#5f4a32"), 1)
 	var identity := build.dominant()
 	var core_title := "DORMANT CORE" if identity == "Neutral" else "%s CORE • %s" % [identity.to_upper(), build.tier_name(identity)]
 	draw_circle(Vector2(33, 730), 6, build.color())
 	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [current_weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
 	draw_string(body_font, Vector2(344, 735), "◆ %d" % inventory.scrap, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
-	var labels := ["DAMAGE", "RATE", "CRIT", "HITS"]
+	var labels := ["DMG", "RATE", "CRIT", "HITS"]
 	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
 	for i in range(4):
-		var card := Rect2(27 + i * 108, 742, 102, 47)
-		draw_rect(card, Color("#182442"), true)
-		draw_rect(card, Color("#4f638e"), false, 1)
-		draw_string(body_font, Vector2(card.position.x, 756), labels[i], HORIZONTAL_ALIGNMENT_CENTER, card.size.x, 9, Color("#91a7d2"))
-		draw_string(title_font, Vector2(card.position.x, 780), values[i], HORIZONTAL_ALIGNMENT_CENTER, card.size.x, 18, Color("#f4f7ff"))
+		var x := 32.0 + i * 105.0
+		if i > 0:
+			draw_line(Vector2(x - 5, 747), Vector2(x - 5, 788), Color("#41527499"), 1)
+		draw_string(body_font, Vector2(x, 758), labels[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 9, Color("#91a7d2"))
+		draw_string(title_font, Vector2(x, 785), values[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 18, Color("#f4f7ff"))
 
 func draw_status_chip(pos: Vector2, text_value: String, color: Color) -> void:
 	var rect := Rect2(pos.x - 36.0, pos.y - 12.0, 72.0, 19.0)
@@ -2758,13 +2780,21 @@ func draw_attack_projectiles() -> void:
 		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
 		if projectile.family == "RANGER":
 			var direction := Vector2(1.0, 0.04).normalized()
-			draw_line(pos - direction * 17.0, pos + direction * 9.0, Color("#f3d78c"), 3.0)
-			draw_colored_polygon(PackedVector2Array([pos + direction * 13.0, pos + Vector2(-2,-6), pos + Vector2(-1,6)]), Color("#e8f4ff"))
-			draw_line(pos - direction * 15.0, pos + Vector2(-21,-5), Color(0.58, 0.88, 1.0, 0.58), 2.0)
+			var normal := direction.orthogonal()
+			for trail_index in range(3):
+				var trail_alpha := 0.52 - trail_index * 0.10
+				var trail_start := pos - direction * (17.0 + trail_index * 9.0)
+				draw_line(trail_start, trail_start - direction * (10.0 + trail_index * 4.0), Color(0.48, 0.88, 1.0, trail_alpha), 3.0 - trail_index * 0.45)
+			draw_line(pos - direction * 19.0, pos + direction * 11.0, Color("#10182cbb"), 6.0)
+			draw_line(pos - direction * 17.0, pos + direction * 10.0, Color("#fff0aa"), 3.5)
+			draw_colored_polygon(PackedVector2Array([pos + direction * 15.0, pos + direction * 7.0 + normal * 5.0, pos + direction * 7.0 - normal * 5.0]), Color("#e8f4ff"))
+			draw_line(pos - direction * 15.0, pos - direction * 22.0 + normal * 6.0, Color("#b2dcff"), 2.0)
+			draw_line(pos - direction * 15.0, pos - direction * 22.0 - normal * 6.0, Color("#b2dcff"), 2.0)
 		else:
 			var pulse := 1.0 + sin(progress * PI * 4.0) * 0.12
 			var trail := Color(0.60, 0.44, 1.0, 0.34)
-			draw_circle(pos - Vector2(15, 0), 8.0 * pulse, trail)
+			draw_circle(pos - Vector2(24, 0), 6.0 * pulse, Color(0.38, 0.80, 1.0, 0.16))
+			draw_circle(pos - Vector2(13, 0), 8.0 * pulse, trail)
 			draw_circle(pos, 11.0 * pulse, Color("#8ee8ff"))
 			draw_circle(pos, 6.0 * pulse, Color("#f2e9ff"))
 			draw_arc(pos, 15.0, progress * TAU * 2.0, progress * TAU * 2.0 + 4.4, 14, Color("#c9a4ff"), 2.0)
@@ -2777,15 +2807,17 @@ func draw_hoard_chest() -> void:
 	var reveal_charge := windup if hoard_chest_phase == "windup" else 1.0 if hoard_chest_phase == "silence" else 0.0
 	var shake_amount := ready_pulse * 0.018 + reveal_charge * reveal_charge * 0.055
 	draw_set_transform(center, sin(run_time * (18.0 + reveal_charge * 12.0)) * shake_amount, Vector2(1.0 + ready_pulse * 0.025 + reveal_charge * 0.06, 1.0 - ready_pulse * 0.018 - reveal_charge * 0.04))
-	draw_circle(Vector2(0, 18), 55 + ready_pulse * 9, Color(1.0, 0.72, 0.20, 0.10 + ready_pulse * 0.12))
-	draw_rect(Rect2(-52, -20, 104, 58), Color("#603718"), true)
-	draw_rect(Rect2(-52, -20, 104, 58), Color("#ffd36a"), false, 4)
-	draw_arc(Vector2(0, -19), 50, PI, TAU, 24, Color("#7a4822"), 30)
-	draw_arc(Vector2(0, -19), 50, PI, TAU, 24, Color("#ffd36a"), 4)
-	draw_rect(Rect2(-10, -9, 20, 31), Color("#c99cff"), true)
-	draw_colored_polygon(PackedVector2Array([Vector2(0,-5),Vector2(7,5),Vector2(0,15),Vector2(-7,5)]), Color("#fff0a8"))
+	draw_circle(Vector2(0, 37), 66 + ready_pulse * 10, Color(1.0, 0.72, 0.20, 0.08 + ready_pulse * 0.12))
+	draw_set_transform(center + Vector2(0, 58), 0.0, Vector2(1.0, 0.25))
+	draw_circle(Vector2.ZERO, 70, Color("#03061299"))
+	draw_set_transform(center, sin(run_time * (18.0 + reveal_charge * 12.0)) * shake_amount, Vector2(1.0 + ready_pulse * 0.025 + reveal_charge * 0.06, 1.0 - ready_pulse * 0.018 - reveal_charge * 0.04))
+	if reveal_charge > 0.0:
+		for leak_index in range(3):
+			var leak_x := -42.0 + leak_index * 42.0
+			draw_colored_polygon(PackedVector2Array([Vector2(leak_x - 7, 7), Vector2(leak_x + 7, 7), Vector2(leak_x + 20, -64 - reveal_charge * 28)]), Color(0.78, 0.52, 1.0, reveal_charge * 0.12))
+	draw_texture_rect(HOARD_CHEST_TEXTURE, Rect2(-83, -65, 166, 140), false, Color.WHITE)
 	if hoard_chest_phase in ["windup", "silence"]:
-		draw_arc(Vector2.ZERO, 64 + reveal_charge * 42, 0, TAU, 32, Color(1.0, 0.87, 0.38, 0.25 + reveal_charge * 0.75), 3.0 + reveal_charge * 3.0)
+		draw_arc(Vector2.ZERO, 79 + reveal_charge * 42, 0, TAU, 32, Color(1.0, 0.87, 0.38, 0.25 + reveal_charge * 0.75), 3.0 + reveal_charge * 3.0)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_loot_drop(drop: Dictionary) -> void:

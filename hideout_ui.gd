@@ -50,7 +50,12 @@ var upgrade_content: Control
 var coming_content: Control
 var shop_content: Control
 var achievement_content: Control
-var achievement_list: VBoxContainer
+var achievement_grid: GridContainer
+var achievement_detail: RichTextLabel
+var achievement_summary: Label
+var achievement_filter_buttons: Array[Button] = []
+var achievement_filter := "ALL"
+var selected_achievement_id := ""
 var achievement_manager
 var visited_destinations := {}
 var resource_label: Label
@@ -366,39 +371,115 @@ func build_achievements() -> void:
 	var back := make_button(achievement_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(achievement_content, "TROPHY ARCHIVE", 28, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	var panel := make_panel(achievement_content, Rect2(20, 92, 440, 692), Color("#0b1229e8"), Color("#c99a4e"))
-	LootlingsUI.apply_material(panel, "relic", 16)
+	achievement_summary = make_label(achievement_content, "", 14, Rect2(46, 75, 388, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
+	var filters := ["ALL", "ADVENTURE", "COMBAT", "LOOT", "OTHER"]
+	for index in range(filters.size()):
+		var filter_button := make_button(achievement_content, filters[index], Rect2(20 + index * 89, 108, 84, 38), Color("#171733d9"), Color("#846cb0"), 10)
+		filter_button.pressed.connect(set_achievement_filter.bind(filters[index]))
+		achievement_filter_buttons.append(filter_button)
+	var panel := make_panel(achievement_content, Rect2(20, 156, 440, 404), Color("#090f25d9"), Color("#9f7cce"))
+	LootlingsUI.apply_material(panel, "relic", 14)
 	var scroll := ScrollContainer.new()
-	scroll.position = Vector2(12, 14)
-	scroll.size = Vector2(416, 664)
+	scroll.position = Vector2(13, 14)
+	scroll.size = Vector2(414, 376)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	panel.add_child(scroll)
-	achievement_list = VBoxContainer.new()
-	achievement_list.custom_minimum_size = Vector2(398, 0)
-	achievement_list.add_theme_constant_override("separation", 8)
-	scroll.add_child(achievement_list)
+	achievement_grid = GridContainer.new()
+	achievement_grid.columns = 3
+	achievement_grid.custom_minimum_size = Vector2(398, 0)
+	achievement_grid.add_theme_constant_override("h_separation", 8)
+	achievement_grid.add_theme_constant_override("v_separation", 8)
+	scroll.add_child(achievement_grid)
+	var detail_panel := make_panel(achievement_content, Rect2(20, 576, 440, 208), Color("#0b1229f0"), Color("#c99a4e"))
+	LootlingsUI.apply_material(detail_panel, "hoard", 16)
+	achievement_detail = RichTextLabel.new()
+	achievement_detail.position = Vector2(20, 17)
+	achievement_detail.size = Vector2(400, 174)
+	achievement_detail.bbcode_enabled = true
+	achievement_detail.scroll_active = false
+	achievement_detail.fit_content = false
+	achievement_detail.add_theme_font_size_override("normal_font_size", 15)
+	achievement_detail.add_theme_color_override("default_color", Color("#e7edff"))
+	detail_panel.add_child(achievement_detail)
 
 func refresh_achievements() -> void:
-	if achievement_list == null:
+	if achievement_grid == null:
 		return
-	for child in achievement_list.get_children():
-		achievement_list.remove_child(child)
+	for child in achievement_grid.get_children():
+		achievement_grid.remove_child(child)
 		child.queue_free()
 	var unlocked_count: int = int(achievement_manager.unlocked.size()) if achievement_manager != null else 0
-	var heading := make_label(achievement_list, "%d / %d TROPHIES RECOVERED" % [unlocked_count, AchievementManager.DEFINITIONS.size()], 15, Rect2(0, 0, 398, 34), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	heading.custom_minimum_size = Vector2(398, 34)
+	achievement_summary.text = "%d / %d RECOVERED  •  TAP A BADGE FOR DETAILS" % [unlocked_count, AchievementManager.DEFINITIONS.size()]
+	for index in range(achievement_filter_buttons.size()):
+		achievement_filter_buttons[index].disabled = achievement_filter_buttons[index].text == achievement_filter
+	var visible_entries: Array = []
 	for entry in AchievementManager.DEFINITIONS:
+		if not achievement_matches_filter(entry):
+			continue
+		visible_entries.append(entry)
 		var unlocked: bool = achievement_manager != null and bool(achievement_manager.is_unlocked(str(entry.id)))
 		var current := int(achievement_manager.progress.get(entry.id, 0)) if achievement_manager != null else 0
 		var target := int(entry.get("target", 1))
 		var secret: bool = bool(entry.get("secret", false)) and not unlocked
 		var title := "???" if secret else str(entry.name)
-		var description := "Secret trophy" if secret else str(entry.get("revealed_desc", entry.desc))
-		var text := "%s  %s\n%s\n%s  •  %d / %d" % ["★" if unlocked else "◇", title, description, str(entry.category).to_upper(), mini(current, target), target]
-		var card := make_label(achievement_list, text, 12, Rect2(0, 0, 398, 76), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff0af") if unlocked else Color("#a8b5d0"))
-		card.custom_minimum_size = Vector2(398, 76)
-		card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		var progress_text := "COMPLETE" if unlocked else "%d / %d" % [mini(current, target), target]
+		var card := make_button(achievement_grid, "%s\n%s\n%s" % [achievement_badge_symbol(entry, unlocked, secret), title, progress_text], Rect2(0, 0, 127, 112), Color("#392b34") if unlocked else Color("#131a32"), Color("#ffd36a") if unlocked else Color("#58698f"), 11)
+		card.custom_minimum_size = Vector2(127, 112)
 		card.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		card.clip_text = true
+		card.tooltip_text = title
+		card.pressed.connect(select_achievement.bind(str(entry.id)))
+	if visible_entries.is_empty():
+		achievement_detail.text = "[center][color=#9fb3d8]No trophies in this collection yet.[/color][/center]"
+		return
+	var selected_visible := false
+	for entry in visible_entries:
+		if str(entry.id) == selected_achievement_id:
+			selected_visible = true
+			break
+	if not selected_visible:
+		selected_achievement_id = str(visible_entries[0].id)
+	refresh_achievement_detail()
+
+func set_achievement_filter(filter_name: String) -> void:
+	achievement_filter = filter_name
+	selected_achievement_id = ""
+	refresh_achievements()
+
+func achievement_matches_filter(entry: Dictionary) -> bool:
+	var category := str(entry.get("category", "Other")).to_upper()
+	match achievement_filter:
+		"ALL": return true
+		"ADVENTURE": return category in ["ADVENTURE", "HIDEOUT"]
+		"COMBAT": return category in ["COMBAT", "MASTERY"]
+		"LOOT": return category in ["LOOT", "COLLECTION"]
+		_: return category in ["BOSSES", "SECRET"]
+
+func achievement_badge_symbol(entry: Dictionary, unlocked: bool, secret: bool) -> String:
+	if secret:
+		return "?"
+	var category := str(entry.get("category", "Collection")).to_upper()
+	var symbol: String = str({"ADVENTURE":"✦", "COMBAT":"⚔", "BOSSES":"♜", "LOOT":"◆", "COLLECTION":"◇", "MASTERY":"✧", "HIDEOUT":"⌂", "SECRET":"?"}.get(category, "◇"))
+	return "%s %s" % ["★" if unlocked else "○", symbol]
+
+func select_achievement(id: String) -> void:
+	selected_achievement_id = id
+	refresh_achievement_detail()
+
+func refresh_achievement_detail() -> void:
+	if achievement_detail == null or selected_achievement_id.is_empty():
+		return
+	var entry := AchievementManager.definition_for(selected_achievement_id)
+	if entry.is_empty():
+		return
+	var unlocked: bool = achievement_manager != null and achievement_manager.is_unlocked(selected_achievement_id)
+	var secret: bool = bool(entry.get("secret", false)) and not unlocked
+	var title := "UNKNOWN TROPHY" if secret else str(entry.name).to_upper()
+	var description := "A secret waits somewhere in the ruins." if secret else str(entry.get("revealed_desc", entry.desc))
+	var current := int(achievement_manager.progress.get(entry.id, 0)) if achievement_manager != null else 0
+	var target := int(entry.get("target", 1))
+	var state_line := "[color=#ffe178]RECOVERED[/color]" if unlocked else "[color=#9fddff]PROGRESS  %d / %d[/color]" % [mini(current, target), target]
+	achievement_detail.text = "[center][font_size=24][color=%s]%s  %s[/color][/font_size]\n[color=#b99de6]%s COLLECTION[/color]\n\n%s\n\n%s[/center]" % ["#ffe178" if unlocked else "#d9e5ff", "★" if unlocked else "◇", title, str(entry.category).to_upper(), description, state_line]
 
 func refresh_home() -> void:
 	if current_inventory == null or resource_label == null:

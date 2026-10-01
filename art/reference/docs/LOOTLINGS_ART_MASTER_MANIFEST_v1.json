@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "project": "Lootlings",
+  "north_star": "Cute first. Badass second. Stylish/confident third. Fantasy always.",
+  "codex_policy": "No new creative Codex brief until ChatGPT art/reference production is sufficiently locked; Codex is primarily integration/runtime QA.",
+  "major_groups": [
+    "brand_identity",
+    "playable_characters",
+    "skins",
+    "weapons",
+    "equipment",
+    "enemies",
+    "bosses",
+    "environments",
+    "props",
+    "chests",
+    "npcs",
+    "ui_hud",
+    "icons",
+    "currencies",
+    "vfx",
+    "tutorial_ux",
+    "trophies_collection",
+    "transitions_loading",
+    "accessibility_states",
+    "store_marketing"
+  ],
+  "estimated_total_deliverables": "600+ with modular reuse",
+  "production_method": "high-value canonical masters + modular reusable systems + narrow Codex integration batches"
+}

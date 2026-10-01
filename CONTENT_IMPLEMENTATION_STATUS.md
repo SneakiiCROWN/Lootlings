@@ -1,6 +1,6 @@
 # Lootlings Content Implementation Status
 
-Authoritative planning source: `art/reference/Lootlings_Master_Production_Handoff_v2/`.
+Authoritative planning source: `art/reference/docs/`.
 
 Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implemented data behind an activation gate; `ASSET_NEEDED` requires dedicated clean runtime art; `FUTURE` is deliberately later; `DEFERRED` was excluded from this checkpoint for stability.
 
@@ -48,7 +48,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | --- | --- | --- |
 | Patch, Nym, Quillik, Nibs contextual dialogue | LIVE | Expanded concise weighted pools; cosmetic RNG remains independent. |
 | Tonk, Mara, Pip & Pock, Mote | FUTURE | Defined cast; no fake runtime actors. |
-| Trophy Archive | LIVE | 28 local achievements after this pass, including new variant, Signature, chest, kill, weapon-family, and boss milestones. |
+| Trophy Archive | LIVE | 27 local achievements after this pass, including new variant, Signature, chest, kill, weapon-family, and boss milestones. |
 | Platform achievement IDs | DEFINED_DATA | Empty provider mapping fields; no authentication/submission. |
 | Networking, clans, raids, secure trading, monetisation | FUTURE | No backend or player-facing promise implemented. |
 

@@ -75,6 +75,21 @@ func ensure_buses() -> void:
 		if AudioServer.get_bus_index(bus_name) < 0:
 			AudioServer.add_bus()
 			AudioServer.set_bus_name(AudioServer.bus_count - 1, bus_name)
+	# The rescue mix brings important gameplay cues forward, so keep the final
+	# player-facing path protected instead of relying on every overlapping voice
+	# to remain below full scale by accident.
+	var master_index := AudioServer.get_bus_index("Master")
+	var has_limiter := false
+	for effect_index in range(AudioServer.get_bus_effect_count(master_index)):
+		if AudioServer.get_bus_effect(master_index, effect_index) is AudioEffectLimiter:
+			has_limiter = true
+			break
+	if not has_limiter:
+		var limiter := AudioEffectLimiter.new()
+		limiter.ceiling_db = -0.8
+		limiter.threshold_db = -3.0
+		limiter.soft_clip_db = 2.0
+		AudioServer.add_bus_effect(master_index, limiter)
 
 func apply_settings(settings: Dictionary) -> void:
 	for channel in ["master", "music", "sfx", "ui", "ambience"]:
@@ -114,7 +129,12 @@ func play_event(event_name: String) -> void:
 	player.pitch_scale = 1.0 + randf_range(-pitch_range, pitch_range)
 	# Reserve a little true-peak headroom for music + reward/boss transients while
 	# keeping important cues perceptually forward through timbre and duration.
-	player.volume_db = randf_range(-2.3, -1.0) if event_name in IMPORTANT_EVENTS else randf_range(-3.0, -1.8)
+	if event_name in IMPORTANT_EVENTS:
+		player.volume_db = randf_range(-3.0, -2.0)
+	elif event_name in ["normal_hit", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "gold_pickup", "scrip_pickup", "xp_pickup"]:
+		player.volume_db = randf_range(-3.0, -1.8)
+	else:
+		player.volume_db = randf_range(-5.0, -3.5)
 	player.play()
 
 func choose_variant(event_name: String, variant_count: int) -> int:
@@ -152,7 +172,9 @@ func set_music(cue: String) -> void:
 			stream.loop_end = int(stream.get_length() * stream.mix_rate)
 		music_streams[cue] = stream
 	music_player.stream = music_streams[cue]
-	music_player.volume_db = 0.0
+	# The prebaked score is intentionally low-amplitude to retain source
+	# headroom; restore body here before the saved Music and Master controls.
+	music_player.volume_db = 1.0
 	music_player.play()
 
 func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
@@ -163,7 +185,7 @@ func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
 	duck_tween = create_tween()
 	duck_tween.tween_property(music_player, "volume_db", depth_db, 0.045)
 	duck_tween.tween_interval(maxf(0.04, duration))
-	duck_tween.tween_property(music_player, "volume_db", 0.0, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	duck_tween.tween_property(music_player, "volume_db", 1.0, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func make_tone(frequency: float, duration: float, gain: float, event_name: String, variant: int = 0) -> AudioStreamWAV:
 	var sample_rate := 22050
