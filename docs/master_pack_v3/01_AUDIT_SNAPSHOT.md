@@ -7,7 +7,7 @@
 - Equipment slots: Weapon / Armour / Charm / Rune.
 - Stash/equip/scrap, merchants, Shrine, Trophy Archive, contracts and physical reward presentation.
 - 15-wave validated safety path remains.
-- Multi-enemy targeting/AoE tranche is in progress as a bounded extension.
+- Bounded multi-enemy patrol targeting/AoE is now pushed on main at `11964ee`: separate foe HP/status/attack clocks, target markers, ranged target retention, duo/pack HP bars, deterministic group seeds, three-foe stress coverage, and the accepted solo path preserved.
 - Seven canonical Lootling identities are selectable by catalog; final art quality differs.
 - Approved beta cutouts exist for Emberhorn, Mosskin, Moonkip, Pebblewyrm and Glimmerfin. Gloomlet remains the known art/temporary-fallback problem.
 - Expanded region presentation uses approved beta compositions.
@@ -67,6 +67,9 @@ Starfall: The Redactor
 Nullglass: The Unchosen
 Skyhook: The Chainwarden
 First Hoard: The Hollow Crown
+
+## Live work currently following the audit
+- Codex is building a seeded route/room mode on top of `11964ee`, reusing the tested encounter adapter, merchant/loot decisions and boss-chest sequence while separating route rewards from campaign unlocks. Treat that local route work as in-progress until Codex checkpoints it.
 
 ## Pack corrections
 1. Human/humanoid player characters get explicit planned IDs and architecture instead of remaining vague board decoration.
