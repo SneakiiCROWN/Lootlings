@@ -2,6 +2,8 @@
 
 ## Current canonical-world beta tranche
 
+Lesser chest continuation: physical approved Scavenged Cache/Relic Chest beta silhouettes now accompany existing shop/miniboss rewards with bounded landing/glow/item emergence. No additional reward or claim rules. Genuine open-lid frames remain a production need; Hoard sequence unchanged. Shared painted Director panels and bounded resident dialogue complete this presentation tranche.
+
 Weapon continuation: four more approved silhouettes (Spear/Crossbow/Claws/Wand) replace class art with fitted grips, clear facing and matching ranged sockets. Eleven families now have distinct art; Relic Sling retains a documented fallback pending a genuinely appropriate sling, not a falsely mapped flail. Evolution-stage art remains future production delivery.
 
 Region continuation: every expanded campaign region now has a distinct approved-art composition rather than a flat reused-arena recolour. Six additional scenery integrations complete the beta background set; final high-resolution region art and remaining dedicated encounter bodies still need production work. Mechanics and unlock contracts are unchanged.

@@ -13,6 +13,8 @@ func run_qa() -> void:
 	root.add_child(game)
 	await process_frame
 	game.show_hideout()
+	# These are selected-character reactions, not progression-specific trail hints.
+	game.campaign.completed.clear()
 	for speaker in ["Salvager", "Relic Keeper", "Archivist"]:
 		for id in Roster.selectable_ids():
 			game.profile.current_lootling_id = id
@@ -24,6 +26,10 @@ func run_qa() -> void:
 			assert(game.hideout_ui.RESIDENT_PORTRAITS[speaker].resource_path.contains("/npcs/beta/"))
 			if native and id == "gloomlet": await capture("resident_" + speaker.to_lower().replace(" ", "_"))
 	game.hideout_ui.show_achievements()
+	for screen in ["shop", "upgrades", "stash"]:
+		game.hideout_ui.current_screen = screen
+		for speaker in ["Salvager", "Relic Keeper", "Archivist"]:
+			assert(game.hideout_ui.dialogue_anchor(speaker).x + game.hideout_ui.speech_panel.size.x <= 480)
 	assert(not game.hideout_ui.speech_panel.visible)
 	game.hideout_ui.show_lore()
 	assert(not game.hideout_ui.speech_panel.visible)

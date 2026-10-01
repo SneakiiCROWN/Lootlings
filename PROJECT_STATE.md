@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — physical lesser chest beta presentation
+
+Scavenged Cache reveals at the Salvager now show the approved painted wood/gem chest landing, glowing and ejecting the actual item category/weapon art. Guaranteed miniboss equipment uses the approved purple crystal Relic Chest with the same original 1.15-second automatic pickup deadline. Existing price, roll, claim, probability and reward rules are unchanged; the Hoard Chest is untouched. Complete closed silhouettes are preserved: a split-image lid trial was rejected during native QA. Genuine hinged-open frames remain needed.
+
+Transition and toast panels now share the painted material skin. Resident bubbles fit the phone edge in Shop/Shrine/Stash, and leaving screens cancels the transient chest showcase. The Director processes only while its bounded 0.9-second showcase is active. Tests cover unchanged cache price/claim/RNG, no screen leakage and exactly one miniboss item. Corrected QA fixtures isolate approach distance, persisted campaign dialogue and level-up interruptions rather than suppressing runtime errors.
+
+Passed: parser/import; smoke/save/migration/economy (unchanged 2/5 wins), expansion, contracts, seven seeded weapon runs, canonical-world, resident presentation and chest tests; 96-run deterministic balance (unchanged 22 wins), 36 regional runs (unchanged 9 wins) and ten reward/unlock paths. Native OpenGL 480×854 full screen capture and closed/reveal chest captures passed and were inspected. Fixed out-of-bounds speech and rejected broken split-lid pixels before checkpoint. No runtime errors in final QA; diff whitespace clean. Physical Android certification remains pending.
+
 ### Continued overhaul — weapon silhouettes and sockets
 
 Four additional approved beta cutouts replace class stand-ins: Spear, Crossbow, Claws and Wand. Native fitting corrects grip/scale/orientation, keeps spear/wand clear of the face and moves Crossbow/Wand visual projectile origins to the new muzzle/tip. Gameplay travel/cadence/damage unchanged. Eleven families have distinct silhouettes; Relic Sling remains its existing fallback because a flail is not a valid substitute. Rejected generated flail trial removed; source boards preserved. Final Sling and stage-specific/high-resolution weapon exports remain needed.

@@ -1,5 +1,9 @@
 extends Control
 
+const UI = preload("res://lootlings_ui.gd")
+const SCAVENGED_CHEST = preload("res://art/sprites/rewards/scavenged_chest_beta.png")
+const RELIC_CHEST = preload("res://art/sprites/rewards/relic_chest_beta.png")
+
 signal travel_midpoint
 signal travel_finished
 
@@ -17,6 +21,11 @@ var toast_panel: Panel
 var toast_title: Label
 var toast_subtitle: Label
 var toast_tween: Tween
+var chest_showcase_timer := 0.0
+var chest_showcase_kind := "scavenged"
+var chest_showcase_center := Vector2(240, 428)
+var chest_showcase_color := Color("#ffd36a")
+var chest_showcase_item: Texture2D
 
 func _ready() -> void:
 	name = "PresentationDirector"
@@ -25,6 +34,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	z_index = 900
 	build_overlay()
+	set_process(false)
 
 func build_overlay() -> void:
 	veil = ColorRect.new()
@@ -35,14 +45,7 @@ func build_overlay() -> void:
 	travel_panel = Panel.new()
 	travel_panel.position = Vector2(30, 318)
 	travel_panel.size = Vector2(420, 214)
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color("#091127f2")
-	panel_style.border_color = Color("#d1a85a")
-	panel_style.set_border_width_all(2)
-	panel_style.set_corner_radius_all(20)
-	panel_style.shadow_color = Color("#02040bb8")
-	panel_style.shadow_size = 14
-	travel_panel.add_theme_stylebox_override("panel", panel_style)
+	travel_panel.add_theme_stylebox_override("panel", UI.material_style("relic"))
 	travel_panel.visible = false
 	add_child(travel_panel)
 	accent_bar = ColorRect.new()
@@ -78,14 +81,7 @@ func build_overlay() -> void:
 	toast_panel = Panel.new()
 	toast_panel.position = Vector2(56, 92)
 	toast_panel.size = Vector2(368, 90)
-	var toast_style := StyleBoxFlat.new()
-	toast_style.bg_color = Color("#091127f2")
-	toast_style.border_color = Color("#ffd36a")
-	toast_style.set_border_width_all(2)
-	toast_style.set_corner_radius_all(16)
-	toast_style.shadow_color = Color("#02040bb0")
-	toast_style.shadow_size = 10
-	toast_panel.add_theme_stylebox_override("panel", toast_style)
+	toast_panel.add_theme_stylebox_override("panel", UI.material_style("relic"))
 	toast_panel.visible = false
 	add_child(toast_panel)
 	toast_title = Label.new()
@@ -143,9 +139,7 @@ func present_toast(title: String, subtitle: String, accent: Color = Color("#ffd3
 	toast_title.text = title
 	toast_title.add_theme_color_override("font_color", accent.lightened(0.18))
 	toast_subtitle.text = subtitle
-	var style: StyleBoxFlat = toast_panel.get_theme_stylebox("panel").duplicate()
-	style.border_color = accent
-	toast_panel.add_theme_stylebox_override("panel", style)
+	# The painted shared frame stays intact; title/flash carry event accent.
 	toast_panel.visible = true
 	toast_panel.position = Vector2(56, 70)
 	toast_panel.modulate = Color(1, 1, 1, 0)
@@ -188,6 +182,7 @@ func prepare_control(control: Control) -> Vector2:
 	return base_position
 
 func play_travel(title: String, subtitle: String, accent: Color, midpoint: Callable = Callable(), duration: float = 0.62) -> void:
+	cancel_chest_showcase()
 	if active_tween != null and active_tween.is_valid():
 		active_tween.kill()
 	travel_active = true
@@ -254,3 +249,49 @@ func animate_button(button: Button, target_scale: Vector2, duration: float) -> v
 		return
 	button.pivot_offset = button.size * 0.5
 	create_tween().tween_property(button, "scale", target_scale, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+func play_chest_showcase(kind: String, center: Vector2, color: Color, item_texture: Texture2D = null) -> void:
+	chest_showcase_kind = kind
+	chest_showcase_center = center
+	chest_showcase_color = color
+	chest_showcase_item = item_texture
+	chest_showcase_timer = 0.90
+	set_process(true)
+	queue_redraw()
+
+func cancel_chest_showcase() -> void:
+	chest_showcase_timer = 0.0
+	chest_showcase_item = null
+	set_process(false)
+	queue_redraw()
+
+func _process(delta: float) -> void:
+	chest_showcase_timer = maxf(0.0, chest_showcase_timer - delta)
+	if chest_showcase_timer <= 0.0:
+		cancel_chest_showcase()
+	else:
+		queue_redraw()
+
+func _draw() -> void:
+	if chest_showcase_timer <= 0.0: return
+	var elapsed := 0.90 - chest_showcase_timer
+	var land := clampf(elapsed / 0.18, 0.0, 1.0)
+	var opening := clampf((elapsed - 0.22) / 0.30, 0.0, 1.0)
+	var alpha := minf(1.0, chest_showcase_timer / 0.20)
+	var center := chest_showcase_center + Vector2(0, -36.0 * (1.0 - land * land))
+	draw_chest(self, center, chest_showcase_kind, opening, alpha, 1.0, sin(clampf((elapsed - 0.18) / 0.10, 0, 1) * PI))
+	if elapsed > 0.42 and chest_showcase_item != null:
+		var arc := clampf((elapsed - 0.42) / 0.30, 0, 1)
+		var item_center := center + Vector2(0, -24 - sin(arc * PI * 0.7) * 96)
+		draw_circle(item_center, 30, Color(chest_showcase_color, alpha * 0.18))
+		UI.draw_icon(get_canvas_item(), chest_showcase_item, Rect2(item_center - Vector2(26, 26), Vector2(52, 52)))
+
+static func draw_chest(canvas: CanvasItem, center: Vector2, kind: String, opening: float, alpha: float = 1.0, scale_factor: float = 1.0, squash: float = 0.0) -> void:
+	var texture: Texture2D = RELIC_CHEST if kind == "relic" else SCAVENGED_CHEST
+	var color := Color(1, 1, 1, clampf(alpha, 0, 1))
+	canvas.draw_set_transform(center, 0, Vector2(scale_factor * (1.0 + squash * 0.12), scale_factor * (1.0 - squash * 0.08)))
+	canvas.draw_circle(Vector2(0, -12), 44 + opening * 14, Color(0.72, 0.48, 1.0, alpha * (0.10 + opening * 0.18)))
+	# Preserve the complete painted silhouette; a genuine hinged-open frame is
+	# a production-art requirement, not two arbitrary slices of the closed art.
+	canvas.draw_texture_rect(texture, Rect2(-80, -76 - sin(opening * PI) * 5, 160, 140), false, color)
+	canvas.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)

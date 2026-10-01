@@ -823,7 +823,7 @@ func use_mystery_cache() -> void:
 		if inventory.keep(claimed):
 			save_hideout_economy()
 			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
-			hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(claimed.get("rarity", "COMMON")), RewardRevealCatalog.for_rewards("scavenged_cache", [claimed]))
+			hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(claimed.get("rarity", "COMMON")), RewardRevealCatalog.for_rewards("scavenged_cache", [claimed]), claimed)
 			play_rarity_audio(claimed.get("rarity", "COMMON"))
 		return
 	if hideout_shop.cache_bought_this_cycle:
@@ -1898,6 +1898,7 @@ func spawn_item_drop() -> bool:
 		var launch_y: float = float([-310.0, -355.0, -292.0][drop_index]) if enemy_is_boss else visual_rng.randf_range(-250.0, -205.0)
 		loot_drops.append({
 			"item":item,
+			"relic_chest":enemy_is_miniboss and not enemy_is_boss,
 			"rarity":item.get("rarity", "COMMON"),
 			"boss_choice":enemy_is_boss,
 			"pos":start_pos,
@@ -3003,6 +3004,13 @@ func draw_hoard_chest() -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 func draw_loot_drop(drop: Dictionary) -> void:
+	if bool(drop.get("relic_chest", false)):
+		var progress := clampf((1.15 - float(drop.pickup)) / 1.15, 0, 1)
+		var land := clampf(progress / 0.18, 0, 1)
+		var chest_center := Vector2(345, 497 - (1.0 - land * land) * 78)
+		var opening := clampf((progress - 0.24) / 0.30, 0, 1)
+		PresentationDirector.draw_chest(self, chest_center, "relic", opening, minf(1.0, (1.0 - progress) / 0.22), 0.80, sin(clampf((progress - 0.18) / 0.10, 0, 1) * PI))
+		if progress < 0.40: return
 	var color: Color = drop.color
 	var rarity: String = drop.get("rarity", drop.item.get("rarity", "COMMON"))
 	var rarity_rank := 3 if rarity == "LEGENDARY" else 2 if rarity == "EPIC" else 1 if rarity == "RARE" else 0

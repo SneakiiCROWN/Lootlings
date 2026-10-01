@@ -247,6 +247,7 @@ func refresh_current_screen() -> void:
 func set_screen(active: Control) -> void:
 	# A screen transition must never leave a resident bubble over unrelated UI.
 	dismiss_dialogue()
+	if presentation != null: presentation.cancel_chest_showcase()
 	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
@@ -951,10 +952,15 @@ func play_shop_purchase(index: int, rarity_color: Color) -> void:
 		spawn_ui_burst(Vector2(88 + index * 147, 258), rarity_color, 12)
 	pulse_control(shop_scrap_label, Color("#9fddff"))
 
-func play_cache_reveal(rarity_color: Color, reveal_profile: Dictionary = {}) -> void:
+func play_cache_reveal(rarity_color: Color, reveal_profile: Dictionary = {}, item: Dictionary = {}) -> void:
 	cache_pulse_duration = maxf(0.34, float(reveal_profile.get("anticipation", 0.52)) + 0.28)
 	cache_pulse = cache_pulse_duration
 	cache_pulse_color = rarity_color
+	var revealed: Dictionary = item if not item.is_empty() else current_shop.pending_cache_item if current_shop != null else {}
+	var texture := weapon_texture_for_item(revealed)
+	if texture == null:
+		texture = LootlingsUI.icon("gear_%s" % ("armour" if revealed.get("slot", "") == "Armour" else "rune" if revealed.get("slot", "") == "Rune" else "charm"))
+	presentation.play_chest_showcase("scavenged", Vector2(240, 428), rarity_color, texture)
 	shake_control(shop_cache_button)
 	pulse_control(shop_status_panel, rarity_color)
 	spawn_ui_burst(Vector2(125, 562), rarity_color, int(reveal_profile.get("particles", 18)))
@@ -1097,11 +1103,11 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 
 func dialogue_anchor(speaker: String) -> Vector2:
 	if current_screen == "shop":
-		return Vector2(222, 116) if speaker == "Salvager" else Vector2(126, 166)
+		return Vector2(152, 116) if speaker == "Salvager" else Vector2(86, 166)
 	if current_screen == "upgrades":
-		return Vector2(226, 264) if speaker == "Relic Keeper" else Vector2(126, 270)
+		return Vector2(152, 264) if speaker == "Relic Keeper" else Vector2(86, 270)
 	if current_screen == "stash":
-		return Vector2(126, 188)
+		return Vector2(86, 188)
 	return Vector2(24, 590)
 
 func play_transition() -> void:

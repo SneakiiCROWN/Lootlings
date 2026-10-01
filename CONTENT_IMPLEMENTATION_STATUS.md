@@ -40,7 +40,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Last Lantern / Frostbell Chime | LIVE | New fully implemented behaviour hooks with bounded once-per-run/once-per-foe rules. |
 | Nine additional Signature definitions | DEFINED_DATA | Explicitly excluded from random rolls until each behaviour is implemented and tested. |
 | Weapon evolution lines | LIVE / PARTIAL | Stash Forge evolves owned items with existing evolution_path; two capped additive stages, Gold/Scrap costs, persistent schema 3. Remaining catalog-only bases/lines are not yet obtainable. |
-| Scavenged Cache / Relic Chest reward contracts | LIVE | Existing cache claim/miniboss item flows; dedicated physical closed/open chest art and texture sequences are not implemented. Do not equate data/reward rules with Hoard's renderer. |
+| Scavenged Cache / Relic Chest reward contracts | LIVE — BETA PRESENTATION | Approved painted closed sprites land/glow and reveal the existing shop/miniboss item. Original price/claim/pickup rules unchanged. Genuine hinged-open frames still required; Hoard renderer unchanged. |
 | Hoard Chest | LIVE | Dedicated painted closed sprite, landing/charge/tap/burst/three Epic+ arcs and choose-one are live. |
 | Cursed Coffer | DEFINED_DATA | Reward/presentation contract only. |
 | Mimic Husk | ASSET_NEEDED | Requires clean chest/enemy states and encounter implementation. |

@@ -88,6 +88,11 @@ func run_qa() -> void:
 		assert(Weapons.runtime_texture(id, null).resource_path.ends_with("%s_held.png" % id))
 		if native: await capture("canonical_weapon_" + id)
 		if id in ["crossbow", "wand"]:
+			# Isolate the release fixture from approach distance and native auto-combat.
+			game.set_process(false)
+			game.state = "playing"
+			game.player_x = game.target_player_x()
+			game.enemy_alive = true
 			game.attack_projectiles.clear()
 			game.perform_player_attack(false)
 			assert(not game.attack_projectiles.is_empty())
@@ -100,7 +105,7 @@ func run_qa() -> void:
 				await process_frame
 				await RenderingServer.frame_post_draw
 				assert(root.get_texture().get_image().save_png("res://.godot_test_data/canonical_release_%s_qa.png" % id) == OK)
-				game.set_process(true)
+			game.set_process(true)
 	game.show_hideout()
 	game.hideout_ui.show_home()
 	game.hideout_ui.request_dialogue("tapped", "Salvager")
