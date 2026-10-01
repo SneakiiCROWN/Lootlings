@@ -4,6 +4,20 @@ extends RefCounted
 const GOLD_COSTS := [180, 420]
 const SCRAP_COSTS := [8, 18]
 const BONUS_PER_STAGE := 0.04
+const WeaponCatalog = preload("res://weapon_catalog.gd")
+const ItemCatalog = preload("res://item_catalog.gd")
+const CRAFT_GOLD := 150
+const CRAFT_SCRAP := 6
+
+static func craft(inventory, gold: int, weapon_type: String, serial: int) -> Dictionary:
+	if not WeaponCatalog.STARTERS.has(weapon_type) or gold < CRAFT_GOLD or inventory.scrap < CRAFT_SCRAP or inventory.stash.size() >= inventory.stash_capacity:
+		return {"ok":false, "gold":gold}
+	var base := WeaponCatalog.starter(weapon_type)
+	var item := ItemCatalog.create_item(base.id, "COMMON", serial)
+	if not inventory.keep(item):
+		return {"ok":false, "gold":gold}
+	inventory.scrap -= CRAFT_SCRAP
+	return {"ok":true, "gold":gold - CRAFT_GOLD, "item":item}
 
 static func stage(item: Dictionary) -> int:
 	return clampi(int(item.get("evolution_stage", 0)), 0, 2)

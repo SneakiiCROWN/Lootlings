@@ -26,13 +26,51 @@ const PROJECTILES := {
 	"focus_shard":{"source":"orb", "speed":700.0, "arc":0.10, "impact":"clean_pulse"}
 }
 
+# Additional approved bases are Forge-acquired, not silently added to Act I drops.
+const STARTERS := {
+	"greataxe":{"id":"scrap_axe", "desc":"Every third attack chops for +45% damage.", "effects":{"damage_mult":0.05}},
+	"spear":{"id":"ruin_pike", "desc":"The opening strike against each foe deals +30% damage.", "effects":{"boss_damage":0.05}},
+	"claws":{"id":"ruin_claws", "desc":"Two fast swipes, each at 55% damage.", "effects":{"crit":0.025}},
+	"crossbow":{"id":"scrap_repeater", "desc":"Every third trigger fires two hits at 64% each.", "effects":{"crit":0.025}},
+	"sling":{"id":"pebble_sling", "desc":"Every third shot staggers the foe by 0.18s. Arcing stones.", "effects":{"damage_mult":0.05}},
+	"wand":{"id":"ruin_wand", "desc":"Fast sparks. Every third cast repeats its element.", "effects":{"repeat_every":3}},
+	"orb":{"id":"relic_orb", "desc":"Every fourth release restores 2 HP.", "effects":{"max_hp":8.0}}
+}
+static var texture_cache := {}
+
+static func starter(id: String) -> Dictionary:
+	if not STARTERS.has(id):
+		return {}
+	var data: Dictionary = STARTERS[id].duplicate(true)
+	var definition: Dictionary = FAMILIES[id]
+	data.name = definition.bases[0]
+	data.slot = "Weapon"
+	data.family = definition.combat_family
+	data.weapon_type = id
+	data.projectile = definition.projectile
+	data.evolution_path = definition.evolutions[0].slice(1)
+	data.icon = definition.name
+	data.temp_art = true
+	data.desc += " TEMP ART: shared class weapon."
+	return data
+
+static func runtime_texture(id: String, fallback: Texture2D) -> Texture2D:
+	if texture_cache.has(id):
+		return texture_cache[id]
+	var path := "res://art/sprites/weapons/%s_held.png" % id
+	texture_cache[id] = load(path) if ResourceLoader.exists(path) else fallback
+	return texture_cache[id]
+
 static func definition(id: String) -> Dictionary:
-	return FAMILIES.get(id, {}).duplicate(true)
+	var data: Dictionary = FAMILIES.get(id, {}).duplicate(true)
+	if STARTERS.has(id):
+		data.live = true
+	return data
 
 static func live_ids() -> Array[String]:
 	var result: Array[String] = []
 	for id in FAMILIES:
-		if bool(FAMILIES[id].live):
+		if bool(FAMILIES[id].live) or STARTERS.has(id):
 			result.append(id)
 	return result
 

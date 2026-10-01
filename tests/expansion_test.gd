@@ -60,6 +60,23 @@ func _initialize() -> void:
 	assert(loaded.completed == campaign.completed)
 	loaded.load_progress("user://campaign_missing.cfg")
 	assert(loaded.completed.is_empty() and loaded.available("act_i"))
+	inventory.reset_to_starter()
+	inventory.scrap = 100
+	var gold := 3000
+	for weapon_type in Forge.WeaponCatalog.STARTERS:
+		var purchase := Forge.craft(inventory, gold, weapon_type, 123)
+		assert(purchase.ok and purchase.item.weapon_type == weapon_type and purchase.item.temp_art)
+		assert(purchase.item.evolution_path.size() == 2)
+		gold = purchase.gold
+	assert(inventory.stash.size() == 7 and gold == 1950 and inventory.scrap == 58)
+	assert(not Forge.craft(inventory, gold, "bad_id", 124).ok)
+	assert(not Forge.craft(inventory, 0, "spear", 124).ok)
+	assert(inventory.save("user://new_weapons.cfg") == OK)
+	restored.load("user://new_weapons.cfg")
+	assert(restored.stash == inventory.stash)
+	while inventory.stash.size() < inventory.stash_capacity:
+		inventory.keep(Items.create_item("bonebow", "COMMON", 123))
+	assert(not Forge.craft(inventory, gold, "orb", 124).ok)
 	print("EXPANSION PASSED: Forge costs, cap, insufficient funds, bounds, equipped/stash, v2 migration and partial reload")
 	print("CAMPAIGN PASSED: ten entries, sequential unlocks, no locked completion, all waves, persistence, fresh save")
 	quit(0)

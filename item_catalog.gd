@@ -54,6 +54,10 @@ static func definition(id: String) -> Dictionary:
 	for item in ITEMS:
 		if item.id == id:
 			return item
+	for weapon_type in WeaponCatalog.STARTERS:
+		var item := WeaponCatalog.starter(weapon_type)
+		if item.id == id:
+			return item
 	return {}
 
 static func create_item(id: String, rarity: String, serial: int = 0) -> Dictionary:
@@ -63,6 +67,7 @@ static func create_item(id: String, rarity: String, serial: int = 0) -> Dictiona
 	var item := source.duplicate(true)
 	item.rarity = rarity if rarity in RARITIES else "COMMON"
 	item.serial = serial
+	item.evolution_stage = 0
 	var scale: float = RARITY_POWER[item.rarity]
 	for key in ["damage_mult", "attack_speed", "crit", "max_hp", "armor", "coin_mult", "low_health_damage", "fire_damage", "crit_lightning", "poison_duration", "boss_damage", "heavy_bonus", "kill_explosion", "execute"]:
 		if item.effects.has(key):

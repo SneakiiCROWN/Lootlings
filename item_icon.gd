@@ -2,6 +2,7 @@ extends Control
 
 const ItemCatalog = preload("res://item_catalog.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
+const WeaponCatalog = preload("res://weapon_catalog.gd")
 const VANGUARD_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
 const RANGER_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
@@ -9,12 +10,14 @@ const ROGUE_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 
 var slot := "Relic"
 var family := "VANGUARD"
+var weapon_type := ""
 var rarity := "COMMON"
 var rarity_color := Color("#8de0a5")
 
 func configure(item: Dictionary) -> void:
 	slot = str(item.get("slot", "Relic"))
 	family = str(item.get("family", "VANGUARD"))
+	weapon_type = str(item.get("weapon_type", ""))
 	rarity = str(item.get("rarity", "COMMON"))
 	rarity_color = ItemCatalog.rarity_color(rarity)
 	queue_redraw()
@@ -26,6 +29,7 @@ func _draw() -> void:
 		draw_circle(center, radius * 1.20, Color(rarity_color.r, rarity_color.g, rarity_color.b, 0.13))
 		draw_arc(center, radius, 0, TAU, 28, rarity_color, maxf(2.0, radius * 0.08))
 		var texture: Texture2D = {"RANGER":RANGER_TEXTURE, "MAGE":MAGE_TEXTURE, "ROGUE":ROGUE_TEXTURE}.get(family, VANGUARD_TEXTURE)
+		texture = WeaponCatalog.runtime_texture(weapon_type, texture)
 		LootlingsUI.draw_icon(get_canvas_item(), texture, Rect2(Vector2.ZERO, size))
 	else:
 		var category := "armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"

@@ -2,6 +2,7 @@ extends Control
 
 signal play_requested
 signal forge_requested(stash_index: int)
+signal forge_craft_requested(weapon_type: String)
 signal campaign_requested(region_id: String)
 signal stash_equip_requested(index: int)
 signal stash_scrap_requested(index: int)
@@ -63,6 +64,7 @@ var forge_detail: Label
 var forge_confirm: Button
 var forge_index := -1
 var forge_armed := false
+var forge_recipe := ""
 var campaign_content: Control
 var campaign_list: VBoxContainer
 var campaign
@@ -323,11 +325,14 @@ func build_forge() -> void:
 	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 725, 370, 70), Color("#493052"), Color("#e2b563"), 19)
 	forge_confirm.pressed.connect(func():
 		if forge_armed:
-			forge_requested.emit(forge_index)
+			if forge_recipe.is_empty():
+				forge_requested.emit(forge_index)
+			else:
+				forge_craft_requested.emit(forge_recipe)
 			refresh_forge()
 		else:
 			forge_armed = true
-			forge_confirm.text = "CONFIRM EVOLUTION"
+			forge_confirm.text = "CONFIRM EVOLUTION" if forge_recipe.is_empty() else "CONFIRM • MAKE WEAPON"
 	)
 
 func build_campaign() -> void:
@@ -381,7 +386,21 @@ func refresh_forge() -> void:
 		var item: Dictionary = current_inventory.stash[index]
 		if item.get("slot", "") == "Weapon":
 			add_forge_entry(item, index)
+	for weapon_type in ForgeSystem.WeaponCatalog.STARTERS:
+		var data := ForgeSystem.WeaponCatalog.definition(weapon_type)
+		var button := make_button(forge_list, "MAKE %s\n150 Gold + 6 Scrap • TEMP ART" % str(data.name).to_upper(), Rect2(0, 0, 398, 72), Color("#172442"), Color("#8bbedb"), 15)
+		button.custom_minimum_size = Vector2(398, 72)
+		button.pressed.connect(select_forge_recipe.bind(weapon_type))
 	select_forge_weapon(-1)
+
+func select_forge_recipe(weapon_type: String) -> void:
+	forge_recipe = weapon_type
+	forge_armed = false
+	var item := ForgeSystem.WeaponCatalog.starter(weapon_type)
+	forge_detail.text = "%s\n%s\n\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, item.desc, gold, current_inventory.scrap]
+	forge_detail.add_theme_font_size_override("font_size", 17)
+	forge_confirm.text = "MAKE • STORE IN STASH"
+	forge_confirm.disabled = gold < 150 or current_inventory.scrap < 6 or current_inventory.stash.size() >= current_inventory.stash_capacity
 
 func add_forge_entry(item: Dictionary, index: int) -> void:
 	var label := "%s • %s\n%s / 3  •  %s" % ["EQUIPPED" if index == -1 else "STASH", item.get("name", "Weapon"), ForgeSystem.stage(item) + 1, item.get("rarity", "COMMON")]
@@ -390,6 +409,8 @@ func add_forge_entry(item: Dictionary, index: int) -> void:
 	button.pressed.connect(select_forge_weapon.bind(index))
 
 func select_forge_weapon(index: int) -> void:
+	forge_recipe = ""
+	forge_detail.add_theme_font_size_override("font_size", 19)
 	forge_index = index
 	forge_armed = false
 	var item: Dictionary = current_inventory.equipped_item("Weapon") if index == -1 else current_inventory.stash[index]

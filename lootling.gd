@@ -104,6 +104,7 @@ var enemy_attack_interval := 2.0
 var enemy_attack_clock := 1.5
 var enemy_is_boss := false
 var enemy_is_miniboss := false
+var enemy_weapon_opening_used := false
 var enemy_archetype := "skirmisher"
 var enemy_hit_multiplier := 1.0
 var enemy_variant_id := ""
@@ -412,6 +413,7 @@ func debug_force_variant(id: String) -> void:
 	enemy_name = "%s %s" % [enemy_variant_name, enemy_name]
 	enemy_max_hp = float(modified.hp)
 	enemy_hp = enemy_max_hp
+	enemy_weapon_opening_used = false
 	enemy_damage = float(modified.damage)
 	enemy_attack_interval = float(modified.interval)
 	enemy_hit_multiplier = float(modified.hit)
@@ -656,6 +658,7 @@ func build_hideout() -> void:
 	hideout_ui.shop_reroll_requested.connect(reroll_hideout_shop)
 	hideout_ui.gold_upgrade_requested.connect(buy_gold_upgrade)
 	hideout_ui.forge_requested.connect(evolve_owned_weapon)
+	hideout_ui.forge_craft_requested.connect(craft_weapon)
 	hideout_ui.profile_requested.connect(show_profile_from_hideout)
 	hideout_ui.title_requested.connect(show_title_from_hideout)
 	hideout_ui.destination_visited.connect(func(destination_id): award_unique_achievement("hideout_social", str(destination_id)))
@@ -912,6 +915,17 @@ func start_campaign(region_id: String) -> void:
 		return
 	campaign_id = region_id
 	request_start_run()
+
+func craft_weapon(weapon_type: String) -> void:
+	if state != "hideout":
+		return
+	var result: Dictionary = preload("res://forge_system.gd").craft(inventory, gold, weapon_type, rng.randi())
+	if not result.ok:
+		return
+	gold = result.gold
+	save_meta()
+	save_hideout_economy()
+	play_audio_event("shop_purchase")
 
 func run_zone_for_wave(value: int) -> Dictionary:
 	return CampaignSystem.zone_for(campaign_id, value)
@@ -1497,11 +1511,17 @@ func perform_player_attack(is_tap: bool) -> void:
 	play_audio_event({"VANGUARD":"vanguard_swing", "RANGER":"ranger_release", "MAGE":"mage_cast", "ROGUE":"rogue_slash"}.get(family, "tap_attack"))
 	if family in ["RANGER", "MAGE"]:
 		var travel_time := 0.12 if family == "RANGER" else 0.17
+		var subtype: String = inventory.equipped_item("Weapon").get("weapon_type", "")
+		var weapons = preload("res://weapon_catalog.gd")
+		if weapons.STARTERS.has(subtype) and not str(weapons.FAMILIES[subtype].projectile).is_empty():
+			var projectile_profile: Dictionary = weapons.PROJECTILES[weapons.FAMILIES[subtype].projectile]
+			travel_time *= (860.0 if family == "RANGER" else 520.0) / float(projectile_profile.speed)
 		if is_tap:
 			travel_time *= 0.82
 		var launch_position := Vector2(player_x + 58.0, 427.0) if family == "RANGER" else Vector2(player_x + 46.0, 407.0)
 		attack_projectiles.append({
 			"family": family,
+			"weapon_type": subtype,
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
@@ -1522,6 +1542,23 @@ func resolve_player_attack(is_tap: bool) -> void:
 	var hit_count := 1 if is_tap else multi_hits + int(inventory.effect_total("extra_hits"))
 	var damage_scale := tap_mult if is_tap else 1.0
 	attack_sequence += 1
+	var subtype: String = inventory.equipped_item("Weapon").get("weapon_type", "")
+	if subtype == "greataxe" and attack_sequence % 3 == 0:
+		damage_scale *= 1.45
+	elif subtype == "spear" and not enemy_weapon_opening_used:
+		damage_scale *= 1.30
+		enemy_weapon_opening_used = true
+	elif subtype == "claws":
+		hit_count *= 2
+		damage_scale *= 0.55
+	elif subtype == "crossbow" and attack_sequence % 3 == 0:
+		hit_count *= 2
+		damage_scale *= 0.64
+	elif subtype == "sling" and attack_sequence % 3 == 0:
+		enemy_attack_clock += 0.18
+	elif subtype == "orb" and attack_sequence % 4 == 0:
+		player_hp = minf(player_max_hp, player_hp + 2.0)
+		add_particles(Vector2(player_x, 438), Color("#95d8ff"), 4)
 	var physical_count: int = build.count("Physical")
 	var heavy_interval := maxi(3, 7 - mini(physical_count + heavy_power, 4))
 	var is_heavy := physical_count > 0 and attack_sequence % heavy_interval == 0
@@ -2532,8 +2569,8 @@ func update_attack_projectiles(delta: float) -> void:
 		projectile.life -= delta
 		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
 		projectile.pos = projectile.start.lerp(projectile.target, progress)
-		if projectile.family == "MAGE":
-			projectile.pos.y -= sin(progress * PI) * 18.0
+		var arc := 38.0 if projectile.get("weapon_type", "") == "sling" else 5.0 if projectile.get("weapon_type", "") == "wand" else 12.0 if projectile.get("weapon_type", "") == "orb" else 18.0 if projectile.family == "MAGE" else 0.0
+		projectile.pos.y -= sin(progress * PI) * arc
 	for index in range(attack_projectiles.size() - 1, -1, -1):
 		var projectile: Dictionary = attack_projectiles[index]
 		if projectile.life > 0.0:
@@ -2648,6 +2685,8 @@ func draw_hud() -> void:
 		draw_string(body_font, Vector2(18, 71), "TEMP ART • COSMETIC IDENTITY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
 	elif campaign_id != "act_i":
 		draw_string(body_font, Vector2(18, 71), "TEMP ART • REGION ACTORS / SCENERY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
+	elif inventory.equipped_item("Weapon").get("temp_art", false):
+		draw_string(body_font, Vector2(18, 71), "TEMP ART • " + str(inventory.equipped_item("Weapon").get("weapon_type", "")).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
 	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
@@ -2866,7 +2905,11 @@ func draw_attack_projectiles() -> void:
 	for projectile in attack_projectiles:
 		var pos: Vector2 = projectile.pos
 		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
-		if projectile.family == "RANGER":
+		if projectile.get("weapon_type", "") == "sling":
+			draw_line(pos - Vector2(22, 4), pos, Color("#d5c0aa99"), 3.0)
+			draw_circle(pos, 8.0, Color("#242238"))
+			draw_circle(pos, 5.5, Color("#d3c3ab"))
+		elif projectile.family == "RANGER":
 			var direction := Vector2(1.0, 0.04).normalized()
 			var normal := direction.orthogonal()
 			for trail_index in range(3):
@@ -2880,6 +2923,7 @@ func draw_attack_projectiles() -> void:
 			draw_line(pos - direction * 15.0, pos - direction * 22.0 - normal * 6.0, Color("#b2dcff"), 2.0)
 		else:
 			var pulse := 1.0 + sin(progress * PI * 4.0) * 0.12
+			if projectile.get("weapon_type", "") == "wand": pulse *= 0.55
 			var trail := Color(0.60, 0.44, 1.0, 0.34)
 			draw_circle(pos - Vector2(24, 0), 6.0 * pulse, Color(0.38, 0.80, 1.0, 0.16))
 			draw_circle(pos - Vector2(13, 0), 8.0 * pulse, trail)

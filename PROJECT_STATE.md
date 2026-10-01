@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Playable expansion — seven additional weapon families
+
+Forge now crafts Scrap Axe, Ruin Pike, Ruin Claws, Scrap Repeater, Pebble Sling, Ruin Wand and Relic Orb into Stash for 150 Gold + 6 Scrap (two-step confirmation, capacity/funds guards). Each maps to its approved catalog family and first evolution line. Existing 35-base drop generation and rarity odds remain unchanged. Twelve families are playable, but named temporary held art/icons reuse class sprites; dedicated `art/sprites/weapons/<family>_held.png` paths feed cached combat/icon texture hooks.
+
+Actual hooks: Greataxe every third attack ×1.45; Spear first direct attack per enemy ×1.30; Claws two ×0.55 swipes; Crossbow every third trigger two ×0.64 hits; Sling every third shot delays enemy attack by 0.18s; Wand repeats on the third cast; Orb heals 2 HP every fourth release. New ranged timing uses existing catalog speed profiles; Sling arcs and uses a stone silhouette, Wand uses a smaller spark, Orb retains focus pulse. Existing cadence/formulas for the original families remain unchanged. Forge-added evolution defaults are explicit on newly generated equipment; schema-3 migration retains old stats.
+
+Focused crafting/compatibility/hook tests and native 480×854 recipe/combat captures pass. Full smoke retains exactly the prior five outcomes. Remaining multi-enemy, extra Signatures, lesser chest state machines, dungeon and contracts are not implied by these additions.
+
 ### Playable expansion — campaign and Forge tranche
 
 - Expedition Gate opens a ten-entry campaign: unchanged Act I, then Mossglass Wilds, Moonfen, Frostbell Hollows, Sunken Gearworks, Cinder Crown, Starfall Archive, Nullglass Expanse, Skyhook Bastion and The First Hoard. Victory unlocks the next stable region ID; independent `campaign.cfg` schema 1 preserves existing profiles. Old saves begin with Act I available and unlock through a victory; no assumed historical completion.

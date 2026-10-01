@@ -90,7 +90,7 @@ func run_tests() -> void:
 	for zone_sample in range(120):
 		var zone_pick := EnemyVariantCatalog.roll(zone_variant_rng, 12, false, "hoard_depths")
 		check(zone_pick.is_empty() or zone_pick in EnemyVariantCatalog.ZONE_POOLS.hoard_depths, "zone-weighted variant rolls never escape the Hoard Depths pool")
-	check(WeaponCatalog.FAMILIES.size() == 12 and WeaponCatalog.PROJECTILES.size() == 6 and WeaponCatalog.live_ids() == ["greatsword", "maul", "daggers", "bow", "staff"], "the master twelve-family weapon catalog gates activation to five art-ready runtime families")
+	check(WeaponCatalog.FAMILIES.size() == 12 and WeaponCatalog.PROJECTILES.size() == 6 and WeaponCatalog.live_ids().size() == 12, "twelve weapon families are available; seven Forge starters have temporary art and combat hooks")
 	check(WeaponCatalog.evolution_for("bow", "Crooked Bow") == ["Crooked Bow", "Ruin Longbow", "Starstring"], "weapon evolution data preserves named three-stage master lines")
 	check(WorldContentCatalog.FUTURE_ZONES.size() == 9 and WorldContentCatalog.FUTURE_ZONES.first_hoard.status == "FUTURE", "future zone metadata is replacement-ready without activating missing art")
 	check(ItemCatalog.ITEMS.size() >= 35 and ItemCatalog.definition("moonbranch").weapon_type == "bow" and ItemCatalog.definition("vault_receipt").slot == "Relic", "the live equipment pool expands with curated master-catalog identities while preserving slot contracts")

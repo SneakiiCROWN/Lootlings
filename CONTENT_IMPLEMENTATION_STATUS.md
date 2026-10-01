@@ -30,8 +30,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Greatsword, Maul, Bow, Staff, Twin Daggers | LIVE | Correct current combat semantics and safe runtime art families; weapon subtype/evolution/projectile metadata added. |
-| Greataxe, Spear/Halberd, Claws, Crossbow, Relic Sling, Wand, Orb/Focus | ASSET_NEEDED | Full master data exists, but held/item/evolution/projectile art and some distinct runtime semantics are required before live activation. |
-| 35 equipment bases | LIVE | Expanded curated Weapon/Armour/Charm/Rune pool using only validated effect keys. Existing IDs remain stable. |
+| Greataxe, Spear/Halberd, Claws, Crossbow, Relic Sling, Wand, Orb/Focus | LIVE — TEMP ART | Seven Forge-crafted approved bases with distinct actual attack hooks/projectile timing. Existing class held art/icon reused with explicit TEMP ART; dedicated texture paths ready. Not added to the validated 35-base random drop pool. |
+| 35 drop bases + seven Forge bases | LIVE | Existing 35-base drop pool and odds unchanged; additional weapon bases are crafted into Stash for 150 Gold + 6 Scrap each. IDs/rarity/affix/save compatibility preserved. |
 | 20 standard affixes | LIVE | Slot compatibility retained; additions use existing bounded stats. |
 | Crooked Constellation / First Light / Grudgekeeper / Last Laugh | LIVE | Existing behaviour-changing signatures preserved. |
 | Last Lantern / Frostbell Chime | LIVE | New fully implemented behaviour hooks with bounded once-per-run/once-per-foe rules. |
