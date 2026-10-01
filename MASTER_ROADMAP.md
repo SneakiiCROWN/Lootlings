@@ -1,5 +1,9 @@
 # Lootlings Master Roadmap
 
+## Latest playable expansion checkpoint
+
+Seven cosmetic Lootlings and ten sequential campaign entries are player-facing. New regions currently use solo encounters, differentiated role mixes/pacing and thematic existing loot, with explicit temporary art. Stash now exposes capped, persistent two-stage weapon evolution for owned bases that already contain evolution paths. Inventory schema 3 and campaign schema 1 are covered by migration/persistence tests. Multi-enemy targeting, additional weapon mechanics, full 36-line acquisition/evolution coverage, gated Signatures, physical lesser chests, dungeon routes and contracts remain the next expansion work; none should be described as shipped yet.
+
 This roadmap preserves product direction; it is not a promise to build every system at once. Each stage should reuse stable profile, combat, loot, reward, zone, and save contracts rather than create parallel implementations.
 
 ## Product Pillars

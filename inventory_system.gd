@@ -114,7 +114,7 @@ func has_signature(hook: String) -> bool:
 
 func save(path: String) -> Error:
 	var config := ConfigFile.new()
-	config.set_value("inventory", "version", 2)
+	config.set_value("inventory", "version", 3)
 	config.set_value("inventory", "scrap", clampi(scrap, 0, 999999))
 	config.set_value("inventory", "stash_capacity", stash_capacity)
 	config.set_value("inventory", "stash", stash.slice(0, stash_capacity))
@@ -138,3 +138,11 @@ func load(path: String) -> void:
 				equipped[slot] = item
 	if equipped_item("Weapon").is_empty():
 		equipped.Weapon = ItemCatalog.create_item("scrapfang_blade", "COMMON", -1)
+	# v1/v2 items retain their exact effects; missing evolution is stage zero.
+	for item in stash:
+		if item is Dictionary:
+			item.evolution_stage = clampi(int(item.get("evolution_stage", 0)), 0, 2)
+	for slot in SLOTS:
+		var item: Dictionary = equipped.get(slot, {})
+		if not item.is_empty():
+			item.evolution_stage = clampi(int(item.get("evolution_stage", 0)), 0, 2)

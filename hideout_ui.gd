@@ -1,6 +1,8 @@
 extends Control
 
 signal play_requested
+signal forge_requested(stash_index: int)
+signal campaign_requested(region_id: String)
 signal stash_equip_requested(index: int)
 signal stash_scrap_requested(index: int)
 signal upgrade_requested
@@ -21,6 +23,8 @@ const PresentationDirector = preload("res://presentation_director.gd")
 const DialogueDirector = preload("res://dialogue_director.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
+const ForgeSystem = preload("res://forge_system.gd")
+const CampaignSystem = preload("res://campaign_system.gd")
 
 func actor_texture() -> Texture2D:
 	return LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast")))
@@ -53,6 +57,15 @@ var filter_buttons := {}
 
 var home_content: Control
 var stash_content: Control
+var forge_content: Control
+var forge_list: VBoxContainer
+var forge_detail: Label
+var forge_confirm: Button
+var forge_index := -1
+var forge_armed := false
+var campaign_content: Control
+var campaign_list: VBoxContainer
+var campaign
 var upgrade_content: Control
 var coming_content: Control
 var shop_content: Control
@@ -121,6 +134,8 @@ func _ready() -> void:
 	life_rng.randomize()
 	build_home()
 	build_stash()
+	build_forge()
+	build_campaign()
 	build_upgrades()
 	build_shop()
 	build_achievements()
@@ -210,7 +225,7 @@ func refresh_current_screen() -> void:
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
-	var screens := [home_content, stash_content, upgrade_content, shop_content, achievement_content, coming_content]
+	var screens := [home_content, stash_content, forge_content, campaign_content, upgrade_content, shop_content, achievement_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -283,6 +298,108 @@ func build_stash() -> void:
 	stash_equip_button.pressed.connect(request_stash_equip)
 	stash_scrap_button = make_button(stash_content, "SCRAP", Rect2(250, 694, 210, 66), Color("#5a3828"), Color("#ffbd69"), 18)
 	stash_scrap_button.pressed.connect(request_stash_scrap)
+	var forge := make_button(stash_content, "WEAPON FORGE", Rect2(125, 777, 230, 54), Color("#493052"), Color("#e2b563"), 17)
+	forge.pressed.connect(show_forge)
+
+func build_forge() -> void:
+	forge_content = Control.new()
+	forge_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	forge_content.visible = false
+	add_child(forge_content)
+	make_button(forge_content, "‹ STASH", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_stash)
+	make_label(forge_content, "WEAPON FORGE", 25, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(forge_content, "Two evolutions • +4% damage each\nKeeps rarity, affixes and weapon identity", 16, Rect2(28, 112, 424, 62), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(28, 180)
+	scroll.size = Vector2(424, 285)
+	forge_content.add_child(scroll)
+	forge_list = VBoxContainer.new()
+	forge_list.custom_minimum_size.x = 398
+	forge_list.add_theme_constant_override("separation", 10)
+	scroll.add_child(forge_list)
+	make_panel(forge_content, Rect2(28, 478, 424, 222), Color("#0b1229ec"), Color("#b39466"))
+	forge_detail = make_label(forge_content, "", 19, Rect2(35, 490, 410, 200), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
+	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 725, 370, 70), Color("#493052"), Color("#e2b563"), 19)
+	forge_confirm.pressed.connect(func():
+		if forge_armed:
+			forge_requested.emit(forge_index)
+			refresh_forge()
+		else:
+			forge_armed = true
+			forge_confirm.text = "CONFIRM EVOLUTION"
+	)
+
+func build_campaign() -> void:
+	campaign_content = Control.new()
+	campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	campaign_content.visible = false
+	add_child(campaign_content)
+	make_button(campaign_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
+	make_label(campaign_content, "EXPEDITIONS", 26, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(campaign_content, "Conquer a region to unlock the next.\n15 waves • miniboss • boss • merchant stops", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(24, 190)
+	scroll.size = Vector2(432, 612)
+	campaign_content.add_child(scroll)
+	campaign_list = VBoxContainer.new()
+	campaign_list.custom_minimum_size.x = 408
+	campaign_list.add_theme_constant_override("separation", 12)
+	scroll.add_child(campaign_list)
+
+func show_campaign() -> void:
+	dismiss_dialogue()
+	current_screen = "campaign"
+	set_screen(campaign_content)
+	for child in campaign_list.get_children():
+		campaign_list.remove_child(child)
+		child.queue_free()
+	for id in CampaignSystem.ORDER:
+		var available: bool = campaign != null and campaign.available(id)
+		var tuning: Array = CampaignSystem.TRAITS.get(id, [])
+		var detail := "Original three-zone adventure" if tuning.is_empty() else str(tuning[3]) + "\nTEMP ART • reused enemies, bosses and scenery"
+		var status := "CONQUERED" if campaign != null and id in campaign.completed else "PLAY" if available else "LOCKED"
+		var button := make_button(campaign_list, "%s\n%s\n%s" % [CampaignSystem.title(id), detail, status], Rect2(0, 0, 408, 112), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
+		button.custom_minimum_size = Vector2(408, 112)
+		button.disabled = not available
+		button.pressed.connect(func(): campaign_requested.emit(id))
+
+func show_forge() -> void:
+	dismiss_dialogue()
+	current_screen = "forge"
+	set_screen(forge_content)
+	refresh_forge()
+
+func refresh_forge() -> void:
+	for child in forge_list.get_children():
+		forge_list.remove_child(child)
+		child.queue_free()
+	if current_inventory == null:
+		return
+	add_forge_entry(current_inventory.equipped_item("Weapon"), -1)
+	for index in range(current_inventory.stash.size()):
+		var item: Dictionary = current_inventory.stash[index]
+		if item.get("slot", "") == "Weapon":
+			add_forge_entry(item, index)
+	select_forge_weapon(-1)
+
+func add_forge_entry(item: Dictionary, index: int) -> void:
+	var label := "%s • %s\n%s / 3  •  %s" % ["EQUIPPED" if index == -1 else "STASH", item.get("name", "Weapon"), ForgeSystem.stage(item) + 1, item.get("rarity", "COMMON")]
+	var button := make_button(forge_list, label, Rect2(0, 0, 398, 72), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 15)
+	button.custom_minimum_size = Vector2(398, 72)
+	button.pressed.connect(select_forge_weapon.bind(index))
+
+func select_forge_weapon(index: int) -> void:
+	forge_index = index
+	forge_armed = false
+	var item: Dictionary = current_inventory.equipped_item("Weapon") if index == -1 else current_inventory.stash[index]
+	var next := ForgeSystem.offer(item)
+	forge_confirm.text = "EVOLVE"
+	forge_confirm.disabled = next.is_empty() or gold < int(next.get("gold", 0)) or current_inventory.scrap < int(next.get("scrap", 0))
+	if next.is_empty():
+		forge_detail.text = "%s\n%s" % [item.get("name", "Weapon"), "Fully evolved" if ForgeSystem.stage(item) == 2 else "No evolution line for this weapon yet"]
+	else:
+		forge_detail.text = "%s\n↓\n%s\n+4%% damage • permanent\n\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [item.name, next.name, next.gold, next.scrap, gold, current_inventory.scrap]
 
 func build_upgrades() -> void:
 	upgrade_content = Control.new()

@@ -22,8 +22,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Echoing / Hungry / Hoarder / Shiny | DEFINED_DATA | Master-catalog identities retained for later mechanics/art/collection hooks. |
 | Solo Duelist / Heavy Solo | LIVE | Current single-target combat architecture. |
 | Duos / Guard+Caster / Scraprat Pack / treasure escape / Mimic Room / Elite Guard | DEFINED_DATA | Composition contracts exist; simultaneous targeting and dedicated assets intentionally deferred. |
-| Act II–V zones | ASSET_NEEDED | Nine replacement-ready metadata records include palette, enemy family, boss, and loot identity. |
-| The First Hoard | FUTURE | Endgame narrative/content arc only. |
+| Act II–V zones | LIVE — TEMP ART | Eight sequentially unlocked 15-wave solo expeditions; region role mixes, pace/durability, thematic loot, names and tints. Existing actor/boss/environment art reused honestly; bespoke encounter mechanics remain deferred. |
+| The First Hoard | LIVE — TEMP ART | Ninth unlockable new region; same established reward flow, heavy patrol identity and curated existing loot. Full endgame narrative/bespoke boss remains future. |
 
 ## Loot, weapons, and rewards
 
@@ -36,7 +36,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Crooked Constellation / First Light / Grudgekeeper / Last Laugh | LIVE | Existing behaviour-changing signatures preserved. |
 | Last Lantern / Frostbell Chime | LIVE | New fully implemented behaviour hooks with bounded once-per-run/once-per-foe rules. |
 | Nine additional Signature definitions | DEFINED_DATA | Explicitly excluded from random rolls until each behaviour is implemented and tested. |
-| Weapon evolution lines | DEFINED_DATA | 36 named three-stage lines; no Forge/crafting activation this pass. |
+| Weapon evolution lines | LIVE / PARTIAL | Stash Forge evolves owned items with existing evolution_path; two capped additive stages, Gold/Scrap costs, persistent schema 3. Remaining catalog-only bases/lines are not yet obtainable. |
 | Scavenged Cache / Relic Chest reward contracts | LIVE | Existing cache claim/miniboss item flows; dedicated physical closed/open chest art and texture sequences are not implemented. Do not equate data/reward rules with Hoard's renderer. |
 | Hoard Chest | LIVE | Dedicated painted closed sprite, landing/charge/tap/burst/three Epic+ arcs and choose-one are live. |
 | Cursed Coffer | DEFINED_DATA | Reward/presentation contract only. |

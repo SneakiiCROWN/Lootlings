@@ -38,6 +38,9 @@ const PROFILE_SAVE_PATH := "user://lootlings_profile.cfg"
 const SETTINGS_SAVE_PATH := "user://lootlings_settings.cfg"
 const ANALYTICS_PATH := "user://lootlings_events.jsonl"
 const RUN_LAST_WAVE := 15
+const CampaignSystem = preload("res://campaign_system.gd")
+var campaign := CampaignSystem.new()
+var campaign_id := "act_i"
 const ENEMIES_PER_WAVE := 3
 const PLAYER_HOME_X := 102.0
 const PLAYER_ATTACK_X := 245.0
@@ -639,7 +642,10 @@ func build_pause_ui() -> void:
 func build_hideout() -> void:
 	hideout_ui = HideoutUI.new()
 	add_child(hideout_ui)
-	hideout_ui.play_requested.connect(request_start_run)
+	campaign.load_progress("user://campaign.cfg")
+	hideout_ui.campaign = campaign
+	hideout_ui.play_requested.connect(hideout_ui.show_campaign)
+	hideout_ui.campaign_requested.connect(start_campaign)
 	hideout_ui.stash_equip_requested.connect(equip_stash_item)
 	hideout_ui.stash_scrap_requested.connect(scrap_stash_item)
 	hideout_ui.upgrade_requested.connect(buy_meta_power)
@@ -649,6 +655,7 @@ func build_hideout() -> void:
 	hideout_ui.shop_expansion_requested.connect(buy_stash_expansion)
 	hideout_ui.shop_reroll_requested.connect(reroll_hideout_shop)
 	hideout_ui.gold_upgrade_requested.connect(buy_gold_upgrade)
+	hideout_ui.forge_requested.connect(evolve_owned_weapon)
 	hideout_ui.profile_requested.connect(show_profile_from_hideout)
 	hideout_ui.title_requested.connect(show_title_from_hideout)
 	hideout_ui.destination_visited.connect(func(destination_id): award_unique_achievement("hideout_social", str(destination_id)))
@@ -889,6 +896,26 @@ func buy_gold_upgrade(upgrade_id: String) -> void:
 	play_audio_event("shop_purchase")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"gold", "price":price, "upgrade_id":upgrade_id, "rank":rank + 1})
 
+func evolve_owned_weapon(stash_index: int) -> void:
+	if state != "hideout":
+		return
+	var result: Dictionary = preload("res://forge_system.gd").purchase(inventory, gold, stash_index)
+	if not result.ok:
+		return
+	gold = result.gold
+	save_meta()
+	save_hideout_economy()
+	play_audio_event("shop_purchase")
+
+func start_campaign(region_id: String) -> void:
+	if state != "hideout" or not campaign.available(region_id):
+		return
+	campaign_id = region_id
+	request_start_run()
+
+func run_zone_for_wave(value: int) -> Dictionary:
+	return CampaignSystem.zone_for(campaign_id, value)
+
 func buy_stash_expansion() -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
 		return
@@ -1051,6 +1078,7 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	loot_system.region_pool = CampaignSystem.LOOT_POOLS.get(campaign_id, []).duplicate()
 	award_achievement("first_steps")
 	state = "playing"
 	if startup_ui != null:
@@ -1064,7 +1092,7 @@ func start_run() -> void:
 	wave = 1
 	wave_kills = 0
 	last_spawned_wave = 0
-	current_zone = ZoneCatalog.for_wave(wave)
+	current_zone = run_zone_for_wave(wave)
 	current_zone_id = current_zone.id
 	pending_zone_transition = false
 	zone_transition_timer = 0.0
@@ -1176,7 +1204,7 @@ func spawn_enemy() -> void:
 	enemy_serial += 1
 	attack_projectiles.clear()
 	var new_wave := wave != last_spawned_wave
-	current_zone = ZoneCatalog.for_wave(wave)
+	current_zone = run_zone_for_wave(wave)
 	current_zone_id = current_zone.id
 	if new_wave:
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "zone_enter", {"zone_id":current_zone_id, "wave":wave})
@@ -1189,10 +1217,10 @@ func spawn_enemy() -> void:
 	var type_bonus := 1.0
 	if enemy_is_boss:
 		type_bonus = 4.8
-		enemy_name = "THE HOARD DRAGON"
+		enemy_name = "THE HOARD DRAGON" if campaign_id == "act_i" else current_zone.boss
 	elif enemy_is_miniboss:
 		type_bonus = 2.65
-		enemy_name = "GRUMP KNIGHT"
+		enemy_name = "GRUMP KNIGHT" if campaign_id == "act_i" else current_zone.miniboss
 	else:
 		enemy_archetype = ZoneCatalog.archetype_for(current_zone, wave, wave_kills)
 		var enemy_definition := ZoneCatalog.enemy_for(current_zone, enemy_archetype)
@@ -1235,6 +1263,8 @@ func spawn_enemy() -> void:
 			enemy_variant_name = str(variant.name)
 			enemy_variant_color = variant.accent
 			enemy_name = "%s %s" % [enemy_variant_name, enemy_name]
+	enemy_max_hp *= float(current_zone.get("hp_scale", 1.0))
+	enemy_attack_interval *= float(current_zone.get("interval_scale", 1.0))
 	enemy_hp = enemy_max_hp
 	enemy_attack_clock = enemy_attack_interval
 	enemy_attack_count = 0
@@ -1267,7 +1297,7 @@ func spawn_enemy() -> void:
 
 func begin_zone_transition() -> void:
 	pending_zone_transition = false
-	current_zone = ZoneCatalog.for_wave(wave)
+	current_zone = run_zone_for_wave(wave)
 	current_zone_id = current_zone.id
 	zone_transition_title = current_zone.entry
 	zone_transition_subtitle = current_zone.name
@@ -1290,7 +1320,7 @@ func begin_zone_transition() -> void:
 func begin_special_intro() -> void:
 	state = "special_intro"
 	special_intro_timer = 0.80
-	current_zone = ZoneCatalog.for_wave(wave)
+	current_zone = run_zone_for_wave(wave)
 	current_zone_id = current_zone.id
 	enemy_alive = false
 	enemy_death_anim = 0.0
@@ -1698,7 +1728,7 @@ func kill_enemy() -> void:
 			award_achievement("first_frostbitten")
 	if enemy_is_miniboss:
 		award_achievement("first_miniboss")
-	if enemy_is_boss:
+	if enemy_is_boss and campaign_id == "act_i":
 		award_achievement("hoard_dragon")
 		award_achievement("dragon_regular")
 		award_achievement("dragon_problem")
@@ -2299,6 +2329,8 @@ func end_run(victory: bool) -> void:
 	meta_shards += run_shards_earned
 	gold += run_gold_earned
 	if victory:
+		campaign.finish(campaign_id)
+		campaign.save("user://campaign.cfg")
 		award_achievement("first_expedition")
 		award_achievement("five_expeditions")
 		if player_hp / maxf(1.0, player_max_hp) <= 0.10:
@@ -2581,7 +2613,7 @@ func draw_background() -> void:
 	var max_source_y := maxf(0.0, texture_size.y - source_height)
 	var depth_drift := sin(run_time * 0.20) * minf(2.5, max_source_y * 0.5)
 	var source := Rect2(0, clampf(max_source_y * 0.5 + depth_drift, 0.0, max_source_y), texture_size.x, source_height)
-	draw_texture_rect_region(arena_background, target, source)
+	draw_texture_rect_region(arena_background, target, source, current_zone.get("presentation_tint", Color.WHITE))
 	# Quiet the combat band slightly while keeping the lanterns and moon visible.
 	var plane_tint := Color("#17100c28") if current_zone_id == "emberworks" else Color("#09082230") if current_zone_id == "hoard_depths" else Color("#08122922")
 	draw_rect(Rect2(0, 182, 480, 382), plane_tint, true)
@@ -2614,6 +2646,8 @@ func draw_hud() -> void:
 	draw_string(title_font, Vector2(18, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 208, 21, Color("#ffe178"))
 	if actor.temp_art:
 		draw_string(body_font, Vector2(18, 71), "TEMP ART • COSMETIC IDENTITY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
+	elif campaign_id != "act_i":
+		draw_string(body_font, Vector2(18, 71), "TEMP ART • REGION ACTORS / SCENERY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
 	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)

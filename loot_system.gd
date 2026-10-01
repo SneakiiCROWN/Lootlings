@@ -10,6 +10,7 @@ const BOSS_RARITY_WEIGHTS := [0.0, 0.0, 88.0, 12.0]
 
 var rng := RandomNumberGenerator.new()
 var serial := 1
+var region_pool: Array = []
 
 func _init(seed_value: int = 0) -> void:
 	if seed_value == 0:
@@ -23,6 +24,9 @@ func roll_drop(is_miniboss: bool, is_boss: bool) -> Dictionary:
 	var weights := BOSS_RARITY_WEIGHTS if is_boss else MINIBOSS_RARITY_WEIGHTS if is_miniboss else NORMAL_RARITY_WEIGHTS
 	var rarity := weighted_rarity(weights)
 	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	# New-region identity only; Act I consumes exactly its original RNG sequence.
+	if not region_pool.is_empty() and rng.randf() < 0.45:
+		source = ItemCatalog.definition(str(region_pool[rng.randi_range(0, region_pool.size() - 1)]))
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
 	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
