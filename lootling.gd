@@ -1560,6 +1560,10 @@ func perform_player_attack(is_tap: bool) -> void:
 		var launch_position := Vector2(player_x + 58.0, 427.0) if family == "RANGER" else Vector2(player_x + 46.0, 407.0)
 		if subtype == "orb":
 			launch_position = Vector2(player_x + 42.0, 480.0)
+		elif subtype == "crossbow":
+			launch_position = Vector2(player_x + 127.0, 447.0)
+		elif subtype == "wand":
+			launch_position = Vector2(player_x + 91.0, 393.0)
 		attack_projectiles.append({
 			"family": family,
 			"weapon_type": subtype,

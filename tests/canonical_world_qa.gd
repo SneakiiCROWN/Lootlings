@@ -79,7 +79,7 @@ func run_qa() -> void:
 	game.hideout_ui.lore_index = 8
 	game.hideout_ui.cycle_lore(0)
 	if native: await capture("canonical_lore_npc")
-	for id in ["greatsword", "greataxe", "orb"]:
+	for id in ["greatsword", "greataxe", "orb", "spear", "crossbow", "claws", "wand"]:
 		var item: Dictionary = Items.create_item("scrapfang_blade", "COMMON", 981) if id == "greatsword" else Items.create_item(Weapons.starter(id).id, "COMMON", 982)
 		game.inventory.equip(item)
 		game.campaign_id = "cinder_crown"
@@ -87,6 +87,20 @@ func run_qa() -> void:
 		game.wave_banner_timer = 0
 		assert(Weapons.runtime_texture(id, null).resource_path.ends_with("%s_held.png" % id))
 		if native: await capture("canonical_weapon_" + id)
+		if id in ["crossbow", "wand"]:
+			game.attack_projectiles.clear()
+			game.perform_player_attack(false)
+			assert(not game.attack_projectiles.is_empty())
+			var expected_socket := Vector2(game.player_x + 127.0, 447.0) if id == "crossbow" else Vector2(game.player_x + 91.0, 393.0)
+			assert(game.attack_projectiles[0].start == expected_socket)
+			if native:
+				game.set_process(false)
+				game.update_attack_projectiles(0.025)
+				game.queue_redraw()
+				await process_frame
+				await RenderingServer.frame_post_draw
+				assert(root.get_texture().get_image().save_png("res://.godot_test_data/canonical_release_%s_qa.png" % id) == OK)
+				game.set_process(true)
 	game.show_hideout()
 	game.hideout_ui.show_home()
 	game.hideout_ui.request_dialogue("tapped", "Salvager")

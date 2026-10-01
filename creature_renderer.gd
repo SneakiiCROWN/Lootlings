@@ -195,6 +195,16 @@ func draw_weapon_sprite(g, texture: Texture2D, pivot: Vector2, rect: Rect2, rota
 		rotation += 0.58
 	if subtype == "orb":
 		glow_offset = Vector2(16, -4)
+	elif subtype == "crossbow":
+		rotation -= 0.30
+		glow_offset = Vector2(108, -22)
+	elif subtype == "spear":
+		rotation += 0.43
+	elif subtype == "wand":
+		rotation += 0.30
+		glow_offset = Vector2(60, -91)
+	elif subtype == "claws":
+		glow_offset = Vector2(76, 2)
 	var glow := accent
 	glow.a = 0.16
 	g.draw_set_transform(pivot, rotation, Vector2.ONE * growth)

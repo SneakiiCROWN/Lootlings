@@ -71,6 +71,10 @@ static func held_rect(id: String, fallback: Rect2) -> Rect2:
 	match id:
 		"greatsword", "greataxe": return Rect2(-58, -122, 128, 140)
 		"orb": return Rect2(-33, -53, 98, 98)
+		"spear": return Rect2(-27, -163, 126, 172)
+		"crossbow": return Rect2(-20, -56, 144, 100)
+		"claws": return Rect2(-16, -35, 118, 95)
+		"wand": return Rect2(-22, -110, 100, 118)
 		_: return fallback
 
 static func definition(id: String) -> Dictionary:

@@ -2,6 +2,12 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — weapon silhouettes and sockets
+
+Four additional approved beta cutouts replace class stand-ins: Spear, Crossbow, Claws and Wand. Native fitting corrects grip/scale/orientation, keeps spear/wand clear of the face and moves Crossbow/Wand visual projectile origins to the new muzzle/tip. Gameplay travel/cadence/damage unchanged. Eleven families have distinct silhouettes; Relic Sling remains its existing fallback because a flail is not a valid substitute. Rejected generated flail trial removed; source boards preserved. Final Sling and stage-specific/high-resolution weapon exports remain needed.
+
+Passed parser/import, expansion/save/equipment/economy tests, seven seeded full weapon runs with unchanged results and native OpenGL 480×854 canonical-world QA. Inspected all four new held sprites; adjusted face occlusion found in first capture. Socket assertions and native release captures cover Crossbow/Wand. No combat formulas, drops, progression or save schema change.
+
 ### Continued overhaul — campaign region visual identities
 
 All nine expanded regions now have distinct imported beta compositions; Act I retains its three established paintings. Six additions: Moonfen marsh, Starfall sanctuary, Skyhook city, Nullglass portal gallery, flooded Gearworks foundry and First Hoard throne treasury. No global palette swaps: approved scenery panels and clean props are mechanically extracted/recomposed with original sources preserved. Exporter rejects detached fragments; common contact flooring keeps feet anchored. Low-resolution board scenery is intentionally soft behind actors; final high-resolution region exports remain needed. Sources: `BETA_ART_PROVENANCE.md` / `tools/compose_region_beta.gd`.

@@ -33,7 +33,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Greatsword, Maul, Bow, Staff, Twin Daggers | LIVE | Correct current combat semantics and safe runtime art families; weapon subtype/evolution/projectile metadata added. |
-| Greataxe, Spear/Halberd, Claws, Crossbow, Relic Sling, Wand, Orb/Focus | LIVE — PARTIAL BETA ART | Forge mechanics unchanged. Greataxe/focus now have distinct approved art; Greatsword also no longer shares hammer. Five remaining families reuse class art. Random drop pool unchanged. |
+| Greataxe, Spear/Halberd, Claws, Crossbow, Relic Sling, Wand, Orb/Focus | LIVE — PARTIAL BETA ART | Forge mechanics unchanged. Greatsword/Greataxe/Focus/Spear/Claws/Crossbow/Wand have distinct approved art; only Relic Sling still reuses class art. Random drop pool unchanged. |
 | 35 drop bases + seven Forge bases | LIVE | Existing 35-base drop pool and odds unchanged; additional weapon bases are crafted into Stash for 150 Gold + 6 Scrap each. IDs/rarity/affix/save compatibility preserved. |
 | 20 standard affixes | LIVE | Slot compatibility retained; additions use existing bounded stats. |
 | Crooked Constellation / First Light / Grudgekeeper / Last Laugh | LIVE | Existing behaviour-changing signatures preserved. |

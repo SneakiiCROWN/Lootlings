@@ -2,6 +2,8 @@
 
 ## Current canonical-world beta tranche
 
+Weapon continuation: four more approved silhouettes (Spear/Crossbow/Claws/Wand) replace class art with fitted grips, clear facing and matching ranged sockets. Eleven families now have distinct art; Relic Sling retains a documented fallback pending a genuinely appropriate sling, not a falsely mapped flail. Evolution-stage art remains future production delivery.
+
 Region continuation: every expanded campaign region now has a distinct approved-art composition rather than a flat reused-arena recolour. Six additional scenery integrations complete the beta background set; final high-resolution region art and remaining dedicated encounter bodies still need production work. Mechanics and unlock contracts are unchanged.
 
 Continuation: Gloomlet remains selectable using the documented prior temporary art; all seven identities now have Field Notes. Shared panel/material/ornament treatment, readable HUD captions/portrait, painted adult resident busts and selected-character/progression/event reactions are live. Full-body resident sprites and deeper visual expansion remain next, not claims made by portrait integration.
