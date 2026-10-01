@@ -64,15 +64,19 @@ static func archetype_for(zone: Dictionary, wave: int, kill_index: int) -> Strin
 	var composition := composition_for(zone, wave)
 	return composition[clampi(kill_index, 0, composition.size() - 1)]
 
-# Encounter containers are intentionally solo today, but the stable shape supports
-# deliberate duos/swarms later without changing zone or enemy IDs.
-static func encounter_for(zone: Dictionary, wave: int, encounter_index: int) -> Dictionary:
+# Existing solo contract remains the default; optional group patrols consume
+# the same scheduled wave members, never an extra set of reward-bearing foes.
+static func encounter_for(zone: Dictionary, wave: int, encounter_index: int, grouped: bool = false) -> Dictionary:
+	var members: Array = [archetype_for(zone, wave, encounter_index)]
+	if grouped and not wave in [8, 15] and wave % 2 == 0 and encounter_index == 0:
+		for index in range(1, 3 if wave % 5 == 0 else 2):
+			members.append(archetype_for(zone, wave, encounter_index + index))
 	return {
 		"id":"%s_w%02d_e%02d" % [zone.id, wave, encounter_index],
-		"kind":"solo",
-		"members":[archetype_for(zone, wave, encounter_index)],
-		"targeting":"frontmost",
-		"shared_reward":true
+		"kind":"small_swarm" if members.size() == 3 else "duo" if members.size() == 2 else "solo",
+		"members":members,
+		"targeting":"manual" if members.size() > 1 else "frontmost",
+		"shared_reward":members.size() == 1
 	}
 
 static func supported_encounter_kinds() -> Array[String]:

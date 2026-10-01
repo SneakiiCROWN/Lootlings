@@ -250,6 +250,8 @@ var debug_god_mode := false
 var debug_weapon_family_override := ""
 var attack_projectiles: Array = []
 var enemy_serial := 0
+var enemy_encounter = preload("res://enemy_encounter.gd").new()
+var grouped_patrols := false
 var profile := {}
 var audio_settings := {}
 var achievements = AchievementManager.new()
@@ -656,6 +658,7 @@ func build_hideout() -> void:
 	hideout_ui.campaign = campaign
 	hideout_ui.play_requested.connect(hideout_ui.show_campaign)
 	hideout_ui.campaign_requested.connect(start_campaign)
+	hideout_ui.group_patrols_changed.connect(func(enabled: bool): grouped_patrols = enabled)
 	hideout_ui.stash_equip_requested.connect(equip_stash_item)
 	hideout_ui.stash_scrap_requested.connect(scrap_stash_item)
 	hideout_ui.upgrade_requested.connect(buy_meta_power)
@@ -1125,6 +1128,7 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	enemy_encounter.clear()
 	loot_system.region_pool = CampaignSystem.LOOT_POOLS.get(campaign_id, []).duplicate()
 	award_achievement("first_steps")
 	state = "playing"
@@ -1248,6 +1252,14 @@ func start_run() -> void:
 	queue_redraw()
 
 func spawn_enemy() -> void:
+	enemy_encounter.clear()
+	var encounter: Dictionary = ZoneCatalog.encounter_for(run_zone_for_wave(wave), wave, wave_kills, grouped_patrols)
+	if encounter.members.size() > 1:
+		enemy_encounter.begin(self, mini(encounter.members.size(), ENEMIES_PER_WAVE))
+	else:
+		spawn_single_enemy()
+
+func spawn_single_enemy() -> void:
 	enemy_serial += 1
 	attack_projectiles.clear()
 	var new_wave := wave != last_spawned_wave
@@ -1463,6 +1475,10 @@ func _process(delta: float) -> void:
 		queue_redraw()
 		return
 	var attack_position := target_player_x()
+	if enemy_encounter.active:
+		enemy_encounter.step(self, delta)
+		queue_redraw()
+		return
 	if player_x < attack_position:
 		player_x = minf(attack_position, player_x + 155.0 * delta)
 		if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss:
@@ -1503,6 +1519,8 @@ func current_attack_interval() -> float:
 func target_player_x() -> float:
 	if current_weapon_family() in ["RANGER", "MAGE"]:
 		return 162.0
+	if enemy_encounter.active:
+		return 186.0 if enemy_encounter.actors.size() == 2 else 174.0
 	if enemy_is_boss:
 		return 184.0
 	if enemy_is_miniboss:
@@ -1570,7 +1588,7 @@ func perform_player_attack(is_tap: bool) -> void:
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
-			"target": Vector2(ENEMY_X - 28.0, 438.0),
+			"target": enemy_encounter.target_position() + Vector2(-18, -28) if enemy_encounter.active else Vector2(ENEMY_X - 28.0, 438.0),
 			"life": travel_time,
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
@@ -1584,6 +1602,7 @@ func perform_player_attack(is_tap: bool) -> void:
 func resolve_player_attack(is_tap: bool) -> void:
 	if state != "playing" or not enemy_alive:
 		return
+	var aoe_origin := enemy_serial
 	var hit_count := 1 if is_tap else multi_hits + int(inventory.effect_total("extra_hits"))
 	var damage_scale := tap_mult if is_tap else 1.0
 	attack_sequence += 1
@@ -1643,6 +1662,8 @@ func resolve_player_attack(is_tap: bool) -> void:
 		deal_elemental_hit(base_damage * 0.34, "Lightning")
 		add_float("CROOKED VOLLEY", Vector2(278, 367), Color("#a8dcff"), 16)
 	squash = 0.16
+	if enemy_encounter.active and (current_weapon_family() == "MAGE" or is_heavy or build.count("Fire") >= 3):
+		enemy_encounter.splash(self, base_damage * (0.32 if is_heavy else 0.22), "Physical" if is_heavy else build.dominant(), aoe_origin)
 	attack_anim = 0.22
 	attack_was_tap = is_tap
 
@@ -1880,6 +1901,8 @@ func kill_enemy() -> void:
 			wave_banner_color = Color("#8fdcff")
 			wave_banner_timer = 1.35
 	carried_shockwave = minf(carried_shockwave, base_damage * 12.0)
+	if enemy_encounter.active:
+		enemy_encounter.on_death(self)
 
 func spawn_item_drop() -> bool:
 	var drop_count := 3 if enemy_is_boss else 1
@@ -2517,6 +2540,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventKey:
 		tapped = event.pressed and not event.echo and event.keycode == KEY_SPACE
 	if tapped:
+		if enemy_encounter.active and (event is InputEventMouseButton or event is InputEventScreenTouch):
+			enemy_encounter.select_at(self, event.position * DESIGN_SIZE / size)
 		request_tap_attack()
 		get_viewport().set_input_as_handled()
 
@@ -2625,10 +2650,14 @@ func update_attack_projectiles(delta: float) -> void:
 		if projectile.life > 0.0:
 			continue
 		attack_projectiles.remove_at(index)
-		if state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
+		if state == "playing" and enemy_encounter.active:
+			enemy_encounter.resolve_projectile(self, int(projectile.enemy_serial), bool(projectile.is_tap))
+		elif state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
 			resolve_player_attack(bool(projectile.is_tap))
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
+	if enemy_encounter.active and pos.x >= 275.0 and pos.x <= 380.0 and not text_value.contains("SCRIP"):
+		pos.x += enemy_encounter.target_position().x - ENEMY_X
 	var is_dot := size_value <= 15
 	var prefix := text_value.get_slice(" ", 0)
 	var lane := "damage"
@@ -2750,6 +2779,8 @@ func draw_hud() -> void:
 		var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
 		var foe_number := clampi(wave_kills + (1 if enemy_alive else 0), 1, wave_target)
 		var encounter_text := "%s     %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "FOE", foe_number, wave_target]
+		if enemy_encounter.active:
+			encounter_text = "%s • TAP A FOE TO TARGET" % ("DUO" if enemy_encounter.actors.size() == 2 else "SMALL PACK")
 		if enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18:
 			encounter_text = "INCOMING"
 		draw_rect(Rect2(91, 151, 298, 25), Color("#0a1129d9"), true)
@@ -2762,7 +2793,7 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_flash > 0.0:
 		enemy_color = Color.WHITE
 	var special_entering := enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18
-	if enemy_alive and show_combat_context and not special_entering:
+	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
 		var enemy_name_size := 19
 		while enemy_name_size > 11 and body_font.get_string_size(enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
 			enemy_name_size -= 1
@@ -2786,7 +2817,9 @@ func draw_arena(shake: Vector2) -> void:
 	var lunge := attack_ratio * lunge_distance
 	var player_pos := Vector2(player_x + lunge, 472 + idle_bob) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
-	if enemy_alive:
+	if enemy_encounter.active:
+		enemy_encounter.draw(self, shake)
+	elif enemy_alive:
 		var entry_offset := ease(enemy_entry_anim / 0.55, 2.0) * 95.0
 		var behavior_offset := Vector2.ZERO
 		if enemy_is_boss:

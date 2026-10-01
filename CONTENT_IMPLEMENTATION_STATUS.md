@@ -24,7 +24,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Frostbitten / Overcharged / Rootbound | LIVE | Zone-weighted variants with explicit names, accents, reward multipliers, and readable mechanics. |
 | Echoing / Hungry / Hoarder / Shiny | DEFINED_DATA | Master-catalog identities retained for later mechanics/art/collection hooks. |
 | Solo Duelist / Heavy Solo | LIVE | Current single-target combat architecture. |
-| Duos / Guard+Caster / Scraprat Pack / treasure escape / Mimic Room / Elite Guard | DEFINED_DATA | Composition contracts exist; simultaneous targeting and dedicated assets intentionally deferred. |
+| Regular duos / role-mixed small packs | LIVE — OPT-IN | Expedition GROUPS patrol option; existing scheduled roles, independent HP/status/clock/target, bound projectiles, bounded AoE and per-member rewards. Solo default unchanged. |
+| Boss adds / Scraprat swarm / treasure escape / Mimic Room / bespoke Elite Guard | DEFINED_DATA | Not claimed by regular duo/pack integration; bespoke encounters/art remain needed. |
 | Act II–V zones | LIVE — BETA SCENERY | Every expanded region has a distinct approved-art composition; Mossglass/Cinder also have distinct boss cutouts. Final high-resolution environments and remaining boss/actor art still needed. Solo mechanics/balance unchanged; multi-actor encounters deferred. |
 | The First Hoard | LIVE — BETA SCENERY | Distinct treasury/throne composition, established reward flow/heavy patrol/curated loot. Bespoke boss mechanics/body remain future. |
 

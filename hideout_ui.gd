@@ -4,6 +4,8 @@ signal play_requested
 signal forge_requested(stash_index: int)
 signal forge_craft_requested(weapon_type: String)
 signal campaign_requested(region_id: String)
+signal group_patrols_changed(enabled: bool)
+var group_patrols_enabled := false
 signal contract_claim_requested(slot: int)
 signal stash_equip_requested(index: int)
 signal stash_scrap_requested(index: int)
@@ -396,7 +398,13 @@ func build_campaign() -> void:
 	campaign_list.custom_minimum_size.x = 408
 	campaign_list.add_theme_constant_override("separation", 12)
 	scroll.add_child(campaign_list)
-	make_button(campaign_content, "LOCAL CONTRACTS", Rect2(55, 755, 370, 66), Color("#172442"), Color("#d4ad65"), 18).pressed.connect(show_contracts)
+	make_button(campaign_content, "LOCAL CONTRACTS", Rect2(24, 755, 210, 66), Color("#172442"), Color("#d4ad65"), 15).pressed.connect(show_contracts)
+	var patrol_button := make_button(campaign_content, "PATROLS: SOLO\nTap for group encounters", Rect2(246, 755, 210, 66), Color("#172442"), Color("#78e4ff"), 13)
+	patrol_button.pressed.connect(func():
+		group_patrols_enabled = not group_patrols_enabled
+		patrol_button.text = "PATROLS: GROUPS\nTap foes to choose target" if group_patrols_enabled else "PATROLS: SOLO\nTap for group encounters"
+		group_patrols_changed.emit(group_patrols_enabled)
+	)
 
 func build_contracts() -> void:
 	contracts_content = Control.new()

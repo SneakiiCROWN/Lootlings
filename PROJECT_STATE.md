@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — bounded simultaneous patrol combat
+
+Expeditions offers a session-only SOLO/GROUPS patrol toggle, default SOLO. Groups consume existing scheduled wave members: even regular waves use two foes, wave 10 uses three; miniboss/boss and Hoard rules remain unchanged. Existing `ZoneCatalog.encounter_for` drives membership. `enemy_encounter.gd` adapts separate HP/status/clock/variant/guard/opener/serial state to existing combat functions, not a second damage/reward engine. Tap foes or their HP lanes to target; auto-combat continues. Ranged shots bind to their launched target. Mage/heavy/strong-Fire builds apply bounded AoE. Each member awards its original rewards/drop roll once; no additional reward-bearing enemies.
+
+Group pressure is explicitly tuned per actor (0.58 damage for duos, 0.42 for packs) with staggered openings. Solo formulas/RNG ordering remain unchanged; gameplay and visual RNG stay separate. Rendered groups reuse painted enemy art, separate bars, target marker and anchored burn/poison/variant icons. Boss adds/Mimic/treasure escape remain deferred, not claimed by patrol integration.
+
+Passed import/parser, state/projectile/AoE/reward/special-exclusion tests, 12 solo + 24 group seeded runs with exact repeats (5/12 comparison wins in either mode), smoke/save/migration/equipment/economy/contracts/weapons/items/chests, unchanged 96-run audit (22 wins), 36 regional runs (9 wins) and ten reward/unlock paths. Native OpenGL 480×854 group/full-screen QA inspected. Stress: three foes, projectiles, both DOTs, rewards and outlines over 180 rendered frames; combat-step average 146 µs, worst 421 µs on this desktop—not whole-frame/GPU timing or Android certification. State allocation is bounded to three dictionaries at spawn; no new actor nodes/shaders. Diff whitespace clean.
+
 ### Continued overhaul — equipment-first Stash presentation
 
 Four equipped-slot tiles now show current weapon/armour/charm/rune art, rarity marks and direct category navigation. Selected gear has a dedicated painted-art hero, readable wrapped title and explicit rarity/slot/family line. Equipped effects fit without the old clipped desc/blank-space wall; longer comparisons scroll with full descriptions retained in tooltips. Existing Equip/Scrap, filter and inventory semantics are unchanged. Unsupported outfit skins remain unavailable: adult outfit sheets are not silently mapped onto canonical tiny Lootlings.

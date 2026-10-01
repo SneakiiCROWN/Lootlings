@@ -2,6 +2,8 @@
 
 ## Current canonical world / beta authority
 
+Group patrols are optional Expedition encounters, max three simultaneously active foes. They replace scheduled solo members rather than adding free rewards. Each actor owns HP/status/clock/serial; selection never redirects a released shot. Mage/heavy/strong-Fire attacks may splash other living actors. The validated solo path remains the default and unchanged; bosses retain their established chest contract. No horde spawning or shared HP pool.
+
 The latest owner-approved world/art/story overhaul permits clean individual beta exports from approved boards, superseding earlier reference-only/no-crop instructions. Canonical identity remains protected, especially the unchanged neutral Relic Beast. `LOOTLINGS_WORLD_BIBLE.md` defines the original world and cast; `BETA_ART_PROVENANCE.md` records accepted mechanical exports and limitations. Missing/poor exports remain gated, not invented as final characters. No balance, economy, rarity, combat or save contract changes are implied by artwork/lore.
 
 ## Core Visual Identity

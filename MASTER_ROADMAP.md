@@ -2,6 +2,8 @@
 
 ## Current canonical-world beta tranche
 
+Simultaneous patrols are opt-in from Expeditions: bounded duos/three-member packs use scheduled role compositions, separate HP/status/targeting, target-bound projectiles and Mage/heavy/Fire AoE. Solo remains default. Boss adds/Mimic/treasure escape and seeded route dungeon are subsequent work. Twelve paired seeded comparisons preserve 5/12 wins; accepted solo balance remains unchanged.
+
 Stash continuation: four visual equipment slots and art-first selected gear details replace the clipped text wall while retaining current filters and actions. Full comparisons scroll; painted outfit swaps still require appropriate canonical creature-compatible overlays, not adult board costumes pasted onto the mascot.
 
 Non-weapon item continuation: seven approved jewellery/relic/rune cutouts give eleven existing bases physical painted identity throughout shared item presentation; actual weapon-family textures also reach world drops. Armour and bells still use delivered category art. Next targeted correction: the equipped Stash detail's clipped effect line, then further safe gear visuals.
