@@ -1,5 +1,11 @@
 # Lootlings Master Roadmap
 
+## Current canonical-world beta tranche
+
+Latest owner authority permits clean approved-board beta extracts. Five named canonical bodies are live, neutral exact; Gloomlet newly gated pending clean export, old saves preserved. Three biomes, market/floor, three distinct held weapons and two regional bosses are integrated. World Bible and Archive Field Notes, region travel writing and named resident/Forge/contract voices establish the world. Sources/limitations: `BETA_ART_PROVENANCE.md`.
+
+Next: high-resolution weaponless roster including Gloomlet, five remaining weapon-family cutouts/evolution art, six region environments/remaining bosses, adult NPC art and broader UI/outfit/item/VFX work. Multi-enemy/AoE/dungeon/remaining Signatures require another tested combat tranche. Earlier notes below describe their historical dates, not current authority.
+
 ## Latest playable expansion checkpoint
 
 Local contracts are now player-facing from Expeditions: three persistent, claim-rotated jobs drawn from six real-event objectives, with modest Gold rewards. Seeded dungeon rooms and simultaneous encounter routing remain separate unfinished expansion scope, not claims made by this checkpoint.

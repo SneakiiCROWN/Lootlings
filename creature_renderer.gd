@@ -3,6 +3,7 @@ extends RefCounted
 const ActionPoseCatalog = preload("res://action_pose_catalog.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const WeaponCatalog = preload("res://weapon_catalog.gd")
+const BetaArt = preload("res://beta_art_catalog.gd")
 
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
 const RAZOR_IMP_TEXTURE = preload("res://art/sprites/enemies/razor_imp.png")
@@ -185,7 +186,15 @@ func draw_daggers(g, pos: Vector2, angle: float, growth: float, color: Color) ->
 	draw_weapon_sprite(g, ROGUE_WEAPON_TEXTURE, pos + Vector2(24, 15), Rect2(-4, -98, 112, 102), angle * 0.62, growth, color, Vector2(75, -55))
 
 func draw_weapon_sprite(g, texture: Texture2D, pivot: Vector2, rect: Rect2, rotation: float, growth: float, accent: Color, glow_offset: Vector2) -> void:
-	texture = WeaponCatalog.runtime_texture(str(g.inventory.equipped_item("Weapon").get("weapon_type", "")), texture)
+	var item: Dictionary = g.inventory.equipped_item("Weapon")
+	var subtype := str(item.get("weapon_type", ""))
+	growth *= 1.0 + clampi(int(item.get("evolution_stage", 0)), 0, 2) * 0.06
+	texture = WeaponCatalog.runtime_texture(subtype, texture, int(item.get("evolution_stage", 0)))
+	rect = WeaponCatalog.held_rect(subtype, rect)
+	if subtype in ["greatsword", "greataxe"]:
+		rotation += 0.58
+	if subtype == "orb":
+		glow_offset = Vector2(16, -4)
 	var glow := accent
 	glow.a = 0.16
 	g.draw_set_transform(pivot, rotation, Vector2.ONE * growth)
@@ -206,6 +215,11 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	if g.enemy_is_boss:
 		texture = HOARD_DRAGON_TEXTURE
 		sprite_rect = Rect2(-104, -108, 208, 174)
+		var regional_texture := BetaArt.boss_texture(g.campaign_id)
+		if regional_texture != null:
+			texture = regional_texture
+			sprite_rect = Rect2(-120, -142, 240, 208)
+			pos.x -= 26.0
 		shadow_radius = 78.0
 		threat_color = Color("#a94dff2e")
 	elif g.enemy_is_miniboss:

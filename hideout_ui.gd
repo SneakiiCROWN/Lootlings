@@ -23,6 +23,8 @@ const ItemCatalog = preload("res://item_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
 const DialogueDirector = preload("res://dialogue_director.gd")
+const WorldStory = preload("res://world_story.gd")
+const BetaArt = preload("res://beta_art_catalog.gd")
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const ForgeSystem = preload("res://forge_system.gd")
@@ -76,6 +78,10 @@ var upgrade_content: Control
 var coming_content: Control
 var shop_content: Control
 var achievement_content: Control
+var lore_content: Control
+var lore_detail: RichTextLabel
+var lore_entries: Array = []
+var lore_index := 0
 var achievement_grid: GridContainer
 var achievement_detail: RichTextLabel
 var achievement_summary: Label
@@ -146,6 +152,7 @@ func _ready() -> void:
 	build_upgrades()
 	build_shop()
 	build_achievements()
+	build_lore()
 	build_coming_soon()
 	build_dialogue_overlay()
 	build_transition_overlay()
@@ -233,7 +240,7 @@ func refresh_current_screen() -> void:
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
-	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, coming_content]
+	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -398,9 +405,9 @@ func show_campaign() -> void:
 	for id in CampaignSystem.ORDER:
 		var available: bool = campaign != null and campaign.available(id)
 		var tuning: Array = CampaignSystem.TRAITS.get(id, [])
-		var detail := "Original three-zone adventure" if tuning.is_empty() else str(tuning[3]) + "\nTEMP ART • reused enemies, bosses and scenery"
+		var detail := WorldStory.region_line(id, 0)
 		if not tuning.is_empty():
-			detail = "%s patrols • %s\nTEMP ART • reused actors / scenery" % [str(CampaignSystem.REGIONAL_VARIANTS[id]).capitalize(), str(tuning[2]).capitalize()]
+			detail += "\n%s patrols • %s" % [str(CampaignSystem.REGIONAL_VARIANTS[id]).capitalize(), str(tuning[2]).capitalize()]
 		var status := "CONQUERED" if campaign != null and id in campaign.completed else "PLAY" if available else "LOCKED"
 		var button := make_button(campaign_list, "%s\n%s\n%s" % [CampaignSystem.title(id), detail, status], Rect2(0, 0, 408, 112), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
 		button.custom_minimum_size = Vector2(408, 112)
@@ -428,7 +435,7 @@ func refresh_forge() -> void:
 			add_forge_entry(item, index)
 	for weapon_type in ForgeSystem.WeaponCatalog.STARTERS:
 		var data := ForgeSystem.WeaponCatalog.definition(weapon_type)
-		var button := make_button(forge_list, "MAKE %s\n150 Gold + 6 Scrap • TEMP ART" % str(data.name).to_upper(), Rect2(0, 0, 398, 72), Color("#172442"), Color("#8bbedb"), 15)
+		var button := make_button(forge_list, "MAKE %s\n150 Gold + 6 Scrap" % str(data.name).to_upper(), Rect2(0, 0, 398, 72), Color("#172442"), Color("#8bbedb"), 15)
 		button.custom_minimum_size = Vector2(398, 72)
 		button.pressed.connect(select_forge_recipe.bind(weapon_type))
 	select_forge_weapon(-1)
@@ -438,7 +445,7 @@ func select_forge_recipe(weapon_type: String) -> void:
 	forge_armed = false
 	var item := ForgeSystem.WeaponCatalog.starter(weapon_type)
 	var description: String = str(item.desc).replace(" TEMP ART: shared class weapon.", "")
-	forge_detail.text = "%s\n%s\nTEMP ART • shared class weapon\n\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, description, gold, current_inventory.scrap]
+	forge_detail.text = "%s\n%s\n\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, description, gold, current_inventory.scrap]
 	forge_detail.add_theme_font_size_override("font_size", 17)
 	forge_confirm.text = "MAKE • STORE IN STASH"
 	forge_confirm.disabled = gold < 150 or current_inventory.scrap < 6 or current_inventory.stash.size() >= current_inventory.stash_capacity
@@ -587,6 +594,45 @@ func build_achievements() -> void:
 	achievement_detail.add_theme_font_size_override("normal_font_size", 15)
 	achievement_detail.add_theme_color_override("default_color", Color("#e7edff"))
 	detail_panel.add_child(achievement_detail)
+	var lore_button := make_button(achievement_content, "FIELD NOTES • WORLD & STORIES", Rect2(42, 797, 396, 46), Color("#252343"), Color("#b5a0de"), 14)
+	lore_button.pressed.connect(show_lore)
+
+func build_lore() -> void:
+	lore_content = Control.new()
+	lore_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	lore_content.visible = false
+	add_child(lore_content)
+	make_button(lore_content, "‹ TROPHIES", Rect2(20, 20, 124, 48), Color("#202d4d"), Color("#7f94bc"), 15).pressed.connect(show_achievements)
+	make_label(lore_content, "FIELD NOTES", 27, Rect2(148, 23, 312, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(lore_content, "Recovered stories • new trails reveal new pages", 13, Rect2(22, 108, 436, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
+	var panel := make_panel(lore_content, Rect2(24, 175, 432, 528), Color("#10162ff2"), Color("#b5a0de"))
+	LootlingsUI.apply_material(panel, "relic")
+	lore_detail = LootlingsUI.rich_label(panel, Rect2(28, 30, 376, 466), 18, Color("#e7edff"))
+	lore_detail.scroll_active = true
+	make_button(lore_content, "‹ PREVIOUS", Rect2(28, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(-1))
+	make_button(lore_content, "NEXT ›", Rect2(248, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(1))
+
+func show_lore() -> void:
+	dismiss_dialogue()
+	lore_entries = [["THE CROWNFALL", WorldStory.PREMISE]]
+	for id in LootlingCatalog.selectable_ids():
+		if LootlingCatalog.is_runtime_ready(id):
+			lore_entries.append([str(LootlingCatalog.definition(id).display_name), WorldStory.ORIGINS[id]])
+	for name in WorldStory.NPC_NOTES:
+		lore_entries.append([name, WorldStory.NPC_NOTES[name]])
+	for id in CampaignSystem.ORDER:
+		if campaign != null and campaign.available(id):
+			lore_entries.append([CampaignSystem.title(id), "%s\n\n%s" % [WorldStory.region_line(id, 0), WorldStory.region_line(id, 1)]])
+	lore_index = clampi(lore_index, 0, lore_entries.size() - 1)
+	current_screen = "lore"
+	set_screen(lore_content)
+	cycle_lore(0)
+
+func cycle_lore(direction: int) -> void:
+	lore_index = posmod(lore_index + direction, lore_entries.size())
+	var entry: Array = lore_entries[lore_index]
+	lore_detail.text = "[center][font_size=25][color=#ffe178]%s[/color][/font_size]\n[color=#b99de6]PAGE %d / %d[/color][/center]\n\n%s" % [str(entry[0]).to_upper(), lore_index + 1, lore_entries.size(), entry[1]]
+	lore_detail.scroll_to_line(0)
 
 func refresh_achievements() -> void:
 	if achievement_grid == null:
@@ -930,11 +976,8 @@ func slot_icon(slot: String) -> String:
 func weapon_texture_for_item(item: Dictionary) -> Texture2D:
 	if item.get("slot", "") != "Weapon":
 		return null
-	match item.get("family", "VANGUARD"):
-		"RANGER": return RANGER_WEAPON_TEXTURE
-		"MAGE": return MAGE_WEAPON_TEXTURE
-		"ROGUE": return ROGUE_WEAPON_TEXTURE
-	return VANGUARD_WEAPON_TEXTURE
+	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE, "MAGE":MAGE_WEAPON_TEXTURE, "ROGUE":ROGUE_WEAPON_TEXTURE}.get(str(item.get("family", "VANGUARD")), VANGUARD_WEAPON_TEXTURE)
+	return ForgeSystem.WeaponCatalog.runtime_texture(str(item.get("weapon_type", "")), fallback, int(item.get("evolution_stage", 0)))
 
 func apply_item_thumbnail(button: Button, item: Dictionary, card_layout: bool = false) -> void:
 	var old_badge := button.get_node_or_null("RarityBadge")
@@ -1023,7 +1066,13 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	if entry.is_empty():
 		return
 	var speaker := str(entry.speaker)
-	speech_label.text = "%s\n%s" % [speaker.to_upper(), str(entry.text)]
+	var voice_name: String = WorldStory.SPEAKERS.get(speaker, speaker)
+	var line := str(entry.text)
+	if speaker == "Mascot":
+		var id := str(profile.get("current_lootling_id", "relic_beast"))
+		voice_name = str(LootlingCatalog.definition(id).display_name)
+		line = WorldStory.mascot_line(id, 1 if context == "victory" else 0)
+	speech_label.text = "%s\n%s" % [voice_name.to_upper(), line]
 	speech_panel.position = dialogue_anchor(speaker)
 	speech_panel.visible = true
 	speech_panel.modulate = Color(1, 1, 1, 0)
@@ -1110,11 +1159,12 @@ func _draw() -> void:
 		"stash": draw_stash_scene()
 		"upgrades": draw_shrine_scene()
 		"coming": draw_archive_scene()
-		"achievements": draw_archive_scene()
+		"achievements", "lore": draw_archive_scene()
 	draw_ui_sparks()
 
 func background_for_screen() -> Texture2D:
 	match current_screen:
+		"campaign", "contracts", "forge": return BetaArt.MARKET
 		"shop": return SHOP_BACKGROUND
 		"stash": return STASH_BACKGROUND
 		"upgrades": return SHRINE_BACKGROUND

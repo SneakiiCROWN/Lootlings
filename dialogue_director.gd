@@ -4,6 +4,18 @@ const RECENT_LIMIT := 6
 const SPEAKER_COOLDOWN := 4.5
 
 const POOLS := {
+	"forge_evolved":[
+		{"speaker":"Salvager", "text":"Same blade. Better argument. Mind the new edge.", "weight":3.0},
+		{"speaker":"Salvager", "text":"I taught the metal some manners. Mostly bad ones.", "weight":2.0}
+	],
+	"new_weapon":[
+		{"speaker":"Salvager", "text":"A fresh weapon! No warranty on ghosts.", "weight":3.0},
+		{"speaker":"Mascot", "text":"New gear smell. Old treasure intentions.", "weight":2.0}
+	],
+	"contract_complete":[
+		{"speaker":"Archivist", "text":"Job done. Gold counted. Your handwriting remains a crime.", "weight":3.0},
+		{"speaker":"Salvager", "text":"Honest payment. I'll try not to make a habit of it.", "weight":2.0}
+	],
 	"idle":[
 		{"speaker":"Salvager", "text":"If it sparks, it's either valuable or educational.", "weight":3.0},
 		{"speaker":"Salvager", "text":"That dent? Structural personality.", "weight":2.0},
@@ -61,7 +73,7 @@ const POOLS := {
 	],
 	"travel":[
 		{"speaker":"Mascot", "text":"Oversized weapons are a feature, not a workplace incident.", "weight":2.0},
-		{"speaker":"Archivist", "text":"Different weapons should change posture, timing, and projectile language.", "weight":2.0},
+		{"speaker":"Archivist", "text":"Take the old road. The new one has started answering back.", "weight":2.0},
 		{"speaker":"Salvager", "text":"Run Scrip disappears after a run. Spend it or enjoy the memory.", "weight":2.0},
 		{"speaker":"Relic Keeper", "text":"If something sparkles in Hoard Depths, assume it has opinions.", "weight":2.0}
 	],

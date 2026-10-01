@@ -2,6 +2,8 @@ extends RefCounted
 
 const World = preload("res://world_content_catalog.gd")
 const Zones = preload("res://zone_catalog.gd")
+const BetaArt = preload("res://beta_art_catalog.gd")
+const Story = preload("res://world_story.gd")
 const ORDER := ["act_i", "mossglass_wilds", "moonfen", "frostbell_hollows", "sunken_gearworks", "cinder_crown", "starfall_archive", "nullglass_expanse", "skyhook_bastion", "first_hoard"]
 # HP / attack interval / preferred role. These affect NEW regions only.
 const TRAITS := {
@@ -72,10 +74,14 @@ static func zone_for(id: String, wave: int) -> Dictionary:
 	var result: Dictionary = Zones.ZONES[phase].duplicate(true)
 	result.id = id
 	result.short_name = {"mossglass_wilds":"MOSSGLASS", "moonfen":"MOONFEN", "frostbell_hollows":"FROSTBELL", "sunken_gearworks":"GEARWORKS", "cinder_crown":"CINDER CROWN", "starfall_archive":"STARFALL", "nullglass_expanse":"NULLGLASS", "skyhook_bastion":"SKYHOOK", "first_hoard":"FIRST HOARD"}[id]
-	result.name = "%s • TEMP ART" % data.name
+	result.name = data.name
 	result.entry = ["ENTERING", "INNER SANCTUM", "BOSS APPROACH"][phase] + " • " + data.name
 	result.accent = tuning[4]
 	result.presentation_tint = Color.WHITE.lerp(tuning[4], 0.20)
+	result.background = BetaArt.region_background(id, result.background)
+	if id in ["mossglass_wilds", "frostbell_hollows", "cinder_crown"]:
+		result.presentation_tint = Color.WHITE
+	result.story_line = Story.region_line(id, 0 if phase == 0 else 1 if phase == 1 else 2)
 	result.hp_scale = float(tuning[0]) * (1.0 + ORDER.find(id) * 0.015)
 	result.interval_scale = float(tuning[1])
 	result.boss = str(data.boss).to_upper()

@@ -69,7 +69,8 @@ func _initialize() -> void:
 	var gold := 3000
 	for weapon_type in Forge.WeaponCatalog.STARTERS:
 		var purchase := Forge.craft(inventory, gold, weapon_type, 123)
-		assert(purchase.ok and purchase.item.weapon_type == weapon_type and purchase.item.temp_art)
+		assert(purchase.ok and purchase.item.weapon_type == weapon_type)
+		assert(purchase.item.temp_art == not ResourceLoader.exists("res://art/sprites/weapons/%s_held.png" % weapon_type))
 		assert(purchase.item.evolution_path.size() == 2)
 		gold = purchase.gold
 	assert(inventory.stash.size() == 7 and gold == 1950 and inventory.scrap == 58)

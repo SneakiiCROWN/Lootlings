@@ -2,6 +2,8 @@
 
 Authoritative planning source: `art/reference/docs/`.
 
+Current world/art authority additionally includes `LOOTLINGS_WORLD_BIBLE.md` and the approved Phase 2 boards. `BETA_ART_PROVENANCE.md` distinguishes live beta extracts from final production needs. Archive Field Notes is live: six art-ready identity origins, three named residents, Crownfall and campaign-unlocked trail pages. Forge/contract contextual dialogue is connected to actual successful actions. Resident artwork and broader simultaneous encounter/dungeon expansion remain deferred.
+
 Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implemented data behind an activation gate; `ASSET_NEEDED` requires dedicated clean runtime art; `FUTURE` is deliberately later; `DEFERRED` was excluded from this checkpoint for stability.
 
 ## Characters
@@ -9,7 +11,8 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Neutral Relic Beast | LIVE | Exact canonical `art/sprites/relic_beast_base.png`; current base player. |
-| Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, Gloomlet | LIVE — TEMP ART | Selectable/persistent cosmetic identities; labelled tinted neutral stand-in under latest gameplay-first brief. Canonical final art still required; sheets are not cropped. Cached runtime catalog hooks feed combat/Home/Title. |
+| Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin | LIVE — CANONICAL BETA | Original canonical turnaround cutouts, untinted, through existing runtime hooks. High-resolution weaponless production replacements still needed; see BETA_ART_PROVENANCE.md. |
+| Gloomlet | ART GATED | New selection disabled after failed clean extraction; old saved ID remains compatible with prior temporary fallback. |
 | Additional pose cutouts for all seven Lootlings | DEFERRED | Existing transform-driven pose layer is live. Four optional extra cutouts per identity are LATER; accepted idle art is sufficient for an initial honest identity integration. |
 
 ## Run, enemies, and world
@@ -22,7 +25,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Echoing / Hungry / Hoarder / Shiny | DEFINED_DATA | Master-catalog identities retained for later mechanics/art/collection hooks. |
 | Solo Duelist / Heavy Solo | LIVE | Current single-target combat architecture. |
 | Duos / Guard+Caster / Scraprat Pack / treasure escape / Mimic Room / Elite Guard | DEFINED_DATA | Composition contracts exist; simultaneous targeting and dedicated assets intentionally deferred. |
-| Act II–V zones | LIVE — TEMP ART | Eight sequentially unlocked 15-wave solo expeditions; role mixes, pace/durability, themed loot/music, names/tints and readable existing regional-variant patrol mechanics. Existing actor/boss/environment art reused honestly; bespoke bosses and multi-actor encounters remain deferred. |
+| Act II–V zones | LIVE — PARTIAL BETA ART | Mossglass/Frostbell/Cinder have approved painted biomes; Mossglass/Cinder have distinct boss cutouts. Other expanded regions still reuse existing art. Solo mechanics/balance unchanged; multi-actor encounters deferred. |
 | The First Hoard | LIVE — TEMP ART | Ninth unlockable new region; same established reward flow, heavy patrol identity and curated existing loot. Full endgame narrative/bespoke boss remains future. |
 
 ## Loot, weapons, and rewards
@@ -30,7 +33,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Content | Status | Runtime note |
 | --- | --- | --- |
 | Greatsword, Maul, Bow, Staff, Twin Daggers | LIVE | Correct current combat semantics and safe runtime art families; weapon subtype/evolution/projectile metadata added. |
-| Greataxe, Spear/Halberd, Claws, Crossbow, Relic Sling, Wand, Orb/Focus | LIVE — TEMP ART | Seven Forge-crafted approved bases with distinct actual attack hooks/projectile timing. Existing class held art/icon reused with explicit TEMP ART; dedicated texture paths ready. Not added to the validated 35-base random drop pool. |
+| Greataxe, Spear/Halberd, Claws, Crossbow, Relic Sling, Wand, Orb/Focus | LIVE — PARTIAL BETA ART | Forge mechanics unchanged. Greataxe/focus now have distinct approved art; Greatsword also no longer shares hammer. Five remaining families reuse class art. Random drop pool unchanged. |
 | 35 drop bases + seven Forge bases | LIVE | Existing 35-base drop pool and odds unchanged; additional weapon bases are crafted into Stash for 150 Gold + 6 Scrap each. IDs/rarity/affix/save compatibility preserved. |
 | 20 standard affixes | LIVE | Slot compatibility retained; additions use existing bounded stats. |
 | Crooked Constellation / First Light / Grudgekeeper / Last Laugh | LIVE | Existing behaviour-changing signatures preserved. |

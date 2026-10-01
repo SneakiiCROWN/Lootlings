@@ -2,6 +2,18 @@
 
 ## CURRENT STATE
 
+### Canonical world / beta visual integration — current checkpoint
+
+Continued from clean `c938729ef3b22d5856b986a18e452dd843054695`, preserved in history. Latest overhaul authority permits approved-board beta extraction. Emberhorn, Mosskin, Moonkip, Pebblewyrm and Glimmerfin now render their own canonical turnaround artwork untinted. Neutral Relic Beast remains unchanged. Gloomlet failed extraction quality review: new selection disabled; existing saved ID retains the prior temporary fallback. Five accepted low-resolution/baked-gear sprites are beta, not final weaponless production art.
+
+Visible: three painted biomes (Mossglass/Frostbell/Cinder), market for Expedition/Contracts/Forge, feathered contact floor, distinct greatsword/greataxe/focus art and matching thumbnails, Verdant Mirror/Furnace Regent boss bodies. Native QA corrected heavy-blade orientation, focus visual origin and boss edge placement. Evolution has stage-aware asset lookup and capped visual growth, not new stage sprites/damage. Six other expanded-region environments and five weapon families still reuse existing art.
+
+`LOOTLINGS_WORLD_BIBLE.md` establishes history, factions, seven personalities, adult residents and ten region stories. Named dialogue, short travel lines, Forge/contract context and Trophy Archive → Field Notes expose this in-game. Trail pages use existing campaign progress; no save schema changes. Resident bodies remain procedural. Multi-enemy/AoE/dungeon/remaining Signatures and broader wardrobe/UI/VFX overhaul are not half-built here.
+
+Exact sources/limits: `BETA_ART_PROVENANCE.md`. Original boards/neutral pixels preserved. Image-generation service was usage-limited; no generated asset claimed. Bounded imported caches and one floor draw, no new combat actors/shaders/particles. Saves, IDs, cadence, odds, economy, audio and Act I formulas unchanged. Desktop sanity is not Android certification.
+
+Validation: clean Godot 4.7.2 parser/import; smoke (unchanged 2/5 victories), expansion/save/migration/equipment/economy, contracts, weapon hooks (seven seeded full runs), canonical-world tests, 96 deterministic runs (22 wins), 36 regional runs (9 wins) plus ten complete chest/reward/unlock paths. Native OpenGL 480×854 captures inspected for all six real identities, art gate, new regions/bosses/weapons, campaign and Field Notes; existing full visual harness also passed major Hideout/combat/reward/pause/Results states. Archive button and item review inspected for overlap. Unchanged audio harness passed: peak -0.80 dBFS, RMS -21.06 dBFS, limiter active; this is internal native-bus QA, not a new Windows recording/loudness claim. Neutral/source Git comparison and diff whitespace checks clean. Isolated APPDATA only; QA images/logs ignored. Older sections below are dated checkpoint history, not current placeholder claims.
+
 ### Expansion integration validation / remaining scope
 
 Completed tranches are selectable cosmetic identities, a ten-entry progressive solo campaign, seven additional Forge-acquired weapon mechanics, capped owned-weapon evolution and local contracts. Baseline fallback `20bbc83244e05dc0ea0207d21b0ed4564c19b033` remains in Git history. No reference art, final sprites, long-form score, original drop odds or Act I balance formula was replaced.

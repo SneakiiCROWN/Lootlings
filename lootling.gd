@@ -917,6 +917,8 @@ func evolve_owned_weapon(stash_index: int) -> void:
 	save_hideout_economy()
 	play_audio_event("shop_purchase")
 
+	hideout_ui.queue_dialogue_context("forge_evolved")
+
 func start_campaign(region_id: String) -> void:
 	if state != "hideout" or not campaign.available(region_id):
 		return
@@ -934,6 +936,8 @@ func craft_weapon(weapon_type: String) -> void:
 	save_hideout_economy()
 	play_audio_event("shop_purchase")
 
+	hideout_ui.queue_dialogue_context("new_weapon")
+
 func claim_contract(slot: int) -> void:
 	if state != "hideout": return
 	var reward := contracts.claim(slot)
@@ -944,6 +948,7 @@ func claim_contract(slot: int) -> void:
 	refresh_hideout()
 	hideout_ui.refresh_contracts()
 	play_audio_event("shop_purchase")
+	hideout_ui.queue_dialogue_context("contract_complete")
 
 func record_contract_chest() -> void:
 	contracts.record("chest")
@@ -1356,6 +1361,7 @@ func begin_zone_transition() -> void:
 			flavor = "Warm gears turn beneath the rubble. Mind the sparks."
 		elif current_zone_id == "hoard_depths":
 			flavor = "Ancient locks stir. Something enormous counts its coins."
+		flavor = str(current_zone.get("story_line", flavor))
 		presentation_director.play_travel(zone_transition_title, "%s\n%s" % [zone_transition_subtitle, flavor], current_zone.accent, Callable(), 0.78)
 
 func begin_special_intro() -> void:
@@ -1546,6 +1552,8 @@ func perform_player_attack(is_tap: bool) -> void:
 		if is_tap:
 			travel_time *= 0.82
 		var launch_position := Vector2(player_x + 58.0, 427.0) if family == "RANGER" else Vector2(player_x + 46.0, 407.0)
+		if subtype == "orb":
+			launch_position = Vector2(player_x + 42.0, 480.0)
 		attack_projectiles.append({
 			"family": family,
 			"weapon_type": subtype,
@@ -2685,6 +2693,9 @@ func draw_background() -> void:
 	var depth_drift := sin(run_time * 0.20) * minf(2.5, max_source_y * 0.5)
 	var source := Rect2(0, clampf(max_source_y * 0.5 + depth_drift, 0.0, max_source_y), texture_size.x, source_height)
 	draw_texture_rect_region(arena_background, target, source, current_zone.get("presentation_tint", Color.WHITE))
+	if current_zone_id in ["mossglass_wilds", "frostbell_hollows", "cinder_crown"]:
+		# Reuse painted masonry to anchor feet; scenery is not the collision plane.
+		draw_texture_rect(preload("res://beta_art_catalog.gd").PLATFORM, Rect2(0, 504, 480, 110), false, Color("#ddb99a") if current_zone_id == "cinder_crown" else Color.WHITE)
 	# Quiet the combat band slightly while keeping the lanterns and moon visible.
 	var plane_tint := Color("#17100c28") if current_zone_id == "emberworks" else Color("#09082230") if current_zone_id == "hoard_depths" else Color("#08122922")
 	draw_rect(Rect2(0, 182, 480, 382), plane_tint, true)
@@ -2715,12 +2726,6 @@ func draw_hud() -> void:
 	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
 	var actor := LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast")))
 	draw_string(title_font, Vector2(18, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 208, 21, Color("#ffe178"))
-	if actor.temp_art:
-		draw_string(body_font, Vector2(18, 71), "TEMP ART • COSMETIC IDENTITY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
-	elif campaign_id != "act_i":
-		draw_string(body_font, Vector2(18, 71), "TEMP ART • REGION ACTORS / SCENERY", HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
-	elif inventory.equipped_item("Weapon").get("temp_art", false):
-		draw_string(body_font, Vector2(18, 71), "TEMP ART • " + str(inventory.equipped_item("Weapon").get("weapon_type", "")).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 208, 8, Color("#c4abde"))
 	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)

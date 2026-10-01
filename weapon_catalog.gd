@@ -50,20 +50,28 @@ static func starter(id: String) -> Dictionary:
 	data.projectile = definition.projectile
 	data.evolution_path = definition.evolutions[0].slice(1)
 	data.icon = definition.name
-	data.temp_art = true
-	data.desc += " TEMP ART: shared class weapon."
+	data.temp_art = not ResourceLoader.exists("res://art/sprites/weapons/%s_held.png" % id)
 	return data
 
-static func runtime_texture(id: String, fallback: Texture2D) -> Texture2D:
+static func runtime_texture(id: String, fallback: Texture2D, stage: int = 0) -> Texture2D:
 	# Legacy saves may predate weapon_type. Never cache one class's fallback
 	# under a shared empty key and accidentally render it for another class.
 	if id.is_empty():
 		return fallback
-	if texture_cache.has(id):
-		return texture_cache[id]
+	var key := "%s_%d" % [id, clampi(stage, 0, 2)]
+	if texture_cache.has(key):
+		return texture_cache[key]
 	var path := "res://art/sprites/weapons/%s_held.png" % id
-	texture_cache[id] = load(path) if ResourceLoader.exists(path) else fallback
-	return texture_cache[id]
+	var evolved := "res://art/sprites/weapons/%s_stage%d_held.png" % [id, clampi(stage, 0, 2)]
+	if stage > 0 and ResourceLoader.exists(evolved): path = evolved
+	texture_cache[key] = load(path) if ResourceLoader.exists(path) else fallback
+	return texture_cache[key]
+
+static func held_rect(id: String, fallback: Rect2) -> Rect2:
+	match id:
+		"greatsword", "greataxe": return Rect2(-58, -122, 128, 140)
+		"orb": return Rect2(-33, -53, 98, 98)
+		_: return fallback
 
 static func definition(id: String) -> Dictionary:
 	var data: Dictionary = FAMILIES.get(id, {}).duplicate(true)

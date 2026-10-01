@@ -1,5 +1,7 @@
 # Phase 2 Master Reference Audit
 
+Current owner authority: the later CANONICAL WORLD / ART / STORY / CONTENT OVERHAUL permits clean individual beta extraction. Selected scenery, three weapons and two regional bosses have now been mechanically exported; see root `BETA_ART_PROVENANCE.md`. Originals, hashes and this reference inventory remain unchanged. The audit-time reference-only/no-runtime statement below is historical, not the current integration restriction.
+
 Audited 2026-10-01 against stable code `b5cb71355b28367a54de5b993fc1805243154b51`. All 15 original PNGs were visually inspected. There are 14 unique images, all 1448×1086. Every unique byte stream is preserved; one downloaded `(1)` copy is hash-exact redundant. No image was cropped, repainted or enabled at runtime. Parent `art/reference/.gdignore` keeps these boards out of Godot imports.
 
 ## Authority and use
