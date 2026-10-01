@@ -2,7 +2,9 @@
 
 ## Current canonical-world beta tranche
 
-Simultaneous patrols are opt-in from Expeditions: bounded duos/three-member packs use scheduled role compositions, separate HP/status/targeting, target-bound projectiles and Mage/heavy/Fire AoE. Solo remains default. Boss adds/Mimic/treasure escape and seeded route dungeon are subsequent work. Twelve paired seeded comparisons preserve 5/12 wins; accepted solo balance remains unchanged.
+Seeded Relic Route is live after Act I: eight bounded room-choice layers reuse combat, merchant, Shrine/upgrade, physical chest, item and Results systems. Optional short-mode special scaling/reward caps are separate from the accepted campaign. Repeated route matrix: 12/12 balanced-path wins versus 3/12 greedy-path wins; no campaign unlock or empty-route payout. Boss adds, treasure escape/Mimic and remaining Signature/evolution behaviour are subsequent scope, not claims made by route delivery.
+
+Simultaneous patrols are opt-in from Expeditions: bounded duos/three-member packs use scheduled role compositions, separate HP/status/targeting, target-bound projectiles and Mage/heavy/Fire AoE. Solo remains default. Boss adds/Mimic/treasure escape remain subsequent work. Twelve paired seeded comparisons preserve 5/12 wins; accepted solo balance remains unchanged.
 
 Stash continuation: four visual equipment slots and art-first selected gear details replace the clipped text wall while retaining current filters and actions. Full comparisons scroll; painted outfit swaps still require appropriate canonical creature-compatible overlays, not adult board costumes pasted onto the mascot.
 

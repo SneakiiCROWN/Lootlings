@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — seeded Relic Route
+
+Expeditions now offers an eight-stop seeded route after Act I is cleared. Each stop presents two meaningful room choices (final Boss has one): Combat, Elite, Treasure, Merchant, Shrine, Risk, Rest and Boss. Role-mixed patrol forks use the bounded actor adapter; merchants, upgrades, item decisions and the complete Hoard Dragon → physical Hoard Chest → three Epic+ choices reuse existing systems. The initial seed can be changed before entry. Routes are session-only, not resumable saved campaigns.
+
+Rest restores 22% max HP; Shrine grants one run upgrade, not permanent Training. Risk raises room attack pressure 10%. Short-route special encounters are explicitly mode-tuned: early Elite HP ×0.65/damage ×0.80, final boss HP ×0.25/damage ×0.40. Campaign formulas, cadence, loot odds and progression remain unchanged. Route Gold is capped at five per actual kill (100 max); Shards at half kills plus two on victory (18 max). Empty entry/exit pays nothing and cannot refresh the Hideout shop. Route victories do not unlock campaign regions. Existing inventory/save formats are unchanged; double-entry and double-payout guards are tested.
+
+Fixed route restart combo carry and an overly steep initial difficulty ramp discovered in simulation. Final 48 actual seeded runs/repeats are deterministic: rest/shrine path wins 12/12, risk/merchant path 3/12. Winning paths earned 45–55 Gold and 6–7 Shards. These are initial desktop automation results, not a claim of final human difficulty tuning. The accepted 96-run campaign audit remains unchanged (22 wins); 36 regional runs and ten complete reward/unlock paths passed. Import/parser, smoke (2/5), save/migration/inventory/economy, contracts, weapon/item/chest, resident and canonical-world suites passed. Native OpenGL 480×854 route forks, merchant, Shrine, physical Treasure chest, Boss Hoard and Results plus the existing full screen suite were inspected. Corrected a missing icon path, merchant room caption and stale Results Pause visibility. No new art, music, shaders or save schema; route generation is bounded to eight layers/two choices. Android device certification remains pending.
+
 ### Continued overhaul — bounded simultaneous patrol combat
 
 Expeditions offers a session-only SOLO/GROUPS patrol toggle, default SOLO. Groups consume existing scheduled wave members: even regular waves use two foes, wave 10 uses three; miniboss/boss and Hoard rules remain unchanged. Existing `ZoneCatalog.encounter_for` drives membership. `enemy_encounter.gd` adapts separate HP/status/clock/variant/guard/opener/serial state to existing combat functions, not a second damage/reward engine. Tap foes or their HP lanes to target; auto-combat continues. Ranged shots bind to their launched target. Mage/heavy/strong-Fire builds apply bounded AoE. Each member awards its original rewards/drop roll once; no additional reward-bearing enemies.

@@ -5,7 +5,9 @@ signal forge_requested(stash_index: int)
 signal forge_craft_requested(weapon_type: String)
 signal campaign_requested(region_id: String)
 signal group_patrols_changed(enabled: bool)
+signal dungeon_requested
 var group_patrols_enabled := false
+var dungeon_start_button: Button
 signal contract_claim_requested(slot: int)
 signal stash_equip_requested(index: int)
 signal stash_scrap_requested(index: int)
@@ -392,12 +394,14 @@ func build_campaign() -> void:
 	make_label(campaign_content, "Conquer a region to unlock the next.\n15 waves • miniboss • boss • merchant stops", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(24, 190)
-	scroll.size = Vector2(432, 544)
+	scroll.size = Vector2(432, 460)
 	campaign_content.add_child(scroll)
 	campaign_list = VBoxContainer.new()
 	campaign_list.custom_minimum_size.x = 408
 	campaign_list.add_theme_constant_override("separation", 12)
 	scroll.add_child(campaign_list)
+	dungeon_start_button = make_button(campaign_content, "SEEDED RELIC ROUTE • CHOOSE YOUR PATH", Rect2(24, 676, 432, 60), Color("#493052"), Color("#d4ad65"), 15)
+	dungeon_start_button.pressed.connect(func(): dungeon_requested.emit())
 	make_button(campaign_content, "LOCAL CONTRACTS", Rect2(24, 755, 210, 66), Color("#172442"), Color("#d4ad65"), 15).pressed.connect(show_contracts)
 	var patrol_button := make_button(campaign_content, "PATROLS: SOLO\nTap for group encounters", Rect2(246, 755, 210, 66), Color("#172442"), Color("#78e4ff"), 13)
 	patrol_button.pressed.connect(func():
@@ -436,6 +440,9 @@ func refresh_contracts() -> void:
 		contract_buttons[slot].disabled = not ready
 
 func show_campaign() -> void:
+	if dungeon_start_button != null:
+		dungeon_start_button.disabled = campaign == null or not "act_i" in campaign.completed
+		dungeon_start_button.text = "RELIC ROUTE • CLEAR ACT I TO UNLOCK" if dungeon_start_button.disabled else "SEEDED RELIC ROUTE • CHOOSE YOUR PATH"
 	dismiss_dialogue()
 	current_screen = "campaign"
 	set_screen(campaign_content)

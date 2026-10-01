@@ -252,6 +252,12 @@ var attack_projectiles: Array = []
 var enemy_serial := 0
 var enemy_encounter = preload("res://enemy_encounter.gd").new()
 var grouped_patrols := false
+var dungeon = preload("res://dungeon_route.gd").new()
+var route_panel: Panel
+var route_subtitle: Label
+var route_buttons: Array[Button] = []
+var route_visuals: Array[Dictionary] = []
+var route_reseed_button: Button
 var profile := {}
 var audio_settings := {}
 var achievements = AchievementManager.new()
@@ -620,6 +626,7 @@ func build_overlay_ui() -> void:
 	build_merchant_ui()
 	build_boss_reward_ui()
 	build_hoard_chest_ui()
+	build_route_ui()
 	build_pause_ui()
 
 func build_pause_ui() -> void:
@@ -659,6 +666,7 @@ func build_hideout() -> void:
 	hideout_ui.play_requested.connect(hideout_ui.show_campaign)
 	hideout_ui.campaign_requested.connect(start_campaign)
 	hideout_ui.group_patrols_changed.connect(func(enabled: bool): grouped_patrols = enabled)
+	hideout_ui.dungeon_requested.connect(start_dungeon)
 	hideout_ui.stash_equip_requested.connect(equip_stash_item)
 	hideout_ui.stash_scrap_requested.connect(scrap_stash_item)
 	hideout_ui.upgrade_requested.connect(buy_meta_power)
@@ -684,9 +692,12 @@ func request_start_run() -> void:
 	if presentation_director == null:
 		start_run()
 		return
-	presentation_director.play_travel("EXPEDITION DEPARTING", "The Relic Gate wakes. Outer Ruins ahead.", Color("#72c8ff"), Callable(self, "start_run"), 0.68)
+	presentation_director.play_travel("RELIC ROUTE DEPARTING" if dungeon.active else "EXPEDITION DEPARTING", "Choose a path through the sealed vaults." if dungeon.active else "The Relic Gate wakes. Outer Ruins ahead.", Color("#72c8ff"), Callable(self, "start_run"), 0.68)
 
 func show_hideout() -> void:
+	dungeon.active = false
+	if route_panel != null: route_panel.visible = false
+	enemy_encounter.clear()
 	state = "hideout"
 	if startup_ui != null:
 		startup_ui.visible = false
@@ -929,6 +940,7 @@ func evolve_owned_weapon(stash_index: int) -> void:
 func start_campaign(region_id: String) -> void:
 	if state != "hideout" or not campaign.available(region_id):
 		return
+	dungeon.active = false
 	campaign_id = region_id
 	request_start_run()
 
@@ -1027,6 +1039,113 @@ func build_item_ui() -> void:
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
 	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), accept_item_scrap)
+
+func build_route_ui() -> void:
+	route_panel = make_panel(Rect2(22, 184, 436, 534), Color("#0b1229fc"))
+	LootlingsUI.apply_material(route_panel, "relic")
+	route_panel.visible = false
+	make_label(route_panel, "CHOOSE YOUR PATH", 28, Rect2(18, 14, 400, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	route_subtitle = make_label(route_panel, "", 14, Rect2(24, 65, 242, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#bac9eb"))
+	route_reseed_button = make_action_button(route_panel, "NEW SEED", Vector2(278, 57), Vector2(134, 42), Color("#172442"), Color("#78e4ff"), reseed_route)
+	route_reseed_button.add_theme_font_size_override("font_size", 13)
+	for index in range(2):
+		var button := make_action_button(route_panel, "", Vector2(20, 106 + index * 134), Vector2(396, 122), Color("#172442"), Color("#d4ad65"), choose_route_room.bind(index))
+		for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
+			button.add_theme_color_override(state_color, Color.TRANSPARENT)
+		var icon := LootlingsUI.add_icon(button, Rect2(12, 28, 68, 68), "res://art/ui/icons/upgrades/damage.png")
+		var name_label := make_label(button, "", 17, Rect2(92, 12, 286, 30), HORIZONTAL_ALIGNMENT_LEFT, Color("#ffe178"))
+		var description := make_label(button, "", 14, Rect2(92, 48, 286, 64), HORIZONTAL_ALIGNMENT_LEFT, Color("#dbe7ff"))
+		description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		route_buttons.append(button)
+		route_visuals.append({"icon":icon, "name":name_label, "desc":description})
+	make_label(route_panel, "Short-route rewards scale with foes defeated.\nNo campaign unlocks or permanent Shrine stats.", 14, Rect2(24, 379, 388, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#bac9eb"))
+	make_action_button(route_panel, "END ROUTE", Vector2(24, 444), Vector2(388, 58), Color("#172442"), Color("#78e4ff"), func(): end_run(false))
+
+func start_dungeon() -> void:
+	if state != "hideout" or not "act_i" in campaign.completed: return
+	dungeon.setup(dungeon.seed_value, campaign_id if campaign.available(campaign_id) else "act_i")
+	request_start_run()
+
+func reseed_route() -> void:
+	if state != "route" or dungeon.depth >= 0: return
+	dungeon.setup(dungeon.seed_value + 1, dungeon.region_id)
+	rng.seed = dungeon.seed_value
+	loot_system.rng.seed = dungeon.seed_value ^ 0x6c00
+	seed(dungeon.seed_value ^ 0x7100)
+	show_route_choices()
+
+func show_route_choices() -> void:
+	if not dungeon.active: return
+	state = "route"
+	enemy_alive = false
+	enemy_death_anim = 0.0
+	enemy_encounter.clear()
+	wave_banner_timer = 0.0
+	help_label.visible = false
+	if pause_button != null: pause_button.visible = false
+	route_panel.visible = true
+	route_reseed_button.visible = dungeon.depth < 0
+	route_subtitle.text = "STOP %d / 8 • SEED %d" % [dungeon.depth + 2, dungeon.seed_value]
+	var options: Array = dungeon.choices()
+	for index in range(route_buttons.size()):
+		route_buttons[index].visible = index < options.size()
+		if index >= options.size(): continue
+		var option: Dictionary = options[index]
+		route_buttons[index].text = "%s\n%s" % [option.title, option.desc]
+		route_visuals[index].icon.texture = LootlingsUI.icon(option.icon)
+		route_visuals[index].name.text = "%s • %s" % [str(option.kind).to_upper(), option.title]
+		fit_label_font(route_visuals[index].name, route_visuals[index].name.text, 286, 17, 14)
+		route_visuals[index].desc.text = option.desc
+	if presentation_director != null: presentation_director.present_card(route_panel, Color("#d4ad65"), 0.22)
+
+func choose_route_room(index: int) -> void:
+	if state != "route" or not dungeon.active: return
+	var room: Dictionary = dungeon.choose(index)
+	if room.is_empty(): return
+	route_panel.visible = false
+	state = "route_travel"
+	if presentation_director == null:
+		enter_route_room()
+	else:
+		presentation_director.play_travel(str(room.title), str(room.desc), Color("#78e4ff"), enter_route_room, 0.42)
+
+func enter_route_room() -> void:
+	if not dungeon.active: return
+	state = "playing"
+	wave = int(dungeon.room.wave)
+	wave_kills = 0
+	current_zone = run_zone_for_wave(wave)
+	current_zone_id = current_zone.id
+	merchant_due = false
+	pending_zone_transition = false
+	item_review_due = false
+	enemy_alive = false
+	enemy_is_boss = false
+	enemy_is_miniboss = false
+	enemy_encounter.clear()
+	match dungeon.room.kind:
+		"Combat", "Elite", "Risk", "Boss":
+			if dungeon.room.kind in ["Elite", "Boss"]: play_audio_event("boss_warning")
+			spawn_enemy()
+			return
+		"Rest":
+			player_hp = minf(player_max_hp, player_hp + player_max_hp * 0.22)
+			play_audio_event("upgrade_select")
+		"Treasure":
+			enemy_is_miniboss = true
+			spawn_item_drop()
+			enemy_is_miniboss = false
+			item_review_due = true
+			record_contract_chest()
+			play_audio_event("chest_open")
+		"Merchant":
+			shop.stock.clear()
+			show_merchant()
+		"Shrine":
+			pending_levels += 1
+			show_upgrade_choices()
+			upgrade_title.text = "RELIC SHRINE • PICK ONE"
+	dungeon.room_finished = true
 
 func build_merchant_ui() -> void:
 	merchant_panel = make_panel(Rect2(28, 170, 424, 540), Color("#11182ee8"))
@@ -1244,7 +1363,16 @@ func start_run() -> void:
 	run_kept_loot.clear()
 	status_message = ""
 	status_clock = 0.0
-	spawn_enemy()
+	if dungeon.active:
+		rng.seed = dungeon.seed_value
+		tap_combo = 0
+		combo_clock = 0.0
+		loot_system.rng.seed = dungeon.seed_value ^ 0x6c00
+		seed(dungeon.seed_value ^ 0x7100)
+		enemy_alive = false
+		show_route_choices()
+	else:
+		spawn_enemy()
 	play_audio_event("menu_close")
 	if audio_manager != null:
 		audio_manager.set_music("OUTER_RUINS")
@@ -1253,7 +1381,7 @@ func start_run() -> void:
 
 func spawn_enemy() -> void:
 	enemy_encounter.clear()
-	var encounter: Dictionary = ZoneCatalog.encounter_for(run_zone_for_wave(wave), wave, wave_kills, grouped_patrols)
+	var encounter: Dictionary = ZoneCatalog.encounter_for(run_zone_for_wave(wave), wave, wave_kills, grouped_patrols or dungeon.active)
 	if encounter.members.size() > 1:
 		enemy_encounter.begin(self, mini(encounter.members.size(), ENEMIES_PER_WAVE))
 	else:
@@ -1283,6 +1411,8 @@ func spawn_single_enemy() -> void:
 		enemy_name = "GRUMP KNIGHT" if campaign_id == "act_i" else current_zone.miniboss
 	else:
 		enemy_archetype = ZoneCatalog.archetype_for(current_zone, wave, wave_kills)
+		if dungeon.active and not dungeon.room.is_empty():
+			enemy_archetype = dungeon.room.members[clampi(wave_kills, 0, dungeon.room.members.size() - 1)]
 		var enemy_definition := ZoneCatalog.enemy_for(current_zone, enemy_archetype)
 		enemy_name = enemy_definition.name
 	enemy_max_hp = (24.0 + wave * 7.0) * progress * type_bonus
@@ -1328,6 +1458,15 @@ func spawn_single_enemy() -> void:
 			enemy_variant_color = variant.accent
 			enemy_name = "%s %s" % [enemy_variant_name, enemy_name]
 	enemy_max_hp *= float(current_zone.get("hp_scale", 1.0))
+	if dungeon.active:
+		if enemy_is_boss:
+			enemy_max_hp *= 0.25
+			enemy_damage *= 0.40
+		elif enemy_is_miniboss and dungeon.depth <= 2:
+			enemy_max_hp *= 0.65
+			enemy_damage *= 0.80
+		elif dungeon.room.get("kind", "") == "Risk":
+			enemy_damage *= 1.10
 	enemy_attack_interval *= float(current_zone.get("interval_scale", 1.0))
 	enemy_hp = enemy_max_hp
 	enemy_attack_clock = enemy_attack_interval
@@ -1460,6 +1599,10 @@ func _process(delta: float) -> void:
 			return
 		if loot_drops.is_empty() and merchant_due:
 			show_merchant()
+			queue_redraw()
+			return
+		if dungeon.active and dungeon.room_finished:
+			show_route_choices()
 			queue_redraw()
 			return
 		if pending_zone_transition:
@@ -1886,6 +2029,13 @@ func kill_enemy() -> void:
 		pending_victory = true
 		item_review_due = true
 		return
+	if dungeon.active:
+		if wave_kills >= ENEMIES_PER_WAVE or enemy_is_miniboss:
+			dungeon.room_finished = true
+			item_review_due = true
+		if enemy_encounter.active: enemy_encounter.on_death(self)
+		carried_shockwave = minf(carried_shockwave, base_damage * 12.0)
+		return
 	if wave_kills >= ENEMIES_PER_WAVE or enemy_is_miniboss:
 		wave += 1
 		wave_kills = 0
@@ -2210,6 +2360,7 @@ func refresh_equipment_health() -> void:
 	player_hp = clampf(player_hp + maxf(0.0, difference), 1.0, player_max_hp)
 
 func show_merchant() -> void:
+	merchant_subtitle.text = "RELIC ROUTE • MERCHANT ROOM" if dungeon.active else "ROADSIDE STOP  •  BETWEEN WAVES"
 	state = "merchant"
 	merchant_due = false
 	if shop.stock.is_empty():
@@ -2424,7 +2575,10 @@ func apply_upgrade_effect(up: Dictionary) -> void:
 		"plague": plague_power += 1
 
 func end_run(victory: bool) -> void:
+	if state == "result": return
+	if route_panel != null: route_panel.visible = false
 	state = "result"
+	if pause_button != null: pause_button.visible = false
 	upgrade_panel.visible = false
 	item_panel.visible = false
 	merchant_panel.visible = false
@@ -2433,12 +2587,17 @@ func end_run(victory: bool) -> void:
 	help_label.visible = false
 	run_shards_earned = (10 + level * 2 + wave) if victory else max(2, int(level + wave * 0.5))
 	run_gold_earned = (160 + wave * 6) if victory else maxi(20, wave * 5)
+	if dungeon.active:
+		var caps: Dictionary = dungeon.reward_caps(total_kills, victory)
+		run_gold_earned = mini(run_gold_earned, int(caps.gold))
+		run_shards_earned = mini(run_shards_earned, int(caps.shards))
 	meta_shards += run_shards_earned
 	gold += run_gold_earned
 	if victory:
 		contracts.record("win")
-		campaign.finish(campaign_id)
-		campaign.save("user://campaign.cfg")
+		if not dungeon.active:
+			campaign.finish(campaign_id)
+			campaign.save("user://campaign.cfg")
 		award_achievement("first_expedition")
 		award_achievement("five_expeditions")
 		if player_hp / maxf(1.0, player_max_hp) <= 0.10:
@@ -2446,7 +2605,8 @@ func end_run(victory: bool) -> void:
 	award_achievement("gold_hoard", gold, true)
 	award_achievement("scrap_hoard", inventory.scrap, true)
 	save_meta()
-	hideout_shop.refresh_stock()
+	if not dungeon.active or total_kills > 0:
+		hideout_shop.refresh_stock()
 	contracts.save("user://contracts.cfg")
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
@@ -2460,6 +2620,9 @@ func end_run(victory: bool) -> void:
 			notable_loot += ", " + run_kept_loot[1]
 	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
 	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
+	if dungeon.active:
+		result_title.text = "RELIC ROUTE CLEARED!" if victory else "ROUTE ENDED"
+		result_summary.text = result_summary.text.replace("Wave reached  %d / %d" % [wave, RUN_LAST_WAVE], "Rooms entered  %d / 8 • Seed %d" % [dungeon.depth + 1, dungeon.seed_value])
 	if presentation_director != null:
 		presentation_director.present_card(result_panel, Color("#ffe178") if victory else Color("#ff8995"), 0.34)
 	play_audio_event("victory" if victory else "defeat")
@@ -2763,7 +2926,9 @@ func draw_hud() -> void:
 	var actor := LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast")))
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(12, 17, 42, 42))
 	draw_string(title_font, Vector2(60, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
-	draw_string(body_font, Vector2(60, 59), "WAVE %02d • %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))
+	var location_line := "ROOM %02d / 08 • RELIC ROUTE" % (dungeon.depth + 1) if dungeon.active else "WAVE %02d • %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()]
+	if dungeon.active and dungeon.depth < 0: location_line = "RELIC ROUTE • CHOOSE PATH"
+	draw_string(body_font, Vector2(60, 59), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0

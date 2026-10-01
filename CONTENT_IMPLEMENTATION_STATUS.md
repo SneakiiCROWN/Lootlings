@@ -2,7 +2,7 @@
 
 Authoritative planning source: `art/reference/docs/`.
 
-Current world/art authority additionally includes `LOOTLINGS_WORLD_BIBLE.md` and the approved Phase 2 boards. `BETA_ART_PROVENANCE.md` distinguishes live beta extracts from final production needs. Archive Field Notes is live: six art-ready identity origins, three named residents, Crownfall and campaign-unlocked trail pages. Forge/contract contextual dialogue is connected to actual successful actions. Resident artwork and broader simultaneous encounter/dungeon expansion remain deferred.
+Current world/art authority additionally includes `LOOTLINGS_WORLD_BIBLE.md` and the approved Phase 2 boards. `BETA_ART_PROVENANCE.md` distinguishes live beta extracts from final production needs. Archive Field Notes covers all seven identities, three named painted resident busts, Crownfall and campaign-unlocked trail pages. Forge/contract contextual dialogue is connected to successful actions. Bounded optional groups and a seeded route are live; full-body residents and bespoke encounters remain production scope.
 
 Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implemented data behind an activation gate; `ASSET_NEEDED` requires dedicated clean runtime art; `FUTURE` is deliberately later; `DEFERRED` was excluded from this checkpoint for stability.
 
@@ -25,6 +25,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | Echoing / Hungry / Hoarder / Shiny | DEFINED_DATA | Master-catalog identities retained for later mechanics/art/collection hooks. |
 | Solo Duelist / Heavy Solo | LIVE | Current single-target combat architecture. |
 | Regular duos / role-mixed small packs | LIVE — OPT-IN | Expedition GROUPS patrol option; existing scheduled roles, independent HP/status/clock/target, bound projectiles, bounded AoE and per-member rewards. Solo default unchanged. |
+| Seeded Relic Route | LIVE — OPT-IN | Unlocks after Act I; eight seeded room forks, all eight room kinds, existing physical chest/shop/upgrade/Hoard flow, route-only scaling and proportional reward caps. No campaign unlock or resumable route save. |
 | Boss adds / Scraprat swarm / treasure escape / Mimic Room / bespoke Elite Guard | DEFINED_DATA | Not claimed by regular duo/pack integration; bespoke encounters/art remain needed. |
 | Act II–V zones | LIVE — BETA SCENERY | Every expanded region has a distinct approved-art composition; Mossglass/Cinder also have distinct boss cutouts. Final high-resolution environments and remaining boss/actor art still needed. Solo mechanics/balance unchanged; multi-actor encounters deferred. |
 | The First Hoard | LIVE — BETA SCENERY | Distinct treasury/throne composition, established reward flow/heavy patrol/curated loot. Bespoke boss mechanics/body remain future. |
