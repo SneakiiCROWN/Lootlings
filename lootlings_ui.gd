@@ -52,7 +52,10 @@ static func skin_style(filename: String, protected_margin: float = 32.0, vertica
 	var key := "%s:%s:%s" % [filename, protected_margin, vertical_margin]
 	if not skin_cache.has(key):
 		var box := TextureSkin.new()
-		box.texture = load("res://art/ui/skins/%s.png" % filename)
+		var beta_path := "res://art/ui/beta/%s.png" % filename
+		box.texture = load(beta_path if ResourceLoader.exists(beta_path) else "res://art/ui/skins/%s.png" % filename)
+		if filename.begins_with("panel_") or filename.begins_with("hud_"):
+			box.ornament = load("res://art/ui/beta/ornament_gold.png")
 		box.protected_margin = Vector2(protected_margin, protected_margin if vertical_margin < 0 else vertical_margin)
 		box.content_margin_left = 12
 		box.content_margin_right = 12

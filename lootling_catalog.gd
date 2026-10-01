@@ -51,7 +51,8 @@ static func definition(id: String) -> Dictionary:
 	if id != "relic_beast" and ENTRIES.has(id) and str(result.runtime_sprite).is_empty():
 		result.runtime_sprite = "res://art/sprites/lootlings/%s_idle.png" % id
 	result.temp_art = not ResourceLoader.exists(str(result.runtime_sprite))
-	result.available = not result.temp_art
+	# Existing identities remain playable even while their final art is pending.
+	result.available = true
 	result.beta_art = id != "relic_beast" and not result.temp_art
 	if result.profile_icon.is_empty() and not result.runtime_sprite.is_empty():
 		result.profile_icon = result.runtime_sprite
@@ -67,4 +68,4 @@ static func selectable_ids() -> Array[String]:
 
 static func is_runtime_ready(id: String) -> bool:
 	var entry := definition(id)
-	return bool(entry.get("available", false)) and ResourceLoader.exists(str(entry.get("runtime_sprite", "")))
+	return ResourceLoader.exists(str(entry.get("runtime_sprite", "")))

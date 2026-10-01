@@ -17,6 +17,35 @@ const NPC_NOTES := {
 	"Ilex Quill":"An adult occult archivist from Starfall who fled before her name could be erased. Ilex treats Lootlings as witnesses, not curiosities. Her footnotes are precise; her jokes are not kind to tyrants.",
 	"Sera Vey":"An adult relic scholar tending the crystal shrine. Sera left the Crown's scholars when they began pricing living Cores. Warm, practical and unafraid to tell ancient power to wait its turn."
 }
+const RESIDENT_REACTIONS := {
+	"Salvager":{
+		"relic_beast":"Empty the satchel before I weigh it. Snacks don't count.",
+		"emberhorn":"Warm the forge, not my invoices.",
+		"mosskin":"Your shield's growing leaves again. I charge for pruning.",
+		"moonkip":"The keys stay on this side of the counter.",
+		"pebblewyrm":"You dented the hammer? I'm almost impressed.",
+		"glimmerfin":"No encores near the hot metal.",
+		"gloomlet":"I saw that coin move. It wasn't the wind."
+	},
+	"Relic Keeper":{
+		"relic_beast":"A brave Core. A suspicious number of crumbs.",
+		"emberhorn":"Warmth is a gift. Burning the rug isn't.",
+		"mosskin":"Even watchstones need a rest. Sit with me.",
+		"moonkip":"The shrine is unlocked. You can stop looking pleased.",
+		"pebblewyrm":"You don't have to carry everyone, little mountain.",
+		"glimmerfin":"That old song belongs here. Sing softly.",
+		"gloomlet":"I remember you. You needn't hide to stay."
+	},
+	"Archivist":{
+		"relic_beast":"Your pawprints are now an official marginal note.",
+		"emberhorn":"Ash is not an acceptable signature.",
+		"mosskin":"The Archive appreciates your shade. Not your roots.",
+		"moonkip":"Return the bookmark. It opens nothing. Usually.",
+		"pebblewyrm":"The book was heavy. The shelf was heavier.",
+		"glimmerfin":"An encore needs footnotes. Yours had twelve.",
+		"gloomlet":"A blank page is not an erased name."
+	}
+}
 const LOOTLINGS := {
 	"relic_beast":["The chest sneezed. I sneezed back.", "My satchel has room. Emotionally, at least."],
 	"emberhorn":["Bravery first. Singed eyebrows later.", "I warmed the treasure. You're welcome."],

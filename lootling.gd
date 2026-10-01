@@ -521,6 +521,8 @@ func award_achievement(id: String, amount: int = 1, set_value: bool = false) -> 
 	if not unlocked_now:
 		return
 	var entry := AchievementManager.definition_for(id)
+	if hideout_ui != null:
+		hideout_ui.queue_dialogue_context("trophy_earned")
 	play_audio_event("rare_reveal")
 	if presentation_director != null:
 		presentation_director.present_toast("TROPHY UNLOCKED  •  %s" % str(entry.get("name", "Achievement")), achievements.display_description(entry), Color("#ffd36a"))
@@ -533,6 +535,8 @@ func award_item_discovery(item: Dictionary) -> void:
 	elif rarity == "LEGENDARY":
 		award_achievement("first_legendary")
 	if not item.get("signature_hooks", []).is_empty():
+		if hideout_ui != null:
+			hideout_ui.queue_dialogue_context("signature_find")
 		award_achievement("signature_find")
 		for hook in item.get("signature_hooks", []):
 			award_unique_achievement("signature_set", str(hook))
@@ -609,7 +613,7 @@ func build_overlay_ui() -> void:
 	apply_button_style(restart_button, Color("#795523"), Color("#ffd468"))
 	restart_button.pressed.connect(show_hideout)
 	result_panel.add_child(restart_button)
-	help_label = make_label(self, "TAP / CLICK / SPACE = bonus attack", 14, Rect2(20, 815, 440, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#a9b7d7"))
+	help_label = make_label(self, "TAP TO STRIKE • Auto-combat stays active", 16, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
@@ -952,6 +956,8 @@ func claim_contract(slot: int) -> void:
 
 func record_contract_chest() -> void:
 	contracts.record("chest")
+	if hideout_ui != null:
+		hideout_ui.queue_dialogue_context("cache_opened")
 	contracts.save("user://contracts.cfg")
 
 func run_zone_for_wave(value: int) -> Dictionary:
@@ -2725,8 +2731,9 @@ func draw_zone_ambient() -> void:
 func draw_hud() -> void:
 	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
 	var actor := LootlingCatalog.definition(str(profile.get("current_lootling_id", "relic_beast")))
-	draw_string(title_font, Vector2(18, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 208, 21, Color("#ffe178"))
-	draw_string(body_font, Vector2(18, 59), "WAVE %02d  •  %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 190, 11, Color("#bac9eb"))
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingCatalog.runtime_texture(str(profile.get("current_lootling_id", "relic_beast"))), Rect2(12, 17, 42, 42))
+	draw_string(title_font, Vector2(60, 36), str(actor.display_name).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
+	draw_string(body_font, Vector2(60, 59), "WAVE %02d • %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0
@@ -2824,13 +2831,13 @@ func draw_stats_strip() -> void:
 	var scrap_width := body_font.get_string_size(scrap_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_scrap"), Rect2(442 - scrap_width - 23, 721, 18, 18))
 	draw_string(body_font, Vector2(344, 735), scrap_text, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
-	var labels := ["DMG", "INTERVAL", "CRIT CHANCE", "AUTO HITS"]
+	var labels := ["DAMAGE", "ATTACK", "CRIT", "HITS"]
 	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
 	for i in range(4):
 		var x := 32.0 + i * 105.0
 		if i > 0:
 			draw_line(Vector2(x - 5, 747), Vector2(x - 5, 788), Color("#41527499"), 1)
-		draw_string(body_font, Vector2(x, 758), labels[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 9, Color("#91a7d2"))
+		draw_string(body_font, Vector2(x, 758), labels[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 12, Color("#b1c7eb"))
 		draw_string(title_font, Vector2(x, 785), values[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 18, Color("#f4f7ff"))
 
 func draw_status_chip(pos: Vector2, text_value: String, color: Color, icon_name: String) -> void:

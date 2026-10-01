@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — shared presentation and residents
+
+Gloomlet is selectable again with its explicitly labelled previous temporary stand-in; all seven IDs stay playable. Missing final art is not an availability gate. Field Notes includes all seven origins. This correction supersedes the art gating described in the previous tranche below.
+
+Shared menus now reuse subtle approved painted panel material and gold ornament (existing protected caps, button states, meters and layouts retained). Combat has a canonical actor thumbnail, larger trail/build-stat captions and a readable touch instruction. Home's three procedural resident figures are replaced by original approved adult **bust portraits**, not falsely described as full-body art. Three anchored portrait stations breathe subtly; name plaques and enlarged contextual speech avoid loadout/portrait collisions. Selected Lootling reactions cover all 21 resident/identity combinations; Archivist acknowledges opened trails. Signature, chest and trophy events feed existing weighted priority dialogue alongside Forge/contracts/defeat/boss/rarity contexts. Menus dismiss speech centrally. No gameplay RNG, reward, schema, audio or economy changes.
+
+Sources: `tools/extract_presentation_beta.gd` records exact crops/composition; `BETA_ART_PROVENANCE.md` records limitations. Full body residents remain a production need. Passed: import/parser, smoke/save/migration/economy (unchanged five seed results), expansion, contracts, seven seeded weapon runs, canonical and 21 resident interaction/menu-leak tests, 96-run balance (22 wins), 36 regional runs (9 wins), ten complete chest/unlock paths and full native OpenGL 480×854 screen capture. Inspected HUD, item review, Home and resident speech; initial text spill/pattern strength fixed before final capture. Diff whitespace clean. Exporter missing-path and inferred-type errors found during work were fixed at source, not suppressed.
+
 ### Canonical world / beta visual integration — current checkpoint
 
 Continued from clean `c938729ef3b22d5856b986a18e452dd843054695`, preserved in history. Latest overhaul authority permits approved-board beta extraction. Emberhorn, Mosskin, Moonkip, Pebblewyrm and Glimmerfin now render their own canonical turnaround artwork untinted. Neutral Relic Beast remains unchanged. Gloomlet failed extraction quality review: new selection disabled; existing saved ID retains the prior temporary fallback. Five accepted low-resolution/baked-gear sprites are beta, not final weaponless production art.

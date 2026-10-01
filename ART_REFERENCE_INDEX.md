@@ -2,7 +2,7 @@
 
 ## Current beta authority
 
-Latest CANONICAL WORLD / ART / STORY / CONTENT OVERHAUL supersedes older reference-only restrictions below. Original sources remain untouched. Five named canonical turnarounds, three biomes plus market/floor, three held weapons and two regional bosses are individually exported/integrated. See `BETA_ART_PROVENANCE.md` for paths/crops/limits. Neutral remains exact; Gloomlet is unavailable for new selection pending clean art. Beta extracts do not replace final production delivery requirements in `ASSET_NEEDED_PHASE2.md`.
+Latest CANONICAL WORLD / ART / STORY / CONTENT OVERHAUL supersedes older reference-only restrictions below. Original sources remain untouched. Five named canonical turnarounds, three biomes plus market/floor, three held weapons and two regional bosses are individually exported/integrated. See `BETA_ART_PROVENANCE.md` for paths/crops/limits and the subsequent shared UI/resident bust integration. Neutral remains exact; Gloomlet stays selectable with its clearly documented prior temporary stand-in. Beta extracts do not replace final production delivery requirements in `ASSET_NEEDED_PHASE2.md`.
 
 The unchanged images in `art/reference/canonical/characters/` are the playable identity source of truth. Established presentation boards now live in `art/reference/source/established_presentation_boards/`; broad supplied boards/crops are reference-only, never substitute character designs. See `art/reference/docs/REFERENCE_ORGANIZATION.md` and its hash audit for consolidation/recovery.
 

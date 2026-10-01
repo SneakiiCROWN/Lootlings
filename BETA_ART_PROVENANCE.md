@@ -16,10 +16,16 @@ Offline exporter: `tools/extract_beta_boards.gd`. Exact rectangles/thresholds ar
 
 - Neutral `art/sprites/relic_beast_base.png` is byte-for-byte unchanged.
 - Named cutouts are low-resolution original turnaround pixels, not final production exports. Moonkip's original daggers, Mosskin's shield and Glimmerfin's water accent are baked in. All five need high-resolution **weaponless** transparent 1024×1024 exports at these same paths, preserving canonical face/body/palette/gear/Core; separate gear layers and optional action poses may follow. Equipped weapon overlays remain independent.
-- Gloomlet dark fur could not be separated cleanly. Trials were rejected, not shipped. New selection is disabled; old saved Gloomlet IDs retain the prior temporary neutral fallback. Required: `art/sprites/lootlings/gloomlet_idle.png`, transparent 1024×1024, exact canonical design, clean edge, no sheet text/neighbours.
+- Gloomlet dark fur could not be separated cleanly. Trials were rejected, not shipped. Gloomlet remains selectable with the clearly labelled previous temporary neutral fallback. Required: `art/sprites/lootlings/gloomlet_idle.png`, transparent 1024×1024, exact canonical design, clean edge, no sheet text/neighbours.
 - Accepted weapon cuts need higher-resolution production exports. Spear, Claws, Crossbow, Relic Sling and Wand still use existing class art. Stage-specific paths are supported; no new stage sprites are claimed. Rejected crops were removed.
 - Regional bosses retain interior dark shading; minor source matte remains a beta limitation. Other region bosses are not replaced by unrelated board creatures. Existing Act I enemies/Grump/Hoard Dragon are unchanged.
 - No original source art or provenance evidence was deleted. No audio assets changed.
 - Optional image-generation extraction returned a service usage-limit error: **no generated artwork was produced or shipped**. Only the explicitly permitted mechanical exports above are included.
 
 `ASSET_NEEDED_PHASE2.md` remains the final production contract. Beta availability does not remove final clean-export requests.
+
+## Shared UI / resident continuation
+
+`tools/extract_presentation_beta.gd` mechanically exports gold ornament from HUD/material board rectangle (351,1017,214,52) and dark material (1048,351,250,182), blended at 25% into existing leather/relic panel interiors. Original PNGs/caps are preserved; derived assets live at `art/ui/beta/`. The shared renderer adds bounded top/bottom ornament draws. Original currency/rarity icons, states and meter logic remain intact.
+
+Three deliberate adult **bust portraits**, not full-body crops, come from `lootlings_heroes_creatures_demon_cutout_reference.png`: Patch (748,37,230,290), Sera (1124,29,268,310), Ilex (55,556,230,300). Edge-connected black backdrop only is removed, then resized to 256×320; paths `art/sprites/npcs/beta/{patch,sera,ilex}_portrait.png`. Original painted adult hero appearances serve the existing resident roles for beta. No canonical Lootling design is substituted; no new playable humanoid is implied. Portrait stations are framed intentionally; clean full-body resident exports remain outstanding.

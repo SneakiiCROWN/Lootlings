@@ -198,7 +198,7 @@ func refresh_selector() -> void:
 	selector_name.text = str(entry.display_name).to_upper()
 	selector_lore.text = str(entry.lore)
 	selector_note.text = "VISUAL EXPORT PENDING\nNeutral stand-in • not the finished character" if entry.temp_art else "CANONICAL %s\nAny weapon • any Relic build" % str(entry.display_name).to_upper()
-	selector_confirm.disabled = entry.temp_art
+	selector_confirm.disabled = not entry.available
 	selector_confirm.text = "CHOOSE %s" % str(entry.display_name).to_upper()
 
 func show_lootling_select() -> void:
@@ -208,7 +208,7 @@ func show_lootling_select() -> void:
 	set_screen(lootling_content)
 
 func confirm_lootling() -> void:
-	if LootlingCatalog.definition(selected_lootling_id).temp_art:
+	if not LootlingCatalog.definition(selected_lootling_id).available:
 		return
 	profile.current_lootling_id = selected_lootling_id
 	profile_changed.emit(profile.duplicate(true))

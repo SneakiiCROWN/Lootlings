@@ -12,7 +12,7 @@ Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implem
 | --- | --- | --- |
 | Neutral Relic Beast | LIVE | Exact canonical `art/sprites/relic_beast_base.png`; current base player. |
 | Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin | LIVE — CANONICAL BETA | Original canonical turnaround cutouts, untinted, through existing runtime hooks. High-resolution weaponless production replacements still needed; see BETA_ART_PROVENANCE.md. |
-| Gloomlet | ART GATED | New selection disabled after failed clean extraction; old saved ID remains compatible with prior temporary fallback. |
+| Gloomlet | LIVE — TEMP ART | Selection restored; clearly labelled previous temporary neutral stand-in. Missing final art never removes this playable identity. |
 | Additional pose cutouts for all seven Lootlings | DEFERRED | Existing transform-driven pose layer is live. Four optional extra cutouts per identity are LATER; accepted idle art is sufficient for an initial honest identity integration. |
 
 ## Run, enemies, and world

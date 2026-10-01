@@ -25,6 +25,11 @@ const PresentationDirector = preload("res://presentation_director.gd")
 const DialogueDirector = preload("res://dialogue_director.gd")
 const WorldStory = preload("res://world_story.gd")
 const BetaArt = preload("res://beta_art_catalog.gd")
+const RESIDENT_PORTRAITS := {
+	"Salvager":preload("res://art/sprites/npcs/beta/patch_portrait.png"),
+	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_portrait.png"),
+	"Archivist":preload("res://art/sprites/npcs/beta/ilex_portrait.png")
+}
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const ForgeSystem = preload("res://forge_system.gd")
@@ -240,6 +245,8 @@ func refresh_current_screen() -> void:
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
+	# A screen transition must never leave a resident bubble over unrelated UI.
+	dismiss_dialogue()
 	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
@@ -616,7 +623,7 @@ func show_lore() -> void:
 	dismiss_dialogue()
 	lore_entries = [["THE CROWNFALL", WorldStory.PREMISE]]
 	for id in LootlingCatalog.selectable_ids():
-		if LootlingCatalog.is_runtime_ready(id):
+		if LootlingCatalog.definition(id).available:
 			lore_entries.append([str(LootlingCatalog.definition(id).display_name), WorldStory.ORIGINS[id]])
 	for name in WorldStory.NPC_NOTES:
 		lore_entries.append([name, WorldStory.NPC_NOTES[name]])
@@ -1028,11 +1035,11 @@ func build_transition_overlay() -> void:
 	add_child(presentation)
 
 func build_dialogue_overlay() -> void:
-	speech_panel = make_panel(self, Rect2(128, 560, 224, 76), Color("#10182bf2"), Color("#d8bd7b"))
+	speech_panel = make_panel(self, Rect2(24, 590, 308, 110), Color("#10182bf2"), Color("#d8bd7b"))
 	speech_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	speech_panel.visible = false
 	speech_panel.z_index = 80
-	speech_label = make_label(speech_panel, "", 12, Rect2(12, 7, 200, 62), HORIZONTAL_ALIGNMENT_CENTER, Color("#f3edda"))
+	speech_label = make_label(speech_panel, "", 14, Rect2(16, 18, 276, 74), HORIZONTAL_ALIGNMENT_CENTER, Color("#f3edda"))
 	speech_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	speech_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	speech_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1043,13 +1050,13 @@ func make_npc_hotspot(parent: Control, rect: Rect2, speaker: String) -> void:
 	hotspot.size = rect.size
 	hotspot.flat = true
 	hotspot.focus_mode = Control.FOCUS_NONE
-	hotspot.tooltip_text = "Talk to %s" % speaker
+	hotspot.tooltip_text = "Talk to %s" % WorldStory.SPEAKERS.get(speaker, speaker)
 	hotspot.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	hotspot.pressed.connect(request_dialogue.bind("tapped", speaker))
 	parent.add_child(hotspot)
 
 func queue_dialogue_context(context: String) -> void:
-	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "large_hoard":5}
+	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "signature_find":7, "large_hoard":5, "forge_evolved":4, "contract_complete":3, "cache_opened":3, "trophy_earned":2}
 	var priority := int(priorities.get(context, 1))
 	if priority < queued_dialogue_priority:
 		return
@@ -1068,6 +1075,11 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	var speaker := str(entry.speaker)
 	var voice_name: String = WorldStory.SPEAKERS.get(speaker, speaker)
 	var line := str(entry.text)
+	if context == "tapped" and speaker in WorldStory.RESIDENT_REACTIONS:
+		line = str(WorldStory.RESIDENT_REACTIONS[speaker].get(str(profile.get("current_lootling_id", "relic_beast")), line))
+		if speaker == "Archivist" and campaign != null and not campaign.completed.is_empty():
+			var next_region: String = CampaignSystem.ORDER[mini(campaign.completed.size(), CampaignSystem.ORDER.size() - 1)]
+			line = WorldStory.region_line(next_region, 0)
 	if speaker == "Mascot":
 		var id := str(profile.get("current_lootling_id", "relic_beast"))
 		voice_name = str(LootlingCatalog.definition(id).display_name)
@@ -1090,11 +1102,7 @@ func dialogue_anchor(speaker: String) -> Vector2:
 		return Vector2(226, 264) if speaker == "Relic Keeper" else Vector2(126, 270)
 	if current_screen == "stash":
 		return Vector2(126, 188)
-	match speaker:
-		"Salvager": return Vector2(238, 326)
-		"Relic Keeper": return Vector2(18, 326)
-		"Archivist": return Vector2(236, 520)
-		_: return Vector2(128, 500)
+	return Vector2(24, 590)
 
 func play_transition() -> void:
 	if presentation == null:
@@ -1209,22 +1217,15 @@ func draw_home_scene() -> void:
 				for mote_index in range(5):
 					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
 					draw_circle(mote_pos, 2.0, Color(0.78, 0.55, 1.0, 0.48))
-	var salvage_bob := sin(scene_time * 3.1) * 2.0
-	draw_circle(Vector2(390, 414 + salvage_bob), 18, Color("#6d7b48"))
-	draw_circle(Vector2(383, 408 + salvage_bob), 5, Color("#d9e7b0"))
-	draw_circle(Vector2(397, 408 + salvage_bob), 5, Color("#d9e7b0"))
-	draw_rect(Rect2(377, 430 + salvage_bob, 27, 25), Color("#8a4f2d"), true)
-	draw_line(Vector2(405, 436 + salvage_bob), Vector2(416, 426 + salvage_bob + sin(scene_time * 8.0) * 5.0), Color("#d6b56b"), 4)
-	var keeper_bob := sin(scene_time * 1.8 + 1.0) * 1.5
-	draw_circle(Vector2(86, 409 + keeper_bob), 19, Color("#493f70"))
-	draw_colored_polygon(PackedVector2Array([Vector2(67,426 + keeper_bob),Vector2(105,426 + keeper_bob),Vector2(111,465 + keeper_bob),Vector2(61,465 + keeper_bob)]), Color("#2c294b"))
-	draw_circle(Vector2(86, 412 + keeper_bob), 3, Color("#c99cff"))
-	var archivist_bob := sin(scene_time * 2.1) * 1.5
-	draw_circle(Vector2(390, 610 + archivist_bob), 14, Color("#5a6685"))
-	draw_rect(Rect2(370, 625 + archivist_bob, 38, 24), Color("#70422c"), true)
-	draw_line(Vector2(389, 625 + archivist_bob), Vector2(389, 649 + archivist_bob), Color("#d8bd7b"), 2)
-	if sin(scene_time * 2.6) > 0.92:
-		draw_circle(Vector2(414, 620 + archivist_bob), 3, Color("#ffe178"))
+	draw_resident("Salvager", Rect2(346, 364, 88, 110), "PATCH", 0.0)
+	draw_resident("Relic Keeper", Rect2(42, 360, 88, 110), "SERA", 1.0)
+	draw_resident("Archivist", Rect2(346, 590, 88, 110), "ILEX", 2.0)
+
+func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
+	rect.position.y += sin(scene_time * 1.7 + phase) * 1.2
+	LootlingsUI.material_style("relic").draw(get_canvas_item(), rect)
+	draw_texture_rect(RESIDENT_PORTRAITS[speaker], Rect2(rect.position + Vector2(6, 6), rect.size - Vector2(12, 27)), false)
+	draw_string(ThemeDB.fallback_font, Vector2(rect.position.x + 3, rect.end.y - 6), name, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 6, 12, Color("#ffe178"))
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

@@ -33,11 +33,12 @@ func run_qa() -> void:
 		game.show_startup()
 	game.startup_ui.selected_lootling_id = "gloomlet"
 	game.startup_ui.refresh_selector()
-	assert(game.startup_ui.selector_confirm.disabled)
-	var selected: String = game.profile.current_lootling_id
+	assert(not game.startup_ui.selector_confirm.disabled)
+	assert(Roster.runtime_texture("gloomlet") == Roster.BASE_TEXTURE)
+	assert(Roster.definition("gloomlet").temp_art)
 	game.startup_ui.confirm_lootling()
-	assert(game.profile.current_lootling_id == selected)
-	if native: await capture("canonical_gloomlet_gate")
+	assert(game.profile.current_lootling_id == "gloomlet")
+	if native: await capture("canonical_gloomlet_standin")
 	game.profile.current_lootling_id = "relic_beast"
 	for id in Campaign.ORDER:
 		assert(Story.REGIONS.has(id))
@@ -64,13 +65,13 @@ func run_qa() -> void:
 	if native: await capture("canonical_campaign")
 	game.campaign.completed.clear()
 	game.hideout_ui.show_lore()
-	assert(game.hideout_ui.lore_entries.size() == 11)
+	assert(game.hideout_ui.lore_entries.size() == 12)
 	if native: await capture("canonical_lore_world")
 	game.hideout_ui.cycle_lore(1)
 	if native: await capture("canonical_lore_lootling")
 	game.campaign.finish("act_i")
 	game.hideout_ui.show_lore()
-	assert(game.hideout_ui.lore_entries.size() == 12, "A campaign victory reveals the next trail's page")
+	assert(game.hideout_ui.lore_entries.size() == 13, "A campaign victory reveals the next trail's page")
 	game.hideout_ui.lore_index = 8
 	game.hideout_ui.cycle_lore(0)
 	if native: await capture("canonical_lore_npc")
@@ -89,7 +90,7 @@ func run_qa() -> void:
 	if native: await capture("canonical_dialogue")
 	game.queue_free()
 	await process_frame
-	print("CANONICAL WORLD QA PASSED: six real identities, pending-art gate, ten story mappings, three biome integrations, named dialogue")
+	print("CANONICAL WORLD QA PASSED: six real identities, selectable documented Gloomlet fallback, ten story mappings, three biome integrations, named dialogue")
 	quit(0)
 
 func capture(label: String) -> void:

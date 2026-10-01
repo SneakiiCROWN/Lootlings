@@ -4,6 +4,7 @@ extends StyleBox
 # in source-pixel space so protected caps stay intact at portrait phone scale.
 var texture: Texture2D
 var protected_margin := Vector2(32, 32)
+var ornament: Texture2D
 const SOURCE_SCALE := 0.5
 
 func _draw(canvas: RID, rect: Rect2) -> void:
@@ -13,3 +14,8 @@ func _draw(canvas: RID, rect: Rect2) -> void:
 	RenderingServer.canvas_item_add_set_transform(canvas, transform)
 	RenderingServer.canvas_item_add_nine_patch(canvas, Rect2(rect.position / SOURCE_SCALE, rect.size / SOURCE_SCALE), Rect2(Vector2.ZERO, texture.get_size()), texture.get_rid(), protected_margin, protected_margin, RenderingServer.NINE_PATCH_STRETCH, RenderingServer.NINE_PATCH_STRETCH, true, Color.WHITE)
 	RenderingServer.canvas_item_add_set_transform(canvas, Transform2D.IDENTITY)
+	if ornament != null and rect.size.x >= 200 and rect.size.y >= 70:
+		var width := minf(240.0, rect.size.x - 52.0)
+		var center_x := rect.get_center().x - width * 0.5
+		RenderingServer.canvas_item_add_texture_rect(canvas, Rect2(center_x, rect.position.y + 2, width, 13), ornament.get_rid(), false, Color.WHITE)
+		RenderingServer.canvas_item_add_texture_rect(canvas, Rect2(center_x, rect.end.y - 14, width, 13), ornament.get_rid(), false, Color.WHITE)

@@ -4,6 +4,14 @@ const RECENT_LIMIT := 6
 const SPEAKER_COOLDOWN := 4.5
 
 const POOLS := {
+	"signature_find":[
+		{"speaker":"Archivist", "text":"That relic has a habit. Let's hope it's a good one.", "weight":3.0},
+		{"speaker":"Relic Keeper", "text":"Old promises sometimes come with sharp edges.", "weight":2.0}
+	],
+	"trophy_earned":[
+		{"speaker":"Archivist", "text":"A trophy! Evidence that the rumours undersold you.", "weight":3.0},
+		{"speaker":"Salvager", "text":"Well earned. I'll dust it. For a reasonable fee.", "weight":2.0}
+	],
 	"forge_evolved":[
 		{"speaker":"Salvager", "text":"Same blade. Better argument. Mind the new edge.", "weight":3.0},
 		{"speaker":"Salvager", "text":"I taught the metal some manners. Mostly bad ones.", "weight":2.0}
@@ -67,8 +75,8 @@ const POOLS := {
 		{"speaker":"Mascot", "text":"Mine has more sparkles than the moon.", "weight":2.0}
 	],
 	"boss_defeated":[
-		{"speaker":"Archivist", "text":"The Hoard Dragon falls. Ink, please. The dramatic ink.", "weight":3.0},
-		{"speaker":"Salvager", "text":"Dragon-grade dents! My favourite kind.", "weight":2.0},
+		{"speaker":"Archivist", "text":"Another tyrant falls. Ink, please. The dramatic ink.", "weight":3.0},
+		{"speaker":"Salvager", "text":"Boss-grade dents! My favourite kind.", "weight":2.0},
 		{"speaker":"Relic Keeper", "text":"The deep vault is quiet. For now.", "weight":3.0}
 	],
 	"travel":[
