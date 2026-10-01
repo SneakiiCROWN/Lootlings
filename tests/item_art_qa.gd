@@ -34,6 +34,17 @@ func run_qa() -> void:
 	for type in preload("res://weapon_catalog.gd").STARTERS:
 		var weapon := preload("res://weapon_catalog.gd").starter(type)
 		assert(game.merchant_weapon_texture(weapon) == UI.item_texture(weapon))
+	game.show_hideout()
+	game.inventory.keep(Items.create_item("cursed_ring", "LEGENDARY", 71))
+	game.hideout_ui.show_stash()
+	assert(game.hideout_ui.equipped_slot_buttons.size() == 4)
+	game.hideout_ui.equipped_slot_buttons.Relic.pressed.emit()
+	assert(game.hideout_ui.stash_filter == "CHARM")
+	assert(game.hideout_ui.stash_detail_icon.visible)
+	assert(game.hideout_ui.stash_detail_name.text == "Definitely Not Cursed Ring")
+	assert(game.hideout_ui.stash_detail.scroll_active)
+	assert(game.hideout_ui.stash_detail_identity.text.contains("LEGENDARY"))
+	if native: await capture("stash_charm_detail")
 	game.queue_free()
 	await process_frame
 	print("ITEM ART QA PASSED: 11 existing bases, immutable equipment data, category fallback and all starter drop textures")

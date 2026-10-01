@@ -2,6 +2,12 @@
 
 ## CURRENT STATE
 
+### Continued overhaul — equipment-first Stash presentation
+
+Four equipped-slot tiles now show current weapon/armour/charm/rune art, rarity marks and direct category navigation. Selected gear has a dedicated painted-art hero, readable wrapped title and explicit rarity/slot/family line. Equipped effects fit without the old clipped desc/blank-space wall; longer comparisons scroll with full descriptions retained in tooltips. Existing Equip/Scrap, filter and inventory semantics are unchanged. Unsupported outfit skins remain unavailable: adult outfit sheets are not silently mapped onto canonical tiny Lootlings.
+
+Passed parser/import, expansion/save/migration/equipment/economy, unchanged smoke (2/5), extended item-art/slot navigation tests and native OpenGL 480×854 full screen plus Legendary charm-detail captures. Inspected empty slots, equipped weapon effects, long item name, rarity and action targets. No save schema, RNG, balance or economic changes; static controls only. Diff whitespace clean.
+
 ### Continued overhaul — non-weapon loot art integration
 
 Seven approved transparent beta cutouts now serve eleven existing charm/relic/rune bases: cursed ring, Hoard locket, Relic orbit, Vault scroll, storm crystal, ember stone and nature pendant. Shared item texture lookup feeds item review, Stash rows, shop/merchant icons, physical drops and cache emergence. Weapons dropped in combat now resolve their actual family/stage texture rather than the old class-only fallback. Equipment data, rolls, effects, save IDs and economy are unchanged. Armour/bells and unmapped bases retain the delivered category artwork, not invented substitute items. A clipped tome trial was rejected; the scroll crop was widened after inspection. Originals preserved; exact source rectangles live in the exporter/provenance.

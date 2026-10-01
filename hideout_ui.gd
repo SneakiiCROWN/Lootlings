@@ -102,6 +102,10 @@ var stash_title: Label
 var stash_list: VBoxContainer
 var stash_detail: RichTextLabel
 var stash_detail_panel: Panel
+var stash_detail_icon: Control
+var stash_detail_name: Label
+var stash_detail_identity: Label
+var equipped_slot_buttons: Dictionary = {}
 var stash_equip_button: Button
 var stash_scrap_button: Button
 var upgrade_summary: RichTextLabel
@@ -296,6 +300,18 @@ func build_stash() -> void:
 		var filter_button := make_button(stash_content, filter_name, Rect2(20 + index * 89, 78, 84, 40), Color("#1c2948"), Color("#6f89b5"), 11)
 		filter_button.pressed.connect(set_stash_filter.bind(filter_name))
 		filter_buttons[filter_name] = filter_button
+	for index in range(4):
+		var slot: String = ["Weapon", "Armour", "Relic", "Rune"][index]
+		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 130, 104, 132), Color("#172442"), Color("#7194c4"), 13)
+		slot_button.pressed.connect(set_stash_filter.bind(ItemCatalog.display_slot(slot)))
+		var slot_art := ItemIcon.new()
+		slot_art.name = "SlotArt"
+		slot_art.position = Vector2(13, 12)
+		slot_art.size = Vector2(78, 78)
+		slot_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		slot_button.add_child(slot_art)
+		make_label(slot_button, ItemCatalog.display_slot(slot), 13, Rect2(4, 98, 96, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+		equipped_slot_buttons[slot] = slot_button
 	var scroll_panel := make_panel(stash_content, Rect2(20, 282, 440, 190), Color("#0b1229d6"), Color("#7194c4"))
 	LootlingsUI.apply_material(scroll_panel, "leather", 16)
 	var scroll := ScrollContainer.new()
@@ -309,12 +325,20 @@ func build_stash() -> void:
 	scroll.add_child(stash_list)
 	stash_detail_panel = make_panel(stash_content, Rect2(20, 486, 440, 190), Color("#0d1530dc"), Color("#c99a4e"))
 	LootlingsUI.apply_material(stash_detail_panel, "leather", 16)
+	stash_detail_icon = ItemIcon.new()
+	stash_detail_icon.position = Vector2(18, 12)
+	stash_detail_icon.size = Vector2(78, 78)
+	stash_detail_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stash_detail_panel.add_child(stash_detail_icon)
+	stash_detail_name = make_label(stash_detail_panel, "", 20, Rect2(110, 12, 312, 50), HORIZONTAL_ALIGNMENT_LEFT, Color("#e5edff"))
+	stash_detail_name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	stash_detail_identity = make_label(stash_detail_panel, "", 13, Rect2(110, 66, 312, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#dbe7ff"))
 	stash_detail = RichTextLabel.new()
-	stash_detail.position = Vector2(18, 16)
-	stash_detail.size = Vector2(404, 158)
+	stash_detail.position = Vector2(18, 96)
+	stash_detail.size = Vector2(404, 78)
 	stash_detail.bbcode_enabled = true
-	stash_detail.scroll_active = false
-	stash_detail.add_theme_font_size_override("normal_font_size", 15)
+	stash_detail.scroll_active = true
+	stash_detail.add_theme_font_size_override("normal_font_size", 14)
 	stash_detail.add_theme_color_override("default_color", Color("#e5edff"))
 	stash_detail_panel.add_child(stash_detail)
 	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 694, 210, 66), Color("#285c4c"), Color("#69e6b0"), 18)
@@ -742,6 +766,14 @@ func refresh_home() -> void:
 func refresh_stash() -> void:
 	if current_inventory == null or stash_list == null:
 		return
+	for slot in equipped_slot_buttons:
+		var slot_button: Button = equipped_slot_buttons[slot]
+		var worn: Dictionary = current_inventory.equipped_item(slot)
+		var slot_art: Control = slot_button.get_node("SlotArt")
+		slot_art.visible = not worn.is_empty()
+		if not worn.is_empty(): slot_art.configure(worn)
+		slot_button.tooltip_text = "Empty %s slot" % ItemCatalog.display_slot(slot) if worn.is_empty() else "%s • %s" % [worn.name, worn.rarity]
+		apply_display_button_style(slot_button, Color("#7194c4") if worn.is_empty() else ItemCatalog.rarity_color(worn.rarity), false)
 	stash_title.text = "STASH  •  %d / %d STORED" % [current_inventory.stash.size(), current_inventory.stash_capacity]
 	for filter_name in filter_buttons:
 		var filter_button: Button = filter_buttons[filter_name]
@@ -773,6 +805,9 @@ func refresh_stash() -> void:
 	bottom_padding.custom_minimum_size = Vector2(402, 16)
 	stash_list.add_child(bottom_padding)
 	if entries.is_empty():
+		stash_detail_icon.visible = false
+		stash_detail_name.text = "EMPTY CATEGORY"
+		stash_detail_identity.text = "Find gear during an expedition"
 		stash_detail.text = "[center][color=#8fa4ce]No %s equipment found.[/color][/center]" % stash_filter.to_lower()
 		stash_equip_button.disabled = true
 		stash_scrap_button.disabled = true
@@ -789,16 +824,23 @@ func select_entry(entry_index: int) -> void:
 	var item: Dictionary = entry.item
 	var rarity: String = item.get("rarity", "COMMON")
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
-	var header := "[center][font_size=22][color=#%s]%s[/color][/font_size]\n%s[/center]\n\n" % [color, item.get("name", "Unknown"), ItemCatalog.display_identity(item)]
+	stash_detail_icon.visible = true
+	stash_detail_icon.configure(item)
+	stash_detail_name.text = str(item.get("name", "Unknown"))
+	stash_detail_name.add_theme_color_override("font_color", Color("#" + color))
+	stash_detail_identity.text = "%s • %s" % [rarity, ItemCatalog.display_identity(item)]
+	stash_detail.scroll_to_line(0)
 	if entry.equipped:
-		stash_detail.text = header + "[center][color=#69e6b0]CURRENTLY EQUIPPED[/color]\n%s\n\n%s[/center]" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
+		stash_detail.text = "[color=#69e6b0]CURRENTLY EQUIPPED[/color]\n%s" % ItemCatalog.describe_headline_effects(item, 2)
+		stash_detail.tooltip_text = "%s\n%s" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
 		stash_equip_button.disabled = true
 		stash_scrap_button.disabled = true
 		stash_equip_button.text = "EQUIPPED"
 		stash_scrap_button.text = "SCRAP"
 	else:
 		var equipped: Dictionary = current_inventory.equipped_item(item.get("slot", ""))
-		stash_detail.text = header + comparison_callable.call(item, equipped)
+		stash_detail.text = comparison_callable.call(item, equipped)
+		stash_detail.tooltip_text = "%s\n%s" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
 		stash_equip_button.disabled = false
 		stash_scrap_button.disabled = false
 		stash_equip_button.text = "EQUIP"
