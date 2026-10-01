@@ -534,6 +534,8 @@ func run_tests() -> void:
 		var clean_card: String = game.format_upgrade_card(upgrade, 1)
 		check(clean_card.contains(str(upgrade.name)) and clean_card.contains("STACK  ×1") and not clean_card.contains("(x1)"), "upgrade card formats %s without merging stack text into its mechanic" % upgrade.id)
 	check(game.upgrade_buttons.all(func(button): return button.size.x <= game.upgrade_panel.size.x - 40.0 and button.clip_text), "all upgrade cards remain constrained to the level-up panel")
+	check(game.upgrade_visuals.size() == 3 and game.upgrade_visuals.all(func(card): return not card.name.text.is_empty() and not card.effect.text.is_empty()), "upgrade hierarchy retains three readable names and effects")
+	check(game.upgrade_buttons.all(func(button): return button.get_theme_color("font_color").a == 0.0), "legacy text tokens do not render as upgrade icons")
 	game.choose_upgrade(0)
 	check(game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "upgrade selection uses one confirmation lane without duplicate acquired text")
 	game.start_run()

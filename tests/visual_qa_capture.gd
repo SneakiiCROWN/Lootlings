@@ -14,6 +14,27 @@ func capture_screens() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await wait_frames(4)
+	game.show_startup()
+	game.startup_ui.show_title()
+	await wait_frames(24)
+	if not save_viewport("title_qa.png"):
+		quit(1)
+		return
+	game.startup_ui.show_profile(false)
+	await wait_frames(24)
+	if not save_viewport("profile_qa.png"):
+		quit(1)
+		return
+	game.startup_ui.show_settings()
+	await wait_frames(24)
+	if not save_viewport("settings_qa.png"):
+		quit(1)
+		return
+	game.startup_ui.show_lootling_select()
+	await wait_frames(24)
+	if not save_viewport("lootling_select_qa.png"):
+		quit(1)
+		return
 	game.show_hideout()
 	await wait_frames(24)
 	if not save_viewport("hideout_home_qa.png"):
@@ -149,8 +170,16 @@ func capture_screens() -> void:
 		return
 	game.boss_reward_panel.visible = false
 	game.debug_show_result(true)
+	# Exercise real summary typography with large totals without granting rewards.
+	game.result_summary.text = game.style_result_summary(game.format_result_summary(true, 15, 46, 9999, 8888, 1111, 7777, 6666, "A Very Long Legendary Item Name", 9999))
 	await wait_frames(8)
 	if not save_viewport("results_qa.png"):
+		quit(1)
+		return
+	game.debug_show_result(false)
+	game.result_summary.text = game.style_result_summary(game.format_result_summary(false, 8, 24, 352, 190, 162, 21, 4, "None", 75))
+	await wait_frames(8)
+	if not save_viewport("defeat_qa.png"):
 		quit(1)
 		return
 	print("VISUAL QA CAPTURED: major Hideout, combat, reward, pause and results states at %s" % root.content_scale_size)

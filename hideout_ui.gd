@@ -1031,14 +1031,7 @@ func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:
 	var panel := Panel.new()
 	panel.position = rect.position
 	panel.size = rect.size
-	var box := StyleBoxFlat.new()
-	box.bg_color = fill
-	box.border_color = border
-	box.set_border_width_all(2)
-	box.set_corner_radius_all(18)
-	box.shadow_color = Color(0.01, 0.02, 0.06, 0.55)
-	box.shadow_size = 10
-	panel.add_theme_stylebox_override("panel", box)
+	panel.add_theme_stylebox_override("panel", LootlingsUI.panel_style(fill, border, 18))
 	parent.add_child(panel)
 	return panel
 
@@ -1167,13 +1160,4 @@ func draw_ui_sparks() -> void:
 		draw_circle(spark.pos, 2.0 + alpha * 2.5, color)
 
 func apply_button_style(button: Button, fill: Color, border: Color) -> void:
-	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
-		var box := StyleBoxFlat.new()
-		box.bg_color = fill.darkened(0.30) if state_name == "disabled" else fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
-		box.border_color = border.darkened(0.45) if state_name == "disabled" else border
-		box.set_border_width_all(2)
-		box.set_corner_radius_all(14)
-		box.shadow_color = Color(0.01, 0.02, 0.06, 0.5)
-		box.shadow_size = 7 if state_name == "normal" else 3
-		button.add_theme_stylebox_override(state_name, box)
-	button.add_theme_color_override("font_disabled_color", Color("#76819a"))
+	LootlingsUI.apply_button(button, fill, border)

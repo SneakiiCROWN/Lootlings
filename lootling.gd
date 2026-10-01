@@ -202,7 +202,10 @@ var upgrade_title: Label
 var upgrade_buttons: Array[Button] = []
 var result_panel: Panel
 var result_title: Label
-var result_summary: Label
+var result_summary: RichTextLabel
+var upgrade_visuals: Array[Dictionary] = []
+var hud_header_surface := LootlingsUI.panel_style(Color("#121a2c"), Color("#9e8455"), 12)
+var hud_build_surface := LootlingsUI.panel_style(Color("#121928"), Color("#9e8455"), 12)
 var restart_button: Button
 var help_label: Label
 var item_panel: Panel
@@ -219,6 +222,7 @@ var merchant_subtitle: Label
 var merchant_coin_label: Label
 var merchant_buttons: Array[Button] = []
 var merchant_icons: Array = []
+var merchant_visuals: Array[Dictionary] = []
 var merchant_reroll_button: Button
 var merchant_continue_button: Button
 var boss_reward_panel: Panel
@@ -425,7 +429,7 @@ func debug_show_result(victory: bool) -> void:
 	result_panel.visible = true
 	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
-	result_summary.text = "DEVELOPMENT PREVIEW\nNo rewards, stock refresh, or save changes.\n\nWave reached  %d / %d\nEnemies  %d" % [wave, RUN_LAST_WAVE, total_kills]
+	result_summary.text = style_result_summary("DEVELOPMENT PREVIEW\nNo rewards, stock refresh, or save changes.\n\nWave reached  %d / %d\nEnemies  %d" % [wave, RUN_LAST_WAVE, total_kills])
 	help_label.visible = false
 
 func debug_reset_lootlings_saves() -> void:
@@ -554,14 +558,34 @@ func build_overlay_ui() -> void:
 		button.pressed.connect(choose_upgrade.bind(i))
 		upgrade_panel.add_child(button)
 		upgrade_buttons.append(button)
+		var icon := TextureRect.new()
+		icon.position = Vector2(20, 26)
+		icon.size = Vector2(44, 44)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		button.add_child(icon)
+		var kicker := make_label(button, "", 10, Rect2(80, 9, 286, 16), HORIZONTAL_ALIGNMENT_LEFT, Color("#b9a5d5"))
+		var name_label := make_label(button, "", 17, Rect2(80, 28, 286, 25), HORIZONTAL_ALIGNMENT_LEFT, Color.WHITE)
+		var effect := make_label(button, "", 14, Rect2(80, 57, 286, 32), HORIZONTAL_ALIGNMENT_LEFT, Color("#c9d6e9"))
+		effect.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		for label in [kicker, name_label, effect]:
+			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			label.clip_text = true
+		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon})
 	make_label(upgrade_panel, "Every pick stacks. Make something silly.", 15, Rect2(20, 438, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
 	LootlingsUI.apply_material(result_panel, "hoard")
 	result_panel.visible = false
 	result_title = make_label(result_panel, "RUN COMPLETE!", 34, Rect2(20, 25, 384, 55), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	result_summary = make_label(result_panel, "", 16, Rect2(35, 84, 354, 318), HORIZONTAL_ALIGNMENT_CENTER, Color("#e9efff"))
-	result_summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	result_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	result_summary = RichTextLabel.new()
+	result_summary.position = Vector2(35, 91)
+	result_summary.size = Vector2(354, 318)
+	result_summary.bbcode_enabled = true
+	result_summary.scroll_active = false
+	result_summary.add_theme_font_size_override("normal_font_size", 14)
+	result_summary.add_theme_color_override("default_color", Color("#e9efff"))
+	result_panel.add_child(result_summary)
 	restart_button = Button.new()
 	restart_button.text = "RETURN TO HIDEOUT"
 	restart_button.position = Vector2(47, 425)
@@ -938,6 +962,13 @@ func build_merchant_ui() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		merchant_panel.add_child(icon)
 		merchant_icons.append(icon)
+		var kicker := make_label(button, "", 11, Rect2(84, 10, 284, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#c7b18b"))
+		var title := make_label(button, "", 14, Rect2(84, 30, 284, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#edf0f7"))
+		var effect := make_label(button, "", 12, Rect2(84, 56, 284, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#bfcbe0"))
+		for label in [kicker, title, effect]:
+			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			label.clip_text = true
+		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
 	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 452), Vector2(180, 62), Color("#3e315c"), Color("#c89bff"), reroll_merchant)
 	merchant_continue_button = make_action_button(merchant_panel, "CONTINUE", Vector2(224, 452), Vector2(180, 62), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
@@ -980,31 +1011,13 @@ func make_action_button(parent: Node, text_value: String, pos: Vector2, button_s
 	return button
 
 func apply_button_style(button: Button, fill: Color, border: Color) -> void:
-	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
-		var box := StyleBoxFlat.new()
-		box.bg_color = fill.darkened(0.28) if state_name == "disabled" else fill.lightened(0.10) if state_name == "hover" else fill.darkened(0.12) if state_name == "pressed" else fill
-		box.border_color = border.darkened(0.45) if state_name == "disabled" else border.lightened(0.08)
-		box.set_border_width_all(3 if state_name == "focus" else 2)
-		box.set_corner_radius_all(14)
-		box.content_margin_left = 16
-		box.content_margin_right = 16
-		box.shadow_color = Color(0.01, 0.015, 0.05, 0.58)
-		box.shadow_size = 8 if state_name == "normal" else 3
-		button.add_theme_stylebox_override(state_name, box)
-	button.add_theme_color_override("font_disabled_color", Color("#77819a"))
+	LootlingsUI.apply_button(button, fill, border)
 
 func make_panel(rect: Rect2, color: Color) -> Panel:
 	var panel := Panel.new()
 	panel.position = rect.position
 	panel.size = rect.size
-	var box := StyleBoxFlat.new()
-	box.bg_color = color
-	box.border_color = Color("#c89b52")
-	box.set_border_width_all(3)
-	box.set_corner_radius_all(20)
-	box.shadow_color = Color(0, 0, 0, 0.4)
-	box.shadow_size = 12
-	panel.add_theme_stylebox_override("panel", box)
+	panel.add_theme_stylebox_override("panel", LootlingsUI.panel_style(color))
 	add_child(panel)
 	return panel
 
@@ -2065,6 +2078,9 @@ func refresh_merchant_ui() -> void:
 			button.disabled = true
 			button.icon = null
 			merchant_icons[i].visible = false
+			for label in merchant_visuals[i].values():
+				label.text = ""
+			button.add_theme_color_override("font_disabled_color", Color("#77819a"))
 			continue
 		var item: Dictionary = shop.stock[i]
 		var price := int(item.get("price", 0))
@@ -2074,16 +2090,25 @@ func refresh_merchant_ui() -> void:
 		if headline.length() > 43:
 			headline = headline.left(42) + "…"
 		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, headline]
+		button.tooltip_text = "%s\n%s" % [item.name, ItemCatalog.describe_headline_effects(item, 2)]
 		button.disabled = coins < price
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
+		# Keep the semantic button text, but render its information in an icon-safe lane.
+		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
+			button.add_theme_color_override(state_name, Color.TRANSPARENT)
+		merchant_visuals[i].kicker.text = "%s  •  %s  •  %d SCRIP" % [ItemCatalog.display_slot(item.get("slot", "Item")), item.rarity, price]
+		merchant_visuals[i].name.text = str(item.name)
+		merchant_visuals[i].effect.text = headline
+		for label in merchant_visuals[i].values():
+			label.modulate = Color("#a1a9bb") if button.disabled else Color.WHITE
 	var reroll_price := shop.reroll_cost(wave)
 	merchant_reroll_button.text = "REROLL  %d" % reroll_price
 	merchant_reroll_button.disabled = coins < reroll_price
 
 func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dictionary) -> void:
-	category_icon.visible = item.get("slot", "") != "Weapon"
+	category_icon.visible = true
 	category_icon.configure(item)
-	button.icon = merchant_weapon_texture(item)
+	button.icon = null
 	button.expand_icon = true
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.add_theme_constant_override("icon_max_width", 62)
@@ -2161,6 +2186,19 @@ func show_upgrade_choices() -> void:
 		var stacks := int(upgrade_counts.get(up.id, 0))
 		upgrade_buttons[i].text = format_upgrade_card(up, stacks)
 		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
+		# Keep the Button's complete semantic text for accessibility/tests; its
+		# visible layers give rarity, name and effect distinct hierarchy.
+		for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
+			upgrade_buttons[i].add_theme_color_override(state_color, Color.TRANSPARENT)
+		var tags: Array = up.get("tags", [])
+		upgrade_visuals[i].kicker.text = "%s  /  %s%s" % [str(tags[0]).to_upper() if not tags.is_empty() else "UTILITY", up.rarity, "  /  STACK ×%d" % stacks if stacks > 0 else ""]
+		upgrade_visuals[i].kicker.add_theme_color_override("font_color", GameCatalog.rarity_color(up.rarity).lightened(0.20))
+		upgrade_visuals[i].name.text = str(up.name).to_upper()
+		upgrade_visuals[i].effect.text = str(up.desc)
+		# No text token, invented sigil or unrelated gear icon stands in for the
+		# missing production upgrade emblem. The empty reserved slot is honest.
+		var icon_path := "res://art/ui/icons/upgrades/%s.png" % up.id
+		upgrade_visuals[i].icon.texture = load(icon_path) if ResourceLoader.exists(icon_path) else null
 	upgrade_title.text = "LEVEL %d - PICK ONE" % level
 	upgrade_panel.visible = true
 	if presentation_director != null:
@@ -2266,7 +2304,7 @@ func end_run(victory: bool) -> void:
 		if run_kept_loot.size() > 1:
 			notable_loot += ", " + run_kept_loot[1]
 	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
-	result_summary.text = format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned)
+	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
 	if presentation_director != null:
 		presentation_director.present_card(result_panel, Color("#ffe178") if victory else Color("#ff8995"), 0.34)
 	play_audio_event("victory" if victory else "defeat")
@@ -2286,6 +2324,12 @@ func end_run(victory: bool) -> void:
 
 func format_result_summary(victory: bool, reached_wave: int, kills: int, earned: int, spent: int, left: int, scrap_gained: int, shards_gained: int, notable_loot: String, gold_gained: int = 0) -> String:
 	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nLeft       %d\n\nRUN REWARDS\nGold +%d  •  Scrap +%d  •  Shards +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
+
+func style_result_summary(summary: String) -> String:
+	var styled := summary
+	for heading in ["RUN SCRIP", "RUN REWARDS", "NOTABLE LOOT"]:
+		styled = styled.replace(heading, "[font_size=12][color=#dabb79]%s[/color][/font_size]" % heading)
+	return "[center]%s[/center]" % styled
 
 func buy_meta_power() -> void:
 	if state != "hideout":
@@ -2547,7 +2591,7 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0, 0, 480, 146), Color("#070d20f7"), true)
+	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 	draw_line(Vector2(0, 143), Vector2(480, 143), Color("#ad8040"), 3)
 	# One anchored relic-metal header replaces the old stack of framed debug boxes.
@@ -2649,9 +2693,7 @@ func draw_enemy(pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	creature_renderer.draw_enemy(self, pos, color, extra_scale)
 
 func draw_stats_strip() -> void:
-	draw_colored_polygon(PackedVector2Array([Vector2(18, 714), Vector2(462, 714), Vector2(462, 790), Vector2(450, 802), Vector2(30, 802), Vector2(18, 790)]), Color("#091027f3"))
-	draw_line(Vector2(30, 714), Vector2(450, 714), Color("#d2a653"), 2)
-	draw_line(Vector2(30, 801), Vector2(450, 801), Color("#5f4a32"), 1)
+	hud_build_surface.draw(get_canvas_item(), Rect2(18, 714, 444, 88))
 	var identity := build.dominant()
 	var core_title := "DORMANT CORE" if identity == "Neutral" else "%s CORE • %s" % [identity.to_upper(), build.tier_name(identity)]
 	draw_circle(Vector2(33, 730), 6, build.color())
@@ -2667,21 +2709,18 @@ func draw_stats_strip() -> void:
 		draw_string(title_font, Vector2(x, 785), values[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 18, Color("#f4f7ff"))
 
 func draw_status_chip(pos: Vector2, text_value: String, color: Color) -> void:
-	var rect := Rect2(pos.x - 36.0, pos.y - 12.0, 72.0, 19.0)
+	var width := clampf(body_font.get_string_size(text_value, HORIZONTAL_ALIGNMENT_LEFT, -1, 9).x + 24.0, 72.0, 140.0)
+	var rect := Rect2(pos.x - width * 0.5, pos.y - 12.0, width, 19.0)
 	draw_rect(rect, Color("#080f24df"), true)
 	draw_rect(rect, Color(color.r, color.g, color.b, 0.78), false, 1.5)
-	draw_circle(pos + Vector2(-27, -2), 3.0, color)
-	draw_string(body_font, pos + Vector2(-21, 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, 54, 9, Color("#f5f7ff"))
+	draw_circle(Vector2(rect.position.x + 9, pos.y - 2), 3.0, color)
+	draw_string(body_font, Vector2(rect.position.x + 16, pos.y + 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, width - 20, 9, Color("#f5f7ff"))
 
 func build_summary() -> String:
 	return build.short_summary()
 
 func draw_bar(rect: Rect2, ratio: float, back: Color, fill: Color, text_value: String, font_size: int) -> void:
-	draw_rect(Rect2(rect.position + Vector2(0, 2), rect.size + Vector2(0, 3)), Color("#05091675"), true)
-	draw_rect(rect, back, true)
-	draw_rect(Rect2(rect.position + Vector2(2, 2), Vector2(maxf(0.0, (rect.size.x - 4) * clampf(ratio, 0.0, 1.0)), rect.size.y - 4)), fill, true)
-	draw_rect(Rect2(rect.position + Vector2(2, 2), Vector2(maxf(0.0, (rect.size.x - 4) * clampf(ratio, 0.0, 1.0)), 3)), fill.lightened(0.35), true)
-	draw_rect(rect, Color("#7f94bc"), false, 2)
+	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, fill, back.lightened(0.35))
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:

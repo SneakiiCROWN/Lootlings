@@ -94,6 +94,7 @@ func build_profile() -> void:
 	name_edit.max_length = 20
 	name_edit.placeholder_text = "Treasure Seeker"
 	name_edit.add_theme_font_size_override("font_size", 19)
+	LootlingsUI.apply_input(name_edit)
 	panel.add_child(name_edit)
 	make_label(panel, "LOOTLING NICKNAME  •  OPTIONAL", 13, Rect2(38, 211, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
 	nickname_edit = LineEdit.new()
@@ -102,6 +103,7 @@ func build_profile() -> void:
 	nickname_edit.max_length = 20
 	nickname_edit.placeholder_text = "Leave blank for now"
 	nickname_edit.add_theme_font_size_override("font_size", 18)
+	LootlingsUI.apply_input(nickname_edit)
 	panel.add_child(nickname_edit)
 	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
 	make_label(panel, "◈  RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
