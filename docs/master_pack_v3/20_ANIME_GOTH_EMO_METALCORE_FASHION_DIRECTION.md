@@ -1,6 +1,6 @@
 # Lootlings — Anime / Goth / Emo / Metalcore Fashion Direction
 
-Status: APPROVED CREATIVE REFERENCE  
+Status: APPROVED CREATIVE REFERENCE<br>
 Scope: adult human/humanoid Wanderers, adult NPCs, cosmetics, hair, makeup, jewellery, tattoos, social outfits, combat outfits, promotional art and selected UI/profile presentation.
 
 ## Purpose
