@@ -6,6 +6,7 @@ const Items = preload("res://item_catalog.gd")
 const Campaign = preload("res://campaign_system.gd")
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	var inventory := Inventory.new()
 	var original := inventory.equipped_item("Weapon").duplicate(true)
 	assert(not Forge.purchase(inventory, 0, -1).ok)

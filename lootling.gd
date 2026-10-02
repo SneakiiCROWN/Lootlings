@@ -252,6 +252,7 @@ var presentation_director
 var story_run_presentations := false
 var story_life_was_processing := true
 var debug_panel
+var app_lifecycle
 var debug_enabled := false
 var debug_god_mode := false
 var debug_weapon_family_override := ""
@@ -287,6 +288,9 @@ func _ready() -> void:
 	build_presentation_director()
 	build_debug_tools()
 	show_startup()
+	app_lifecycle = preload("res://app_lifecycle.gd").new()
+	add_child(app_lifecycle)
+	app_lifecycle.configure(self)
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
 
@@ -2810,7 +2814,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if debug_enabled and debug_panel != null and debug_panel.visible:
 		return
-	if state == "hoard_chest" and hoard_chest_phase == "ready" and ((event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed) or (event is InputEventKey and event.pressed and event.keycode == KEY_SPACE)):
+	if state == "hoard_chest" and hoard_chest_phase == "ready" and ((event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed) or (event is InputEventKey and event.is_action_pressed("tap_attack"))):
 		open_hoard_chest()
 		get_viewport().set_input_as_handled()
 		return
@@ -2822,7 +2826,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventScreenTouch:
 		tapped = event.pressed
 	elif event is InputEventKey:
-		tapped = event.pressed and not event.echo and event.keycode == KEY_SPACE
+		tapped = event.is_action_pressed("tap_attack") and not event.echo
 	if tapped:
 		if enemy_encounter.active and (event is InputEventMouseButton or event is InputEventScreenTouch):
 			enemy_encounter.select_at(self, event.position * DESIGN_SIZE / size)
@@ -3046,7 +3050,8 @@ func draw_hud() -> void:
 	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
 	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
-	var location_line := "ROOM %02d / 08 • RELIC ROUTE" % (dungeon.depth + 1) if dungeon.active else "WAVE %02d • %s" % [wave, str(current_zone.get("short_name", current_zone.get("name", "RUINS"))).to_upper()]
+	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
+	var location_line := "ROOM %02d / 08 • RELIC ROUTE" % (dungeon.depth + 1) if dungeon.active else "WAVE %02d • %s" % [wave, hud_region]
 	if dungeon.active and dungeon.depth < 0: location_line = "RELIC ROUTE • CHOOSE PATH"
 	draw_string(body_font, Vector2(60, 59), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)

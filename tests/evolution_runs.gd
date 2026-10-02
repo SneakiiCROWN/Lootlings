@@ -6,6 +6,7 @@ const Forge = preload("res://forge_system.gd")
 var game
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("run_qa")
 
 func simulate(family: String, stage: int) -> Dictionary:

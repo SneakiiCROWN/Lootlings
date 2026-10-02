@@ -8,6 +8,7 @@ var native := false
 var handoffs := 0
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	native = "--visual" in OS.get_cmdline_user_args()
 	call_deferred("run_qa")
 

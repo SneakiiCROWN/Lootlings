@@ -109,11 +109,11 @@ func save(path: String) -> Error:
 	config.set_value("shop", "pending_cache_currency", pending_cache_currency)
 	config.set_value("shop", "stock", stock)
 	config.set_value("shop", "pending_cache", pending_cache_item)
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)
 
 func load(path: String) -> void:
 	var config := ConfigFile.new()
-	if config.load(path) != OK:
+	if preload("res://safe_config.gd").load_config(config, path, "shop") != OK:
 		ensure_stock()
 		return
 	cycle = maxi(0, int(config.get_value("shop", "cycle", 0)))

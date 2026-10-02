@@ -3,6 +3,7 @@ const Contracts = preload("res://contract_system.gd")
 var game
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("run_qa")
 
 func run_qa() -> void:

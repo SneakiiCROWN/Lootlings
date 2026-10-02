@@ -5,6 +5,7 @@ const Story = preload("res://world_story.gd")
 var native := false
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	native = "--visual" in OS.get_cmdline_user_args()
 	call_deferred("run_qa")
 
@@ -12,6 +13,15 @@ func run_qa() -> void:
 	var game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
+	game.audio_settings.cinematic_first_time = false
+	game.start_run()
+	game.set_process(false)
+	for title in ["BOSS APPROACH • SUNKEN GEARWORKS", "BOSS APPROACH • NULLGLASS EXPANSE", "TROPHY UNLOCKED • Everybody Knows Your Name"]:
+		game.presentation_director.play_travel(title, "Full title remains readable", Color.WHITE, Callable(), 2.0)
+		var label: Label = game.presentation_director.travel_title
+		assert(label.get_theme_font("font").get_string_size(title, HORIZONTAL_ALIGNMENT_LEFT, -1, label.get_theme_font_size("font_size")).x <= label.size.x)
+		if native: await capture("long_title_" + str(title.length()))
+		game.presentation_director.finish_travel()
 	game.show_hideout()
 	# These are selected-character reactions, not progression-specific trail hints.
 	game.campaign.completed.clear()

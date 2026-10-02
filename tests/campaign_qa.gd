@@ -6,6 +6,7 @@ var game
 var native := false
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	native = "--visual" in OS.get_cmdline_user_args()
 	call_deferred("run_qa")
 
@@ -13,6 +14,9 @@ func run_qa() -> void:
 	game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
+	# Native simulation must not depend on the desktop window retaining focus.
+	if native: game.app_lifecycle.platform_notifications_enabled = false
+	game.audio_settings.cinematic_first_time = false
 	game.show_hideout()
 	game.gold = 1000
 	game.inventory.scrap = 50
@@ -45,9 +49,13 @@ func run_qa() -> void:
 		game.campaign_id = region
 		game.wave = 3
 		game.wave_kills = 0
+		game.wave_banner_timer = 0
 		game.spawn_enemy()
 		assert(game.enemy_variant_id == Campaign.REGIONAL_VARIANTS[region])
-		if native: await capture("expansion_variant_" + region)
+		if native:
+			assert(game.current_zone.id == region)
+			assert(not game.presentation_director.vignette.active)
+			await capture("expansion_variant_" + region)
 	if native and "--screens-only" in OS.get_cmdline_user_args():
 		game.queue_free()
 		await process_frame
@@ -89,7 +97,7 @@ func run_qa() -> void:
 							tap_clock = 0.0
 							game.perform_player_attack(true)
 				elapsed += 0.05
-			assert(game.state == "result", "Campaign softlock: " + region)
+			assert(game.state == "result", "Campaign softlock: " + region + " state=" + game.state)
 			wins += 1 if game.player_hp > 0 else 0
 			print("REGION RUN %s/%s wave=%d hp=%.1f time=%.1f" % [region, weapons[sample], game.wave, game.player_hp, elapsed])
 		print("REGION TOTAL %s wins=%d/4" % [region, wins])

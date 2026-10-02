@@ -28,6 +28,7 @@ const FoundationUI = preload("res://lootlings_ui.gd")
 var failures: Array[String] = []
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("run_tests")
 
 func check(condition: bool, message: String) -> void:

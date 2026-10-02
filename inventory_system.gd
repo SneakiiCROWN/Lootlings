@@ -119,11 +119,11 @@ func save(path: String) -> Error:
 	config.set_value("inventory", "stash_capacity", stash_capacity)
 	config.set_value("inventory", "stash", stash.slice(0, stash_capacity))
 	config.set_value("inventory", "equipped", equipped)
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)
 
 func load(path: String) -> void:
 	var config := ConfigFile.new()
-	if config.load(path) != OK:
+	if preload("res://safe_config.gd").load_config(config, path, "inventory") != OK:
 		return
 	scrap = clampi(int(config.get_value("inventory", "scrap", 0)), 0, 999999)
 	var loaded_capacity := int(config.get_value("inventory", "stash_capacity", DEFAULT_STASH_CAPACITY))

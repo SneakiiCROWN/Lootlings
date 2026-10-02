@@ -1120,8 +1120,7 @@ func slot_icon(slot: String) -> String:
 func weapon_texture_for_item(item: Dictionary) -> Texture2D:
 	if item.get("slot", "") != "Weapon":
 		return null
-	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE, "MAGE":MAGE_WEAPON_TEXTURE, "ROGUE":ROGUE_WEAPON_TEXTURE}.get(str(item.get("family", "VANGUARD")), VANGUARD_WEAPON_TEXTURE)
-	return ForgeSystem.WeaponCatalog.runtime_texture(str(item.get("weapon_type", "")), fallback, int(item.get("evolution_stage", 0)))
+	return LootlingsUI.item_texture(item)
 
 func apply_item_thumbnail(button: Button, item: Dictionary, card_layout: bool = false) -> void:
 	var old_badge := button.get_node_or_null("RarityBadge")

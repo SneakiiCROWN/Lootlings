@@ -1,6 +1,7 @@
 extends SceneTree
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("run_audio_qa")
 
 func run_audio_qa() -> void:

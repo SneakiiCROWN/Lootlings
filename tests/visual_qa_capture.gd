@@ -5,6 +5,7 @@ const AffixCatalog = preload("res://affix_catalog.gd")
 const FoundationUI = preload("res://lootlings_ui.gd")
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("capture_screens")
 
 func capture_screens() -> void:

@@ -10,6 +10,7 @@ var game
 var native := false
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	native = "--visual" in OS.get_cmdline_user_args()
 	call_deferred("run_qa")
 
@@ -31,6 +32,7 @@ func run_qa() -> void:
 	game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
+	game.audio_settings.cinematic_first_time = false
 	game.profile = profile
 	game.startup_ui.profile = profile.duplicate(true)
 	game.startup_ui.show_profile(true)

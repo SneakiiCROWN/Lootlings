@@ -12,6 +12,7 @@ const CORES := ["Fire", "Lightning", "Poison", "Physical"]
 const SEEDS_PER_PAIR := 6
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("run_audit")
 
 func run_audit() -> void:

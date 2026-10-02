@@ -5,6 +5,7 @@ var native := false
 var game
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	native = "--visual" in OS.get_cmdline_user_args()
 	call_deferred("run_qa")
 
@@ -31,6 +32,7 @@ func run_qa() -> void:
 		if id == "pebble_sling":
 			assert(UI.item_texture(game.current_item).resource_path == "res://art/sprites/weapons/sling_inventory.png")
 			assert(game.item_icon.painted_texture.get_size() == Vector2(256,256))
+			assert(game.hideout_ui.weapon_texture_for_item(game.current_item).resource_path.ends_with("sling_inventory.png"))
 		if native: await capture("item_" + id)
 	assert(UI.item_texture(Items.create_item("ruinweave_coat", "COMMON")).resource_path.ends_with("gear_armour.png"))
 	# Every live starter's physical drops must use its actual family art.

@@ -16,7 +16,7 @@ static func defaults() -> Dictionary:
 static func load_settings(path: String) -> Dictionary:
 	var result := defaults()
 	var config := ConfigFile.new()
-	if config.load(path) != OK:
+	if preload("res://safe_config.gd").load_config(config, path, "audio") != OK:
 		return result
 	for key in result:
 		result[key] = config.get_value("audio", key, result[key])
@@ -39,4 +39,4 @@ static func save_settings(path: String, settings: Dictionary) -> Error:
 		if str(key).begins_with("cinematic_"): safe[key] = bool(safe[key])
 	for key in safe:
 		config.set_value("audio", key, safe[key])
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)

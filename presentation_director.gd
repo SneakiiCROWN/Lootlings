@@ -141,6 +141,7 @@ func present_toast(title: String, subtitle: String, accent: Color = Color("#ffd3
 	if toast_tween != null and toast_tween.is_valid():
 		toast_tween.kill()
 	toast_title.text = title
+	fit_title(toast_title, title, 17)
 	toast_title.add_theme_color_override("font_color", accent.lightened(0.18))
 	toast_subtitle.text = subtitle
 	# The painted shared frame stays intact; title/flash carry event accent.
@@ -198,6 +199,7 @@ func play_travel(title: String, subtitle: String, accent: Color, midpoint: Calla
 	travel_panel.scale = Vector2(0.97, 0.97)
 	travel_panel.pivot_offset = travel_panel.size * 0.5
 	travel_title.text = title
+	fit_title(travel_title, title, 27)
 	travel_subtitle.text = subtitle
 	travel_title.add_theme_color_override("font_color", accent.lightened(0.28))
 	accent_bar.color = accent
@@ -299,3 +301,12 @@ static func draw_chest(canvas: CanvasItem, center: Vector2, kind: String, openin
 	# a production-art requirement, not two arbitrary slices of the closed art.
 	canvas.draw_texture_rect(texture, Rect2(-80, -76 - sin(opening * PI) * 5, 160, 140), false, color)
 	canvas.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+
+func fit_title(label: Label, text: String, maximum: int) -> void:
+	var font := label.get_theme_font("font")
+	var font_size := maximum
+	while font_size > 14 and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > label.size.x:
+		font_size -= 1
+	label.add_theme_font_size_override("font_size", font_size)
+	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	label.clip_text = true

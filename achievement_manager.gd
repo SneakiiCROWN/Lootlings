@@ -56,7 +56,7 @@ func load_state() -> void:
 	unlocked.clear()
 	unique_keys.clear()
 	var config := ConfigFile.new()
-	if config.load(path) != OK:
+	if preload("res://safe_config.gd").load_config(config, path, "achievements") != OK:
 		return
 	progress = config.get_value("achievements", "progress", {}).duplicate(true)
 	unlocked = config.get_value("achievements", "unlocked", {}).duplicate(true)
@@ -68,7 +68,7 @@ func save_state() -> Error:
 	config.set_value("achievements", "progress", progress)
 	config.set_value("achievements", "unlocked", unlocked)
 	config.set_value("achievements", "unique_keys", unique_keys)
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)
 
 func add_progress(id: String, amount: int = 1) -> bool:
 	var definition := definition_for(id)

@@ -4,6 +4,7 @@ const Items = preload("res://item_catalog.gd")
 var game
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("run_qa")
 
 func prepare(weapon_type: String, sequence: int = 0) -> void:

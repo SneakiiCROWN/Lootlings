@@ -37,7 +37,7 @@ static func create_default() -> Dictionary:
 
 static func load_profile(path: String) -> Dictionary:
 	var config := ConfigFile.new()
-	if config.load(path) != OK:
+	if preload("res://safe_config.gd").load_config(config, path, "profile") != OK:
 		return create_default()
 	var profile := create_default()
 	for key in profile.keys():
@@ -67,7 +67,7 @@ static func save_profile(path: String, profile: Dictionary) -> Error:
 	safe_profile.memories = sanitize_memories(safe_profile.memories)
 	for key in safe_profile:
 		config.set_value("profile", key, safe_profile[key])
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)
 
 static func is_created(profile: Dictionary) -> bool:
 	return not sanitize_name(str(profile.get("display_name", ""))).is_empty()

@@ -2,6 +2,7 @@ extends SceneTree
 const Audio = preload("res://audio_manager.gd")
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	for cue in Audio.MUSIC_PATHS:
 		assert(Audio.music_source_path(cue) == Audio.MUSIC_PATHS[cue])
 	assert(Audio.music_source_path("NONEXISTENT") == "")

@@ -46,11 +46,11 @@ func save(path: String) -> Error:
 	config.set_value("contracts", "counts", counts)
 	config.set_value("contracts", "active", active)
 	config.set_value("contracts", "next", next_template)
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)
 
 func load_progress(path: String) -> void:
 	var config := ConfigFile.new()
-	if config.load(path) != OK: return
+	if preload("res://safe_config.gd").load_config(config, path, "contracts") != OK: return
 	var saved_counts = config.get_value("contracts", "counts", {})
 	if saved_counts is Dictionary:
 		for event in counts: counts[event] = clampi(int(saved_counts.get(event, 0)), 0, 999999999)

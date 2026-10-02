@@ -15,6 +15,7 @@ var interactive := false
 var initialized := false
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	if not OS.is_debug_build():
 		quit(0)
 		return
@@ -121,6 +122,9 @@ func run_qa() -> void:
 				assert(held.resource_path == "res://art/sprites/weapons/sling_held.png")
 				assert(held.get_image().get_pixelv(Vector2i(Fit.GEOMETRY.sling.grip*512)).a > .5)
 				assert(Weapons.presentation_texture("sling","inventory",held).get_size() == Vector2(256,256))
+				if id == "mosskin":
+					var socket: Vector2 = Fit.sample(game).projectile
+					assert(socket.x < Fit.body(game.profile).primary_hand.x - 30.0)
 				var hp: float = game.enemy_hp
 				game.update_attack_projectiles(float(game.attack_projectiles[0].max_life)*.35)
 				assert(game.enemy_hp == hp and game.attack_projectiles.size() == 1)

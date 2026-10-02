@@ -49,12 +49,12 @@ func save(path: String) -> Error:
 	var config := ConfigFile.new()
 	config.set_value("campaign", "version", 1)
 	config.set_value("campaign", "completed", completed)
-	return config.save(path)
+	return preload("res://safe_config.gd").save_config(config, path)
 
 func load_progress(path: String) -> void:
 	completed.clear()
 	var config := ConfigFile.new()
-	if config.load(path) != OK:
+	if preload("res://safe_config.gd").load_config(config, path, "campaign") != OK:
 		return
 	var saved = config.get_value("campaign", "completed", [])
 	if saved is Array:

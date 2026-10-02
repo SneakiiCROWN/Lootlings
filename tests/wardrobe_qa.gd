@@ -3,6 +3,7 @@ const Wanderers = preload("res://wanderer_catalog.gd")
 const Fit = preload("res://weapon_fit_catalog.gd")
 
 func _initialize() -> void:
+	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	var checks := 0
 	for id in Wanderers.selectable_ids():
 		for stance in Fit.STANCE_GROUPS:

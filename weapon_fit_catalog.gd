@@ -67,7 +67,7 @@ const HANDLING_OVERRIDES := {
 		"greataxe":{"angle":-.90,"release":-.10},
 		"spear":{"angle":-.90},"staff":{"angle":-.90},"wand":{"angle":-.90},
 		"daggers":{"angle":-.35},"claws":{"angle":-.35},"bow":{"angle":-.35},
-		"crossbow":{"angle":-.35},"sling":{"angle":-.35},"orb":{"angle":-.35}
+		"crossbow":{"angle":-.35},"sling":{"angle":-1.35,"release":-.10},"orb":{"angle":-.35}
 	},
 	"paw":{"staff":{"angle_offset":.30},"spear":{"angle_offset":.30},"bow":{"angle_offset":.30}}
 }
