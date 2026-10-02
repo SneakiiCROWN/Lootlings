@@ -26,7 +26,7 @@ func run_qa() -> void:
 	check(is_instance_valid(game.mobile_test_monitor) == diagnostics_enabled,"test reporter follows explicit feature gate")
 	if diagnostics_enabled:
 		await validate_monitor_startup()
-	for size in [Vector2i(480,854), Vector2i(480,1030), Vector2i(720,1544), Vector2i(360,640)]:
+	for size in [Vector2i(480,854), Vector2i(480,1030), Vector2i(720,1544), Vector2i(360,640),Vector2i(800,1280),Vector2i(1200,1600),Vector2i(1200,1920)]:
 		root.size = size
 		await create_timer(0.2).timeout
 		await process_frame
@@ -69,8 +69,8 @@ func run_qa() -> void:
 			game.enemy_max_hp = 100000.0
 			game.tap_input_cooldown = 0.0
 			var attacks: int = game.attack_sequence
-			await tap_local(Vector2(240,690))
-			await tap_local(Vector2(240,690))
+			await tap_local(Vector2(240,620))
+			await tap_local(Vector2(240,620))
 			check(game.attack_sequence == attacks + 1,label + " rapid touch cooldown gives one attack")
 			if notch:
 				var before: int = game.attack_sequence
@@ -85,6 +85,9 @@ func run_qa() -> void:
 			for button in game.boss_reward_buttons: check_control(button,logical_safe,label + " reward card")
 			await capture(label + "_rewards")
 			await tap_control(game.boss_reward_buttons[1])
+			check(game.state == "boss_reward",label + " reward tap inspects without choosing")
+			await create_timer(.2).timeout
+			await tap_control(game.touch_ux.confirm_button)
 			check(game.state == "item" and game.current_item.serial == 9001,label + " actual touch reward selection")
 			game.accept_item_scrap()
 			game.wave = 6
@@ -99,6 +102,9 @@ func run_qa() -> void:
 			var buy_position: Vector2 = game.merchant_buttons[0].get_global_rect().get_center()
 			await tap_canvas(buy_position)
 			await tap_canvas(buy_position)
+			check(game.coins == scrip,label + " offer taps inspect without spending")
+			await create_timer(.2).timeout
+			await tap_control(game.touch_ux.confirm_button)
 			check(game.coins == scrip - price and game.state == "item",label + " two taps buy once")
 			game.accept_item_scrap()
 			game.show_hideout()
@@ -127,7 +133,7 @@ func run_qa() -> void:
 	game.free()
 	print("MOBILE_LAYOUT_OBSERVATIONS " + JSON.stringify(observations))
 	print("MOBILE_CAPTURE_SIZES " + JSON.stringify(capture_sizes))
-	print("MOBILE LAYOUT QA %s: eight native size/safe-area scenarios, real ScreenTouch UI/target/cooldown/purchase routing; handset acceptance pending" % ("PASSED" if failures.is_empty() else "FAILED"))
+	print("MOBILE LAYOUT QA %s: fourteen native size/safe-area scenarios, real ScreenTouch UI/target/cooldown/purchase routing; handset acceptance pending" % ("PASSED" if failures.is_empty() else "FAILED"))
 	quit(0 if failures.is_empty() else 1)
 
 func check_rect(local_rect: Rect2,safe: Rect2,label: String) -> void:

@@ -92,8 +92,18 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion']:
+        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux']:
             assert 'assets/' + script + '.gdc' in entries
+        assert 'assets/art/audio/production/sources.json' in entries
+        assert 'assets/art/audio/production/LICENSES.txt' in entries
+        imported_audio = 0
+        for sidecar in (ROOT/'art/audio/production').rglob('*.wav.import'):
+            config = sidecar.read_text(encoding='utf-8')
+            assert 'compress/mode=0' in config, 'PCM loader requires uncompressed WAV import'
+            relative = re.search(r'^path="res://([^"]+)"', config, re.MULTILINE).group(1)
+            assert apk.read('assets/' + relative) == (ROOT/relative).read_bytes(), 'Stale exported sound: ' + str(sidecar)
+            imported_audio += 1
+        assert imported_audio == 178
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
         imported_poses = {}
         for pose in ['greatsword_ready', 'greatsword_strike']:
@@ -113,6 +123,8 @@ def main():
               'signed': True, 'zipalign_16k': True, 'offline_no_permissions': True,
               'contains_manifest_and_test_monitor': True, 'source_test_reference_art_excluded': True,
               'contains_motion_and_safe_area_modules': True, 'final_imported_poses': imported_poses,
+              'mobile_gesture_owner_exported': True, 'current_pcm_audio_assets': imported_audio,
+              'audio_license_manifest_exported': True, 'version_code': 2,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))

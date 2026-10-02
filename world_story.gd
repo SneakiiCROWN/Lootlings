@@ -57,7 +57,7 @@ const LOOTLINGS := {
 }
 # Premise / midpoint / boss hook / victory / next-region hook.
 const REGIONS := {
-	"act_i":["Follow the Core into the broken vaults.", "Old locks remember their owners.", "Something enormous counts its coins.", "One vault quiet. Nine mysteries awake.", "A jade reflection waits beyond the ruins."],
+	"act_i":["Your Core remembers a promise beneath the broken vaults. Bring it home.", "The locks still serve a fallen Crown. Its guards have not received the news.", "The Hoard Dragon guards what the Crown stole. You are not on its guest list.", "The vault is open. Its stolen stories can finally leave.", "A jade reflection waits beyond the ruins."],
 	"mossglass_wilds":["The forest grows around forgotten treasure.", "Every leaf reflects a different sky.", "The Verdant Mirror guards a stolen spring.", "The spring remembers its own reflection.", "Follow the lanterns into Moonfen."],
 	"moonfen":["Follow lanterns. Not all of them are friendly.", "The marsh keeps what the moon forgets.", "The Lantern Jackal knows your scent.", "The false lights go dark.", "A bell rings beneath the ice."],
 	"frostbell_hollows":["A frozen warning still rings here.", "The ice holds unfinished songs.", "Belljaw has swallowed the last chime.", "For once, the silence is kind.", "Meltwater leads to the drowned machines."],

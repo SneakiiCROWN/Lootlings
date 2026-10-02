@@ -7,7 +7,9 @@ func _initialize() -> void:
 		assert(Audio.music_source_path(cue) == Audio.MUSIC_PATHS[cue])
 	assert(Audio.music_source_path("NONEXISTENT") == "")
 	for event in Audio.EVENT_SPECS:
-		assert(Audio.production_event_streams(event).is_empty(), "No production audio has been supplied yet")
+		var bank := Audio.production_event_streams(event)
+		assert(bank.size() == (4 if event in Audio.VARIANT_EVENTS else 1), "Complete recorded/designed bank required: "+event)
+		for clip in bank: assert(Audio.valid_event_stream(clip))
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS
 	stream.mix_rate = 48000
@@ -24,5 +26,5 @@ func _initialize() -> void:
 	stream.data = data
 	assert(not Audio.valid_event_stream(stream))
 	assert(not Audio.valid_event_stream(null))
-	print("AUDIO PRODUCTION QA PASSED: all existing music/event fallbacks, bounded PCM validation; no final audio falsely enabled")
+	print("AUDIO PRODUCTION QA PASSED: all complete PCM48 recorded/designed event banks, bounded duration and preserved music fallback; license manifest present")
 	quit(0)

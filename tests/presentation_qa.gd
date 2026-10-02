@@ -23,6 +23,17 @@ func run_qa() -> void:
 		if native: await capture("long_title_" + str(title.length()))
 		game.presentation_director.finish_travel()
 	game.show_hideout()
+	# Exercise practical and humorous copy through its actual delivery path.
+	for context in preload("res://dialogue_director.gd").POOLS:
+		game.hideout_ui.dismiss_dialogue()
+		game.hideout_ui.dialogue.speaker_ready.clear()
+		game.hideout_ui.request_dialogue(context)
+		if game.hideout_ui.speech_panel.visible:
+			var speech: Label = game.hideout_ui.speech_label
+			var line_height := speech.get_theme_font("font").get_height(speech.get_theme_font_size("font_size"))
+			assert(speech.get_line_count()*line_height <= speech.size.y+.1,"Dialogue text clipped: "+context)
+			assert(game.hideout_ui.speech_panel.position.y+game.hideout_ui.speech_panel.size.y <= 830.1,"Dialogue leaves safe design bounds")
+		game.hideout_ui.dismiss_dialogue()
 	# These are selected-character reactions, not progression-specific trail hints.
 	game.campaign.completed.clear()
 	for speaker in ["Salvager", "Relic Keeper", "Archivist"]:

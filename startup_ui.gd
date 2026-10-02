@@ -85,7 +85,7 @@ func build_boot() -> void:
 	var core := LootlingsUI.add_icon(boot_content, Rect2(160, 270, 160, 110), "core_neutral")
 	core.name = "CoreGlyph"
 	LootlingsUI.add_wordmark(boot_content, Rect2(30, 350, 420, 100))
-	make_label(boot_content, "RELIC CORE AWAKENING", 14, Rect2(40, 448, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	make_label(boot_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(40, 448, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var skip := make_button(boot_content, "TAP TO BEGIN", Rect2(120, 696, 240, 58), Color("#142144dd"), Color("#d1a85a"), 16)
 	skip.pressed.connect(skip_boot)
 
@@ -158,7 +158,7 @@ func build_settings() -> void:
 		make_label(panel, channel.to_upper(), 14, Rect2(30, y, 120, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9e5ff"))
 		var slider := HSlider.new()
 		slider.position = Vector2(30, y + 29)
-		slider.size = Vector2(258, 38)
+		slider.size = Vector2(258, 48)
 		slider.min_value = 0.0
 		slider.max_value = 1.0
 		slider.step = 0.01
@@ -167,7 +167,7 @@ func build_settings() -> void:
 		var mute := CheckButton.new()
 		mute.text = "MUTE"
 		mute.position = Vector2(300, y + 22)
-		mute.size = Vector2(96, 44)
+		mute.size = Vector2(96, 48)
 		mute.add_theme_font_size_override("font_size", 12)
 		panel.add_child(mute)
 		setting_mutes[channel] = mute
@@ -278,7 +278,7 @@ func build_wanderer_select() -> void:
 	wanderer_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	panel.add_child(wanderer_portrait)
 	wanderer_name = make_label(panel, "", 21, Rect2(36, 319, 360, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
-	make_label(panel, "BETA PRESET • appearance only • all weapons", 12, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	make_label(panel, "Appearance only • choose any weapon", 13, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var origin_preview := make_button(wanderer_content, "▷ ORIGIN MEMORY", Rect2(234, 12, 212, 48), Color("#17294b"), Color("#c99cff"), 14)
 	origin_preview.pressed.connect(func():
 		var preview := profile.duplicate(true)

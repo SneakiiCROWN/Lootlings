@@ -279,27 +279,27 @@ func build_home() -> void:
 	home_content = Control.new()
 	home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(home_content)
-	make_label(home_content, "LOOTLINGS HIDEOUT", 26, Rect2(90, 20, 300, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(home_content, "HIDEOUT", 26, Rect2(90, 20, 300, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	var profile_button := make_button(home_content, "PROFILE", Rect2(10, 16, 78, 38), Color("#172442c8"), Color("#72c8ff"), 10)
 	profile_button.pressed.connect(func(): profile_requested.emit())
 	var title_button := make_button(home_content, "TITLE", Rect2(392, 16, 78, 38), Color("#172442c8"), Color("#d1a85a"), 10)
 	title_button.pressed.connect(func(): title_requested.emit())
 	resource_label = LootlingsUI.rich_label(home_content, Rect2(30, 60, 420, 40), 13, Color("#d9e5ff"))
-	var play_button := make_hotspot_button(home_content, "EXPEDITION GATE\nBEGIN RUN", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
+	var play_button := make_hotspot_button(home_content, "BEGIN EXPEDITION", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
 	play_button.pressed.connect(func(): play_requested.emit())
-	var upgrades_button := make_hotspot_button(home_content, "RELIC SHRINE\nUPGRADES", Rect2(14, 244, 138, 112), Color("#c99cff"), 15)
+	var upgrades_button := make_hotspot_button(home_content, "UPGRADES", Rect2(14, 244, 138, 112), Color("#c99cff"), 15)
 	upgrades_button.pressed.connect(show_upgrades)
-	var shop_button := make_hotspot_button(home_content, "SALVAGER STALL\nSHOP", Rect2(328, 244, 138, 112), Color("#ffbd69"), 15)
+	var shop_button := make_hotspot_button(home_content, "SHOP", Rect2(328, 244, 138, 112), Color("#ffbd69"), 15)
 	shop_button.pressed.connect(show_shop)
-	var stash_button := make_hotspot_button(home_content, "GEAR CHEST\nSTASH", Rect2(14, 476, 150, 110), Color("#72c8ff"), 15)
+	var stash_button := make_hotspot_button(home_content, "GEAR", Rect2(14, 476, 150, 110), Color("#72c8ff"), 15)
 	stash_button.pressed.connect(show_stash)
 	var lootbook_button := make_hotspot_button(home_content, "ARCHIVE\nLOOTBOOK", Rect2(316, 476, 150, 110), Color("#91a6ce"), 15)
-	lootbook_button.text = "ARCHIVE\nTROPHIES"
+	lootbook_button.text = "ARCHIVE"
 	lootbook_button.pressed.connect(show_achievements)
 	loadout_panel = make_panel(home_content, Rect2(34, 704, 412, 88), Color("#0c1430c9"), Color("#c99a4e"))
 	LootlingsUI.apply_material(loadout_panel, "leather", 16)
 	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
-	loadout_label = LootlingsUI.rich_label(loadout_panel, Rect2(14, 27, 384, 54), 11, Color("#e6edff"))
+	loadout_label = LootlingsUI.rich_label(loadout_panel, Rect2(14, 27, 384, 54), 15, Color("#e6edff"))
 	for speaker in RESIDENT_RECTS:
 		make_npc_hotspot(home_content, RESIDENT_RECTS[speaker], speaker)
 	make_npc_hotspot(home_content, Rect2(204, 382, 76, 102), "Mascot")
@@ -405,7 +405,7 @@ func build_campaign() -> void:
 	add_child(campaign_content)
 	make_button(campaign_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
 	make_label(campaign_content, "EXPEDITIONS", 26, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(campaign_content, "Conquer a region to unlock the next.\n15 waves • miniboss • boss • merchant stops", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	make_label(campaign_content, "Defeat a region boss to unlock the next.\n15 waves • miniboss • boss • merchant stops", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(24, 190)
 	scroll.size = Vector2(432, 460)
@@ -558,7 +558,7 @@ func build_upgrades() -> void:
 	make_label(upgrade_panel, "PERMANENT POWER", 20, Rect2(20, 12, 344, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
 	upgrade_summary = LootlingsUI.rich_label(upgrade_panel, Rect2(28, 40, 328, 68), 14, Color("#e8efff"))
 	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 126, 300, 60), Color("#49346b"), Color("#d19cff"), 17)
-	upgrade_button.pressed.connect(func(): upgrade_requested.emit())
+	upgrade_button.pressed.connect(func(): safe_action(upgrade_button,"Permanent +5% power. Spends Star Shards.",func(): upgrade_requested.emit()))
 	var utility_panel := make_panel(upgrade_content, Rect2(30, 576, 420, 216), Color("#0d1530e8"), Color("#d1a85a"))
 	LootlingsUI.apply_material(utility_panel, "relic", 18)
 	make_label(utility_panel, "HIDEOUT IMPROVEMENTS  •  GOLD", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
@@ -569,7 +569,7 @@ func build_upgrades() -> void:
 		gold_upgrade_buttons[upgrade_id] = button
 
 func request_gold_upgrade(upgrade_id: String) -> void:
-	gold_upgrade_requested.emit(upgrade_id)
+	safe_action(gold_upgrade_buttons[upgrade_id],"Permanent Hideout improvement. Spends Gold.",func(): gold_upgrade_requested.emit(upgrade_id))
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -598,13 +598,13 @@ func build_shop() -> void:
 	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
 	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 525, 137, 76), Color("#5a3f20"), Color("#ffd36a"), 12)
-	shop_gold_cache_button.pressed.connect(func(): shop_gold_cache_requested.emit())
+	shop_gold_cache_button.pressed.connect(func(): safe_action(shop_gold_cache_button,"Spend Gold for one random item. Contents are not known before purchase.",func(): shop_gold_cache_requested.emit()))
 	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 525, 137, 76), Color("#3f315f"), Color("#c99cff"), 12)
-	shop_cache_button.pressed.connect(func(): shop_cache_requested.emit())
+	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
 	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 525, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
-	shop_expansion_button.pressed.connect(func(): shop_expansion_requested.emit())
+	shop_expansion_button.pressed.connect(func(): safe_action(shop_expansion_button,"Spend Scrap to permanently add stash space.",func(): shop_expansion_requested.emit()))
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 615, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
-	shop_reroll_button.pressed.connect(func(): shop_reroll_requested.emit())
+	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Scrap to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
 	shop_status_panel = make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530dc"), Color("#8ea2c8"))
 	LootlingsUI.apply_material(shop_status_panel, "salvage", 16)
 	LootlingsUI.add_divider(shop_status_panel, Rect2(28, 4, 384, 8), "salvage")
@@ -846,13 +846,13 @@ func refresh_home() -> void:
 	var display_name := str(profile.get("display_name", "TREASURE SEEKER")).to_upper()
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
-	resource_label.text = "[center]%s  •  %s %d GOLD\n%s %d SCRAP   %s %d SHARDS   POWER +%d%%[/center]" % [display_name.replace("[", "[lb]"), LootlingsUI.inline_icon("currency_gold"), gold, LootlingsUI.inline_icon("currency_scrap"), current_inventory.scrap, LootlingsUI.inline_icon("currency_star_shard"), shards, power * 5]
+	resource_label.text = "[center]%s %d GOLD   %s %d SCRAP\n%s %d STAR SHARDS • power details in UPGRADES[/center]" % [LootlingsUI.inline_icon("currency_gold"), gold, LootlingsUI.inline_icon("currency_scrap"), current_inventory.scrap, LootlingsUI.inline_icon("currency_star_shard"), shards]
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
 	var armour: Dictionary = current_inventory.equipped_item("Armour")
 	var charm: Dictionary = current_inventory.equipped_item("Relic")
-	loadout_label.text = "[center]%s • %s  %s %s\n%s %s  %s NEUTRAL CORE[/center]" % [item_name_or_empty(weapon), current_inventory.weapon_family(), LootlingsUI.inline_icon("gear_armour", 14), item_name_or_empty(armour), LootlingsUI.inline_icon("gear_charm", 14), item_name_or_empty(charm), LootlingsUI.inline_icon("core_neutral", 14)]
+	loadout_label.text = "[center]%s\n%s • open GEAR for your full loadout[/center]" % [item_name_or_empty(weapon), current_inventory.weapon_family()]
 
 func refresh_stash() -> void:
 	if current_inventory == null or stash_list == null:
@@ -1064,7 +1064,9 @@ func request_stash_scrap() -> void:
 		return
 	var entry: Dictionary = entries[selected_entry]
 	if not entry.equipped:
-		stash_scrap_requested.emit(int(entry.stash_index))
+		var item: Dictionary = entry.item
+		var index := int(entry.stash_index)
+		get_parent().touch_ux.request("Scrap %s?" % item.name,"Receive %d Scrap. This item is destroyed permanently." % ItemCatalog.scrap_value(item),func(): stash_scrap_requested.emit(index))
 
 func select_shop_offer(index: int) -> void:
 	if current_shop == null or index < 0 or index >= current_shop.stock.size() or current_shop.stock[index].is_empty():
@@ -1222,7 +1224,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 		if speaker == "Archivist" and campaign != null and not campaign.completed.is_empty():
 			var next_region: String = CampaignSystem.ORDER[mini(campaign.completed.size(), CampaignSystem.ORDER.size() - 1)]
 			line = WorldStory.region_line(next_region, 0)
-	if speaker == "Mascot":
+	if speaker == "Mascot" and context in ["idle", "tapped", "victory"]:
 		var id := str(profile.get("current_lootling_id", "relic_beast"))
 		voice_name = Avatar.display_name(profile)
 		if Avatar.is_wanderer(profile):
@@ -1231,7 +1233,13 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 		else:
 			line = WorldStory.mascot_line(id, 1 if context == "victory" else 0)
 	speech_label.text = "%s\n%s" % [voice_name.to_upper(), line]
+	# Fit the actual wrapped copy rather than truncating longer practical tips.
+	var font: Font = speech_label.get_theme_font("font")
+	var line_height := font.get_height(speech_label.get_theme_font_size("font_size"))
+	speech_label.size.y = maxf(74.0, speech_label.get_line_count() * line_height)
+	speech_panel.size.y = speech_label.size.y + 36.0
 	speech_panel.position = dialogue_anchor(speaker)
+	speech_panel.position.y = minf(speech_panel.position.y, 830.0-speech_panel.size.y)
 	speech_panel.visible = true
 	speech_panel.modulate = Color(1, 1, 1, 0)
 	speech_panel.scale = Vector2(0.96, 0.96)
@@ -1239,7 +1247,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	var tween := create_tween().set_parallel(true)
 	tween.tween_property(speech_panel, "modulate", Color.WHITE, 0.16)
 	tween.tween_property(speech_panel, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	speech_visible_timer = 3.4
+	speech_visible_timer = clampf(2.0 + line.length() * 0.045, 4.0, 10.0)
 
 func dialogue_anchor(speaker: String) -> Vector2:
 	if current_screen == "shop":
@@ -1452,8 +1460,8 @@ func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: 
 	var button := Button.new()
 	button.text = value
 	button.position = rect.position
-	button.size = rect.size
-	button.add_theme_font_size_override("font_size", font_size)
+	button.size = Vector2(rect.size.x,maxf(48,rect.size.y))
+	button.add_theme_font_size_override("font_size", maxi(13,font_size))
 	apply_button_style(button, fill, border)
 	parent.add_child(button)
 	wire_press_feedback(button)
@@ -1463,8 +1471,8 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	var button := Button.new()
 	button.text = value
 	button.position = rect.position
-	button.size = rect.size
-	button.add_theme_font_size_override("font_size", font_size)
+	button.size = Vector2(rect.size.x,maxf(48,rect.size.y))
+	button.add_theme_font_size_override("font_size", maxi(13,font_size))
 	button.add_theme_color_override("font_color", Color("#f2f6ff"))
 	button.add_theme_color_override("font_hover_color", Color.WHITE)
 	button.add_theme_color_override("font_outline_color", Color("#050914"))
@@ -1545,3 +1553,6 @@ func draw_ui_sparks() -> void:
 
 func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 	LootlingsUI.apply_button(button, fill, border)
+
+func safe_action(button: Button, consequence: String, action: Callable) -> void:
+	get_parent().touch_ux.request(button.text.get_slice("\n",0),button.text+"\n\n"+consequence,action)

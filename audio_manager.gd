@@ -9,6 +9,12 @@ const MUSIC_PATHS := {
 	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav"
 }
 const EVENT_SPECS := {
+	"swing_greatsword":["SFX",0,.28,.5], "swing_greataxe":["SFX",0,.30,.5], "swing_maul":["SFX",0,.32,.5],
+	"swing_spear":["SFX",0,.18,.4], "swing_daggers":["SFX",0,.15,.4], "swing_claws":["SFX",0,.12,.4],
+	"swing_bow":["SFX",0,.18,.4], "swing_crossbow":["SFX",0,.16,.4], "swing_sling":["SFX",0,.18,.4],
+	"swing_staff":["SFX",0,.38,.4], "swing_wand":["SFX",0,.25,.4], "swing_orb":["SFX",0,.40,.4],
+	"magic_fire":["SFX",0,.38,.4], "magic_lightning":["SFX",0,.22,.4], "magic_poison":["SFX",0,.38,.4],
+	"ward":["SFX",0,.28,.4], "explosion":["SFX",0,.38,.5], "exertion":["SFX",0,.2,.3],
 	"ui_press":["UI", 720.0, 0.045, 0.20], "menu_open":["UI", 520.0, 0.10, 0.18],
 	"menu_close":["UI", 360.0, 0.08, 0.16], "menu_transition":["UI", 610.0, 0.12, 0.16],
 	"tap_attack":["SFX", 210.0, 0.08, 0.42], "normal_hit":["SFX", 125.0, 0.11, 0.56],
@@ -36,6 +42,7 @@ const EVENT_SPECS := {
 var players := {}
 var streams := {}
 var music_player: AudioStreamPlayer
+var ambience_player: AudioStreamPlayer
 var current_music := ""
 var music_streams := {}
 var output_enabled := true
@@ -44,7 +51,7 @@ var event_sequence := {}
 var last_event_msec := {}
 var duck_tween: Tween
 
-const VARIANT_EVENTS := ["tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
+const VARIANT_EVENTS := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "exertion", "tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
 const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
 const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "player_hurt", "enemy_death", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_windup", "chest_open", "level_up", "core_awaken", "boss_warning", "boss_death", "victory", "defeat"]
 
@@ -63,6 +70,9 @@ func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
 	add_child(music_player)
+	ambience_player = AudioStreamPlayer.new()
+	ambience_player.bus = "Ambience"
+	add_child(ambience_player)
 	for event_name in EVENT_SPECS:
 		var spec: Array = EVENT_SPECS[event_name]
 		var authored := production_event_streams(event_name)
@@ -187,6 +197,17 @@ func set_music(cue: String) -> void:
 	if cue == current_music:
 		return
 	current_music = cue
+	if ambience_player != null:
+		ambience_player.stop()
+		ambience_player.stream = null
+		var ambient_key: String = {"OUTER_RUINS":"outer_ruins","SALVAGE_WARRENS":"salvage_warrens","HOARD_DEPTHS":"hoard_depths","HIDEOUT":"hideout"}.get(cue,"")
+		if not ambient_key.is_empty():
+			var ambient: AudioStreamWAV = load(PRODUCTION_ROOT+"ambience/"+ambient_key+".wav")
+			ambient.loop_mode = AudioStreamWAV.LOOP_FORWARD
+			ambient.loop_end = int(ambient.get_length()*ambient.mix_rate)
+			ambience_player.stream = ambient
+			ambience_player.volume_db = -9
+			ambience_player.play()
 	if cue.is_empty():
 		music_player.stop()
 		return
@@ -330,6 +351,9 @@ func make_ambient_loop(base_frequency: float, cue: String = "OUTER_RUINS") -> Au
 	return stream
 
 func _exit_tree() -> void:
+	if ambience_player != null:
+		ambience_player.stop()
+		ambience_player.stream = null
 	if music_player != null:
 		music_player.stop()
 		music_player.stream = null

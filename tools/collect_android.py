@@ -4,7 +4,7 @@ Read-only: never installs, launches, stops, clears data/logs, or changes the pho
 Enable USB debugging, approve the connected PC, then run this after testing.
 """
 from pathlib import Path
-import argparse, json, subprocess, time
+import argparse, json, subprocess, time, os
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = 'com.sneakiicrown.lootlings'
@@ -15,8 +15,11 @@ def main():
     args = parser.parse_args()
     adb = ROOT/'.godot_test_data/android/sdk/platform-tools/adb.exe'
     if not adb.exists(): raise SystemExit('Run tools/build_android.py --prepare first.')
+    env = os.environ.copy()
+    env['ANDROID_USER_HOME'] = str(ROOT/'.godot_test_data/android/adb-user')
+    env['ANDROID_SDK_HOME'] = env['ANDROID_USER_HOME']
     def run(arguments):
-        return subprocess.run([str(adb), *arguments], capture_output=True)
+        return subprocess.run([str(adb), *arguments], capture_output=True, env=env)
     devices = run(['devices']).stdout.decode('utf-8', 'replace')
     available = [line.split()[0] for line in devices.splitlines()[1:] if line.endswith('\tdevice')]
     serial = args.serial or (available[0] if len(available) == 1 else None)

@@ -23,8 +23,7 @@ func _notification(what: int) -> void:
 			persist()
 			get_tree().quit()
 		NOTIFICATION_WM_GO_BACK_REQUEST:
-			if game.state == "playing": game.pause_run()
-			elif game.state == "paused": game.resume_run()
+			game.navigate_back()
 
 func suspend() -> void:
 	if suspended: return

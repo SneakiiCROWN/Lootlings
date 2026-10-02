@@ -80,7 +80,7 @@ func play(entry: Dictionary, settings: Dictionary, playback_mode: String, callba
 	actor = load(str(entry.actor)) if not str(entry.actor).is_empty() and ResourceLoader.exists(str(entry.actor)) else null
 	title.text = str(entry.name).to_upper()
 	category.text = "%s • %s" % [str(entry.category).to_upper(), "ARCHIVE REPLAY" if mode == "replay" else "STORY PREVIEW" if mode == "preview" else "DISCOVERED MEMORY"]
-	status.text = str(entry.status)
+	status.text = str(entry.category).to_upper()
 	close.text = "CLOSE ›" if mode in ["replay","preview"] else "SKIP ›"
 	caption_panel.visible = subtitles
 	caption.visible = subtitles

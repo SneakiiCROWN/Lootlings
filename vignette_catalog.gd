@@ -12,8 +12,8 @@ const RESIDENTS := {
 	"ilex":{"name":"Ilex Quill", "role":"Archivist", "art":"ilex", "lines":["Ilex fled Starfall before her name could be erased.", "Here, witnesses matter more than perfectly written histories.", "'A blank page is not permission to forget.'"]}
 }
 const BOSS_ENTRIES := {
-	"grump_knight":{"name":"Grump Knight", "region":"act_i", "art":"res://art/sprites/enemies/grump_knight.png", "epithet":"The Unpaid Gatekeeper", "line":"The armour creaks. The toll was due centuries ago."},
-	"hoard_dragon":{"name":"The Hoard Dragon", "region":"act_i", "art":"res://art/sprites/enemies/hoard_dragon.png", "epithet":"Keeper of the Count", "line":"Every coin counted. Every intruder noticed."},
+	"grump_knight":{"name":"Grump Knight", "region":"act_i", "art":"res://art/sprites/enemies/grump_knight.png", "epithet":"The Unpaid Gatekeeper", "line":"The old toll is unpaid. He intends to collect it from someone still breathing."},
+	"hoard_dragon":{"name":"The Hoard Dragon", "region":"act_i", "art":"res://art/sprites/enemies/hoard_dragon.png", "epithet":"Keeper of the Count", "line":"The dragon counts treasure in coins, and trespassers in bones."},
 	"verdant_mirror":{"name":"The Verdant Mirror", "region":"mossglass_wilds", "art":"res://art/sprites/enemies/beta/verdant_mirror.png", "epithet":"Warden of the Stolen Spring", "line":"The water remembers a face that was never yours."},
 	"furnace_regent":{"name":"The Furnace Regent", "region":"cinder_crown", "art":"res://art/sprites/enemies/beta/furnace_regent.png", "epithet":"Crowned by Tribute", "line":"Every debt feeds the furnace. It accepts no refunds."}
 }
@@ -90,7 +90,7 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			if key != "hideout": return {}
 			result.name = "A Place to Return"
 			result.background = "res://art/backgrounds/lootlings_hideout.png"
-			result.lines = ["The Crownfall left its promises in pieces.", "Here, strangers built somewhere to bring them home.", "Warm lanterns. Stranger treasure. A door left unlocked."]
+			result.lines = ["The Crownfall left its promises in pieces.", "Here, strangers built somewhere to bring them home.", "Beyond these lanterns, the ruins still take lives. Here, the door stays open."]
 		_: return {}
 	return result
 

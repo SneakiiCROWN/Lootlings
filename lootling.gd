@@ -190,7 +190,7 @@ var upgrade_flash := 0.0
 var wave_banner_timer := 0.0
 var wave_banner_text := ""
 var wave_banner_color := Color("#8fdcff")
-var status_message := "Tap anywhere to help!"
+var status_message := "Tap the arena to attack."
 var status_clock := 4.0
 var tap_combo := 0
 var combo_clock := 0.0
@@ -256,6 +256,7 @@ var debug_panel
 var app_lifecycle
 var safe_area_layout
 var mobile_test_monitor
+var touch_ux
 var debug_enabled := false
 var debug_god_mode := false
 var debug_weapon_family_override := ""
@@ -298,6 +299,9 @@ func _ready() -> void:
 	safe_area_layout = preload("res://safe_area_layout.gd").new()
 	add_child(safe_area_layout)
 	safe_area_layout.configure(self)
+	touch_ux = preload("res://touch_ux.gd").new()
+	add_child(touch_ux)
+	touch_ux.configure(self)
 	if OS.has_feature("s23_test") or OS.get_environment("LOOTLINGS_MOBILE_TEST") == "1":
 		mobile_test_monitor = preload("res://mobile_test_monitor.gd").new()
 		add_child(mobile_test_monitor)
@@ -471,7 +475,7 @@ func debug_show_result(victory: bool) -> void:
 	for panel in [upgrade_panel, item_panel, merchant_panel, boss_reward_panel]:
 		panel.visible = false
 	result_panel.visible = true
-	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	result_title.text = "HOARD CONQUERED!" if victory else "EXPEDITION ENDED"
 	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))
 	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
@@ -657,7 +661,7 @@ func build_overlay_ui() -> void:
 		button.add_theme_color_override("font_hover_color", Color.WHITE)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.clip_text = true
-		button.pressed.connect(choose_upgrade.bind(i))
+		button.pressed.connect(inspect_upgrade.bind(i))
 		upgrade_panel.add_child(button)
 		upgrade_buttons.append(button)
 		var icon := TextureRect.new()
@@ -700,7 +704,7 @@ func build_overlay_ui() -> void:
 	apply_button_style(restart_button, Color("#795523"), Color("#ffd468"))
 	restart_button.pressed.connect(show_hideout)
 	result_panel.add_child(restart_button)
-	help_label = make_label(self, "TAP TO STRIKE • Auto-combat stays active", 16, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
+	help_label = make_label(self, "TAP THE ARENA • Auto-attacks continue", 16, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
@@ -1096,7 +1100,7 @@ func reroll_hideout_shop() -> void:
 		inventory.scrap += hideout_shop.REROLL_COST
 		return
 	save_hideout_economy()
-	hideout_ui.show_shop_message("Fresh salvage has arrived.", "#ffe178")
+	hideout_ui.show_shop_message("Offers replaced. Inspect before buying.", "#ffe178")
 
 func save_hideout_economy() -> void:
 	inventory.save(INVENTORY_SAVE_PATH)
@@ -1130,10 +1134,10 @@ func build_item_ui() -> void:
 	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
 	item_panel.add_child(item_compare)
 	LootlingsUI.add_divider(item_panel, Rect2(34, 197, 364, 9), "gold")
-	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 357), Vector2(176, 64), Color("#295d50"), Color("#69e6b0"), accept_item_equip)
+	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 357), Vector2(176, 64), Color("#295d50"), Color("#69e6b0"), inspect_item_equip)
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
-	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), accept_item_scrap)
+	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), func(): touch_ux.request("Scrap this item?","%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap))
 
 func build_route_ui() -> void:
 	route_panel = make_panel(Rect2(22, 184, 436, 534), Color("#0b1229fc"))
@@ -1255,7 +1259,7 @@ func build_merchant_ui() -> void:
 		button.position = Vector2(20, 106 + i * 108)
 		button.size = Vector2(384, 90)
 		button.add_theme_font_size_override("font_size", 15)
-		button.pressed.connect(buy_merchant_item.bind(i))
+		button.pressed.connect(inspect_merchant_item.bind(i))
 		merchant_panel.add_child(button)
 		merchant_buttons.append(button)
 		var icon := ItemIcon.new()
@@ -1272,7 +1276,7 @@ func build_merchant_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
-	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 452), Vector2(180, 62), Color("#3e315c"), Color("#c89bff"), reroll_merchant)
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 452), Vector2(180, 62), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
 	merchant_continue_button = make_action_button(merchant_panel, "CONTINUE", Vector2(224, 452), Vector2(180, 62), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
@@ -1280,14 +1284,14 @@ func build_boss_reward_ui() -> void:
 	LootlingsUI.apply_material(boss_reward_panel, "hoard")
 	boss_reward_panel.visible = false
 	make_label(boss_reward_panel, "BOSS HOARD", 30, Rect2(20, 18, 400, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffd36a"))
-	make_label(boss_reward_panel, "Choose one relic-grade reward", 16, Rect2(20, 64, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9c9ff"))
+	make_label(boss_reward_panel, "Inspect a reward, then confirm one", 16, Rect2(20, 64, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9c9ff"))
 	for i in range(3):
 		var button := Button.new()
 		button.position = Vector2(25, 112 + i * 130)
 		button.size = Vector2(390, 108)
 		button.add_theme_font_size_override("font_size", 15)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		button.pressed.connect(choose_boss_reward.bind(i))
+		button.pressed.connect(inspect_boss_reward.bind(i))
 		boss_reward_panel.add_child(button)
 		boss_reward_buttons.append(button)
 		var icon := ItemIcon.new()
@@ -1833,7 +1837,9 @@ func perform_player_attack(is_tap: bool) -> void:
 		tap_tutorial_seen = true
 		help_label.visible = false
 	var family := current_weapon_family()
-	play_audio_event({"VANGUARD":"vanguard_swing", "RANGER":"ranger_release", "MAGE":"mage_cast", "ROGUE":"rogue_slash"}.get(family, "tap_attack"))
+	var sound_weapon: String = str(inventory.equipped_item("Weapon").get("weapon_type","greatsword"))
+	play_audio_event("swing_"+sound_weapon)
+	if attack_sequence % 5 == 0 and family in ["VANGUARD","ROGUE"]: play_audio_event("exertion")
 	if family in ["RANGER", "MAGE"]:
 		var travel_time := 0.12 if family == "RANGER" else 0.17
 		var subtype: String = inventory.equipped_item("Weapon").get("weapon_type", "")
@@ -1960,6 +1966,8 @@ func apply_weapon_evolution(subtype: String, origin_serial: int, opening: bool) 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
 	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
+	if enemy_hp > 0 and attack_sequence % (4 if enemy_is_boss else 3) == 0:
+		play_audio_event("enemy_hurt")
 	if inventory.has_signature("frostbell_chime") and not enemy_frostbell_used:
 		enemy_frostbell_used = true
 		enemy_attack_clock += 0.32
@@ -1967,6 +1975,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		add_particles(Vector2(346, 442), Color("#a8ecff"), 6)
 	if enemy_variant_guarded and enemy_hp / maxf(1.0, enemy_max_hp) <= 0.72:
 		enemy_variant_guarded = false
+		play_audio_event("ward")
 		enemy_hit_multiplier = enemy_post_guard_hit_multiplier
 		add_float("ROOT GUARD BROKEN", Vector2(275, 400), enemy_variant_color, 14)
 		add_particles(Vector2(350, 468), enemy_variant_color, 7)
@@ -2057,6 +2066,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 func deal_elemental_hit(amount: float, identity: String) -> void:
 	if not enemy_alive:
 		return
+	play_audio_event({"Fire":"magic_fire","Lightning":"magic_lightning","Poison":"magic_poison"}.get(identity,"heavy_hit"))
 	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
 	var color := build.color(identity)
@@ -2294,7 +2304,7 @@ func eject_hoard_loot() -> void:
 	hoard_chest_phase = ""
 	state = "playing"
 	spawn_clock = 1.2
-	add_float("HOARD ERUPTS!", Vector2(165, 350), Color("#ffd36a"), 21)
+	add_float("THE HOARD OPENS", Vector2(165, 350), Color("#ffd36a"), 21)
 	play_audio_event("legendary_reveal" if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY") else "epic_reveal")
 	if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY"):
 		award_achievement("hoard_legendary")
@@ -2337,6 +2347,21 @@ func boss_reward_card_text(item: Dictionary) -> String:
 			clean_line = clean_line.left(37) + "…"
 		headline += ("\n                 " if not headline.is_empty() else "") + clean_line
 	return "                 %s  •  %s\n                 %s\n                 %s" % [str(item.get("rarity", "EPIC")), name, ItemCatalog.display_identity(item), headline]
+
+func inspect_boss_reward(index: int) -> void:
+	if state != "boss_reward" or index >= boss_reward_options.size(): return
+	var item: Dictionary = boss_reward_options[index]
+	touch_ux.request(str(item.name),"%s\n\n%s\n\nTake this reward? The other two stay in the hoard." % [ItemCatalog.display_identity(item),ItemCatalog.describe_headline_effects(item,4)],choose_boss_reward.bind(index))
+
+func inspect_merchant_item(index: int) -> void:
+	if state != "merchant" or index >= shop.stock.size(): return
+	var item: Dictionary = shop.stock[index]
+	touch_ux.request(str(item.name),"%s\n\nBuy for %d Run Scrip? You can inspect and decide whether to equip it next." % [ItemCatalog.describe_headline_effects(item,3),int(item.price)],buy_merchant_item.bind(index))
+
+func inspect_upgrade(index: int) -> void:
+	if state != "upgrade" or index >= selected_upgrades.size(): return
+	var upgrade: Dictionary = selected_upgrades[index]
+	touch_ux.request(str(upgrade.name),"%s\n\nApplies to this expedition. Choose this upgrade; the other two are discarded." % upgrade.desc,choose_upgrade.bind(index))
 
 func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
@@ -2430,6 +2455,13 @@ func format_effect_delta(key: String, amount: float) -> String:
 	if key == "max_hp" or key == "poison_bonus":
 		return "+%.0f %s" % [amount, label]
 	return "+%.0f%% %s" % [amount * 100.0, label]
+
+func inspect_item_equip() -> void:
+	if state != "item" or current_item.is_empty(): return
+	var old: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
+	if inventory.stash.size() >= inventory.stash_capacity and not old.is_empty() and old.get("serial", 0) != -1:
+		touch_ux.request("EQUIP & SCRAP OLD GEAR?", "Equip %s. Your stash is full: %s will be permanently scrapped for %d Scrap." % [current_item.name, old.name, ItemCatalog.scrap_value(old)], accept_item_equip)
+	else: accept_item_equip()
 
 func accept_item_equip() -> void:
 	if state != "item" or current_item.is_empty():
@@ -2617,7 +2649,7 @@ func leave_merchant() -> void:
 	shop.stock.clear()
 	state = "playing"
 	help_label.visible = not tap_tutorial_seen
-	status_message = "Back to the hunt!"
+	status_message = "Supplies packed. Back to the ruins."
 	status_clock = 1.5
 
 func add_xp(amount: float) -> void:
@@ -2689,7 +2721,7 @@ func choose_upgrade(index: int) -> void:
 		status_message = ""
 		status_clock = 0.0
 	else:
-		wave_banner_text = "%s EQUIPPED" % up.name
+		wave_banner_text = "%s CHOSEN" % up.name
 		wave_banner_timer = 1.15
 		add_particles(Vector2(player_x, 470), build.color(), 20)
 		status_message = ""
@@ -2769,7 +2801,7 @@ func end_run(victory: bool) -> void:
 		hideout_shop.refresh_stock()
 	contracts.save("user://contracts.cfg")
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
-	result_title.text = "HOARD CONQUERED!" if victory else "BONKED OUT!"
+	result_title.text = "HOARD CONQUERED!" if victory else "EXPEDITION ENDED"
 	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))
 	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
@@ -2838,11 +2870,32 @@ func load_meta() -> void:
 	gold = progress.gold
 	gold_upgrades = progress.get("gold_upgrades", {"bedroll":0, "whetstone":0, "pouch":0}).duplicate(true)
 
+func navigate_back() -> void:
+	if touch_ux != null and is_instance_valid(touch_ux.dialog):
+		touch_ux.close_dialog()
+		return
+	if presentation_director.vignette.active:
+		presentation_director.vignette.finish()
+	elif state == "playing": pause_run()
+	elif state == "paused": resume_run()
+	elif state == "hideout":
+		if hideout_ui.current_screen != "home": hideout_ui.show_home()
+		else: show_title_from_hideout()
+	elif startup_ui.visible:
+		startup_ui.show_title()
+
 func save_meta() -> void:
 	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		navigate_back()
+		get_viewport().set_input_as_handled()
+		return
 	if presentation_director != null and presentation_director.vignette.active: return
+	if event is InputEventScreenTouch or event is InputEventScreenDrag: return # gesture owner handles deliberate arena releases
+	if event is InputEventMouseButton and event.device == -1: return # synthetic mouse must never duplicate touch combat
+	if touch_ux != null and is_instance_valid(touch_ux.dialog): return
 	var local_touch := Vector2.ZERO
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		local_touch = get_global_transform_with_canvas().affine_inverse() * event.position
@@ -2860,6 +2913,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if state != "playing":
 		return
+	if event is InputEventMouseButton and not Rect2(0,310,480,344).has_point(local_touch): return
 	var tapped := false
 	if event is InputEventMouseButton:
 		tapped = event.button_index == MOUSE_BUTTON_LEFT and event.pressed
