@@ -1,5 +1,7 @@
 # Canonical Art Reference Index
 
+2026-10-02 Ruin Pike held export: original diagonal spear retained; separate continuous-shaft source `art/source/held_spear_v1/spear_held.png` and 512² runtime `art/sprites/weapons/stances/spear_held.png`, used only by accepted adult polearm pack. Genuine braced body exports reused without copying. Exact built-in prompt/identity provenance/native QA: `AUTHORED_POLEARM_ART.md`.
+
 2026-10-02 Staff held export: original Glimmerstaff identity retained in `art/source/held_staff_v1/staff_held.png` and separate 512² runtime `art/sprites/weapons/stances/staff_held.png`. Adult casting reuses accepted braced two-hand bodies (no copies); canonical/inventory references unchanged. Exact prompt/provenance/QA: `AUTHORED_STAFF_ART.md`.
 
 2026-10-02 authored production addition: five adult heavy READY/RELEASE pairs and three separate held exports use the unchanged accepted bodies/weapons as identity references (`AUTHORED_HEAVY_ART.md`, authoritative `art/production_pose_manifest.json`). Six original painted UI materials extend the existing gold/purple/cyan language (`WARDROBE_AND_UI_ART.md`). Generated sources and mechanical exports are preserved separately. No canonical creature/reference board was replaced; missing stance/asymmetric/modular art remains explicit.

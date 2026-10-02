@@ -2,6 +2,8 @@
 
 ## Master production v3 continuation
 
+Adult polearm group is live in both facings, reusing genuine braced two-hand bodies and a separate long-shaft Ruin Pike held export. Native heavy/Staff/Spear matrix: 100 phase states, 246 manifest rows / 60 authored entries / twenty body textures. Real held alpha grip checks now supplement the two-anchor solver. **83 support-hand/paired cells remain per facing**, with creature packs and bow/crossbow/dual next; not a new UI/world detour. Exact remaining art/QA: `AUTHORED_POLEARM_ART.md`.
+
 Adult Staff fit is live using accepted genuine braced two-hand bodies in both facings and a separate upright held export/socket, without duplicating body textures. Twenty new native phase states plus five actual casting-flight checks; heavy/staff total eighty. Manifest 236 rows / 40 authored entries / twenty body textures. **88 support-hand/paired cells remain per facing**; fit closure stays ahead of further UI/world scope. See `AUTHORED_STAFF_ART.md`. Historical counts below are prior snapshots.
 
 Adult heavy opposite-facing tranche is live: five adults × three heavy families × two phases × both facings = 60 native accepted states, twenty total body exports. Existing resolver/manifest now selects genuine left art without mirroring anatomy; full-roster 864-record production report retains honest missing-art statuses. See `OPPOSITE_HEAVY_ART.md`. Remaining priority is fit closure: 93 support-hand/paired cells per facing, creature/heavy and polearm/ranged/caster/dual exports, not another UI/world detour. The older opposite-facing notes below are historical for this completed adult heavy group. No gameplay/balance/save/economy changes.

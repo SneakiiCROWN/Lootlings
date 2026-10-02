@@ -25,16 +25,24 @@ func run_qa() -> void:
 		for anchor in [row.primary_anchor,row.secondary_anchor]:
 			var point := Vector2i(Vector2(anchor[0],anchor[1])*Vector2(image.get_size()))
 			assert(image.get_pixelv(point).a > .5)
-	assert(keys.size() == 236)
+		# Held grip anchors must touch real shaft pixels, not transparent air.
+		for family in row.weapon_overrides:
+			var geometry: Dictionary = row.weapon_overrides[family]
+			var held := Image.load_from_file(ProjectSettings.globalize_path(geometry.held_path))
+			assert(held.get_size() == Vector2i(512,512) and held.get_format() == Image.FORMAT_RGBA8)
+			assert(held.get_pixel(0,0).a == 0)
+			for grip in [geometry.grip,geometry.secondary_grip]:
+				assert(held.get_pixelv(Vector2i(Vector2(grip[0],grip[1])*512)).a > .5)
+	assert(keys.size() == 246)
 	game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
 	var native := "--visual" in OS.get_cmdline_user_args()
 	var count := 0
 	for actor in actors:
-		var sheet := Image.create(1920,854,false,Image.FORMAT_RGBA8) if native else null
+		var sheet := Image.create(2400,854,false,Image.FORMAT_RGBA8) if native else null
 		var cell := 0
-		for family in ["greatsword","greataxe","maul","staff"]:
+		for family in ["greatsword","greataxe","maul","staff","spear"]:
 			game.profile.avatar_mode = "wanderer"
 			game.profile.wanderer = Wanderers.create_default()
 			game.profile.wanderer.preset_id = actor
@@ -83,7 +91,7 @@ func run_qa() -> void:
 				game.update_attack_projectiles(duration)
 				assert(game.attack_projectiles.is_empty() and game.enemy_hp < hp)
 		if native: sheet.save_png("res://.godot_test_data/authored_%s_sheet.png" % actor)
-	print("AUTHORED POSE QA PASSED: %d actual two-facing ready/release states; RGBA/canvas/anchor validation, 236 unique manifest keys, unmirrored left anatomy, action contact and RNG isolation" % count)
+	print("AUTHORED POSE QA PASSED: %d actual two-facing ready/release states; RGBA/canvas/anchor validation, 246 unique manifest keys, unmirrored left anatomy, action contact and RNG isolation" % count)
 	game.queue_free()
 	await process_frame
 	quit(0)

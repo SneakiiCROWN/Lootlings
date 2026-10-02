@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Authored five-adult polearm fit
+
+Spear now uses the accepted real braced two-hand bodies for all five adults in READY/RELEASE and both facings, with a separately exported long continuous-shaft Ruin Pike. Measured contact, explicit back depth, unchanged asymmetric left bodies and body-specific wardrobe requirements; no copied bodies/fake limbs. Existing Vanguard load/thrust/follow-through/recovery motion and mechanics preserved. Exact source/prompt, export and limitations: `AUTHORED_POLEARM_ART.md`.
+
+Native OpenGL 480×854: one hundred heavy/Staff/Spear phase states captured and visually inspected; five real casting-flight views retained. Added actual held alpha checks at both grip anchors (all three groups pass), not merely mathematical attachment. Parser/import and all twenty regression entrypoints passed on isolated saves. Smoke stays 2/5 and deterministic balance 22/96; saves/inventory/Forge/campaign/economy/RNG unchanged.
+
+Current manifest: 246 unique rows / 60 authored rows / twenty shared body textures. **83 support-hand/paired combinations remain per facing (166 facing-specific cells)**. Creature heavy/Staff/polearm, bow/crossbow/dual, real Sling/weaponless/Gloomlet and further evolution paintings remain art work; single-hand fallback is not full authored animation. Fifty wardrobe contracts, twelve playable families and Gloomlet selectability retained. Held texture adds ~1 MiB raw RGBA, no new runtime processing/nodes/shaders; low-end Android testing remains outstanding. Earlier counts below are historical snapshots.
+
 ### Authored five-adult Staff fit
 
 Staff now has actual two-hand READY/RELEASE presentation in both facings for all five adults, reusing accepted painted braced bodies through the existing manifest rather than new duplicate textures or fake limbs. One dedicated upright Glimmerstaff held export, measured shaft grips/head socket and preserved inventory art. Native OpenGL 480×854: 80 heavy/staff phase states plus five real casting-flight captures inspected; oversized left-edge staff head corrected and re-rendered. Projectile QA verifies socket launch and damage only on arrival. See `AUTHORED_STAFF_ART.md` for exact source/prompt/export/limitations.

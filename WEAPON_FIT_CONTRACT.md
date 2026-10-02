@@ -2,6 +2,8 @@
 
 ## Shipped correction (not finished articulated animation)
 
+**Polearm extension:** adult Spear joins heavy/Staff in both facings, using real shared braced bodies, separate held straight-shaft export, measured contacts/back depth. Total native matrix 100 phase states; actual held alpha tested at both grips. 246 manifest rows / 60 authored entries / twenty body textures. **83 support-hand/paired cells remain pending per facing.** See `AUTHORED_POLEARM_ART.md` for exact remaining exports, including staged evolution art. Older counts below are historical.
+
 **Staff extension:** five-adult Staff now uses real braced READY/RELEASE two-hand bodies in both facings with its own upright held export, measured grips and head socket. Twenty additional native phase states plus five actual flight views; 80 heavy/staff phase states total. 236 manifest rows / 40 authored entries / twenty shared body textures, 88 support-hand/paired cells still pending per facing. No new anatomy from code or duplicate bodies. See `AUTHORED_STAFF_ART.md`; older counts below remain historical.
 
 **Opposite-facing update:** the five-adult heavy pack now has genuine left READY/RELEASE exports as well as right, selected before phase with positive-determinant roots (no artwork flip). Twenty authored bodies / 226 manifest rows; sixty native states accepted. The prior opposite-facing fallback limitation below is historical for that group. Other actors/groups remain incomplete: 93 support-hand/paired cells per facing. `tests/weapon_fit_qa.gd -- --report` writes the 864-record actor/body/family/phase/facing/wardrobe/status matrix to ignored QA storage. See `OPPOSITE_HEAVY_ART.md`.
