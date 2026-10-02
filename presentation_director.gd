@@ -21,7 +21,9 @@ var travel_active := false
 var toast_panel: Panel
 var toast_title: Label
 var toast_subtitle: Label
-var toast_tween: Tween
+var toast_queue: Array[Dictionary] = []
+var active_toast := {}
+var toast_elapsed := 0.0
 var chest_showcase_timer := 0.0
 var chest_showcase_kind := "scavenged"
 var chest_showcase_center := Vector2(240, 428)
@@ -83,15 +85,17 @@ func build_overlay() -> void:
 	travel_progress.visible = false
 	travel_panel.add_child(travel_progress)
 	toast_panel = Panel.new()
-	toast_panel.position = Vector2(56, 92)
+	toast_panel.position = Vector2(56, 554)
 	toast_panel.size = Vector2(368, 90)
 	toast_panel.add_theme_stylebox_override("panel", UI.material_style("relic"))
 	toast_panel.visible = false
+	toast_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(toast_panel)
 	toast_title = Label.new()
 	toast_title.position = Vector2(18, 12)
 	toast_title.size = Vector2(332, 28)
 	toast_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	toast_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	toast_title.add_theme_font_size_override("font_size", 17)
 	toast_title.add_theme_color_override("font_color", Color("#ffe178"))
 	toast_panel.add_child(toast_title)
@@ -99,7 +103,9 @@ func build_overlay() -> void:
 	toast_subtitle.position = Vector2(18, 43)
 	toast_subtitle.size = Vector2(332, 30)
 	toast_subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	toast_subtitle.add_theme_font_size_override("font_size", 12)
+	toast_subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	toast_subtitle.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	toast_subtitle.add_theme_font_size_override("font_size", 14)
 	toast_subtitle.add_theme_color_override("font_color", Color("#d9e5ff"))
 	toast_panel.add_child(toast_subtitle)
 
@@ -138,24 +144,43 @@ func present_card(control: Control, accent: Color = Color("#d1a85a"), duration: 
 	flash(accent, minf(0.16, duration))
 
 func present_toast(title: String, subtitle: String, accent: Color = Color("#ffd36a")) -> void:
-	if toast_tween != null and toast_tween.is_valid():
-		toast_tween.kill()
-	toast_title.text = title
-	fit_title(toast_title, title, 17)
-	toast_title.add_theme_color_override("font_color", accent.lightened(0.18))
-	toast_subtitle.text = subtitle
-	# The painted shared frame stays intact; title/flash carry event accent.
+	if active_toast.get("title", "") == title: return
+	for entry in toast_queue:
+		if entry.title == title: return
+	# Preserve consecutive reward messages without creating an unbounded backlog.
+	if toast_queue.size() >= 8: toast_queue.pop_front()
+	toast_queue.append({"title":title, "subtitle":subtitle, "accent":accent})
+	set_process(true)
+	update_toast(0.0)
+
+func toast_context_clear() -> bool:
+	if travel_active or (vignette != null and vignette.active): return false
+	var game := get_parent()
+	if game.get("state") == "playing": return true
+	return game.get("state") == "hideout" and game.hideout_ui.current_screen == "home"
+
+func update_toast(delta: float) -> void:
+	# Freeze the reading time while combat is paused or a choice owns the screen.
+	if not toast_context_clear():
+		toast_panel.visible = false
+		return
+	if active_toast.is_empty():
+		if toast_queue.is_empty(): return
+		active_toast = toast_queue.pop_front()
+		toast_elapsed = 0.0
+		toast_title.text = active_toast.title
+		fit_title(toast_title, toast_title.text, 17)
+		toast_title.add_theme_color_override("font_color", active_toast.accent.lightened(0.18))
+		toast_subtitle.text = active_toast.subtitle
+	toast_elapsed += delta
 	toast_panel.visible = true
-	toast_panel.position = Vector2(56, 70)
-	toast_panel.modulate = Color(1, 1, 1, 0)
-	toast_tween = create_tween()
-	toast_tween.set_parallel(true)
-	toast_tween.tween_property(toast_panel, "position:y", 92.0, 0.24).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	toast_tween.tween_property(toast_panel, "modulate:a", 1.0, 0.18)
-	toast_tween.set_parallel(false)
-	toast_tween.tween_interval(2.2)
-	toast_tween.tween_property(toast_panel, "modulate:a", 0.0, 0.25)
-	toast_tween.tween_callback(func(): toast_panel.visible = false)
+	var reduced: bool = get_parent().audio_settings.get("cinematic_reduced_motion", false)
+	toast_panel.position = Vector2(56, 554 + (0.0 if reduced else (1.0 - clampf(toast_elapsed / 0.20, 0.0, 1.0)) * 8.0))
+	toast_panel.modulate.a = minf(clampf(toast_elapsed / 0.16, 0.0, 1.0), clampf((3.4 - toast_elapsed) / 0.25, 0.0, 1.0))
+	if toast_elapsed >= 3.4:
+		active_toast.clear()
+		toast_panel.visible = false
+		if toast_queue.is_empty() and chest_showcase_timer <= 0.0: set_process(false)
 
 func flash(accent: Color, duration: float = 0.18) -> void:
 	if travel_active or veil == null:
@@ -163,7 +188,7 @@ func flash(accent: Color, duration: float = 0.18) -> void:
 	if flash_tween != null and flash_tween.is_valid():
 		flash_tween.kill()
 	veil.visible = true
-	veil.mouse_filter = Control.MOUSE_FILTER_STOP
+	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	veil.color = Color(accent.r, accent.g, accent.b, 0.12)
 	flash_tween = create_tween()
 	flash_tween.tween_property(veil, "color:a", 0.0, maxf(0.08, duration)).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -188,6 +213,7 @@ func prepare_control(control: Control) -> Vector2:
 
 func play_travel(title: String, subtitle: String, accent: Color, midpoint: Callable = Callable(), duration: float = 0.62) -> void:
 	cancel_chest_showcase()
+	if flash_tween != null and flash_tween.is_valid(): flash_tween.kill()
 	if active_tween != null and active_tween.is_valid():
 		active_tween.kill()
 	travel_active = true
@@ -268,14 +294,14 @@ func play_chest_showcase(kind: String, center: Vector2, color: Color, item_textu
 func cancel_chest_showcase() -> void:
 	chest_showcase_timer = 0.0
 	chest_showcase_item = null
-	set_process(false)
+	set_process(not active_toast.is_empty() or not toast_queue.is_empty())
 	queue_redraw()
 
 func _process(delta: float) -> void:
-	chest_showcase_timer = maxf(0.0, chest_showcase_timer - delta)
-	if chest_showcase_timer <= 0.0:
-		cancel_chest_showcase()
-	else:
+	update_toast(delta)
+	if chest_showcase_timer > 0.0:
+		chest_showcase_timer = maxf(0.0, chest_showcase_timer - delta)
+		if chest_showcase_timer <= 0.0: cancel_chest_showcase()
 		queue_redraw()
 
 func _draw() -> void:

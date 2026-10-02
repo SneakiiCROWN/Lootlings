@@ -140,13 +140,16 @@ static func apply_button(button: Button, fill: Color, border: Color) -> void:
 	button.add_theme_color_override("font_shadow_color", Color("#030812"))
 	button.add_theme_constant_override("shadow_offset_y", 1)
 
-static func draw_meter(canvas: RID, rect: Rect2, ratio: float, kind: String) -> void:
+static func draw_meter(canvas: RID, rect: Rect2, ratio: float, kind: String, trail_ratio: float = -1.0) -> void:
 	var cap := 18.0 if kind == "xp" else 22.0 if kind == "enemy" else 26.0
 	var frame := skin_style("bar_%s_frame" % kind, cap, 0)
 	var fill := skin_style("bar_%s_fill" % kind, cap, 0)
 	frame.draw(canvas, rect)
 	var inner := rect.grow(-2)
 	var width := inner.size.x * clampf(ratio, 0.0, 1.0)
+	var trail_width := inner.size.x * clampf(trail_ratio, 0.0, 1.0)
+	if trail_width > width:
+		RenderingServer.canvas_item_add_rect(canvas, Rect2(inner.position + Vector2(width, 0), Vector2(trail_width - width, inner.size.y)), Color("#ffe3a4"))
 	if width > 0.0:
 		fill.draw(canvas, Rect2(inner.position, Vector2(width, inner.size.y)))
 

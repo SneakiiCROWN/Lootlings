@@ -241,6 +241,7 @@ var merchant_continue_button: Button
 var boss_reward_panel: Panel
 var boss_reward_buttons: Array[Button] = []
 var boss_reward_icons: Array = []
+var boss_reward_visuals: Array[Dictionary] = []
 var hoard_chest_button: Button
 var pause_button: Button
 var pause_panel: Panel
@@ -258,6 +259,7 @@ var debug_god_mode := false
 var debug_weapon_family_override := ""
 var attack_projectiles: Array = []
 var enemy_serial := 0
+var combat_presentation = preload("res://combat_presentation.gd").new()
 var enemy_encounter = preload("res://enemy_encounter.gd").new()
 var grouped_patrols := false
 var dungeon = preload("res://dungeon_route.gd").new()
@@ -1282,6 +1284,14 @@ func build_boss_reward_ui() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		boss_reward_panel.add_child(icon)
 		boss_reward_icons.append(icon)
+		var kicker := make_label(button, "", 13, Rect2(100, 9, 270, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9c9ff"))
+		var title := make_label(button, "", 18, Rect2(100, 30, 270, 26), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff1cd"))
+		var effects := make_label(button, "", 14, Rect2(100, 56, 270, 48), HORIZONTAL_ALIGNMENT_LEFT, Color("#e0e9ff"))
+		for label in [kicker, title, effects]:
+			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			label.clip_text = true
+		boss_reward_visuals.append({"kicker":kicker, "name":title, "effects":effects})
+	make_label(boss_reward_panel, "One prize. Three reasons to be indecisive.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
 
 func build_hoard_chest_ui() -> void:
 	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
@@ -1329,6 +1339,7 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	combat_presentation.reset()
 	if presentation_director != null: presentation_director.vignette.cancel()
 	story_run_presentations = false # Direct deterministic harnesses omit UI stings.
 	enemy_encounter.clear()
@@ -1474,6 +1485,7 @@ func spawn_enemy() -> void:
 
 func spawn_single_enemy() -> void:
 	enemy_serial += 1
+	combat_presentation.register_enemy(enemy_serial)
 	attack_projectiles.clear()
 	var new_wave := wave != last_spawned_wave
 	current_zone = run_zone_for_wave(wave)
@@ -2278,6 +2290,7 @@ func eject_hoard_loot() -> void:
 
 func show_boss_reward() -> void:
 	state = "boss_reward"
+	pause_button.visible = false
 	boss_reward_panel.visible = true
 	help_label.visible = false
 	for i in range(boss_reward_buttons.size()):
@@ -2285,6 +2298,17 @@ func show_boss_reward() -> void:
 		boss_reward_buttons[i].text = boss_reward_card_text(item)
 		boss_reward_buttons[i].add_theme_font_size_override("font_size", 13)
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
+		var visuals: Dictionary = boss_reward_visuals[i]
+		visuals.kicker.text = "%s  •  %s" % [str(item.rarity), ItemCatalog.display_slot(item.get("slot", "Relic")).to_upper()]
+		visuals.kicker.add_theme_color_override("font_color", ItemCatalog.rarity_color(item.rarity).lightened(0.25))
+		visuals.name.text = str(item.name)
+		fit_label_font(visuals.name, str(item.name), 266.0, 18, 14)
+		# The catalog limit reserves an extra signature line; this compact card
+		# keeps the same two headline effects as the original reward contract.
+		visuals.effects.text = "\n".join(ItemCatalog.describe_headline_effects(item, 1).split("\n").slice(0, 2))
+		boss_reward_buttons[i].tooltip_text = "%s\n%s" % [item.name, ItemCatalog.describe_headline_effects(item, 4)]
+		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
+			boss_reward_buttons[i].add_theme_color_override(state_name, Color.TRANSPARENT)
 		boss_reward_icons[i].configure(item)
 	if presentation_director != null:
 		presentation_director.present_card(boss_reward_panel, Color("#ffd36a"), 0.34)
@@ -2834,6 +2858,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func update_effects(delta: float) -> void:
+	combat_presentation.step(self, delta)
 	enemy_flash = maxf(0.0, enemy_flash - delta)
 	player_flash = maxf(0.0, player_flash - delta)
 	screen_shake = maxf(0.0, screen_shake - delta)
@@ -2998,7 +3023,7 @@ func _draw() -> void:
 	var sy := size.y / DESIGN_SIZE.y
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(sx, sy))
 	var shake := Vector2.ZERO
-	if screen_shake > 0.0:
+	if screen_shake > 0.0 and not audio_settings.get("cinematic_reduced_motion", false):
 		shake = Vector2(visual_rng.randf_range(-4, 4), visual_rng.randf_range(-3, 3))
 	draw_background()
 	draw_hud()
@@ -3064,7 +3089,7 @@ func draw_hud() -> void:
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
 		draw_rect(Rect2(18, 77, 444, 18), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
-	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14)
+	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
 	if state == "playing":
 		var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
 		var foe_number := clampi(wave_kills + (1 if enemy_alive else 0), 1, wave_target)
@@ -3088,7 +3113,7 @@ func draw_arena(shake: Vector2) -> void:
 		while enemy_name_size > 11 and body_font.get_string_size(enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
 			enemy_name_size -= 1
 		draw_string(body_font, Vector2(40, 210), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, enemy_name_size, Color("#f4f7ff"))
-		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13)
+		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0
 		if enemy_burn_dps > 0.0:
 			draw_status_chip(Vector2(status_x, 261), "BURN", build.color("Fire"), "status_burn")
@@ -3119,6 +3144,7 @@ func draw_arena(shake: Vector2) -> void:
 		behavior_offset.x -= enemy_attack_ratio * enemy_lunge
 		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 467) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
+		if show_combat_context: combat_presentation.draw_cue(self, Vector2(ENEMY_X, 510) + shake)
 	elif enemy_death_anim > 0.0:
 		var death_duration := 0.82 if enemy_is_boss else 0.70 if enemy_is_miniboss else 0.62
 		var death_progress := 1.0 - enemy_death_anim / death_duration
@@ -3168,9 +3194,9 @@ func draw_status_chip(pos: Vector2, text_value: String, color: Color, icon_name:
 func build_summary() -> String:
 	return build.short_summary()
 
-func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value: String, font_size: int) -> void:
+func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value: String, font_size: int, trail_ratio: float = -1.0) -> void:
 	var kind := "xp" if rect.size.y == 18 else "health" if rect.size.y == 25 else "enemy"
-	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind)
+	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind, trail_ratio)
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:

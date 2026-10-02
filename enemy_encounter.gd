@@ -153,7 +153,8 @@ func draw(g, shake: Vector2) -> void:
 		var x := 12.0 + index * (228.0 if actors.size() == 2 else 156.0)
 		var accent := Color("#78e4ff") if index == original else Color("#8da3bd")
 		g.draw_string(g.body_font, Vector2(x, 207), ("▸ " if index == original else "") + str(g.enemy_name).left(22 if actors.size() == 2 else 15), HORIZONTAL_ALIGNMENT_CENTER, width, 13, accent)
-		g.draw_bar(Rect2(x, 216, width, 20), maxf(0, g.enemy_hp) / g.enemy_max_hp, Color("#4b263d"), Color("#ff6279"), "%.0f / %.0f" % [maxf(0, g.enemy_hp), g.enemy_max_hp], 12)
+		g.draw_bar(Rect2(x, 216, width, 20), maxf(0, g.enemy_hp) / g.enemy_max_hp, Color("#4b263d"), Color("#ff6279"), "%.0f / %.0f" % [maxf(0, g.enemy_hp), g.enemy_max_hp], 12, g.combat_presentation.health_ratio(g.enemy_serial))
+		g.combat_presentation.draw_cue(g, position(index) + Vector2(0, 35) + shake, scale_factor, Rect2(x, 280, width, 28))
 		if g.enemy_burn_dps > 0.0: UI.draw_icon(g.get_canvas_item(), UI.icon("status_burn"), Rect2(x + 8, 241, 18, 18))
 		if g.enemy_poison_stacks > 0:
 			UI.draw_icon(g.get_canvas_item(), UI.icon("status_poison"), Rect2(x + 32, 241, 18, 18))
