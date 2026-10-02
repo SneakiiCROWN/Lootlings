@@ -8,14 +8,15 @@ Authority: [AUDIT_REPORT.md](AUDIT_REPORT.md). [Previous inventory](docs/audit/2
 | Combat, campaign/routes, encounters/AoE, loot/economy, Forge, residents/lore | LIVE | Regression-tested prototype behavior; no broad redesign |
 | Five Wanderers / seven Lootlings / twelve weapon families | LIVE | Selection/mechanics; visual completeness is separate |
 | Adult heavy/staff/polearm authored group | LIVE | 60 manifest authored entries, twenty bodies, 100 tested states |
-| Remaining support/paired pose art | MISSING | 83 combinations per facing; fallback remains explicit |
+| Relic Beast starter greatsword/right-facing slice | LIVE / BETA art | Two real-paw authored bodies; nine native states, real attack transitions, opaque handle contacts; base identity/blade preserved |
+| Remaining support/paired pose art | MISSING | 82 right / 83 left combinations; unrelated weapons/facings remain explicit |
 | Gloomlet canonical body; weaponless Moonkip/Glimmerfin | MISSING | Current stand-in/baked details remain BETA |
 | Owner-delivered foundation/Wave 2 UI/icons | FINAL | Existing accepted scope only; two stable icon-role pairs are identical |
 | Six newer shared painted UI materials, regional/prop/resident art, sling | BETA | Live usage does not establish final art acceptance |
 | Wardrobe compatibility contracts | LIVE | Fifty contracts; modular cosmetics not delivered |
 | Audio hooks, buses, limiter, bounded playback | LIVE | Final production banks missing; eight procedural banks BETA |
 | Save backups/lifecycle and guarded tests | LIVE | Per-store recovery; semantic/cross-store/run-resume debt remains |
-| Windows/Android presets | LIVE | Resource-pack verification only; actual executable/APK/device readiness pending |
+| Windows/Android presets | LIVE | Signed/aligned official arm64 Android debug APK now exports; native mobile touch/layout/report checks pass; physical S23/release readiness pending |
 | Raw source, canonical boards and research | REFERENCE | Preserved and excluded from exports |
 | Superseded chronology and obsolete source import sidecars | STALE | History archived; twelve sidecars removed, raw artwork retained |
 

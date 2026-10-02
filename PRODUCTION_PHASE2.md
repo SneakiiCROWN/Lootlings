@@ -9,8 +9,8 @@ Use the existing Act I expedition: Treasure Ruins → Salvage Warrens / Grump Kn
 1. Remove notification occlusion and preserve consecutive reward messages. **Delivered.**
 2. Make existing enemy behaviour readable and strengthen visible damage feedback. **Delivered presentation layer.**
 3. Improve boss reward decision hierarchy and verify complete flow/persistence. **Delivered.**
-4. Author the slice's actually visible default-character weapon poses and finish encounter presentation/audio. **Next production tranche.**
-5. Establish Android deliverable, memory/frame-time targets and S23 Ultra acceptance. **Required before calling the slice commercially presentable.**
+4. Author the slice's actually visible default-character weapon poses. **Delivered focused starter-greatsword tranche below; deeper encounter animation/audio remain.**
+5. Establish Android deliverable, memory/frame-time targets and S23 Ultra acceptance. **Installable debug build and profiling path delivered below; physical acceptance pending.**
 
 ## Delivered
 
@@ -45,4 +45,26 @@ Portable results and representative native captures: [docs/production/phase2](do
 
 Canonical weapon/pose anatomy for the focused starter combination; authored boss attack/reaction animation and deeper encounter gameplay; final original/licensed audio; final environment/prop acceptance; screen/aspect/safe-area and touch acceptance; actual Android export/device profiling; semantic save/cross-store/process-death hardening and run resumption. The existing complete loop is now clearer, but these gaps prevent a production-complete claim.
 
-Highest-value next production step: finish and accept the Relic Beast/starter-greatsword animation/contact set in this exact Act I scene, while establishing an installable Android test build and a repeatable S23 Ultra profiling path.
+## Tranche 2 — focused Relic Beast greatsword / Android test deliverable
+
+Implementation checkpoint: `cc19b29`. Continues the clean tranche 1 branch without restarting the audit. The focused starter-greatsword presentation is now live and natively validated. Physical S23 acceptance remains the immediate next step; this is not commercial-release acceptance.
+
+- Two new real-paw body exports: grounded ready and forward strike/follow-through. Preserve the huge ears, curled tail, cracked relic horns, fang, single original pauldron and left satchel; reuse the accepted existing blade. Canonical base/portraits and adult pose art remain intact. A generated windup that moved asymmetric armour was rejected, not shipped. [Art provenance and exact prompts](docs/production/phase2/RELIC_GREATSWORD_ART.md).
+- Ready supplies idle, grounded movement, weight-loaded automatic anticipation, settle, recoil/hurt and reward personality. Release supplies strike, impact and decelerating recovery. A planted-foot pivot and bounded shifts convey weight. Tap hits remain immediate; automatic anticipation reads the existing attack clock. No damage, attack cadence, enemy, loot or economy changes.
+- Both closed paws contact opaque handle pixels through the existing two-anchor fit solver; weapon stays behind the real paws. During the contact stroke, only the blade crosses enemy foreground, fixing its disappearance behind large foes. There are no painted substitute hands or new limbs.
+- Scope is Relic Beast + greatsword + right-facing Act I combat. Maul/greataxe and left-facing variants retain explicit fallback/debt. This completes one useful combination rather than every missing stance. Manifest remains 246 rows, now 62 authored entries / 22 body textures; measured support-hand debt is 82 right / 83 left combinations.
+- Preserve both 1254-square RGBA source exports; runtime imports are 768-square, lossless, no mipmaps: approximately 4.5 MiB total texture pixels before overhead. This is not a total-game memory budget.
+- Uniform 480×854 canvas letterboxing replaces expansion that mismatched fixed UI coordinates. Android safe-area layout fits the whole root uniformly; touch targeting uses its inverse transform and rejects outside-frame taps. Explicit touch mouse emulation supports existing buttons. Test report's independent CanvasLayer inherits the safe transform. A 60 FPS cap sets the initial device target.
+- Official Godot 4.7.2 arm64 debug APK exports, signs and verifies with a workspace-local official toolchain; SDK24 minimum / SDK36 target, 16KB ZIP alignment, no requested permissions. Build and read-only collection scripts are reproducible. The test-feature-only bounded telemetry reports frame/combat percentiles, loading qualification, render/static counters and lifecycle. [APK identity, phone steps and targets](docs/production/phase2/ANDROID_S23_TEST.md).
+
+### Current validation
+
+- Isolated clean editor import. Preserved adult authored-pose fixture, focused weapon-fit fixture, smoke, full slice/save-recovery regressions pass; recovery retains exactly its two intentional corrupt-file diagnostics. One initial source-size assertion assumed the requested 1280 square; actual generated sources are 1254 square. Corrected source expectation passes; no art was resized to satisfy it.
+- Native focused fixture validates nine visible states, opaque anatomy/shaft anchors, 768 runtime textures, exact support alignment, restricted fallbacks, RNG isolation, immediate melee damage and actual game processing through the complete attack sequence. Native blade layering captures inspected. [Contact sheet](docs/production/phase2/relic-greatsword-contact-sheet.png), [results](docs/production/phase2/relic-greatsword-native-results.json).
+- Eight native screen/simulated-cutout scenarios validate physical ScreenTouch dispatch, Pause/Resume, group targeting, rapid-tap cooldown, outside-frame rejection, single merchant charge, reward choices, HUD/menu/card bounds and report transform. The gated monitor validates persisted JSON, fixed histograms, bounded contexts and synthetic focus/suspend/return. [Layout/input evidence](docs/production/phase2/mobile-layout-native-results.json).
+- Final native encounter, presentation and full Act I flow fixtures pass with zero unexpected errors. [Native result](docs/production/phase2/tranche2-native-results.json), [flow/save/smoke result](docs/production/phase2/tranche2-flow-save-smoke-results.json).
+- Earlier 2/5 smoke result was real bot defeats plus an inadequate seed/isolation contract: RNG was seeded after the first foe and prior smoke mutations remained. Corrected fresh-baseline/pre-start seeding repeats byte-for-byte at **3/5**. Thirty diagnostic simulations repeat the same five seeds under three policies: rotating choices 3/5, sustain choices 5/5, sustain + affordable shopping 5/5. The bot cannot judge visual cues; wins are loop coverage, not a population balance target. No difficulty reduction. [Full interpretation](docs/production/phase2/COMBAT_SEED_DIAGNOSTICS.md).
+
+No phone is attached to adb. Actual S23 touch feel, cold launch, GPU rendering, frame pacing, thermals, process memory, edges/text/reward readability and Android lifecycle/save acceptance need the prepared handset test. Native synthetic checks do not certify a physical device. Committed progress survives relaunch; live expeditions still do not resume after process death.
+
+Highest-value next production step: run the prepared S23 test, collect its report/PSS/logs and resolve measured device problems; then finish boss attack/reaction animation and original/licensed audio in this same Act I scene. Wider pose completion, final environments, modular wardrobe, semantic/cross-store save hardening and live-run restoration remain release debt.

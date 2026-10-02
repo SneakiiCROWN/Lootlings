@@ -1,0 +1,3585 @@
+{
+  "replay_passes": 2,
+  "unexpected_errors": 0,
+  "engine": "Godot 4.7.2 desktop headless",
+  "runs": 30,
+  "results": [
+    {
+      "buys": {},
+      "damage_taken": 440.51,
+      "elapsed": 130.4,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1000,
+      "global_seed": 424242,
+      "hp": 43.74,
+      "items": [
+        {
+          "id": "stormspark",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "scrapfang_blade",
+          "rarity": "EPIC",
+          "slot": "Weapon"
+        },
+        {
+          "id": "vault_receipt",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "cinder_staff",
+          "rarity": "LEGENDARY",
+          "slot": "Weapon"
+        }
+      ],
+      "loot_seed": 2000,
+      "policy": "smoke",
+      "sample": 0,
+      "state": "result",
+      "unspent_scrip": 1189,
+      "upgrades": [
+        "frenzy",
+        "regen",
+        "frenzy",
+        "greed",
+        "execute",
+        "venom",
+        "plague",
+        "tap",
+        "speed",
+        "speed",
+        "plague"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 2,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 2,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 1
+          },
+          "hp": 97.04,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 10,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 11,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 1,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 12,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 13,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 103.35,
+          "max_hp": 104.0,
+          "wave": 14,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 15,
+          "weapon": "scrapfang_blade"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 166.44,
+      "elapsed": 91.6,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1001,
+      "global_seed": 424243,
+      "hp": 91.82,
+      "items": [
+        {
+          "id": "mossguard_harness",
+          "rarity": "RARE",
+          "slot": "Armour"
+        },
+        {
+          "id": "ground_slam",
+          "rarity": "RARE",
+          "slot": "Rune"
+        },
+        {
+          "id": "mossguard_harness",
+          "rarity": "LEGENDARY",
+          "slot": "Armour"
+        }
+      ],
+      "loot_seed": 2001,
+      "policy": "smoke",
+      "sample": 1,
+      "state": "result",
+      "unspent_scrip": 960,
+      "upgrades": [
+        "heavy",
+        "multi",
+        "multi",
+        "plague",
+        "multi",
+        "damage",
+        "damage",
+        "wildfire",
+        "speed",
+        "frenzy"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 2,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 10,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 11,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 6,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 12,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 6,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 13,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 7,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 14,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 7,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 15,
+          "weapon": "scrapfang_blade"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 521.97,
+      "elapsed": 138.6,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1002,
+      "global_seed": 424244,
+      "hp": 94.31,
+      "items": [
+        {
+          "id": "moonbite_daggers",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "echo_rune",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "moss_staff",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "mire_rune",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "patchplate_vest",
+          "rarity": "LEGENDARY",
+          "slot": "Armour"
+        },
+        {
+          "id": "ember_pop",
+          "rarity": "EPIC",
+          "slot": "Rune"
+        }
+      ],
+      "loot_seed": 2002,
+      "policy": "smoke",
+      "sample": 2,
+      "state": "result",
+      "unspent_scrip": 958,
+      "upgrades": [
+        "execute",
+        "heavy",
+        "storm",
+        "multi",
+        "armor",
+        "multi",
+        "vamp",
+        "heavy",
+        "tap",
+        "greed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 3,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 3,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 3,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 3,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 4,
+            "Poison": 0
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 8,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 4,
+            "Poison": 0
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 9,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 5,
+            "Physical": 4,
+            "Poison": 0
+          },
+          "hp": 142.5,
+          "max_hp": 142.5,
+          "wave": 10,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 5,
+            "Physical": 4,
+            "Poison": 1
+          },
+          "hp": 142.5,
+          "max_hp": 142.5,
+          "wave": 11,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 5,
+            "Physical": 5,
+            "Poison": 1
+          },
+          "hp": 142.5,
+          "max_hp": 142.5,
+          "wave": 12,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 5,
+            "Physical": 5,
+            "Poison": 1
+          },
+          "hp": 142.5,
+          "max_hp": 142.5,
+          "wave": 13,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 5,
+            "Poison": 1
+          },
+          "hp": 214.7,
+          "max_hp": 214.7,
+          "wave": 14,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 5,
+            "Poison": 1
+          },
+          "hp": 214.7,
+          "max_hp": 214.7,
+          "wave": 15,
+          "weapon": "moss_staff"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 205.73,
+      "elapsed": 103.8,
+      "enemy": "SHARDSEER",
+      "enemy_hp": 182.07,
+      "game_seed": 1003,
+      "global_seed": 424245,
+      "hp": 0.0,
+      "items": [
+        {
+          "id": "moonbite_daggers",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "cursed_ring",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "mimic_mallet",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        }
+      ],
+      "loot_seed": 2003,
+      "policy": "smoke",
+      "sample": 3,
+      "state": "result",
+      "unspent_scrip": 777,
+      "upgrades": [
+        "ignite",
+        "wildfire",
+        "greed",
+        "splash",
+        "splash",
+        "execute",
+        "splash",
+        "ignite",
+        "greed",
+        "execute"
+      ],
+      "wave": 13,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 2,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 2,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 98.37,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 5,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 10,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 5,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 0
+          },
+          "hp": 88.0,
+          "max_hp": 88.0,
+          "wave": 11,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 6,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 0
+          },
+          "hp": 61.14,
+          "max_hp": 88.0,
+          "wave": 12,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 6,
+            "Lightning": 0,
+            "Physical": 2,
+            "Poison": 0
+          },
+          "hp": 36.03,
+          "max_hp": 88.0,
+          "wave": 13,
+          "weapon": "mimic_mallet"
+        }
+      ],
+      "won": false
+    },
+    {
+      "buys": {},
+      "damage_taken": 498.92,
+      "elapsed": 135.6,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 2665.18,
+      "game_seed": 1004,
+      "global_seed": 424246,
+      "hp": 0.0,
+      "items": [
+        {
+          "id": "critical_script",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "gilded_knives",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "gilded_knives",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        }
+      ],
+      "loot_seed": 2004,
+      "policy": "smoke",
+      "sample": 4,
+      "state": "result",
+      "unspent_scrip": 829,
+      "upgrades": [
+        "splash",
+        "ignite",
+        "wildfire",
+        "regen",
+        "damage",
+        "vamp",
+        "splash",
+        "execute",
+        "crit",
+        "heavy"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 2,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 96.19,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 3,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 10,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 11,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 12,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 3,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 13,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 4,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 14,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 4,
+            "Lightning": 0,
+            "Physical": 5,
+            "Poison": 2
+          },
+          "hp": 95.07,
+          "max_hp": 100.0,
+          "wave": 15,
+          "weapon": "gilded_knives"
+        }
+      ],
+      "won": false
+    },
+    {
+      "buys": {},
+      "damage_taken": 779.79,
+      "elapsed": 168.6,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1000,
+      "global_seed": 424242,
+      "hp": 94.03,
+      "items": [
+        {
+          "id": "stormspark",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "scrapfang_blade",
+          "rarity": "EPIC",
+          "slot": "Weapon"
+        },
+        {
+          "id": "vault_receipt",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "cinder_staff",
+          "rarity": "LEGENDARY",
+          "slot": "Weapon"
+        }
+      ],
+      "loot_seed": 2000,
+      "policy": "survival",
+      "sample": 0,
+      "state": "result",
+      "unspent_scrip": 980,
+      "upgrades": [
+        "regen",
+        "regen",
+        "venom",
+        "heavy",
+        "ignite",
+        "regen",
+        "plague",
+        "vamp",
+        "vamp",
+        "speed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 10,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 6
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 11,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 7
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 12,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 7
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 13,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 8
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 14,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 1,
+            "Physical": 1,
+            "Poison": 8
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 15,
+          "weapon": "scrapfang_blade"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 269.08,
+      "elapsed": 106.05,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1001,
+      "global_seed": 424243,
+      "hp": 166.2,
+      "items": [
+        {
+          "id": "mossguard_harness",
+          "rarity": "RARE",
+          "slot": "Armour"
+        },
+        {
+          "id": "ground_slam",
+          "rarity": "RARE",
+          "slot": "Rune"
+        },
+        {
+          "id": "mossguard_harness",
+          "rarity": "LEGENDARY",
+          "slot": "Armour"
+        }
+      ],
+      "loot_seed": 2001,
+      "policy": "survival",
+      "sample": 1,
+      "state": "result",
+      "unspent_scrip": 950,
+      "upgrades": [
+        "regen",
+        "multi",
+        "multi",
+        "plague",
+        "regen",
+        "multi",
+        "damage",
+        "tap",
+        "vamp",
+        "speed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 10,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 11,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 7,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 12,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 7,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 13,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 7,
+            "Physical": 1,
+            "Poison": 5
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 14,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 8,
+            "Physical": 1,
+            "Poison": 5
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 15,
+          "weapon": "scrapfang_blade"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 566.25,
+      "elapsed": 165.85,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1002,
+      "global_seed": 424244,
+      "hp": 266.35,
+      "items": [
+        {
+          "id": "moonbite_daggers",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "echo_rune",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "moss_staff",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "mire_rune",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "patchplate_vest",
+          "rarity": "LEGENDARY",
+          "slot": "Armour"
+        },
+        {
+          "id": "ember_pop",
+          "rarity": "EPIC",
+          "slot": "Rune"
+        }
+      ],
+      "loot_seed": 2002,
+      "policy": "survival",
+      "sample": 2,
+      "state": "result",
+      "unspent_scrip": 921,
+      "upgrades": [
+        "regen",
+        "plague",
+        "armor",
+        "multi",
+        "armor",
+        "armor",
+        "vamp",
+        "speed",
+        "tap",
+        "speed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 7,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 160.0,
+          "max_hp": 160.0,
+          "wave": 8,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 160.0,
+          "max_hp": 160.0,
+          "wave": 9,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 3,
+            "Poison": 3
+          },
+          "hp": 202.5,
+          "max_hp": 202.5,
+          "wave": 10,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 202.5,
+          "max_hp": 202.5,
+          "wave": 11,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 202.5,
+          "max_hp": 202.5,
+          "wave": 12,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 202.5,
+          "max_hp": 202.5,
+          "wave": 13,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 274.7,
+          "max_hp": 274.7,
+          "wave": 14,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 5,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 274.7,
+          "max_hp": 274.7,
+          "wave": 15,
+          "weapon": "moss_staff"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 116.18,
+      "elapsed": 87.9,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1003,
+      "global_seed": 424245,
+      "hp": 118.0,
+      "items": [
+        {
+          "id": "moonbite_daggers",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "cursed_ring",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "mimic_mallet",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "bossbane_sigil",
+          "rarity": "RARE",
+          "slot": "Rune"
+        },
+        {
+          "id": "echo_rune",
+          "rarity": "EPIC",
+          "slot": "Rune"
+        }
+      ],
+      "loot_seed": 2003,
+      "policy": "survival",
+      "sample": 3,
+      "state": "result",
+      "unspent_scrip": 910,
+      "upgrades": [
+        "tap",
+        "damage",
+        "vamp",
+        "tap",
+        "regen",
+        "armor",
+        "venom",
+        "tap",
+        "vamp",
+        "execute"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 1,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 2
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 10,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 118.0,
+          "max_hp": 118.0,
+          "wave": 11,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 118.0,
+          "max_hp": 118.0,
+          "wave": 12,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 118.0,
+          "max_hp": 118.0,
+          "wave": 13,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 118.0,
+          "max_hp": 118.0,
+          "wave": 14,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 4,
+            "Poison": 4
+          },
+          "hp": 118.0,
+          "max_hp": 118.0,
+          "wave": 15,
+          "weapon": "mimic_mallet"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {},
+      "damage_taken": 660.32,
+      "elapsed": 152.1,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1004,
+      "global_seed": 424246,
+      "hp": 32.39,
+      "items": [
+        {
+          "id": "critical_script",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "gilded_knives",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "gilded_knives",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "hoarders_locket",
+          "rarity": "LEGENDARY",
+          "slot": "Relic"
+        }
+      ],
+      "loot_seed": 2004,
+      "policy": "survival",
+      "sample": 4,
+      "state": "result",
+      "unspent_scrip": 958,
+      "upgrades": [
+        "ignite",
+        "multi",
+        "regen",
+        "regen",
+        "regen",
+        "vamp",
+        "heavy",
+        "multi",
+        "tap",
+        "heavy"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 10,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 11,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 12,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 13,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 5,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 14,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 5,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 15,
+          "weapon": "gilded_knives"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {
+        "6": 1,
+        "11": 2
+      },
+      "damage_taken": 923.35,
+      "elapsed": 178.25,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1000,
+      "global_seed": 424242,
+      "hp": 100.0,
+      "items": [
+        {
+          "id": "mimic_mallet",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "stormspark",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "scrapfang_blade",
+          "rarity": "EPIC",
+          "slot": "Weapon"
+        },
+        {
+          "id": "hoarders_locket",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "bonebow",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "vault_receipt",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "cinder_staff",
+          "rarity": "LEGENDARY",
+          "slot": "Weapon"
+        }
+      ],
+      "loot_seed": 2000,
+      "policy": "merchant",
+      "sample": 0,
+      "state": "result",
+      "unspent_scrip": 618,
+      "upgrades": [
+        "regen",
+        "regen",
+        "venom",
+        "heavy",
+        "ignite",
+        "regen",
+        "plague",
+        "vamp",
+        "vamp",
+        "speed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 10,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 6
+          },
+          "hp": 104.0,
+          "max_hp": 104.0,
+          "wave": 11,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 7
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 12,
+          "weapon": "bonebow"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 7
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 13,
+          "weapon": "bonebow"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 8
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 14,
+          "weapon": "bonebow"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 1,
+            "Physical": 1,
+            "Poison": 8
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 15,
+          "weapon": "bonebow"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {
+        "6": 1,
+        "11": 2
+      },
+      "damage_taken": 259.46,
+      "elapsed": 105.1,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1001,
+      "global_seed": 424243,
+      "hp": 172.8,
+      "items": [
+        {
+          "id": "hoarders_locket",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "mossguard_harness",
+          "rarity": "RARE",
+          "slot": "Armour"
+        },
+        {
+          "id": "ground_slam",
+          "rarity": "RARE",
+          "slot": "Rune"
+        },
+        {
+          "id": "ironpaw_plate",
+          "rarity": "COMMON",
+          "slot": "Armour"
+        },
+        {
+          "id": "tiny_bell",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "mossguard_harness",
+          "rarity": "LEGENDARY",
+          "slot": "Armour"
+        }
+      ],
+      "loot_seed": 2001,
+      "policy": "merchant",
+      "sample": 1,
+      "state": "result",
+      "unspent_scrip": 705,
+      "upgrades": [
+        "regen",
+        "multi",
+        "multi",
+        "plague",
+        "regen",
+        "multi",
+        "damage",
+        "tap",
+        "vamp",
+        "speed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 9,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 10,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 6,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 144.0,
+          "max_hp": 144.0,
+          "wave": 11,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 7,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 148.0,
+          "max_hp": 148.0,
+          "wave": 12,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 7,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 148.0,
+          "max_hp": 148.0,
+          "wave": 13,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 7,
+            "Physical": 1,
+            "Poison": 5
+          },
+          "hp": 148.0,
+          "max_hp": 148.0,
+          "wave": 14,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 8,
+            "Physical": 1,
+            "Poison": 5
+          },
+          "hp": 148.0,
+          "max_hp": 148.0,
+          "wave": 15,
+          "weapon": "scrapfang_blade"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {
+        "6": 1,
+        "11": 2
+      },
+      "damage_taken": 572.53,
+      "elapsed": 168.4,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1002,
+      "global_seed": 424244,
+      "hp": 267.59,
+      "items": [
+        {
+          "id": "moonbite_daggers",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "gilded_shortbow",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "echo_rune",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "moss_staff",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "ruinweave_coat",
+          "rarity": "COMMON",
+          "slot": "Armour"
+        },
+        {
+          "id": "vault_receipt",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "mire_rune",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "patchplate_vest",
+          "rarity": "LEGENDARY",
+          "slot": "Armour"
+        },
+        {
+          "id": "ember_pop",
+          "rarity": "EPIC",
+          "slot": "Rune"
+        }
+      ],
+      "loot_seed": 2002,
+      "policy": "merchant",
+      "sample": 2,
+      "state": "result",
+      "unspent_scrip": 684,
+      "upgrades": [
+        "regen",
+        "plague",
+        "armor",
+        "multi",
+        "armor",
+        "armor",
+        "vamp",
+        "speed",
+        "tap",
+        "speed"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 3
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 7,
+          "weapon": "gilded_shortbow"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 160.0,
+          "max_hp": 160.0,
+          "wave": 8,
+          "weapon": "gilded_shortbow"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 160.0,
+          "max_hp": 160.0,
+          "wave": 9,
+          "weapon": "gilded_shortbow"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 3,
+            "Poison": 3
+          },
+          "hp": 202.5,
+          "max_hp": 202.5,
+          "wave": 10,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 202.5,
+          "max_hp": 202.5,
+          "wave": 11,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 227.5,
+          "max_hp": 227.5,
+          "wave": 12,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 227.5,
+          "max_hp": 227.5,
+          "wave": 13,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 4,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 274.7,
+          "max_hp": 274.7,
+          "wave": 14,
+          "weapon": "moss_staff"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 5,
+            "Physical": 3,
+            "Poison": 4
+          },
+          "hp": 274.7,
+          "max_hp": 274.7,
+          "wave": 15,
+          "weapon": "moss_staff"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {
+        "6": 1,
+        "11": 2
+      },
+      "damage_taken": 153.9,
+      "elapsed": 90.45,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1003,
+      "global_seed": 424245,
+      "hp": 130.67,
+      "items": [
+        {
+          "id": "moonbite_daggers",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "moonbite_daggers",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "cursed_ring",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "mimic_mallet",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "coin_stitch_coat",
+          "rarity": "COMMON",
+          "slot": "Armour"
+        },
+        {
+          "id": "cursed_ring",
+          "rarity": "COMMON",
+          "slot": "Relic"
+        },
+        {
+          "id": "bossbane_sigil",
+          "rarity": "RARE",
+          "slot": "Rune"
+        },
+        {
+          "id": "echo_rune",
+          "rarity": "EPIC",
+          "slot": "Rune"
+        }
+      ],
+      "loot_seed": 2003,
+      "policy": "merchant",
+      "sample": 3,
+      "state": "result",
+      "unspent_scrip": 568,
+      "upgrades": [
+        "tap",
+        "damage",
+        "vamp",
+        "tap",
+        "regen",
+        "armor",
+        "venom",
+        "tap",
+        "vamp",
+        "execute"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 1,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 1,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 7,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 8,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 9,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 2
+          },
+          "hp": 130.0,
+          "max_hp": 130.0,
+          "wave": 10,
+          "weapon": "moonbite_daggers"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 2,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 118.0,
+          "max_hp": 118.0,
+          "wave": 11,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 140.0,
+          "max_hp": 140.0,
+          "wave": 12,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 3
+          },
+          "hp": 140.0,
+          "max_hp": 140.0,
+          "wave": 13,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 140.0,
+          "max_hp": 140.0,
+          "wave": 14,
+          "weapon": "mimic_mallet"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 3,
+            "Physical": 4,
+            "Poison": 4
+          },
+          "hp": 140.0,
+          "max_hp": 140.0,
+          "wave": 15,
+          "weapon": "mimic_mallet"
+        }
+      ],
+      "won": true
+    },
+    {
+      "buys": {
+        "6": 1,
+        "11": 2
+      },
+      "damage_taken": 651.3,
+      "elapsed": 149.9,
+      "enemy": "THE HOARD DRAGON",
+      "enemy_hp": 0.0,
+      "game_seed": 1004,
+      "global_seed": 424246,
+      "hp": 82.96,
+      "items": [
+        {
+          "id": "mossguard_harness",
+          "rarity": "COMMON",
+          "slot": "Armour"
+        },
+        {
+          "id": "critical_script",
+          "rarity": "COMMON",
+          "slot": "Rune"
+        },
+        {
+          "id": "gilded_knives",
+          "rarity": "COMMON",
+          "slot": "Weapon"
+        },
+        {
+          "id": "gilded_knives",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "ironpaw_plate",
+          "rarity": "COMMON",
+          "slot": "Armour"
+        },
+        {
+          "id": "gilded_shortbow",
+          "rarity": "RARE",
+          "slot": "Weapon"
+        },
+        {
+          "id": "hoarders_locket",
+          "rarity": "LEGENDARY",
+          "slot": "Relic"
+        }
+      ],
+      "loot_seed": 2004,
+      "policy": "merchant",
+      "sample": 4,
+      "state": "result",
+      "unspent_scrip": 576,
+      "upgrades": [
+        "ignite",
+        "multi",
+        "regen",
+        "regen",
+        "regen",
+        "vamp",
+        "heavy",
+        "multi",
+        "tap",
+        "heavy"
+      ],
+      "wave": 15,
+      "wave_entries": [
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 1,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 0,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 2,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 0,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 3,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 0
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 4,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 1
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 5,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 2
+          },
+          "hp": 100.0,
+          "max_hp": 100.0,
+          "wave": 6,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 2
+          },
+          "hp": 132.0,
+          "max_hp": 132.0,
+          "wave": 7,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 132.0,
+          "max_hp": 132.0,
+          "wave": 8,
+          "weapon": "scrapfang_blade"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 3
+          },
+          "hp": 132.0,
+          "max_hp": 132.0,
+          "wave": 9,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 0,
+            "Poison": 4
+          },
+          "hp": 132.0,
+          "max_hp": 132.0,
+          "wave": 10,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 2,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 132.0,
+          "max_hp": 132.0,
+          "wave": 11,
+          "weapon": "gilded_knives"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 152.0,
+          "max_hp": 152.0,
+          "wave": 12,
+          "weapon": "gilded_shortbow"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 4,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 152.0,
+          "max_hp": 152.0,
+          "wave": 13,
+          "weapon": "gilded_shortbow"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 5,
+            "Physical": 1,
+            "Poison": 4
+          },
+          "hp": 152.0,
+          "max_hp": 152.0,
+          "wave": 14,
+          "weapon": "gilded_shortbow"
+        },
+        {
+          "build": {
+            "Fire": 1,
+            "Lightning": 5,
+            "Physical": 2,
+            "Poison": 4
+          },
+          "hp": 152.0,
+          "max_hp": 152.0,
+          "wave": 15,
+          "weapon": "gilded_shortbow"
+        }
+      ],
+      "won": true
+    }
+  ]
+}

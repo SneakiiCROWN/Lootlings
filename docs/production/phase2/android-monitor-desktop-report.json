@@ -1,0 +1,66 @@
+{
+  "average_fps": 60.5238463954798,
+  "captured_unix": 1790934283.259,
+  "combat_frame_p95_ms": 17,
+  "combat_samples": 119,
+  "draw_calls": 57.0,
+  "engine": "4.7.2-stable (official)",
+  "frame_p50_ms": 17,
+  "frame_p95_ms": 17,
+  "frame_p99_ms": 17,
+  "frames_over_33ms": 0,
+  "histogram_note": "1 ms buckets, values >=250ms in terminal bucket; lifecycle events reset the frame clock.",
+  "lifecycle": {
+    "focus_in": 0,
+    "focus_out": 0,
+    "paused": 1,
+    "resumed": 1
+  },
+  "loading_node_to_first_menu_ms": -1.0,
+  "loading_note": "Starts when game node is ready; excludes Android process/engine startup. Time cold launch separately.",
+  "memory_note": "Godot counters; not Android process PSS/GPU driver memory. Capture adb dumpsys meminfo separately.",
+  "model": "Z690 AERO G DDR4",
+  "platform": "Windows",
+  "recent_contexts": [
+    {
+      "elapsed_ms": 44,
+      "reason": "state:playing",
+      "state": "playing",
+      "tree_paused": false
+    },
+    {
+      "elapsed_ms": 2026,
+      "reason": "user_report",
+      "state": "paused",
+      "tree_paused": false
+    },
+    {
+      "elapsed_ms": 2030,
+      "reason": "state:paused",
+      "state": "paused",
+      "tree_paused": false
+    },
+    {
+      "elapsed_ms": 2063,
+      "reason": "paused",
+      "state": "paused",
+      "tree_paused": false
+    },
+    {
+      "elapsed_ms": 2063,
+      "reason": "resumed",
+      "state": "paused",
+      "tree_paused": false
+    }
+  ],
+  "safe_area_pixels": "[P: (0, 0), S: (2560, 1392)]",
+  "samples": 121,
+  "screen_pixels": "(2560, 1440)",
+  "state": "paused",
+  "static_memory_bytes": 105840665.0,
+  "test_build": true,
+  "texture_memory_bytes": 210561341.0,
+  "viewport_rect": "[P: (0.0, 0.0), S: (480.0, 854.0)]",
+  "window_pixels": "(480, 854)",
+  "worst_frame_ms": 20.326
+}
