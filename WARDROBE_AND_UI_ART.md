@@ -1,3 +1,5 @@
+> **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Fifty wardrobe compatibility contracts are live; modular wardrobe layers remain missing. The six shared painted materials are BETA despite their production folder. Native 480x854 captures and stretch/state checks passed; notification overlap, phone safe areas, scalable text and full remapping/navigation remain unfinished.
+
 # Wardrobe compatibility / painted interface tranche
 
 ## Wardrobe foundation
@@ -45,4 +47,3 @@ Use case: stylized-concept. Asset: one original production Lootlings fantasy UI 
 ### button_destructive
 
 Use case: stylized-concept. Asset: one original production Lootlings fantasy UI button backing, 1024x320 horizontal RGBA transparent outside clipped rounded corners. warm gold thin beveled frame, muted garnet red calm inset. Premium painted material, tiny geometric purple/cyan gems ONLY at far end caps, clean straight stretchable borders; center 80% entirely quiet blank for text. Nine-slice-ready, end decorations within 70 pixels. Tight transparent padding 4px maximum. Strong readable silhouette, tasteful gold purple cyan fantasy treasure language. No curved arcs across center, no writing, labels, icons, watermark, objects, characters, outer glow or long drop shadow.
-

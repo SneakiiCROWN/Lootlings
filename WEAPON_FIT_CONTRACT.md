@@ -1,3 +1,5 @@
+> **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Current counts: 246 manifest rows / 60 authored entries / twenty body textures / 100 tested authored phase states; 83 support-hand/paired combinations remain per facing. The manifest and runtime resolver own geometry. Chronological extension counts below are historical snapshots, not additive totals. The sling is live BETA, with Mosskin outward grip/socket corrected; missing authored anatomy remains incomplete.
+
 # Weapon / actor fit contract
 
 ## Shipped correction (not finished articulated animation)

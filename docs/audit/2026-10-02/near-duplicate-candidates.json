@@ -1,0 +1,638 @@
+[
+  {
+    "a": "art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready.png",
+    "b": "art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready_left.png",
+    "mean_absolute_difference": 1.9925130208333333,
+    "mirror_difference": 11.47117332175926
+  },
+  {
+    "a": "art/sprites/poses/nightstage_drifter/heavy_two_hand_ready.png",
+    "b": "art/sprites/poses/nightstage_drifter/heavy_two_hand_ready_left.png",
+    "mean_absolute_difference": 2.2586082175925926,
+    "mirror_difference": 8.063657407407407
+  },
+  {
+    "a": "art/sprites/poses/ruin_warden/heavy_two_hand_ready.png",
+    "b": "art/sprites/poses/ruin_warden/heavy_two_hand_ready_left.png",
+    "mean_absolute_difference": 3.5181206597222223,
+    "mirror_difference": 9.884874131944445
+  },
+  {
+    "a": "art/sprites/poses/vault_runner/heavy_two_hand_ready.png",
+    "b": "art/sprites/poses/vault_runner/heavy_two_hand_ready_left.png",
+    "mean_absolute_difference": 3.4050202546296298,
+    "mirror_difference": 7.298611111111111
+  },
+  {
+    "a": "art/sprites/poses/velvet_astrologer/heavy_two_hand_ready.png",
+    "b": "art/sprites/poses/velvet_astrologer/heavy_two_hand_ready_left.png",
+    "mean_absolute_difference": 2.1260850694444446,
+    "mirror_difference": 13.566333912037036
+  },
+  {
+    "a": "art/sprites/wanderers/beta/vault_runner_idle.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.5790653935185186,
+    "mirror_difference": 3.5790653935185186
+  },
+  {
+    "a": "art/sprites/wanderers/beta/vault_runner_idle.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.567889178240741,
+    "mirror_difference": 3.567889178240741
+  },
+  {
+    "a": "art/sprites/wanderers/beta/vault_runner_idle.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.5271629050925926,
+    "mirror_difference": 3.5271629050925926
+  },
+  {
+    "a": "art/sprites/weapons/sling_held.png",
+    "b": "art/sprites/weapons/sling_inventory.png",
+    "mean_absolute_difference": 0.1072048611111111,
+    "mirror_difference": 16.986689814814813
+  },
+  {
+    "a": "art/sprites/weapons/stances/spear_held.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.8385778356481484,
+    "mirror_difference": 3.8385778356481484
+  },
+  {
+    "a": "art/sprites/weapons/stances/spear_held.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.7669270833333335,
+    "mirror_difference": 3.7669994212962963
+  },
+  {
+    "a": "art/sprites/weapons/stances/spear_held.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.749782986111111,
+    "mirror_difference": 3.749782986111111
+  },
+  {
+    "a": "art/ui/beta/ornament_gold.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.8882378472222223,
+    "mirror_difference": 3.8882378472222223
+  },
+  {
+    "a": "art/ui/beta/ornament_gold.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.945782696759259,
+    "mirror_difference": 3.9457103587962963
+  },
+  {
+    "a": "art/ui/beta/ornament_gold.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.8657769097222223,
+    "mirror_difference": 3.8657769097222223
+  },
+  {
+    "a": "art/ui/beta/panel_leather_9slice.png",
+    "b": "art/ui/skins/panel_leather_9slice.png",
+    "mean_absolute_difference": 2.962058738425926,
+    "mirror_difference": 3.003436053240741
+  },
+  {
+    "a": "art/ui/beta/panel_relic_9slice.png",
+    "b": "art/ui/skins/panel_relic_9slice.png",
+    "mean_absolute_difference": 1.6090133101851851,
+    "mirror_difference": 1.644458912037037
+  },
+  {
+    "a": "art/ui/icons/core_fire.png",
+    "b": "art/ui/icons/status_burn.png",
+    "mean_absolute_difference": 0.0,
+    "mirror_difference": 7.352213541666667
+  },
+  {
+    "a": "art/ui/icons/core_poison.png",
+    "b": "art/ui/icons/status_poison.png",
+    "mean_absolute_difference": 0.0,
+    "mirror_difference": 5.448350694444445
+  },
+  {
+    "a": "art/ui/production/hud.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 3.4169921875,
+    "mirror_difference": 3.416919849537037
+  },
+  {
+    "a": "art/ui/production/hud.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 3.9194878472222223,
+    "mirror_difference": 3.9194878472222223
+  },
+  {
+    "a": "art/ui/results/defeat_crest.png",
+    "b": "art/ui/results/victory_crest.png",
+    "mean_absolute_difference": 3.4410807291666665,
+    "mirror_difference": 3.4488208912037037
+  },
+  {
+    "a": "art/ui/results/defeat_crest.png",
+    "b": "art/ui/skins/bar_xp_frame.png",
+    "mean_absolute_difference": 3.6894169560185186,
+    "mirror_difference": 3.6894169560185186
+  },
+  {
+    "a": "art/ui/results/defeat_crest.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.287326388888889,
+    "mirror_difference": 3.2884837962962963
+  },
+  {
+    "a": "art/ui/results/defeat_crest.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.379810474537037,
+    "mirror_difference": 3.380244502314815
+  },
+  {
+    "a": "art/ui/results/defeat_crest.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.3137659143518516,
+    "mirror_difference": 3.3147786458333335
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_fill.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.9812644675925926,
+    "mirror_difference": 3.9812644675925926
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/bar_health_frame.png",
+    "mean_absolute_difference": 0.22945601851851852,
+    "mirror_difference": 0.22945601851851852
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/bar_xp_frame.png",
+    "mean_absolute_difference": 1.4662905092592593,
+    "mirror_difference": 1.4662905092592593
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 1.6331380208333333,
+    "mirror_difference": 1.6331380208333333
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 1.564380787037037,
+    "mirror_difference": 1.564380787037037
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 1.542896412037037,
+    "mirror_difference": 1.542896412037037
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 2.836299189814815,
+    "mirror_difference": 2.836299189814815
+  },
+  {
+    "a": "art/ui/skins/bar_enemy_frame.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 2.5859736689814814,
+    "mirror_difference": 2.5859736689814814
+  },
+  {
+    "a": "art/ui/skins/bar_health_fill.png",
+    "b": "art/ui/skins/bar_xp_fill.png",
+    "mean_absolute_difference": 3.2163990162037037,
+    "mirror_difference": 3.2163990162037037
+  },
+  {
+    "a": "art/ui/skins/bar_health_fill.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.8887080439814814,
+    "mirror_difference": 3.8887080439814814
+  },
+  {
+    "a": "art/ui/skins/bar_health_fill.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.9379340277777777,
+    "mirror_difference": 3.9379340277777777
+  },
+  {
+    "a": "art/ui/skins/bar_health_fill.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.9618055555555554,
+    "mirror_difference": 3.9618055555555554
+  },
+  {
+    "a": "art/ui/skins/bar_health_frame.png",
+    "b": "art/ui/skins/bar_xp_frame.png",
+    "mean_absolute_difference": 1.36328125,
+    "mirror_difference": 1.36328125
+  },
+  {
+    "a": "art/ui/skins/bar_health_frame.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 1.5069806134259258,
+    "mirror_difference": 1.5069806134259258
+  },
+  {
+    "a": "art/ui/skins/bar_health_frame.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 1.4382233796296295,
+    "mirror_difference": 1.4382233796296295
+  },
+  {
+    "a": "art/ui/skins/bar_health_frame.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 1.4167390046296295,
+    "mirror_difference": 1.4167390046296295
+  },
+  {
+    "a": "art/ui/skins/bar_health_frame.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 2.7097077546296298,
+    "mirror_difference": 2.7097077546296298
+  },
+  {
+    "a": "art/ui/skins/bar_health_frame.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 2.4433232060185186,
+    "mirror_difference": 2.4433232060185186
+  },
+  {
+    "a": "art/ui/skins/bar_xp_fill.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.9306278935185186,
+    "mirror_difference": 3.9306278935185186
+  },
+  {
+    "a": "art/ui/skins/bar_xp_fill.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.9158347800925926,
+    "mirror_difference": 3.9158347800925926
+  },
+  {
+    "a": "art/ui/skins/bar_xp_fill.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.983036747685185,
+    "mirror_difference": 3.983036747685185
+  },
+  {
+    "a": "art/ui/skins/bar_xp_frame.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 1.0762803819444444,
+    "mirror_difference": 1.0762803819444444
+  },
+  {
+    "a": "art/ui/skins/bar_xp_frame.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 1.0075231481481481,
+    "mirror_difference": 1.0075231481481481
+  },
+  {
+    "a": "art/ui/skins/bar_xp_frame.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 0.9860387731481481,
+    "mirror_difference": 0.9860387731481481
+  },
+  {
+    "a": "art/ui/skins/bar_xp_frame.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 2.8879484953703702,
+    "mirror_difference": 2.8879484953703702
+  },
+  {
+    "a": "art/ui/skins/bar_xp_frame.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 2.7258752893518516,
+    "mirror_difference": 2.7258752893518516
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/button_destructive_hover.png",
+    "mean_absolute_difference": 3.9138093171296298,
+    "mirror_difference": 3.9138816550925926
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/button_destructive_normal.png",
+    "mean_absolute_difference": 3.5101996527777777,
+    "mirror_difference": 3.5103443287037037
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/button_destructive_pressed.png",
+    "mean_absolute_difference": 3.661060474537037,
+    "mirror_difference": 3.6611328125
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/button_primary_disabled.png",
+    "mean_absolute_difference": 1.4759476273148149,
+    "mirror_difference": 1.4759476273148149
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/button_secondary_disabled.png",
+    "mean_absolute_difference": 2.8613642939814814,
+    "mirror_difference": 2.8613642939814814
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/divider_gold.png",
+    "mean_absolute_difference": 3.803638599537037,
+    "mirror_difference": 3.803638599537037
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 3.9016927083333335,
+    "mirror_difference": 3.9016927083333335
+  },
+  {
+    "a": "art/ui/skins/button_destructive_disabled.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 3.827763310185185,
+    "mirror_difference": 3.827763310185185
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_destructive_hover.png",
+    "mean_absolute_difference": 1.1604094328703705,
+    "mirror_difference": 1.1641710069444444
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_destructive_normal.png",
+    "mean_absolute_difference": 0.9843026620370371,
+    "mirror_difference": 0.9853153935185185
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_destructive_pressed.png",
+    "mean_absolute_difference": 3.5038700810185186,
+    "mirror_difference": 3.5038700810185186
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_primary_disabled.png",
+    "mean_absolute_difference": 3.592918113425926,
+    "mirror_difference": 3.5932074652777777
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_primary_focus.png",
+    "mean_absolute_difference": 3.2395109953703702,
+    "mirror_difference": 3.2405237268518516
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_primary_normal.png",
+    "mean_absolute_difference": 3.571361400462963,
+    "mirror_difference": 3.5722294560185186
+  },
+  {
+    "a": "art/ui/skins/button_destructive_focus.png",
+    "b": "art/ui/skins/button_primary_pressed.png",
+    "mean_absolute_difference": 3.736834490740741,
+    "mirror_difference": 3.7371238425925926
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_destructive_normal.png",
+    "mean_absolute_difference": 0.8307653356481481,
+    "mirror_difference": 0.8309823495370371
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_destructive_pressed.png",
+    "mean_absolute_difference": 3.310546875,
+    "mirror_difference": 3.310546875
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_primary_disabled.png",
+    "mean_absolute_difference": 3.363498263888889,
+    "mirror_difference": 3.363787615740741
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_primary_focus.png",
+    "mean_absolute_difference": 3.8577473958333335,
+    "mirror_difference": 3.8578197337962963
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_primary_hover.png",
+    "mean_absolute_difference": 3.9478081597222223,
+    "mirror_difference": 3.948025173611111
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_primary_normal.png",
+    "mean_absolute_difference": 3.2710503472222223,
+    "mirror_difference": 3.2719184027777777
+  },
+  {
+    "a": "art/ui/skins/button_destructive_hover.png",
+    "b": "art/ui/skins/button_primary_pressed.png",
+    "mean_absolute_difference": 3.9515697337962963,
+    "mirror_difference": 3.952003761574074
+  },
+  {
+    "a": "art/ui/skins/button_destructive_normal.png",
+    "b": "art/ui/skins/button_destructive_pressed.png",
+    "mean_absolute_difference": 2.5664424189814814,
+    "mirror_difference": 2.5665870949074074
+  },
+  {
+    "a": "art/ui/skins/button_destructive_normal.png",
+    "b": "art/ui/skins/button_primary_disabled.png",
+    "mean_absolute_difference": 3.112521701388889,
+    "mirror_difference": 3.1128833912037037
+  },
+  {
+    "a": "art/ui/skins/button_destructive_normal.png",
+    "b": "art/ui/skins/button_primary_normal.png",
+    "mean_absolute_difference": 3.8902994791666665,
+    "mirror_difference": 3.8902994791666665
+  },
+  {
+    "a": "art/ui/skins/button_destructive_normal.png",
+    "b": "art/ui/skins/button_primary_pressed.png",
+    "mean_absolute_difference": 3.748553240740741,
+    "mirror_difference": 3.7495659722222223
+  },
+  {
+    "a": "art/ui/skins/button_destructive_pressed.png",
+    "b": "art/ui/skins/button_primary_disabled.png",
+    "mean_absolute_difference": 3.8776041666666665,
+    "mirror_difference": 3.8777488425925926
+  },
+  {
+    "a": "art/ui/skins/button_destructive_pressed.png",
+    "b": "art/ui/skins/button_primary_pressed.png",
+    "mean_absolute_difference": 3.3814019097222223,
+    "mirror_difference": 3.3814019097222223
+  },
+  {
+    "a": "art/ui/skins/button_primary_disabled.png",
+    "b": "art/ui/skins/button_secondary_disabled.png",
+    "mean_absolute_difference": 2.7854456018518516,
+    "mirror_difference": 2.7857349537037037
+  },
+  {
+    "a": "art/ui/skins/button_primary_focus.png",
+    "b": "art/ui/skins/button_primary_hover.png",
+    "mean_absolute_difference": 1.1048900462962963,
+    "mirror_difference": 1.1108217592592593
+  },
+  {
+    "a": "art/ui/skins/button_primary_focus.png",
+    "b": "art/ui/skins/button_primary_normal.png",
+    "mean_absolute_difference": 0.7653718171296297,
+    "mirror_difference": 0.7702907986111112
+  },
+  {
+    "a": "art/ui/skins/button_primary_focus.png",
+    "b": "art/ui/skins/button_primary_pressed.png",
+    "mean_absolute_difference": 3.57421875,
+    "mirror_difference": 3.57421875
+  },
+  {
+    "a": "art/ui/skins/button_primary_hover.png",
+    "b": "art/ui/skins/button_primary_normal.png",
+    "mean_absolute_difference": 0.7852647569444444,
+    "mirror_difference": 0.7883029513888888
+  },
+  {
+    "a": "art/ui/skins/button_primary_normal.png",
+    "b": "art/ui/skins/button_primary_pressed.png",
+    "mean_absolute_difference": 3.327293113425926,
+    "mirror_difference": 3.327293113425926
+  },
+  {
+    "a": "art/ui/skins/button_secondary_focus.png",
+    "b": "art/ui/skins/button_secondary_hover.png",
+    "mean_absolute_difference": 1.5675274884259258,
+    "mirror_difference": 1.5736762152777777
+  },
+  {
+    "a": "art/ui/skins/button_secondary_focus.png",
+    "b": "art/ui/skins/button_secondary_normal.png",
+    "mean_absolute_difference": 1.1868851273148149,
+    "mirror_difference": 1.1895616319444444
+  },
+  {
+    "a": "art/ui/skins/button_secondary_focus.png",
+    "b": "art/ui/skins/button_secondary_pressed.png",
+    "mean_absolute_difference": 3.5511791087962963,
+    "mirror_difference": 3.551251446759259
+  },
+  {
+    "a": "art/ui/skins/button_secondary_hover.png",
+    "b": "art/ui/skins/button_secondary_normal.png",
+    "mean_absolute_difference": 0.7895688657407407,
+    "mirror_difference": 0.7908709490740741
+  },
+  {
+    "a": "art/ui/skins/button_secondary_hover.png",
+    "b": "art/ui/skins/button_secondary_pressed.png",
+    "mean_absolute_difference": 3.7288049768518516,
+    "mirror_difference": 3.7288049768518516
+  },
+  {
+    "a": "art/ui/skins/button_secondary_normal.png",
+    "b": "art/ui/skins/button_secondary_pressed.png",
+    "mean_absolute_difference": 3.0286458333333335,
+    "mirror_difference": 3.0287181712962963
+  },
+  {
+    "a": "art/ui/skins/divider_gold.png",
+    "b": "art/ui/skins/divider_relic.png",
+    "mean_absolute_difference": 0.19448061342592593,
+    "mirror_difference": 0.19448061342592593
+  },
+  {
+    "a": "art/ui/skins/divider_gold.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 0.0902416087962963,
+    "mirror_difference": 0.0902416087962963
+  },
+  {
+    "a": "art/ui/skins/divider_gold.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 2.8225188078703702,
+    "mirror_difference": 2.8225188078703702
+  },
+  {
+    "a": "art/ui/skins/divider_gold.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 2.811993634259259,
+    "mirror_difference": 2.811993634259259
+  },
+  {
+    "a": "art/ui/skins/divider_relic.png",
+    "b": "art/ui/skins/divider_salvage.png",
+    "mean_absolute_difference": 0.13773148148148148,
+    "mirror_difference": 0.13773148148148148
+  },
+  {
+    "a": "art/ui/skins/divider_relic.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 2.754412615740741,
+    "mirror_difference": 2.754412615740741
+  },
+  {
+    "a": "art/ui/skins/divider_relic.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 2.743525752314815,
+    "mirror_difference": 2.743525752314815
+  },
+  {
+    "a": "art/ui/skins/divider_salvage.png",
+    "b": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "mean_absolute_difference": 2.732566550925926,
+    "mirror_difference": 2.732566550925926
+  },
+  {
+    "a": "art/ui/skins/divider_salvage.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 2.721896701388889,
+    "mirror_difference": 2.721896701388889
+  },
+  {
+    "a": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "b": "art/ui/skins/hud_header_9slice.png",
+    "mean_absolute_difference": 1.9147135416666667,
+    "mirror_difference": 1.9147135416666667
+  },
+  {
+    "a": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "b": "art/ui/skins/input_focus.png",
+    "mean_absolute_difference": 3.15625,
+    "mirror_difference": 3.15625
+  },
+  {
+    "a": "art/ui/skins/hud_build_ribbon_9slice.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 1.5231119791666667,
+    "mirror_difference": 1.5231119791666667
+  },
+  {
+    "a": "art/ui/skins/hud_header_9slice.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 3.1635199652777777,
+    "mirror_difference": 3.1635199652777777
+  },
+  {
+    "a": "art/ui/skins/input_focus.png",
+    "b": "art/ui/skins/input_normal.png",
+    "mean_absolute_difference": 1.6758174189814814,
+    "mirror_difference": 1.6758897569444444
+  }
+]

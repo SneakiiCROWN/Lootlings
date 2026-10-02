@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Lootlings — AI Continuity / Start Here
 
 Purpose: make Lootlings recoverable across new ChatGPT chats, Codex sessions, context compaction, device changes, and long development gaps without relying on conversational memory.

@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Characters, NPCs and Factions Expansion Bible
 
 Existing canonical residents remain authoritative. New names below are **planned** and should not be reported as shipped until implemented.

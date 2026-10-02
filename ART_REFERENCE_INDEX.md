@@ -1,3 +1,5 @@
+> **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Current release/status authority is AUDIT_REPORT.md. Reference files remain preserved research, excluded from imports/exports. Identical Emberhorn/ClassTemplate canonical sheets have documented distinct reference roles; neither is silently deleted. Historical delivery counts below do not establish current production readiness.
+
 # Canonical Art Reference Index
 
 2026-10-02 Ruin Pike held export: original diagonal spear retained; separate continuous-shaft source `art/source/held_spear_v1/spear_held.png` and 512² runtime `art/sprites/weapons/stances/spear_held.png`, used only by accepted adult polearm pack. Genuine braced body exports reused without copying. Exact built-in prompt/identity provenance/native QA: `AUTHORED_POLEARM_ART.md`.

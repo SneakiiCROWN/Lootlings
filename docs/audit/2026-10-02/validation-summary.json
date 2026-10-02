@@ -1,0 +1,54 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "platform": "Windows / OpenGL compatibility / NVIDIA RTX 4080 SUPER",
+  "native_resolution": [
+    480,
+    854
+  ],
+  "texture_memory_MiB": {
+    "boot": 199.262106895447,
+    "hideout": 200.178772926331,
+    "act_i_combat": 200.765276908875
+  },
+  "memory_static_MiB": {
+    "boot": 100.085361480713,
+    "hideout": 100.500637054443,
+    "act_i_combat": 100.588371276855
+  },
+  "unguarded_fixture_exit": 2,
+  "native_audio": {
+    "frames": 225280,
+    "peak_dBFS": -0.8,
+    "rms_dBFS": -21.04,
+    "limiter": true
+  },
+  "resource_pack_probe": {
+    "entries": 501,
+    "pose_manifest_entries": 246,
+    "boot": "passed",
+    "excluded": [
+      "tests",
+      "tools",
+      "docs",
+      "art/source",
+      "art/reference",
+      ".godot_test_data"
+    ]
+  },
+  "builds_not_verified": [
+    "Windows executable",
+    "Android APK",
+    "signing",
+    "Android physical device"
+  ],
+  "packs": {
+    "windows": {
+      "bytes": 86072180,
+      "sha256": "543e7cefcd2b3edb7fe3272f6b9d7d0a1a26335e720bb3b3788b4b970bbd951b"
+    },
+    "android": {
+      "bytes": 86072180,
+      "sha256": "543e7cefcd2b3edb7fe3272f6b9d7d0a1a26335e720bb3b3788b4b970bbd951b"
+    }
+  }
+}

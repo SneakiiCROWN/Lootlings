@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Art and Asset Production Manifest
 
 This is a production queue, not a claim that the assets exist.

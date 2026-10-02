@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Lootlings Master Production Pack v3
 
 Status: **planning / production handoff**, intentionally isolated on branch `master-production-pack-v3`.

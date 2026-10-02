@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Current Live State Snapshot
 
 Reference base: commit `11964ee8b2f52fbb2226c6e014af3580aab2330d`.

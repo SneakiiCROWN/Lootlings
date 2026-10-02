@@ -1,3 +1,5 @@
+> **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Every current WAV is classified BETA procedural placeholder; no new external license was introduced by this audit. Native mix QA is objective signal testing, not human listening/mastering approval. Final production cues must preserve individual creator/license/source records.
+
 # Lootlings Audio Licences
 
 ## Current checkpoint

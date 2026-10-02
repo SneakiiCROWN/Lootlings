@@ -1,3 +1,5 @@
+> **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Current sling provenance is recorded in SLING_ART.md: pre-existing local source/export preserved; creator/prompt/license detail was not supplied and was not invented. Twelve obsolete raw-source import sidecars were removed; all raw PNGs and unique references remain. Exact canonical duplicate sheets and the two icon-role alias pairs remain intentionally preserved.
+
 # Lootlings Asset Provenance
 
 Current runtime authority permits documented clean owner-approved beta integration; historical reference-only/gating notes below predate that permission and do not disable already-playable identities or weapons. Exact current runtime state is `CONTENT_IMPLEMENTATION_STATUS.md`. Accepted adult beta body outputs/provenance are in `WANDERER_BETA_ART.md` (checkpoint `c6cf4f3`); new illustrated vignettes only reuse existing art and original sound hooks. No external audio/art pack was downloaded for this tranche.

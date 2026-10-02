@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Lore, Mysteries, Collectibles and Easter-Egg Architecture
 
 This document expands story discovery without forcing exposition. Everything here is **planned** unless already present in live world/story files.

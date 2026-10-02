@@ -1,3 +1,5 @@
+> **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). The eight actual WAV files are mono PCM16, 16 kHz, 48 seconds each (about 1.536 MB each), procedural placeholders. The stereo 44.1/48 kHz production requirements below are the future delivery contract, not the current file format. Hooks/buses/limiter/voice caps are live; final-mastered music/SFX are MISSING.
+
 # Original Lootlings audio replacement contract
 
 All final assets below are **PENDING**. This tranche supplies safe import hooks, not finished music or replacement filler. Keep all eight existing original 48-second WAVs and procedural feedback until a complete approved replacement is delivered. Direction: original dark-fantasy melodic identity, warm treasure-home contrast, eerie relic textures, industrial/infernal boss percussion and selected metalcore energy; no copied riffs/melodies, bands, commercial tracks or unlicensed samples.

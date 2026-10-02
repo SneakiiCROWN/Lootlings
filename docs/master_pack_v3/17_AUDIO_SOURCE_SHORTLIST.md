@@ -1,3 +1,5 @@
+> Planning/historical continuity document. Current status and production order: [AUDIT_REPORT.md](../../AUDIT_REPORT.md) and [MASTER_ROADMAP.md](../../MASTER_ROADMAP.md). Earlier counts/claims here do not supersede those sources.
+
 # Audio Source Shortlist — Free / Low-Cost Beta Options
 
 This is a sourcing shortlist, not an instruction to dump random stock audio into the build.
