@@ -22,12 +22,15 @@ func run_qa() -> void:
 		var before := item.duplicate(true)
 		game.item_icon.configure(item)
 		assert(game.item_icon.painted_texture == texture and item == before)
-	for id in ["cursed_ring", "vault_receipt", "stormspark"]:
+	for id in ["cursed_ring", "vault_receipt", "stormspark", "pebble_sling"]:
 		game.start_run()
 		game.set_process(false)
 		game.pending_items = [Items.create_item(id, "EPIC", 43)]
 		game.show_next_item()
 		assert(game.current_item.id == id)
+		if id == "pebble_sling":
+			assert(UI.item_texture(game.current_item).resource_path == "res://art/sprites/weapons/sling_inventory.png")
+			assert(game.item_icon.painted_texture.get_size() == Vector2(256,256))
 		if native: await capture("item_" + id)
 	assert(UI.item_texture(Items.create_item("ruinweave_coat", "COMMON")).resource_path.ends_with("gear_armour.png"))
 	# Every live starter's physical drops must use its actual family art.

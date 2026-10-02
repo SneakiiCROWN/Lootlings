@@ -66,6 +66,7 @@ func run_qa() -> void:
 	for id in actors:
 		var sheet: Image
 		if native: sheet = Image.create(1280,825,false,Image.FORMAT_RGBA8)
+		var sling_sheet := Image.create(1440,854,false,Image.FORMAT_RGBA8) if native else null
 		var index := 0
 		for weapon in Weapons.live_ids():
 			prepare(id,weapon)
@@ -109,12 +110,21 @@ func run_qa() -> void:
 				var capture := root.get_texture().get_image()
 				assert(capture.get_size() == Vector2i(480,854))
 				capture.save_png("res://.godot_test_data/fit_%s_%s.png" % [id,weapon])
+				if weapon == "sling": sling_sheet.blit_rect(capture,Rect2i(0,0,480,854),Vector2i.ZERO)
 				sheet.blit_rect(capture,Rect2i(130,290,320,275),Vector2i((index%4)*320,(index/4)*275))
 			game.perform_player_attack(false)
 			if game.current_weapon_family() in ["RANGER","MAGE"]:
 				assert(not game.attack_projectiles.is_empty())
 				assert(Vector2(game.attack_projectiles[0].start).distance_to(Fit.projectile_origin(game)) < .001)
-			if native and weapon in ["maul","crossbow","bow","staff"]:
+			if weapon == "sling":
+				var held: Texture2D = Weapons.presentation_texture("sling","held",load("res://art/sprites/weapons/ranger_bow.png"))
+				assert(held.resource_path == "res://art/sprites/weapons/sling_held.png")
+				assert(held.get_image().get_pixelv(Vector2i(Fit.GEOMETRY.sling.grip*512)).a > .5)
+				assert(Weapons.presentation_texture("sling","inventory",held).get_size() == Vector2(256,256))
+				var hp: float = game.enemy_hp
+				game.update_attack_projectiles(float(game.attack_projectiles[0].max_life)*.35)
+				assert(game.enemy_hp == hp and game.attack_projectiles.size() == 1)
+			if native and weapon in ["maul","crossbow","bow","staff","sling"]:
 				for facing in [1,-1]:
 					game.player_facing = facing
 					game.attack_anim = .22
@@ -124,9 +134,12 @@ func run_qa() -> void:
 					game.queue_redraw()
 					await create_timer(.05).timeout
 					await RenderingServer.frame_post_draw
-					root.get_texture().get_image().save_png("res://.godot_test_data/fit_release_%s_%s_%d.png" % [id,weapon,facing])
+					var release_image := root.get_texture().get_image()
+					release_image.save_png("res://.godot_test_data/fit_release_%s_%s_%d.png" % [id,weapon,facing])
+					if weapon == "sling": sling_sheet.blit_rect(release_image,Rect2i(0,0,480,854),Vector2i(480 if facing > 0 else 960,0))
 			index += 1
 		if native: sheet.save_png("res://.godot_test_data/fit_sheet_%s.png" % id)
+		if native: sling_sheet.save_png("res://.godot_test_data/fit_sling_%s_sheet.png" % id)
 	assert(not Fit.register_stance("invalid","bow",{}))
 	# Exercise the genuine two-anchor solver with a synthetic test fixture ONLY.
 	prepare("vault_runner","greatsword")

@@ -32,7 +32,7 @@ const GEOMETRY := {
 	"claws":{"size":Vector2(87, 72), "grip":Vector2(.21,.44), "socket":Vector2(0.9,0.3), "angle":0.0},
 	"bow":{"size":Vector2(86, 114), "grip":Vector2(0.48,0.55), "socket":Vector2(0.68,0.46), "angle":-0.62},
 	"crossbow":{"size":Vector2(115, 80), "grip":Vector2(.43,.56), "socket":Vector2(.10,.36), "angle":0.05, "mirror":true},
-	"sling":{"size":Vector2(86, 114), "grip":Vector2(0.48,0.55), "socket":Vector2(0.68,0.46), "angle":-0.62},
+	"sling":{"size":Vector2(96,104), "grip":Vector2(.24,.78), "socket":Vector2(.79,.20), "angle":.18},
 	"staff":{"size":Vector2(80, 142), "grip":Vector2(.32,.76), "socket":Vector2(.80,.20), "angle":-0.12},
 	"wand":{"size":Vector2(75, 93), "grip":Vector2(.42,.72), "socket":Vector2(.60,.10), "angle":0.16},
 	"orb":{"size":Vector2(64, 64), "grip":Vector2(-0.22,0.78), "socket":Vector2(0.7,0.43), "angle":0.0}
@@ -48,7 +48,7 @@ const STANCES := {
 	"claws":{"group":"dual_wield","handling":"paired","secondary_grip":Vector2(.72,.55),"ready":-.16,"release":.24},
 	"bow":{"group":"bow","handling":"two_hand","secondary_grip":Vector2(.35,.57),"ready":-.12,"release":-.08},
 	"crossbow":{"group":"crossbow","handling":"two_hand","secondary_grip":Vector2(.57,.58),"ready":-.08,"release":-.08},
-	"sling":{"group":"one_hand","handling":"special","secondary_grip":Vector2.ZERO,"ready":-.18,"release":.18,"art_pending":true},
+	"sling":{"group":"one_hand","handling":"special","secondary_grip":Vector2.ZERO,"ready":-.28,"release":.42,"art_pending":false},
 	"staff":{"group":"staff","handling":"two_hand","secondary_grip":Vector2(.36,.65),"ready":-.12,"release":-.08},
 	"wand":{"group":"wand","handling":"one_hand","secondary_grip":Vector2.ZERO,"ready":-.16,"release":-.08},
 	"orb":{"group":"orb","handling":"levitated","secondary_grip":Vector2.ZERO,"ready":0.0,"release":-.08}

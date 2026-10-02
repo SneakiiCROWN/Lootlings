@@ -25,7 +25,10 @@ static func item_texture(item: Dictionary) -> Texture2D:
 	if item.get("slot", "") == "Weapon":
 		var family := str(item.get("family", "VANGUARD"))
 		var fallback_path: String = {"RANGER":"ranger_bow", "MAGE":"mage_staff", "ROGUE":"rogue_daggers"}.get(family, "vanguard_hammer")
-		return WeaponArt.runtime_texture(str(item.get("weapon_type", "")), icon("res://art/sprites/weapons/%s.png" % fallback_path), int(item.get("evolution_stage", 0)))
+		var type := str(item.get("weapon_type", ""))
+		var stage := int(item.get("evolution_stage", 0))
+		var held := WeaponArt.runtime_texture(type, icon("res://art/sprites/weapons/%s.png" % fallback_path), stage)
+		return WeaponArt.presentation_texture(type,"inventory",held,stage)
 	var id := str(item.get("id", ""))
 	if ITEM_ART.has(id):
 		return icon("res://art/sprites/items/beta/%s.png" % ITEM_ART[id])
