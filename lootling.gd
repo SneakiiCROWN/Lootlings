@@ -659,7 +659,7 @@ func build_overlay_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon, "core":core_icon, "rarity":rarity_icon})
-	make_label(upgrade_panel, "Every pick stacks. Make something silly.", 15, Rect2(20, 438, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
+	make_label(upgrade_panel, "Every pick stacks. Make something silly.", 15, Rect2(20, 418, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
 	LootlingsUI.apply_material(result_panel, "hoard")
 	result_panel.visible = false

@@ -121,6 +121,10 @@ static func body(profile: Dictionary) -> Dictionary:
 	result.tint = Avatar.tint(profile)
 	result.head_bounds = Rect2(result.body_rect.position,Vector2(result.body_rect.size.x,result.body_rect.size.y*(.30 if human else .55)))
 	result.wardrobe = {"mode":"baked","reserved":["head","torso","back","shield"] if result.baked == "shield" else ["head","torso","back"]}
+	result.wardrobe_by_stance = {}
+	if human:
+		for group in STANCE_GROUPS:
+			result.wardrobe_by_stance[group] = Wanderers.wardrobe_contract(id,group)
 	body_cache[key] = result
 	return result
 
@@ -202,7 +206,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"projectile":root*(primary+socket.rotated(angle)),"core":authored.get("core",actor.core),
 		"opposite_art_required":opposite_art_required,
 		"body_profile":actor.category,"actor_id":actor.id,"head_bounds":actor.head_bounds,
-		"baked_conflict":not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe}
+		"baked_conflict":not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe_by_stance.get(str(stance.group),actor.wardrobe)}
 
 static func world_position(g) -> Vector2:
 	var family: String = g.current_weapon_family()

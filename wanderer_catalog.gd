@@ -20,6 +20,36 @@ const COMPONENTS := {
 	"ashtrail_hunter":{"facial_hair":"auburn_beard", "makeup":"none", "markings":"hunter_cheek_scar", "jewellery":"hunter_brooch", "headwear":"none", "upper_outfit":"hunter_gambeson", "lower_outfit":"hunter_trousers", "footwear":"hunter_strapped_boots", "gloves":"hunter_bracers", "back_item":"hunter_short_cloak", "armour_accents":"bronze_pauldron", "accessories":"bone_trophy_pouches", "style":"rugged_hunter"}
 }
 const BODY_FRAMES := ["light", "athletic", "curvy", "broad", "heavy", "muscular"]
+const VISUAL_STYLES := ["cute","badass","sexy_raunchy","glamorous","rugged","gothic","occult","arcane","knightly","rogue","hunter","berserker","priest","tinker","nature","demonic","casual_adventurer"]
+# Production compatibility is presentation-only. No gender/pronoun/stat gates.
+# Independent layers remain unavailable until a real matching export is registered.
+static func wardrobe_contract(id: String, stance: String) -> Dictionary:
+	var preset := definition(id)
+	var components: Dictionary = appearance_manifest(id).components
+	return {"version":1,"actor":id,"body_profile":preset.body_frame,"stance":stance,
+		"head":preset.face_id,"hair":preset.hair_id,"back":components.back_item,
+		"hands":components.gloves,"weapon_occlusion":"painted_hands_over_held",
+		"mode":"baked_preset","tint_safe":false,"components":components,
+		"styles":VISUAL_STYLES}
+
+static func layer_compatibility(layer: Dictionary, contract: Dictionary) -> Array[String]:
+	var reasons: Array[String] = []
+	if str(layer.get("slot","")) not in APPEARANCE_SLOTS: reasons.append("unknown_slot")
+	if contract.body_profile not in layer.get("body_profiles",[]): reasons.append("body_profile")
+	if contract.stance not in layer.get("stances",[]): reasons.append("stance")
+	for pair in [["head","heads"],["hair","hair_styles"],["back","back_items"],["hands","hand_sets"]]:
+		if contract[pair[0]] not in layer.get(pair[1],[]): reasons.append(str(pair[0]))
+	if str(layer.get("weapon_occlusion","")) not in ["behind_body","painted_hands_over_held","foreground_over_held"]:
+		reasons.append("weapon_occlusion")
+	if not layer.get("tint_safe") is bool: reasons.append("tint_contract")
+	if str(layer.get("facing","")) not in ["right_only","authored_both"]: reasons.append("facing")
+	var path := str(layer.get("asset_path",""))
+	if path.is_empty() or not ResourceLoader.exists(path):
+		reasons.append("missing_runtime_art")
+	else:
+		var resource := load(path)
+		if not resource is Texture2D or resource.get_size() != Vector2(1024,1536): reasons.append("invalid_layer_canvas")
+	return reasons
 const LINEAGES := {"reachborn":"Reachborn", "ashmarked":"Ashmarked", "veilborn":"Veilborn", "starbound":"Starbound", "greenwoken":"Greenwoken"}
 const ORIGINS := {
 	"vault_hunter":{"name":"Vault Hunter", "line":"Some doors are locked. Others are merely expensive."},

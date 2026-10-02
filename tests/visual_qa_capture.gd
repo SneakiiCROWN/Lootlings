@@ -85,6 +85,12 @@ func capture_screens() -> void:
 	if not save_viewport("relic_training_qa.png"):
 		quit(1)
 		return
+	for destination in ["campaign","forge","contracts","memories","lore"]:
+		game.hideout_ui.call("show_"+destination)
+		await wait_frames(24)
+		if not save_viewport("material_%s_qa.png" % destination):
+			quit(1)
+			return
 	game.start_run()
 	game.wave = 12
 	game.wave_kills = 0

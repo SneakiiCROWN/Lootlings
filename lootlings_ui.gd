@@ -83,6 +83,24 @@ static func skin_style(filename: String, protected_margin: float = 32.0, vertica
 		if filename.begins_with("panel_") or filename.begins_with("hud_"):
 			box.ornament = load("res://art/ui/beta/ornament_gold.png")
 		box.protected_margin = Vector2(protected_margin, protected_margin if vertical_margin < 0 else vertical_margin)
+		if filename.begins_with("panel_") and filename != "panel_danger_9slice":
+			box.texture = load("res://art/ui/production/%s.png" % ("relic" if filename == "panel_relic_9slice" else "panel"))
+			box.protected_margin = Vector2(96,96)
+			box.source_scale = .333333
+			box.compact_texture = load("res://art/ui/production/hud.png")
+			box.ornament = null
+		elif filename.begins_with("hud_"):
+			box.texture = load("res://art/ui/production/hud.png")
+			box.protected_margin = Vector2(96,48)
+			if filename == "hud_build_ribbon_9slice": box.source_scale = .25
+			box.ornament = null
+		elif filename.begins_with("button_"):
+			var pieces := filename.split("_")
+			box.texture = load("res://art/ui/production/button_%s.png" % pieces[1])
+			box.protected_margin = Vector2(64,16)
+			box.source_scale = .4
+			box.tint = {"normal":Color.WHITE,"hover":Color(1.1,1.1,1.1),"focus":Color(1.16,1.16,1.16),
+				"pressed":Color(.76,.76,.8),"disabled":Color(.48,.48,.55,.88)}.get(pieces[2],Color.WHITE)
 		box.content_margin_left = 12
 		box.content_margin_right = 12
 		box.content_margin_top = 0

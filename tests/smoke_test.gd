@@ -57,9 +57,15 @@ func run_tests() -> void:
 	for intent in ["primary", "secondary", "destructive"]:
 		for skin_state in ["normal", "hover", "pressed", "disabled", "focus"]:
 			var skin = FoundationUI.button_style(Color.WHITE, Color.WHITE, skin_state, intent)
-			check(skin.texture.resource_path.ends_with("button_%s_%s.png" % [intent, skin_state]) and skin.protected_margin == Vector2(24, 24), "button intent/state uses supplied art and protected caps")
-	check(game.hud_header_surface.texture.resource_path.ends_with("hud_header_9slice.png") and game.hud_build_surface.texture.resource_path.ends_with("hud_build_ribbon_9slice.png"), "HUD uses supplied shells rather than generated chrome")
-	check(game.item_panel.get_theme_stylebox("panel").protected_margin == Vector2(32, 32), "panel skins preserve the supplied 32px source corners")
+			check(skin.texture.resource_path.ends_with("production/button_%s.png" % intent) and skin.texture.get_size() == Vector2(512,144) and skin.protected_margin == Vector2(64,16), "button intent uses real painted art and its protected production caps")
+		var normal = FoundationUI.button_style(Color.WHITE,Color.WHITE,"normal",intent)
+		var pressed = FoundationUI.button_style(Color.WHITE,Color.WHITE,"pressed",intent)
+		var disabled = FoundationUI.button_style(Color.WHITE,Color.WHITE,"disabled",intent)
+		var focus = FoundationUI.button_style(Color.WHITE,Color.WHITE,"focus",intent)
+		check(pressed.tint.r < normal.tint.r and disabled.tint.r < pressed.tint.r and focus.tint.r > normal.tint.r,"painted button pressed/disabled/focus states are visually distinct")
+	check(game.hud_header_surface.texture.resource_path.ends_with("production/hud.png") and game.hud_build_surface.texture.resource_path.ends_with("production/hud.png") and game.hud_build_surface.source_scale < game.hud_header_surface.source_scale, "shared painted HUD shell preserves compact build-strip caps")
+	var review_skin = game.item_panel.get_theme_stylebox("panel")
+	check(review_skin.texture.resource_path.ends_with("production/panel.png") and review_skin.protected_margin == Vector2(96,96) and review_skin.compact_texture != null, "painted panel protects ornamental caps and has a compact small-surface treatment")
 	check(game.startup_ui.name_edit.get_theme_stylebox("focus").texture.resource_path.ends_with("input_focus.png"), "profile input uses the supplied focused skin")
 	check(game.state == "boot" and game.startup_ui.visible and not game.hideout_ui.visible, "the game opens with the skippable Relic Core boot presentation")
 	var blank_profile := ProfileStore.create_default()

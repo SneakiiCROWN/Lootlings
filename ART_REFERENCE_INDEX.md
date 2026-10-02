@@ -1,5 +1,7 @@
 # Canonical Art Reference Index
 
+2026-10-02 authored production addition: five adult heavy READY/RELEASE pairs and three separate held exports use the unchanged accepted bodies/weapons as identity references (`AUTHORED_HEAVY_ART.md`, authoritative `art/production_pose_manifest.json`). Six original painted UI materials extend the existing gold/purple/cyan language (`WARDROBE_AND_UI_ART.md`). Generated sources and mechanical exports are preserved separately. No canonical creature/reference board was replaced; missing stance/asymmetric/modular art remains explicit.
+
 2026-10-02 runtime note: five authored adult presets and Patch/Sera/Ilex full bodies are mapped in `WANDERER_BETA_ART.md` / `NPC_BETA_ART.md`. They do not replace canonical creature references or edit approved source boards. Baked hair/outfit/jewellery content is visible; independent modular layers are not claimed.
 
 ## Current beta authority
