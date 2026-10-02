@@ -27,6 +27,7 @@ static func portrait(profile: Dictionary) -> Texture2D:
 		var image := AtlasTexture.new()
 		image.atlas = source
 		var region := Rect2(0.35, 0.06, 0.34, 0.23) if id == "vault_runner" else Rect2(0.35, 0.01, 0.34, 0.23)
+		region = Wanderers.definition(id).get("portrait_region", region)
 		image.region = Rect2(region.position * source.get_size(), region.size * source.get_size())
 		portraits[id] = image
 	return portraits[id]

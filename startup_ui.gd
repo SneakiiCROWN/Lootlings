@@ -347,7 +347,8 @@ func cycle_wanderer(direction: int) -> void:
 
 func refresh_wanderer_selector() -> void:
 	wanderer_portrait.texture = WandererCatalog.runtime_texture(selected_wanderer)
-	wanderer_name.text = str(WandererCatalog.definition(selected_wanderer).display_name).to_upper()
+	var ids := WandererCatalog.selectable_ids()
+	wanderer_name.text = "%s  %d/%d" % [str(WandererCatalog.definition(selected_wanderer).display_name).to_upper(), ids.find(selected_wanderer) + 1, ids.size()]
 	wanderer_confirm.disabled = wanderer_portrait.texture == null
 	refresh_wanderer_lore()
 

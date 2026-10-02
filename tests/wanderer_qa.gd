@@ -24,9 +24,10 @@ func run_qa() -> void:
 	assert(profile.schema_version == 3 and profile.avatar_mode == "lootling")
 	assert(profile.player_uuid == "legacy-id-retained" and profile.current_lootling_id == "gloomlet")
 	assert(preload("res://lootling_catalog.gd").selectable_ids().size() == 7)
-	assert(Wanderers.selectable_ids().size() == 2)
+	assert(Wanderers.selectable_ids().size() == 5)
 	var invalid := Wanderers.sanitize({"preset_id":"fake", "origin":"fake", "lineage":"fake", "body_frame":"fake", "pronouns":"\n", "voice":"fake"})
 	assert(invalid.preset_id == "vault_runner" and invalid.origin == "vault_hunter" and invalid.pronouns == "they/them")
+	assert(invalid.appearance == Wanderers.appearance_manifest("vault_runner"))
 	game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
@@ -54,13 +55,26 @@ func run_qa() -> void:
 	for preset in Wanderers.selectable_ids():
 		game.profile.wanderer.preset_id = preset
 		game.profile.wanderer = Wanderers.sanitize(game.profile.wanderer)
+		assert(game.profile.wanderer.appearance.mode == "authored_preset")
+		for slot in Wanderers.APPEARANCE_SLOTS:
+			assert(game.profile.wanderer.appearance.components.has(slot))
+		var forged: Dictionary = game.profile.wanderer.duplicate(true)
+		forged.appearance.components.hair_style = "nonexistent_modular_hair"
+		assert(Wanderers.sanitize(forged).appearance == game.profile.wanderer.appearance)
+		assert(Profiles.save_profile("user://preset_profile.cfg", game.profile) == OK)
+		assert(Profiles.load_profile("user://preset_profile.cfg") == game.profile)
 		var texture := Wanderers.runtime_texture(preset)
 		assert(texture != null and texture.get_size() == Vector2(1024,1536))
 		var image := Image.load_from_file(ProjectSettings.globalize_path(str(Wanderers.definition(preset).runtime_sprite)))
-		for point in [Vector2i(100,100),Vector2i(900,200),Vector2i(900,700),Vector2i(50,1200)]:
+		for point in [Vector2i(10,10),Vector2i(1010,10),Vector2i(1010,1500),Vector2i(10,1500)]:
 			assert(image.get_pixelv(point).a == 0.0, "Backdrop must be transparent, not a pasted portrait")
+		var grip: Vector2 = Wanderers.definition(preset).grip * Vector2(image.get_size())
+		assert(image.get_pixelv(Vector2i(grip)).a > 0.8, "Grip must be on the visible hand, not empty air")
 		assert(Avatar.portrait(game.profile) is AtlasTexture)
 		assert(game.inventory.equipped == equipped_before and game.gold == gold_before)
+		game.startup_ui.profile = game.profile
+		game.startup_ui.show_wanderer_select()
+		if native: await capture("wanderer_selector_" + preset)
 		game.show_hideout()
 		if native: await capture("wanderer_home_" + preset)
 		game.show_startup()
@@ -105,7 +119,7 @@ func run_qa() -> void:
 	game.startup_ui.confirm_lootling()
 	assert(game.profile.avatar_mode == "lootling" and game.profile.current_lootling_id == "gloomlet")
 	assert(game.profile.wanderer.origin == "starfall_witch")
-	print("WANDERER QA PASSED: schema-2 migration/UUID, two adult presets, editable identity persistence, seven Lootlings/Gloomlet retained, 24 avatar/weapon combinations, socket bounds, stat/RNG neutrality")
+	print("WANDERER QA PASSED: schema-2 migration/UUID, five adult presets, appearance manifest/persistence, seven Lootlings/Gloomlet retained, 60 avatar/weapon combinations, socket bounds, stat/RNG neutrality")
 	game.queue_free()
 	await process_frame
 	quit(0)
