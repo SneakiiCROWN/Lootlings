@@ -60,6 +60,11 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			result.background = "res://art/backgrounds/lootlings_hideout.png"
 			result.actor = "res://art/sprites/npcs/beta/%s_portrait.png" % resident.art
 			result.actor_kind = "portrait"
+			var body_path := "res://art/sprites/npcs/beta/%s_idle.png" % resident.art
+			if ResourceLoader.exists(body_path):
+				result.actor = body_path
+				result.actor_kind = "adult"
+				result.status = "BETA RESIDENT CUTOUT • EXISTING LORE"
 			result.lines = resident.lines
 			result.duration = 5.8
 		"region":

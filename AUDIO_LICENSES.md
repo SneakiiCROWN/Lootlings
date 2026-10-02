@@ -4,6 +4,8 @@
 
 No external audio files are included.
 
+2026-10-02 production preparation: optional imported short PCM WAV banks/per-existing-cue score hooks are ready; none supplied/enabled. Original audio below remains. Delivery paths, complete anti-fatigue banks, pending routing and commercial-safe licensing/output QA: `AUDIO_PRODUCTION_MANIFEST.md`. Native fallback: 221,184 frames, -0.80dBFS peak/-20.71dBFS RMS, limiter active; not screen-recorded Windows output/LUFS.
+
 The Visual / Audio Rescue checkpoint keeps that provenance unchanged. It brings high-value combat, chest, rarity and reward events forward in the existing bounded voice pools, keeps routine UI/ambient events behind them, and adds a real Master-bus limiter with conservative headroom. No third-party samples, copied game sounds, or newly downloaded music were introduced.
 
 All current audio is original project procedural synthesis. Event feedback remains generated once at startup from project-authored tone, harmonic, pseudo-noise, pitch-sweep, envelope, and controlled timbre-variant combinations. The eight location/result score cues are project-generated 48-second A/variation/B/bridge/return phrases prebaked to WAV so entering a location does not synthesize audio on the gameplay thread. They have no third-party creator, source URL, attribution, or external licence dependency and remain production-direction placeholders rather than final mastered signature music.

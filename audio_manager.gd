@@ -1,6 +1,7 @@
 extends Node
 
 const BUS_NAMES := ["Master", "Music", "SFX", "UI", "Ambience"]
+const PRODUCTION_ROOT := "res://art/audio/production/"
 const MUSIC_PATHS := {
 	"TITLE":"res://art/audio/music/title.wav", "HIDEOUT":"res://art/audio/music/hideout.wav",
 	"OUTER_RUINS":"res://art/audio/music/outer_ruins.wav", "SALVAGE_WARRENS":"res://art/audio/music/salvage_warrens.wav",
@@ -64,11 +65,41 @@ func _ready() -> void:
 	add_child(music_player)
 	for event_name in EVENT_SPECS:
 		var spec: Array = EVENT_SPECS[event_name]
+		var authored := production_event_streams(event_name)
+		if not authored.is_empty():
+			streams[event_name] = authored
+			continue
 		var variant_count := 4 if event_name in VARIANT_EVENTS else 1
 		var variants: Array[AudioStreamWAV] = []
 		for variant in range(variant_count):
 			variants.append(make_tone(float(spec[1]), float(spec[2]), float(spec[3]), event_name, variant))
 		streams[event_name] = variants
+
+static func valid_event_stream(stream: Variant) -> bool:
+	# Short imported assets only: no unbounded ambient/music buffer in SFX pools.
+	return stream is AudioStreamWAV and stream.format == AudioStreamWAV.FORMAT_16_BITS and stream.mix_rate in [44100,48000] and stream.get_length() >= 0.025 and stream.get_length() <= 2.0
+
+static func production_event_streams(event_name: String) -> Array[AudioStreamWAV]:
+	var result: Array[AudioStreamWAV] = []
+	if not EVENT_SPECS.has(event_name): return result
+	var count := 4 if event_name in VARIANT_EVENTS else 1
+	for index in range(count):
+		var path := PRODUCTION_ROOT + "sfx/%s_%02d.wav" % [event_name,index+1]
+		if not ResourceLoader.exists(path):
+			# Require the complete four-variant pack for frequent cues; otherwise
+			# retain the original anti-fatigue bank, never a partial repetitive pack.
+			return []
+		var stream = load(path)
+		if not valid_event_stream(stream):
+			push_warning("Production SFX rejected (PCM16, 44.1/48kHz, 0.025–2s required): " + path)
+			return []
+		result.append(stream)
+	return result
+
+static func music_source_path(cue: String) -> String:
+	if not MUSIC_PATHS.has(cue): return ""
+	var path := PRODUCTION_ROOT + "music/" + cue.to_lower() + ".wav"
+	return path if ResourceLoader.exists(path) else str(MUSIC_PATHS[cue])
 
 func ensure_buses() -> void:
 	for bus_name in BUS_NAMES:
@@ -165,7 +196,11 @@ func set_music(cue: String) -> void:
 		# Generated once during development and imported as an ordinary WAV. Keep
 		# only the active long-form score resident so travel never stalls Android.
 		music_streams.clear()
-		var stream = ResourceLoader.load(MUSIC_PATHS[cue], "", ResourceLoader.CACHE_MODE_IGNORE)
+		var path := music_source_path(cue)
+		var stream = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if path != MUSIC_PATHS[cue] and (not stream is AudioStreamWAV or stream.get_length() < 8.0 or stream.get_length() > 120.0):
+			push_warning("Production score rejected (8–120s WAV required): " + path)
+			stream = ResourceLoader.load(MUSIC_PATHS[cue], "", ResourceLoader.CACHE_MODE_IGNORE)
 		if stream is AudioStreamWAV:
 			stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 			stream.loop_begin = 0

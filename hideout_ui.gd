@@ -36,6 +36,12 @@ const RESIDENT_PORTRAITS := {
 	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_portrait.png"),
 	"Archivist":preload("res://art/sprites/npcs/beta/ilex_portrait.png")
 }
+const RESIDENT_BODIES := {
+	"Salvager":preload("res://art/sprites/npcs/beta/patch_idle.png"),
+	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_idle.png"),
+	"Archivist":preload("res://art/sprites/npcs/beta/ilex_idle.png")
+}
+const RESIDENT_RECTS := {"Salvager":Rect2(346,336,88,132), "Relic Keeper":Rect2(42,334,88,132), "Archivist":Rect2(352,562,80,120)}
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
@@ -294,9 +300,8 @@ func build_home() -> void:
 	LootlingsUI.apply_material(loadout_panel, "leather", 16)
 	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
 	loadout_label = LootlingsUI.rich_label(loadout_panel, Rect2(14, 27, 384, 54), 11, Color("#e6edff"))
-	make_npc_hotspot(home_content, Rect2(354, 382, 72, 82), "Salvager")
-	make_npc_hotspot(home_content, Rect2(50, 378, 72, 92), "Relic Keeper")
-	make_npc_hotspot(home_content, Rect2(350, 586, 78, 72), "Archivist")
+	for speaker in RESIDENT_RECTS:
+		make_npc_hotspot(home_content, RESIDENT_RECTS[speaker], speaker)
 	make_npc_hotspot(home_content, Rect2(204, 382, 76, 102), "Mascot")
 
 func build_stash() -> void:
@@ -1359,15 +1364,19 @@ func draw_home_scene() -> void:
 				for mote_index in range(5):
 					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
 					draw_circle(mote_pos, 2.0, Color(0.78, 0.55, 1.0, 0.48))
-	draw_resident("Salvager", Rect2(346, 364, 88, 110), "PATCH", 0.0)
-	draw_resident("Relic Keeper", Rect2(42, 360, 88, 110), "SERA", 1.0)
-	draw_resident("Archivist", Rect2(346, 590, 88, 110), "ILEX", 2.0)
+	draw_resident("Salvager", RESIDENT_RECTS.Salvager, "PATCH", 0.0)
+	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
+	draw_resident("Archivist", RESIDENT_RECTS.Archivist, "ILEX", 2.0)
 
 func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
 	rect.position.y += sin(scene_time * 1.7 + phase) * 1.2
-	LootlingsUI.material_style("relic").draw(get_canvas_item(), rect)
-	draw_texture_rect(RESIDENT_PORTRAITS[speaker], Rect2(rect.position + Vector2(6, 6), rect.size - Vector2(12, 27)), false)
-	draw_string(ThemeDB.fallback_font, Vector2(rect.position.x + 3, rect.end.y - 6), name, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 6, 12, Color("#ffe178"))
+	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,0.22))
+	draw_circle(Vector2.ZERO,31,Color("#03061280"))
+	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	draw_texture_rect(RESIDENT_BODIES[speaker],rect,false)
+	# A small anchored name chip, not a floating portrait frame in the world.
+	draw_style_box(LootlingsUI.panel_style(Color("#0b1430d9"),Color("#d1a85a"),1),Rect2(rect.position.x,rect.end.y-2,rect.size.x,20))
+	draw_string(ThemeDB.fallback_font,Vector2(rect.position.x+3,rect.end.y+13),name,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-6,12,Color("#ffe178"))
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

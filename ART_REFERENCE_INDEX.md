@@ -1,5 +1,7 @@
 # Canonical Art Reference Index
 
+2026-10-02 runtime note: five authored adult presets and Patch/Sera/Ilex full bodies are mapped in `WANDERER_BETA_ART.md` / `NPC_BETA_ART.md`. They do not replace canonical creature references or edit approved source boards. Baked hair/outfit/jewellery content is visible; independent modular layers are not claimed.
+
 ## Current beta authority
 
 Latest CANONICAL WORLD / ART / STORY / CONTENT OVERHAUL supersedes older reference-only restrictions below. Original sources remain untouched. Five named canonical turnarounds, three biomes plus market/floor, three held weapons and two regional bosses are individually exported/integrated. See `BETA_ART_PROVENANCE.md` for paths/crops/limits and the subsequent shared UI/resident bust integration. Neutral remains exact; Gloomlet stays selectable with its clearly documented prior temporary stand-in. Beta extracts do not replace final production delivery requirements in `ASSET_NEEDED_PHASE2.md`.

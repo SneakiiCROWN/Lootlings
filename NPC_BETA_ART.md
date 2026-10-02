@@ -1,0 +1,17 @@
+# Named resident full-body beta production
+
+Additive presentation of existing adult Patch Brasswick, Sera Vey and Ilex Quill, not new NPCs/lore/services. Approved face/palette identities remain; portraits/reference sources are untouched. Clean 1024×1536 RGBA exports extend costumes and remove baked combat weapons/effects. These are replaceable beta cutouts, not final canonical layered animation.
+
+| Runtime path | Selected built-in imagegen output | Occupation / live use |
+| --- | --- | --- |
+| `art/sprites/npcs/beta/patch_idle.png` | `exec-1efce7ce-0388-483c-96b9-1c14e68ad14e.png` | Adult dark-haired tinker/red scarf/fur/brass leathers, salvage part/tool belt; Home and existing meeting/replay. |
+| `art/sprites/npcs/beta/sera_idle.png` | `exec-6f7ca801-89ac-4b26-99cb-7dabfadf90a4.png` | Adult lavender-haired scholar/navy-violet gold star hat/arcane styling, gently held cyan Core; Home and existing meeting/replay. |
+| `art/sprites/npcs/beta/ilex_idle.png` | `exec-db5216da-5ff9-453e-ae27-5a731beae4a2.png` | Adult silver-haired occult archivist/red scarf/black-gold markings, book/quill; Home and existing meeting/replay. |
+
+Built-in generation/editing with existing `patch_portrait.png`, `sera_portrait.png`, `ilex_portrait.png` as identity targets; no downloaded third-party/protected characters. Original generated sources remain in the tool source folder. Initial outputs `exec-dc9e64d5-ecb9-4d09-b362-50adc0c42174.png`, `exec-dd39dae0-22ca-49f3-b1a8-bc8f56b605d2.png`, `exec-12a19150-e324-4572-96fc-70129a05677e.png` were not shipped: costume-edge/framing review prompted a transparent-margin edit. Selected outputs pass used-rect/empty-corner and native scene checks.
+
+Prompt set: identity-preserving full-body extension of supplied existing adult resident; original premium painted anime dark fantasy, mature proportions, preserve face/hair/skin/outfit palette, complete head/hat/cape/hands/boots, transparent 1024×1536, no scene/shadow/glow/text/logos, remove weapon fragments. Patch: travelling tinker, red scarf/fur/brass leathers, practical trousers/boots/tool belt, one mechanical part. Sera: relic scholar, lavender hair/star hat/navy-violet/gold outfit, tasteful mainstream adult coverage, split skirt/stockings/boots, held non-glowing Core instead of staff/spell. Ilex: mature androgynous adult archivist, silver hair/red scarf/black-gold-red outfit/markings, original appropriate costume coverage, closed brass-cornered book/quill, no flames/horns/weapons. Correction: same identity/costume/prop, smaller framing with complete costume extremities, remove haze/glow/shadow, exact zero-alpha corners, no redesign/new weapons.
+
+Existing `HideoutUI.draw_resident` draws bodies with bounded 1.2px idle sway, contact shadows and small name chips instead of portrait rectangles. Shared placement data defines mobile talk targets. Existing weighted dialogue reacts to selected Lootling/adult, progression/defeats/bosses/loot/Forge/contracts/chests/trophies unchanged. Existing vignette entries use full-body art with portrait fallback and unchanged skippable 5.8s/read-only rules. Native QA corrected Ilex/loadout overlap.
+
+No lip sync, separate limbs/cloth/props, new voices or NPC AI. Three textures add ~18MiB raw memory; Android hardware/compression QA remains pending. Additional environmental props/clues/mysteries are future production, not hidden completed content. Final registered resident idle/reaction/gesture layers and 512×512 portraits can replace these assets without changing services/saves/rewards.

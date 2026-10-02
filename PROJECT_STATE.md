@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Named resident bodies / production-audio preparation
+
+Patch Brasswick, Sera Vey and Ilex Quill now visibly inhabit the painted Hideout as clean full-body beta cutouts instead of portrait rectangles. Existing faces/palettes/lore/contextual dialogue remain, with new occupation props: salvage part/tool belt, held Core and book/quill. Existing first-meeting/Archive scenes use bodies without changing discovery/duration/skip/rewards/RNG. Contact shadows, small name chips, phone talk targets and bounded idle sway retain the layout; native QA corrected Ilex/loadout overlap. Original portraits/references preserved. Provenance/prompts/limits: `NPC_BETA_ART.md`.
+
+Optional production WAV hooks reuse AudioManager, not a new mixer. Complete four-variant frequent-event banks or singular cues may replace procedural feedback; absent/incomplete packs retain exact existing banks. Music retains one active cached score and falls back to eight original cues. No replacement audio, volume rebalance or final-music claim. `AUDIO_PRODUCTION_MANIFEST.md` specifies exact supported paths, pending region/ambience/subtype/creature routing and commercial-safe provenance/output QA. Native fallback capture: 221,184 frames, -0.80dBFS peak/-20.71dBFS RMS, limiter active; not Windows loopback/LUFS/final mastering.
+
+Passed parser/import, three full-body used-rect/alpha/talk/meeting/replay/economy isolation tests, audio fallback/PCM bounds and real OpenGL 480×854 Home/three memories/menu visual QA. Full smoke (2/5), old-profile/roster/sixty weapon combinations, replay/persistence/settings, presentation, item/chest/contracts, 36 regional runs/ten reward-unlock paths, groups/AoE, seeded routes and twelve-family Forge/evolution suites passed again; campaign audit unchanged at 22/96 actual wins. Final native/headless logs have no runtime errors/warnings and diff check is clean. Independent resident layers/gestures, more props/environmental clues and final sourced/mastered audio remain production work, not shipped claims.
+
 ### Additive adult content — three contrasting playable looks
 
 Nightstage Drifter (alternative/androgynous-compatible), Velvet Astrologer (arcane glamour) and Ashtrail Hunter (rugged masculine) add three weaponless original painted beta bodies alongside unchanged accepted Vault Runner/Ruin Warden. All five are selectable and actually render in selector, HUD/profile/title, Hideout, combat and existing origin memories. Hair, jewellery, makeup/markings and outfits visibly differ; no canonical creature was replaced. Exact asset paths, provenance/prompts, actual component IDs and registered-layer requirements: `WANDERER_BETA_ART.md`. Profiles derive a versioned seventeen-slot appearance snapshot from actual selected art; this is not independent modular customization and no unsupported controls are exposed. Per-preset hand/Core/portrait anchors and selector position/count improve reusable integration.

@@ -6,6 +6,8 @@ Current world/art authority additionally includes `LOOTLINGS_WORLD_BIBLE.md` and
 
 Status meanings: `LIVE` is player-facing and validated; `DEFINED_DATA` is implemented data behind an activation gate; `ASSET_NEEDED` requires dedicated clean runtime art; `FUTURE` is deliberately later; `DEFERRED` was excluded from this checkpoint for stability.
 
+Named residents are now LIVE — FULL-BODY BETA: Patch/Sera/Ilex in Hideout and memories, original portraits preserved; provenance in `NPC_BETA_ART.md`. Audio is HOOKS READY / FINAL ASSETS PENDING, not delivered new music; supported/pending routes in `AUDIO_PRODUCTION_MANIFEST.md`. Older full-body-only-future notes are historical.
+
 ## Characters
 
 | Content | Status | Runtime note |
