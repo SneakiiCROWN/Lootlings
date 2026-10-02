@@ -5,6 +5,7 @@ const Lootlings = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const Actions = preload("res://action_pose_catalog.gd")
 const Authored = preload("res://authored_pose_manifest.gd")
+const RelicMotion = preload("res://relic_greatsword_motion.gd")
 const BODY_RECT := Rect2(-75,-146,150,225)
 const HUMANOID_PROFILES := {
 	"light":.92,"athletic":1.0,"curvy":.98,"broad":1.04,"heavy":1.06,"muscular":1.04
@@ -160,7 +161,11 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		else:
 			absent_stances[key] = true
 	var authored: Dictionary = stance_assets.get(str(actor.id)+":"+str(stance.group),{})
+	if not authored.get("weapon_types",[]).is_empty() and subtype not in authored.weapon_types:
+		authored = {}
 	var action := Actions.sample(g.current_weapon_family(),float(g.run_time),float(g.attack_clock),float(g.current_attack_interval()),float(g.attack_anim),hurt,float(g.player_reward_flash))
+	var relic_motion := RelicMotion.applies(g) and not authored.is_empty()
+	if relic_motion: action = RelicMotion.sample(g,hurt)
 	# Optional keyed poses and baked wardrobe compatibility stay visual-only.
 	if float(g.player_facing) < 0:
 		authored = authored.get("resolved_facings",{}).get("left",authored)
@@ -184,6 +189,9 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var offset := Vector2(action.offset)+Vector2(authored.get("body_offset",Vector2.ZERO))
 	offset.x *= facing
 	var root := Transform2D((float(action.rotation)+idle+float(authored.get("body_lean",0.0)))*facing,scale*Vector2(mirror,1),0,offset)
+	if relic_motion:
+		var feet := Vector2(0,float(authored.get("feet_baseline",53)))
+		root.origin += feet-root.basis_xform(feet)
 	var geometry: Dictionary = authored.get("weapon_overrides",{}).get(subtype,weapon)
 	var size: Vector2 = Vector2(geometry.size)*float(actor.weapon_scale)*(1.0+clampi(int(item.get("evolution_stage",0)),0,2)*.06)
 	if creature: size *= 1.0+float(g.build.weapon_tier())*.14
@@ -229,6 +237,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"baked_conflict":not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe_by_stance.get(str(stance.group),actor.wardrobe)}
 
 static func world_position(g) -> Vector2:
+	if RelicMotion.applies(g): return Vector2(float(g.player_x),472)
 	var family: String = g.current_weapon_family()
 	var distance := 20.0 if family == "ROGUE" else 17.0 if family == "VANGUARD" else 3.0
 	if g.attack_was_tap: distance += 3.0 if family in ["VANGUARD","ROGUE"] else 1.0

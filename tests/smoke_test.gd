@@ -715,13 +715,28 @@ func run_tests() -> void:
 	check(game.state == "result" and game.player_hp == 0.0, "defeat reaches results without a softlock")
 	game.show_hideout()
 	check(game.state == "hideout", "defeat can return to the Hideout")
-	seed(424242)
 	var victories := 0
 	for run_index in range(5):
+		# Independently seeded fresh stat/route/avatar baseline. The preceding
+		# smoke assertions deliberately mutate progression, gear and profile.
 		game.inventory.reset_to_starter()
-		game.start_run()
+		game.meta_power = 0
+		game.meta_shards = 0
+		game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
+		game.campaign_id = "act_i"
+		game.grouped_patrols = false
+		game.dungeon.active = false
+		game.profile.avatar_mode = "lootling"
+		game.profile.current_lootling_id = "relic_beast"
+		game.debug_god_mode = false
+		game.debug_weapon_family_override = ""
+		game.tap_combo = 0
+		game.combo_clock = 0.0
+		seed(424242 + run_index)
 		game.rng.seed = 1000 + run_index
 		game.loot_system.rng.seed = 2000 + run_index
+		game.visual_rng.seed = 3000 + run_index
+		game.start_run()
 		var elapsed := 0.0
 		var tap_clock := 0.0
 		while game.state != "result" and elapsed < 300.0:
@@ -748,7 +763,7 @@ func run_tests() -> void:
 		if game.state == "result" and game.run_won:
 			victories += 1
 		print("BALANCE RUN %d: wave=%d level=%d hp=%.0f time=%.1fs state=%s alive=%s loot=%d options=%d victory=%s review=%s" % [run_index + 1, game.wave, game.level, game.player_hp, elapsed, game.state, game.enemy_alive, game.loot_drops.size(), game.boss_reward_options.size(), game.pending_victory, game.item_review_due])
-	check(victories >= 1, "a modest tapping strategy can complete a balanced run")
+	check(victories >= 1, "the fixed smoke tapping policy can complete the Act I loop")
 	game.queue_free()
 	await process_frame
 	if failures.is_empty():

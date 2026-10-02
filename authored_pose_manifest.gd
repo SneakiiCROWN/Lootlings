@@ -31,6 +31,8 @@ static func facing_pack(actor: String, stance: String, facing: String) -> Dictio
 	var last := resolve(release)
 	if first.is_empty() or last.is_empty(): return {}
 	first.phase_variants = {"ATTACK":last,"IMPACT":last}
+	if actor == "relic_beast" and stance == "heavy_two_hand":
+		first.phase_variants["RECOVER"] = last
 	return first
 
 static func resolve(row: Dictionary) -> Dictionary:
@@ -42,7 +44,7 @@ static func resolve(row: Dictionary) -> Dictionary:
 		"core":rect.position+Vector2(row.core_anchor[0],row.core_anchor[1])*rect.size,
 		"supports_two_hand":bool(row.supports_two_hand),"depth":str(row.draw_depth),
 		"facing_support":str(row.facing),"wardrobe_requires":row.wardrobe_requires,
-		"feet_baseline":float(row.feet_baseline),"weapon_overrides":{}}
+		"feet_baseline":float(row.feet_baseline),"weapon_types":row.get("weapon_types",[]),"weapon_overrides":{}}
 	if not str(row.foreground_layer).is_empty() and ResourceLoader.exists(row.foreground_layer):
 		result.foreground = load(row.foreground_layer)
 	for id in row.weapon_overrides:

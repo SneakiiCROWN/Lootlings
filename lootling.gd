@@ -254,6 +254,8 @@ var story_run_presentations := false
 var story_life_was_processing := true
 var debug_panel
 var app_lifecycle
+var safe_area_layout
+var mobile_test_monitor
 var debug_enabled := false
 var debug_god_mode := false
 var debug_weapon_family_override := ""
@@ -293,6 +295,16 @@ func _ready() -> void:
 	app_lifecycle = preload("res://app_lifecycle.gd").new()
 	add_child(app_lifecycle)
 	app_lifecycle.configure(self)
+	safe_area_layout = preload("res://safe_area_layout.gd").new()
+	add_child(safe_area_layout)
+	safe_area_layout.configure(self)
+	if OS.has_feature("s23_test") or OS.get_environment("LOOTLINGS_MOBILE_TEST") == "1":
+		mobile_test_monitor = preload("res://mobile_test_monitor.gd").new()
+		add_child(mobile_test_monitor)
+		mobile_test_monitor.configure(self)
+		var report_button := make_action_button(pause_panel, "TEST REPORT", Vector2(35, 306), Vector2(300, 52), Color("#172442"), Color("#78e4ff"), mobile_test_monitor.show_report)
+		pause_panel.size.y = 390
+		report_button.tooltip_text = "Device frame pacing, memory and lifecycle report"
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
 
@@ -2831,6 +2843,10 @@ func save_meta() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if presentation_director != null and presentation_director.vignette.active: return
+	var local_touch := Vector2.ZERO
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
+		local_touch = get_global_transform_with_canvas().affine_inverse() * event.position
+		if not Rect2(Vector2.ZERO, DESIGN_SIZE).has_point(local_touch): return
 	if debug_enabled and event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F1:
 		if debug_panel != null and not debug_panel.visible:
 			debug_panel.open()
@@ -2853,7 +2869,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		tapped = event.is_action_pressed("tap_attack") and not event.echo
 	if tapped:
 		if enemy_encounter.active and (event is InputEventMouseButton or event is InputEventScreenTouch):
-			enemy_encounter.select_at(self, event.position * DESIGN_SIZE / size)
+			enemy_encounter.select_at(self, local_touch)
 		request_tap_attack()
 		get_viewport().set_input_as_handled()
 
@@ -3155,6 +3171,7 @@ func draw_arena(shake: Vector2) -> void:
 		draw_rect(Rect2(67, 662, 346, 36), Color("#091127d6"), true)
 		draw_rect(Rect2(67, 662, 346, 36), Color("#b98b477a"), false, 1)
 		draw_string(body_font, Vector2(79, 687), status_message, HORIZONTAL_ALIGNMENT_CENTER, 322, 17, Color("#ffe797"))
+	creature_renderer.draw_striking_blade(self,player_pos)
 	if show_combat_context:
 		draw_stats_strip()
 

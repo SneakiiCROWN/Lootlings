@@ -18,9 +18,9 @@ func run_qa() -> void:
 		assert(not keys.has(key))
 		keys[key] = true
 		if row.production_status != "authored_beta": continue
-		if row.actor not in actors: actors.append(row.actor)
+		if Wanderers.PRESETS.has(row.actor) and row.actor not in actors: actors.append(row.actor)
 		var image := Image.load_from_file(ProjectSettings.globalize_path(row.asset_path))
-		assert(image.get_size() == Vector2i(1024,1536))
+		assert(image.get_size() == (Vector2i(1254,1254) if row.actor == "relic_beast" else Vector2i(1024,1536)))
 		assert(image.get_format() == Image.FORMAT_RGBA8)
 		assert(image.get_pixel(10,10).a == 0)
 		for anchor in [row.primary_anchor,row.secondary_anchor]:
