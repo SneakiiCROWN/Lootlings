@@ -21,85 +21,51 @@ const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
 const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
-	if Avatar.is_wanderer(g.profile):
-		draw_wanderer(g, pos, hurt)
-		return
-	var identity: String = g.build.dominant()
-	var core_color: Color = g.build.color(identity)
-	var evolution_tier: int = g.build.tier(identity)
-	var weapon_growth: float = 1.0 + float(g.build.weapon_tier()) * 0.14
-	var scale_y := 0.92 if g.squash > 0.0 else 1.0
-	var scale_x := 1.08 if g.squash > 0.0 else 1.0
-	for aura_index in range(2 + evolution_tier * 2):
-		var angle: float = float(g.run_time) * (1.1 + aura_index * 0.08) + TAU * aura_index / float(2 + evolution_tier * 2)
-		var aura_pos := pos + Vector2(cos(angle) * (58 + evolution_tier * 6), sin(angle) * (43 + evolution_tier * 4))
-		var aura_color := core_color
-		aura_color.a = 0.18 if identity == "Neutral" else 0.34
-		g.draw_circle(aura_pos, 2.5 + evolution_tier, aura_color)
-	g.draw_set_transform(pos + Vector2(-4, 46), 0.0, Vector2(1.0, 0.30))
-	g.draw_circle(Vector2.ZERO, 55, Color("#07101f88"))
-	var family: String = g.current_weapon_family()
-	var pose := ActionPoseCatalog.sample(family, float(g.run_time), float(g.attack_clock), float(g.current_attack_interval()), float(g.attack_anim), hurt, float(g.player_reward_flash))
-	var reaction_ratio: float = clampf(float(g.player_idle_reaction) / 0.34, 0.0, 1.0)
-	var idle_reaction: float = sin(reaction_ratio * PI) * 0.022 * float(g.player_idle_reaction_direction)
-	var pose_rotation: float = float(pose.rotation) + idle_reaction
-	var pose_scale: Vector2 = Vector2(scale_x, scale_y) * Vector2(pose.scale)
-	pose_scale.x *= float(g.player_facing)
-	if hurt:
-		pose_scale *= Vector2(1.06, 0.94)
-	g.draw_set_transform(pos + Vector2(pose.offset), pose_rotation * float(g.player_facing), pose_scale)
-	var lootling_id: String = str(g.profile.get("current_lootling_id", "relic_beast"))
-	var texture := LootlingCatalog.runtime_texture(lootling_id)
-	var tint := Color("#ffb9b9") if hurt else LootlingCatalog.presentation_tint(lootling_id)
-	var outline := Color("#101426d9")
-	for edge in [Vector2(-2, 0), Vector2(2, 0), Vector2(0, -2), Vector2(0, 2)]:
-		g.draw_texture_rect(texture, Rect2(Vector2(-96, -128) + edge, Vector2(192, 192)), false, outline)
-	g.draw_texture_rect(texture, Rect2(-96, -128, 192, 192), false, tint)
-	# Relic builds add readable effects around the canonical chest core without repainting the mascot.
-	if identity != "Neutral":
-		var glow := core_color
-		glow.a = 0.20 + evolution_tier * 0.05
-		g.draw_circle(Vector2(17, 3), 12 + evolution_tier * 3, glow)
-		g.draw_arc(Vector2(17, 3), 14 + evolution_tier * 3, g.run_time * 2.0, g.run_time * 2.0 + 4.9, 18, core_color.lightened(0.25), 2 + evolution_tier)
-	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	var windup: float = float(pose.anticipate)
-	var weapon_angle := weapon_pose_angle(family, windup, float(pose.release))
-	var weapon_color := core_color if identity != "Neutral" else Color("#9b6943")
-	match family:
-		"RANGER": draw_bow(g, pos + Vector2(5, 0), weapon_angle, weapon_growth, weapon_color)
-		"MAGE": draw_staff(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color)
-		"ROGUE": draw_daggers(g, pos + Vector2(7, 0), weapon_angle, weapon_growth, weapon_color)
-		_: draw_vanguard(g, pos + Vector2(4, 0), weapon_angle, weapon_growth, weapon_color, core_color, identity)
-	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-
-func draw_wanderer(g, pos: Vector2, hurt: bool) -> void:
-	var texture := Avatar.texture(g.profile)
-	if texture == null:
-		return # Never disguise a missing humanoid sprite as the canonical mascot.
 	var pose := WandererPose.sample(g, hurt)
+	var texture: Texture2D = pose.texture
+	if texture == null: return
 	var root: Transform2D = pose.root
 	root.origin += pos
-	g.draw_set_transform(pos + Vector2(0, 52), 0.0, Vector2(1.0, 0.28))
-	g.draw_circle(Vector2.ZERO, 39, Color("#07101f88"))
-	g.draw_set_transform_matrix(root)
-	var body_rect: Rect2 = pose.body_rect
-	for edge in [Vector2(-1.5,0), Vector2(1.5,0), Vector2(0,-1.5), Vector2(0,1.5)]:
-		g.draw_texture_rect(texture, Rect2(body_rect.position + edge, body_rect.size), false, Color("#101426d9"))
-	g.draw_texture_rect(texture, body_rect, false, Color("#ffb9b9") if hurt else Color.WHITE)
+	var creature := not Avatar.is_wanderer(g.profile)
 	var identity: String = g.build.dominant()
 	var accent: Color = g.build.color(identity)
+	var tier: int = g.build.tier(identity)
+	if creature:
+		for index in range(2+tier*2):
+			var angle: float = float(g.run_time)*(1.1+index*.08)+TAU*index/float(2+tier*2)
+			var aura := accent
+			aura.a = .18 if identity == "Neutral" else .34
+			g.draw_circle(pos+Vector2(cos(angle)*(58+tier*6),sin(angle)*(43+tier*4)),2.5+tier,aura)
+	g.draw_set_transform(pos+Vector2(-4 if creature else 0,46 if creature else 52),0,Vector2(1,.30 if creature else .28))
+	g.draw_circle(Vector2.ZERO,55 if creature else 39,Color("#07101f88"))
+	if pose.depth == "back": draw_fitted_weapon(g, root, pose)
+	g.draw_set_transform_matrix(root)
+	var rect: Rect2 = pose.body_rect
+	var edge_size := 2.0 if creature else 1.5
+	for edge in [Vector2(-edge_size,0),Vector2(edge_size,0),Vector2(0,-edge_size),Vector2(0,edge_size)]:
+		g.draw_texture_rect(texture,Rect2(rect.position+edge,rect.size),false,Color("#101426d9"))
+	g.draw_texture_rect(texture,rect,false,Color("#ffb9b9") if hurt else Color(pose.tint))
 	if identity != "Neutral":
 		var glow := accent
-		glow.a = 0.20
-		g.draw_circle(Vector2(pose.core), 10, glow)
-		g.draw_arc(Vector2(pose.core), 12, g.run_time, g.run_time + 4.9, 14, accent, 1.5)
-	var weapon_transform := root * Transform2D(float(pose.weapon_rotation), Vector2(pose.hand))
-	g.draw_set_transform_matrix(weapon_transform)
+		glow.a = .20+tier*.05
+		g.draw_circle(Vector2(pose.core),12+tier*3,glow)
+		g.draw_arc(Vector2(pose.core),14+tier*3,g.run_time*2,g.run_time*2+4.9,18,accent.lightened(.25),2+tier)
+	if pose.depth == "front": draw_fitted_weapon(g, root, pose)
+	# Only a real authored foreground layer may cover the weapon with a hand.
+	if pose.foreground is Texture2D:
+		g.draw_set_transform_matrix(root)
+		g.draw_texture_rect(pose.foreground,rect,false,Color.WHITE)
+	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+
+func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
+	g.draw_set_transform_matrix(root*Transform2D(float(pose.weapon_rotation),Vector2(pose.weapon_scale),0,Vector2(pose.hand)))
 	var item: Dictionary = g.inventory.equipped_item("Weapon")
-	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE, "MAGE":MAGE_WEAPON_TEXTURE, "ROGUE":ROGUE_WEAPON_TEXTURE}.get(g.current_weapon_family(), VANGUARD_WEAPON_TEXTURE)
-	var weapon_texture := WeaponCatalog.runtime_texture(str(item.get("weapon_type", "")), fallback, int(item.get("evolution_stage", 0)))
-	g.draw_texture_rect(weapon_texture, Rect2(pose.weapon_rect), false, Color.WHITE)
-	g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE,"MAGE":MAGE_WEAPON_TEXTURE,"ROGUE":ROGUE_WEAPON_TEXTURE}.get(g.current_weapon_family(),VANGUARD_WEAPON_TEXTURE)
+	var texture := WeaponCatalog.presentation_texture(str(pose.weapon_type),"held",fallback,int(item.get("evolution_stage",0)))
+	g.draw_texture_rect(texture,Rect2(pose.weapon_rect),false,Color.WHITE)
+
+func draw_wanderer(g, pos: Vector2, hurt: bool) -> void:
+	draw_lootling(g,pos,hurt)
 
 func draw_lootling_procedural(g, pos: Vector2, hurt: bool) -> void:
 	var body_color := Color("#fff2d6") if hurt else Color("#f0d5aa")

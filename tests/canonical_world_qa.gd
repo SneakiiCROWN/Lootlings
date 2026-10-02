@@ -96,8 +96,9 @@ func run_qa() -> void:
 			game.attack_projectiles.clear()
 			game.perform_player_attack(false)
 			assert(not game.attack_projectiles.is_empty())
-			var expected_socket := Vector2(game.player_x + 127.0, 447.0) if id == "crossbow" else Vector2(game.player_x + 91.0, 393.0)
-			assert(game.attack_projectiles[0].start == expected_socket)
+			# Socket belongs to the same mirrored body/weapon transform as the art.
+			var expected_socket := preload("res://weapon_fit_catalog.gd").projectile_origin(game)
+			assert(game.attack_projectiles[0].start.distance_to(expected_socket) < .001)
 			if native:
 				game.set_process(false)
 				game.update_attack_projectiles(0.025)

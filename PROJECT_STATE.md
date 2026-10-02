@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Shared weapon / character fit correction
+
+All five Wanderers and all seven selectable Lootlings now use one visual-only WeaponFit resolver: body/category bounds, per-actor primary/secondary anchors, actual texture grips, twelve family stances, facing/held-art mirroring, ready/release transforms, bounded scale, depth/foreground and shared projectile sockets. Creature pose_profile is consumed; held weapons now follow body lean/squash/hurt/mirroring rather than a separate world-space attachment. Crossbow muzzle direction, several empty-space/incorrect grips, Mosskin heavy-face collision and recoil/socket sampling order were corrected. Canonical bodies remain unchanged; Gloomlet stays selectable with its documented stand-in. No gameplay/save/economy/RNG change.
+
+Authored stance registration supports keyed phases, two-anchor fitting, optional real foreground hands/wardrobe and compatibility constraints. Inventory/held/projectile role hooks are separate without replacing existing art. **This is not finished two-hand animation:** 108/144 combinations still need genuine support-hand/paired exports; neutral cutouts cannot provide them. Sling's bow stand-in and Moonkip/Glimmerfin baked weapons remain art limitations. Exact mappings, export paths/dimensions and repeatable debug matrix: `WEAPON_FIT_CONTRACT.md`.
+
+Validation: parser/import clean; 144 combinations/864 facing-phase transform assertions, actual ranged launch alignment, authored two-anchor fixture, wardrobe rejection and stat/RNG isolation. Native OpenGL 480×854: 144 idle and 96 release/mirror captures, all twelve actor contact sheets and worst full-screen examples inspected; missing anatomical art is flagged, not counted as passing. Smoke remains 2/5; profile migration/UUID/inventory/appearance persistence, twelve-family mechanics/evolution, bounded encounters/AoE/routes, 36 regional runs/ten unlock paths, canonical/item/chest/contracts/dialogue/vignette/resident/audio suites passed. Campaign/economy audit remains 22/96 actual wins. Cached metadata, no new runtime nodes/shaders/particles; Android hardware performance remains unverified.
+
 ### Named resident bodies / production-audio preparation
 
 Patch Brasswick, Sera Vey and Ilex Quill now visibly inhabit the painted Hideout as clean full-body beta cutouts instead of portrait rectangles. Existing faces/palettes/lore/contextual dialogue remain, with new occupation props: salvage part/tool belt, held Core and book/quill. Existing first-meeting/Archive scenes use bodies without changing discovery/duration/skip/rewards/RNG. Contact shadows, small name chips, phone talk targets and bounded idle sway retain the layout; native QA corrected Ilex/loadout overlap. Original portraits/references preserved. Provenance/prompts/limits: `NPC_BETA_ART.md`.

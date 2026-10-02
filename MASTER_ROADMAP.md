@@ -2,6 +2,8 @@
 
 ## Master production v3 continuation
 
+Weapon-fit correction is live across five adult bodies + seven Lootlings and all twelve families through one shared visual resolver. Projectile sockets and facing follow the actual rendered grip. Development matrix explicitly distinguishes mathematical/presentation coverage from missing anatomical art: 108 combinations still need authored two-hand/paired support, plus real Sling and clean weaponless creature variants. Next art batch should follow `WEAPON_FIT_CONTRACT.md` stance/occlusion export requirements; do not claim a neutral cutout is a finished bow draw or heavy two-hand pose. No accepted gameplay/balance/save changes.
+
 Named resident body tranche is live: Patch/Sera/Ilex clean identity-preserving full-body beta presence and occupation props through existing Hideout/dialogue/meeting/replay hooks. Production-audio import hooks and exact replacement manifest are ready; original cues retained, final audio pending. Independent resident animation/layers, further props/environmental mysteries remain additive future production.
 
 Additive adult production batch is live: three contrasting weaponless presets (Nightstage Drifter, Velvet Astrologer, Ashtrail Hunter) join the two accepted originals. Five real playable bodies, seventeen-slot baked appearance export contract, per-body measured anchors and sixty weapon combinations are validated. Independent wardrobe layers/articulated limbs remain future work; no fake hair/outfit sliders. Continue existing named resident/prop/vignette production and original audio replacement preparation without replacing accepted content.

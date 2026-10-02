@@ -92,6 +92,7 @@ static func runtime_texture(id: String, fallback: Texture2D, stage: int = 0) -> 
 	return texture_cache[key]
 
 static func held_rect(id: String, fallback: Rect2) -> Rect2:
+	# Legacy procedural fallback only. Active actors use WeaponFit geometry.
 	match id:
 		"greatsword", "greataxe": return Rect2(-58, -122, 128, 140)
 		"orb": return Rect2(-33, -53, 98, 98)
@@ -106,6 +107,18 @@ static func definition(id: String) -> Dictionary:
 	if STARTERS.has(id):
 		data.live = true
 	return data
+
+# Roles can now have independent exports without changing gameplay/item IDs.
+# Existing inventory art remains unchanged until an actual approved export exists.
+static func presentation_texture(id: String, role: String, fallback: Texture2D, stage: int = 0) -> Texture2D:
+	if id.is_empty(): return fallback
+	if role == "held": return runtime_texture(id,fallback,stage)
+	if role not in ["inventory","projectile"]: return fallback
+	var path := "res://art/sprites/weapons/%s_%s.png" % [id,role]
+	var key := path
+	if not texture_cache.has(key):
+		texture_cache[key] = load(path) if ResourceLoader.exists(path) else fallback
+	return texture_cache[key]
 
 static func live_ids() -> Array[String]:
 	var result: Array[String] = []

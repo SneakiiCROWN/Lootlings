@@ -19,6 +19,7 @@ const StartupUI = preload("res://startup_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const WandererPose = preload("res://wanderer_pose_catalog.gd")
+const WeaponFit = preload("res://weapon_fit_catalog.gd")
 const ItemIcon = preload("res://item_icon.gd")
 const DebugPanel = preload("res://debug_panel.gd")
 const PresentationDirector = preload("res://presentation_director.gd")
@@ -1816,15 +1817,8 @@ func perform_player_attack(is_tap: bool) -> void:
 			travel_time *= 0.82
 		attack_anim = 0.22
 		attack_was_tap = is_tap
-		var launch_position := Vector2(player_x + 58.0, 427.0) if family == "RANGER" else Vector2(player_x + 46.0, 407.0)
-		if subtype == "orb":
-			launch_position = Vector2(player_x + 42.0, 480.0)
-		elif subtype == "crossbow":
-			launch_position = Vector2(player_x + 127.0, 447.0)
-		elif subtype == "wand":
-			launch_position = Vector2(player_x + 91.0, 393.0)
-		if Avatar.is_wanderer(profile):
-			launch_position = WandererPose.projectile_origin(self)
+		squash = 0.12
+		var launch_position := WeaponFit.projectile_origin(self)
 		attack_projectiles.append({
 			"family": family,
 			"weapon_type": subtype,
@@ -1836,7 +1830,6 @@ func perform_player_attack(is_tap: bool) -> void:
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
 		})
-		squash = 0.12
 		return
 	resolve_player_attack(is_tap)
 
@@ -3100,14 +3093,7 @@ func draw_arena(shake: Vector2) -> void:
 		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
 			draw_status_chip(Vector2(240, 287), enemy_variant_name, enemy_variant_color, "variant_%s" % enemy_variant_id)
-	var idle_bob := sin(run_time * 4.3) * 3.0
-	var attack_ratio := clampf(attack_anim / 0.22, 0.0, 1.0)
-	var family := current_weapon_family()
-	var lunge_distance := 20.0 if family == "ROGUE" else 17.0 if family == "VANGUARD" else 3.0
-	if attack_was_tap:
-		lunge_distance += 3.0 if family in ["VANGUARD", "ROGUE"] else 1.0
-	var lunge := attack_ratio * lunge_distance
-	var player_pos := Vector2(player_x + lunge, 472 + idle_bob) + shake
+	var player_pos := WeaponFit.world_position(self) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:
 		enemy_encounter.draw(self, shake)
