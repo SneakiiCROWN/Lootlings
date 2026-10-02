@@ -87,6 +87,24 @@ func run_qa() -> void:
 		game.inventory.scrap = scrap
 		pad.queue_free()
 		await process_frame
+		var slider := HSlider.new()
+		slider.position = Vector2(20,300)
+		slider.size = Vector2(440,48)
+		slider.value = 20
+		game.add_child(slider)
+		var slider_start := slider.get_global_rect().position+Vector2(90,24)
+		await event_at(slider_start,true)
+		for step in range(1,7):
+			var drag := InputEventScreenDrag.new()
+			drag.index = 0
+			drag.position = root.get_screen_transform()*(slider_start+Vector2(step*30,0))-Vector2(root.position)
+			drag.relative = Vector2(30,0)
+			Input.parse_input_event(drag)
+			await process_frame
+		await event_at(slider_start+Vector2(180,0),false)
+		check(slider.value > 50,"settings-style slider retains native horizontal finger drag")
+		slider.queue_free()
+		await process_frame
 		game.navigate_back()
 		check(game.hideout_ui.current_screen == "home","Back returns submenu to hub")
 		game.touch_ux.request("GUARD TEST","Only CONFIRM should run this action.",func(): game.inventory.scrap += 1)
@@ -94,6 +112,12 @@ func run_qa() -> void:
 		check(game.inventory.scrap == scrap,"immediate second tap cannot confirm")
 		game.navigate_back()
 		check(not is_instance_valid(game.touch_ux.dialog) and game.inventory.scrap == scrap,"Back cancels without spending")
+		game.touch_ux.request("LONG DETAILS", "Costs and consequences must remain readable. ".repeat(80),func(): game.inventory.scrap += 1)
+		await process_frame
+		var details: RichTextLabel = game.touch_ux.dialog.find_children("*","RichTextLabel",true,false)[0]
+		await swipe(details.get_global_rect().get_center(),70)
+		check(details.get_v_scroll_bar().value > 0,"long confirmation text scrolls from its content")
+		game.navigate_back()
 		game.inventory.equipped.Weapon = game.ItemCatalog.create_item("scrapfang_blade","RARE",999)
 		game.current_item = game.ItemCatalog.create_item("scrapfang_blade","EPIC",1000)
 		game.state = "item"

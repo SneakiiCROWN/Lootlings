@@ -59,9 +59,9 @@ def main():
         'Warm lanterns. Stranger treasure. A door left unlocked.':'Beyond these lanterns, the ruins still take lives. Here, the door stays open.',
     },
     'world_story.gd':{
-        'Follow the Core into the broken vaults.':'Your Core remembers a promise beneath the broken vaults. Bring it home.',
-        'Old locks remember their owners.':'The locks still serve a fallen Crown. Its guards have not received the news.',
-        'Something enormous counts its coins.':'The Hoard Dragon guards what the Crown stole. You are not on its guest list.',
+        'Follow the Core into the broken vaults.':'Your Core remembers a promise here. Bring it home.',
+        'Old locks remember their owners.':'The locks serve a fallen Crown. Nobody told the guards.',
+        'Something enormous counts its coins.':'The Hoard Dragon guards stolen promises. Guests get eaten.',
         'One vault quiet. Nine mysteries awake.':'The vault is open. Its stolen stories can finally leave.',
     },
     'item_catalog.gd':{

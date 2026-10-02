@@ -1,0 +1,256 @@
+{
+  "runs": [
+    {
+      "run": "mobileux-weapon-visible-matrix-055d306b79",
+      "results": [
+        {
+          "name": "weapon_fit_qa",
+          "exit": 0,
+          "seconds": 36.42,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-native-final-78d02af66c",
+      "results": [
+        {
+          "name": "audio_mix_qa",
+          "exit": 4294967295,
+          "seconds": 126.81,
+          "errors": [
+            "SCRIPT ERROR: Assertion failed: Live weapon sound hook: greatsword"
+          ],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "authored_pose_qa",
+          "exit": 0,
+          "seconds": 21.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_gesture_qa",
+          "exit": 0,
+          "seconds": 5.9,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_layout_qa",
+          "exit": 0,
+          "seconds": 31.69,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "presentation_qa",
+          "exit": 0,
+          "seconds": 4.68,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "relic_greatsword_qa",
+          "exit": 0,
+          "seconds": 4.83,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "vertical_slice_qa",
+          "exit": 0,
+          "seconds": 8.23,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-regression-final-5d4aa1454d",
+      "results": [
+        {
+          "name": "audio_production_qa",
+          "exit": 0,
+          "seconds": 0.26,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "save_recovery_qa",
+          "exit": 0,
+          "seconds": 1.27,
+          "errors": [],
+          "expected_diagnostics": [
+            "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+            "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+          ]
+        },
+        {
+          "name": "smoke_test",
+          "exit": 0,
+          "seconds": 8.68,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "vertical_slice_qa",
+          "exit": 0,
+          "seconds": 2.11,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-ux-content-final-91f1a11b06",
+      "results": [
+        {
+          "name": "mobile_gesture_qa",
+          "exit": 0,
+          "seconds": 7.56,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_layout_qa",
+          "exit": 0,
+          "seconds": 31.38,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "resident_art_qa",
+          "exit": 0,
+          "seconds": 3.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "vignette_qa",
+          "exit": 0,
+          "seconds": 6.25,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-dialogue-delivery-final-017fdfed8a",
+      "results": [
+        {
+          "name": "presentation_qa",
+          "exit": 0,
+          "seconds": 4.7,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-economy-canon-final-c2b916ced0",
+      "results": [
+        {
+          "name": "canonical_world_qa",
+          "exit": 4294967295,
+          "seconds": 110.76,
+          "errors": [
+            "SCRIPT ERROR: Assertion failed."
+          ],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "expansion_test",
+          "exit": 0,
+          "seconds": 0.44,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "vignette_qa",
+          "exit": 0,
+          "seconds": 1.83,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-final-hooks-copy-f192f24b7d",
+      "results": [
+        {
+          "name": "canonical_world_qa",
+          "exit": 0,
+          "seconds": 1.36,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "smoke_test",
+          "exit": 0,
+          "seconds": 7.94,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-final-sounds-combat-287df849c1",
+      "results": [
+        {
+          "name": "audio_mix_qa",
+          "exit": 0,
+          "seconds": 9.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "encounter_qa",
+          "exit": 0,
+          "seconds": 5.63,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-complete-input-final-ecf70abee7",
+      "results": [
+        {
+          "name": "mobile_gesture_qa",
+          "exit": 0,
+          "seconds": 9.11,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_layout_qa",
+          "exit": 0,
+          "seconds": 31.68,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "run": "mobileux-slider-final-558de40231",
+      "results": [
+        {
+          "name": "mobile_gesture_qa",
+          "exit": 0,
+          "seconds": 9.65,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    }
+  ],
+  "superseded_failures": [
+    "Native audio fixture actor initially outside attack range; final real-hook/mix run passes.",
+    "Canon fixture caught overlong new Act I hooks; shortened copy passes.",
+    "Earlier gesture fixture named a nonexistent selected-entry field; corrected native fixture passes.",
+    "Pre-PCM-fix mix used tone fallback and is not acceptance of recorded sound bank."
+  ]
+}

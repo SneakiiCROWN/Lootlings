@@ -1,0 +1,36 @@
+{
+  "apk": "builds\\android\\Lootlings-phase2-mobile-ux-debug.apk",
+  "bytes": 125719982,
+  "sha256": "c23f85aa7f0b152ed95d865a272c9cad7ca27a056d925ddf5dc8136b06c10e64",
+  "engine": "4.7.2.stable",
+  "template": "official Android debug Perfetto",
+  "architecture": "arm64-v8a",
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "signed": true,
+  "zipalign_16k": true,
+  "offline_no_permissions": true,
+  "contains_manifest_and_test_monitor": true,
+  "source_test_reference_art_excluded": true,
+  "contains_motion_and_safe_area_modules": true,
+  "final_imported_poses": {
+    "greatsword_ready": {
+      "source_sha256": "ea6d34711ab369c28abde49c4adb09ce66ac7920abaeb9f4cc140c43e6e2c568",
+      "imported_sha256": "f39c5435e938c06363ba517b2a5bce1c37dcb27d516e0ed7ce8aaa745d8ed7ee",
+      "runtime_size_limit": 768,
+      "matches_local_import": true
+    },
+    "greatsword_strike": {
+      "source_sha256": "08687f852a19080af18c60012c66c938733336e2da26708c0cbe99a8a7d53a58",
+      "imported_sha256": "b394156ed2c4fa2a82803d58b0221dce4c5dbc44cb7632fe2e442954082e11ea",
+      "runtime_size_limit": 768,
+      "matches_local_import": true
+    }
+  },
+  "mobile_gesture_owner_exported": true,
+  "current_pcm_audio_assets": 178,
+  "audio_license_manifest_exported": true,
+  "version_code": 2,
+  "device_validated": false,
+  "debug_only": true
+}

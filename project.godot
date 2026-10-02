@@ -17,7 +17,7 @@ config/icon="res://art/ui/brand/lootlings_icon.png"
 boot_splash/image="res://art/ui/brand/boot_brand.png"
 boot_splash/bg_color=Color(0.051,0.094,0.176,1)
 boot_splash/show_image=true
-boot_splash/fullsize=false
+boot_splash/fullsize=true
 run/max_fps=60
 
 [display]

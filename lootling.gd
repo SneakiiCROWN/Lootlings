@@ -2026,6 +2026,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	enemy_attack_count += 1
 	play_audio_event({"skirmisher":"enemy_skirmisher", "tank":"enemy_tank", "hexer":"enemy_hexer"}.get(enemy_archetype, "enemy_skirmisher"))
 	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
+		play_audio_event("ward")
 		var ward := enemy_max_hp * 0.07
 		enemy_hp = minf(enemy_max_hp, enemy_hp + ward)
 		add_float("WARD +%.0f" % ward, Vector2(325, 410), Color("#d194ff"), 17)
@@ -2166,6 +2167,8 @@ func kill_enemy() -> void:
 	if gear_explosion > 0.0:
 		carried_shockwave += gear_explosion
 		add_float("GEAR BURST %.0f" % gear_explosion, Vector2(290, 405), Color("#ffd17a"), 18)
+	if fire_count >= 3 or wildfire_power > 0 or gear_explosion > 0.0:
+		play_audio_event("explosion")
 	var equipment_dropped := false
 	if enemy_is_boss:
 		prepare_hoard_chest()
