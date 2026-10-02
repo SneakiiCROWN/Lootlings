@@ -25,16 +25,16 @@ func run_qa() -> void:
 		for anchor in [row.primary_anchor,row.secondary_anchor]:
 			var point := Vector2i(Vector2(anchor[0],anchor[1])*Vector2(image.get_size()))
 			assert(image.get_pixelv(point).a > .5)
-	assert(keys.size() == 226)
+	assert(keys.size() == 236)
 	game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
 	var native := "--visual" in OS.get_cmdline_user_args()
 	var count := 0
 	for actor in actors:
-		var sheet := Image.create(1440,854,false,Image.FORMAT_RGBA8) if native else null
+		var sheet := Image.create(1920,854,false,Image.FORMAT_RGBA8) if native else null
 		var cell := 0
-		for family in ["greatsword","greataxe","maul"]:
+		for family in ["greatsword","greataxe","maul","staff"]:
 			game.profile.avatar_mode = "wanderer"
 			game.profile.wanderer = Wanderers.create_default()
 			game.profile.wanderer.preset_id = actor
@@ -64,8 +64,26 @@ func run_qa() -> void:
 						assert(pose.support_status == "authored_two_hand")
 						assert(pose.secondary_grip.distance_to(pose.secondary_hand) < .01)
 				assert(game.rng.state == rng and game.loot_system.rng.state == loot_rng)
+			if family == "staff":
+				# Exercise the real launch and flight path, not a painted orb fixture.
+				game.player_facing = 1
+				game.attack_anim = 0
+				game.perform_player_attack(false)
+				assert(game.attack_projectiles.size() == 1)
+				assert(Vector2(game.attack_projectiles[0].start).distance_to(Fit.projectile_origin(game)) < .001)
+				var hp: float = game.enemy_hp
+				var duration: float = game.attack_projectiles[0].max_life
+				game.update_attack_projectiles(duration * .35)
+				assert(game.enemy_hp == hp and game.attack_projectiles.size() == 1)
+				if native:
+					game.queue_redraw()
+					await create_timer(.05).timeout
+					await RenderingServer.frame_post_draw
+					root.get_texture().get_image().save_png("res://.godot_test_data/authored_%s_staff_flight.png" % actor)
+				game.update_attack_projectiles(duration)
+				assert(game.attack_projectiles.is_empty() and game.enemy_hp < hp)
 		if native: sheet.save_png("res://.godot_test_data/authored_%s_sheet.png" % actor)
-	print("AUTHORED POSE QA PASSED: %d actual two-facing ready/release states; RGBA/canvas/anchor validation, 226 unique manifest keys, unmirrored left anatomy, action contact and RNG isolation" % count)
+	print("AUTHORED POSE QA PASSED: %d actual two-facing ready/release states; RGBA/canvas/anchor validation, 236 unique manifest keys, unmirrored left anatomy, action contact and RNG isolation" % count)
 	game.queue_free()
 	await process_frame
 	quit(0)

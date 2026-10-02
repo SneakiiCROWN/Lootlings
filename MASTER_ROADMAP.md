@@ -2,6 +2,8 @@
 
 ## Master production v3 continuation
 
+Adult Staff fit is live using accepted genuine braced two-hand bodies in both facings and a separate upright held export/socket, without duplicating body textures. Twenty new native phase states plus five actual casting-flight checks; heavy/staff total eighty. Manifest 236 rows / 40 authored entries / twenty body textures. **88 support-hand/paired cells remain per facing**; fit closure stays ahead of further UI/world scope. See `AUTHORED_STAFF_ART.md`. Historical counts below are prior snapshots.
+
 Adult heavy opposite-facing tranche is live: five adults × three heavy families × two phases × both facings = 60 native accepted states, twenty total body exports. Existing resolver/manifest now selects genuine left art without mirroring anatomy; full-roster 864-record production report retains honest missing-art statuses. See `OPPOSITE_HEAVY_ART.md`. Remaining priority is fit closure: 93 support-hand/paired cells per facing, creature/heavy and polearm/ranged/caster/dual exports, not another UI/world detour. The older opposite-facing notes below are historical for this completed adult heavy group. No gameplay/balance/save/economy changes.
 
 Shared painted UI/wardrobe tranche is live: six premium original material exports reach the common panels, relic menus, combat ribbons and button roles/states; existing icons/meters/inputs and flow remain. Fifty cached body/stance wardrobe contracts plus real-export compatibility gates do not expose missing cosmetics. See `WARDROBE_AND_UI_ART.md`. Full individual-screen/bar/header refinement and expanded world-life remain ongoing, alongside the 93 support-hand-incomplete combinations and missing opposite-facing bodies.

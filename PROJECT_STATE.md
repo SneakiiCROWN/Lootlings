@@ -2,6 +2,14 @@
 
 ## CURRENT STATE
 
+### Authored five-adult Staff fit
+
+Staff now has actual two-hand READY/RELEASE presentation in both facings for all five adults, reusing accepted painted braced bodies through the existing manifest rather than new duplicate textures or fake limbs. One dedicated upright Glimmerstaff held export, measured shaft grips/head socket and preserved inventory art. Native OpenGL 480×854: 80 heavy/staff phase states plus five real casting-flight captures inspected; oversized left-edge staff head corrected and re-rendered. Projectile QA verifies socket launch and damage only on arrival. See `AUTHORED_STAFF_ART.md` for exact source/prompt/export/limitations.
+
+Manifest: 236 unique rows, 40 authored entries, twenty unique body textures. Matrix: 144 actor/family combinations / 864 facing-phase checks; **88 support-hand/paired combinations remain per facing (176 facing-specific cells)**. Full cast animation/creature staff and polearm/ranged/dual packs remain unfinished. Fifty wardrobe contracts, selectable roster/Gloomlet fallback and all twelve weapon families preserved. No gameplay/economy/save/balance/RNG changes; about 1 MiB additional raw held texture, no duplicate body assets or extra per-frame work. Low-end Android performance remains unverified.
+
+Parser/import and twenty regression entrypoints passed on isolated saves, including actual projectile arrival, fresh/schema-2 migration/inventory, equipment/evolution/Forge costs, routes/campaign/groups, reward/roster/dialogue/audio. Smoke 2/5 victories, deterministic audit 22/96 unchanged. No final native runtime/parser errors.
+
 ### Authored opposite-facing adult heavy pack
 
 Ten additive 1024×1536 RGBA left READY/RELEASE bodies now complete the five adults × Greatsword/Greataxe/Maul heavy pack in both facings. Real leftward head/guard and action arms, measured two-hand shaft contact, original asymmetric pauldrons/fur/tattoos/gear, separate held weapons and explicit back depth. Existing resolver selects facing before phase and does not flip authored left anatomy; visual step/lean now follows facing. Original right bodies/canonical creatures/inventory art retained. Exact prompts, rejected-candidate notes, asset paths and limits: `OPPOSITE_HEAVY_ART.md`.
