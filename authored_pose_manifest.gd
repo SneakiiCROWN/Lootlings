@@ -1,0 +1,46 @@
+extends RefCounted
+# Asset manifest adapter for the existing WeaponFit registration system.
+const PATH := "res://art/production_pose_manifest.json"
+static var entries: Array = []
+static var initialized := false
+
+static func rows() -> Array:
+	if not initialized:
+		initialized = true
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+		if data is Dictionary: entries = data.get("entries",[])
+	return entries
+
+static func pack(actor: String, stance: String) -> Dictionary:
+	var ready := {}
+	var release := {}
+	for row in rows():
+		if row.actor != actor or row.stance != stance or row.production_status != "authored_beta":
+			continue
+		if row.phase == "READY": ready = row
+		elif row.phase == "RELEASE": release = row
+	if ready.is_empty() or release.is_empty(): return {}
+	var first := resolve(ready)
+	var last := resolve(release)
+	if first.is_empty() or last.is_empty(): return {}
+	first.phase_variants = {"ATTACK":last,"IMPACT":last}
+	return first
+
+static func resolve(row: Dictionary) -> Dictionary:
+	if not ResourceLoader.exists(str(row.asset_path)): return {}
+	var rect := Rect2(Vector2(row.body_rect[0],row.body_rect[1]),Vector2(row.body_rect[2],row.body_rect[3]))
+	var result := {"texture":load(str(row.asset_path)),"body_rect":rect,
+		"primary_hand":rect.position+Vector2(row.primary_anchor[0],row.primary_anchor[1])*rect.size,
+		"secondary_hand":rect.position+Vector2(row.secondary_anchor[0],row.secondary_anchor[1])*rect.size,
+		"core":rect.position+Vector2(row.core_anchor[0],row.core_anchor[1])*rect.size,
+		"supports_two_hand":bool(row.supports_two_hand),"depth":str(row.draw_depth),
+		"facing_support":str(row.facing),"wardrobe_requires":row.wardrobe_requires,
+		"feet_baseline":float(row.feet_baseline),"weapon_overrides":{}}
+	if not str(row.foreground_layer).is_empty() and ResourceLoader.exists(row.foreground_layer):
+		result.foreground = load(row.foreground_layer)
+	for id in row.weapon_overrides:
+		var source: Dictionary = row.weapon_overrides[id]
+		result.weapon_overrides[id] = {"size":Vector2(source.size[0],source.size[1]),
+			"grip":Vector2(source.grip[0],source.grip[1]),"secondary_grip":Vector2(source.secondary_grip[0],source.secondary_grip[1]),
+			"socket":Vector2(source.socket[0],source.socket[1]),"angle":float(source.angle),"held_path":str(source.held_path)}
+	return result

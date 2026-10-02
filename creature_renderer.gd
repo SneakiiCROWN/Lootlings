@@ -62,6 +62,8 @@ func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 	var item: Dictionary = g.inventory.equipped_item("Weapon")
 	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE,"MAGE":MAGE_WEAPON_TEXTURE,"ROGUE":ROGUE_WEAPON_TEXTURE}.get(g.current_weapon_family(),VANGUARD_WEAPON_TEXTURE)
 	var texture := WeaponCatalog.presentation_texture(str(pose.weapon_type),"held",fallback,int(item.get("evolution_stage",0)))
+	if pose.geometry.has("held_path"):
+		texture = WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),texture)
 	g.draw_texture_rect(texture,Rect2(pose.weapon_rect),false,Color.WHITE)
 
 func draw_wanderer(g, pos: Vector2, hurt: bool) -> void:

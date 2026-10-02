@@ -127,6 +127,11 @@ static func live_ids() -> Array[String]:
 			result.append(id)
 	return result
 
+static func authored_held_texture(path: String, fallback: Texture2D) -> Texture2D:
+	if not texture_cache.has(path):
+		texture_cache[path] = load(path) if ResourceLoader.exists(path) else fallback
+	return texture_cache[path]
+
 static func evolution_for(id: String, base_name: String) -> Array:
 	for line in FAMILIES.get(id, {}).get("evolutions", []):
 		if not line.is_empty() and str(line[0]) == base_name:

@@ -4,6 +4,7 @@ const Wanderers = preload("res://wanderer_catalog.gd")
 const Lootlings = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const Actions = preload("res://action_pose_catalog.gd")
+const Authored = preload("res://authored_pose_manifest.gd")
 const BODY_RECT := Rect2(-75,-146,150,225)
 const HUMANOID_PROFILES := {
 	"light":.92,"athletic":1.0,"curvy":.98,"broad":1.04,"heavy":1.06,"muscular":1.04
@@ -55,6 +56,8 @@ const STANCES := {
 # Authored body/hand exports register here, not in rendering code. No fake limbs.
 static var stance_assets := {}
 static var body_cache := {}
+static var managed_stance := ""
+static var absent_stances := {}
 const MAX_HELD_SIZE := Vector2(149,179)
 const STANCE_GROUPS := ["neutral","one_hand","heavy_two_hand","polearm","dual_wield","bow","crossbow","staff","wand","orb"]
 const HANDLING_OVERRIDES := {
@@ -129,10 +132,22 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		subtype = {"VANGUARD":"maul","ROGUE":"daggers","RANGER":"bow","MAGE":"staff"}.get(g.current_weapon_family(),"maul")
 	var weapon: Dictionary = GEOMETRY[subtype]
 	var stance: Dictionary = STANCES[subtype]
+	var key := str(actor.id)+":"+str(stance.group)
+	if managed_stance != key and not managed_stance.is_empty():
+		stance_assets.erase(managed_stance)
+		managed_stance = ""
+	if not stance_assets.has(key) and not absent_stances.has(key):
+		var pack := Authored.pack(str(actor.id),str(stance.group))
+		if not pack.is_empty() and register_stance(str(actor.id),str(stance.group),pack):
+			managed_stance = key
+		else:
+			absent_stances[key] = true
 	var authored: Dictionary = stance_assets.get(str(actor.id)+":"+str(stance.group),{})
 	var action := Actions.sample(g.current_weapon_family(),float(g.run_time),float(g.attack_clock),float(g.current_attack_interval()),float(g.attack_anim),hurt,float(g.player_reward_flash))
 	# Optional keyed poses and baked wardrobe compatibility stay visual-only.
 	authored = authored.get("resolved_phases",{}).get(str(action.phase),authored)
+	var opposite_art_required: bool = float(g.player_facing) < 0 and authored.get("facing_support","") == "right_only"
+	if opposite_art_required: authored = {}
 	var appearance: Dictionary = g.profile.get("wanderer",{}).get("appearance",{}).get("components",{})
 	for slot in authored.get("wardrobe_requires",{}):
 		if appearance.get(slot) != authored.wardrobe_requires[slot]:
@@ -184,7 +199,8 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"weapon_origin":root*primary,
 		"ready_transform":root*Transform2D(base_angle+float(stance.ready),weapon_scale,0,primary),
 		"release_transform":root*Transform2D(base_angle+release_angle,weapon_scale,0,primary),
-		"projectile":root*(primary+socket.rotated(angle)),"core":actor.core,
+		"projectile":root*(primary+socket.rotated(angle)),"core":authored.get("core",actor.core),
+		"opposite_art_required":opposite_art_required,
 		"body_profile":actor.category,"actor_id":actor.id,"head_bounds":actor.head_bounds,
 		"baked_conflict":not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe}
 

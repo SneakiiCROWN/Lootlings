@@ -2,6 +2,8 @@
 
 ## Master production v3 continuation
 
+Authored heavy adult pack is live: five adults × three heavy families × two phases (30 right-facing native states); ten real body paintings and three separate held exports through the existing resolver/production manifest. Ninety-three original support-hand-incomplete right-facing combinations remain; opposite-facing asymmetric bodies, creature stances, polearm/ranged/caster/dual and paired exports are not finished. See `AUTHORED_HEAVY_ART.md`. Next: wardrobe compatibility and common fantasy HUD/menu material unification, then continued authored-family packs.
+
 Weapon-fit correction is live across five adult bodies + seven Lootlings and all twelve families through one shared visual resolver. Projectile sockets and facing follow the actual rendered grip. Development matrix explicitly distinguishes mathematical/presentation coverage from missing anatomical art: 108 combinations still need authored two-hand/paired support, plus real Sling and clean weaponless creature variants. Next art batch should follow `WEAPON_FIT_CONTRACT.md` stance/occlusion export requirements; do not claim a neutral cutout is a finished bow draw or heavy two-hand pose. No accepted gameplay/balance/save changes.
 
 Named resident body tranche is live: Patch/Sera/Ilex clean identity-preserving full-body beta presence and occupation props through existing Hideout/dialogue/meeting/replay hooks. Production-audio import hooks and exact replacement manifest are ready; original cues retained, final audio pending. Independent resident animation/layers, further props/environmental mysteries remain additive future production.
