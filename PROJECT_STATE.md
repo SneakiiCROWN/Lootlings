@@ -1,5 +1,7 @@
 # Lootlings current project state — 2026-10-02
 
+Phase 2 tranche 1 follows the audited baseline on `codex/phase2-vertical-slice`. [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) owns subsequent slice changes and acceptance limits: clearer Act I windups/damage trails, nonblocking queued notices, boss reward hierarchy, and guarded full-flow/native regressions. Implementation checkpoint: `7346b72`. No new raster art or balance redesign; the slice is not yet commercially accepted.
+
 The current audit authority is [AUDIT_REPORT.md](AUDIT_REPORT.md), with per-file inspection/status records in [file-status.csv](docs/audit/2026-10-02/file-status.csv). Historical claims are preserved in [the prior snapshot](docs/audit/2026-10-02/historical-PROJECT_STATE.md); chronological counts there are not current totals.
 
 Lootlings is a working Godot 4.7.2 prototype, not a production-complete release. Five adult Wanderers and seven Lootlings are selectable; twelve weapon families are mechanically live. Ten campaign destinations, encounter groups/AoE, inventory/economy, Forge evolutions, residents, lore, wardrobe compatibility contracts and audio hooks are live and tested. No audit balance redesign was performed.

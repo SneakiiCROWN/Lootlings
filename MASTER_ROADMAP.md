@@ -1,5 +1,7 @@
 # Lootlings production roadmap — current authority
 
+Active Phase 2 work is scoped to Act I's existing beginning-to-end loop; see [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) for the prioritized slice plan, completed first polish tranche and current next step. The requirements below remain production gates; the original audit is preserved as baseline evidence.
+
 [AUDIT_REPORT.md](AUDIT_REPORT.md) owns current findings and readiness; [PROJECT_STATE.md](PROJECT_STATE.md) summarizes live behavior. The [previous chronological roadmap](docs/audit/2026-10-02/historical-MASTER_ROADMAP.md) is retained as history. It must not override current counts or priorities.
 
 1. Close save semantic-validation and cross-store consistency gaps; verify suspend, Back, process death, backup recovery and storage failures on Windows and Android devices.

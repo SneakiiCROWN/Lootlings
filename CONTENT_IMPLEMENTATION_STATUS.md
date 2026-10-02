@@ -4,6 +4,7 @@ Authority: [AUDIT_REPORT.md](AUDIT_REPORT.md). [Previous inventory](docs/audit/2
 
 | Scope | Status | Qualification |
 |---|---|---|
+| Phase 2 Act I readability / rewards tranche | LIVE | Clock-driven windups, bounded per-actor health trails, queued nonblocking notices, measured boss reward cards; native/full-flow/save reload evidence in PRODUCTION_PHASE2.md; not complete art/mobile acceptance |
 | Combat, campaign/routes, encounters/AoE, loot/economy, Forge, residents/lore | LIVE | Regression-tested prototype behavior; no broad redesign |
 | Five Wanderers / seven Lootlings / twelve weapon families | LIVE | Selection/mechanics; visual completeness is separate |
 | Adult heavy/staff/polearm authored group | LIVE | 60 manifest authored entries, twenty bodies, 100 tested states |

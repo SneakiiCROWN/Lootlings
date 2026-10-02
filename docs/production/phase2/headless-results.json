@@ -1,0 +1,40 @@
+[
+  {
+    "name": "dungeon_qa",
+    "exit": 0,
+    "seconds": 10.08,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.38,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  },
+  {
+    "name": "smoke_test",
+    "exit": 0,
+    "seconds": 10.26,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "vertical_slice_qa",
+    "exit": 0,
+    "seconds": 2.32,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "vignette_qa",
+    "exit": 0,
+    "seconds": 1.92,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]
