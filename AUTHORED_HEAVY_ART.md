@@ -1,5 +1,7 @@
 # Heavy stance pack — authored beta provenance and acceptance
 
+Current extension: `OPPOSITE_HEAVY_ART.md` supersedes this initial pack's left-facing limitation/count. Both facings now have twenty total adult-heavy bodies and sixty native accepted states; the manifest has 226 rows. The original right-pack art/provenance below is preserved as history.
+
 Built-in image generation/editing was used with the five existing adult runtime bodies as identity-preserving edit targets and the existing heavy weapons as design references. Originals remain unchanged. No external/licensed asset was introduced.
 
 ## Deliverables
@@ -76,4 +78,3 @@ Use case: precise-object-edit. Input is the approved Lootlings weapon DESIGN ref
 ### maulHeldPrompt
 
 Use case: precise-object-edit. Input is the approved Lootlings weapon DESIGN reference. Produce a dedicated reusable runtime HELD export, not a redesign: heavy grey rock/black metal rectangular hammer head with warm gold bands and orange glowing lightning-shaped crystal inset, same approved maul design. One complete weapon, simplified crisp premium painted fantasy silhouette with clean side-on perspective, upright vertical orientation on 512x512 transparent RGBA canvas. Long straight narrow leather-wrapped TWO-HAND handle centred at x256 from y300 to y478, uncluttered graspable shaft visible continuously, pommel at y485. Head/blade above the handle, entire tip/head inside canvas with generous 16px padding, no cropped edges. Keep approved colours, distinctive material and family identity. No hands, character, glow aura outside silhouette, other items, text, backdrop or shadow. Genuine transparency. Weapon must look weighty and oversized but have a practical two-hand grip that can fit several posed bodies.
-

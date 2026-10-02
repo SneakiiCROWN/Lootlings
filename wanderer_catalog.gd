@@ -42,7 +42,7 @@ static func layer_compatibility(layer: Dictionary, contract: Dictionary) -> Arra
 	if str(layer.get("weapon_occlusion","")) not in ["behind_body","painted_hands_over_held","foreground_over_held"]:
 		reasons.append("weapon_occlusion")
 	if not layer.get("tint_safe") is bool: reasons.append("tint_contract")
-	if str(layer.get("facing","")) not in ["right_only","authored_both"]: reasons.append("facing")
+	if str(layer.get("facing","")) not in ["right_only","left_only","authored_both"]: reasons.append("facing")
 	var path := str(layer.get("asset_path",""))
 	if path.is_empty() or not ResourceLoader.exists(path):
 		reasons.append("missing_runtime_art")

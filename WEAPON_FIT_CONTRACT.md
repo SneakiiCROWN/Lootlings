@@ -2,6 +2,8 @@
 
 ## Shipped correction (not finished articulated animation)
 
+**Opposite-facing update:** the five-adult heavy pack now has genuine left READY/RELEASE exports as well as right, selected before phase with positive-determinant roots (no artwork flip). Twenty authored bodies / 226 manifest rows; sixty native states accepted. The prior opposite-facing fallback limitation below is historical for that group. Other actors/groups remain incomplete: 93 support-hand/paired cells per facing. `tests/weapon_fit_qa.gd -- --report` writes the 864-record actor/body/family/phase/facing/wardrobe/status matrix to ignored QA storage. See `OPPOSITE_HEAVY_ART.md`.
+
 **Current authored extension:** five adult heavy READY/RELEASE pairs and dedicated greatsword/greataxe/maul held exports now override the neutral mapping below for right-facing combat. `art/production_pose_manifest.json` is authoritative for authored rectangles, measured anchors, phase/depth/compatibility/status. Thirty native phase states accepted; 93 support-hand-incomplete right-facing combinations remain. Opposite-facing authored bodies remain required and explicitly fall back. The older neutral tables below remain fallback/export-planning context, not current heavy-pack status. See `AUTHORED_HEAVY_ART.md`.
 
 One `weapon_fit_catalog.gd` now resolves every active playable body and held weapon. `wanderer_pose_catalog.gd` is a compatibility facade, not a second pose implementation. The active renderer and projectile launches use the same root, squash/recoil, hand, texture grip, weapon mirror, rotation and socket. Gameplay damage, interval, projectile lifetime, evolution, rarity, loot, economy, saves and RNG are unchanged.

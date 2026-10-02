@@ -6124,6 +6124,962 @@
       "wardrobe_requires": {},
       "production_status": "art_required",
       "qa_status": "not_testable"
+    },
+    {
+      "actor": "vault_runner",
+      "body_profile": "athletic",
+      "stance": "heavy_two_hand",
+      "phase": "READY",
+      "asset_path": "res://art/sprites/poses/vault_runner/heavy_two_hand_ready_left.png",
+      "body_rect": [
+        -75,
+        -158,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.344,
+        0.429
+      ],
+      "secondary_anchor": [
+        0.29,
+        0.402
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.495,
+        0.233
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.7687
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.6387
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.6787
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {
+        "upper_outfit": "scavenger_coat",
+        "gloves": "runner_bracers"
+      },
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "vault_runner",
+      "body_profile": "athletic",
+      "stance": "heavy_two_hand",
+      "phase": "RELEASE",
+      "asset_path": "res://art/sprites/poses/vault_runner/heavy_two_hand_release_left.png",
+      "body_rect": [
+        -75,
+        -158,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.245,
+        0.368
+      ],
+      "secondary_anchor": [
+        0.175,
+        0.306
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.465,
+        0.242
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.71704
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.58704
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.62704
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {
+        "upper_outfit": "scavenger_coat",
+        "gloves": "runner_bracers"
+      },
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "ruin_warden",
+      "body_profile": "broad",
+      "stance": "heavy_two_hand",
+      "phase": "READY",
+      "asset_path": "res://art/sprites/poses/ruin_warden/heavy_two_hand_ready_left.png",
+      "body_rect": [
+        -70,
+        -147,
+        140,
+        210
+      ],
+      "primary_anchor": [
+        0.409,
+        0.377
+      ],
+      "secondary_anchor": [
+        0.396,
+        0.322
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.51,
+        0.19
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.75766
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.62766
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.66766
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "ruin_warden",
+      "body_profile": "broad",
+      "stance": "heavy_two_hand",
+      "phase": "RELEASE",
+      "asset_path": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release_left.png",
+      "body_rect": [
+        -70,
+        -146,
+        140,
+        210
+      ],
+      "primary_anchor": [
+        0.322,
+        0.369
+      ],
+      "secondary_anchor": [
+        0.203,
+        0.319
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.495,
+        0.215
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.70132
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.57132
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.61132
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "body_profile": "athletic",
+      "stance": "heavy_two_hand",
+      "phase": "READY",
+      "asset_path": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_ready_left.png",
+      "body_rect": [
+        -75,
+        -164.5,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.322,
+        0.381
+      ],
+      "secondary_anchor": [
+        0.269,
+        0.329
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.52,
+        0.194
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.74038
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.61038
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.65038
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "body_profile": "athletic",
+      "stance": "heavy_two_hand",
+      "phase": "RELEASE",
+      "asset_path": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release_left.png",
+      "body_rect": [
+        -75,
+        -158,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.267,
+        0.4
+      ],
+      "secondary_anchor": [
+        0.116,
+        0.308
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.53,
+        0.234
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.62391
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.49391
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.53391
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "body_profile": "curvy",
+      "stance": "heavy_two_hand",
+      "phase": "READY",
+      "asset_path": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_ready_left.png",
+      "body_rect": [
+        -75,
+        -161,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.344,
+        0.369
+      ],
+      "secondary_anchor": [
+        0.326,
+        0.308
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.48,
+        0.201
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.74149
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.61149
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.65149
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "body_profile": "curvy",
+      "stance": "heavy_two_hand",
+      "phase": "RELEASE",
+      "asset_path": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release_left.png",
+      "body_rect": [
+        -75,
+        -161,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.309,
+        0.357
+      ],
+      "secondary_anchor": [
+        0.173,
+        0.296
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.5,
+        0.239
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.66685
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.53685
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.57685
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "body_profile": "muscular",
+      "stance": "heavy_two_hand",
+      "phase": "READY",
+      "asset_path": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready_left.png",
+      "body_rect": [
+        -75,
+        -163,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.338,
+        0.411
+      ],
+      "secondary_anchor": [
+        0.268,
+        0.362
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.517,
+        0.256
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.73278
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.60278
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.64278
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "body_profile": "muscular",
+      "stance": "heavy_two_hand",
+      "phase": "RELEASE",
+      "asset_path": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release_left.png",
+      "body_rect": [
+        -75,
+        -151,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.231,
+        0.408
+      ],
+      "secondary_anchor": [
+        0.078,
+        0.356
+      ],
+      "feet_baseline": 53,
+      "core_anchor": [
+        0.485,
+        0.287
+      ],
+      "supports_two_hand": true,
+      "foreground_layer": "",
+      "draw_depth": "back",
+      "facing": "left_only",
+      "weapon_overrides": {
+        "greatsword": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.84
+          ],
+          "secondary_grip": [
+            0.49,
+            0.65859
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greatsword_held.png"
+        },
+        "greataxe": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.71
+          ],
+          "secondary_grip": [
+            0.49,
+            0.52859
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/greataxe_held.png"
+        },
+        "maul": {
+          "size": [
+            112,
+            142
+          ],
+          "grip": [
+            0.49,
+            0.75
+          ],
+          "secondary_grip": [
+            0.49,
+            0.56859
+          ],
+          "socket": [
+            0.5,
+            0.05
+          ],
+          "angle": 0,
+          "held_path": "res://art/sprites/weapons/stances/maul_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "production_status": "authored_beta",
+      "qa_status": "native_left_pass"
     }
   ]
 }

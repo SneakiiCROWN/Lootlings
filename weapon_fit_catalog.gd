@@ -82,16 +82,29 @@ static func register_stance(actor_id: String, group: String, data: Dictionary) -
 	if str(data.get("depth","front")) not in ["front","back"]:
 		return false
 	var registered := data.duplicate()
+	var facings := {}
+	for facing in data.get("facing_variants",{}):
+		var variant: Dictionary = data.facing_variants[facing]
+		if not variant.get("texture") is Texture2D: return false
+		facings[facing] = resolve_phases(variant)
+		if facings[facing].is_empty(): return false
+	registered.resolved_facings = facings
+	registered = resolve_phases(registered)
+	if registered.is_empty(): return false
+	stance_assets[actor_id+":"+group] = registered
+	return true
+
+static func resolve_phases(data: Dictionary) -> Dictionary:
+	var registered := data.duplicate()
 	var phases := {}
 	for phase in data.get("phase_variants",{}):
 		var variant: Dictionary = data.phase_variants[phase]
-		if not variant.get("texture") is Texture2D: return false
+		if not variant.get("texture") is Texture2D: return {}
 		var resolved := registered.duplicate()
 		resolved.merge(variant,true)
 		phases[phase] = resolved
 	registered.resolved_phases = phases
-	stance_assets[actor_id+":"+group] = registered
-	return true
+	return registered
 
 static func body(profile: Dictionary) -> Dictionary:
 	var human := Avatar.is_wanderer(profile)
@@ -149,6 +162,8 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var authored: Dictionary = stance_assets.get(str(actor.id)+":"+str(stance.group),{})
 	var action := Actions.sample(g.current_weapon_family(),float(g.run_time),float(g.attack_clock),float(g.current_attack_interval()),float(g.attack_anim),hurt,float(g.player_reward_flash))
 	# Optional keyed poses and baked wardrobe compatibility stay visual-only.
+	if float(g.player_facing) < 0:
+		authored = authored.get("resolved_facings",{}).get("left",authored)
 	authored = authored.get("resolved_phases",{}).get(str(action.phase),authored)
 	var opposite_art_required: bool = float(g.player_facing) < 0 and authored.get("facing_support","") == "right_only"
 	if opposite_art_required: authored = {}
@@ -164,7 +179,11 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		scale *= Vector2(1.08,.92) if g.squash > 0 else Vector2.ONE
 		if hurt: scale *= Vector2(1.06,.94)
 	var idle := sin(clampf(float(g.player_idle_reaction)/.34,0,1)*PI)*.022*float(g.player_idle_reaction_direction) if creature else 0.0
-	var root := Transform2D((float(action.rotation)+idle+float(authored.get("body_lean",0.0)))*facing,scale*Vector2(facing,1),0,Vector2(action.offset)+Vector2(authored.get("body_offset",Vector2.ZERO)))
+	# A left export is already posed left. Mirror only the neutral/right fallback.
+	var mirror := 1.0 if authored.get("facing_support","") == "left_only" else facing
+	var offset := Vector2(action.offset)+Vector2(authored.get("body_offset",Vector2.ZERO))
+	offset.x *= facing
+	var root := Transform2D((float(action.rotation)+idle+float(authored.get("body_lean",0.0)))*facing,scale*Vector2(mirror,1),0,offset)
 	var geometry: Dictionary = authored.get("weapon_overrides",{}).get(subtype,weapon)
 	var size: Vector2 = Vector2(geometry.size)*float(actor.weapon_scale)*(1.0+clampi(int(item.get("evolution_stage",0)),0,2)*.06)
 	if creature: size *= 1.0+float(g.build.weapon_tier())*.14
@@ -205,6 +224,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"release_transform":root*Transform2D(base_angle+release_angle,weapon_scale,0,primary),
 		"projectile":root*(primary+socket.rotated(angle)),"core":authored.get("core",actor.core),
 		"opposite_art_required":opposite_art_required,
+		"authored_facing":str(authored.get("facing_support","neutral_mirrored")),
 		"body_profile":actor.category,"actor_id":actor.id,"head_bounds":actor.head_bounds,
 		"baked_conflict":not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe_by_stance.get(str(stance.group),actor.wardrobe)}
 
@@ -212,7 +232,7 @@ static func world_position(g) -> Vector2:
 	var family: String = g.current_weapon_family()
 	var distance := 20.0 if family == "ROGUE" else 17.0 if family == "VANGUARD" else 3.0
 	if g.attack_was_tap: distance += 3.0 if family in ["VANGUARD","ROGUE"] else 1.0
-	return Vector2(float(g.player_x)+clampf(float(g.attack_anim)/.22,0,1)*distance,472.0+sin(float(g.run_time)*4.3)*3.0)
+	return Vector2(float(g.player_x)+clampf(float(g.attack_anim)/.22,0,1)*distance*float(g.player_facing),472.0+sin(float(g.run_time)*4.3)*3.0)
 
 static func projectile_origin(g) -> Vector2:
 	return world_position(g)+Vector2(sample(g,g.player_flash>0).projectile)

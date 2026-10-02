@@ -135,3 +135,6 @@ Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin and Gloomlet are catalogued 
 - ideally separate clean anticipation/attack, hurt and victory/reward cutouts later, though the pose layer can safely ship an identity from one high-quality idle cutout first.
 
 Do not automatically remove backgrounds from the existing character sheets, crop a single panel containing labels/effects, or use the neutral Relic Beast as a combat substitute after another identity is selected.
+# Current adult-heavy opposite-facing runtime addition
+
+Ten original built-in identity-preserving left READY/RELEASE paintings: `art/sprites/poses/<adult>/heavy_two_hand_{ready,release}_left.png` (1024×1536 genuine RGBA). Same five accepted adult identities; no canonical sheet or source replaced. Both facings use separate authored art rather than mirroring asymmetrical costumes/tattoos. Existing three independent heavy held exports retained. Measured anchors/depth and exact prompts/provenance/rejected candidates: `art/production_pose_manifest.json`, `OPPOSITE_HEAVY_ART.md`. Sixty native phase/facing states accepted, not full-roster/all-family completion.

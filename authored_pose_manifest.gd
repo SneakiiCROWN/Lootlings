@@ -12,10 +12,17 @@ static func rows() -> Array:
 	return entries
 
 static func pack(actor: String, stance: String) -> Dictionary:
+	var right := facing_pack(actor,stance,"right_only")
+	if right.is_empty(): return {}
+	var left := facing_pack(actor,stance,"left_only")
+	if not left.is_empty(): right.facing_variants = {"left":left}
+	return right
+
+static func facing_pack(actor: String, stance: String, facing: String) -> Dictionary:
 	var ready := {}
 	var release := {}
 	for row in rows():
-		if row.actor != actor or row.stance != stance or row.production_status != "authored_beta":
+		if row.actor != actor or row.stance != stance or row.production_status != "authored_beta" or row.facing != facing:
 			continue
 		if row.phase == "READY": ready = row
 		elif row.phase == "RELEASE": release = row

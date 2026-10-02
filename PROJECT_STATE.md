@@ -2,6 +2,16 @@
 
 ## CURRENT STATE
 
+### Authored opposite-facing adult heavy pack
+
+Ten additive 1024×1536 RGBA left READY/RELEASE bodies now complete the five adults × Greatsword/Greataxe/Maul heavy pack in both facings. Real leftward head/guard and action arms, measured two-hand shaft contact, original asymmetric pauldrons/fur/tattoos/gear, separate held weapons and explicit back depth. Existing resolver selects facing before phase and does not flip authored left anatomy; visual step/lean now follows facing. Original right bodies/canonical creatures/inventory art retained. Exact prompts, rejected-candidate notes, asset paths and limits: `OPPOSITE_HEAVY_ART.md`.
+
+Native OpenGL 480×854: sixty real READY/RELEASE states captured and visually inspected. Manifest has 226 unique actor/group/phase/facing rows, twenty authored body exports. Full-roster QA writes an 864-record production report distinguishing missing art from math passes. **93 support-hand/paired combinations remain per facing (186 facing-specific cells)**; creature, polearm/ranged/caster/dual packs and proper paired/Sling/weaponless exports are not finished. Fifty wardrobe contracts retained, no nonexistent cosmetic options exposed. Further UI/world scope stays behind fit closure.
+
+Parser/import and all twenty regression entrypoints passed; fresh/schema-2 profile migration/UUID/save/inventory, all-family mechanics/evolution, groups/AoE/routes/campaign, presentation/dialogue/chest/contracts/audio/economy. Smoke remains 2/5 and deterministic balance 22/96 wins. Resident test initially inherited the preceding vignette test's save; fresh per-test APPDATA passes without product changes. No gameplay/cadence/drop/economy/save/RNG changes. One active four-body pack (about 24 MiB raw RGBA before driver/compression overhead), no facing reload, new nodes/shaders/particles. Android hardware performance remains unverified.
+
+The entries below describe earlier tranche validation; opposite-facing limitations in those historical snapshots are superseded for the five-adult heavy group only.
+
 ### Wardrobe compatibility / shared painted interface tranche
 
 Extended the existing WandererCatalog/WeaponFit metadata with fifty cached adult body/stance wardrobe contracts: body/head/hair/back/hands/weapon occlusion, non-tint-safe baked presets and ungendered style vocabulary. A real-layer validator rejects missing/incompatible exports; no pretend cosmetic options or clothing swaps were exposed. The next artist can register compatible layers without another avatar/attachment system.

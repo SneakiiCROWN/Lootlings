@@ -61,6 +61,8 @@ func run_qa() -> void:
 	root.add_child(label)
 	var checks := 0
 	var pending := 0
+	var pending_by_facing := {"right":0,"left":0}
+	var production_matrix: Array = []
 	for id in actors:
 		var sheet: Image
 		if native: sheet = Image.create(1280,825,false,Image.FORMAT_RGBA8)
@@ -88,6 +90,12 @@ func run_qa() -> void:
 					assert(game.rng.state == rng and game.loot_system.rng.state == loot_rng)
 					assert(game.base_damage == damage and game.current_attack_interval() == interval)
 					checks += 1
+					production_matrix.append({"actor":id,"body_profile":pose.body_profile,"weapon":weapon,
+						"stance":pose.stance,"facing":facing,"attack_anim":phase,"wardrobe":pose.wardrobe,
+						"support_status":pose.support_status,"authored_facing":pose.authored_facing,
+						"opposite_art_required":pose.opposite_art_required})
+					if phase == 0.0 and pose.support_status == "authored_pose_required":
+						pending_by_facing["left" if facing < 0 else "right"] += 1
 			game.player_facing = 1
 			game.attack_anim = 0
 			game.attack_clock = interval
@@ -132,6 +140,11 @@ func run_qa() -> void:
 	prepare("vault_runner","wand")
 	assert(Fit.sample(game).hand == Fit.body(game.profile).primary_hand)
 	Fit.stance_assets.clear()
+	if native or "--report" in OS.get_cmdline_user_args():
+		var report := FileAccess.open("res://.godot_test_data/weapon_fit_report.json",FileAccess.WRITE)
+		assert(report != null)
+		report.store_string(JSON.stringify({"checks":production_matrix,"support_art_pending":pending_by_facing},"\t"))
+	print("PRODUCTION MATRIX support-hand pending per facing: ",pending_by_facing)
 	print("WEAPON FIT QA PASSED: 144 combinations; %d facing/phase checks; grip/socket transforms; stat/gameplay/loot RNG isolation; authored two-anchor solver. %d combinations still need authored support-hand art (NOT visual passes)." % [checks,pending])
 	if interactive:
 		prepare(actors[0],Weapons.live_ids()[0])

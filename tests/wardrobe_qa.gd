@@ -15,6 +15,8 @@ func _initialize() -> void:
 				"hand_sets":[contract.hands],"weapon_occlusion":contract.weapon_occlusion,
 				"tint_safe":false,"facing":"right_only","asset_path":Wanderers.definition(id).runtime_sprite}
 			assert(Wanderers.layer_compatibility(fixture,contract).is_empty())
+			fixture.facing = "left_only"
+			assert(Wanderers.layer_compatibility(fixture,contract).is_empty())
 			for field in ["body_profiles","stances","heads","hair_styles","back_items","hand_sets"]:
 				var bad := fixture.duplicate(true)
 				bad[field] = []
