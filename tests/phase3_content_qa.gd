@@ -24,7 +24,9 @@ func prepare(actor: String = "relic_beast", weapon: String = "scrapfang_blade") 
 
 func capture(name: String) -> void:
 	game.queue_redraw(); await process_frame; await RenderingServer.frame_post_draw
-	assert(root.get_texture().get_image().save_png("res://.godot_test_data/phase3/"+name+".png") == OK)
+	var folder := "res://.godot_test_data/phase3/%dx%d/" % [root.size.x,root.size.y]
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
+	assert(root.get_texture().get_image().save_png(folder+name+".png") == OK)
 	captures += 1
 
 func review() -> void:
@@ -49,6 +51,30 @@ func review() -> void:
 	prepare(); game.player_hp = 50; game.life_steal = .04; game.enemy_hp = 10; game.enemy_hit_multiplier = 1
 	game.damage_enemy(100,false,false)
 	assert(is_equal_approx(game.player_hp,50.4))
+	prepare(); game.player_hp = 50; game.enemy_hp = 1
+	game.build.tags.Poison = 3; game.plague_power = 1
+	game.enemy_poison_stacks = 10; game.enemy_poison_time = 5; game.dot_tick_clock = 0
+	game.update_elemental_damage(.01)
+	assert(is_equal_approx(game.player_hp,50.15),"Poison siphons only remaining health")
+	# A chime needs a real follow-up; a heavy opening cannot both prime and
+	# shatter it. Delayed echoes must resolve once on their original target.
+	prepare(); game.inventory.equip(Items.create_item("frostbell_seal","EPIC",81))
+	game.enemy_hp = 1000; game.enemy_max_hp = 1000
+	game.damage_enemy(1,false,false,true)
+	assert(is_equal_approx(game.enemy_hp,999) and game.enemy_chime_primed)
+	game.damage_enemy(1,false,false,true)
+	assert(game.enemy_hp < 998 and not game.enemy_chime_primed)
+	prepare(); game.inventory.equip(Items.create_item("echo_invoice","EPIC",82))
+	game.enemy_hp = 1000; game.enemy_max_hp = 1000; game.attack_clock = 10000
+	game.damage_enemy(1,false,false,true); assert(game.delayed_hits.size() == 1)
+	game._process(.2); assert(game.delayed_hits.is_empty() and game.enemy_hp < 999)
+	prepare(); game.inventory.equip(Items.create_item("promise_bubble","EPIC",83))
+	game.build.tags.Fire = 1; game.enemy_hp = 1000; game.enemy_max_hp = 1000
+	game.damage_enemy(1,false,false); game.damage_enemy(1,false,false)
+	assert(game.player_ward == 3,"Status ward is once per target")
+	prepare(); game.inventory.equip(Items.create_item("quiet_chime","EPIC",84))
+	game.player_ward = 14; game.enemy_hp = 1
+	game.damage_enemy(10,true,false); assert(game.player_ward == 15)
 	# Shared control budget cannot turn a fast build into permanent stun.
 	prepare(); game.enemy_attack_clock = 1.0
 	for index in range(100): game.delay_enemy(.25)
@@ -73,6 +99,14 @@ func review() -> void:
 			game.show_expedition_event(); assert(game.event_id == event)
 			assert(not game.event_buttons[choice_index].disabled)
 			if native and choice_index == 0: await capture("event_"+event)
+			if native and choice_index == 0:
+				var attacks: int = game.attack_sequence
+				var point: Vector2 = game.event_buttons[0].get_global_rect().get_center()
+				for pressed in [true,false]:
+					var touch := InputEventScreenTouch.new(); touch.index = 0; touch.pressed = pressed
+					touch.position = root.get_screen_transform()*point-Vector2(root.position)
+					Input.parse_input_event(touch); await process_frame
+				assert(game.state != "event" and game.attack_sequence == attacks)
 			game.choose_expedition_event(choice_index)
 			var before := [game.coins,game.player_hp,game.pending_levels,game.pending_items.size(),game.player_ward]
 			game.choose_expedition_event(choice_index)
@@ -82,6 +116,28 @@ func review() -> void:
 	game.show_expedition_event(); assert(game.event_buttons[0].disabled and game.event_buttons[1].disabled)
 	game.choose_expedition_event(0); assert(game.state == "event" and game.player_hp == 5)
 	game.choose_expedition_event(2); assert(game.state == "playing")
+	# Exclusive named finds are confined to their regional boss pools. Public
+	# caches and both merchant systems never award them; old owned gear stays valid.
+	var exclusive: Array = preload("res://phase3_item_catalog.gd").BOSS_ONLY
+	var loot := preload("res://loot_system.gd").new(82931)
+	var found := {}
+	for campaign in preload("res://campaign_system.gd").ORDER:
+		for sample in range(100):
+			loot.reset_run(campaign)
+			var identities := []
+			for choice in range(3):
+				var drop := loot.roll_drop(false,true)
+				assert(not drop.id in identities); identities.append(drop.id)
+				if drop.id in exclusive:
+					assert(drop.id in loot.boss_pool); found[drop.id] = true
+			assert(not loot.generate_shop_item().id in exclusive)
+	for id in exclusive: assert(found.has(id))
+	var home := preload("res://hideout_shop_system.gd").new(81923)
+	for sample in range(100):
+		home.refresh_stock()
+		for offer in home.stock: assert(not offer.id in exclusive)
+		assert(not home.reveal_cache().id in exclusive); home.claim_cache()
+		assert(not home.reveal_gold_cache().id in exclusive); home.claim_cache()
 	# Every boss action is telegraphed; recovery is a real non-damaging action.
 	for campaign in preload("res://campaign_system.gd").ORDER:
 		for phase in [1,2]:
@@ -106,6 +162,12 @@ func review() -> void:
 		if native: await capture("elite_"+variant)
 	prepare(); game.state = "hideout"; game.meta_power = 100; game.meta_shards = 5000
 	game.buy_meta_power(); assert(game.meta_power == 100 and game.meta_shards == 5000)
+	if native:
+		prepare(); game.coins = 987654321; game.player_ward = 15; game.pause_run()
+		await capture("numbers_large_combat")
+		game.gold = 987654321; game.inventory.scrap = 12345678; game.meta_shards = 987654
+		game.show_hideout(); await capture("numbers_large_hideout")
+		game.hideout_ui.show_shop(); await capture("numbers_large_shop")
 	game.free(); await process_frame
 	print("PHASE3 CONTENT QA PASSED: 12 traits, 12 saved items, 24 event choices/duplicate guards, 120 boss action states, 11 elites, leech/control/cap contracts; %d native captures" % captures)
 	quit()

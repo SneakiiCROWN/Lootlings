@@ -846,7 +846,7 @@ func refresh_home() -> void:
 	var display_name := str(profile.get("display_name", "TREASURE SEEKER")).to_upper()
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
-	resource_label.text = "[center]%s %d GOLD   %s %d SCRAP\n%s %d STAR SHARDS • power details in UPGRADES[/center]" % [LootlingsUI.inline_icon("currency_gold"), gold, LootlingsUI.inline_icon("currency_scrap"), current_inventory.scrap, LootlingsUI.inline_icon("currency_star_shard"), shards]
+	resource_label.text = "[center]%s %s GOLD   %s %s SCRAP\n%s %s STAR SHARDS • power details in UPGRADES[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), LootlingsUI.inline_icon("currency_star_shard"), preload("res://display_numbers.gd").compact(shards)]
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
@@ -943,6 +943,7 @@ func refresh_upgrades() -> void:
 	var cost := 10 + power * 5
 	upgrade_summary.text = "[center]LEVEL %d  •  TOTAL +%d%%\nDamage + Max HP every run\n%s %d STAR SHARDS[/center]" % [power, power * 5, LootlingsUI.inline_icon("currency_star_shard"), shards]
 	upgrade_button.text = "POWER +5%%\nCOST %d SHARDS" % cost
+	if power >= 100: upgrade_button.text = "POWER MAXED\nRANK 100 / 100"
 	upgrade_button.icon = LootlingsUI.icon("currency_star_shard")
 	upgrade_button.expand_icon = true
 	upgrade_button.add_theme_constant_override("icon_max_width", 20)
@@ -970,7 +971,7 @@ func refresh_upgrades() -> void:
 func refresh_shop() -> void:
 	if current_inventory == null or current_shop == null or shop_scrap_label == null:
 		return
-	shop_scrap_label.text = "[center]%s %d GOLD • %s %d SCRAP • %d/%d STASH[/center]" % [LootlingsUI.inline_icon("currency_gold"), gold, LootlingsUI.inline_icon("currency_scrap"), current_inventory.scrap, current_inventory.stash.size(), current_inventory.stash_capacity]
+	shop_scrap_label.text = "[center]%s %s GOLD • %s %s SCRAP • %d/%d STASH[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), current_inventory.stash.size(), current_inventory.stash_capacity]
 	var reveal_pending: bool = not current_shop.pending_cache_item.is_empty()
 	shop_gold_cache_button.text = "SCAVENGED CACHE\n%d GOLD" % current_shop.GOLD_CACHE_COST
 	shop_gold_cache_button.disabled = reveal_pending or current_shop.gold_cache_bought_this_cycle or gold < current_shop.GOLD_CACHE_COST or current_inventory.stash.size() >= current_inventory.stash_capacity

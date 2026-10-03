@@ -15,4 +15,7 @@ const EVENTS := {
 
 static func roll(rng: RandomNumberGenerator, seen: Array) -> String:
 	var pool: Array = EVENTS.keys().filter(func(id): return not id in seen)
-	return str(pool[rng.randi_range(0,pool.size()-1)]) if not pool.is_empty() else ""
+	if pool.is_empty(): return ""
+	var weights := PackedFloat32Array()
+	for id in pool: weights.append(.5 if id == "cursed_coffer" else .75 if id == "mirror_pool" else 1.0)
+	return str(pool[rng.rand_weighted(weights)])

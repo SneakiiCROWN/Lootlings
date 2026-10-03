@@ -10,7 +10,11 @@ func _initialize() -> void:
 	call_deferred("run_qa")
 
 func simulate(family: String, stage: int) -> Dictionary:
-	game.show_hideout()
+	if is_instance_valid(game): game.free()
+	var directory := DirAccess.open(OS.get_user_data_dir())
+	if directory != null:
+		for file in directory.get_files(): directory.remove(file)
+	game = load("res://main.tscn").instantiate(); root.add_child(game); game.set_process(false)
 	game.inventory.reset_to_starter()
 	var item := Items.create_item(QA.base_id(family), "COMMON", 71)
 	for step in range(stage): item = Forge.evolve(item)
@@ -20,9 +24,9 @@ func simulate(family: String, stage: int) -> Dictionary:
 	game.meta_power = 0
 	game.gold_upgrades = {"bedroll":0, "whetstone":0, "pouch":0}
 	seed(91713)
-	game.start_run()
 	game.rng.seed = 91713
 	game.loot_system.rng.seed = 81713
+	game.start_run()
 	game.tap_combo = 0
 	game.combo_clock = 0
 	var elapsed := 0.0

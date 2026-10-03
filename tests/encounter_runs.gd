@@ -7,6 +7,11 @@ func _initialize() -> void:
 	call_deferred("run_qa")
 
 func simulate(weapon: String, run_seed: int, groups: bool) -> Dictionary:
+	if is_instance_valid(game): game.free()
+	var directory := DirAccess.open(OS.get_user_data_dir())
+	if directory != null:
+		for file in directory.get_files(): directory.remove(file)
+	game = load("res://main.tscn").instantiate(); root.add_child(game); game.set_process(false)
 	game.inventory.reset_to_starter()
 	game.inventory.equip(Items.create_item(weapon, "COMMON", 7))
 	game.meta_power = 0

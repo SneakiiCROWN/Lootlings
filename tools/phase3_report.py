@@ -27,15 +27,16 @@ def summarize(group):
             'boss_seconds':distribution([f['ttk'] for f in foes if f['wave']==15]),
             'rarities':dict(collections.Counter(item['rarity'] for r in group for item in r['loot'])),
             'timeout':sum(r['state']!='result' for r in group),
-            'weak_to_lucky_samples':[{'sample':r['sample'],'seed':r['seed'],'wave':r['wave'],'hp':round(r['hp'],2),'seconds':round(r['seconds'],2)} for r in sorted(group,key=lambda r:(r['won'],r['wave'],r['min_hp_ratio'],-r['seconds']))]}
+            'weak_to_strong_samples':[{'sample':r['sample'],'seed':r['seed'],'wave':r['wave'],'hp':round(r['hp'],2),'seconds':round(r['seconds'],2)} for r in sorted(group,key=lambda r:(r['won'],r['wave'],r['min_hp_ratio'],-r['seconds']))],
+            'loot_luck_samples':[{'sample':r['sample'],'seed':r['seed'],'won':r['won'],'rarity_score':sum(['COMMON','RARE','EPIC','LEGENDARY'].index(i['rarity']) for i in r['loot']),'loot':r['loot']} for r in sorted(group,key=lambda r:sum(['COMMON','RARE','EPIC','LEGENDARY'].index(i['rarity']) for i in r['loot']))]}
 
 summary = {}
 for fields in [('weapon','core'),('campaign',),('actor','policy')]:
     groups = collections.defaultdict(list)
-    for r in rows:
-        if fields==('weapon','core') and r['core']=='sustain': continue
-        if fields==('campaign',) and (r['core']!='sustain' or r['policy']!='tap' or r['actor']!='relic_beast'): continue
-        if fields==('actor','policy') and r['core']!='sustain': continue
+    # The frozen harness order defines three disjoint measurement cohorts.
+    # Never mix 80 campaign rows into the small Relic Beast actor sample.
+    cohort = rows[:384] if fields==('weapon','core') else rows[384:464] if fields==('campaign',) else rows[464:]
+    for r in cohort:
         groups['/'.join(str(r[f]) for f in fields)].append(r)
     summary['+'.join(fields)] = {key:summarize(group) for key,group in groups.items()}
 (out/'distributions.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')

@@ -90,6 +90,8 @@ def main():
     badging = invoke([buildtools/'aapt.exe', 'dump', 'badging', output], env, WORK/'badging.log')
     assert "native-code: 'arm64-v8a'" in badging
     assert "package: name='com.sneakiicrown.lootlings'" in badging
+    exported_version = re.search(r"versionCode='(\d+)' versionName='([^']+)'",badging)
+    assert exported_version, 'Missing exported package version'
     assert 'uses-permission:' not in badging, 'Unexpected Android permission in offline test build'
     resource_dump = invoke([buildtools/'aapt.exe','dump','--values','resources',output],env,WORK/'resources-final.txt')
     assert '(Key=0x0101062c): (color) #ff0d182d' in resource_dump, 'Android 12+ splash background is not branded navy'
@@ -97,7 +99,7 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation']:
+        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries
@@ -138,7 +140,7 @@ def main():
               'contains_manifest_and_test_monitor': True, 'source_test_reference_art_excluded': True,
               'contains_motion_and_safe_area_modules': True, 'final_imported_poses': imported_poses,
               'mobile_gesture_owner_exported': True, 'current_pcm_audio_assets': imported_audio,
-              'audio_license_manifest_exported': True, 'version_code': 4, 'splash_theme_patch': splash_patch,
+              'audio_license_manifest_exported': True, 'version_code': int(exported_version.group(1)), 'version_name': exported_version.group(2), 'splash_theme_patch': splash_patch,
               'final_imported_bow': final_bow,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')

@@ -9,6 +9,7 @@ const CORES := ["Physical", "Fire", "Lightning", "Poison"]
 var helper
 var packed: PackedScene
 var completed := 0
+var harness_root: Window
 
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
@@ -44,9 +45,10 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 	var directory := DirAccess.open(OS.get_user_data_dir())
 	if directory != null:
 		for file in directory.get_files():
-			if file.begins_with("lootlings_"): directory.remove(file)
+			# Every file belongs to this runner's guarded, disposable fixture profile.
+			directory.remove(file)
 	var game = packed.instantiate()
-	root.add_child(game)
+	(harness_root if harness_root != null else root).add_child(game)
 	game.set_process(false)
 	game.inventory.reset_to_starter()
 	var item_id := ""
@@ -85,7 +87,7 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 			foe = {"wave":game.wave,"name":game.enemy_name,"variant":game.enemy_variant_id,"hp":game.enemy_max_hp,"damage":game.enemy_damage,"interval":game.enemy_attack_interval,"player_hp":game.player_hp}
 		match game.state:
 			"event":
-				game.choose_expedition_event(2); decisions += 1
+				game.choose_expedition_event(event_choice(game)); decisions += 1
 			"upgrade":
 				var choice: int = helper.pick_upgrade(game)
 				if core != "sustain":
@@ -125,3 +127,6 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 	var row := {"weapon":weapon,"core":core,"sample":sample,"seed":sample_seed,"campaign":campaign,"actor":actor,"policy":policy,"won":game.run_won,"state":game.state,"seconds":seconds,"wave":game.wave,"kills":game.total_kills,"level":game.level,"damage_taken":game.run_damage_taken,"hp":game.player_hp,"min_hp_ratio":min_hp_ratio,"scrip_earned":game.run_coins_earned,"scrip_spent":game.run_coins_spent,"scrip_left":game.coins,"scrap":game.inventory.scrap,"gold":game.run_gold_earned,"shards":game.run_shards_earned,"buys":buys,"decisions":decisions,"segments":segments,"foes":foes,"upgrades":upgrades,"loot":loot}
 	game.free(); completed += 1
 	return row
+
+func event_choice(_game) -> int:
+	return 2

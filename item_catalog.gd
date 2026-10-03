@@ -107,7 +107,7 @@ static func evolution_hint(item: Dictionary) -> String:
 	var path: Array = item.get("evolution_path", [])
 	if path.is_empty():
 		return ""
-	return "FUTURE EVOLUTION  •  %s" % "  >  ".join(path)
+	return "FORGE PATH  •  %s" % "  >  ".join(path)
 
 static func scrap_value(item: Dictionary) -> int:
 	return [3, 8, 18, 45][rarity_rank(item.get("rarity", "COMMON"))]
@@ -143,7 +143,7 @@ static func describe_headline_effects(item: Dictionary, limit: int = 2) -> Strin
 	var headlines: Array[String] = []
 	for signature_name in item.get("affix_names", []):
 		var value := str(signature_name)
-		if value in ["Crooked Constellation", "First Light", "Grudgekeeper", "Last Laugh", "Last Lantern", "Frostbell Chime"]:
+		if not item.get("signature_hooks",[]).is_empty():
 			headlines.append("SIGNATURE  •  %s" % value)
 			break
 	for part in full_parts:

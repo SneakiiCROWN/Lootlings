@@ -132,6 +132,9 @@ func validate_combat_voices(helper, actors: Array) -> bool:
 	AudioServer.add_bus_effect(master,capture_audio)
 	for actor in actors:
 		helper.prepare(actor,"greatsword")
+		# A critical opening may kill the first foe. Voice routing needs a live
+		# target throughout attack/hurt/death; this is not a balance adjustment.
+		game.enemy_hp = 1000000; game.enemy_max_hp = 1000000
 		for player in game.audio_manager.players["SFX"]: player.stop()
 		game.audio_manager.last_event_msec.clear()
 		game.attack_sequence = 0

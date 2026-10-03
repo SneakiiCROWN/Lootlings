@@ -222,7 +222,7 @@ var wave_banner_text := ""
 var wave_banner_color := Color("#8fdcff")
 var status_message := "Tap the arena to attack."
 var responsive_backdrop: Control
-var pause_build_details: Label
+var pause_build_details: RichTextLabel
 var status_clock := 4.0
 var tap_combo := 0
 var combo_clock := 0.0
@@ -347,8 +347,8 @@ func _ready() -> void:
 		mobile_test_monitor = preload("res://mobile_test_monitor.gd").new()
 		add_child(mobile_test_monitor)
 		mobile_test_monitor.configure(self)
-		var report_button := make_action_button(pause_panel, "TEST REPORT", Vector2(35, 306), Vector2(300, 52), Color("#172442"), Color("#78e4ff"), mobile_test_monitor.show_report)
-		pause_panel.size.y = 390
+		var report_button := make_action_button(pause_panel, "TEST REPORT", Vector2(35, 442), Vector2(300, 52), Color("#172442"), Color("#78e4ff"), mobile_test_monitor.show_report)
+		pause_panel.size.y = 526
 		report_button.tooltip_text = "Device frame pacing, memory and lifecycle report"
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
@@ -792,14 +792,19 @@ func build_pause_ui() -> void:
 	pause_button.pressed.connect(pause_run)
 	pause_button.visible = false
 	add_child(pause_button)
-	pause_panel = make_panel(Rect2(55, 244, 370, 326), Color("#101731f8"))
+	pause_panel = make_panel(Rect2(55, 194, 370, 466), Color("#101731f8"))
 	LootlingsUI.apply_material(pause_panel, "relic")
 	pause_panel.visible = false
 	make_label(pause_panel, "RUN PAUSED", 31, Rect2(20, 32, 330, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	pause_build_details = make_label(pause_panel, "", 14, Rect2(25, 83, 320, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0"))
-	pause_build_details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	make_action_button(pause_panel, "RESUME", Vector2(35, 140), Vector2(300, 64), Color("#285c4c"), Color("#69e6b0"), resume_run)
-	make_action_button(pause_panel, "ABANDON RUN", Vector2(35, 226), Vector2(300, 62), Color("#54302d"), Color("#ff8d88"), request_abandon_run)
+	pause_build_details = RichTextLabel.new()
+	pause_build_details.position = Vector2(25,83); pause_build_details.size = Vector2(320,184)
+	pause_build_details.bbcode_enabled = true; pause_build_details.scroll_active = true
+	pause_build_details.add_theme_font_override("normal_font",body_font)
+	pause_build_details.add_theme_font_size_override("normal_font_size",14)
+	pause_build_details.add_theme_color_override("default_color",Color("#c9d8f0"))
+	pause_panel.add_child(pause_build_details)
+	make_action_button(pause_panel, "RESUME", Vector2(35, 282), Vector2(300, 64), Color("#285c4c"), Color("#69e6b0"), resume_run)
+	make_action_button(pause_panel, "ABANDON RUN", Vector2(35, 364), Vector2(300, 62), Color("#54302d"), Color("#ff8d88"), request_abandon_run)
 	abandon_panel = make_panel(Rect2(44, 225, 392, 374), Color("#12172ffb"))
 	LootlingsUI.apply_material(abandon_panel, "danger")
 	abandon_panel.visible = false
@@ -963,7 +968,9 @@ func pause_run() -> void:
 	if state != "playing":
 		return
 	state = "paused"
-	pause_build_details.text = "Hit %.0f • Attack %.2fs • Crit %d%% • Ward %.0f\n%s" % [base_damage*equipment_damage_multiplier(),current_attack_interval(),int(effective_crit_chance()*100),player_ward,str(character_trait.get("name",""))]
+	var mitigation := minf(.72,armor+inventory.effect_total("armor")+(.04 if current_weapon_family() == "VANGUARD" else 0.0))
+	pause_build_details.text = "[center]Base power %.0f • Auto attack %.2fs\nCrit %d%% • Armour %.0f%% • Ward %.0f\nRegen %.1f HP/s • Hit leech %.0f%%\n\n%s\n\n[color=#ffe178]%s[/color]\n%s[/center]" % [base_damage*equipment_damage_multiplier(),current_attack_interval(),int(effective_crit_chance()*100),mitigation*100,player_ward,regen_per_second,life_steal*100,build.short_summary(),str(character_trait.get("name","")),str(character_trait.get("text",""))]
+	pause_build_details.scroll_to_line(0)
 	pause_button.visible = false
 	pause_panel.visible = true
 	abandon_panel.visible = false
@@ -1374,6 +1381,7 @@ func enter_route_room() -> void:
 			player_hp = minf(player_max_hp, player_hp + player_max_hp * 0.22)
 			play_audio_event("upgrade_select")
 		"Treasure":
+			if inventory.has_signature("mimic_appetite"): cache_hit_primed = true
 			enemy_is_miniboss = true
 			spawn_item_drop()
 			enemy_is_miniboss = false
@@ -2175,6 +2183,7 @@ func apply_weapon_evolution(subtype: String, origin_serial: int, opening: bool) 
 		enemy_encounter.splash(self, extra, identity, origin_serial)
 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
+	var chime_was_primed := enemy_chime_primed
 	amount *= enemy_hit_multiplier
 	var health_removed := minf(amount,maxf(0.0,enemy_hp))
 	enemy_hp -= amount
@@ -2218,7 +2227,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 	if is_heavy and inventory.has_signature("burden_bell"): delay_enemy(.25)
 	if is_heavy and inventory.has_signature("aftershock_receipt") and delayed_hits.size() < 8:
 		delayed_hits.append({"time":.18,"serial":enemy_serial,"power":base_damage*.25})
-	if is_heavy and enemy_chime_primed and inventory.has_signature("frostbell_shatter"):
+	if is_heavy and chime_was_primed and inventory.has_signature("frostbell_shatter"):
 		enemy_chime_primed = false
 		enemy_hp -= base_damage*.25*enemy_hit_multiplier
 	carried_shockwave += amount * splash_ratio
@@ -2384,7 +2393,10 @@ func update_elemental_damage(delta: float) -> void:
 		add_particles(Vector2(375, 480), build.color("Poison"), 2)
 		if plague_power > 0:
 			var siphon_ratio := minf(0.20, 0.10 + plague_power * 0.05)
-			player_hp = minf(player_max_hp, player_hp + poison_damage * siphon_ratio)
+			# Burn resolves first. Poison cannot leech HP that the tick never
+			# removed, including damage beyond the target's remaining health.
+			var poison_removed := minf(poison_damage,maxf(0.0,enemy_hp-(total_dot-poison_damage)))
+			player_hp = minf(player_max_hp, player_hp + poison_removed * siphon_ratio)
 	if total_dot > 0.0:
 		enemy_hp -= total_dot
 		if enemy_hp <= 0.0:
@@ -2842,7 +2854,7 @@ func show_merchant() -> void:
 	state = "merchant"
 	merchant_due = false
 	if shop.stock.is_empty():
-		shop.generate_stock(loot_system, wave)
+		shop.generate_stock(loot_system, wave,current_weapon_family())
 	merchant_panel.visible = true
 	help_label.visible = false
 	refresh_merchant_ui()
@@ -3475,7 +3487,7 @@ func draw_hud() -> void:
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
-	draw_string(body_font, Vector2(370, 36), "%d" % coins, HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
+	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(334, 61), "RUN SCRIP  •  LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
 	if xp_counter_flash > 0.0:

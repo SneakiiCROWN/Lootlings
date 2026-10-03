@@ -59,7 +59,7 @@ Origin: woke when a song from the flooded Reach reached the surface. Theatrical 
 
 Origin: slipped out of a cracked shadow mirror. Dry, agile and privately affectionate; fears being forgotten. Likes unattended trinkets and warm corners; dislikes public thanks and accusatory lamps. Hunts things their owners stopped noticing. Its Core remembers recognition, not evil. Denies every helpful deed with suspicious precision. Combat: coiled posture, clawed snaps and sharp recovery; favours shadow-light daggers and small accessories. Victory: already beside the next exit. Defeat: returns quietly and makes sure the injured have blankets. Hideout: leaves found coins on Ilex's desk. Lines: “No witnesses. Except that judgmental lamp.” / “That coin was already following me.”
 
-These are personality/pose directions, not new passives. All currently enabled identities retain equal power. Gloomlet still needs a clean runtime export; a damaged dark-fur extraction must not be presented as its canonical sprite.
+These personality/pose directions now inform the explicit Phase 3 run traits in `character_traits.gd`: starting equipment, strengths and survivability/movement tradeoffs. Every actor can still use every weapon; physique, pronouns, cosmetics, lineage and editable origin do not gate power. Gloomlet uses the approved canonical runtime export. Missing support-hand art and Moonkip's weaponless body remain separate art debt.
 
 ## Adult human / humanoid cast
 
@@ -96,7 +96,7 @@ Each region preserves its current 15-wave solo expedition, enemy species IDs, mi
 
 Life in the world; calm in the interface; chaos in the rewards. Gold/purple/cyan remains the UI material language. Common restrained metal, Rare blue, Epic purple, Legendary gold/orange; no new rarity probabilities. Cosmetic colour is not a status mechanic. Static flame/crystal ornament on beta weapons adds no Fire/Frost damage.
 
-Existing jewellery, runes and named items deserve short lore, not new powers by implication. Suggested lore seeds: Relic Magnet remembers courier keys; Vault Receipt records a debt the Crown cannot collect; Echo Rune repeats an interrupted promise. No additional Signature effect is inferred from these stories.
+Existing jewellery, runes and named items deserve short lore, not new powers by implication. Relic Magnet remembers courier keys; Vault Receipt records a debt the Crown cannot collect; Echo Rune repeats an interrupted promise. Phase 3 named finds expose their actual Signature effects through `phase3_item_catalog.gd` and `affix_catalog.gd`; flavour never grants an unstated mechanic. Optional events use existing Compact, shrine, witness and salvage lore. Boss action loops follow each region's stolen promise rather than borrowed franchise designs.
 
 Short lines belong in transitions and dialogue. Full origins belong in the optional Archive. Do not rename stable IDs because writing changes. Do not label an ordinary attack as a spell it does not perform. Missing bodies/outfits/VFX remain explicit production needs, not permanent programmer-art substitutes.
 

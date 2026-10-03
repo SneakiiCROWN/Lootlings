@@ -33,17 +33,18 @@ func roll_drop(is_miniboss: bool, is_boss: bool) -> Dictionary:
 		regular_drought = 0
 	var weights := BOSS_RARITY_WEIGHTS if is_boss else MINIBOSS_RARITY_WEIGHTS if is_miniboss else NORMAL_RARITY_WEIGHTS
 	var rarity := weighted_rarity(weights)
-	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	var pool := eligible_items(is_boss)
+	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	if is_boss and not boss_pool.is_empty() and rng.randf() < .45:
 		source = ItemCatalog.definition(str(boss_pool[rng.randi_range(0,boss_pool.size()-1)]))
 	# New-region identity only; Act I consumes exactly its original RNG sequence.
-	if not region_pool.is_empty() and rng.randf() < 0.45:
+	if not is_boss and not region_pool.is_empty() and rng.randf() < 0.45:
 		source = ItemCatalog.definition(str(region_pool[rng.randi_range(0, region_pool.size() - 1)]))
 	# Same-rarity alternatives still feel different. Boss choices cannot repeat
 	# a base; ordinary drops avoid the immediately previous two identities.
 	var exclusions: Array = boss_seen if is_boss else recent_items
 	if source.id in exclusions:
-		var candidates: Array = ItemCatalog.ITEMS.filter(func(item): return not item.id in exclusions)
+		var candidates: Array = pool.filter(func(item): return not item.id in exclusions)
 		source = candidates[rng.randi_range(0,candidates.size()-1)]
 	if is_boss: boss_seen.append(source.id)
 	else:
@@ -59,19 +60,23 @@ func generate_shop_item(minimum_rarity: String = "COMMON") -> Dictionary:
 	var rarity := weighted_rarity([58.0, 31.0, 9.0, 2.0])
 	if ItemCatalog.rarity_rank(rarity) < minimum_rank:
 		rarity = minimum_rarity
-	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	var pool := eligible_items(false)
+	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
 	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
 	return result
 
-func generate_shop_item_for_slot(slot: String, minimum_rarity: String = "COMMON") -> Dictionary:
+func generate_shop_item_for_slot(slot: String, minimum_rarity: String = "COMMON", preferred_family: String = "") -> Dictionary:
 	var pool: Array = []
-	for source in ItemCatalog.ITEMS:
+	for source in eligible_items(false):
 		if source.get("slot", "") == slot:
 			pool.append(source)
 	if pool.is_empty():
 		return generate_shop_item(minimum_rarity)
+	if not preferred_family.is_empty() and rng.randf() < .35:
+		var matching := pool.filter(func(item): return item.get("family","") == preferred_family)
+		if not matching.is_empty(): pool = matching
 	var rarity := weighted_rarity([58.0, 31.0, 9.0, 2.0])
 	if ItemCatalog.rarity_rank(rarity) < ItemCatalog.rarity_rank(minimum_rarity):
 		rarity = minimum_rarity
@@ -80,6 +85,12 @@ func generate_shop_item_for_slot(slot: String, minimum_rarity: String = "COMMON"
 	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
 	return result
+
+func eligible_items(boss: bool) -> Array:
+	# Named boss finds cannot leak through merchants, event caches or ordinary
+	# drops. Random signature affixes still permit other routes to the build.
+	var exclusive: Array = preload("res://phase3_item_catalog.gd").BOSS_ONLY
+	return ItemCatalog.ITEMS.filter(func(item): return not item.id in exclusive or (boss and item.id in boss_pool))
 
 func weighted_rarity(weights: Array) -> String:
 	var total := 0.0

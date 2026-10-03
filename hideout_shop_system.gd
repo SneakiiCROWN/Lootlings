@@ -70,7 +70,8 @@ func reveal_cache() -> Dictionary:
 		return pending_cache_item
 	if cache_bought_this_cycle:
 		return {}
-	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	var pool := public_items()
+	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	var rarity := weighted_rarity(CACHE_RARITY_WEIGHTS)
 	pending_cache_item = ItemCatalog.create_item(source.id, rarity, serial_for(9))
 	cache_bought_this_cycle = true
@@ -80,7 +81,8 @@ func reveal_cache() -> Dictionary:
 func reveal_gold_cache() -> Dictionary:
 	if not pending_cache_item.is_empty() or gold_cache_bought_this_cycle:
 		return {}
-	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	var pool := public_items()
+	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	var rarity := weighted_rarity(CACHE_RARITY_WEIGHTS)
 	pending_cache_item = ItemCatalog.create_item(source.id, rarity, serial_for(10))
 	gold_cache_bought_this_cycle = true
@@ -130,11 +132,14 @@ func load(path: String) -> void:
 
 func generate_item_for_slot(slot: String, weights: Array, serial: int) -> Dictionary:
 	var pool: Array = []
-	for source in ItemCatalog.ITEMS:
+	for source in public_items():
 		if source.get("slot", "") == slot:
 			pool.append(source)
 	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	return ItemCatalog.create_item(source.id, weighted_rarity(weights), serial)
+
+func public_items() -> Array:
+	return ItemCatalog.ITEMS.filter(func(item): return not item.id in preload("res://phase3_item_catalog.gd").BOSS_ONLY)
 
 func weighted_rarity(weights: Array) -> String:
 	var total := 0.0

@@ -24,7 +24,7 @@ const AFFIXES := {
 }
 
 const SIGNATURES := {
-	"crooked_constellation":{"name":"Crooked Constellation", "slots":["Weapon"], "families":["RANGER"], "hook":"crooked_volley", "live":true, "text":"Every fifth shot splits into two crooked spectral arrows."},
+	"crooked_constellation":{"name":"Crooked Constellation", "slots":["Weapon"], "families":["RANGER"], "hook":"crooked_volley", "live":true, "text":"Every fifth shot adds a Lightning hit for 34% base power."},
 	"first_light":{"name":"First Light", "slots":["Weapon", "Rune", "Relic"], "hook":"first_crit_spark", "live":true, "text":"The first critical hit against each foe calls a Relic spark."},
 	"grudgekeeper":{"name":"Grudgekeeper", "slots":["Weapon", "Relic"], "hook":"banked_impact", "live":true, "text":"A defeated foe stores force for the next encounter."},
 	"last_laugh":{"name":"Last Laugh", "slots":["Armour", "Relic"], "hook":"desperate_rhythm", "live":true, "text":"Below 40% health, attacks gain a strange second wind."},
@@ -37,7 +37,7 @@ const SIGNATURES := {
 	"bubble_bargain":{"name":"Bubble Bargain", "slots":["Relic", "Rune"], "hook":"bubble_bargain", "live":true, "text":"The first burn or poison on each foe grants 3 ward; hold at most 15."},
 	"mimic_appetite":{"name":"Mimic Appetite", "slots":["Weapon", "Relic"], "hook":"mimic_appetite", "live":true, "text":"Opening a cache primes +40% power on the next hit. Does not stack."},
 	"frostbell_shatter":{"name":"Frostbell Shatter", "slots":["Rune"], "hook":"frostbell_shatter", "live":true, "text":"Each foe's first hit delays it; a heavy follow-up shatters for 25% base power."},
-	"burden_bell":{"name":"Burden Bell", "slots":["Weapon"], "families":["VANGUARD"], "hook":"burden_bell", "live":true, "text":"Heavy hits delay the foe by up to 0.25s. Shared control limits apply."},
+	"burden_bell":{"name":"Burden Bell", "slots":["Weapon"], "families":["VANGUARD"], "hook":"burden_bell", "live":true, "text":"Heavy hits delay the foe by up to 0.25s. Repeated delays weaken until the foe recovers."},
 	"critical_shelter":{"name":"Quiet Chime", "slots":["Armour","Relic"], "hook":"critical_shelter", "live":true, "text":"Critical kills restore 4 ward, up to 15."},
 	"gilded_greed":{"name":"Gilded Greed", "slots":["Relic"], "hook":"gilded_greed", "live":false, "text":"Gilded enemies may spill one extra treasure burst."},
 	"shardstorm":{"name":"Shardstorm", "slots":["Weapon", "Rune"], "hook":"shardstorm", "live":false, "text":"High-tier loot primes the next hit with relic-shard energy."},

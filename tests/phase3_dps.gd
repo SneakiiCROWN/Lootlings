@@ -2,6 +2,7 @@ extends SceneTree
 const Items = preload("res://item_catalog.gd")
 const Weapons = preload("res://weapon_catalog.gd")
 var packed: PackedScene
+var harness_root: Window
 
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
@@ -26,9 +27,12 @@ func measure() -> void:
 	print("PHASE3_DPS COMPLETE")
 	quit()
 
-func sample(item_id: String, policy: String, core: String, upgrades: Array) -> Dictionary:
+func sample(item_id: String, policy: String, core: String, upgrades: Array, options: Dictionary = {}) -> Dictionary:
+	var directory := DirAccess.open(OS.get_user_data_dir())
+	if directory != null:
+		for file in directory.get_files(): directory.remove(file)
 	var game = packed.instantiate()
-	root.add_child(game); game.set_process(false)
+	(harness_root if harness_root != null else root).add_child(game); game.set_process(false)
 	game.inventory.reset_to_starter()
 	game.inventory.equip(Items.create_item(item_id,"COMMON",-1))
 	game.meta_power = 0; game.gold_upgrades = {"bedroll":0,"whetstone":0,"pouch":0}
@@ -36,6 +40,11 @@ func sample(item_id: String, policy: String, core: String, upgrades: Array) -> D
 	game.profile.avatar_mode = "lootling"; game.profile.current_lootling_id = "relic_beast"
 	seed(95812); game.rng.seed = 59813; game.loot_system.rng.seed = 15814
 	game.start_run()
+	if options.has("actor"):
+		game.character_trait = preload("res://character_traits.gd").TRAITS[options.actor]
+		game.player_max_hp += float(game.character_trait.hp)
+		game.player_hp = game.player_max_hp
+	if options.get("no_crit",false): game.crit_chance = -1.0
 	for upgrade in preload("res://game_catalog.gd").UPGRADES:
 		if upgrade.id in upgrades: game.apply_upgrade_effect(upgrade)
 	game.build.tags[core] = 3 if core != "Neutral" else 0
