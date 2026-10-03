@@ -576,7 +576,7 @@ func run_tests() -> void:
 	check(game.wave_banner_text == "WAVE 1" and game.wave_banner_timer > 0.0 and game.status_clock == 0.0, "run start uses one concise presentation lane")
 	check(game.pause_button.position.y + game.pause_button.size.y < 77.0, "Pause occupies a deliberate top-HUD slot above the XP and HP bars")
 	check(game.enemy_alive and game.enemy_hp > 0.0, "first enemy spawns with health")
-	check(game.current_zone_id == "outer_ruins" and game.enemy_name == "MOSSBACK BRUTE", "Zone 1 uses its deterministic opening composition")
+	check(game.current_zone_id == "outer_ruins" and game.wave_composition.size() == 3 and game.enemy_archetype == game.wave_composition[0] and game.wave_composition.count("tank") <= 1 and game.wave_composition.count("hexer") <= 1, "Zone 1 opening uses its seeded, bounded local composition")
 	check(game.attack_clock <= 0.34, "a new foe starts with a predictable bounded first-hit clock")
 	game.player_x = game.target_player_x() - 20.0
 	var buffered_hp: float = game.enemy_hp

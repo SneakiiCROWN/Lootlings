@@ -1,0 +1,1334 @@
+{
+  "accepted": [
+    {
+      "name": "import",
+      "exit": 0,
+      "seconds": 4.09,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-achievement_manager.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-action_pose_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-affix_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-analytics_logger.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-app_lifecycle.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-audio_manager.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-authored_pose_manifest.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-avatar_presentation.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-beta_art_catalog.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-boss_patterns.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-build_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-campaign_system.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-character_traits.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-chest_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-combat_presentation.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-contract_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-creature_renderer.gd",
+      "exit": 0,
+      "seconds": 0.45,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-debug_panel.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-dialogue_director.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-dungeon_route.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-enemy_encounter.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-enemy_variant_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-expedition_event_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-forge_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-game_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-hideout_shop_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-hideout_ui.gd",
+      "exit": 0,
+      "seconds": 0.72,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-inventory_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-item_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-item_icon.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-loot_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-lootling.gd",
+      "exit": 0,
+      "seconds": 1.1,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-lootling_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-lootlings_ui.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-meta_store.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-mobile_test_monitor.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-phase3_item_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-pickup_presentation.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-presentation_director.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-profile_store.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-projectile_presentation.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-relic_greatsword_motion.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-responsive_backdrop.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-reward_reveal_catalog.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-safe_area_layout.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-safe_config.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-settings_store.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-shop_system.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-startup_ui.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-touch_ux.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-ui_surface_style.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-vignette_catalog.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-vignette_player.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-voice_identity.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-wanderer_catalog.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-wanderer_pose_catalog.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-weapon_catalog.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-weapon_fit_catalog.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-world_content_catalog.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-world_story.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-zone_catalog.gd",
+      "exit": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-audio_mix_qa.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-audio_production_qa.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-authored_pose_qa.gd",
+      "exit": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-balance_audit.gd",
+      "exit": 0,
+      "seconds": 0.34,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-campaign_qa.gd",
+      "exit": 0,
+      "seconds": 0.36,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-canonical_world_qa.gd",
+      "exit": 0,
+      "seconds": 0.44,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-chest_presentation_qa.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-combat_seed_diagnostics.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-contract_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-dungeon_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-dungeon_runs.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-encounter_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-encounter_runs.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-evolution_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-evolution_runs.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-expansion_test.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-fidelity_qa.gd",
+      "exit": 0,
+      "seconds": 0.29,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-item_art_qa.gd",
+      "exit": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-mobile_gesture_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-mobile_layout_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-mobile_monitor_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-phase3_balance.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-phase3_content_qa.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-phase3_dps.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-phase3_economy.gd",
+      "exit": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-phase3_pressure_qa.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-phase3_roster_runs.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-presentation_matrix_qa.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-presentation_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-relic_greatsword_qa.gd",
+      "exit": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-resident_art_qa.gd",
+      "exit": 0,
+      "seconds": 0.72,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-save_recovery_qa.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-smoke_test.gd",
+      "exit": 0,
+      "seconds": 0.54,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-test_safety.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-vertical_slice_qa.gd",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-vignette_qa.gd",
+      "exit": 0,
+      "seconds": 0.36,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-visual_qa_capture.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-wanderer_qa.gd",
+      "exit": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-wardrobe_qa.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-weapon_expansion_qa.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tests-weapon_fit_qa.gd",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-compose_region_beta.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-export_authored_held.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-export_authored_staff.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-export_ui_material.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-extract_beta_boards.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-extract_chest_beta.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-extract_loot_beta.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-extract_presentation_beta.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "parse-tools-extract_weapon_beta.gd",
+      "exit": 0,
+      "seconds": 0.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "audio_production_qa",
+      "exit": 0,
+      "seconds": 0.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "authored_pose_qa",
+      "exit": 0,
+      "seconds": 4.33,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "campaign_qa",
+      "exit": 0,
+      "seconds": 25.11,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "canonical_world_qa",
+      "exit": 0,
+      "seconds": 1.46,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "chest_presentation_qa",
+      "exit": 0,
+      "seconds": 1.55,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "combat_seed_diagnostics",
+      "exit": 0,
+      "seconds": 21.61,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "contract_qa",
+      "exit": 0,
+      "seconds": 1.27,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "dungeon_qa",
+      "exit": 0,
+      "seconds": 10.14,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "dungeon_runs",
+      "exit": 0,
+      "seconds": 13.66,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "encounter_qa",
+      "exit": 0,
+      "seconds": 1.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "encounter_runs",
+      "exit": 0,
+      "seconds": 31.22,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-isolation-repaired-98f1755076"
+    },
+    {
+      "name": "evolution_qa",
+      "exit": 0,
+      "seconds": 1.57,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "evolution_runs",
+      "exit": 0,
+      "seconds": 43.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-isolation-repaired-98f1755076"
+    },
+    {
+      "name": "expansion_test",
+      "exit": 0,
+      "seconds": 0.45,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "fidelity_qa",
+      "exit": 0,
+      "seconds": 47.33,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-native-audio-corrected-eaddad3cc8"
+    },
+    {
+      "name": "item_art_qa",
+      "exit": 0,
+      "seconds": 1.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 9.82,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-pause-touch-final-b5620ef32b"
+    },
+    {
+      "name": "mobile_layout_qa",
+      "exit": 0,
+      "seconds": 51.36,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-pause-touch-final-b5620ef32b"
+    },
+    {
+      "name": "mobile_monitor_qa",
+      "exit": 0,
+      "seconds": 4.03,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-pause-touch-final-b5620ef32b"
+    },
+    {
+      "name": "phase3_balance",
+      "exit": 0,
+      "seconds": 472.16,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "phase3_content_qa",
+      "exit": 0,
+      "seconds": 23.91,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-miniboss-final-ab4063d12c"
+    },
+    {
+      "name": "phase3_dps",
+      "exit": 0,
+      "seconds": 11.85,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "phase3_economy",
+      "exit": 0,
+      "seconds": 0.73,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "phase3_pressure_qa",
+      "exit": 0,
+      "seconds": 13.88,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "phase3_roster_runs",
+      "exit": 0,
+      "seconds": 173.43,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "presentation_matrix_qa",
+      "exit": 0,
+      "seconds": 57.34,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-native-regression-7fab37f8f6"
+    },
+    {
+      "name": "presentation_qa",
+      "exit": 0,
+      "seconds": 1.3,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "relic_greatsword_qa",
+      "exit": 0,
+      "seconds": 2.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "resident_art_qa",
+      "exit": 0,
+      "seconds": 1.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "save_recovery_qa",
+      "exit": 0,
+      "seconds": 1.38,
+      "errors": [],
+      "expected_diagnostics": [
+        "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+        "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+      ],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "smoke_test",
+      "exit": 0,
+      "seconds": 8.43,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-smoke-62c80a0928"
+    },
+    {
+      "name": "vertical_slice_qa",
+      "exit": 0,
+      "seconds": 2.03,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "vignette_qa",
+      "exit": 0,
+      "seconds": 3.69,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "wanderer_qa",
+      "exit": 0,
+      "seconds": 3.23,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "wardrobe_qa",
+      "exit": 0,
+      "seconds": 8.05,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "weapon_expansion_qa",
+      "exit": 0,
+      "seconds": 5.73,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "weapon_fit_qa",
+      "exit": 0,
+      "seconds": 3.79,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "audio_mix_qa",
+      "exit": 0,
+      "seconds": 9.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-native-regression-7fab37f8f6"
+    },
+    {
+      "name": "phase3_idle_runs",
+      "exit": 0,
+      "seconds": 81.91,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-idle-breadth-9e44f021b4"
+    },
+    {
+      "name": "phase3_final_details",
+      "exit": 0,
+      "seconds": 6.88,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-tablet-details-cbaf0cc682"
+    }
+  ],
+  "superseded": [
+    {
+      "name": "encounter_runs",
+      "exit": 0,
+      "seconds": 19.72,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "evolution_runs",
+      "exit": 4294967295,
+      "seconds": 197.19,
+      "errors": [
+        "SCRIPT ERROR: Assertion failed: Non-deterministic evolution run: greatsword"
+      ],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "phase3_content_qa",
+      "exit": 0,
+      "seconds": 2.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 8.97,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "mobile_layout_qa",
+      "exit": 4294967295,
+      "seconds": 220.06,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "presentation_matrix_qa",
+      "exit": 124,
+      "seconds": 300.01,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "fidelity_qa",
+      "exit": 0,
+      "seconds": 1.93,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 9.8,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-native-regression-7fab37f8f6"
+    },
+    {
+      "name": "mobile_layout_qa",
+      "exit": 0,
+      "seconds": 51.56,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-native-regression-7fab37f8f6"
+    },
+    {
+      "name": "mobile_monitor_qa",
+      "exit": 0,
+      "seconds": 3.33,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "smoke_test",
+      "exit": 1,
+      "seconds": 8.61,
+      "errors": [
+        "ERROR: SMOKE TEST: Zone 1 uses its deterministic opening composition"
+      ],
+      "expected_diagnostics": [],
+      "run": "phase3-final-regression-c169c0a1ed"
+    },
+    {
+      "name": "phase3_content_qa",
+      "exit": 0,
+      "seconds": 2.11,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-isolation-repaired-98f1755076"
+    },
+    {
+      "name": "phase3_final_details",
+      "exit": 0,
+      "seconds": 5.27,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "phase3-final-phone-details-999d8d670c"
+    }
+  ],
+  "qualification": "Headless renderer waits and obsolete assertions are preserved; native/repaired isolated fixtures supersede them. Native synthetic input is not physical-device or manual-play acceptance."
+}

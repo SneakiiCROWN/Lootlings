@@ -1,5 +1,7 @@
 # Phase 3 implementation checkpoint
 
+Historical intermediate checkpoint. The [final measured delivery report](REPORT.md) supersedes the outstanding validation list below; it explicitly retains art, physical-device and human/long-term acceptance gates. The baseline and earlier candidate records remain preserved.
+
 This preserves the interrupted production work; it is not a full-phase acceptance claim. The frozen baseline remains at `bca361c`. Candidate measurements use the same 512 recorded samples and six independent replay checks. The interrupted candidate log is incomplete and is excluded from comparisons.
 
 Implemented: twelve run-only character identities and starter equipment; per-target opening resets; actual-HP lifesteal; bounded control; the existing training rank cap; ten regional boss action loops and recovery windows; three additional compatible weighted elite modifiers; twelve named equipment variants with explicit signature hooks and cursed tradeoffs; two optional expedition events drawn without repeats; merchant stock styles; equipment drought protection and duplicate exclusion. Existing saves, canonical art, touch ownership and economy transaction guards are preserved.

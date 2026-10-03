@@ -153,6 +153,21 @@ func review() -> void:
 				if native: await capture("boss_%s_p%d_a%d" % [campaign,phase,action_index])
 				game.perform_enemy_attack()
 				if action.recovery: assert(game.player_hp == hp and game.boss_recovery > 0)
+	# Inspect each regional miniboss loop separately from the final boss.
+	for campaign in preload("res://campaign_system.gd").ORDER:
+		prepare(); game.campaign_id = campaign; game.wave = 8; game.spawn_enemy()
+		assert(game.enemy_is_miniboss)
+		game.enemy_entry_anim = 0; game.player_hp = 10000; game.player_max_hp = 10000
+		for action_index in range(4):
+			game.floating_texts.clear(); game.boss_recovery = 0
+			game.enemy_attack_count = action_index; game.enemy_attack_clock = .10
+			var action := preload("res://boss_patterns.gd").next(game)
+			var cue := preload("res://combat_presentation.gd").attack_cue(game)
+			assert(cue.visible and cue.label == action.text)
+			var hp: float = game.player_hp
+			if native: await capture("miniboss_%s_a%d" % [campaign,action_index])
+			game.perform_enemy_attack()
+			if action.recovery: assert(game.player_hp == hp and game.boss_recovery > 0)
 	# New elite mechanics are bounded and visible; no multi-modifier stacking.
 	for variant in preload("res://enemy_variant_catalog.gd").live_ids():
 		prepare(); game.wave = 12; game.spawn_enemy(); game.debug_force_variant(variant)
@@ -169,5 +184,5 @@ func review() -> void:
 		game.show_hideout(); await capture("numbers_large_hideout")
 		game.hideout_ui.show_shop(); await capture("numbers_large_shop")
 	game.free(); await process_frame
-	print("PHASE3 CONTENT QA PASSED: 12 traits, 12 saved items, 24 event choices/duplicate guards, 120 boss action states, 11 elites, leech/control/cap contracts; %d native captures" % captures)
+	print("PHASE3 CONTENT QA PASSED: 12 traits, 12 saved items, 24 event choices/duplicate guards, 120 boss and 40 miniboss action states, 11 elites, leech/control/cap contracts; %d native captures" % captures)
 	quit()
