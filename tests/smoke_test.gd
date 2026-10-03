@@ -71,7 +71,7 @@ func run_tests() -> void:
 	check(game.state == "boot" and game.startup_ui.visible and not game.hideout_ui.visible, "the game opens with the skippable Relic Core boot presentation")
 	var blank_profile := ProfileStore.create_default()
 	check(not ProfileStore.is_created(blank_profile) and not str(blank_profile.player_uuid).is_empty() and blank_profile.account_link.has("cloud_save_revision") and blank_profile.has("customisation"), "fresh local profiles have stable identity and future account/customisation fields without forcing a name")
-	check(LootlingCatalog.selectable_ids().size() == 7 and not LootlingCatalog.definition("relic_beast").temp_art and not LootlingCatalog.definition("emberhorn").temp_art and LootlingCatalog.definition("gloomlet").temp_art, "canonical beta cutouts replace stand-ins; Gloomlet export remains honestly pending")
+	check(LootlingCatalog.selectable_ids().size() == 7 and not LootlingCatalog.definition("relic_beast").temp_art and not LootlingCatalog.definition("emberhorn").temp_art and not LootlingCatalog.definition("gloomlet").temp_art, "seven canonical character exports replace stand-ins")
 	for identity in LootlingCatalog.selectable_ids():
 		var identity_profile := ProfileStore.create_default()
 		identity_profile.current_lootling_id = identity
@@ -231,7 +231,7 @@ func run_tests() -> void:
 	game.hideout_ui.show_upgrades()
 	check(game.hideout_ui.current_screen == "upgrades", "the Hideout Relic shrine opens Training")
 	game.hideout_ui.show_achievements()
-	check(game.hideout_ui.current_screen == "achievements" and game.hideout_ui.achievement_grid.columns == 3 and not game.hideout_ui.achievement_detail.text.is_empty(), "the Trophy Archive is a phone-readable badge collection with focused detail")
+	check(game.hideout_ui.current_screen == "achievements" and game.hideout_ui.achievement_grid.columns == 2 and not game.hideout_ui.achievement_detail.text.is_empty(), "the Trophy Archive is a phone-readable badge collection with focused detail")
 	game.hideout_ui.show_coming_soon("LOOTBOOK")
 	check(game.hideout_ui.current_screen == "coming", "the Hideout archive opens Lootbook Coming Soon")
 	game.hideout_ui.show_home()

@@ -30,6 +30,11 @@ func run_qa() -> void:
 		assert(not entry.is_empty() and entry.lines.size() >= 2)
 		assert(ResourceLoader.exists(str(entry.background)))
 		if not str(entry.actor).is_empty(): assert(ResourceLoader.exists(str(entry.actor)))
+		player.caption.text = ""
+		for line in entry.lines:
+			player.caption.text = str(line)
+			await process_frame
+			assert(player.caption.get_line_count()*player.caption.get_theme_font("font").get_height(player.caption.get_theme_font_size("font_size")) <= player.caption.size.y,"Story caption clipped: "+id)
 	assert(Catalog.entry("fake/unknown").is_empty())
 	assert(not Catalog.available("resident/patch",game.profile))
 	assert(Catalog.available("character/gloomlet",game.profile))

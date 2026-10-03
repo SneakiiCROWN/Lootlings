@@ -1,0 +1,218 @@
+{
+  "accepted": [
+    {
+      "run": "correction-final-regressions-315bfa10c6",
+      "native": false,
+      "name": "audio_production_qa",
+      "exit": 0,
+      "seconds": 0.26,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-final-regressions-315bfa10c6",
+      "native": false,
+      "name": "authored_pose_qa",
+      "exit": 0,
+      "seconds": 4.35,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-final-regressions-315bfa10c6",
+      "native": false,
+      "name": "canonical_world_qa",
+      "exit": 0,
+      "seconds": 1.47,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-final-regressions-315bfa10c6",
+      "native": false,
+      "name": "combat_seed_diagnostics",
+      "exit": 0,
+      "seconds": 19.74,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-final-regressions-315bfa10c6",
+      "native": false,
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 8.96,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-regressions-c05a0964d4",
+      "native": false,
+      "name": "presentation_qa",
+      "exit": 0,
+      "seconds": 1.28,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-regressions-c05a0964d4",
+      "native": false,
+      "name": "save_recovery_qa",
+      "exit": 0,
+      "seconds": 1.28,
+      "errors": [],
+      "expected_diagnostics": [
+        "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+        "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+      ]
+    },
+    {
+      "run": "correction-safety-final-d6f7cd7af1",
+      "native": false,
+      "name": "expansion_test",
+      "exit": 0,
+      "seconds": 0.44,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-safety-final-d6f7cd7af1",
+      "native": false,
+      "name": "mobile_monitor_qa",
+      "exit": 0,
+      "seconds": 3.22,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-safety-final-d6f7cd7af1",
+      "native": false,
+      "name": "relic_greatsword_qa",
+      "exit": 0,
+      "seconds": 2.1,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-safety-final-d6f7cd7af1",
+      "native": false,
+      "name": "weapon_fit_qa",
+      "exit": 0,
+      "seconds": 3.87,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-smoke-accepted-e74213d3a4",
+      "native": false,
+      "name": "smoke_test",
+      "exit": 0,
+      "seconds": 8.68,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-native-accepted-4fe373bdef",
+      "native": true,
+      "name": "audio_mix_qa",
+      "exit": 0,
+      "seconds": 9.21,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-native-accepted-4fe373bdef",
+      "native": true,
+      "name": "mobile_layout_qa",
+      "exit": 0,
+      "seconds": 51.26,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-native-accepted-4fe373bdef",
+      "native": true,
+      "name": "presentation_matrix_qa",
+      "exit": 0,
+      "seconds": 57.17,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-native-accepted-4fe373bdef",
+      "native": true,
+      "name": "vertical_slice_qa",
+      "exit": 0,
+      "seconds": 8.23,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-native-accepted-4fe373bdef",
+      "native": true,
+      "name": "vignette_qa",
+      "exit": 0,
+      "seconds": 6.08,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-contact-final-8301cbd4ad",
+      "native": true,
+      "name": "presentation_matrix_qa",
+      "exit": 0,
+      "seconds": 57.33,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-contact-final-8301cbd4ad",
+      "native": true,
+      "name": "relic_greatsword_qa",
+      "exit": 0,
+      "seconds": 4.69,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-settled-s23-cf7a972c07",
+      "native": true,
+      "name": "visual_qa_capture",
+      "exit": 0,
+      "seconds": 49.22,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-settled-tablet-ac9f96adcd",
+      "native": true,
+      "name": "visual_qa_capture",
+      "exit": 0,
+      "seconds": 44.48,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "run": "correction-caption-final-48c2c18f6b",
+      "native": false,
+      "name": "vignette_qa",
+      "exit": 0,
+      "seconds": 3.69,
+      "errors": [],
+      "expected_diagnostics": []
+    }
+  ],
+  "superseded_failures": [
+    {
+      "run": "correction-regressions-c05a0964d4",
+      "fixture": "canonical_world_qa",
+      "cause": "Region copy exceeded existing 64-character contract; copy tightened, accepted rerun passed."
+    },
+    {
+      "run": "correction-safety-final-d6f7cd7af1",
+      "fixture": "smoke_test",
+      "cause": "Two stale presentation expectations (pending Gloomlet and three trophy columns) updated; combat assertions unchanged, accepted rerun passed."
+    }
+  ],
+  "device_validated": false
+}

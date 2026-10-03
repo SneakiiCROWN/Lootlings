@@ -91,6 +91,9 @@ def main():
     assert "native-code: 'arm64-v8a'" in badging
     assert "package: name='com.sneakiicrown.lootlings'" in badging
     assert 'uses-permission:' not in badging, 'Unexpected Android permission in offline test build'
+    resource_dump = invoke([buildtools/'aapt.exe','dump','--values','resources',output],env,WORK/'resources-final.txt')
+    assert '(Key=0x0101062c): (color) #ff0d182d' in resource_dump, 'Android 12+ splash background is not branded navy'
+    assert '(Key=0x7f030015): (color) #ff0d182d' in resource_dump, 'Compatibility splash background is not branded navy'
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries

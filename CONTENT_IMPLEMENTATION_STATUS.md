@@ -1,6 +1,8 @@
-# Current implementation and production status — 2026-10-02
+# Current implementation and production status — 2026-10-03
 
-Authority: [AUDIT_REPORT.md](AUDIT_REPORT.md). [Previous inventory](docs/audit/2026-10-02/historical-CONTENT_IMPLEMENTATION_STATUS.md) is historical. Per-file evidence and classification: [file-status.csv](docs/audit/2026-10-02/file-status.csv).
+Latest owner-review correction tranche: [report and native evidence](docs/production/phase2/correction/REPORT.md). Implementation checkpoint `c99704a`; final follow-up records QA/documentation. Prior tranche/audit details remain historical where superseded.
+
+Current production authority: [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) and its correction report. [AUDIT_REPORT.md](AUDIT_REPORT.md), [previous inventory](docs/audit/2026-10-02/historical-CONTENT_IMPLEMENTATION_STATUS.md) and [per-file baseline classification](docs/audit/2026-10-02/file-status.csv) remain historical evidence where later tranches supersede them.
 
 | Scope | Status | Qualification |
 |---|---|---|
@@ -10,7 +12,9 @@ Authority: [AUDIT_REPORT.md](AUDIT_REPORT.md). [Previous inventory](docs/audit/2
 | Adult heavy/staff/polearm authored group | LIVE | 60 manifest authored entries, twenty bodies, 100 tested states |
 | Relic Beast starter greatsword/right-facing slice | LIVE / BETA art | Two real-paw authored bodies; nine native states, real attack transitions, opaque handle contacts; base identity/blade preserved |
 | Remaining support/paired pose art | MISSING | 82 right / 83 left combinations; unrelated weapons/facings remain explicit |
-| Gloomlet canonical body; weaponless Moonkip/Glimmerfin | MISSING | Current stand-in/baked details remain BETA |
+| Gloomlet canonical body | LIVE / BETA export | Existing approved board pixels, deliberate silhouette extraction and real paw anchors; higher-resolution portrait master desirable |
+| Weaponless Moonkip | MISSING | Approved current base includes daggers with other equipment; requires canonical weaponless export |
+| Glimmerfin current body | LIVE / BETA art | Native/source review confirms existing cutout is weaponless; stale baked-wand debt removed |
 | Owner-delivered foundation/Wave 2 UI/icons | FINAL | Existing accepted scope only; two stable icon-role pairs are identical |
 | Six newer shared painted UI materials, regional/prop/resident art, sling | BETA | Live usage does not establish final art acceptance |
 | Wardrobe compatibility contracts | LIVE | Fifty contracts; modular cosmetics not delivered |
@@ -23,3 +27,5 @@ Authority: [AUDIT_REPORT.md](AUDIT_REPORT.md). [Previous inventory](docs/audit/2
 Definitions: FINAL = accepted within a documented delivery scope; LIVE = active/tested behavior; BETA = provisional visual/audio/content quality; REFERENCE = preserved research/source; STALE = superseded; MISSING = required delivery absent. A file classification does not certify every dependent system.
 
 Phase 2 tranche 3: shared swipe/tap guards, consequential-action inspection/confirmation, full-stash equipment destruction warning, Back hierarchy, larger targets, simplified hub, 70 pooled lines/21 contexts plus slice copy, and canonical app/system boot branding are LIVE and natively tested. Fourteen phone/tablet layout/cutout cases pass; owner acceptance of the replacement APK remains pending. Weapon matrix review preserves explicit 82 right / 83 left support-hand debt. [Report and evidence](docs/production/phase2/mobileux/REPORT.md).
+
+Tranche 4 adds expanded proportional scenery with retained safe gameplay geometry, 22 layout/cutout scenarios, 49 native phone and 49 tablet screens, exhaustive 2,592 pose samples, improved HUD/text/rewards/utility hierarchy, deeper voice/caption treatment, own Gloomlet body and verified branded Android theme/icon. Version-3 signed/aligned APK ships existing licensed audio with native mix verification; physical subjective audio/performance/lifecycle acceptance and live-run process-death restoration remain pending. Support-hand debt is unchanged and explicit.

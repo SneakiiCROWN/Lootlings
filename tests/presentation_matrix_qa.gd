@@ -36,6 +36,7 @@ func run_qa() -> void:
 				game.wave = 15
 				game.last_spawned_wave = 0
 				game.spawn_enemy()
+				game.enemy_entry_anim = 0
 				game.special_intro_timer = 0
 				game.pause_panel.visible = false
 				game.state = "playing"
@@ -50,6 +51,7 @@ func run_qa() -> void:
 					game.player_x = game.target_player_x() - (18 if state == "movement" else 0)
 					game.player_flash = .15 if state == "hurt" else 0
 					game.player_hp = 0 if state == "defeat" else game.player_max_hp
+					game.enemy_attack_anim = .14 if state == "impact" else 0
 					game.presentation_director.toast_queue.clear()
 					game.presentation_director.active_toast.clear()
 					game.presentation_director.toast_panel.visible = false

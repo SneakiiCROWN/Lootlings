@@ -21,8 +21,8 @@ const CREATURE_PROFILES := {
 	"mosskin":{"category":"shielded_biped","primary":Vector2(.295,.735),"secondary":Vector2(.76,.70),"core":Vector2(.50,.63),"scale":.76,"handling":"shield_side","baked":"shield"},
 	"moonkip":{"category":"small_biped","primary":Vector2(.70,.755),"secondary":Vector2(.30,.745),"core":Vector2(.50,.66),"scale":.74,"baked":"daggers"},
 	"pebblewyrm":{"category":"heavy_brute","primary":Vector2(.80,.77),"secondary":Vector2(.27,.77),"core":Vector2(.64,.735),"scale":.90},
-	"glimmerfin":{"category":"floating","primary":Vector2(.72,.77),"secondary":Vector2(.30,.765),"core":Vector2(.50,.66),"scale":.76,"baked":"wand"},
-	"gloomlet":{"category":"small_biped","primary":Vector2(.77,.79),"secondary":Vector2(.29,.79),"core":Vector2(.57,.72),"scale":.74}
+	"glimmerfin":{"category":"floating","primary":Vector2(.72,.77),"secondary":Vector2(.30,.765),"core":Vector2(.50,.66),"scale":.76},
+	"gloomlet":{"category":"small_biped","primary":Vector2(.75,.75),"secondary":Vector2(.27,.76),"core":Vector2(.51,.69),"scale":.74}
 }
 const GEOMETRY := {
 	"greatsword":{"size":Vector2(112, 142), "grip":Vector2(.377,.84), "socket":Vector2(.65,.05), "angle":0.36},

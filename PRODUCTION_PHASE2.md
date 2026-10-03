@@ -1,5 +1,7 @@
 # Phase 2 — Act I vertical slice, tranche 1 (2026-10-02)
 
+**Latest state (2026-10-03): tranche 4 player-facing correction pass**, implementation checkpoint `c99704a`. Expanded scenery/safe viewport, canonical Gloomlet export, weighted presentation/HUD/UI/copy/branding corrections, exhaustive 2,592-state native matrix and phone/tablet review. [Current report, evidence, build and remaining art/device gates](docs/production/phase2/correction/REPORT.md). Earlier tranche sections below are historical; their letterboxing, stand-in and UI details are superseded where the correction report says so.
+
 Baseline: `728585c`, following preserved work `69110bd` and audited fixes `4259eb3`. Production work is on `codex/phase2-vertical-slice`; implementation checkpoint: `7346b72`. The audit remains the historical baseline; this document owns subsequent slice progress. This tranche is LIVE, not commercial-release acceptance.
 
 ## Selected slice and priority order
@@ -81,3 +83,13 @@ The owner reports that the prior APK runs and feels great overall on the S23. Co
 - Updated signed/aligned arm64 debug APK: `builds/android/Lootlings-phase2-mobile-ux-debug.apk`, version code 2, same package/key, all 178 current audio imports verified. [Exact build identity](docs/production/phase2/mobileux/android-build-report.json). Core/flow/economy/save/native presentation checks pass with documented superseded attempts. Combat smoke stays 3/5 without difficulty changes; prior seed diagnosis remains authoritative.
 
 Highest-value next step is physical acceptance of this replacement APK: swipe/action safety, sound quality, launch, sustained pacing/PSS/thermals and Android lifecycle. Then finish canonical fallback support anatomy, authored boss animation and final music. Live expeditions still do not resume after process death. First-APK positive phone feedback does not certify performance or acceptance of this new APK.
+
+## Tranche 4 — player-facing correction / expanded mobile scenery
+
+Implemented directly from owner S23 review, preserving the existing slice/architecture/difficulty and previous checkpoints. Initial interrupted pass had no uncommitted edits. [Correction report](docs/production/phase2/correction/REPORT.md), [voice bible](docs/production/phase2/correction/VOICE_BIBLE.md), [native evidence](docs/production/phase2/correction/evidence/README.md).
+
+- Expand backgrounds/ambience proportionally outside the centered safe combat frame; preserve touch geometry and validate 22 layout/cutout cases. Capture 49 production screens each at 1080×2316 and 1200×1600. Correct startup/hub combat leakage and obsolete visual fixture assumptions.
+- Connect canonical Gloomlet, stronger grounded/body motion and melee tip layering. Capture 2,592 native actor/weapon/state/facing samples with settled large enemies; preserve real authored starter paws. 82 right / 83 left support/paired combinations and Moonkip weaponless art remain blocked, not accepted by fit math. Inspected Glimmerfin is already weaponless.
+- Compact combat stats with Pause details, predictable text lanes, clear damage loss trail, readable TAP COMBO, two-column trophies, quiet utility/filter hierarchy, comfortable sliders, complete wrapped toasts, deliberate sold slot and actual item/rarity result icons.
+- Deeper resident/campaign voice and caption reading time; consistent boot/title tagline; enlarged canonical adaptive mascot and verified navy Android system theme. Preserve licensed audio/buses; native peak −0.80 dBFS, subjective device listening still pending.
+- Signed/aligned replacement `builds/android/Lootlings-phase2-presentation-debug.apk`, version 3, same package/key, fresh assets/source exclusions. Physical S23 pacing/memory/thermal/input/lifecycle acceptance and process-death run restoration remain explicit. Correct seeded smoke still 3/5, with sustain policies 5/5; no balance change.

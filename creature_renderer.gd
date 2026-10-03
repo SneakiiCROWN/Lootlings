@@ -72,7 +72,7 @@ func draw_striking_blade(g, pos: Vector2) -> void:
 	# their foreground; the handle stays beneath the real closed paws.
 	if g.attack_anim <= .055: return
 	var pose := WandererPose.sample(g,g.player_flash > 0)
-	var blade_fraction: float = {"greatsword":.61,"axe":.50,"maul":.47,"spear":.48,"dagger":.50,"claws":.30}.get(str(pose.weapon_type),0.0)
+	var blade_fraction: float = {"greatsword":.61,"greataxe":.50,"maul":.47,"spear":.48,"daggers":.50,"claws":.30}.get(str(pose.weapon_type),0.0)
 	if blade_fraction == 0: return
 	var root: Transform2D = pose.root
 	root.origin += pos

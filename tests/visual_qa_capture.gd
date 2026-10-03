@@ -117,6 +117,7 @@ func capture_screens() -> void:
 		game.wave_kills = 0
 		game.last_spawned_wave = 0
 		game.spawn_enemy()
+		game.enemy_entry_anim = 0
 		game.wave_banner_timer = 0
 		game.special_intro_timer = 0
 		game.attack_anim = .11
@@ -128,6 +129,7 @@ func capture_screens() -> void:
 	game.last_spawned_wave = 0
 	game.spawn_enemy()
 	game.debug_force_variant("rootbound")
+	game.enemy_entry_anim = 0
 	game.wave_banner_timer = 0.0
 	await wait_frames(12)
 	if not save_viewport("combat_variant_qa.png"):

@@ -1,6 +1,8 @@
 # Lootlings source-of-truth audit — 2026-10-02
 
-Lootlings is a functioning, tested prototype with significant unfinished production art, audio and mobile work. This report owns current audit status; `PROJECT_STATE.md`, `MASTER_ROADMAP.md` and `CONTENT_IMPLEMENTATION_STATUS.md` summarize it. Historical statements are preserved, explicitly subordinate to current evidence. Passing mathematical fit tests does not certify anatomy or release readiness.
+**Historical audit baseline.** Subsequent Phase 2 implementation and current readiness are owned by [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) and the [2026-10-03 correction report](docs/production/phase2/correction/REPORT.md). In particular, canonical Gloomlet, mobile input/scenery, recorded SFX, starter greatsword and APK work below have progressed; remaining support anatomy, Moonkip weaponless art and physical-device/release gates are explicitly retained there. Do not restart this audit to continue production.
+
+Lootlings is a functioning, tested prototype with significant unfinished production art, audio and mobile work. This report records the audit baseline; the linked Phase 2 reports own subsequent changes. Historical statements are preserved, explicitly subordinate to current evidence. Passing mathematical fit tests does not certify anatomy or release readiness.
 
 ## Preservation and commits
 

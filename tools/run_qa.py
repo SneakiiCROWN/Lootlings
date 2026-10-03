@@ -4,6 +4,9 @@ ROOT=Path(__file__).resolve().parents[1]
 GODOT=Path(os.environ.get('GODOT', shutil.which('godot') or str(Path.home()/'Desktop'/'Godot_v4.7.2-stable_win64_console.exe')))
 OUT=ROOT/'.godot_test_data'/'qa_logs'
 p=argparse.ArgumentParser(description='Run guarded Lootlings fixtures with disposable saves. Set GODOT to the engine executable.'); p.add_argument('--native',action='store_true'); p.add_argument('--only',nargs='*'); p.add_argument('--label',default='baseline'); p.add_argument('--size',default='480x854'); args=p.parse_args()
+if args.only:
+    unknown=set(args.only)-{x.stem for x in (ROOT/'tests').glob('*.gd')}
+    if unknown: p.error('Unknown QA fixtures: '+', '.join(sorted(unknown)))
 run_id=args.label+'-'+uuid.uuid4().hex[:10]
 folder=OUT/run_id; folder.mkdir(parents=True,exist_ok=True)
 results=[]
