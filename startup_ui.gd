@@ -95,7 +95,7 @@ func build_title() -> void:
 	title_content.visible = false
 	add_child(title_content)
 	LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
-	make_label(title_content, "RELICS. RUINS. RIDICULOUS WEAPONS.", 13, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
+	make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
 	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 596, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
 	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 692, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
@@ -162,6 +162,21 @@ func build_settings() -> void:
 		slider.min_value = 0.0
 		slider.max_value = 1.0
 		slider.step = 0.01
+		var handle = preload("res://art/ui/brand/slider_handle.svg")
+		for state in ["grabber","grabber_highlight","grabber_disabled"]:
+			slider.add_theme_icon_override(state,handle)
+		var track := StyleBoxFlat.new()
+		track.bg_color = Color("#233c63")
+		track.content_margin_top = 5
+		track.content_margin_bottom = 5
+		track.corner_radius_top_left = 5
+		track.corner_radius_top_right = 5
+		track.corner_radius_bottom_left = 5
+		track.corner_radius_bottom_right = 5
+		slider.add_theme_stylebox_override("slider",track)
+		var percentage := make_label(panel,"",14,Rect2(205,y,82,24),HORIZONTAL_ALIGNMENT_RIGHT,Color("#ffe178"))
+		slider.value_changed.connect(func(value): percentage.text = "%d%%" % roundi(value*100))
+		percentage.text = "%d%%" % roundi(slider.value*100)
 		panel.add_child(slider)
 		setting_sliders[channel] = slider
 		var mute := CheckButton.new()
@@ -478,7 +493,7 @@ func _draw() -> void:
 	var texture_size := BACKGROUND.get_size()
 	var crop_height := texture_size.x * 854.0 / 480.0
 	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
-	draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
+	if get_parent().responsive_backdrop == null: draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
 	draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
 	if current_screen == "title":
 		var bob := sin(scene_time * 2.0) * 5.0

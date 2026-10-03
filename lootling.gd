@@ -191,6 +191,8 @@ var wave_banner_timer := 0.0
 var wave_banner_text := ""
 var wave_banner_color := Color("#8fdcff")
 var status_message := "Tap the arena to attack."
+var responsive_backdrop: Control
+var pause_build_details: Label
 var status_clock := 4.0
 var tap_combo := 0
 var combo_clock := 0.0
@@ -209,6 +211,8 @@ var run_coins_spent := 0
 var run_damage_taken := 0.0
 var run_start_scrap := 0
 var run_kept_loot: Array[String] = []
+var run_notable_items: Array[Dictionary] = []
+var result_loot_cards: Array[Control] = []
 var upgrade_panel: Panel
 var upgrade_title: Label
 var upgrade_buttons: Array[Button] = []
@@ -299,6 +303,12 @@ func _ready() -> void:
 	safe_area_layout = preload("res://safe_area_layout.gd").new()
 	add_child(safe_area_layout)
 	safe_area_layout.configure(self)
+	var scenic_layer := CanvasLayer.new()
+	scenic_layer.layer = -100
+	add_child(scenic_layer)
+	responsive_backdrop = preload("res://responsive_backdrop.gd").new()
+	scenic_layer.add_child(responsive_backdrop)
+	responsive_backdrop.configure(self)
 	touch_ux = preload("res://touch_ux.gd").new()
 	add_child(touch_ux)
 	touch_ux.configure(self)
@@ -510,6 +520,7 @@ func show_startup() -> void:
 	hideout_ui.visible = false
 	startup_ui.visible = true
 	startup_ui.show_boot()
+	help_label.visible = false
 	audio_manager.set_music("TITLE")
 
 func enter_hideout_from_title() -> void:
@@ -704,6 +715,22 @@ func build_overlay_ui() -> void:
 	apply_button_style(restart_button, Color("#795523"), Color("#ffd468"))
 	restart_button.pressed.connect(show_hideout)
 	result_panel.add_child(restart_button)
+	for i in range(2):
+		var card := Panel.new()
+		card.position = Vector2(18+i*197,500)
+		card.size = Vector2(191,44)
+		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var icon := preload("res://item_icon.gd").new()
+		icon.position = Vector2(4,2)
+		icon.size = Vector2(40,40)
+		card.add_child(icon)
+		var name_label := make_label(card,"",13,Rect2(48,3,137,38),HORIZONTAL_ALIGNMENT_LEFT,Color.WHITE)
+		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		card.set_meta("icon",icon)
+		card.set_meta("name_label",name_label)
+		result_panel.add_child(card)
+		result_loot_cards.append(card)
+	refresh_result_loot()
 	help_label = make_label(self, "TAP THE ARENA • Auto-attacks continue", 16, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
 	build_item_ui()
 	build_merchant_ui()
@@ -726,7 +753,8 @@ func build_pause_ui() -> void:
 	LootlingsUI.apply_material(pause_panel, "relic")
 	pause_panel.visible = false
 	make_label(pause_panel, "RUN PAUSED", 31, Rect2(20, 32, 330, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(pause_panel, "The treasure ruins will wait.", 15, Rect2(25, 86, 320, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0"))
+	pause_build_details = make_label(pause_panel, "", 14, Rect2(25, 83, 320, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebde0"))
+	pause_build_details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	make_action_button(pause_panel, "RESUME", Vector2(35, 140), Vector2(300, 64), Color("#285c4c"), Color("#69e6b0"), resume_run)
 	make_action_button(pause_panel, "ABANDON RUN", Vector2(35, 226), Vector2(300, 62), Color("#54302d"), Color("#ff8d88"), request_abandon_run)
 	abandon_panel = make_panel(Rect2(44, 225, 392, 374), Color("#12172ffb"))
@@ -822,6 +850,7 @@ func pause_run() -> void:
 	if state != "playing":
 		return
 	state = "paused"
+	pause_build_details.text = "Damage %.0f • Attack %.2fs • Crit %d%% • Hits x%d\n%s" % [base_damage*equipment_damage_multiplier(),current_attack_interval(),int(effective_crit_chance()*100),multi_hits,build.short_summary()]
 	pause_button.visible = false
 	pause_panel.visible = true
 	abandon_panel.visible = false
@@ -1473,6 +1502,7 @@ func start_run() -> void:
 	run_damage_taken = 0.0
 	run_start_scrap = inventory.scrap
 	run_kept_loot.clear()
+	run_notable_items.clear()
 	status_message = ""
 	status_clock = 0.0
 	if dungeon.active:
@@ -2472,6 +2502,7 @@ func accept_item_equip() -> void:
 	var item_name: String = current_item.get("name", "Loot")
 	if not item_name in run_kept_loot:
 		run_kept_loot.append(item_name)
+		run_notable_items.append(current_item.duplicate(true))
 	var result: Dictionary = inventory.equip(current_item)
 	award_current_weapon_family()
 	refresh_equipment_health()
@@ -2501,6 +2532,7 @@ func accept_item_keep() -> void:
 	var kept_name: String = current_item.get("name", "Loot")
 	if not kept_name in run_kept_loot:
 		run_kept_loot.append(kept_name)
+		run_notable_items.append(current_item.duplicate(true))
 	inventory.save(INVENTORY_SAVE_PATH)
 	status_message = "%s sent to stash." % current_item.get("name", "Loot")
 	player_reward_flash = 0.55
@@ -2571,13 +2603,17 @@ func refresh_merchant_ui() -> void:
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
 		if i >= shop.stock.size():
-			button.text = "SOLD"
+			button.text = "SOLD • IN GOOD PAWS\nPatch is already counting the coins."
 			button.disabled = true
 			button.icon = null
 			merchant_icons[i].visible = false
+			merchant_visuals[i].kicker.text = "SOLD • IN GOOD PAWS"
+			merchant_visuals[i].name.text = "Nothing left but the receipt."
+			merchant_visuals[i].effect.text = "Patch is already counting the coins."
 			for label in merchant_visuals[i].values():
-				label.text = ""
-			button.add_theme_color_override("font_disabled_color", Color("#77819a"))
+				label.modulate = Color("#9cacc4")
+			apply_button_style(button,Color("#141e32"),Color("#536583"))
+			button.add_theme_color_override("font_disabled_color",Color.TRANSPARENT)
 			continue
 		var item: Dictionary = shop.stock[i]
 		var price := int(item.get("price", 0))
@@ -2815,6 +2851,7 @@ func end_run(victory: bool) -> void:
 			notable_loot += ", " + run_kept_loot[1]
 	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
 	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
+	refresh_result_loot()
 	if dungeon.active:
 		result_title.text = "RELIC ROUTE CLEARED!" if victory else "ROUTE ENDED"
 		result_summary.text = result_summary.text.replace("Wave reached  %d / %d" % [wave, RUN_LAST_WAVE], "Rooms entered  %d / 8 • Seed %d" % [dungeon.depth + 1, dungeon.seed_value])
@@ -2865,6 +2902,26 @@ func buy_meta_power() -> void:
 func refresh_hideout() -> void:
 	if hideout_ui != null:
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
+
+func refresh_result_loot() -> void:
+	var ranked := run_notable_items.duplicate()
+	var rarity_order := {"COMMON":0,"UNCOMMON":1,"RARE":2,"EPIC":3,"LEGENDARY":4}
+	ranked.sort_custom(func(a,b): return int(rarity_order.get(a.get("rarity","COMMON"),0)) > int(rarity_order.get(b.get("rarity","COMMON"),0)))
+	for i in range(result_loot_cards.size()):
+		var card: Control = result_loot_cards[i]
+		card.visible = i < ranked.size()
+		if not card.visible: continue
+		var item: Dictionary = ranked[i]
+		var style := StyleBoxFlat.new()
+		style.bg_color = Color("#172442")
+		style.border_color = ItemCatalog.rarity_color(str(item.get("rarity","COMMON")))
+		style.set_border_width_all(2)
+		style.set_corner_radius_all(8)
+		card.add_theme_stylebox_override("panel",style)
+		card.get_meta("icon").configure(item)
+		var caption: Label = card.get_meta("name_label")
+		caption.text = str(item.get("name","Loot"))
+		caption.add_theme_color_override("font_color",ItemCatalog.rarity_color(str(item.get("rarity","COMMON"))))
 
 func load_meta() -> void:
 	var progress := MetaStore.load_progress(SAVE_PATH)
@@ -3053,7 +3110,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		lane = "reward"
 	elif is_dot or prefix in ["WARD"]:
 		lane = "secondary"
-	elif prefix in ["ARC", "WILDFIRE", "GEAR", "RELIC", "SHOCKWAVE", "YEET!"]:
+	elif prefix in ["ARC", "QUAKE", "WILDFIRE", "GEAR", "RELIC", "SHOCKWAVE", "YEET!"]:
 		lane = "proc"
 	var lane_count := 0
 	for item in floating_texts:
@@ -3066,10 +3123,10 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	match lane:
 		"player": pos = Vector2(70, 414)
 		"reward": pos = Vector2(290, 628)
-		"proc": pos = Vector2(260, 365)
-		"secondary": pos = Vector2(270, 397)
-		_: pos = Vector2(270, 334)
-	pos.y -= min(lane_count, 2) * 17.0
+		"proc": pos = Vector2(140, 590)
+		"secondary": pos = Vector2(350, 595)
+		_: pos = Vector2(290, 380)
+	pos.y += min(lane_count, 2) * 26.0
 	pos.x += (-9.0 if lane_count % 2 == 0 else 9.0) * min(lane_count, 2)
 	var duration := 0.68 if size_value < 25 else 0.82
 	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":duration, "max_life":duration, "lane":lane})
@@ -3092,6 +3149,8 @@ func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
 		reward_pickups.append({"kind":"xp", "start":start, "pos":start, "target":Vector2(250, 92), "vel":Vector2(visual_rng.randf_range(-95.0, 110.0), visual_rng.randf_range(-210.0, -105.0)), "delay":0.20 + i * 0.045, "life":0.78, "max_life":0.78})
 
 func _draw() -> void:
+	if startup_ui != null and startup_ui.visible: return
+	if hideout_ui != null and hideout_ui.visible: return
 	var sx := size.x / DESIGN_SIZE.x
 	var sy := size.y / DESIGN_SIZE.y
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(sx, sy))
@@ -3239,23 +3298,12 @@ func draw_enemy(pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	creature_renderer.draw_enemy(self, pos, color, extra_scale)
 
 func draw_stats_strip() -> void:
-	hud_build_surface.draw(get_canvas_item(), Rect2(18, 714, 444, 88))
+	hud_build_surface.draw(get_canvas_item(), Rect2(18, 754, 444, 48))
 	var identity := build.dominant()
 	var core_title := "DORMANT CORE" if identity == "Neutral" else "%s CORE • %s" % [identity.to_upper(), build.tier_name(identity)]
-	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("core_%s" % identity.to_lower()), Rect2(24, 720, 18, 18))
-	draw_string(body_font, Vector2(44, 735), "%s  •  %s" % [current_weapon_family(), core_title], HORIZONTAL_ALIGNMENT_LEFT, 292, 12, Color("#f1d486"))
-	var scrap_text := str(inventory.scrap)
-	var scrap_width := body_font.get_string_size(scrap_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
-	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_scrap"), Rect2(442 - scrap_width - 23, 721, 18, 18))
-	draw_string(body_font, Vector2(344, 735), scrap_text, HORIZONTAL_ALIGNMENT_RIGHT, 98, 13, Color("#9fddff"))
-	var labels := ["DAMAGE", "ATTACK", "CRIT", "HITS"]
-	var values := ["%.0f" % (base_damage * equipment_damage_multiplier()), "%.2fs" % current_attack_interval(), "%d%%" % int(effective_crit_chance() * 100.0), "x%d" % multi_hits]
-	for i in range(4):
-		var x := 32.0 + i * 105.0
-		if i > 0:
-			draw_line(Vector2(x - 5, 747), Vector2(x - 5, 788), Color("#41527499"), 1)
-		draw_string(body_font, Vector2(x, 758), labels[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 12, Color("#b1c7eb"))
-		draw_string(title_font, Vector2(x, 785), values[i], HORIZONTAL_ALIGNMENT_CENTER, 92, 18, Color("#f4f7ff"))
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("core_%s" % identity.to_lower()), Rect2(28, 767, 20, 20))
+	draw_string(body_font, Vector2(56, 785), "%s • %s" % [current_weapon_family(),core_title], HORIZONTAL_ALIGNMENT_LEFT, 296, 12, Color("#f1d486"))
+	draw_string(body_font, Vector2(362,785),"DETAILS: PAUSE",HORIZONTAL_ALIGNMENT_CENTER,90,10,Color("#b1c7eb"))
 
 func draw_status_chip(pos: Vector2, text_value: String, color: Color, icon_name: String) -> void:
 	var width := clampf(body_font.get_string_size(text_value, HORIZONTAL_ALIGNMENT_LEFT, -1, 10).x + 26.0, 72.0, 140.0)
@@ -3465,7 +3513,8 @@ func draw_moment_overlay() -> void:
 		draw_rect(Rect2(0, 146, 480, 555), Color(1.0, 0.94, 0.68, flash_alpha), true)
 	if tap_pulse > 0.0 and tap_combo > 1:
 		var pulse_alpha := clampf(tap_pulse / 0.18, 0.0, 1.0)
-		draw_string(title_font, Vector2(285, 660), "TAP COMBO  x%d" % tap_combo, HORIZONTAL_ALIGNMENT_CENTER, 170, 17 + mini(tap_combo, 6), Color(0.55, 0.92, 1.0, pulse_alpha))
+		draw_rect(Rect2(118,704,244,32),Color("#08152aee"))
+		draw_string(title_font, Vector2(126,727), "TAP COMBO  x%d" % tap_combo, HORIZONTAL_ALIGNMENT_CENTER, 228, 18, Color(0.72, 0.98, 1.0, pulse_alpha))
 	if wave_banner_timer > 0.0:
 		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
 		var banner_color := wave_banner_color

@@ -16,6 +16,13 @@ func capture_screens() -> void:
 	var game = packed.instantiate()
 	root.add_child(game)
 	await wait_frames(4)
+	game.app_lifecycle.platform_notifications_enabled = false
+	game.audio_settings.cinematic_first_time = false
+	var requested_size := OS.get_environment("LOOTLINGS_CAPTURE_SIZE").split("x")
+	if requested_size.size() == 2:
+		root.size = Vector2i(int(requested_size[0]),int(requested_size[1]))
+		await create_timer(.25).timeout
+		assert(root.size == Vector2i(int(requested_size[0]),int(requested_size[1])))
 	game.show_startup()
 	game.startup_ui.show_boot()
 	await create_timer(0.35).timeout
@@ -44,7 +51,17 @@ func capture_screens() -> void:
 	if not save_viewport("settings_qa.png"):
 		quit(1)
 		return
+	game.startup_ui.cinematic_preferences.visible = true
+	await wait_frames(8)
+	save_viewport("story_motion_qa.png")
+	game.startup_ui.cinematic_preferences.visible = false
 	game.startup_ui.show_lootling_select()
+	for id in preload("res://lootling_catalog.gd").selectable_ids():
+		game.startup_ui.selected_lootling_id = id
+		game.startup_ui.refresh_selector()
+		await wait_frames(8)
+		assert(not game.startup_ui.selector_note.text.contains("PENDING"))
+		save_viewport("selector_%s_qa.png" % id)
 	await wait_frames(24)
 	if not save_viewport("lootling_select_qa.png"):
 		quit(1)
@@ -93,6 +110,19 @@ func capture_screens() -> void:
 			quit(1)
 			return
 	game.start_run()
+	game.set_process(false)
+	game.player_x = game.target_player_x()
+	for enemy_wave in [1,8,15]:
+		game.wave = enemy_wave
+		game.wave_kills = 0
+		game.last_spawned_wave = 0
+		game.spawn_enemy()
+		game.wave_banner_timer = 0
+		game.special_intro_timer = 0
+		game.attack_anim = .11
+		game.queue_redraw()
+		await wait_frames(8)
+		save_viewport("combat_wave_%d_qa.png" % enemy_wave)
 	game.wave = 12
 	game.wave_kills = 0
 	game.last_spawned_wave = 0
@@ -173,8 +203,17 @@ func capture_screens() -> void:
 	if not save_viewport("pack_peddler_qa.png"):
 		quit(1)
 		return
+	game.shop.stock.pop_back()
+	game.refresh_merchant_ui()
+	await wait_frames(8)
+	save_viewport("merchant_sold_qa.png")
+	game.inspect_merchant_item(0)
+	await wait_frames(8)
+	save_viewport("merchant_confirmation_qa.png")
+	game.touch_ux.close_dialog()
 	game.merchant_panel.visible = false
 	game.state = "playing"
+	game.set_process(true)
 	game.pause_run()
 	await wait_frames(8)
 	if not save_viewport("pause_qa.png"):
@@ -228,6 +267,9 @@ func capture_screens() -> void:
 		return
 	game.boss_reward_panel.visible = false
 	game.debug_show_result(true)
+	game.run_notable_items.clear()
+	game.run_notable_items.append(preview)
+	game.refresh_result_loot()
 	# Exercise real summary typography with large totals without granting rewards.
 	game.result_summary.text = game.style_result_summary(game.format_result_summary(true, 15, 46, 9999, 8888, 1111, 7777, 6666, "A Very Long Legendary Item Name", 9999))
 	await wait_frames(8)
@@ -282,8 +324,8 @@ func wait_frames(count: int) -> void:
 		# Forced state jumps happen faster than a real run; unrelated pending
 		# achievement toasts must not conceal the screen under review.
 		var game = root.get_child(root.get_child_count() - 1)
-		if game.presentation_director.toast_tween != null:
-			game.presentation_director.toast_tween.kill()
+		game.presentation_director.toast_queue.clear()
+		game.presentation_director.active_toast.clear()
 		game.presentation_director.toast_panel.visible = false
 
 func save_viewport(file_name: String) -> bool:
@@ -291,7 +333,9 @@ func save_viewport(file_name: String) -> bool:
 	if image == null or image.is_empty():
 		push_error("VISUAL QA: viewport image unavailable")
 		return false
-	var path := ProjectSettings.globalize_path("res://.godot_test_data/%s" % file_name)
+	var folder := "res://.godot_test_data/correction_screens/%dx%d" % [root.size.x,root.size.y]
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
+	var path := ProjectSettings.globalize_path(folder+"/"+file_name)
 	var error := image.save_png(path)
 	if error != OK:
 		push_error("VISUAL QA: failed to save %s (%d)" % [path, error])

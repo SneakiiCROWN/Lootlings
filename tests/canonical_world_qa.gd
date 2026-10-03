@@ -35,8 +35,8 @@ func run_qa() -> void:
 	game.startup_ui.selected_lootling_id = "gloomlet"
 	game.startup_ui.refresh_selector()
 	assert(not game.startup_ui.selector_confirm.disabled)
-	assert(Roster.runtime_texture("gloomlet") == Roster.BASE_TEXTURE)
-	assert(Roster.definition("gloomlet").temp_art)
+	assert(Roster.runtime_texture("gloomlet") != Roster.BASE_TEXTURE)
+	assert(not Roster.definition("gloomlet").temp_art)
 	game.startup_ui.confirm_lootling()
 	assert(game.profile.current_lootling_id == "gloomlet")
 	if native: await capture("canonical_gloomlet_standin")

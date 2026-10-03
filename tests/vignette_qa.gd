@@ -33,7 +33,7 @@ func run_qa() -> void:
 	assert(Catalog.entry("fake/unknown").is_empty())
 	assert(not Catalog.available("resident/patch",game.profile))
 	assert(Catalog.available("character/gloomlet",game.profile))
-	assert(Catalog.entry("character/gloomlet").status.contains("TEMP ART"))
+	assert(not Catalog.entry("character/gloomlet").status.contains("TEMP ART"))
 	# Preview must not select a different Lootling or unlock its memory.
 	var before := snapshot()
 	game.play_story_preview("character/emberhorn",game.profile)

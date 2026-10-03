@@ -122,6 +122,15 @@ static func apply_material(panel: Control, material: String, radius: int = 20) -
 	panel.add_theme_stylebox_override("panel", material_style(material, radius))
 
 static func button_style(_fill: Color, _border: Color, state_name: String = "normal", intent: String = "secondary") -> StyleBox:
+	if intent == "utility":
+		var box := StyleBoxFlat.new()
+		box.bg_color = Color("#192944") if state_name == "normal" else Color("#2b4264")
+		box.border_color = Color("#7087ae")
+		box.set_border_width_all(1)
+		box.set_corner_radius_all(10)
+		box.content_margin_left = 8
+		box.content_margin_right = 8
+		return box
 	return skin_style("button_%s_%s" % [intent, state_name], 24)
 
 static func apply_button(button: Button, fill: Color, border: Color) -> void:
@@ -131,6 +140,8 @@ static func apply_button(button: Button, fill: Color, border: Color) -> void:
 		intent = "destructive"
 	elif action.begins_with("EQUIP") or action.begins_with("SAVE") or action.begins_with("CHOOSE") or action in ["ENTER THE HIDEOUT", "TAP TO BEGIN", "CONTINUE", "RESUME", "UPGRADE", "RETURN TO HIDEOUT", "TAP TO OPEN\nHOARD CHEST"]:
 		intent = "primary"
+	elif button.size.y <= 54 or action in ["PROFILE","TITLE","SETTINGS","DONE","ALL","STORY & MOTION"] or action.begins_with("‹"):
+		intent = "utility"
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		button.add_theme_stylebox_override(state_name, button_style(fill, border, state_name, intent))
 	button.add_theme_color_override("font_disabled_color", Color("#a0a6b3"))
@@ -149,7 +160,7 @@ static func draw_meter(canvas: RID, rect: Rect2, ratio: float, kind: String, tra
 	var width := inner.size.x * clampf(ratio, 0.0, 1.0)
 	var trail_width := inner.size.x * clampf(trail_ratio, 0.0, 1.0)
 	if trail_width > width:
-		RenderingServer.canvas_item_add_rect(canvas, Rect2(inner.position + Vector2(width, 0), Vector2(trail_width - width, inner.size.y)), Color("#ffe3a4"))
+		RenderingServer.canvas_item_add_rect(canvas, Rect2(inner.position + Vector2(width, inner.size.y*.30), Vector2(trail_width - width, inner.size.y*.40)), Color("#ff784766"))
 	if width > 0.0:
 		fill.draw(canvas, Rect2(inner.position, Vector2(width, inner.size.y)))
 

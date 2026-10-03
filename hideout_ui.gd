@@ -641,7 +641,7 @@ func build_achievements() -> void:
 	achievement_summary = make_label(achievement_content, "", 14, Rect2(46, 75, 388, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
 	var filters := ["ALL", "ADVENTURE", "COMBAT", "LOOT", "OTHER"]
 	for index in range(filters.size()):
-		var filter_button := make_button(achievement_content, filters[index], Rect2(20 + index * 89, 108, 84, 38), Color("#171733d9"), Color("#846cb0"), 10)
+		var filter_button := make_button(achievement_content, "TRAVEL" if filters[index] == "ADVENTURE" else filters[index], Rect2(20 + index * 89, 108, 84, 48), Color("#171733d9"), Color("#846cb0"), 14)
 		filter_button.pressed.connect(set_achievement_filter.bind(filters[index]))
 		achievement_filter_buttons.append(filter_button)
 	var panel := make_panel(achievement_content, Rect2(20, 156, 440, 404), Color("#090f25d9"), Color("#9f7cce"))
@@ -652,7 +652,7 @@ func build_achievements() -> void:
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	panel.add_child(scroll)
 	achievement_grid = GridContainer.new()
-	achievement_grid.columns = 3
+	achievement_grid.columns = 2
 	achievement_grid.custom_minimum_size = Vector2(398, 0)
 	achievement_grid.add_theme_constant_override("h_separation", 8)
 	achievement_grid.add_theme_constant_override("v_separation", 8)
@@ -694,7 +694,7 @@ func build_memories() -> void:
 	add_child(memory_content)
 	make_button(memory_content, "‹ NOTES", Rect2(20,20,124,48), Color("#202d4d"), Color("#7f94bc"),15).pressed.connect(show_lore)
 	make_label(memory_content, "MEMORY ARCHIVE",25,Rect2(148,23,312,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
-	make_label(memory_content, "Living paintings • replay never grants rewards",13,Rect2(24,87,432,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	make_label(memory_content, "Living paintings • replay never grants rewards",13,Rect2(24,74,432,30),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
 	for index in range(4):
 		var filter_name: String = ["ALL","Characters","Regions","Bosses"][index]
 		make_button(memory_content, filter_name.to_upper(), Rect2(20+index*111,186,107,44), Color("#202d4d"),Color("#bba0de"),12).pressed.connect(func(): memory_filter = filter_name; refresh_memories())
@@ -729,7 +729,7 @@ func refresh_memories() -> void:
 		button.custom_minimum_size = Vector2(396,80)
 		button.add_theme_font_size_override("font_size",16)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		button.text = "▷  %s\n      %s • %.0fs" % [str(entry.name), str(entry.category).to_upper(), float(entry.duration)] if unlocked else "   UNDISCOVERED MEMORY\n   %s • follow its trail" % str(entry.category).to_upper()
+		button.text = "▷  %s\n      %s • %.0f-second replay" % [str(entry.name), str(entry.category).capitalize(), float(entry.duration)] if unlocked else "   UNDISCOVERED MEMORY\n   %s • find this story on your travels" % str(entry.category).capitalize()
 		LootlingsUI.apply_button(button,Color("#17294b"),Color("#c99cff"))
 		button.disabled = not unlocked
 		button.pressed.connect(func(): memory_replay_requested.emit(id))
@@ -778,9 +778,9 @@ func refresh_achievements() -> void:
 		var secret: bool = bool(entry.get("secret", false)) and not unlocked
 		var title := "???" if secret else str(entry.name)
 		var progress_text := "COMPLETE" if unlocked else "%d / %d" % [mini(current, target), target]
-		var card := make_button(achievement_grid, "\n\n%s\n%s" % [title, progress_text], Rect2(0, 0, 127, 112), Color("#392b34") if unlocked else Color("#131a32"), Color("#ffd36a") if unlocked else Color("#58698f"), 11)
-		LootlingsUI.add_icon(card, Rect2(43, 8, 40, 40), trophy_texture_path(entry, unlocked, secret))
-		card.custom_minimum_size = Vector2(127, 112)
+		var card := make_button(achievement_grid, "\n\n%s\n%s" % [title, progress_text], Rect2(0, 0, 195, 142), Color("#392b34") if unlocked else Color("#131a32"), Color("#ffd36a") if unlocked else Color("#58698f"), 14)
+		LootlingsUI.add_icon(card, Rect2(73, 8, 48, 48), trophy_texture_path(entry, unlocked, secret))
+		card.custom_minimum_size = Vector2(195, 142)
 		if unlocked:
 			card.set_meta("ui_intent", "primary")
 			apply_button_style(card, Color("#392b34"), Color("#ffd36a"))
@@ -1300,12 +1300,11 @@ func _process(delta: float) -> void:
 		queue_redraw()
 
 func _draw() -> void:
-	draw_rect(Rect2(0, 0, 480, 854), Color("#070c1d"))
 	var background := background_for_screen()
 	var texture_size := background.get_size()
 	var crop_height := texture_size.x * 854.0 / 480.0
 	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
-	draw_texture_rect_region(background, Rect2(0, 0, 480, 854), source)
+	if get_parent().responsive_backdrop == null: draw_texture_rect_region(background, Rect2(0, 0, 480, 854), source)
 	var veil := Color("#07102724")
 	if current_screen == "shop": veil = Color("#21100620")
 	elif current_screen == "stash": veil = Color("#06132a30")
@@ -1479,11 +1478,11 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	button.add_theme_constant_override("outline_size", 6)
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
-		box.bg_color = Color(0.025, 0.055, 0.12, 0.025 if state_name == "normal" else 0.42)
+		box.bg_color = Color(0.025, 0.055, 0.12, 0.18 if state_name == "normal" else 0.42)
 		if state_name == "hover": box.bg_color = Color(accent.r, accent.g, accent.b, 0.30)
 		if state_name == "pressed": box.bg_color = Color(accent.r, accent.g, accent.b, 0.40)
 		box.border_color = Color(accent.r, accent.g, accent.b, 0.14 if state_name == "normal" else 0.9)
-		box.set_border_width_all(0 if state_name == "normal" else 3)
+		box.set_border_width_all(1 if state_name == "normal" else 3)
 		box.set_corner_radius_all(18)
 		box.shadow_color = Color(accent.r, accent.g, accent.b, 0.10 if state_name == "normal" else 0.22)
 		box.shadow_size = 4 if state_name == "normal" else 5

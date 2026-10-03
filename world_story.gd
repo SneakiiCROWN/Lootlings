@@ -57,11 +57,11 @@ const LOOTLINGS := {
 }
 # Premise / midpoint / boss hook / victory / next-region hook.
 const REGIONS := {
-	"act_i":["Your Core remembers a promise here. Bring it home.", "The locks serve a fallen Crown. Nobody told the guards.", "The Hoard Dragon guards stolen promises. Guests get eaten.", "The vault is open. Its stolen stories can finally leave.", "A jade reflection waits beyond the ruins."],
-	"mossglass_wilds":["The forest grows around forgotten treasure.", "Every leaf reflects a different sky.", "The Verdant Mirror guards a stolen spring.", "The spring remembers its own reflection.", "Follow the lanterns into Moonfen."],
+	"act_i":["Your Core remembers this road. Someone meant to come back.", "Fallen Crown. Working locks. The paperwork accepts swords.", "The Hoard Dragon stole promises. Dispute the inventory.", "The vault opens. Forgotten names see daylight again.", "Beyond the ruins, a jade pool holds the forest's lost spring."],
+	"mossglass_wilds":["Roots claimed the Crown's treasure. Better landlords.", "Every leaf reflects a different sky. None of them is today's.", "The Mirror stole the spring. Downstream, nothing flowers.", "Water finds its old path. Something stolen gets to go home.", "Lanterns wait in Moonfen. Ilex has underlined 'wait'."],
 	"moonfen":["Follow lanterns. Not all of them are friendly.", "The marsh keeps what the moon forgets.", "The Lantern Jackal knows your scent.", "The false lights go dark.", "A bell rings beneath the ice."],
 	"frostbell_hollows":["A frozen warning still rings here.", "The ice holds unfinished songs.", "Belljaw has swallowed the last chime.", "For once, the silence is kind.", "Meltwater leads to the drowned machines."],
-	"sunken_gearworks":["The machines work. Their makers do not.", "Brass lungs breathe beneath the water.", "The Drowned Engine wants one more worker.", "The shift is finally over.", "The furnace above has crowned itself."],
+	"sunken_gearworks":["The shift bell rings. Nobody has answered in a century.", "Brass lungs breathe. Their makers' names have rusted away.", "The Engine has a vacancy. Its last worker is still chained.", "The shift ends. Leave the ledger open. They were owed more.", "Above the works, a furnace has awarded itself a crown."],
 	"cinder_crown":["The furnace has crowned a new tyrant.", "Every tribute feeds the fire.", "The Furnace Regent accepts no refunds.", "The crown cools. The debts remain.", "A star has fallen into the Archive."],
 	"starfall_archive":["Someone has been editing the stars.", "The shelves remember the missing names.", "The Redactor would erase your ending.", "Your name stays on the page.", "The missing pages reflect another world."],
 	"nullglass_expanse":["Your reflection arrives a step too late.", "Don't follow the version that smiles first.", "The Unchosen wears abandoned futures.", "One reflection walks home.", "Above the glass, chains catch the sky."],

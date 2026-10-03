@@ -42,7 +42,7 @@ func _ready() -> void:
 	caption_panel.size = Vector2(428,157)
 	UI.apply_material(caption_panel, "relic")
 	add_child(caption_panel)
-	caption = label(Rect2(50,646,380,82), 20, Color("#edf2ff"))
+	caption = label(Rect2(50,640,380,105), 19, Color("#edf2ff"))
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	status = label(Rect2(47,745,386,22), 10, Color("#a4b6d9"))
@@ -98,7 +98,17 @@ func play(entry: Dictionary, settings: Dictionary, playback_mode: String, callba
 
 func update_caption() -> void:
 	var lines: Array = data.lines
-	var index := mini(lines.size() - 1, int(elapsed / maxf(0.01, duration) * lines.size()))
+	var weights: Array[float] = []
+	var total := 0.0
+	for line in lines:
+		var weight := maxf(2.0,str(line).length()*.045+1.0)
+		weights.append(weight)
+		total += weight
+	var cursor := elapsed/maxf(.01,duration)*total
+	var index := 0
+	while index < weights.size()-1 and cursor >= weights[index]:
+		cursor -= weights[index]
+		index += 1
 	if index != caption_index:
 		caption_index = index
 		caption.text = str(lines[index]) if not lines.is_empty() else ""

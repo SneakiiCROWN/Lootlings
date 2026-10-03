@@ -7,9 +7,9 @@ const Campaign = preload("res://campaign_system.gd")
 const BASE_BACKGROUND := "res://art/backgrounds/treasure_ruins_arena.png"
 const REGION_ART := {"mossglass_wilds":"crystal_grove", "moonfen":"moonfen_marsh", "frostbell_hollows":"frozen_citadel", "sunken_gearworks":"gearworks_foundry", "cinder_crown":"infernal_citadel", "starfall_archive":"starfall_sanctum", "nullglass_expanse":"nullglass_gate", "skyhook_bastion":"skyhook_city", "first_hoard":"first_hoard_throne"}
 const RESIDENTS := {
-	"patch":{"name":"Patch Brasswick", "role":"Salvager", "art":"patch", "lines":["The gate was scrap when Patch found it.", "He rebuilt it for people who had nowhere to return.", "'Repairs cost money. Coming home doesn't.'"]},
-	"sera":{"name":"Sera Vey", "role":"Relic Keeper", "art":"sera", "lines":["The Crown's scholars put a price on living Cores.", "Sera left before they could call that wisdom.", "'Ancient power can wait. Sit down first.'"]},
-	"ilex":{"name":"Ilex Quill", "role":"Archivist", "art":"ilex", "lines":["Ilex fled Starfall before her name could be erased.", "Here, witnesses matter more than perfectly written histories.", "'A blank page is not permission to forget.'"]}
+	"patch":{"name":"Patch Brasswick", "role":"Salvager", "art":"patch", "lines":["Patch found a gate that had outlived the wall. Typical royal engineering.", "He built the Hideout around it. Nobody here would come home to a locked door.", "'Repairs cost money. Coming home doesn't. Wipe your boots.'"]},
+	"sera":{"name":"Sera Vey", "role":"Relic Keeper", "art":"sera", "lines":["The Crown priced living Cores by weight. Sera asked what a promise weighed.", "The committee disliked the question. She left with their research and the people it endangered.", "'Ancient power can wait. You are bleeding on my notes.'"]},
+	"ilex":{"name":"Ilex Quill", "role":"Archivist", "art":"ilex", "lines":["Starfall's official history misplaced entire families. Ilex kept their names.", "She arrived with six trunks of evidence and a very short opinion of kings.", "'A blank page is not permission to forget. Bring witnesses. And a sturdier shelf.'"]}
 }
 const BOSS_ENTRIES := {
 	"grump_knight":{"name":"Grump Knight", "region":"act_i", "art":"res://art/sprites/enemies/grump_knight.png", "epithet":"The Unpaid Gatekeeper", "line":"The old toll is unpaid. He intends to collect it from someone still breathing."},
@@ -92,6 +92,10 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			result.background = "res://art/backgrounds/lootlings_hideout.png"
 			result.lines = ["The Crownfall left its promises in pieces.", "Here, strangers built somewhere to bring them home.", "Beyond these lanterns, the ruins still take lives. Here, the door stays open."]
 		_: return {}
+	# Readable subtitles take priority over a fixed, arbitrarily short runtime.
+	var reading_seconds := 0.0
+	for line in result.lines: reading_seconds += maxf(2.0,str(line).length()*.045+1.0)
+	result.duration = maxf(float(result.duration),reading_seconds)
 	return result
 
 static func available(id: String, profile: Dictionary) -> bool:

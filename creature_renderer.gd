@@ -70,17 +70,21 @@ func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 func draw_striking_blade(g, pos: Vector2) -> void:
 	# Large foes used to hide the entire contact stroke. Only the blade crosses
 	# their foreground; the handle stays beneath the real closed paws.
-	if not RelicMotion.applies(g) or g.attack_anim <= .055: return
+	if g.attack_anim <= .055: return
 	var pose := WandererPose.sample(g,g.player_flash > 0)
-	if pose.support_status != "authored_two_hand": return
+	var blade_fraction: float = {"greatsword":.61,"axe":.50,"maul":.47,"spear":.48,"dagger":.50,"claws":.30}.get(str(pose.weapon_type),0.0)
+	if blade_fraction == 0: return
 	var root: Transform2D = pose.root
 	root.origin += pos
-	var texture := WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),null)
+	var item: Dictionary = g.inventory.equipped_item("Weapon")
+	var texture := WeaponCatalog.presentation_texture(str(pose.weapon_type),"held",VANGUARD_WEAPON_TEXTURE,int(item.get("evolution_stage",0)))
+	if pose.geometry.has("held_path"):
+		texture = WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),texture)
 	if texture == null: return
 	g.draw_set_transform_matrix(root*Transform2D(float(pose.weapon_rotation),Vector2(pose.weapon_scale),0,Vector2(pose.hand)))
 	var rect: Rect2 = pose.weapon_rect
-	var source := Rect2(Vector2.ZERO,Vector2(texture.get_size())*Vector2(1,.61))
-	g.draw_texture_rect_region(texture,Rect2(rect.position,rect.size*Vector2(1,.61)),source)
+	var source := Rect2(Vector2.ZERO,Vector2(texture.get_size())*Vector2(1,blade_fraction))
+	g.draw_texture_rect_region(texture,Rect2(rect.position,rect.size*Vector2(1,blade_fraction)),source)
 	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 
 func draw_wanderer(g, pos: Vector2, hurt: bool) -> void:

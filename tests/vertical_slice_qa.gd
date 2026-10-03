@@ -30,7 +30,7 @@ func run_qa() -> void:
 	director.present_toast("BUILD AWAKENED", "Your next bad idea now hits harder.")
 	director.update_toast(0.4)
 	assert(director.toast_title.text == "RELIC RECOVERED" and director.toast_queue.size() == 1)
-	assert(director.toast_panel.position.y >= 554 and director.toast_panel.position.y + director.toast_panel.size.y <= 662)
+	assert(director.toast_panel.position.y >= 536 and director.toast_panel.position.y + director.toast_panel.size.y <= 662)
 	assert(director.toast_panel.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	game.state = "upgrade"
 	var reading_time: float = director.toast_elapsed

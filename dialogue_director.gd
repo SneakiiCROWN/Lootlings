@@ -43,8 +43,8 @@ const POOLS := {
 		{"speaker": "Mascot", "text": "Point me at the ruins. I have a sword and a deeply unearned sense of readiness.", "weight": 2.0}
 	],
 	"returning":[
-		{"speaker": "Salvager", "text": "Back in one piece. Excellent. I am charging for fewer pieces this week.", "weight": 2.0},
-		{"speaker": "Archivist", "text": "Tell me what happened before the version with dramatic lighting.", "weight": 2.0},
+		{"speaker": "Salvager", "text": "There you are. I left the lamp burning. Before you get sentimental, lamp oil goes on the invoice.", "weight": 2.0},
+		{"speaker": "Archivist", "text": "Sit. Names first, injuries second, heroic embellishments in the appendix. There is tea.", "weight": 2.0},
 		{"speaker": "Relic Keeper", "text": "The gate brought you home. That matters more than what was in your hands.", "weight": 2.0}
 	],
 	"early_defeat":[
@@ -113,7 +113,7 @@ const POOLS := {
 	],
 	"rare":[
 		{"speaker": "Archivist", "text": "The old vault map says HERE BE ACCOUNTANTS. We have found worse things.", "weight": 2.0},
-		{"speaker": "Salvager", "text": "A prophecy predicted my success. Very little was said about the overheads.", "weight": 2.0},
+		{"speaker": "Salvager", "text": "I once dated a prophet. Wonderful nights. Terrible surprises. We both knew how it would end.", "weight": 2.0},
 		{"speaker": "Relic Keeper", "text": "Sometimes the Core remembers a sky we have never seen. Those are the quiet nights.", "weight": 2.0}
 	]
 }

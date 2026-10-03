@@ -5,6 +5,7 @@ settings, production signing keys, or player saves are touched.
 """
 from pathlib import Path
 import argparse, hashlib, json, os, re, shutil, subprocess, urllib.request, zipfile
+from android_splash_theme import branded_template
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.godot_test_data' / 'android'
@@ -45,6 +46,7 @@ def main():
             with zipfile.ZipFile(WORK/archive) as package: package.extractall(destination)
             marker.touch()
     sdk = WORK/'sdk'
+    splash_patch = branded_template(WORK/'android_debug.apk', WORK/'android_debug_branded.apk')
     buildtools = sdk/'build-tools'/'36.0.0'
     if not buildtools.exists(): shutil.copytree(sdk/'build-tools'/'android-16', buildtools)
     jdk = next((WORK/'jdk').glob('jdk-*'))
@@ -92,7 +94,7 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux']:
+        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries
@@ -124,7 +126,7 @@ def main():
               'contains_manifest_and_test_monitor': True, 'source_test_reference_art_excluded': True,
               'contains_motion_and_safe_area_modules': True, 'final_imported_poses': imported_poses,
               'mobile_gesture_owner_exported': True, 'current_pcm_audio_assets': imported_audio,
-              'audio_license_manifest_exported': True, 'version_code': 2,
+              'audio_license_manifest_exported': True, 'version_code': 3, 'splash_theme_patch': splash_patch,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))

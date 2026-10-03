@@ -22,7 +22,7 @@ const CREATURE_PROFILES := {
 	"moonkip":{"category":"small_biped","primary":Vector2(.70,.755),"secondary":Vector2(.30,.745),"core":Vector2(.50,.66),"scale":.74,"baked":"daggers"},
 	"pebblewyrm":{"category":"heavy_brute","primary":Vector2(.80,.77),"secondary":Vector2(.27,.77),"core":Vector2(.64,.735),"scale":.90},
 	"glimmerfin":{"category":"floating","primary":Vector2(.72,.77),"secondary":Vector2(.30,.765),"core":Vector2(.50,.66),"scale":.76,"baked":"wand"},
-	"gloomlet":{"category":"chunky_biped","primary":Vector2(.777,.731),"secondary":Vector2(.515,.69),"core":Vector2(.63,.594),"scale":.82,"stand_in":true}
+	"gloomlet":{"category":"small_biped","primary":Vector2(.77,.79),"secondary":Vector2(.29,.79),"core":Vector2(.57,.72),"scale":.74}
 }
 const GEOMETRY := {
 	"greatsword":{"size":Vector2(112, 142), "grip":Vector2(.377,.84), "socket":Vector2(.65,.05), "angle":0.36},
@@ -192,6 +192,11 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	if relic_motion:
 		var feet := Vector2(0,float(authored.get("feet_baseline",53)))
 		root.origin += feet-root.basis_xform(feet)
+	elif creature:
+		var feet := Vector2(0,float(actor.body_rect.end.y))
+		root.origin += feet-root.basis_xform(feet)
+		if g.player_x < g.target_player_x()-4.0:
+			root.origin.y -= absf(sin(float(g.run_time)*8))*3.0
 	var geometry: Dictionary = authored.get("weapon_overrides",{}).get(subtype,weapon)
 	var size: Vector2 = Vector2(geometry.size)*float(actor.weapon_scale)*(1.0+clampi(int(item.get("evolution_stage",0)),0,2)*.06)
 	if creature: size *= 1.0+float(g.build.weapon_tier())*.14

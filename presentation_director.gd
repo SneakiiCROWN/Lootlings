@@ -86,22 +86,22 @@ func build_overlay() -> void:
 	travel_panel.add_child(travel_progress)
 	toast_panel = Panel.new()
 	toast_panel.position = Vector2(56, 554)
-	toast_panel.size = Vector2(368, 90)
+	toast_panel.size = Vector2(368, 126)
 	toast_panel.add_theme_stylebox_override("panel", UI.material_style("relic"))
 	toast_panel.visible = false
 	toast_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(toast_panel)
 	toast_title = Label.new()
 	toast_title.position = Vector2(18, 12)
-	toast_title.size = Vector2(332, 28)
+	toast_title.size = Vector2(332, 48)
 	toast_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	toast_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	toast_title.add_theme_font_size_override("font_size", 17)
 	toast_title.add_theme_color_override("font_color", Color("#ffe178"))
 	toast_panel.add_child(toast_title)
 	toast_subtitle = Label.new()
-	toast_subtitle.position = Vector2(18, 43)
-	toast_subtitle.size = Vector2(332, 30)
+	toast_subtitle.position = Vector2(18, 68)
+	toast_subtitle.size = Vector2(332, 48)
 	toast_subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	toast_subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	toast_subtitle.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -175,7 +175,7 @@ func update_toast(delta: float) -> void:
 	toast_elapsed += delta
 	toast_panel.visible = true
 	var reduced: bool = get_parent().audio_settings.get("cinematic_reduced_motion", false)
-	toast_panel.position = Vector2(56, 554 + (0.0 if reduced else (1.0 - clampf(toast_elapsed / 0.20, 0.0, 1.0)) * 8.0))
+	toast_panel.position = Vector2(56, (536.0 if get_parent().state == "playing" else 704.0) + (0.0 if reduced else (1.0 - clampf(toast_elapsed / 0.20, 0.0, 1.0)) * 8.0))
 	toast_panel.modulate.a = minf(clampf(toast_elapsed / 0.16, 0.0, 1.0), clampf((3.4 - toast_elapsed) / 0.25, 0.0, 1.0))
 	if toast_elapsed >= 3.4:
 		active_toast.clear()
@@ -334,5 +334,6 @@ func fit_title(label: Label, text: String, maximum: int) -> void:
 	while font_size > 14 and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > label.size.x:
 		font_size -= 1
 	label.add_theme_font_size_override("font_size", font_size)
-	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	label.clip_text = true
+	label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	label.clip_text = false
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

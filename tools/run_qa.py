@@ -3,7 +3,7 @@ import subprocess, os, json, time, argparse, uuid, shutil, sys
 ROOT=Path(__file__).resolve().parents[1]
 GODOT=Path(os.environ.get('GODOT', shutil.which('godot') or str(Path.home()/'Desktop'/'Godot_v4.7.2-stable_win64_console.exe')))
 OUT=ROOT/'.godot_test_data'/'qa_logs'
-p=argparse.ArgumentParser(description='Run guarded Lootlings fixtures with disposable saves. Set GODOT to the engine executable.'); p.add_argument('--native',action='store_true'); p.add_argument('--only',nargs='*'); p.add_argument('--label',default='baseline'); args=p.parse_args()
+p=argparse.ArgumentParser(description='Run guarded Lootlings fixtures with disposable saves. Set GODOT to the engine executable.'); p.add_argument('--native',action='store_true'); p.add_argument('--only',nargs='*'); p.add_argument('--label',default='baseline'); p.add_argument('--size',default='480x854'); args=p.parse_args()
 run_id=args.label+'-'+uuid.uuid4().hex[:10]
 folder=OUT/run_id; folder.mkdir(parents=True,exist_ok=True)
 results=[]
@@ -11,6 +11,7 @@ def run(name,command,timeout=300):
     env=os.environ.copy()
     env['APPDATA']=str(ROOT/'.godot_test_data'/'isolated'/run_id/name)
     env['XDG_DATA_HOME']=env['APPDATA']; env['LOOTLINGS_QA']='1'
+    env['LOOTLINGS_CAPTURE_SIZE']=args.size
     Path(env['APPDATA']).mkdir(parents=True,exist_ok=True)
     start=time.time()
     try:
@@ -41,7 +42,7 @@ for path in sorted((ROOT/'tests').glob('*.gd')):
     if args.only and name not in args.only: continue
     if args.native:
         if name.endswith('_runs') or name in ['smoke_test','expansion_test','balance_audit','wardrobe_qa','audio_production_qa','save_recovery_qa']: continue
-        cmd=['--resolution','480x854','--position','0,0','-s','res://tests/'+path.name,'--','--visual','--report']
+        cmd=['--resolution',args.size,'--position','0,0','-s','res://tests/'+path.name,'--','--visual','--report']
     else:
         if name in ['audio_mix_qa','visual_qa_capture']: continue
         cmd=['--headless','-s','res://tests/'+path.name,'--','--report']

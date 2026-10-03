@@ -1,7 +1,7 @@
 extends RefCounted
 
 const PROFILES := {
-	"VANGUARD":{"idle_speed":1.8, "idle_amount":0.009, "anticipate_lean":-0.10, "release_lean":0.13, "recoil":-0.045, "stretch":0.055, "settle":0.035},
+	"VANGUARD":{"idle_speed":1.8, "idle_amount":0.009, "anticipate_lean":-0.13, "release_lean":0.19, "recoil":-0.055, "stretch":0.055, "settle":0.035},
 	"ROGUE":{"idle_speed":4.0, "idle_amount":0.018, "anticipate_lean":-0.075, "release_lean":0.16, "recoil":-0.025, "stretch":0.075, "settle":0.020},
 	"RANGER":{"idle_speed":2.8, "idle_amount":0.014, "anticipate_lean":-0.055, "release_lean":-0.035, "recoil":-0.075, "stretch":0.035, "settle":0.030},
 	"MAGE":{"idle_speed":2.1, "idle_amount":0.012, "anticipate_lean":-0.045, "release_lean":-0.055, "recoil":-0.065, "stretch":0.040, "settle":0.038}
@@ -26,6 +26,7 @@ static func sample(family: String, run_time: float, attack_clock: float, attack_
 	var root_shift := Vector2(-anticipate * 5.0 + release * 7.0, -impact * 2.0)
 	if family in ["RANGER", "MAGE"]:
 		root_shift.x = -anticipate * 3.0 - impact * 4.0
+		if family == "MAGE": root_shift.y -= anticipate*3.0 + impact*4.0
 	if hurt:
 		rotation -= 0.065
 		root_shift.x -= 5.0

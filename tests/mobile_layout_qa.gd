@@ -26,12 +26,13 @@ func run_qa() -> void:
 	check(is_instance_valid(game.mobile_test_monitor) == diagnostics_enabled,"test reporter follows explicit feature gate")
 	if diagnostics_enabled:
 		await validate_monitor_startup()
-	for size in [Vector2i(480,854), Vector2i(480,1030), Vector2i(720,1544), Vector2i(360,640),Vector2i(800,1280),Vector2i(1200,1600),Vector2i(1200,1920)]:
+	for size in [Vector2i(480,854),Vector2i(480,960),Vector2i(480,1040),Vector2i(480,1066),Vector2i(1080,2316), Vector2i(480,1030), Vector2i(720,1544), Vector2i(360,640),Vector2i(800,1280),Vector2i(1200,1600),Vector2i(1200,1920)]:
 		root.size = size
 		await create_timer(0.2).timeout
 		await process_frame
 		for notch in [false, true]:
-			var logical_safe := Rect2(0,24,480,800) if notch else Rect2(Vector2.ZERO, DESIGN)
+			var canvas := root.get_visible_rect().size
+			var logical_safe := Rect2(0,24,canvas.x,canvas.y-54) if notch else Rect2(Vector2.ZERO, canvas)
 			game.safe_area_layout.apply(logical_safe)
 			game.start_run()
 			await process_frame
@@ -40,7 +41,7 @@ func run_qa() -> void:
 			check(is_equal_approx(transform.x.length(), transform.y.length()), label + " uniform root scale")
 			var frame := Rect2(transform * Vector2.ZERO, transform.basis_xform(DESIGN))
 			check(logical_safe.encloses(frame.grow(-0.05)), label + " root frame inside safe bounds")
-			check(root.get_visible_rect().size.is_equal_approx(DESIGN), label + " fixed canvas dimensions")
+			check(canvas.x >= DESIGN.x-.1 and canvas.y >= DESIGN.y-.1, label + " expanded canvas retains safe design dimensions")
 			check_control(game.pause_button, logical_safe, label + " Pause")
 			check_rect(Rect2(18,106,444,25), logical_safe, label + " HUD HP")
 			await tap_control(game.pause_button)
@@ -133,7 +134,7 @@ func run_qa() -> void:
 	game.free()
 	print("MOBILE_LAYOUT_OBSERVATIONS " + JSON.stringify(observations))
 	print("MOBILE_CAPTURE_SIZES " + JSON.stringify(capture_sizes))
-	print("MOBILE LAYOUT QA %s: fourteen native size/safe-area scenarios, real ScreenTouch UI/target/cooldown/purchase routing; handset acceptance pending" % ("PASSED" if failures.is_empty() else "FAILED"))
+	print("MOBILE LAYOUT QA %s: twenty-two native size/safe-area scenarios, expanded background canvas with preserved safe combat frame and real ScreenTouch routing; handset acceptance pending" % ("PASSED" if failures.is_empty() else "FAILED"))
 	quit(0 if failures.is_empty() else 1)
 
 func check_rect(local_rect: Rect2,safe: Rect2,label: String) -> void:
