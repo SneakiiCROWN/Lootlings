@@ -62,4 +62,24 @@ No attached physical device was validated in this pass. Actual S23 loading, fram
 - **Audio/device/release:** final music and subjective handset audio acceptance, measured mobile memory/pacing/thermal budgets and release signing. New species banks remove the wrong universal human grunts but remain subject to the owner’s sound-quality review.
 - **Persistence:** live expeditions still do not resume after process death; semantic/cross-store save hardening remains separate. Existing committed progression and suspend/resume protections pass current regressions.
 
+## Multidisciplinary sign-off — owner standard applied 2026-10-03
+
+Scope: current Act I fidelity delivery and recorded evidence above. This sign-off reclassifies readiness under the [owner's team workflow](../../TEAM_WORKFLOW.md); it introduces no new gameplay change or new playtest claim. **Issues includes unclosed acceptance gates.** Automated passes remain recorded; they do not grant whole-discipline production approval.
+
+| Discipline | Sign-off | Evidence / remaining gate |
+|---|---|---|
+| DESIGN | issues | Current loop/readability fixes are validated; real-player pacing, meaningful build diversity and broader encounter/counterplay acceptance remain open. |
+| BALANCE | issues | Isolated seeded policies reproduce 3/5 or 5/5 without difficulty changes. No complete weak/median/strong/lucky DPS/TTK distribution or real-player difficulty acceptance exists for this delivery. |
+| ECONOMY | issues | Single-charge/payout and decision protections pass regressions. Longitudinal source/sink, reward-frequency and lucky/weak progression distribution acceptance remains open; cross-store consistency is unresolved. |
+| ROSTER | issues | All twelve actors captured; 82 right / 83 left support/paired combinations, bow draw anatomy and weaponless Moonkip remain blocked. |
+| ENEMIES | issues | Roles/telegraphs and species hooks are exercised. Authored attack/reaction/death animation and encounter-variety acceptance remain incomplete. |
+| BOSSES | issues | Act I flow/reward choices are validated; unique lore-matched bodies, authored attacks/reactions and deeper boss gameplay remain debt. |
+| RNG | issues | Existing seeded/isolation contracts reproduce; full rarity/affix/build-outcome distribution acceptance is not established by the five-seed smoke. |
+| UI/UX | issues | Native phone/tablet screens and input protections pass; the replacement APK still requires S23 touch-feel, edge/text/reward-reading acceptance. |
+| NARRATIVE | issues | Existing copy/canon is preserved and exposed selector terminology fixed; reused boss identities/art and comprehensive wider-content voice/lore acceptance remain open. |
+| AUDIO | issues | Species routing, provenance and native mix pass. Subjective speaker listening/repetition/fatigue and final music remain pending. |
+| MOBILE | issues | Signed/exported assets, 22 synthetic native layout/input cases and phone/tablet captures pass. Final physical loading/pacing/FPS, PSS/thermals and Android lifecycle acceptance remains pending. |
+| QA | issues | 26 accepted fixtures plus native inspection are recorded. Physical acceptance and engineering gaps in live-run restoration/semantic/cross-store saves remain unresolved. |
+| PRODUCTION | issues | Fixes/evidence are checkpointed, preceding work preserved and scope bounded; authored-art, handset, persistence and release-signing gates prevent commercial-production acceptance. |
+
 Next production work: owner S23 retest of this exact APK, then focused approved bow draw/support poses and weaponless Moonkip, followed by boss animation/music. Do not repeat completed mobile, branding, save or fidelity implementation.

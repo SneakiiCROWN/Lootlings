@@ -1,5 +1,7 @@
 # Phase 2 — Act I vertical slice, tranche 1 (2026-10-02)
 
+Production work follows the owner-directed [multidisciplinary workflow and fact-checking standard](docs/production/TEAM_WORKFLOW.md): current implementation/behavior baselines, source-backed major decisions, before/after evidence, native player review and explicit discipline sign-off. Passing automated tests does not close known art, balance, economy or physical-device acceptance gates.
+
 **Latest state (2026-10-03): tranche 5 player-facing fidelity fixes**, implementation checkpoint `a1ceabe`. Species reactions, corrected bow direction/string/nock, original differentiated projectiles and canonical pickups; 2,592 native matrix samples, 120 bow phases, 136 phone/tablet screens and live species/audio checks. [Current report, evidence, version-4 APK and remaining art/device gates](docs/production/phase2/fidelity/REPORT.md). Preserve all earlier tranche work; older audio/count/build details below are historical where this report supersedes them.
 
 Baseline: `728585c`, following preserved work `69110bd` and audited fixes `4259eb3`. Production work is on `codex/phase2-vertical-slice`; implementation checkpoint: `7346b72`. The audit remains the historical baseline; this document owns subsequent slice progress. This tranche is LIVE, not commercial-release acceptance.
