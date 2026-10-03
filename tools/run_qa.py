@@ -49,7 +49,7 @@ for path in sorted((ROOT/'tests').glob('*.gd')):
     else:
         if name in ['audio_mix_qa','visual_qa_capture']: continue
         cmd=['--headless','-s','res://tests/'+path.name,'--','--report']
-    run(name,cmd)
+    run(name,cmd,1200 if name=='phase3_balance' else 300)
 
 print('QA results:',folder/'results.json',flush=True)
 sys.exit(0 if all(r['exit']==0 and not r['errors'] for r in results) else 1)
