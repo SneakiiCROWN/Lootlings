@@ -91,7 +91,7 @@ func run_tests() -> void:
 		variants_b.append(EnemyVariantCatalog.roll(variant_rng_b, 9, false))
 	check(variants_a == variants_b and variants_a.any(func(id): return not id.is_empty()), "enemy variants spawn conservatively and deterministically from gameplay RNG")
 	check(EnemyVariantCatalog.roll(variant_rng_a, 15, true).is_empty(), "bosses and minibosses are excluded from regular enemy variants")
-	check(EnemyVariantCatalog.VARIANTS.size() == 8 and EnemyVariantCatalog.special("overcharged") == "third_spark" and EnemyVariantCatalog.special("rootbound") == "opening_guard", "eight live enemy variants expose readable data and explicit special mechanics")
+	check(EnemyVariantCatalog.VARIANTS.size() == 11 and EnemyVariantCatalog.special("overcharged") == "third_spark" and EnemyVariantCatalog.special("rootbound") == "opening_guard", "eight live enemy variants expose readable data and explicit special mechanics")
 	var zone_variant_rng := RandomNumberGenerator.new()
 	zone_variant_rng.seed = 99117
 	for zone_sample in range(120):
@@ -101,7 +101,7 @@ func run_tests() -> void:
 	check(WeaponCatalog.evolution_for("bow", "Crooked Bow") == ["Crooked Bow", "Ruin Longbow", "Starstring"], "weapon evolution data preserves named three-stage master lines")
 	check(WorldContentCatalog.FUTURE_ZONES.size() == 9 and preload("res://campaign_system.gd").ORDER.size() == 10, "nine master zone IDs map into the progressive campaign without replacing source art")
 	check(ItemCatalog.ITEMS.size() >= 35 and ItemCatalog.definition("moonbranch").weapon_type == "bow" and ItemCatalog.definition("vault_receipt").slot == "Relic", "the live equipment pool expands with curated master-catalog identities while preserving slot contracts")
-	check(AffixCatalog.AFFIXES.size() == 20 and AffixCatalog.SIGNATURES.size() == 15 and not bool(AffixCatalog.SIGNATURES.aftershock_receipt.live), "expanded affix and Signature catalogs keep unimplemented behaviours out of live rolls")
+	check(AffixCatalog.AFFIXES.size() == 20 and AffixCatalog.SIGNATURES.size() == 18 and bool(AffixCatalog.SIGNATURES.aftershock_receipt.live), "expanded affix and Signature catalogs keep unimplemented behaviours out of live rolls")
 	var reveal_durations: Array[float] = []
 	for reveal_rarity in ItemCatalog.RARITIES:
 		var reveal := RewardRevealCatalog.for_rewards("scavenged_cache", [ItemCatalog.create_item("mossguard_harness", reveal_rarity, 700)])
@@ -751,6 +751,8 @@ func run_tests() -> void:
 				game._process(0.08)
 				if game.hoard_chest_phase == "ready":
 					game.open_hoard_chest()
+			elif game.state == "event":
+				game.choose_expedition_event(2)
 			elif game.state == "merchant":
 				game.leave_merchant()
 			else:
@@ -800,6 +802,8 @@ func resolve_interstitials(game, upgrade_index: int) -> void:
 			game.open_hoard_chest()
 			game._process(float(game.hoard_reveal_profile.anticipation) + 0.02)
 			game._process(float(game.hoard_reveal_profile.silence) + 0.02)
+		elif game.state == "event":
+			game.choose_expedition_event(2)
 		elif game.state == "merchant":
 			game.leave_merchant()
 		elif not game.boss_reward_options.is_empty():

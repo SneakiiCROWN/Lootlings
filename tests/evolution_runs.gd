@@ -35,6 +35,7 @@ func simulate(family: String, stage: int) -> Dictionary:
 			"hoard_chest":
 				game._process(0.08)
 				if game.hoard_chest_phase == "ready": game.open_hoard_chest()
+			"event": game.choose_expedition_event(2)
 			"merchant": game.leave_merchant()
 			_:
 				game._process(0.05)

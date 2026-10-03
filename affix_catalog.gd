@@ -25,17 +25,20 @@ const AFFIXES := {
 
 const SIGNATURES := {
 	"crooked_constellation":{"name":"Crooked Constellation", "slots":["Weapon"], "families":["RANGER"], "hook":"crooked_volley", "live":true, "text":"Every fifth shot splits into two crooked spectral arrows."},
-	"first_light":{"name":"First Light", "slots":["Rune", "Relic"], "hook":"first_crit_spark", "live":true, "text":"The first critical hit against each foe calls a Relic spark."},
+	"first_light":{"name":"First Light", "slots":["Weapon", "Rune", "Relic"], "hook":"first_crit_spark", "live":true, "text":"The first critical hit against each foe calls a Relic spark."},
 	"grudgekeeper":{"name":"Grudgekeeper", "slots":["Weapon", "Relic"], "hook":"banked_impact", "live":true, "text":"A defeated foe stores force for the next encounter."},
 	"last_laugh":{"name":"Last Laugh", "slots":["Armour", "Relic"], "hook":"desperate_rhythm", "live":true, "text":"Below 40% health, attacks gain a strange second wind."},
 	"last_lantern":{"name":"Last Lantern", "slots":["Armour", "Relic"], "hook":"last_lantern", "live":true, "text":"Once per run, fatal damage leaves one HP and snuffs its lantern."},
 	"frostbell_chime":{"name":"Frostbell Chime", "slots":["Weapon", "Rune"], "hook":"frostbell_chime", "live":true, "text":"The first hit on each foe delays its next action."},
-	"aftershock_receipt":{"name":"Aftershock Receipt", "slots":["Weapon", "Rune"], "hook":"aftershock_receipt", "live":false, "text":"A heavy impact returns as a smaller delayed shock."},
+	"aftershock_receipt":{"name":"Aftershock Receipt", "slots":["Weapon", "Rune"], "hook":"aftershock_receipt", "live":true, "text":"Heavy hits echo for 25% base power after 0.18s; echoes stay with their target."},
 	"moon_echo":{"name":"Moon Echo", "slots":["Weapon", "Relic"], "hook":"moon_echo", "live":false, "text":"A near miss primes a ghost copy of the next attack."},
-	"storm_receipt":{"name":"Storm Receipt", "slots":["Weapon", "Rune"], "hook":"storm_receipt", "live":false, "text":"Three distinct targets in quick succession call chain lightning."},
-	"rooted_revenge":{"name":"Rooted Revenge", "slots":["Armour", "Rune"], "hook":"rooted_revenge", "live":false, "text":"A heavy hit plants a delayed retaliating thorn."},
-	"bubble_bargain":{"name":"Bubble Bargain", "slots":["Relic", "Rune"], "hook":"bubble_bargain", "live":false, "text":"The first status application creates a protective bubble mote."},
-	"mimic_appetite":{"name":"Mimic Appetite", "slots":["Weapon", "Relic"], "hook":"mimic_appetite", "live":false, "text":"Opening a chest empowers the next encounter's first strike."},
+	"storm_receipt":{"name":"Storm Receipt", "slots":["Weapon", "Rune"], "hook":"storm_receipt", "live":true, "text":"Three distinct targets within 4 seconds spark the third for 60% base power."},
+	"rooted_revenge":{"name":"Rooted Revenge", "slots":["Weapon", "Armour", "Rune"], "hook":"rooted_revenge", "live":true, "text":"Every fourth enemy hit you survive returns a thorn for 30% base power."},
+	"bubble_bargain":{"name":"Bubble Bargain", "slots":["Relic", "Rune"], "hook":"bubble_bargain", "live":true, "text":"The first burn or poison on each foe grants 3 ward; hold at most 15."},
+	"mimic_appetite":{"name":"Mimic Appetite", "slots":["Weapon", "Relic"], "hook":"mimic_appetite", "live":true, "text":"Opening a cache primes +40% power on the next hit. Does not stack."},
+	"frostbell_shatter":{"name":"Frostbell Shatter", "slots":["Rune"], "hook":"frostbell_shatter", "live":true, "text":"Each foe's first hit delays it; a heavy follow-up shatters for 25% base power."},
+	"burden_bell":{"name":"Burden Bell", "slots":["Weapon"], "families":["VANGUARD"], "hook":"burden_bell", "live":true, "text":"Heavy hits delay the foe by up to 0.25s. Shared control limits apply."},
+	"critical_shelter":{"name":"Quiet Chime", "slots":["Armour","Relic"], "hook":"critical_shelter", "live":true, "text":"Critical kills restore 4 ward, up to 15."},
 	"gilded_greed":{"name":"Gilded Greed", "slots":["Relic"], "hook":"gilded_greed", "live":false, "text":"Gilded enemies may spill one extra treasure burst."},
 	"shardstorm":{"name":"Shardstorm", "slots":["Weapon", "Rune"], "hook":"shardstorm", "live":false, "text":"High-tier loot primes the next hit with relic-shard energy."},
 	"hoardquake":{"name":"Hoardquake", "slots":["Weapon", "Rune"], "hook":"hoardquake", "live":false, "text":"A Legendary pickup primes the next heavy gold shockwave."}
@@ -81,11 +84,13 @@ static func roll_for_item(item: Dictionary, rng: RandomNumberGenerator) -> Array
 
 static func apply(item: Dictionary, ids: Array) -> Dictionary:
 	var result := item.duplicate(true)
-	result.affix_ids = []
-	result.signature_hooks = []
-	result.affix_names = []
+	# A named item's fixed signature survives random affix application.
+	result.affix_ids = item.get("affix_ids",[]).duplicate()
+	result.signature_hooks = item.get("signature_hooks",[]).duplicate()
+	result.affix_names = item.get("affix_names",[]).duplicate()
 	for raw_id in ids:
 		var id := str(raw_id)
+		if id in result.affix_ids: continue
 		if AFFIXES.has(id):
 			var affix: Dictionary = AFFIXES[id]
 			if not str(result.get("slot", "")) in affix.slots:

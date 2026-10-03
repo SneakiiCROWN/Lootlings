@@ -100,6 +100,7 @@ func run_qa() -> void:
 			"item":
 				if native: await capture_once("equipment")
 				game.accept_item_equip()
+			"event": game.choose_expedition_event(2)
 			"merchant":
 				if native: await capture_once("merchant")
 				if not bought:

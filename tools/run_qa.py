@@ -18,10 +18,11 @@ def run(name,command,timeout=300):
     Path(env['APPDATA']).mkdir(parents=True,exist_ok=True)
     start=time.time()
     try:
-        r=subprocess.run([str(GODOT),'--path',str(ROOT),*command],env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=timeout)
-        output=r.stdout.decode('utf-8','replace'); code=r.returncode
+        with (folder/(name+'.log')).open('wb') as log:
+            r=subprocess.run([str(GODOT),'--path',str(ROOT),*command],env=env,stdout=log,stderr=subprocess.STDOUT,timeout=timeout)
+        output=(folder/(name+'.log')).read_text(encoding='utf-8',errors='replace'); code=r.returncode
     except subprocess.TimeoutExpired as e:
-        output=(e.stdout or b'').decode('utf-8','replace'); code=124
+        output=(folder/(name+'.log')).read_text(encoding='utf-8',errors='replace'); code=124
     (folder/(name+'.log')).write_text(output,encoding='utf-8')
     errors=[line for line in output.splitlines() if 'SCRIPT ERROR' in line or 'ERROR:' in line or 'Parse Error' in line]
     expected=[]
@@ -40,16 +41,17 @@ if not args.only:
         for script in scripts:
             run('parse-'+script.relative_to(ROOT).as_posix().replace('/','-'), ['--headless','--check-only','--script','res://'+script.relative_to(ROOT).as_posix()],60)
 for path in sorted((ROOT/'tests').glob('*.gd')):
-    if 'extends SceneTree' not in path.read_text(encoding='utf-8-sig'): continue
+    if 'extends SceneTree' not in path.read_text(encoding='utf-8-sig') and path.stem != 'balance_audit': continue
     name=path.stem
     if args.only and name not in args.only: continue
+    if name == 'balance_audit' and not args.only: continue # Legacy entry point delegates to the isolated harness.
     if args.native:
-        if name.endswith('_runs') or name in ['smoke_test','expansion_test','balance_audit','wardrobe_qa','audio_production_qa','save_recovery_qa']: continue
+        if name.endswith('_runs') or name in ['smoke_test','expansion_test','balance_audit','phase3_balance','phase3_dps','phase3_economy','wardrobe_qa','audio_production_qa','save_recovery_qa']: continue
         cmd=['--resolution',args.size,'--position','0,0','-s','res://tests/'+path.name,'--','--visual','--report']
     else:
         if name in ['audio_mix_qa','visual_qa_capture']: continue
         cmd=['--headless','-s','res://tests/'+path.name,'--','--report']
-    run(name,cmd,1200 if name=='phase3_balance' else 300)
+    run(name,cmd,1200 if name in ['phase3_balance','balance_audit'] else 300)
 
 print('QA results:',folder/'results.json',flush=True)
 sys.exit(0 if all(r['exit']==0 and not r['errors'] for r in results) else 1)

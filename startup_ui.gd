@@ -216,7 +216,7 @@ func build_lootling_select() -> void:
 	var panel := make_panel(lootling_content, Rect2(24, 66, 432, 730), Color("#0b1430f4"), Color("#d1a85a"))
 	LootlingsUI.apply_material(panel, "relic")
 	make_label(panel, "CHOOSE YOUR LOOTLING", 27, Rect2(20, 24, 392, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(panel, "Seven identities. Equal starting power.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	make_label(panel, "Seven distinct perks. Every weapon is welcome.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var portrait := TextureRect.new()
 	portrait.texture = MASCOT_TEXTURE
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -228,7 +228,8 @@ func build_lootling_select() -> void:
 	selector_name = make_label(panel, "", 25, Rect2(40, 346, 352, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
 	selector_lore = make_label(panel, "", 14, Rect2(48, 384, 336, 60), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
 	selector_lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	selector_note = make_label(panel, "", 12, Rect2(35, 450, 362, 70), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	selector_note = make_label(panel, "", 14, Rect2(35, 450, 362, 70), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	selector_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var previous := make_button(panel, "‹ PREVIOUS", Rect2(38, 528, 166, 56), Color("#17294b"), Color("#72c8ff"), 15)
 	var next := make_button(panel, "NEXT ›", Rect2(228, 528, 166, 56), Color("#17294b"), Color("#72c8ff"), 15)
 	previous.pressed.connect(func(): cycle_lootling(-1))
@@ -253,7 +254,8 @@ func refresh_selector() -> void:
 	selector_portrait.modulate = LootlingCatalog.presentation_tint(selected_lootling_id)
 	selector_name.text = str(entry.display_name).to_upper()
 	selector_lore.text = str(entry.lore)
-	selector_note.text = "CHOOSE YOUR STYLE\nAny weapon • every Relic Core"
+	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_lootling_id]
+	selector_note.text = "%s • %s" % [trait_data.name,trait_data.text]
 	selector_confirm.disabled = not entry.available
 	selector_confirm.text = "CHOOSE %s" % str(entry.display_name).to_upper()
 
@@ -293,7 +295,7 @@ func build_wanderer_select() -> void:
 	wanderer_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	panel.add_child(wanderer_portrait)
 	wanderer_name = make_label(panel, "", 21, Rect2(36, 319, 360, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
-	make_label(panel, "Appearance only • choose any weapon", 13, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
+	make_label(panel, "Distinct perks • choose any weapon", 13, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
 	var origin_preview := make_button(wanderer_content, "▷ ORIGIN MEMORY", Rect2(234, 12, 212, 48), Color("#17294b"), Color("#c99cff"), 14)
 	origin_preview.pressed.connect(func():
 		var preview := profile.duplicate(true)
@@ -369,7 +371,9 @@ func refresh_wanderer_selector() -> void:
 
 func refresh_wanderer_lore() -> void:
 	var id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
-	wanderer_lore.text = str(WandererCatalog.ORIGINS[id].line)
+	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_wanderer]
+	wanderer_lore.text = str(trait_data.name) + " • " + str(trait_data.text)
+	wanderer_lore.position.y = 445; wanderer_lore.size.y = 52
 
 func confirm_wanderer() -> void:
 	if WandererCatalog.runtime_texture(selected_wanderer) == null:

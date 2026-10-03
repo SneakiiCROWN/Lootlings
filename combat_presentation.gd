@@ -42,6 +42,8 @@ static func attack_cue(g) -> Dictionary:
 	var window := 0.70 if g.enemy_is_boss else 0.60 if g.enemy_is_miniboss or g.enemy_archetype == "tank" else 0.48 if g.enemy_archetype == "hexer" else 0.36
 	var ward: bool = not g.enemy_is_boss and not g.enemy_is_miniboss and g.enemy_archetype == "hexer" and (g.enemy_attack_count + 1) % 3 == 0
 	var label := "HOARD STRIKE" if g.enemy_is_boss else "HEAVY STRIKE" if g.enemy_is_miniboss or g.enemy_archetype == "tank" else "WARD" if ward else "HEX BOLT" if g.enemy_archetype == "hexer" else "QUICK STRIKE"
+	if g.enemy_is_boss or g.enemy_is_miniboss:
+		label = str(preload("res://boss_patterns.gd").next(g).text)
 	var accent := Color("#bca3ff") if ward else Color("#d197ff") if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else Color("#ffb86b")
 	return {"visible":g.state == "playing" and g.enemy_alive and g.enemy_entry_anim <= 0.0 and g.enemy_attack_clock <= window, "progress":clampf(1.0 - g.enemy_attack_clock / window, 0.0, 1.0), "label":label, "accent":accent}
 

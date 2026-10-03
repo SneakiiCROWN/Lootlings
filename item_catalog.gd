@@ -2,6 +2,7 @@ extends RefCounted
 
 const AffixCatalog = preload("res://affix_catalog.gd")
 const WeaponCatalog = preload("res://weapon_catalog.gd")
+const Phase3 = preload("res://phase3_item_catalog.gd")
 
 const RARITIES := ["COMMON", "RARE", "EPIC", "LEGENDARY"]
 const RARITY_COLORS := {
@@ -48,7 +49,7 @@ const ITEMS := [
 	{"id":"vault_receipt", "name":"Vault Receipt", "slot":"Relic", "icon":"RING", "desc":"Proof that the vault definitely owes you treasure.", "effects":{"coin_mult":0.22, "boss_damage":0.045}},
 	{"id":"critical_script", "name":"Critical Script", "slot":"Rune", "icon":"SPARK", "desc":"A very short instruction ending in an exclamation mark.", "effects":{"crit":0.055, "crit_lightning":0.13}},
 	{"id":"bossbane_sigil", "name":"Bossbane Sigil", "slot":"Rune", "icon":"SLAM", "desc":"Tiny engraving. Extremely large grudge.", "effects":{"boss_damage":0.16, "heavy_bonus":0.10}}
-]
+] + Phase3.ITEMS
 
 static func definition(id: String) -> Dictionary:
 	for item in ITEMS:
@@ -75,6 +76,8 @@ static func create_item(id: String, rarity: String, serial: int = 0) -> Dictiona
 	item.affix_ids = []
 	item.affix_names = []
 	item.signature_hooks = []
+	if source.has("fixed_signature"):
+		item = AffixCatalog.apply(item,[source.fixed_signature])
 	return item
 
 static func live_weapon_types() -> Array[String]:
@@ -117,6 +120,7 @@ static func describe_effects(item: Dictionary) -> String:
 	if effects.has("damage_mult"): parts.append("%+.0f%% damage" % (effects.damage_mult * 100.0))
 	if effects.has("attack_speed"): parts.append("%+.0f%% attack speed" % (effects.attack_speed * 100.0))
 	if effects.has("attack_slow"): parts.append("%.0f%% slower attacks" % (effects.attack_slow * 100.0))
+	if effects.has("incoming_mult"): parts.append("%+.0f%% incoming damage" % (effects.incoming_mult * 100.0))
 	if effects.has("crit"): parts.append("%+.0f%% crit" % (effects.crit * 100.0))
 	if effects.has("max_hp"): parts.append("%+.0f max HP" % effects.max_hp)
 	if effects.has("armor"): parts.append("%+.0f%% armour" % (effects.armor * 100.0))

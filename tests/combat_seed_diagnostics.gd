@@ -73,6 +73,7 @@ func simulate(game, policy: String, sample: int) -> Dictionary:
 			"hoard_chest":
 				game._process(0.08)
 				if game.hoard_chest_phase == "ready": game.open_hoard_chest()
+			"event": game.choose_expedition_event(2)
 			"merchant":
 				var offer := cheapest_affordable(game)
 				if policy == "merchant" and int(buys.get(game.wave, 0)) < 2 and offer >= 0:

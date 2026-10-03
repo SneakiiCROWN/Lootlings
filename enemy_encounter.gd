@@ -12,6 +12,7 @@ const FIELDS := [
 	"enemy_alive", "enemy_burn_dps", "enemy_burn_time", "enemy_poison_stacks", "enemy_poison_time",
 	"dot_tick_clock", "enemy_flash", "enemy_attack_anim", "enemy_recoil", "enemy_squash",
 	"enemy_death_anim", "enemy_entry_anim", "enemy_serial",
+	"enemy_trait_opening_used","enemy_trait_crit_used","enemy_control_budget","enemy_status_ward_used","enemy_chime_primed",
 ]
 const VISUAL_TIMERS := ["enemy_flash", "enemy_attack_anim", "enemy_squash", "enemy_death_anim", "enemy_entry_anim"]
 var actors: Array[Dictionary] = []
@@ -95,6 +96,7 @@ func step(g, delta: float) -> void:
 		if not actors[index].enemy_alive: continue
 		load_actor(g, index)
 		g.enemy_attack_clock -= delta
+		g.enemy_control_budget = minf(.5,g.enemy_control_budget+delta*.25)
 		if g.enemy_attack_clock <= 0.0:
 			g.enemy_attack_clock += g.enemy_attack_interval
 			g.perform_enemy_attack(0.62 if g.player_x < g.target_player_x() else 1.0)
@@ -104,7 +106,7 @@ func step(g, delta: float) -> void:
 	if actors[target].enemy_alive: load_actor(g, target)
 	if g.state != "playing": return
 	var stance: float = g.target_player_x()
-	g.player_x = minf(stance, g.player_x + 155.0 * delta)
+	g.player_x = minf(stance, g.player_x + 155.0 * float(g.character_trait.get("move",1.0)) * delta)
 	if g.player_x >= stance and g.tap_buffer_timer > 0.0:
 		g.tap_buffer_timer = 0.0
 		g.perform_player_attack(true)
@@ -124,6 +126,15 @@ func resolve_projectile(g, serial: int, tapped: bool) -> void:
 			capture(g)
 			break
 	if active and actors[original].enemy_alive: load_actor(g, original)
+
+func resolve_echo(g, serial: int, power: float) -> void:
+	capture(g)
+	var original := selected
+	for index in range(actors.size()):
+		if int(actors[index].enemy_serial) == serial and actors[index].enemy_alive:
+			load_actor(g,index); g.deal_elemental_hit(power,"Physical"); capture(g)
+			break
+	if active and actors[original].enemy_alive: load_actor(g,original)
 
 func splash(g, damage: float, identity: String, origin_serial: int = -1) -> void:
 	if not active or aoe_active: return
@@ -159,7 +170,7 @@ func draw(g, shake: Vector2) -> void:
 		if g.enemy_poison_stacks > 0:
 			UI.draw_icon(g.get_canvas_item(), UI.icon("status_poison"), Rect2(x + 32, 241, 18, 18))
 			g.draw_string(g.body_font, Vector2(x + 52, 255), "×%d" % g.enemy_poison_stacks, HORIZONTAL_ALIGNMENT_LEFT, 38, 13, Color("#92f068"))
-		if not str(g.enemy_variant_id).is_empty(): UI.draw_icon(g.get_canvas_item(), UI.icon("variant_%s" % g.enemy_variant_id), Rect2(x + width - 26, 241, 18, 18))
+		if not str(g.enemy_variant_id).is_empty(): UI.draw_icon(g.get_canvas_item(), UI.icon(preload("res://enemy_variant_catalog.gd").icon_id(g.enemy_variant_id)), Rect2(x + width - 26, 241, 18, 18))
 		if index == original:
 			g.draw_arc(position(index) + Vector2(0, 35), 33 * scale_factor, 0, TAU, 20, Color("#78e4ff"), 2)
 	load_actor(g, original)

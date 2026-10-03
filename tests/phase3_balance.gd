@@ -84,6 +84,8 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 			serial = game.enemy_serial; foe_time = seconds
 			foe = {"wave":game.wave,"name":game.enemy_name,"variant":game.enemy_variant_id,"hp":game.enemy_max_hp,"damage":game.enemy_damage,"interval":game.enemy_attack_interval,"player_hp":game.player_hp}
 		match game.state:
+			"event":
+				game.choose_expedition_event(2); decisions += 1
 			"upgrade":
 				var choice: int = helper.pick_upgrade(game)
 				if core != "sustain":

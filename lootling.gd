@@ -18,6 +18,9 @@ const AudioManager = preload("res://audio_manager.gd")
 const VoiceIdentity = preload("res://voice_identity.gd")
 const ProjectilePresentation = preload("res://projectile_presentation.gd")
 const PickupPresentation = preload("res://pickup_presentation.gd")
+const CharacterTraits = preload("res://character_traits.gd")
+const BossPatterns = preload("res://boss_patterns.gd")
+const ExpeditionEvents = preload("res://expedition_event_catalog.gd")
 const StartupUI = preload("res://startup_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
@@ -114,6 +117,30 @@ var enemy_attack_clock := 1.5
 var enemy_is_boss := false
 var enemy_is_miniboss := false
 var enemy_weapon_opening_used := false
+var enemy_trait_opening_used := false
+var enemy_trait_crit_used := false
+var enemy_control_budget := 0.5
+var enemy_status_ward_used := false
+var enemy_chime_primed := false
+var player_ward := 0.0
+var character_trait: Dictionary = {}
+var survived_hits := 0
+var delayed_hits: Array = []
+var signature_targets: Dictionary = {}
+var cache_hit_primed := false
+var boss_recovery := 0.0
+var boss_phase := 1
+var wave_composition: Array = []
+var wave_composition_wave := -1
+var event_seen: Array = []
+var event_due := false
+var event_id := ""
+var event_risk := 1.0
+var event_power := 1.0
+var event_panel: Panel
+var event_title: Label
+var event_line: Label
+var event_buttons: Array[Button] = []
 var enemy_archetype := "skirmisher"
 var enemy_hit_multiplier := 1.0
 var enemy_variant_id := ""
@@ -533,6 +560,12 @@ func enter_hideout_from_title() -> void:
 	show_hideout()
 
 func request_enter_hideout() -> void:
+	# Only unowned starter equipment changes with a newly selected identity.
+	# Owned/stashed gear and all save/economy decisions remain intact.
+	if inventory.stash.is_empty() and int(inventory.equipped_item("Weapon").get("serial",0)) == -1:
+		var starting: Dictionary = CharacterTraits.definition(profile)
+		inventory.equipped.Weapon = ItemCatalog.create_item(str(starting.starter),"COMMON",-1)
+		inventory.save(INVENTORY_SAVE_PATH)
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "title_enter")
 	if presentation_director == null:
 		show_hideout()
@@ -746,6 +779,7 @@ func build_overlay_ui() -> void:
 	build_boss_reward_ui()
 	build_hoard_chest_ui()
 	build_route_ui()
+	build_expedition_event_ui()
 	build_pause_ui()
 
 func build_pause_ui() -> void:
@@ -775,6 +809,76 @@ func build_pause_ui() -> void:
 	warning.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	make_action_button(abandon_panel, "STAY", Vector2(28, 246), Vector2(158, 68), Color("#263b58"), Color("#79a9d9"), cancel_abandon_run)
 	make_action_button(abandon_panel, "RETURN HOME", Vector2(206, 246), Vector2(158, 68), Color("#5a302c"), Color("#ff8d88"), confirm_abandon_run)
+
+func build_expedition_event_ui() -> void:
+	event_panel = make_panel(Rect2(28,170,424,540),Color("#11182ef5"))
+	LootlingsUI.apply_material(event_panel,"relic")
+	event_panel.visible = false
+	event_title = make_label(event_panel,"",23,Rect2(20,22,384,52),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	event_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	event_line = make_label(event_panel,"",15,Rect2(28,88,368,110),HORIZONTAL_ALIGNMENT_CENTER,Color("#dae5f9"))
+	event_line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	for index in range(3):
+		var button := make_action_button(event_panel,"",Vector2(24,214+index*98),Vector2(376,86),Color("#172442"),Color("#d4ad65"),choose_expedition_event.bind(index))
+		button.add_theme_font_size_override("font_size",15)
+		# Retain semantic button text while rendering the cost and effect wrapped.
+		for font_color in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:
+			button.add_theme_color_override(font_color,Color.TRANSPARENT)
+		var title := make_label(button,"",15,Rect2(12,8,352,24),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+		title.name = "ChoiceTitle"; title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var detail := make_label(button,"",14,Rect2(12,33,352,46),HORIZONTAL_ALIGNMENT_CENTER,Color("#dae5f9"))
+		detail.name = "ChoiceDetail"; detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		detail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		event_buttons.append(button)
+
+func show_expedition_event() -> void:
+	event_due = false
+	event_id = ExpeditionEvents.roll(rng,event_seen)
+	if event_id.is_empty(): return
+	state = "event"; help_label.visible = false
+	pause_button.visible = false
+	event_seen.append(event_id)
+	var data: Dictionary = ExpeditionEvents.EVENTS[event_id]
+	event_title.text = data.title
+	event_line.text = "%s\n\nHP %.0f / %.0f  •  %d RUN SCRIP" % [data.line,player_hp,player_max_hp,coins]
+	for index in range(2):
+		var choice: Dictionary = data.choices[index]
+		event_buttons[index].text = "%s\n%s" % [str(choice.name).to_upper(),choice.desc]
+		event_buttons[index].disabled = coins + int(choice.get("scrip",0)) < 0 or player_hp + float(choice.get("hp",0)) <= 0
+	event_buttons[2].text = "KEEP MOVING\nLeave everything as it is."
+	event_buttons[2].disabled = false
+	for button in event_buttons:
+		var lines := button.text.split("\n",true,1)
+		button.get_node("ChoiceTitle").text = lines[0]
+		button.get_node("ChoiceDetail").text = lines[1]
+		button.get_node("ChoiceTitle").modulate.a = .5 if button.disabled else 1.0
+		button.get_node("ChoiceDetail").modulate.a = .5 if button.disabled else 1.0
+	event_panel.visible = true
+	if presentation_director != null: presentation_director.present_card(event_panel,Color("#d4ad65"),.22)
+
+func choose_expedition_event(index: int) -> void:
+	if state != "event" or index < 0 or index > 2 or event_id.is_empty(): return
+	var choice: Dictionary = {} if index == 2 else ExpeditionEvents.EVENTS[event_id].choices[index]
+	var scrip := int(choice.get("scrip",0))
+	var hp := float(choice.get("hp",0))
+	if coins+scrip < 0 or player_hp+hp <= 0: return
+	# Leave decision state before rewards; a second tap cannot repeat payment.
+	state = "playing"; event_panel.visible = false; event_id = ""
+	pause_button.visible = true
+	coins += scrip
+	if scrip > 0: run_coins_earned += scrip
+	else: run_coins_spent -= scrip
+	player_hp = minf(player_max_hp,player_hp+hp)
+	player_ward = minf(15,player_ward+float(choice.get("ward",0)))
+	event_risk = float(choice.get("risk",1.0)); event_power = float(choice.get("power",1.0))
+	if choice.has("loot"):
+		pending_items.append(loot_system.generate_shop_item(str(choice.loot)))
+		item_review_due = true
+		if inventory.has_signature("mimic_appetite"): cache_hit_primed = true
+	if choice.has("upgrade"): pending_levels += 1
+	if choice.has("xp"): add_xp(float(choice.xp))
+	if pending_levels > 0 and state == "playing": show_upgrade_choices()
+	play_audio_event("chest_open" if choice.has("loot") else "upgrade_select")
 
 func build_hideout() -> void:
 	hideout_ui = HideoutUI.new()
@@ -859,7 +963,7 @@ func pause_run() -> void:
 	if state != "playing":
 		return
 	state = "paused"
-	pause_build_details.text = "Damage %.0f • Attack %.2fs • Crit %d%% • Hits x%d\n%s" % [base_damage*equipment_damage_multiplier(),current_attack_interval(),int(effective_crit_chance()*100),multi_hits,build.short_summary()]
+	pause_build_details.text = "Hit %.0f • Attack %.2fs • Crit %d%% • Ward %.0f\n%s" % [base_damage*equipment_damage_multiplier(),current_attack_interval(),int(effective_crit_chance()*100),player_ward,str(character_trait.get("name",""))]
 	pause_button.visible = false
 	pause_panel.visible = true
 	abandon_panel.visible = false
@@ -1393,6 +1497,15 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	character_trait = CharacterTraits.definition(profile)
+	player_ward = 0.0; survived_hits = 0
+	delayed_hits.clear(); signature_targets.clear()
+	cache_hit_primed = false; boss_recovery = 0.0; boss_phase = 1
+	event_seen.clear(); event_due = false; event_id = ""
+	event_risk = 1.0; event_power = 1.0
+	wave_composition_wave = -1; wave_composition.clear()
+	loot_system.reset_run(campaign_id)
+	if event_panel != null: event_panel.visible = false
 	combat_presentation.reset()
 	if presentation_director != null: presentation_director.vignette.cancel()
 	story_run_presentations = false # Direct deterministic harnesses omit UI stings.
@@ -1430,6 +1543,7 @@ func start_run() -> void:
 	var meta_bonus := 1.0 + float(meta_power) * 0.05
 	equipment_hp_bonus = inventory.effect_total("max_hp")
 	player_max_hp = maxf(40.0, 100.0 * meta_bonus + equipment_hp_bonus + int(gold_upgrades.get("bedroll", 0)) * 4.0)
+	player_max_hp += int(character_trait.hp)
 	player_hp = player_max_hp
 	base_damage = 11.0 * meta_bonus + int(gold_upgrades.get("whetstone", 0)) * 0.6
 	coins = int(gold_upgrades.get("pouch", 0)) * 8
@@ -1539,6 +1653,11 @@ func spawn_enemy() -> void:
 		spawn_single_enemy()
 
 func spawn_single_enemy() -> void:
+	enemy_weapon_opening_used = false
+	enemy_trait_opening_used = false; enemy_trait_crit_used = false
+	enemy_status_ward_used = false; enemy_chime_primed = false
+	enemy_control_budget = 0.5
+	boss_recovery = 0.0; boss_phase = 1
 	enemy_serial += 1
 	combat_presentation.register_enemy(enemy_serial)
 	attack_projectiles.clear()
@@ -1563,13 +1682,22 @@ func spawn_single_enemy() -> void:
 		type_bonus = 2.65
 		enemy_name = "GRUMP KNIGHT" if campaign_id == "act_i" else current_zone.miniboss
 	else:
-		enemy_archetype = ZoneCatalog.archetype_for(current_zone, wave, wave_kills)
+		if wave_composition_wave != wave:
+			wave_composition_wave = wave
+			wave_composition = ZoneCatalog.composition_for(current_zone,wave).duplicate()
+			# Two weighted patterns retain the local role budget; the third trades
+			# a caster for a scrapper. Never stack three casters or tanks.
+			var pattern := rng.randf()
+			if pattern < 0.65: wave_composition.shuffle()
+			elif pattern < 0.82: wave_composition = ["skirmisher","skirmisher","tank"]
+		enemy_archetype = str(wave_composition[clampi(wave_kills,0,2)])
 		if dungeon.active and not dungeon.room.is_empty():
 			enemy_archetype = dungeon.room.members[clampi(wave_kills, 0, dungeon.room.members.size() - 1)]
 		var enemy_definition := ZoneCatalog.enemy_for(current_zone, enemy_archetype)
 		enemy_name = enemy_definition.name
 	enemy_max_hp = (24.0 + wave * 7.0) * progress * type_bonus
 	enemy_damage = (3.5 + wave * 0.92) * (1.3 if enemy_is_miniboss else 1.0) * (1.55 if enemy_is_boss else 1.0)
+	enemy_damage *= event_risk
 	enemy_attack_interval = maxf(0.85, 2.25 - wave * 0.045)
 	enemy_hit_multiplier = 1.0
 	enemy_variant_id = ""
@@ -1622,6 +1750,8 @@ func spawn_single_enemy() -> void:
 			enemy_damage *= 1.10
 	enemy_attack_interval *= float(current_zone.get("interval_scale", 1.0))
 	enemy_hp = enemy_max_hp
+	enemy_hit_multiplier *= event_power
+	event_risk = 1.0; event_power = 1.0
 	enemy_attack_clock = enemy_attack_interval
 	enemy_attack_count = 0
 	enemy_first_crit_used = false
@@ -1740,6 +1870,14 @@ func _process(delta: float) -> void:
 		queue_redraw()
 		return
 	run_time += delta
+	boss_recovery = maxf(0.0,boss_recovery-delta)
+	enemy_control_budget = minf(0.5,enemy_control_budget+delta*0.25)
+	for hit in delayed_hits.duplicate():
+		hit.time -= delta
+		if hit.time <= 0:
+			delayed_hits.erase(hit)
+			if enemy_encounter.active: enemy_encounter.resolve_echo(self,int(hit.serial),float(hit.power))
+			elif enemy_alive and int(hit.serial) == enemy_serial: deal_elemental_hit(float(hit.power),"Physical")
 	tap_input_cooldown = maxf(0.0, tap_input_cooldown - delta)
 	tap_buffer_timer = maxf(0.0, tap_buffer_timer - delta)
 	status_clock = maxf(0.0, status_clock - delta)
@@ -1747,6 +1885,9 @@ func _process(delta: float) -> void:
 	if combo_clock <= 0.0:
 		tap_combo = 0
 	player_hp = minf(player_max_hp, player_hp + regen_per_second * delta)
+	if enemy_alive and enemy_is_boss and boss_phase == 1 and enemy_hp / enemy_max_hp <= .5:
+		boss_phase = 2
+		add_float("SECOND PHASE",Vector2(270,350),Color("#ffc77a"),18)
 	if not enemy_alive:
 		# Never replace a defeated foe while its visible loot reveal is still resolving.
 		if not loot_drops.is_empty():
@@ -1770,6 +1911,9 @@ func _process(delta: float) -> void:
 			show_merchant()
 			queue_redraw()
 			return
+		if event_due and not dungeon.active:
+			show_expedition_event()
+			return
 		if dungeon.active and dungeon.room_finished:
 			show_route_choices()
 			queue_redraw()
@@ -1792,7 +1936,7 @@ func _process(delta: float) -> void:
 		queue_redraw()
 		return
 	if player_x < attack_position:
-		player_x = minf(attack_position, player_x + 155.0 * delta)
+		player_x = minf(attack_position, player_x + 155.0 * float(character_trait.get("move",1.0)) * delta)
 		if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss:
 			enemy_attack_clock -= delta
 			if enemy_attack_clock <= 0.0:
@@ -1929,7 +2073,7 @@ func resolve_player_attack(is_tap: bool) -> void:
 		hit_count *= 2
 		damage_scale *= 0.64
 	elif subtype == "sling" and attack_sequence % 3 == 0:
-		enemy_attack_clock += 0.18
+		delay_enemy(0.18)
 	elif subtype == "orb" and attack_sequence % 4 == 0:
 		player_hp = minf(player_max_hp, player_hp + 2.0)
 		add_particles(Vector2(player_x, 438), Color("#95d8ff"), 4)
@@ -1948,6 +2092,15 @@ func resolve_player_attack(is_tap: bool) -> void:
 			break
 		var is_crit := rng.randf() < effective_crit_chance()
 		var damage := base_damage * damage_scale * equipment_damage_multiplier() * (crit_mult if is_crit else 1.0) * rng.randf_range(0.92, 1.08)
+		var perk: String = str(character_trait.get("perk",""))
+		if perk == "opening" and not enemy_trait_opening_used: damage *= 1.25
+		if perk == "finish" and enemy_hp / enemy_max_hp < .35: damage *= 1.15
+		if perk == "aim" and is_crit and not enemy_trait_crit_used:
+			damage *= 1.30; enemy_trait_crit_used = true
+		if is_tap and boss_recovery > 0: damage *= 1.15
+		if cache_hit_primed:
+			damage *= 1.40; cache_hit_primed = false
+		enemy_trait_opening_used = true
 		damage_enemy(damage, is_crit, is_tap, is_heavy and hit_index == 0)
 		if enemy_alive and enemy_serial == aoe_origin and is_crit and inventory.effect_total("crit_lightning") > 0.0:
 			deal_elemental_hit(base_damage * inventory.effect_total("crit_lightning"), "Lightning")
@@ -1972,6 +2125,23 @@ func resolve_player_attack(is_tap: bool) -> void:
 		deal_elemental_hit(base_damage * 0.34, "Lightning")
 		add_float("CROOKED VOLLEY", Vector2(278, 367), Color("#a8dcff"), 16)
 	apply_weapon_evolution(subtype, aoe_origin, evolution_opening)
+	if enemy_alive and enemy_serial == aoe_origin:
+		match str(character_trait.get("perk","")):
+			"kindle":
+				if attack_sequence % 4 == 0:
+					enemy_burn_dps = maxf(enemy_burn_dps,base_damage*.12); enemy_burn_time = 2.0
+			"stagger":
+				if attack_sequence % 5 == 0: delay_enemy(.25)
+			"encore":
+				if attack_sequence % 6 == 0: deal_elemental_hit(base_damage*.35,"Lightning")
+			"renew":
+				if attack_sequence % 5 == 0: player_hp = minf(player_max_hp,player_hp+2)
+		if inventory.has_signature("storm_receipt"):
+			signature_targets[aoe_origin] = run_time
+			for target in signature_targets.keys():
+				if run_time-float(signature_targets[target]) > 4: signature_targets.erase(target)
+			if signature_targets.size() >= 3:
+				signature_targets.clear(); deal_elemental_hit(base_damage*.60,"Lightning")
 	squash = 0.16
 	if enemy_encounter.active and (current_weapon_family() == "MAGE" or is_heavy or build.count("Fire") >= 3):
 		enemy_encounter.splash(self, base_damage * (0.32 if is_heavy else 0.22), "Physical" if is_heavy else build.dominant(), aoe_origin)
@@ -1999,19 +2169,21 @@ func apply_weapon_evolution(subtype: String, origin_serial: int, opening: bool) 
 	var extra := base_damage * float(evolution_data.damage[stage - 1]) if evolution_data.has("damage") else 0.0
 	# Released attacks never redirect remaining hits/procs when their foe dies.
 	if enemy_alive and enemy_serial == origin_serial:
-		if evolution_data.has("slow"): enemy_attack_clock += float(evolution_data.slow[stage - 1])
+		if evolution_data.has("slow"): delay_enemy(float(evolution_data.slow[stage - 1]))
 		if extra > 0: deal_elemental_hit(extra, identity)
 	if extra > 0 and bool(evolution_data.get("splash", false)) and enemy_encounter.active:
 		enemy_encounter.splash(self, extra, identity, origin_serial)
 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
 	amount *= enemy_hit_multiplier
+	var health_removed := minf(amount,maxf(0.0,enemy_hp))
 	enemy_hp -= amount
 	if enemy_hp > 0 and attack_sequence % (4 if enemy_is_boss else 3) == 0:
 		play_character_voice("hurt",false)
-	if inventory.has_signature("frostbell_chime") and not enemy_frostbell_used:
+	if (inventory.has_signature("frostbell_chime") or inventory.has_signature("frostbell_shatter")) and not enemy_frostbell_used:
 		enemy_frostbell_used = true
-		enemy_attack_clock += 0.32
+		enemy_chime_primed = true
+		delay_enemy(0.32)
 		add_float("FROSTBELL", Vector2(300, 372), Color("#a8ecff"), 15)
 		add_particles(Vector2(346, 442), Color("#a8ecff"), 6)
 	if enemy_variant_guarded and enemy_hp / maxf(1.0, enemy_max_hp) <= 0.72:
@@ -2042,7 +2214,13 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		text = "%.0f" % amount
 	add_float(text, Vector2(300 + visual_rng.randf_range(-10, 10), 408), text_color, text_size)
 	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7)
-	player_hp = minf(player_max_hp, player_hp + amount * life_steal)
+	player_hp = minf(player_max_hp, player_hp + health_removed * life_steal)
+	if is_heavy and inventory.has_signature("burden_bell"): delay_enemy(.25)
+	if is_heavy and inventory.has_signature("aftershock_receipt") and delayed_hits.size() < 8:
+		delayed_hits.append({"time":.18,"serial":enemy_serial,"power":base_damage*.25})
+	if is_heavy and enemy_chime_primed and inventory.has_signature("frostbell_shatter"):
+		enemy_chime_primed = false
+		enemy_hp -= base_damage*.25*enemy_hit_multiplier
 	carried_shockwave += amount * splash_ratio
 	var fire_count: int = build.count("Fire")
 	if fire_count > 0:
@@ -2053,18 +2231,61 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 	if poison_count > 0:
 		enemy_poison_stacks = mini(4 + poison_count * 3, enemy_poison_stacks + 1 + venom_power + int(inventory.effect_total("poison_bonus")))
 		enemy_poison_time = 5.0 * (1.0 + inventory.effect_total("poison_duration"))
+	if not enemy_status_ward_used and (enemy_burn_time > 0 or enemy_poison_time > 0) and inventory.has_signature("bubble_bargain"):
+		enemy_status_ward_used = true; player_ward = minf(15,player_ward+3)
 	var effective_execute := execute_ratio + inventory.effect_total("execute")
 	if effective_execute > 0.0 and enemy_hp > 0.0 and enemy_hp / enemy_max_hp <= effective_execute:
 		add_float("YEET!", Vector2(355, 385), Color("#ff8bd8"), 28)
 		enemy_hp = 0.0
 	if enemy_hp <= 0.0:
+		if is_crit and inventory.has_signature("critical_shelter"): player_ward = minf(15,player_ward+4)
 		kill_enemy()
+
+func delay_enemy(seconds: float) -> void:
+	var accepted := minf(seconds,enemy_control_budget)
+	enemy_control_budget -= accepted
+	enemy_attack_clock += accepted
 
 func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if not enemy_alive:
 		return
 	enemy_attack_anim = 0.18
+	if enemy_is_boss or enemy_is_miniboss:
+		var action := BossPatterns.next(self)
+		if enemy_is_boss or enemy_is_miniboss:
+			match campaign_id:
+				"mossglass_wilds":
+					if action.text == "MIRROR CHARGE": enemy_hp = minf(enemy_max_hp,enemy_hp+minf(40,enemy_max_hp*.02))
+				"moonfen":
+					if action.text == "FEINT": player_x = maxf(PLAYER_HOME_X,player_x-12)
+				"frostbell_hollows":
+					if action.text == "CHIME": attack_clock += .20
+				"sunken_gearworks":
+					if action.text == "PRESSURE RISE": enemy_attack_clock += .20
+				"cinder_crown":
+					if action.text == "TRIBUTE FLARE":
+						var tribute := mini(8,coins)
+						coins -= tribute; run_coins_spent += tribute
+				"starfall_archive":
+					if action.text == "ERASE": tap_combo = 0
+				"nullglass_expanse":
+					if action.text == "REFRACT": enemy_hp = minf(enemy_max_hp,enemy_hp+minf(30,enemy_max_hp*.015))
+				"skyhook_bastion":
+					if action.text == "REEL IN": player_x = maxf(PLAYER_HOME_X,player_x-10)
+				"first_hoard":
+					if action.text == "CLAIM": player_ward = maxf(0,player_ward-3)
+				"act_i":
+					if action.text == "TAIL SWEEP": player_x = maxf(PLAYER_HOME_X,player_x-8)
+		damage_scale *= float(action.power)
+		if action.recovery:
+			enemy_attack_count += 1
+			boss_recovery = minf(1.0,enemy_attack_interval*.65)
+			add_float("RECOVERY • TAP OPENING",Vector2(270,350),Color("#88e7bb"),15)
+			return
 	enemy_attack_count += 1
+	if enemy_variant_id == "regenerating" and enemy_attack_count % 3 == 0:
+		enemy_hp = minf(enemy_max_hp,enemy_hp+minf(12,enemy_max_hp*.025))
+		add_float("REKNITTING",Vector2(310,370),enemy_variant_color,14)
 	play_audio_event({"skirmisher":"enemy_skirmisher", "tank":"enemy_tank", "hexer":"enemy_hexer"}.get(enemy_archetype, "enemy_skirmisher"))
 	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
 		play_audio_event("ward")
@@ -2079,6 +2300,11 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	var style_armor := 0.04 if current_weapon_family() == "VANGUARD" else 0.0
 	var effective_armor := armor + inventory.effect_total("armor") + style_armor
 	var damage := enemy_damage * damage_scale * (1.0 - minf(effective_armor, 0.72))
+	if enemy_variant_id == "enraged" and enemy_hp/enemy_max_hp < .35: damage *= 1.18
+	damage *= 1.0+inventory.effect_total("incoming_mult")
+	var perk: String = str(character_trait.get("perk",""))
+	if perk == "veil" and enemy_attack_count == 1: damage *= .70
+	if perk == "brace" and damage > 15: damage *= .85
 	if enemy_variant_id == "overcharged" and enemy_attack_count % 3 == 0:
 		damage *= 1.22
 		add_float("SPARK SURGE", Vector2(250, 392), enemy_variant_color, 15)
@@ -2087,7 +2313,13 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		attack_clock += 0.18
 		add_float("FROST DELAY", Vector2(150, 405), enemy_variant_color, 14)
 	play_character_voice("attack",false)
+	var absorbed := minf(player_ward,damage)
+	player_ward -= absorbed; damage -= absorbed
 	player_hp -= damage
+	if enemy_variant_id == "leeching" and damage > 0:
+		enemy_hp = minf(enemy_max_hp,enemy_hp+minf(6,damage*.35))
+	if perk == "shelter" and player_hp > 0: player_hp = minf(player_max_hp,player_hp+2)
+	survived_hits += 1
 	play_character_voice("hurt",true)
 	run_damage_taken += damage
 	player_flash = 0.13
@@ -2106,6 +2338,8 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		player_hp = 0.0
 		play_character_voice("death",true)
 		end_run(false)
+	elif survived_hits % 4 == 0 and inventory.has_signature("rooted_revenge"):
+		deal_elemental_hit(base_damage*.30,"Poison")
 
 func deal_elemental_hit(amount: float, identity: String) -> void:
 	if not enemy_alive:
@@ -2165,6 +2399,9 @@ func kill_enemy() -> void:
 	death_burst_color = Color("#b75cff") if enemy_is_boss else Color("#ffba55") if enemy_is_miniboss else Color("#ffcf72")
 	enemy_hp = 0.0
 	total_kills += 1
+	if str(character_trait.get("perk","")) == "scavenger" and total_kills % 5 == 0:
+		coins += 8; run_coins_earned += 8
+	if str(character_trait.get("perk","")) == "advance": carried_shockwave += base_damage*.10
 	contracts.record("kill")
 	award_achievement("hundred_kills")
 	award_achievement("thousand_kills")
@@ -2241,6 +2478,7 @@ func kill_enemy() -> void:
 		return
 	if wave_kills >= ENEMIES_PER_WAVE or enemy_is_miniboss:
 		wave += 1
+		if wave in [4,12]: event_due = true
 		wave_kills = 0
 		item_review_due = true
 		if wave in [6, 11]:
@@ -2323,6 +2561,7 @@ func update_hoard_chest(delta: float) -> void:
 		eject_hoard_loot()
 
 func open_hoard_chest() -> void:
+	if inventory.has_signature("mimic_appetite") and state == "hoard_chest": cache_hit_primed = true
 	if state != "hoard_chest" or hoard_chest_phase != "ready":
 		return
 	hoard_chest_phase = "windup"
@@ -2612,6 +2851,7 @@ func show_merchant() -> void:
 
 func refresh_merchant_ui() -> void:
 	merchant_title.text = "PACK PEDDLER"
+	merchant_subtitle.text = shop.stock_style
 	merchant_coin_label.text = "[center]%s  %d RUN SCRIP[/center]" % [LootlingsUI.inline_icon("currency_run_scrip", 20), coins]
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
@@ -2622,7 +2862,7 @@ func refresh_merchant_ui() -> void:
 			merchant_icons[i].visible = false
 			merchant_visuals[i].kicker.text = "SOLD • IN GOOD PAWS"
 			merchant_visuals[i].name.text = "Nothing left but the receipt."
-			merchant_visuals[i].effect.text = "Patch is already counting the coins."
+			merchant_visuals[i].effect.text = "Merrow packed it before you changed your mind."
 			for label in merchant_visuals[i].values():
 				label.modulate = Color("#9cacc4")
 			apply_button_style(button,Color("#141e32"),Color("#536583"))
@@ -2822,6 +3062,8 @@ func end_run(victory: bool) -> void:
 	run_won = victory
 	if route_panel != null: route_panel.visible = false
 	state = "result"
+	if event_panel != null: event_panel.visible = false
+	delayed_hits.clear()
 	if pause_button != null: pause_button.visible = false
 	upgrade_panel.visible = false
 	item_panel.visible = false
@@ -2899,7 +3141,7 @@ func style_result_summary(summary: String) -> String:
 	return "[center]%s[/center]" % styled
 
 func buy_meta_power() -> void:
-	if state != "hideout":
+	if state != "hideout" or meta_power >= 100:
 		return
 	var cost := 10 + meta_power * 5
 	if meta_shards >= cost:
@@ -3239,7 +3481,7 @@ func draw_hud() -> void:
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
 		draw_rect(Rect2(18, 77, 444, 18), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
-	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
+	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
 	if state == "playing":
 		var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
 		var foe_number := clampi(wave_kills + (1 if enemy_alive else 0), 1, wave_target)
@@ -3272,7 +3514,7 @@ func draw_arena(shake: Vector2) -> void:
 			draw_status_chip(Vector2(status_x, 261), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
 		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240, 287), enemy_variant_name, enemy_variant_color, "variant_%s" % enemy_variant_id)
+			draw_status_chip(Vector2(240, 287), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:

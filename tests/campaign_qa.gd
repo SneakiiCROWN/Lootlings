@@ -89,6 +89,7 @@ func run_qa() -> void:
 					"hoard_chest":
 						game._process(0.08)
 						if game.hoard_chest_phase == "ready": game.open_hoard_chest()
+					"event": game.choose_expedition_event(2)
 					"merchant": game.leave_merchant()
 					_:
 						game._process(0.05)
@@ -117,6 +118,7 @@ func run_qa() -> void:
 				"hoard_chest":
 					game._process(0.7)
 					if game.hoard_chest_phase == "ready": game.open_hoard_chest()
+				"event": game.choose_expedition_event(2)
 				"merchant": game.leave_merchant()
 				_:
 					if game.enemy_alive: game.damage_enemy(game.enemy_hp * 10.0 + 1.0, false, false)

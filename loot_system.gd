@@ -11,6 +11,14 @@ const BOSS_RARITY_WEIGHTS := [0.0, 0.0, 88.0, 12.0]
 var rng := RandomNumberGenerator.new()
 var serial := 1
 var region_pool: Array = []
+var regular_drought := 0
+var recent_items: Array = []
+var boss_pool: Array = []
+var boss_seen: Array = []
+
+func reset_run(campaign: String) -> void:
+	regular_drought = 0; recent_items.clear(); boss_seen.clear()
+	boss_pool = preload("res://phase3_item_catalog.gd").BOSS_POOLS.get(campaign,[]).duplicate()
 
 func _init(seed_value: int = 0) -> void:
 	if seed_value == 0:
@@ -19,14 +27,28 @@ func _init(seed_value: int = 0) -> void:
 		rng.seed = seed_value
 
 func roll_drop(is_miniboss: bool, is_boss: bool) -> Dictionary:
-	if not is_miniboss and not is_boss and rng.randf() > NORMAL_DROP_CHANCE:
-		return {}
+	if not is_miniboss and not is_boss:
+		regular_drought += 1
+		if rng.randf() > NORMAL_DROP_CHANCE and regular_drought < 18: return {}
+		regular_drought = 0
 	var weights := BOSS_RARITY_WEIGHTS if is_boss else MINIBOSS_RARITY_WEIGHTS if is_miniboss else NORMAL_RARITY_WEIGHTS
 	var rarity := weighted_rarity(weights)
 	var source: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
+	if is_boss and not boss_pool.is_empty() and rng.randf() < .45:
+		source = ItemCatalog.definition(str(boss_pool[rng.randi_range(0,boss_pool.size()-1)]))
 	# New-region identity only; Act I consumes exactly its original RNG sequence.
 	if not region_pool.is_empty() and rng.randf() < 0.45:
 		source = ItemCatalog.definition(str(region_pool[rng.randi_range(0, region_pool.size() - 1)]))
+	# Same-rarity alternatives still feel different. Boss choices cannot repeat
+	# a base; ordinary drops avoid the immediately previous two identities.
+	var exclusions: Array = boss_seen if is_boss else recent_items
+	if source.id in exclusions:
+		var candidates: Array = ItemCatalog.ITEMS.filter(func(item): return not item.id in exclusions)
+		source = candidates[rng.randi_range(0,candidates.size()-1)]
+	if is_boss: boss_seen.append(source.id)
+	else:
+		recent_items.append(source.id)
+		if recent_items.size() > 2: recent_items.pop_front()
 	var result := ItemCatalog.create_item(source.id, rarity, serial)
 	result = AffixCatalog.apply(result, AffixCatalog.roll_for_item(result, rng))
 	serial += 1
