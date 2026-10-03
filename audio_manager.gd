@@ -8,13 +8,13 @@ const MUSIC_PATHS := {
 	"HOARD_DEPTHS":"res://art/audio/music/hoard_depths.wav", "BOSS":"res://art/audio/music/boss.wav",
 	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav"
 }
-const EVENT_SPECS := {
+const BASE_EVENT_SPECS := {
 	"swing_greatsword":["SFX",0,.28,.5], "swing_greataxe":["SFX",0,.30,.5], "swing_maul":["SFX",0,.32,.5],
 	"swing_spear":["SFX",0,.18,.4], "swing_daggers":["SFX",0,.15,.4], "swing_claws":["SFX",0,.12,.4],
 	"swing_bow":["SFX",0,.18,.4], "swing_crossbow":["SFX",0,.16,.4], "swing_sling":["SFX",0,.18,.4],
 	"swing_staff":["SFX",0,.38,.4], "swing_wand":["SFX",0,.25,.4], "swing_orb":["SFX",0,.40,.4],
 	"magic_fire":["SFX",0,.38,.4], "magic_lightning":["SFX",0,.22,.4], "magic_poison":["SFX",0,.38,.4],
-	"ward":["SFX",0,.28,.4], "explosion":["SFX",0,.38,.5], "exertion":["SFX",0,.2,.3],
+	"ward":["SFX",0,.28,.4], "explosion":["SFX",0,.38,.5],
 	"ui_press":["UI", 720.0, 0.045, 0.20], "menu_open":["UI", 520.0, 0.10, 0.18],
 	"menu_close":["UI", 360.0, 0.08, 0.16], "menu_transition":["UI", 610.0, 0.12, 0.16],
 	"tap_attack":["SFX", 210.0, 0.08, 0.42], "normal_hit":["SFX", 125.0, 0.11, 0.56],
@@ -24,8 +24,8 @@ const EVENT_SPECS := {
 	"enemy_hexer":["SFX", 350.0, 0.22, 0.32],
 	"heavy_hit":["SFX", 76.0, 0.20, 0.68], "crit":["SFX", 980.0, 0.20, 0.66],
 	"boss_hit":["SFX", 62.0, 0.22, 0.74],
-	"enemy_hurt":["SFX", 145.0, 0.07, 0.26], "player_hurt":["SFX", 92.0, 0.14, 0.44],
-	"enemy_death":["SFX", 82.0, 0.24, 0.56], "gold_pickup":["SFX", 1180.0, 0.11, 0.42],
+
+	"gold_pickup":["SFX", 1180.0, 0.11, 0.42],
 	"scrip_pickup":["SFX", 940.0, 0.09, 0.34], "resource_pickup":["SFX", 940.0, 0.09, 0.34],
 	"xp_pickup":["SFX", 720.0, 0.10, 0.32], "equipment_drop":["SFX", 230.0, 0.24, 0.58],
 	"rarity_reveal":["SFX", 680.0, 0.25, 0.42], "rare_reveal":["SFX", 720.0, 0.28, 0.46],
@@ -35,9 +35,21 @@ const EVENT_SPECS := {
 	"upgrade_select":["UI", 840.0, 0.16, 0.24], "core_awaken":["SFX", 420.0, 0.42, 0.58],
 	"equip":["UI", 510.0, 0.13, 0.23], "scrap":["SFX", 190.0, 0.12, 0.24],
 	"shop_purchase":["UI", 940.0, 0.17, 0.30], "boss_warning":["SFX", 64.0, 0.34, 0.50],
-	"boss_death":["SFX", 52.0, 0.74, 0.78], "zone_transition":["Ambience", 240.0, 0.58, 0.48],
+	"zone_transition":["Ambience", 240.0, 0.58, 0.48],
 	"victory":["Music", 520.0, 0.70, 0.52], "defeat":["Music", 145.0, 0.55, 0.38]
 }
+
+static var EVENT_SPECS := event_specs()
+
+static func event_specs() -> Dictionary:
+	var result := BASE_EVENT_SPECS.duplicate(true)
+	for profile in preload("res://voice_identity.gd").PROFILES:
+		for role in ["attack","hurt","death"]:
+			result["voice_"+profile+"_"+role] = ["SFX",0,.5,.4]
+	return result
+
+static func variant_count(event: String) -> int:
+	return 4 if event in VARIANT_EVENTS or event.begins_with("voice_") else 1
 
 var players := {}
 var streams := {}
@@ -51,9 +63,9 @@ var event_sequence := {}
 var last_event_msec := {}
 var duck_tween: Tween
 
-const VARIANT_EVENTS := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "exertion", "tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
+const VARIANT_EVENTS := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
 const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
-const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "player_hurt", "enemy_death", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_windup", "chest_open", "level_up", "core_awaken", "boss_warning", "boss_death", "victory", "defeat"]
+const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_windup", "chest_open", "level_up", "core_awaken", "boss_warning", "victory", "defeat"]
 
 func _ready() -> void:
 	ensure_buses()
@@ -79,9 +91,9 @@ func _ready() -> void:
 		if not authored.is_empty():
 			streams[event_name] = authored
 			continue
-		var variant_count := 4 if event_name in VARIANT_EVENTS else 1
+		var count := variant_count(event_name)
 		var variants: Array[AudioStreamWAV] = []
-		for variant in range(variant_count):
+		for variant in range(count):
 			variants.append(make_tone(float(spec[1]), float(spec[2]), float(spec[3]), event_name, variant))
 		streams[event_name] = variants
 
@@ -92,7 +104,7 @@ static func valid_event_stream(stream: Variant) -> bool:
 static func production_event_streams(event_name: String) -> Array[AudioStreamWAV]:
 	var result: Array[AudioStreamWAV] = []
 	if not EVENT_SPECS.has(event_name): return result
-	var count := 4 if event_name in VARIANT_EVENTS else 1
+	var count := variant_count(event_name)
 	for index in range(count):
 		var path := PRODUCTION_ROOT + "sfx/%s_%02d.wav" % [event_name,index+1]
 		if not ResourceLoader.exists(path):
@@ -160,7 +172,7 @@ func play_event(event_name: String) -> void:
 			player = candidate
 			break
 	if player == null:
-		if event_name not in IMPORTANT_EVENTS:
+		if event_name not in IMPORTANT_EVENTS and not (event_name.begins_with("voice_") and not event_name.ends_with("_attack")):
 			return
 		player = pool[0]
 	var variants: Array = streams[event_name]
@@ -177,6 +189,14 @@ func play_event(event_name: String) -> void:
 	else:
 		player.volume_db = randf_range(-5.0, -3.5)
 	player.play()
+
+func play_voice(profile: String, role: String) -> void:
+	if profile not in preload("res://voice_identity.gd").PROFILES or role not in ["attack","hurt","death"]: return
+	var event := "voice_"+profile+"_"+role
+	var now := Time.get_ticks_msec()
+	var interval := 1350 if role == "attack" else 700 if role == "hurt" else 0
+	if now-int(last_event_msec.get(event,-2000)) < interval: return
+	play_event(event)
 
 func choose_variant(event_name: String, variant_count: int) -> int:
 	if variant_count <= 1:
@@ -257,10 +277,10 @@ func make_tone(frequency: float, duration: float, gain: float, event_name: Strin
 		var noise := sin(float(sample_index + variant * 17) * 12.9898) * sin(float(sample_index + variant * 31) * 0.731)
 		var wave := sin(TAU * frequency * variant_tone * sweep * time + variant * 0.21) * 0.58
 		wave += sin(TAU * frequency * 2.01 * time) * 0.18 * (1.0 - progress)
-		if event_name in ["normal_hit", "heavy_hit", "boss_hit", "enemy_hurt", "player_hurt", "enemy_death", "boss_death", "chest_land", "scrap"]:
+		if event_name in ["normal_hit", "heavy_hit", "boss_hit", "chest_land", "scrap"]:
 			var transient := exp(-progress * (18.0 if event_name == "normal_hit" else 10.0))
 			wave = wave * 0.36 + sin(TAU * frequency * 0.48 * time) * 0.42 + noise * transient * 0.72
-			wave += sin(TAU * 92.0 * time) * transient * (0.28 if event_name in ["normal_hit", "enemy_hurt"] else 0.44)
+			wave += sin(TAU * 92.0 * time) * transient * (0.28 if event_name in ["normal_hit"] else 0.44)
 		if event_name in ["crit", "rare_reveal", "epic_reveal", "legendary_reveal", "level_up", "core_awaken", "victory"]:
 			wave += sin(TAU * frequency * (1.0 + floor(progress * 3.0) * 0.25) * time) * 0.32
 			wave += sin(TAU * frequency * 1.5 * time) * 0.18 * sin(PI * progress)

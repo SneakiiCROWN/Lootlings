@@ -65,7 +65,22 @@ func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 	var texture := WeaponCatalog.presentation_texture(str(pose.weapon_type),"held",fallback,int(item.get("evolution_stage",0)))
 	if pose.geometry.has("held_path"):
 		texture = WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),texture)
+	if pose.weapon_type == "bow": draw_bow_string(g,pose)
 	g.draw_texture_rect(texture,Rect2(pose.weapon_rect),false,Color.WHITE)
+
+func draw_bow_string(g, pose: Dictionary) -> void:
+	var rect: Rect2 = pose.weapon_rect
+	var upper := rect.position+rect.size*Vector2(.888,.258)
+	var lower := rect.position+rect.size*Vector2(.411,.887)
+	var midpoint := (upper+lower)*.5
+	var forward := Vector2.RIGHT.rotated(-float(pose.weapon_rotation))*Vector2(pose.weapon_scale)
+	var draw_amount := float(pose.action.anticipate)
+	var nock := midpoint-forward*(draw_amount*14.0)
+	if g.attack_anim > .16: nock += forward*sin((.22-g.attack_anim)*80)*2.0
+	g.draw_polyline(PackedVector2Array([upper,nock,lower]),Color("#141a2c"),3.0,true)
+	g.draw_polyline(PackedVector2Array([upper,nock,lower]),Color("#e8d9a8"),1.2,true)
+	if g.attack_anim <= 0:
+		preload("res://projectile_presentation.gd").draw_arrow(g,nock+forward*48.0,forward,"Physical",1.3,false)
 
 func draw_striking_blade(g, pos: Vector2) -> void:
 	# Large foes used to hide the entire contact stroke. Only the blade crosses

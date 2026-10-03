@@ -18,7 +18,7 @@ func run_audio_qa() -> void:
 	var pcm_bytes := 0
 	for event in game.audio_manager.EVENT_SPECS:
 		var bank: Array = game.audio_manager.production_event_streams(event)
-		assert(bank.size() == (4 if event in game.audio_manager.VARIANT_EVENTS else 1))
+		assert(bank.size() == game.audio_manager.variant_count(event))
 		for clip in bank: pcm_bytes += clip.data.size()
 	for weapon in preload("res://weapon_catalog.gd").live_ids():
 		game.inventory.reset_to_starter()
@@ -37,7 +37,7 @@ func run_audio_qa() -> void:
 	capture.buffer_length = 12.0
 	AudioServer.add_bus_effect(master_index, capture, AudioServer.get_bus_effect_count(master_index))
 	game.audio_manager.set_music("OUTER_RUINS")
-	var sequence := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "exertion", "normal_hit", "gold_pickup", "crit", "player_hurt", "enemy_death", "equipment_drop", "chest_land", "chest_windup", "chest_open", "legendary_reveal", "boss_hit", "boss_death"]
+	var sequence := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "voice_relic_attack", "normal_hit", "gold_pickup", "crit", "voice_relic_hurt", "voice_imp_death", "equipment_drop", "chest_land", "chest_windup", "chest_open", "legendary_reveal", "boss_hit", "voice_dragon_death"]
 	for frame in range(420):
 		if frame % 14 == 0:
 			game.audio_manager.play_event(sequence[int(frame / 14) % sequence.size()])

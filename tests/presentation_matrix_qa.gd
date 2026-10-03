@@ -4,6 +4,7 @@ const Fit = preload("res://weapon_fit_catalog.gd")
 const Matrix = preload("res://tests/weapon_fit_qa.gd")
 const Weapons = preload("res://weapon_catalog.gd")
 const STATES := ["idle", "ready", "movement", "windup", "strike", "impact", "recovery", "hurt", "defeat"]
+var output_folder := "res://.godot_test_data/fidelity_matrix" if OS.get_environment("LOOTLINGS_FIDELITY") == "1" else "res://.godot_test_data/correction_matrix"
 
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
@@ -24,7 +25,7 @@ func run_qa() -> void:
 	caption.size = Vector2(464,45)
 	caption.add_theme_font_size_override("font_size",17)
 	root.add_child(caption)
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://.godot_test_data/correction_matrix"))
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output_folder))
 	var rows: Array = []
 	for actor in actors:
 		for facing in [1,-1]:
@@ -67,8 +68,8 @@ func run_qa() -> void:
 					sheet.blit_rect(cell,Rect2i(0,0,240,190),Vector2i(column*240,row*190))
 					rows.append({"actor":actor,"weapon":weapon,"state":state,"facing":facing,"support_status":pose.support_status,"death_sprite_used":false})
 				row += 1
-			assert(sheet.save_png("res://.godot_test_data/correction_matrix/%s_%s.png" % [actor,"right" if facing > 0 else "left"]) == OK)
-	var report := FileAccess.open("res://.godot_test_data/correction_matrix/report.json",FileAccess.WRITE)
+			assert(sheet.save_png(output_folder+"/%s_%s.png" % [actor,"right" if facing > 0 else "left"]) == OK)
+	var report := FileAccess.open(output_folder+"/report.json",FileAccess.WRITE)
 	report.store_string(JSON.stringify({"samples":rows,"total":rows.size(),"columns":STATES,"rows":Weapons.live_ids(),"note":"Left is a preview; live Act I combat faces right. Missing support-hand art remains explicit debt, not a visual pass."},"\t"))
 	print("PRESENTATION MATRIX: ", rows.size(), " native state samples, 24 contact sheets")
 	helper.free()

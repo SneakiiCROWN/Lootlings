@@ -97,7 +97,7 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop']:
+        for script in ['mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries
@@ -108,7 +108,16 @@ def main():
             relative = re.search(r'^path="res://([^"]+)"', config, re.MULTILINE).group(1)
             assert apk.read('assets/' + relative) == (ROOT/relative).read_bytes(), 'Stale exported sound: ' + str(sidecar)
             imported_audio += 1
-        assert imported_audio == 178
+        assert imported_audio == 329, 'Expected 178 original assets minus 17 superseded reactions plus 168 species variants'
+        bow_source = ROOT/'art/sprites/weapons/bow_held.png'
+        bow_config = bow_source.with_suffix('.png.import').read_text(encoding='utf-8')
+        bow_relative = re.search(r'^path="res://([^"]+)"', bow_config, re.MULTILINE).group(1)
+        assert 'process/size_limit=512' in bow_config
+        bow_bytes = apk.read('assets/' + bow_relative)
+        assert bow_bytes == (ROOT/bow_relative).read_bytes(), 'APK contains stale bow limbs'
+        final_bow = {'source_sha256': hashlib.sha256(bow_source.read_bytes()).hexdigest(),
+                     'imported_sha256': hashlib.sha256(bow_bytes).hexdigest(),
+                     'runtime_size_limit': 512, 'matches_local_import': True}
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
         imported_poses = {}
         for pose in ['greatsword_ready', 'greatsword_strike']:
@@ -129,7 +138,8 @@ def main():
               'contains_manifest_and_test_monitor': True, 'source_test_reference_art_excluded': True,
               'contains_motion_and_safe_area_modules': True, 'final_imported_poses': imported_poses,
               'mobile_gesture_owner_exported': True, 'current_pcm_audio_assets': imported_audio,
-              'audio_license_manifest_exported': True, 'version_code': 3, 'splash_theme_patch': splash_patch,
+              'audio_license_manifest_exported': True, 'version_code': 4, 'splash_theme_patch': splash_patch,
+              'final_imported_bow': final_bow,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))

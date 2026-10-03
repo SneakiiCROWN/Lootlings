@@ -253,7 +253,7 @@ func refresh_selector() -> void:
 	selector_portrait.modulate = LootlingCatalog.presentation_tint(selected_lootling_id)
 	selector_name.text = str(entry.display_name).to_upper()
 	selector_lore.text = str(entry.lore)
-	selector_note.text = "VISUAL EXPORT PENDING\nNeutral stand-in • not the finished character" if entry.temp_art else "CANONICAL %s\nAny weapon • any Relic build" % str(entry.display_name).to_upper()
+	selector_note.text = "CHOOSE YOUR STYLE\nAny weapon • every Relic Core"
 	selector_confirm.disabled = not entry.available
 	selector_confirm.text = "CHOOSE %s" % str(entry.display_name).to_upper()
 

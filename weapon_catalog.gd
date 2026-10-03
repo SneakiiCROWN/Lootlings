@@ -113,6 +113,7 @@ static func definition(id: String) -> Dictionary:
 static func presentation_texture(id: String, role: String, fallback: Texture2D, stage: int = 0) -> Texture2D:
 	if id.is_empty(): return fallback
 	if role == "held": return runtime_texture(id,fallback,stage)
+	if id == "bow" and role == "inventory": return preload("res://art/sprites/weapons/ranger_bow.png")
 	if role not in ["inventory","projectile"]: return fallback
 	var path := "res://art/sprites/weapons/%s_%s.png" % [id,role]
 	var key := path

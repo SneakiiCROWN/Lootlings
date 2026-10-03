@@ -8,7 +8,7 @@ func _initialize() -> void:
 	assert(Audio.music_source_path("NONEXISTENT") == "")
 	for event in Audio.EVENT_SPECS:
 		var bank := Audio.production_event_streams(event)
-		assert(bank.size() == (4 if event in Audio.VARIANT_EVENTS else 1), "Complete recorded/designed bank required: "+event)
+		assert(bank.size() == Audio.variant_count(event), "Complete recorded/designed bank required: "+event)
 		for clip in bank: assert(Audio.valid_event_stream(clip))
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS

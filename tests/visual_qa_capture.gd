@@ -311,6 +311,39 @@ func capture_screens() -> void:
 		quit(1)
 		return
 	fixture.queue_free()
+	await process_frame
+	if OS.get_environment("LOOTLINGS_FIDELITY") == "1":
+		var helper = preload("res://tests/weapon_fit_qa.gd").new()
+		helper.game = game
+		for weapon in ["bow","staff"]:
+			for identity in preload("res://projectile_presentation.gd").COLORS:
+				helper.prepare("relic_beast",weapon)
+				game.enemy_entry_anim = 0
+				game.perform_player_attack(false)
+				game.attack_projectiles[0].element = identity
+				game.update_attack_projectiles(.045)
+				game.attack_anim = .15
+				game.queue_redraw()
+				await wait_frames(2)
+				await RenderingServer.frame_post_draw
+				assert(save_viewport("fidelity_%s_%s.png" % [weapon,identity.to_lower()]))
+		helper.prepare("relic_beast","greatsword")
+		game.enemy_entry_anim = 0
+		game.kill_enemy()
+		game.update_effects(.12)
+		await wait_frames(2)
+		await RenderingServer.frame_post_draw
+		assert(save_viewport("fidelity_combat_pickups.png"))
+		for id in ["moonbranch","patchplate_vest","vault_receipt","critical_script"]:
+			game.loot_drops.clear()
+			var item := ItemCatalog.create_item(id,"LEGENDARY",1201)
+			assert(not item.is_empty())
+			game.loot_drops.append({"item":item,"pos":Vector2(330,450),"rarity":"LEGENDARY","color":ItemCatalog.rarity_color("LEGENDARY"),"pickup":.8,"bounces":1})
+			game.queue_redraw()
+			await wait_frames(2)
+			await RenderingServer.frame_post_draw
+			assert(save_viewport("fidelity_drop_"+id+".png"))
+		helper.free()
 	print("VISUAL QA CAPTURED: major Hideout, combat, reward, pause and results states at %s" % root.content_scale_size)
 	game.queue_free()
 	await process_frame
@@ -335,7 +368,7 @@ func save_viewport(file_name: String) -> bool:
 	if image == null or image.is_empty():
 		push_error("VISUAL QA: viewport image unavailable")
 		return false
-	var folder := "res://.godot_test_data/correction_screens/%dx%d" % [root.size.x,root.size.y]
+	var folder := ("res://.godot_test_data/fidelity_screens/" if OS.get_environment("LOOTLINGS_FIDELITY") == "1" else "res://.godot_test_data/correction_screens/")+"%dx%d" % [root.size.x,root.size.y]
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 	var path := ProjectSettings.globalize_path(folder+"/"+file_name)
 	var error := image.save_png(path)

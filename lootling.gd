@@ -15,6 +15,9 @@ const ProfileStore = preload("res://profile_store.gd")
 const SettingsStore = preload("res://settings_store.gd")
 const AnalyticsLogger = preload("res://analytics_logger.gd")
 const AudioManager = preload("res://audio_manager.gd")
+const VoiceIdentity = preload("res://voice_identity.gd")
+const ProjectilePresentation = preload("res://projectile_presentation.gd")
+const PickupPresentation = preload("res://pickup_presentation.gd")
 const StartupUI = preload("res://startup_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
@@ -265,6 +268,7 @@ var debug_enabled := false
 var debug_god_mode := false
 var debug_weapon_family_override := ""
 var attack_projectiles: Array = []
+var projectile_impacts: Array = []
 var enemy_serial := 0
 var combat_presentation = preload("res://combat_presentation.gd").new()
 var enemy_encounter = preload("res://enemy_encounter.gd").new()
@@ -431,6 +435,7 @@ func debug_jump_to_wave(target_wave: int) -> void:
 	pending_items.clear()
 	loot_drops.clear()
 	attack_projectiles.clear()
+	projectile_impacts.clear()
 	for panel in [upgrade_panel, item_panel, merchant_panel, boss_reward_panel, result_panel]:
 		panel.visible = false
 	spawn_enemy()
@@ -613,6 +618,10 @@ func save_audio_settings(updated_settings: Dictionary) -> void:
 	audio_settings = updated_settings.duplicate(true)
 	SettingsStore.save_settings(SETTINGS_SAVE_PATH, audio_settings)
 	audio_manager.apply_settings(audio_settings)
+
+func play_character_voice(role: String, player: bool) -> void:
+	if audio_manager != null:
+		audio_manager.play_voice(VoiceIdentity.player(self) if player else VoiceIdentity.enemy(self),role)
 
 func play_audio_event(event_name: String) -> void:
 	if audio_manager != null:
@@ -1533,6 +1542,7 @@ func spawn_single_enemy() -> void:
 	enemy_serial += 1
 	combat_presentation.register_enemy(enemy_serial)
 	attack_projectiles.clear()
+	projectile_impacts.clear()
 	var new_wave := wave != last_spawned_wave
 	current_zone = run_zone_for_wave(wave)
 	current_zone_id = current_zone.id
@@ -1869,7 +1879,7 @@ func perform_player_attack(is_tap: bool) -> void:
 	var family := current_weapon_family()
 	var sound_weapon: String = str(inventory.equipped_item("Weapon").get("weapon_type","greatsword"))
 	play_audio_event("swing_"+sound_weapon)
-	if attack_sequence % 5 == 0 and family in ["VANGUARD","ROGUE"]: play_audio_event("exertion")
+	if attack_sequence % 5 == 0 and family in ["VANGUARD","ROGUE"]: play_character_voice("attack",true)
 	if family in ["RANGER", "MAGE"]:
 		var travel_time := 0.12 if family == "RANGER" else 0.17
 		var subtype: String = inventory.equipped_item("Weapon").get("weapon_type", "")
@@ -1886,6 +1896,7 @@ func perform_player_attack(is_tap: bool) -> void:
 		attack_projectiles.append({
 			"family": family,
 			"weapon_type": subtype,
+			"element": ProjectilePresentation.identity(self),
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
@@ -1997,7 +2008,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 	amount *= enemy_hit_multiplier
 	enemy_hp -= amount
 	if enemy_hp > 0 and attack_sequence % (4 if enemy_is_boss else 3) == 0:
-		play_audio_event("enemy_hurt")
+		play_character_voice("hurt",false)
 	if inventory.has_signature("frostbell_chime") and not enemy_frostbell_used:
 		enemy_frostbell_used = true
 		enemy_attack_clock += 0.32
@@ -2075,8 +2086,9 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if enemy_variant_id == "frostbitten" and enemy_attack_count % 3 == 0:
 		attack_clock += 0.18
 		add_float("FROST DELAY", Vector2(150, 405), enemy_variant_color, 14)
+	play_character_voice("attack",false)
 	player_hp -= damage
-	play_audio_event("player_hurt")
+	play_character_voice("hurt",true)
 	run_damage_taken += damage
 	player_flash = 0.13
 	screen_shake = 0.08
@@ -2092,6 +2104,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		return
 	if player_hp <= 0.0:
 		player_hp = 0.0
+		play_character_voice("death",true)
 		end_run(false)
 
 func deal_elemental_hit(amount: float, identity: String) -> void:
@@ -2170,7 +2183,7 @@ func kill_enemy() -> void:
 		award_achievement("hoard_dragon")
 		award_achievement("dragon_regular")
 		award_achievement("dragon_problem")
-	play_audio_event("boss_death" if enemy_is_boss else "enemy_death")
+	play_character_voice("death",false)
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "boss_kill" if enemy_is_boss else "enemy_kill", {"enemy_id":enemy_name.to_lower().replace(" ", "_"), "wave":wave, "zone_id":current_zone_id})
 	if enemy_is_boss:
 		profile.bosses_slain = int(profile.get("bosses_slain", 0)) + 1
@@ -3082,6 +3095,8 @@ func update_effects(delta: float) -> void:
 			loot_drops.remove_at(i)
 
 func update_attack_projectiles(delta: float) -> void:
+	for effect in projectile_impacts: effect.life -= delta
+	projectile_impacts = projectile_impacts.filter(func(effect): return effect.life > 0)
 	for projectile in attack_projectiles:
 		projectile.life -= delta
 		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
@@ -3093,6 +3108,9 @@ func update_attack_projectiles(delta: float) -> void:
 		if projectile.life > 0.0:
 			continue
 		attack_projectiles.remove_at(index)
+		if state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
+			if projectile_impacts.size() >= 16: projectile_impacts.pop_front()
+			projectile_impacts.append({"pos":projectile.target,"element":projectile.get("element","Physical"),"life":.24})
 		if state == "playing" and enemy_encounter.active:
 			enemy_encounter.resolve_projectile(self, int(projectile.enemy_serial), bool(projectile.is_tap))
 		elif state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
@@ -3327,24 +3345,7 @@ func draw_effects() -> void:
 	for drop in loot_drops:
 		draw_loot_drop(drop)
 	draw_attack_projectiles()
-	for pickup in reward_pickups:
-		var pop := clampf(pickup.life / pickup.max_life * 2.0, 0.0, 1.0)
-		# Avoid submitting a four-point polygon collapsed to one position on its
-		# final frame; Godot correctly reports that as invalid triangulation.
-		if pop <= 0.01:
-			continue
-		if pickup.kind == "coin":
-			var radius := 8.0 * pop
-			draw_colored_polygon(PackedVector2Array([
-				pickup.pos + Vector2(0, -radius),
-				pickup.pos + Vector2(radius * 0.70, 0),
-				pickup.pos + Vector2(0, radius),
-				pickup.pos + Vector2(-radius * 0.70, 0)
-			]), Color("#f4bd3e"))
-			draw_line(pickup.pos + Vector2(0, -4) * pop, pickup.pos + Vector2(0, 4) * pop, Color("#fff8c8"), 1.5)
-		else:
-			var radius := 7.0 * pop
-			draw_colored_polygon(PackedVector2Array([pickup.pos + Vector2(0,-radius),pickup.pos + Vector2(radius,0),pickup.pos + Vector2(0,radius),pickup.pos + Vector2(-radius,0)]), Color("#70e5ff"))
+	for pickup in reward_pickups: PickupPresentation.draw_reward(self,pickup)
 	for particle in particles:
 		var alpha: float = clampf(particle.life / particle.max_life, 0.0, 1.0)
 		var color: Color = particle.color
@@ -3408,39 +3409,18 @@ func draw_effects() -> void:
 		var alpha: float = clampf(item.life / item.max_life, 0.0, 1.0)
 		var color: Color = item.color
 		color.a = alpha
-		draw_string(body_font, item.pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, Color(0.02, 0.03, 0.08, alpha * 0.80))
-		draw_string_outline(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, 2, Color(0.02, 0.03, 0.08, alpha * 0.92))
-		draw_string(body_font, item.pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, 150, item.size, color)
+		var text_size: int = item.size
+		while text_size > 12 and body_font.get_string_size(item.text,HORIZONTAL_ALIGNMENT_LEFT,-1,text_size).x > 300:
+			text_size -= 1
+		var text_width := maxf(150,body_font.get_string_size(item.text,HORIZONTAL_ALIGNMENT_LEFT,-1,text_size).x+4)
+		var text_pos: Vector2 = Vector2(clampf(item.pos.x,10,470-text_width),item.pos.y)
+		draw_string(body_font, text_pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, text_width, text_size, Color(0.02, 0.03, 0.08, alpha * 0.80))
+		draw_string_outline(body_font, text_pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, text_width, text_size, 2, Color(0.02, 0.03, 0.08, alpha * 0.92))
+		draw_string(body_font, text_pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, text_width, text_size, color)
 
 func draw_attack_projectiles() -> void:
-	for projectile in attack_projectiles:
-		var pos: Vector2 = projectile.pos
-		var progress: float = 1.0 - clampf(projectile.life / projectile.max_life, 0.0, 1.0)
-		if projectile.get("weapon_type", "") == "sling":
-			draw_line(pos - Vector2(22, 4), pos, Color("#d5c0aa99"), 3.0)
-			draw_circle(pos, 8.0, Color("#242238"))
-			draw_circle(pos, 5.5, Color("#d3c3ab"))
-		elif projectile.family == "RANGER":
-			var direction := Vector2(1.0, 0.04).normalized()
-			var normal := direction.orthogonal()
-			for trail_index in range(3):
-				var trail_alpha := 0.52 - trail_index * 0.10
-				var trail_start := pos - direction * (17.0 + trail_index * 9.0)
-				draw_line(trail_start, trail_start - direction * (10.0 + trail_index * 4.0), Color(0.48, 0.88, 1.0, trail_alpha), 3.0 - trail_index * 0.45)
-			draw_line(pos - direction * 19.0, pos + direction * 11.0, Color("#10182cbb"), 6.0)
-			draw_line(pos - direction * 17.0, pos + direction * 10.0, Color("#fff0aa"), 3.5)
-			draw_colored_polygon(PackedVector2Array([pos + direction * 15.0, pos + direction * 7.0 + normal * 5.0, pos + direction * 7.0 - normal * 5.0]), Color("#e8f4ff"))
-			draw_line(pos - direction * 15.0, pos - direction * 22.0 + normal * 6.0, Color("#b2dcff"), 2.0)
-			draw_line(pos - direction * 15.0, pos - direction * 22.0 - normal * 6.0, Color("#b2dcff"), 2.0)
-		else:
-			var pulse := 1.0 + sin(progress * PI * 4.0) * 0.12
-			if projectile.get("weapon_type", "") == "wand": pulse *= 0.55
-			var trail := Color(0.60, 0.44, 1.0, 0.34)
-			draw_circle(pos - Vector2(24, 0), 6.0 * pulse, Color(0.38, 0.80, 1.0, 0.16))
-			draw_circle(pos - Vector2(13, 0), 8.0 * pulse, trail)
-			draw_circle(pos, 11.0 * pulse, Color("#8ee8ff"))
-			draw_circle(pos, 6.0 * pulse, Color("#f2e9ff"))
-			draw_arc(pos, 15.0, progress * TAU * 2.0, progress * TAU * 2.0 + 4.4, 14, Color("#c9a4ff"), 2.0)
+	for projectile in attack_projectiles: ProjectilePresentation.draw_projectile(self,projectile)
+	for effect in projectile_impacts: ProjectilePresentation.draw_impact(self,effect)
 
 func draw_hoard_chest() -> void:
 	var center := Vector2(240, hoard_chest_y)
@@ -3471,35 +3451,7 @@ func draw_loot_drop(drop: Dictionary) -> void:
 		var opening := clampf((progress - 0.24) / 0.30, 0, 1)
 		PresentationDirector.draw_chest(self, chest_center, "relic", opening, minf(1.0, (1.0 - progress) / 0.22), 0.80, sin(clampf((progress - 0.18) / 0.10, 0, 1) * PI))
 		if progress < 0.40: return
-	var color: Color = drop.color
-	var rarity: String = drop.get("rarity", drop.item.get("rarity", "COMMON"))
-	var rarity_rank := 3 if rarity == "LEGENDARY" else 2 if rarity == "EPIC" else 1 if rarity == "RARE" else 0
-	if rarity_rank > 0:
-		var beam := color
-		beam.a = (0.08 if rarity_rank == 1 else 0.17 if rarity_rank == 2 else 0.24) + sin(run_time * 9.0 + drop.pos.x) * 0.035
-		var beam_width := 11.0 + rarity_rank * 4.0
-		var beam_height := 62.0 + rarity_rank * 22.0
-		draw_colored_polygon(PackedVector2Array([drop.pos + Vector2(-beam_width, 8), drop.pos + Vector2(-5, -beam_height), drop.pos + Vector2(5, -beam_height), drop.pos + Vector2(beam_width, 8)]), beam)
-	var squash_ratio := clampf(float(drop.get("squash", 0.0)) / 0.12, 0.0, 1.0)
-	var pulse := 1.0 + sin(run_time * 7.0 + drop.pos.x) * (0.04 + rarity_rank * 0.02) + squash_ratio * 0.12
-	var halo := color
-	halo.a = 0.12 + rarity_rank * 0.07
-	draw_circle(drop.pos, (19.0 + rarity_rank * 2.5) * pulse, halo)
-	draw_circle(drop.pos, 16.0 * pulse, Color("#10182cea"))
-	draw_arc(drop.pos, (18.0 + rarity_rank) * pulse, run_time * 2.2, run_time * 2.2 + 4.0 + rarity_rank * 0.32, 22, color.lightened(0.28), 2.0 + rarity_rank * 0.65)
-	if rarity_rank >= 2:
-		for glint in range(4 if rarity_rank == 2 else 6):
-			var direction := Vector2.RIGHT.rotated(run_time * 0.8 + TAU * glint / float(4 if rarity_rank == 2 else 6))
-			draw_line(drop.pos + direction * 22.0, drop.pos + direction * (28.0 + rarity_rank * 4.0), color.lightened(0.5), 2.0)
-	var slot: String = drop.item.get("slot", "Relic")
-	var loot_texture := LootlingsUI.item_texture(drop.item)
-	LootlingsUI.draw_icon(get_canvas_item(), loot_texture, Rect2(drop.pos - Vector2(18, 18), Vector2(36, 36)))
-	var category := ItemCatalog.display_slot(slot).to_upper()
-	draw_string(body_font, drop.pos + Vector2(-40, 34), category, HORIZONTAL_ALIGNMENT_CENTER, 80, 10, Color("#f5f7ff"))
-	if int(drop.get("bounces", 0)) > 0 or float(drop.get("pickup", 1.0)) < 0.58:
-		var item_name := str(drop.item.get("name", "MYSTERY LOOT")).to_upper()
-		draw_rect(Rect2(drop.pos.x - 70, drop.pos.y + 39, 140, 20), Color("#071027dc"), true)
-		draw_string(body_font, drop.pos + Vector2(-66, 54), item_name, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, color.lightened(0.34))
+	PickupPresentation.draw_item(self,drop)
 
 func draw_moment_overlay() -> void:
 	if rarity_reveal_flash > 0.0:

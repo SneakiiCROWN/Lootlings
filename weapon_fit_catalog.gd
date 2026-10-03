@@ -31,7 +31,7 @@ const GEOMETRY := {
 	"spear":{"size":Vector2(104, 162), "grip":Vector2(0.37,0.76), "socket":Vector2(0.8,0.08), "angle":0.35},
 	"daggers":{"size":Vector2(92, 94), "grip":Vector2(0.27,0.68), "socket":Vector2(0.82,0.1), "angle":-0.2},
 	"claws":{"size":Vector2(87, 72), "grip":Vector2(.21,.44), "socket":Vector2(0.9,0.3), "angle":0.0},
-	"bow":{"size":Vector2(86, 114), "grip":Vector2(0.48,0.55), "socket":Vector2(0.68,0.46), "angle":-0.62},
+	"bow":{"size":Vector2(96, 128), "grip":Vector2(.49,.515), "socket":Vector2(.27,.42), "angle":.51,"mirror":true},
 	"crossbow":{"size":Vector2(115, 80), "grip":Vector2(.43,.56), "socket":Vector2(.10,.36), "angle":0.05, "mirror":true},
 	"sling":{"size":Vector2(96,104), "grip":Vector2(.24,.78), "socket":Vector2(.79,.20), "angle":.18},
 	"staff":{"size":Vector2(80, 142), "grip":Vector2(.32,.76), "socket":Vector2(.80,.20), "angle":-0.12},
@@ -67,10 +67,10 @@ const HANDLING_OVERRIDES := {
 		"greatsword":{"angle":-.90,"release":-.10},
 		"greataxe":{"angle":-.90,"release":-.10},
 		"spear":{"angle":-.90},"staff":{"angle":-.90},"wand":{"angle":-.90},
-		"daggers":{"angle":-.35},"claws":{"angle":-.35},"bow":{"angle":-.35},
+		"daggers":{"angle":-.35},"claws":{"angle":-.35},
 		"crossbow":{"angle":-.35},"sling":{"angle":-1.35,"release":-.10},"orb":{"angle":-.35}
 	},
-	"paw":{"staff":{"angle_offset":.30},"spear":{"angle_offset":.30},"bow":{"angle_offset":.30}}
+	"paw":{"staff":{"angle_offset":.30},"spear":{"angle_offset":.30}}
 }
 
 static func register_stance(actor_id: String, group: String, data: Dictionary) -> bool:
