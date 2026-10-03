@@ -32,6 +32,7 @@ for element in ['physical', 'fire', 'frost', 'lightning', 'poison', 'corruption'
     sheet.save(OUT/f'projectiles-{element}.webp', quality=90, method=4)
 for source in RAW.glob('*drop*.png'):
     save(source, source.stem)
+save(RAW/'combat_death_pickups.png', 'combat_death_pickups')
 shutil.copy2(RAW/'combat-voices.wav', OUT/'combat-voices.wav')
 for layout in ['1080x2316', '1200x1600']:
     files = sorted((ROOT/'.godot_test_data/fidelity_screens'/layout).glob('*.png'))

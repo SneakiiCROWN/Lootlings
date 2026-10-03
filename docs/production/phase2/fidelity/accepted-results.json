@@ -1,0 +1,227 @@
+[
+  {
+    "run": "fidelity-regressions-final-1f61ef6e12",
+    "results": [
+      {
+        "name": "audio_production_qa",
+        "exit": 0,
+        "seconds": 0.35,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "authored_pose_qa",
+        "exit": 0,
+        "seconds": 4.25,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "canonical_world_qa",
+        "exit": 0,
+        "seconds": 1.36,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "evolution_qa",
+        "exit": 0,
+        "seconds": 1.57,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "expansion_test",
+        "exit": 0,
+        "seconds": 0.44,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "fidelity_qa",
+        "exit": 0,
+        "seconds": 1.93,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "mobile_gesture_qa",
+        "exit": 0,
+        "seconds": 9.06,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "mobile_monitor_qa",
+        "exit": 0,
+        "seconds": 3.24,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "presentation_qa",
+        "exit": 0,
+        "seconds": 1.28,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "save_recovery_qa",
+        "exit": 0,
+        "seconds": 1.28,
+        "errors": [],
+        "expected_diagnostics": [
+          "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+          "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+        ]
+      },
+      {
+        "name": "smoke_test",
+        "exit": 0,
+        "seconds": 8.22,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "vignette_qa",
+        "exit": 0,
+        "seconds": 3.59,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "weapon_expansion_qa",
+        "exit": 0,
+        "seconds": 5.62,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "weapon_fit_qa",
+        "exit": 0,
+        "seconds": 3.58,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-sweep-native-ddd68cae0b",
+    "results": [
+      {
+        "name": "mobile_layout_qa",
+        "exit": 0,
+        "seconds": 51.41,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "presentation_matrix_qa",
+        "exit": 0,
+        "seconds": 57.52,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "vertical_slice_qa",
+        "exit": 0,
+        "seconds": 8.35,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-live-hooks-final-88054aa55c",
+    "results": [
+      {
+        "name": "fidelity_qa",
+        "exit": 0,
+        "seconds": 47.14,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-archive-final-1a2b3f69f3",
+    "results": [
+      {
+        "name": "audio_production_qa",
+        "exit": 0,
+        "seconds": 0.35,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "fidelity_qa",
+        "exit": 0,
+        "seconds": 1.93,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-audio-archive-native-0f693c5fab",
+    "results": [
+      {
+        "name": "audio_mix_qa",
+        "exit": 0,
+        "seconds": 9.28,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-s23-final-5836b701ed",
+    "results": [
+      {
+        "name": "visual_qa_capture",
+        "exit": 0,
+        "seconds": 61.87,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-tablet-final-dd7b06a1a2",
+    "results": [
+      {
+        "name": "visual_qa_capture",
+        "exit": 0,
+        "seconds": 54.56,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "fidelity-final-followup-f0bbeca176",
+    "results": [
+      {
+        "name": "mobile_gesture_qa",
+        "exit": 0,
+        "seconds": 8.95,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "presentation_qa",
+        "exit": 0,
+        "seconds": 1.28,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "smoke_test",
+        "exit": 0,
+        "seconds": 8.14,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  }
+]

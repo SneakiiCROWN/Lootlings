@@ -1,5 +1,7 @@
 # Lootlings production roadmap — current authority
 
+Owner fidelity tranche 5 is implemented at `a1ceabe`; [current report](docs/production/phase2/fidelity/REPORT.md) owns version-4 APK, species voices, bow direction/string/nock, projectiles, pickups and native evidence. Next: retest that exact build on S23, then approved bow draw/support anatomy and weaponless Moonkip, followed by unique boss animation and final music. Existing mobile/touch, save/economy and corrected combat-seed work remain preserved. Do not re-audit or repeat completed tranches.
+
 Active Phase 2 work is scoped to Act I's existing beginning-to-end loop; see [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) for the prioritized slice plan, completed polish and focused greatsword/Android tranches. Immediate next step is prepared physical S23 testing and measured fixes, then boss reactions/audio. The requirements below remain production gates; the original audit is preserved as baseline evidence.
 
 Owner S23-review tranche 4 is implemented at `c99704a` with native phone/tablet/matrix evidence and a version-3 test APK. [Current correction report](docs/production/phase2/correction/REPORT.md) lists exact delivered changes and remaining art/device gates. Do not repeat completed tranche work.
