@@ -1,0 +1,70 @@
+{
+  "after": {
+    "blueprint": {
+      "max": 3,
+      "mean": 0.4488,
+      "p10": 0,
+      "p50": 0,
+      "p90": 1,
+      "zero_runs": 6111
+    },
+    "mastery": {
+      "max": 18,
+      "mean": 6.3486,
+      "p10": 0,
+      "p50": 6,
+      "p90": 12,
+      "zero_runs": 2677
+    },
+    "material": {
+      "max": 21,
+      "mean": 3.8988,
+      "p10": 0,
+      "p50": 4,
+      "p90": 8,
+      "zero_runs": 1283
+    },
+    "runs": 10000,
+    "tiers": {
+      "COMMON": 12519,
+      "EPIC": 1782,
+      "LEGENDARY": 630,
+      "RARE": 4488,
+      "UNCOMMON": 10581
+    }
+  },
+  "baseline": {
+    "blueprint": {
+      "max": 3,
+      "mean": 0.4509,
+      "p10": 0,
+      "p50": 0,
+      "p90": 1,
+      "zero_runs": 6148
+    },
+    "mastery": {
+      "max": 18,
+      "mean": 6.3282,
+      "p10": 0,
+      "p50": 6,
+      "p90": 12,
+      "zero_runs": 2693
+    },
+    "material": {
+      "max": 6,
+      "mean": 2.9888,
+      "p10": 0,
+      "p50": 2,
+      "p90": 6,
+      "zero_runs": 1283
+    },
+    "runs": 10000,
+    "tiers": {}
+  },
+  "costs": [
+    140,
+    230,
+    360
+  ],
+  "guaranteed_fragment_every_paid_spins": 12
+}

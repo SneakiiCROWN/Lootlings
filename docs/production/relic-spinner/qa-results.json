@@ -1,0 +1,141 @@
+[
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 4.2,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-before-6c923efbf0"
+  },
+  {
+    "name": "audio_production_qa",
+    "exit": 0,
+    "seconds": 0.45,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.25,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 2.97,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "rc_reward_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "rc_save_qa",
+    "exit": 0,
+    "seconds": 0.28,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "relic_spinner_qa",
+    "exit": 0,
+    "seconds": 2.03,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ],
+    "run": "spinner-regression-22fc4773c0"
+  },
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 3.06,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-release-contract-2bd170c27c"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-release-contract-2bd170c27c"
+  },
+  {
+    "name": "relic_spinner_qa",
+    "exit": 0,
+    "seconds": 2.13,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-release-contract-2bd170c27c"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-final-seed-df3a10fbf1"
+  },
+  {
+    "name": "relic_spinner_native_qa",
+    "exit": 0,
+    "seconds": 39.06,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-phone-delivery-b57b9e6836"
+  },
+  {
+    "name": "relic_spinner_native_qa",
+    "exit": 0,
+    "seconds": 40.8,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-tablet-delivery-d8bbb3a8cd"
+  },
+  {
+    "name": "relic_spinner_card_native_qa",
+    "exit": 0,
+    "seconds": 11.06,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-phone-card-0a93a5bebf"
+  },
+  {
+    "name": "relic_spinner_card_native_qa",
+    "exit": 0,
+    "seconds": 11.46,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "spinner-tablet-card-c1c796f68d"
+  }
+]
