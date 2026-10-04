@@ -1,0 +1,11 @@
+[
+  {
+    "name": "phase4_result_native_qa",
+    "exit": 4294967295,
+    "seconds": 82.66,
+    "errors": [
+      "SCRIPT ERROR: Invalid assignment of property or key 'run_kept_loot' with value of type 'Array' on a base object of type 'Control (lootling.gd)'."
+    ],
+    "expected_diagnostics": []
+  }
+]

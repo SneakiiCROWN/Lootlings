@@ -1,0 +1,36 @@
+{
+  "commit": "2eb5616",
+  "engine": "4.7.2.stable",
+  "baseline_items": 47,
+  "current_items": 71,
+  "baseline_selectable_humans": 5,
+  "baseline_selectable_lootlings": 7,
+  "baseline_live_weapon_families": 12,
+  "baseline_regions": 10,
+  "baseline_roadside_events": 8,
+  "new_named_items": 24,
+  "new_base_human_art": 0,
+  "baseline_metrics": "../humanqa/final/runs.json",
+  "before_after": "metrics.json",
+  "sources": {
+    "lootling.gd": "cf82b63978a705cb8e55184d51dc21b315831fec5b62ebcdd60d1fcb78f28c3d",
+    "loot_system.gd": "ba72cd3c5b636e44f1ce53c1b6f06383e52736709ef7658898a7e20b23780064",
+    "item_catalog.gd": "b074fcb149e10f93dd56994efb36edb35a343f784de2f171e54b8ac439a784bc",
+    "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
+    "hideout_ui.gd": "1a533ae6ce48ac5abf54d123f72e996cf680f8ea530b71465b72eded0f2729c4",
+    "inventory_system.gd": "bf26d926738d467bf4f3a7606e546e6b1ceacb75c7b53e198bad55d181ef6f15",
+    "export_presets.cfg": "8a5cb842dc99ab8a653d280185c72c12e419f7c428eca72eb851159c127bf148",
+    "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
+    "art/audio/production/sources.json": "b896e72e0bb536e356aeef661c9b54accafa79386a519a954e3634359f781d06"
+  },
+  "reused_unchanged": [
+    "canonical pose assets/renderer",
+    "licensed PCM banks",
+    "voice identity",
+    "raw combat damage/health curves",
+    "merchant pricing",
+    "TAKE/BUY flow",
+    "touch ownership",
+    "old save schema and recovery"
+  ]
+}

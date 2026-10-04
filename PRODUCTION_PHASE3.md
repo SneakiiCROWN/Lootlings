@@ -1,3 +1,5 @@
+Subsequent expansion delivery: [PRODUCTION_PHASE4A.md](PRODUCTION_PHASE4A.md). Phase 3 and human-QA evidence below is preserved baseline/history; the current APK is version 8.
+
 # Phase 3 production source of truth — 2026-10-04
 
 Current delivery: [S23 human playtest follow-up](docs/production/humanqa/REPORT.md), continued from clean `fccd15b`. Quiet physical hub/collapsed Loadout, lighter HUD/compact procs, inline upgrade/merchant selection, menu hierarchy, echo/support copy, measured later premium/event sinks and relative audio-family gain correction are implemented. [Checkpoint/package identity](docs/production/humanqa/DELIVERY.md), [matched policy distributions](docs/production/humanqa/final/summary.json), [focused native/regression acceptance](docs/production/humanqa/qa-results.json). Unchanged canonical pose/art/audio banks are reused; no full audit or expensive unchanged matrix was restarted.
