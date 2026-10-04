@@ -71,9 +71,9 @@ func review() -> void:
 	game.enemy_alive = false; game.loot_drops.clear(); game.coins = 987654321; game.wave = 6
 	game.show_merchant(); await capture("one_purchase_merchant")
 	var coins: int = game.coins
-	await tap(game.merchant_buttons[0]); assert(game.coins == coins and is_instance_valid(game.touch_ux.dialog))
+	await tap(game.merchant_buttons[0]); assert(game.coins == coins and game.merchant_selection == 0)
 	await capture("purchase_consequence")
-	await create_timer(.3).timeout; await tap(game.touch_ux.confirm_button)
+	await create_timer(.3).timeout; await tap(game.merchant_buy_button)
 	assert(game.state == "item" and game.attack_sequence == attacks)
 	game.accept_item_scrap(); assert(game.state == "playing")
 	game.pending_items = [Items.create_item("bonebow","RARE",991),Items.create_item("mossguard_harness","EPIC",992)]

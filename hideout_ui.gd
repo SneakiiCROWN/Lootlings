@@ -203,12 +203,7 @@ func show_home() -> void:
 	current_screen = "home"
 	set_screen(home_content)
 	refresh_home()
-	if not queued_dialogue_context.is_empty():
-		request_dialogue(queued_dialogue_context)
-		queued_dialogue_context = ""
-		queued_dialogue_priority = -1
-	elif hideout_visits == 0:
-		request_dialogue("first_visit")
+	loadout_panel.visible = false
 	hideout_visits += 1
 	visit_destination("home")
 	queue_redraw()
@@ -286,6 +281,8 @@ func build_home() -> void:
 	title_button.pressed.connect(func(): title_requested.emit())
 	resource_label = LootlingsUI.rich_label(home_content, Rect2(30, 60, 420, 40), 13, Color("#d9e5ff"))
 	var play_button := make_hotspot_button(home_content, "BEGIN EXPEDITION", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
+	play_button.set_meta("ui_intent","primary")
+	LootlingsUI.apply_button(play_button,Color("#49346b"),Color("#ffd468"))
 	play_button.pressed.connect(func(): play_requested.emit())
 	var upgrades_button := make_hotspot_button(home_content, "UPGRADES", Rect2(14, 244, 138, 112), Color("#c99cff"), 15)
 	upgrades_button.pressed.connect(show_upgrades)
@@ -300,6 +297,9 @@ func build_home() -> void:
 	LootlingsUI.apply_material(loadout_panel, "leather", 16)
 	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
 	loadout_label = LootlingsUI.rich_label(loadout_panel, Rect2(14, 27, 384, 54), 15, Color("#e6edff"))
+	loadout_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var inspect_loadout := make_button(home_content,"LOADOUT  ▾",Rect2(150,650,180,48),Color("#172442"),Color("#7087ae"),13)
+	inspect_loadout.pressed.connect(func(): loadout_panel.visible = not loadout_panel.visible)
 	for speaker in RESIDENT_RECTS:
 		make_npc_hotspot(home_content, RESIDENT_RECTS[speaker], speaker)
 	make_npc_hotspot(home_content, Rect2(204, 382, 76, 102), "Mascot")
@@ -603,6 +603,14 @@ func build_shop() -> void:
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
 	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 525, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
 	shop_expansion_button.pressed.connect(func(): safe_action(shop_expansion_button,"Spend Scrap to permanently add stash space.",func(): shop_expansion_requested.emit()))
+	for utility in [shop_gold_cache_button,shop_cache_button,shop_expansion_button]:
+		utility.clip_text = true
+		utility.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		utility.add_theme_font_size_override("font_size",11)
+		# Control keeps its previously expanded size when minimum size shrinks.
+		utility.size.x = 138 if utility == shop_expansion_button else 137
+		utility.set_meta("ui_intent","utility")
+		LootlingsUI.apply_button(utility,Color("#192944"),Color("#7087ae"))
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 615, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
 	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Scrap to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
 	shop_status_panel = make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530dc"), Color("#8ea2c8"))
@@ -694,7 +702,7 @@ func build_memories() -> void:
 	add_child(memory_content)
 	make_button(memory_content, "‹ NOTES", Rect2(20,20,124,48), Color("#202d4d"), Color("#7f94bc"),15).pressed.connect(show_lore)
 	make_label(memory_content, "MEMORY ARCHIVE",25,Rect2(148,23,312,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
-	make_label(memory_content, "Living paintings • replay never grants rewards",13,Rect2(24,74,432,30),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	make_label(memory_content, "Echoes of your travels • memories grant no rewards",13,Rect2(24,74,432,30),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
 	for index in range(4):
 		var filter_name: String = ["ALL","Characters","Regions","Bosses"][index]
 		make_button(memory_content, filter_name.to_upper(), Rect2(20+index*111,186,107,44), Color("#202d4d"),Color("#bba0de"),12).pressed.connect(func(): memory_filter = filter_name; refresh_memories())
@@ -729,7 +737,7 @@ func refresh_memories() -> void:
 		button.custom_minimum_size = Vector2(396,80)
 		button.add_theme_font_size_override("font_size",16)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		button.text = "▷  %s\n      %s • %.0f-second replay" % [str(entry.name), str(entry.category).capitalize(), float(entry.duration)] if unlocked else "   UNDISCOVERED MEMORY\n   %s • find this story on your travels" % str(entry.category).capitalize()
+		button.text = "▷  %s\n      %s • revisit this echo" % [str(entry.name), str(entry.category).capitalize()] if unlocked else "   UNDISCOVERED MEMORY\n   %s • find this story on your travels" % str(entry.category).capitalize()
 		LootlingsUI.apply_button(button,Color("#17294b"),Color("#c99cff"))
 		button.disabled = not unlocked
 		button.pressed.connect(func(): memory_replay_requested.emit(id))
@@ -1209,6 +1217,8 @@ func queue_dialogue_context(context: String) -> void:
 		speech_panel.visible = false
 
 func request_dialogue(context: String = "idle", requested_speaker: String = "") -> void:
+	# At rest the physical hub speaks through its artwork. Residents talk when selected.
+	if context != "tapped": return
 	if dialogue == null or speech_panel == null or speech_visible_timer > 0.0:
 		return
 	var entry: Dictionary = dialogue.choose(context, requested_speaker)
@@ -1284,12 +1294,6 @@ func _process(delta: float) -> void:
 		if speech_visible_timer <= 0.0 and speech_panel != null:
 			speech_panel.visible = false
 			speech_timer = 8.0 + fmod(scene_time, 5.0)
-	elif current_screen == "home":
-		speech_timer -= delta
-		if speech_timer <= 0.0 and speech_panel != null:
-			request_dialogue("rare" if dialogue.rng.randf() < 0.08 else "idle")
-			if speech_visible_timer <= 0.0:
-				speech_timer = 2.0
 	for spark in ui_sparks:
 		spark.life -= delta
 		spark.pos += spark.vel * delta
@@ -1476,7 +1480,7 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	button.add_theme_color_override("font_color", Color("#f2f6ff"))
 	button.add_theme_color_override("font_hover_color", Color.WHITE)
 	button.add_theme_color_override("font_outline_color", Color("#050914"))
-	button.add_theme_constant_override("outline_size", 6)
+	button.add_theme_constant_override("outline_size", 2)
 	for state_name in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var box := StyleBoxFlat.new()
 		box.bg_color = Color(0.025, 0.055, 0.12, 0.18 if state_name == "normal" else 0.42)
@@ -1486,16 +1490,17 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 		box.set_border_width_all(1 if state_name == "normal" else 3)
 		box.set_corner_radius_all(18)
 		box.shadow_color = Color(accent.r, accent.g, accent.b, 0.10 if state_name == "normal" else 0.22)
-		box.shadow_size = 4 if state_name == "normal" else 5
+		box.shadow_size = 0 if state_name == "normal" else 3
 		button.add_theme_stylebox_override(state_name, box)
 	parent.add_child(button)
 	wire_press_feedback(button)
 	return button
 
 func apply_display_button_style(button: Button, border: Color, selected: bool = false) -> void:
+	button.set_meta("ui_intent","primary" if selected else "secondary")
 	apply_button_style(button, Color("#172442"), border)
 	if selected:
-		button.add_theme_stylebox_override("normal", LootlingsUI.button_style(Color.WHITE, border, "focus"))
+		button.add_theme_stylebox_override("normal", LootlingsUI.button_style(Color.WHITE, border, "focus","primary"))
 
 func apply_sold_display_style(button: Button) -> void:
 	apply_button_style(button, Color("#172442"), Color("#716170"))

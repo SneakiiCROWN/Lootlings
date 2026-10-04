@@ -25,13 +25,16 @@ func generate_stock(loot_system, wave: int, preferred_family: String = "") -> vo
 	if style_roll > .85: minimum = "RARE"
 	# Three clear gear lanes plus the existing reroll utility make four shop actions.
 	for slot in ["Weapon", "Armour", "Rune" if stock_style == "RUNE COLLECTOR" else "Relic"]:
-		var item: Dictionary = loot_system.generate_shop_item_for_slot(slot, minimum if slot == "Weapon" else "COMMON",preferred_family if slot == "Weapon" else "")
+		var premium := wave >= 11 and stock.size() == 2
+		var item: Dictionary = loot_system.generate_shop_item_for_slot(slot, "EPIC" if premium else minimum if slot == "Weapon" else "COMMON",preferred_family if slot == "Weapon" else "")
+		item.premium = premium
 		item.price = maxi(1,roundi(price_for(item, wave)*discount))
 		stock.append(item)
+	if wave >= 11: stock_style += " • PREMIUM FIND"
 
 func price_for(item: Dictionary, wave: int) -> int:
 	# One purchase per stop; rarity and reroll costs create alternatives.
-	return [58, 108, 185, 320][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 6
+	return [58, 108, 185, 320][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 6 + (90 if item.get("premium",false) else 0)
 
 func reroll_cost(wave: int) -> int:
 	return 18 + wave * 3 + rerolls * 18

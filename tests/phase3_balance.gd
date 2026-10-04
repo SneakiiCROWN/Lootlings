@@ -108,6 +108,9 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 				game._process(.05); seconds += .05
 				if game.hoard_chest_phase == "ready": game.open_hoard_chest()
 			"merchant":
+				if has_method("measure_merchant"):
+					call("measure_merchant",game); decisions += 1
+					continue
 				var offer: int = helper.cheapest_affordable(game)
 				if int(buys.get(game.wave,0)) < 2 and offer >= 0 and game.shop.stock[offer].slot != "Weapon":
 					buys[game.wave] = int(buys.get(game.wave,0)) + 1

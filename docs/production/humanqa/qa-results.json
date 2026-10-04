@@ -1,0 +1,92 @@
+[
+  {
+    "name": "human_scrip_runs",
+    "exit": 0,
+    "seconds": 34.56,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.07,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "rc_reward_qa",
+    "exit": 0,
+    "seconds": 1.39,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.4,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.08,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "rc_reward_qa",
+    "exit": 0,
+    "seconds": 1.3,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.29,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  },
+  {
+    "name": "human_native_qa",
+    "exit": 0,
+    "seconds": 26.8,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "mobile_layout_qa",
+    "exit": 0,
+    "seconds": 54.68,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "human_native_qa",
+    "exit": 0,
+    "seconds": 30.27,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "human_pressure_qa",
+    "exit": 0,
+    "seconds": 13.9,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "human_audio_qa",
+    "exit": 0,
+    "seconds": 27.73,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

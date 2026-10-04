@@ -62,6 +62,8 @@ var last_variant := {}
 var event_sequence := {}
 var last_event_msec := {}
 var duck_tween: Tween
+var music_gain_db := 4.0
+var event_mix_trim := true
 
 const VARIANT_EVENTS := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
 const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
@@ -139,7 +141,7 @@ func ensure_buses() -> void:
 			break
 	if not has_limiter:
 		var limiter := AudioEffectLimiter.new()
-		limiter.ceiling_db = -0.8
+		limiter.ceiling_db = -1.5
 		limiter.threshold_db = -3.0
 		limiter.soft_clip_db = 2.0
 		AudioServer.add_bus_effect(master_index, limiter)
@@ -188,6 +190,10 @@ func play_event(event_name: String) -> void:
 		player.volume_db = randf_range(-3.0, -1.8)
 	else:
 		player.volume_db = randf_range(-5.0, -3.5)
+	# Equal-default native captures showed combat ~12 dB above the hub.
+	# Trim overlapping impact/weapon families; preserve species timbre and saved sliders.
+	if event_mix_trim:
+		player.volume_db -= 4.0 if event_name in ["normal_hit","heavy_hit","crit","boss_hit","explosion"] else 3.0 if event_name.begins_with("swing_") or event_name in ["tap_attack","ranger_release","mage_cast","vanguard_swing","rogue_slash"] else 2.0
 	player.play()
 
 func play_voice(profile: String, role: String) -> void:
@@ -250,7 +256,7 @@ func set_music(cue: String) -> void:
 	music_player.stream = music_streams[cue]
 	# The prebaked score is intentionally low-amplitude to retain source
 	# headroom; restore body here before the saved Music and Master controls.
-	music_player.volume_db = 1.0
+	music_player.volume_db = music_gain_db
 	music_player.play()
 
 func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
@@ -261,7 +267,7 @@ func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
 	duck_tween = create_tween()
 	duck_tween.tween_property(music_player, "volume_db", depth_db, 0.045)
 	duck_tween.tween_interval(maxf(0.04, duration))
-	duck_tween.tween_property(music_player, "volume_db", 1.0, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	duck_tween.tween_property(music_player, "volume_db", music_gain_db, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func make_tone(frequency: float, duration: float, gain: float, event_name: String, variant: int = 0) -> AudioStreamWAV:
 	var sample_rate := 22050

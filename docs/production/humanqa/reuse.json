@@ -1,0 +1,27 @@
+{
+  "baseline": "fccd15b",
+  "changed_tracked_files": [
+    "PRODUCTION_PHASE3.md",
+    "PROJECT_STATE.md",
+    "audio_manager.gd",
+    "expedition_event_catalog.gd",
+    "export_presets.cfg",
+    "hideout_ui.gd",
+    "lootling.gd",
+    "lootlings_ui.gd",
+    "shop_system.gd",
+    "startup_ui.gd",
+    "tests/mobile_layout_qa.gd",
+    "tests/phase3_balance.gd",
+    "tests/rc_native_review.gd",
+    "tools/run_qa.py"
+  ],
+  "verified_unchanged_paths": [
+    "creature_renderer.gd",
+    "weapon_fit_catalog.gd",
+    "weapon_catalog.gd",
+    "art"
+  ],
+  "prior_evidence": "docs/production/predevice/reuse.json",
+  "scope": "Actor/weapon pose geometry and canonical art/assets unchanged. UI/game overlay rendering changed and was reviewed natively. Prior physical coverage is not extended."
+}

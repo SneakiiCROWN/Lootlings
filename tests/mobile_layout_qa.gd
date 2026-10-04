@@ -116,8 +116,8 @@ func run_qa() -> void:
 			await tap_canvas(buy_position)
 			check(game.coins == scrip,label + " offer taps inspect without spending")
 			await create_timer(.2).timeout
-			await tap_control(game.touch_ux.confirm_button)
-			check(game.coins == scrip - price and game.state == "item",label + " two taps buy once")
+			await tap_control(game.merchant_buy_button)
+			check(game.coins == scrip - price and game.state == "item",label + " selection and footer buy once")
 			game.accept_item_scrap()
 			game.show_hideout()
 			await create_timer(0.1).timeout

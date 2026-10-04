@@ -1,0 +1,26 @@
+[
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.08,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "rc_reward_qa",
+    "exit": 0,
+    "seconds": 1.3,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.29,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  }
+]

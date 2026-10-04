@@ -13,6 +13,14 @@ const EVENTS := {
 	"patch_warranty":{"title":"ONE CAREFUL OWNER", "line":"Patch's discarded warranty reads: valid until the first interesting noise.", "choices":[{"name":"Trade for repairs", "desc":"Spend 25 Run Scrip, recover 25 HP.","scrip":-25,"hp":25},{"name":"Collect the useful bits", "desc":"Gain 25 Run Scrip.","scrip":25}]},
 }
 
+static func choices_for(id: String, wave: int) -> Array:
+	var choices: Array = EVENTS[id].choices.duplicate(true)
+	if wave >= 12 and id == "sealed_cache":
+		choices[1] = {"name":"Pay the locksmith", "desc":"Spend 220 Run Scrip for one Epic+ item. No HP lost.","scrip":-220,"loot":"EPIC"}
+	elif wave >= 12 and id == "cursed_coffer":
+		choices[1] = {"name":"Buy out the debt", "desc":"Spend 280 Run Scrip for one Epic+ item. No curse.","scrip":-280,"loot":"EPIC"}
+	return choices
+
 static func roll(rng: RandomNumberGenerator, seen: Array) -> String:
 	var pool: Array = EVENTS.keys().filter(func(id): return not id in seen)
 	if pool.is_empty(): return ""

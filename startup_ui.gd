@@ -32,6 +32,7 @@ var name_edit: LineEdit
 var nickname_edit: LineEdit
 var profile_heading: Label
 var profile_id_label: Label
+var support_panel: Panel
 var setting_sliders := {}
 var setting_mutes := {}
 var cinematic_preferences: Panel
@@ -136,8 +137,6 @@ func build_profile() -> void:
 	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
 	profile_identity = identity_card
 	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	profile_id_label = make_label(panel, "", 10, Rect2(38, 444, 336, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#7183a8"))
-	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var change := make_button(panel, "CHANGE AVATAR", Rect2(45, 482, 322, 54), Color("#17294b"), Color("#72c8ff"), 16)
 	change.pressed.connect(func(): show_wanderer_select() if Avatar.is_wanderer(profile) else show_lootling_select())
 	var save := make_button(panel, "SAVE PROFILE", Rect2(40, 553, 332, 66), Color("#285c4c"), Color("#69e6b0"), 19)
@@ -186,8 +185,18 @@ func build_settings() -> void:
 		mute.add_theme_font_size_override("font_size", 12)
 		panel.add_child(mute)
 		setting_mutes[channel] = mute
-	var story_settings := make_button(panel, "STORY & MOTION", Rect2(42, 578, 340, 48), Color("#17294b"), Color("#c99cff"), 16)
+	var story_settings := make_button(panel, "STORY & MOTION", Rect2(42, 578, 216, 48), Color("#17294b"), Color("#c99cff"), 14)
 	story_settings.pressed.connect(func(): cinematic_preferences.visible = true)
+	support_panel = make_panel(settings_content,Rect2(28,75,424,710),Color("#0b1430ff"),Color("#72c8ff"))
+	support_panel.visible = false
+	make_label(support_panel,"SUPPORT",26,Rect2(22,24,380,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	profile_id_label = make_label(support_panel,"",14,Rect2(24,116,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
+	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
+	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
+	support_back.pressed.connect(func(): support_panel.visible = false)
+	var support := make_button(panel,"SUPPORT",Rect2(270,578,112,48),Color("#17294b"),Color("#72c8ff"),14)
+	support.pressed.connect(func(): support_panel.visible = true)
 	var back := make_button(panel, "SAVE & RETURN", Rect2(42, 638, 340, 54), Color("#49346b"), Color("#d19cff"), 18)
 	back.pressed.connect(save_settings)
 	cinematic_preferences = make_panel(settings_content, Rect2(28, 75, 424, 710), Color("#0b1430ff"), Color("#c99cff"))
@@ -419,6 +428,7 @@ func show_profile(first_launch: bool) -> void:
 	set_screen(profile_content)
 
 func show_settings() -> void:
+	support_panel.visible = false
 	current_screen = "settings"
 	refresh_settings()
 	cinematic_preferences.visible = false

@@ -247,6 +247,14 @@ var result_loot_cards: Array[Control] = []
 var upgrade_panel: Panel
 var upgrade_title: Label
 var upgrade_buttons: Array[Button] = []
+var upgrade_take_button: Button
+var upgrade_selection := -1
+var merchant_buy_button: Button
+var merchant_detail: RichTextLabel
+var merchant_selection := -1
+var selection_msec := 0
+var proc_texture: Texture2D
+var proc_timer := 0.0
 var result_panel: Panel
 var result_title: Label
 var result_crest: TextureRect
@@ -737,7 +745,10 @@ func build_overlay_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon, "core":core_icon, "rarity":rarity_icon})
-	make_label(upgrade_panel, "Every pick stacks. Make something silly.", 15, Rect2(20, 418, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#aebee8"))
+	upgrade_take_button = make_action_button(upgrade_panel,"SELECT A CARD",Vector2(20,418),Vector2(396,48),Color("#49346b"),Color("#ffe178"),take_selected_upgrade)
+	upgrade_take_button.set_meta("ui_intent","primary")
+	apply_button_style(upgrade_take_button,Color("#49346b"),Color("#ffe178"))
+	upgrade_take_button.disabled = true
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
 	LootlingsUI.apply_material(result_panel, "hoard")
 	result_panel.visible = false
@@ -776,7 +787,7 @@ func build_overlay_ui() -> void:
 		result_panel.add_child(card)
 		result_loot_cards.append(card)
 	refresh_result_loot()
-	help_label = make_label(self, "TAP THE ARENA • Auto-attacks continue", 16, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
+	help_label = make_label(self, "TAP THE ARENA • Auto-attacks continue", 13, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
@@ -850,7 +861,7 @@ func show_expedition_event() -> void:
 	event_title.text = data.title
 	event_line.text = "%s\n\nHP %.0f / %.0f  •  %d RUN SCRIP" % [data.line,player_hp,player_max_hp,coins]
 	for index in range(2):
-		var choice: Dictionary = data.choices[index]
+		var choice: Dictionary = ExpeditionEvents.choices_for(event_id,wave)[index]
 		event_buttons[index].text = "%s\n%s" % [str(choice.name).to_upper(),choice.desc]
 		event_buttons[index].disabled = coins + int(choice.get("scrip",0)) < 0 or player_hp + float(choice.get("hp",0)) <= 0
 	event_buttons[2].text = "KEEP MOVING\nLeave everything as it is."
@@ -866,7 +877,7 @@ func show_expedition_event() -> void:
 
 func choose_expedition_event(index: int) -> void:
 	if state != "event" or index < 0 or index > 2 or event_id.is_empty(): return
-	var choice: Dictionary = {} if index == 2 else ExpeditionEvents.EVENTS[event_id].choices[index]
+	var choice: Dictionary = {} if index == 2 else ExpeditionEvents.choices_for(event_id,wave)[index]
 	var scrip := int(choice.get("scrip",0))
 	var hp := float(choice.get("hp",0))
 	if coins+scrip < 0 or player_hp+hp <= 0: return
@@ -1430,8 +1441,14 @@ func build_merchant_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
-	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 452), Vector2(180, 62), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
-	merchant_continue_button = make_action_button(merchant_panel, "CONTINUE", Vector2(224, 452), Vector2(180, 62), Color("#295d50"), Color("#69e6b0"), leave_merchant)
+	merchant_panel.size.y = 650
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,408,376,84),14,Color("#c9d6e9"))
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,504),Vector2(384,54),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_buy_button.set_meta("ui_intent","primary")
+	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
+	merchant_buy_button.disabled = true
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 578), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
+	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 578), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
 	boss_reward_panel = make_panel(Rect2(20, 155, 440, 570), Color("#17142ff8"))
@@ -1509,6 +1526,7 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	proc_timer = 0.0; proc_texture = null
 	character_trait = CharacterTraits.definition(profile)
 	player_ward = 0.0; survived_hits = 0
 	delayed_hits.clear(); signature_targets.clear()
@@ -1845,6 +1863,7 @@ func finish_story_boss_intro() -> void:
 	spawn_enemy()
 
 func _process(delta: float) -> void:
+	proc_timer = maxf(0.0,proc_timer-delta)
 	if presentation_director != null and presentation_director.vignette.active:
 		if pause_button != null: pause_button.visible = false
 		queue_redraw()
@@ -2225,11 +2244,11 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 	elif is_tap:
 		hit_stop_timer = maxf(hit_stop_timer, 0.014)
 	play_audio_event("crit" if is_crit else "boss_hit" if enemy_is_boss else "heavy_hit" if is_heavy else "normal_hit")
-	var text := ("CRIT! %.0f" if is_crit else "%.0f") % amount
+	var text := ("%.0f!" if is_crit else "%.0f") % amount
 	var text_size := 29 if is_crit else 20
 	var text_color := Color("#fff178") if is_crit else Color.WHITE
 	if is_heavy:
-		text = ("QUAKE CRIT %.0f" if is_crit else "QUAKE %.0f") % amount
+		text = ("%.0f!" if is_crit else "%.0f") % amount
 		text_size = 26 if is_crit else 22
 		text_color = build.color("Physical").lightened(0.25)
 	elif is_tap and not is_crit:
@@ -2257,7 +2276,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		enemy_status_ward_used = true; player_ward = minf(15,player_ward+3)
 	var effective_execute := execute_ratio + inventory.effect_total("execute")
 	if effective_execute > 0.0 and enemy_hp > 0.0 and enemy_hp / enemy_max_hp <= effective_execute:
-		add_float("YEET!", Vector2(355, 385), Color("#ff8bd8"), 28)
+		add_float("RELIC", Vector2(355, 385), Color("#ff8bd8"), 16)
 		enemy_hp = 0.0
 	if enemy_hp <= 0.0:
 		if is_crit and inventory.has_signature("critical_shelter"): player_ward = minf(15,player_ward+4)
@@ -2674,12 +2693,31 @@ func inspect_boss_reward(index: int) -> void:
 func inspect_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
 	var item: Dictionary = shop.stock[index]
-	touch_ux.request(str(item.name),"Buy for %d Run Scrip?\nOne purchase at this stop. Other offers stay behind.\n\n%s" % [int(item.price),ItemCatalog.describe_headline_effects(item,3)],buy_merchant_item.bind(index))
+	merchant_selection = index; selection_msec = Time.get_ticks_msec()
+	merchant_detail.text = "[b]%s[/b]\n%s" % [item.name,ItemCatalog.describe_headline_effects(item,2)]
+	merchant_buy_button.text = "BUY %d — ENDS THIS STOP" % int(item.price)
+	merchant_buy_button.disabled = coins < int(item.price)
+	for i in range(merchant_buttons.size()):
+		merchant_buttons[i].add_theme_stylebox_override("normal",LootlingsUI.button_style(Color.WHITE,Color.WHITE,"focus" if i == index else "normal","primary" if i == index else "secondary"))
+
+func buy_selected_merchant() -> void:
+	if Time.get_ticks_msec()-selection_msec < 180 or merchant_selection < 0: return
+	var index := merchant_selection; merchant_selection = -1
+	buy_merchant_item(index)
 
 func inspect_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size(): return
-	var upgrade: Dictionary = selected_upgrades[index]
-	touch_ux.request(str(upgrade.name),"%s\n\nApplies to this expedition. Choose this upgrade; the other two are discarded." % upgrade.desc,choose_upgrade.bind(index))
+	upgrade_selection = index; selection_msec = Time.get_ticks_msec()
+	upgrade_take_button.text = "TAKE %s" % str(selected_upgrades[index].name).to_upper()
+	upgrade_take_button.add_theme_font_size_override("font_size",15)
+	upgrade_take_button.disabled = false
+	for i in range(upgrade_buttons.size()):
+		upgrade_buttons[i].add_theme_stylebox_override("normal",LootlingsUI.button_style(Color.WHITE,Color.WHITE,"focus" if i == index else "normal","primary" if i == index else "secondary"))
+
+func take_selected_upgrade() -> void:
+	if Time.get_ticks_msec()-selection_msec < 180 or upgrade_selection < 0: return
+	var index := upgrade_selection; upgrade_selection = -1
+	choose_upgrade(index)
 
 func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
@@ -2885,6 +2923,10 @@ func show_merchant() -> void:
 		presentation_director.present_card(merchant_panel, Color("#d3a45e"), 0.26)
 
 func refresh_merchant_ui() -> void:
+	merchant_selection = -1
+	merchant_buy_button.disabled = true
+	merchant_buy_button.text = "SELECT AN OFFER"
+	merchant_detail.text = "Inspect an offer. One purchase ends this stop."
 	merchant_title.text = "PACK PEDDLER"
 	merchant_subtitle.text = shop.stock_style + " • PICK ONE"
 	merchant_subtitle.add_theme_font_size_override("font_size",11)
@@ -2918,7 +2960,7 @@ func refresh_merchant_ui() -> void:
 		# Keep the semantic button text, but render its information in an icon-safe lane.
 		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
 			button.add_theme_color_override(state_name, Color.TRANSPARENT)
-		merchant_visuals[i].kicker.text = "%s  •  %s  •  %d SCRIP" % [ItemCatalog.display_slot(item.get("slot", "Item")), item.rarity, price]
+		merchant_visuals[i].kicker.text = "%s  •  %s  •  %d SCRIP" % ["PREMIUM" if item.get("premium",false) else ItemCatalog.display_slot(item.get("slot", "Item")), item.rarity, price]
 		merchant_visuals[i].name.text = str(item.name)
 		merchant_visuals[i].effect.text = headline
 		for label in merchant_visuals[i].values():
@@ -2988,6 +3030,9 @@ func add_xp(amount: float) -> void:
 		show_upgrade_choices()
 
 func show_upgrade_choices() -> void:
+	upgrade_selection = -1
+	upgrade_take_button.disabled = true
+	upgrade_take_button.text = "SELECT A CARD"
 	state = "upgrade"
 	help_label.visible = false
 	selected_upgrades.clear()
@@ -3390,6 +3435,11 @@ func update_attack_projectiles(delta: float) -> void:
 			resolve_player_attack(bool(projectile.is_tap))
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
+	var proc_name := text_value.get_slice(" ",0)
+	if proc_name in ["ARC","QUAKE","WILDFIRE","GEAR","RELIC","WARD"] or size_value <= 15:
+		var element := "lightning" if proc_name == "ARC" else "fire" if proc_name in ["WILDFIRE","BURN"] else "poison" if proc_name in ["POISON","VENOM"] else "neutral"
+		proc_texture = LootlingsUI.icon("core_"+element); proc_timer = .7
+		return
 	if enemy_encounter.active and pos.x >= 275.0 and pos.x <= 380.0 and not text_value.contains("SCRIP"):
 		pos.x += enemy_encounter.target_position().x - ENEMY_X
 	var is_dot := size_value <= 15
@@ -3409,7 +3459,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 			return
 		if item.get("lane", "damage") == lane:
 			lane_count += 1
-	if lane_count >= 3 and size_value < 22:
+	if lane_count >= 1:
 		return
 	match lane:
 		"player": pos = Vector2(70, 414)
@@ -3421,12 +3471,13 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	pos.x += (-9.0 if lane_count % 2 == 0 else 9.0) * min(lane_count, 2)
 	var duration := 0.68 if size_value < 25 else 0.82
 	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":duration, "max_life":duration, "lane":lane})
-	while floating_texts.size() > 5:
+	while floating_texts.size() > 3:
 		floating_texts.pop_front()
 
 func add_particles(pos: Vector2, color: Color, count: int) -> void:
-	for i in range(count):
+	for i in range(mini(count,8)):
 		particles.append({"pos":pos, "vel":Vector2(visual_rng.randf_range(-105, 105), visual_rng.randf_range(-155, -25)), "color":color, "life":visual_rng.randf_range(0.25, 0.55), "max_life":0.55})
+	while particles.size() > 96: particles.pop_front()
 
 func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
 	var coin_cap := 14 if enemy_is_boss else 9 if enemy_is_miniboss else 7
@@ -3455,7 +3506,7 @@ func _draw() -> void:
 	draw_moment_overlay()
 
 func draw_background() -> void:
-	draw_rect(Rect2(0, 0, 480, 854), Color("#080d20"))
+	draw_rect(Rect2(0, 0, 480, 146), Color("#080d20"))
 	var arena_background: Texture2D = current_zone.get("background", ZoneCatalog.OUTER_RUINS_BACKGROUND)
 	var texture_size := arena_background.get_size()
 	var target := Rect2(0, 146, 480, 568)
@@ -3495,7 +3546,7 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	hud_header_surface.draw(get_canvas_item(), Rect2(0, 0, 480, 146))
+	draw_rect(Rect2(0,0,480,140),Color("#081329c9"))
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
 	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
@@ -3580,7 +3631,8 @@ func draw_arena(shake: Vector2) -> void:
 		draw_string(body_font, Vector2(79, 687), status_message, HORIZONTAL_ALIGNMENT_CENTER, 322, 17, Color("#ffe797"))
 	creature_renderer.draw_striking_blade(self,player_pos)
 	if show_combat_context:
-		draw_stats_strip()
+		if proc_timer > 0.0 and proc_texture != null:
+			draw_texture_rect(proc_texture,Rect2(18,678,24,24),false,Color(1,1,1,minf(1,proc_timer*3)))
 
 func draw_lootling(pos: Vector2, hurt: bool) -> void:
 	creature_renderer.draw_lootling(self, pos, hurt)
@@ -3734,12 +3786,12 @@ func draw_moment_overlay() -> void:
 		draw_rect(Rect2(5, 151, 470, 545), rarity_edge, false, 5.0)
 		draw_circle(Vector2(240, 430), 84.0 + (1.0 - rarity_alpha) * 76.0, Color(rarity_edge.r, rarity_edge.g, rarity_edge.b, rarity_alpha * 0.08))
 	if impact_flash > 0.0:
-		var flash_alpha := clampf(impact_flash * 1.8, 0.0, 0.16)
+		var flash_alpha := clampf(impact_flash * 1.8, 0.0, 0.08)
 		draw_rect(Rect2(0, 146, 480, 555), Color(1.0, 0.94, 0.68, flash_alpha), true)
 	if tap_pulse > 0.0 and tap_combo > 1:
 		var pulse_alpha := clampf(tap_pulse / 0.18, 0.0, 1.0)
-		draw_rect(Rect2(118,704,244,32),Color("#08152aee"))
-		draw_string(title_font, Vector2(126,727), "TAP COMBO  x%d" % tap_combo, HORIZONTAL_ALIGNMENT_CENTER, 228, 18, Color(0.72, 0.98, 1.0, pulse_alpha))
+		draw_rect(Rect2(18,712,114,26),Color("#08152acc"))
+		draw_string(body_font, Vector2(24,730), "COMBO ×%d" % tap_combo, HORIZONTAL_ALIGNMENT_LEFT, 102, 13, Color(0.72, 0.98, 1.0, pulse_alpha))
 	if wave_banner_timer > 0.0:
 		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
 		var banner_color := wave_banner_color
