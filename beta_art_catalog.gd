@@ -11,11 +11,11 @@ const SKYHOOK = preload("res://art/backgrounds/beta/skyhook_city.png")
 const NULLGLASS = preload("res://art/backgrounds/beta/nullglass_gate.png")
 const GEARWORKS = preload("res://art/backgrounds/beta/gearworks_foundry.png")
 const FIRST_HOARD = preload("res://art/backgrounds/beta/first_hoard_throne.png")
-const VERDANT_MIRROR = preload("res://art/sprites/enemies/beta/verdant_mirror.png")
-const FURNACE_REGENT = preload("res://art/sprites/enemies/beta/furnace_regent.png")
-
 static func boss_texture(id: String) -> Texture2D:
-	return VERDANT_MIRROR if id == "mossglass_wilds" else FURNACE_REGENT if id == "cinder_crown" else null
+	if id not in ["mossglass_wilds","cinder_crown"]: return null
+	# Legacy callers share the rescue contract; rejected source art is not preloaded.
+	var contract=preload("res://boss_presentation.gd")
+	return contract.texture_for(contract.profile(id))
 
 # Approved beta compositions; unknown IDs retain a safe painted fallback.
 static func region_background(id: String, fallback: Texture2D) -> Texture2D:

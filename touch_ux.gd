@@ -90,13 +90,17 @@ func _input(event: InputEvent) -> void:
 			# These contextual buttons change screens on release. Own the touch
 			# directly rather than delegating it to synthetic mouse ordering.
 			if not game.presentation_director.travel_active and not game.presentation_director.vignette.active and not is_instance_valid(dialog):
-				for button in owned_buttons:
-					if is_instance_valid(button) and not button.disabled and hit(button,start):
-						owned_button=button
-						button.set_pressed_no_signal(true)
-						block_mouse_until=Time.get_ticks_msec()+300
-						get_viewport().set_input_as_handled()
-						break
+				var best_z: int=-4096
+				for button in game.find_children("*","Button",true,false):
+					if button.disabled or not hit(button,start): continue
+					var z:=0; var ancestor: Node=button
+					while ancestor is CanvasItem:
+						z+=ancestor.z_index; ancestor=ancestor.get_parent()
+					if z>=best_z: owned_button=button; best_z=z
+				if is_instance_valid(owned_button) and not owned_button in owned_buttons: owned_button=null
+				if is_instance_valid(owned_button):
+					owned_button.set_pressed_no_signal(true)
+					block_mouse_until=Time.get_ticks_msec()+300; get_viewport().set_input_as_handled()
 			var local: Vector2 = game.get_global_transform_with_canvas().affine_inverse()*start
 			arena = game.state == "playing" and Rect2(0,310,480,344).has_point(local) and not ui_at(start) and not game.presentation_director.vignette.active and not game.presentation_director.travel_active
 			if arena:

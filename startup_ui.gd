@@ -56,6 +56,9 @@ var wanderer_pronouns: LineEdit
 var wanderer_voice: OptionButton
 var selected_wanderer := "vault_runner"
 var wanderer_confirm: Button
+var identity_panel: Panel
+var wanderer_personality: Label
+var wanderer_weapon: Label
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -218,39 +221,36 @@ func build_settings() -> void:
 	make_button(cinematic_preferences,"DONE",Rect2(42,544,340,52),Color("#17294b"),Color("#72c8ff"),17).pressed.connect(func(): cinematic_preferences.visible = false)
 
 func build_lootling_select() -> void:
-	lootling_content = Control.new()
-	lootling_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	lootling_content.visible = false
-	add_child(lootling_content)
-	var panel := make_panel(lootling_content, Rect2(24, 66, 432, 730), Color("#0b1430f4"), Color("#d1a85a"))
-	LootlingsUI.apply_material(panel, "relic")
-	make_label(panel, "CHOOSE YOUR LOOTLING", 27, Rect2(20, 24, 392, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(panel, "Seven distinct perks. Every weapon is welcome.", 13, Rect2(30, 69, 372, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
-	var portrait := TextureRect.new()
-	portrait.texture = MASCOT_TEXTURE
-	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	portrait.position = Vector2(92, 102)
-	portrait.size = Vector2(248, 244)
-	panel.add_child(portrait)
-	selector_portrait = portrait
-	selector_name = make_label(panel, "", 25, Rect2(40, 346, 352, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
-	selector_lore = make_label(panel, "", 14, Rect2(48, 384, 336, 60), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9e5ff"))
-	selector_lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	selector_note = make_label(panel, "", 14, Rect2(35, 450, 362, 70), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
-	selector_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	var previous := make_button(panel, "‹ PREVIOUS", Rect2(38, 528, 166, 56), Color("#17294b"), Color("#72c8ff"), 15)
-	var next := make_button(panel, "NEXT ›", Rect2(228, 528, 166, 56), Color("#17294b"), Color("#72c8ff"), 15)
-	previous.pressed.connect(func(): cycle_lootling(-1))
-	next.pressed.connect(func(): cycle_lootling(1))
-	selector_confirm = make_button(panel, "CHOOSE", Rect2(48, 600, 336, 72), Color("#285c4c"), Color("#69e6b0"), 19)
-	selector_confirm.pressed.connect(confirm_lootling)
-	var story := make_button(panel, "▷ ORIGIN MEMORY", Rect2(78, 680, 276, 44), Color("#17294b"), Color("#c99cff"), 13)
-	story.pressed.connect(func():
-		var preview := profile.duplicate(true)
-		preview.current_lootling_id = selected_lootling_id
-		story_preview_requested.emit("character/" + selected_lootling_id, preview)
+	lootling_content=Control.new(); lootling_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); lootling_content.visible=false; add_child(lootling_content)
+	add_roster_tabs(lootling_content,false)
+	var panel:=make_panel(lootling_content,Rect2(24,82,432,758),Color("#0b1430ed"),Color("#d1a85a"))
+	make_label(panel,"CHOOSE YOUR COMPANION",21,Rect2(20,16,392,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	selector_portrait=TextureRect.new(); selector_portrait.position=Vector2(86,60); selector_portrait.size=Vector2(260,246); selector_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; selector_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; panel.add_child(selector_portrait)
+	selector_name=make_label(panel,"",24,Rect2(24,319,384,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))
+	selector_lore=make_label(panel,"",15,Rect2(28,365,376,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); selector_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	selector_note=make_label(panel,"",15,Rect2(28,417,376,58),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); selector_note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	add_roster_strip(panel,false,Vector2(18,500))
+	selector_confirm=make_button(panel,"CHOOSE",Rect2(26,644,380,56),Color("#285c4c"),Color("#69e6b0"),18); selector_confirm.pressed.connect(confirm_lootling)
+	make_button(panel,"ORIGIN MEMORY",Rect2(26,706,380,48),Color("#17294b"),Color("#7087ae"),13).pressed.connect(func():
+		var preview:=profile.duplicate(true); preview.current_lootling_id=selected_lootling_id; story_preview_requested.emit("character/"+selected_lootling_id,preview)
 	)
+
+func add_roster_tabs(parent: Control, human: bool) -> void:
+	make_button(parent,"LOOTLINGS",Rect2(24,20,210,48),Color("#293a46") if not human else Color("#17294b"),Color("#e2b563") if not human else Color("#7087ae"),16).pressed.connect(show_lootling_select)
+	make_button(parent,"WANDERERS",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),16).pressed.connect(show_wanderer_select)
+
+func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
+	var scroll:=ScrollContainer.new(); scroll.position=point; scroll.size=Vector2(396,136); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; scroll.scroll_deadzone=12; parent.add_child(scroll)
+	var row:=GridContainer.new(); row.columns=2; row.add_theme_constant_override("h_separation",8); row.add_theme_constant_override("v_separation",8); scroll.add_child(row)
+	var ids: Array=WandererCatalog.selectable_ids() if human else LootlingCatalog.selectable_ids()
+	for id in ids:
+		var button:=make_button(row,"",Rect2(0,0,190,82),Color("#17294b"),Color("#7087ae"),12); button.custom_minimum_size=Vector2(190,82)
+		var portrait:=TextureRect.new(); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.texture=WandererCatalog.runtime_texture(id) if human else LootlingCatalog.runtime_texture(id); portrait.position=Vector2(8,5); portrait.size=Vector2(60,70); portrait.custom_minimum_size=Vector2(60,70); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; button.add_child(portrait)
+		make_label(button,str(WandererCatalog.definition(id).display_name) if human else str(LootlingCatalog.definition(id).display_name),10,Rect2(74,24,110,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")).mouse_filter=Control.MOUSE_FILTER_IGNORE
+		button.pressed.connect(func():
+			if human: selected_wanderer=id; refresh_wanderer_selector()
+			else: selected_lootling_id=id; refresh_selector()
+		)
 
 func cycle_lootling(direction: int) -> void:
 	var ids := LootlingCatalog.selectable_ids()
@@ -262,7 +262,7 @@ func refresh_selector() -> void:
 	selector_portrait.texture = LootlingCatalog.runtime_texture(selected_lootling_id)
 	selector_portrait.modulate = LootlingCatalog.presentation_tint(selected_lootling_id)
 	selector_name.text = str(entry.display_name).to_upper()
-	selector_lore.text = str(entry.lore)
+	selector_lore.text = str(entry.personality)
 	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_lootling_id]
 	selector_note.text = "%s • %s" % [trait_data.name,trait_data.text]
 	selector_confirm.disabled = not entry.available
@@ -273,10 +273,6 @@ func show_lootling_select() -> void:
 	refresh_selector()
 	current_screen = "lootling_select"
 	set_screen(lootling_content)
-	if not lootling_content.has_node("AvatarBranch"):
-		var branch := make_button(lootling_content, "LOOTLINGS  /  EXPLORE WANDERERS ›", Rect2(34, 12, 412, 48), Color("#17294b"), Color("#c99cff"), 15)
-		branch.name = "AvatarBranch"
-		branch.pressed.connect(show_wanderer_select)
 
 func confirm_lootling() -> void:
 	if not LootlingCatalog.definition(selected_lootling_id).available:
@@ -288,50 +284,27 @@ func confirm_lootling() -> void:
 	profile_completed.emit()
 
 func build_wanderer_select() -> void:
-	wanderer_content = Control.new()
-	wanderer_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	wanderer_content.visible = false
-	add_child(wanderer_content)
-	var back := make_button(wanderer_content, "‹ LOOTLINGS", Rect2(34, 12, 184, 48), Color("#17294b"), Color("#c99cff"), 15)
-	back.pressed.connect(show_lootling_select)
-	var panel := make_panel(wanderer_content, Rect2(24, 70, 432, 742), Color("#0b1430f2"), Color("#d1a85a"))
-	LootlingsUI.apply_material(panel, "relic")
-	make_label(panel, "YOUR WANDERER", 25, Rect2(28, 18, 376, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	wanderer_portrait = TextureRect.new()
-	wanderer_portrait.position = Vector2(100, 62)
-	wanderer_portrait.size = Vector2(232, 254)
-	wanderer_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	wanderer_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	panel.add_child(wanderer_portrait)
-	wanderer_name = make_label(panel, "", 21, Rect2(36, 319, 360, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6a0"))
-	make_label(panel, "Distinct perks • choose any weapon", 13, Rect2(24, 351, 384, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c9ee"))
-	var origin_preview := make_button(wanderer_content, "▷ ORIGIN MEMORY", Rect2(234, 12, 212, 48), Color("#17294b"), Color("#c99cff"), 14)
-	origin_preview.pressed.connect(func():
-		var preview := profile.duplicate(true)
-		preview.wanderer.preset_id = selected_wanderer
-		var origin_id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
-		story_preview_requested.emit("origin/" + origin_id, preview)
+	wanderer_content=Control.new(); wanderer_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); wanderer_content.visible=false; add_child(wanderer_content); add_roster_tabs(wanderer_content,true)
+	var panel:=make_panel(wanderer_content,Rect2(24,82,432,758),Color("#0b1430ed"),Color("#d1a85a"))
+	make_label(panel,"WANDERERS",21,Rect2(20,16,392,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	wanderer_portrait=TextureRect.new(); wanderer_portrait.position=Vector2(116,52); wanderer_portrait.size=Vector2(200,260); wanderer_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; wanderer_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; panel.add_child(wanderer_portrait)
+	wanderer_name=make_label(panel,"",20,Rect2(20,319,392,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))
+	wanderer_personality=make_label(panel,"",14,Rect2(28,358,376,45),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); wanderer_personality.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	wanderer_lore=make_label(panel,"",14,Rect2(28,411,376,48),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); wanderer_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	wanderer_weapon=make_label(panel,"",13,Rect2(28,468,376,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
+	add_roster_strip(panel,true,Vector2(18,500))
+	wanderer_confirm=make_button(panel,"CHOOSE WANDERER",Rect2(26,644,380,56),Color("#285c4c"),Color("#69e6b0"),18); wanderer_confirm.pressed.connect(confirm_wanderer)
+	make_button(panel,"IDENTITY & ORIGIN",Rect2(26,706,380,48),Color("#17294b"),Color("#7087ae"),13).pressed.connect(func(): identity_panel.visible=not identity_panel.visible)
+	identity_panel=make_panel(wanderer_content,Rect2(24,260,432,566),Color("#10182bfa"),Color("#d8bd7b")); identity_panel.z_index=30; identity_panel.visible=false
+	make_button(identity_panel,"DONE",Rect2(268,10,144,48),Color("#17294b"),Color("#7087ae"),14).pressed.connect(func(): identity_panel.visible=false)
+	wanderer_origin=add_identity_choice(identity_panel,"ORIGIN",Rect2(24,74,384,48),WandererCatalog.ORIGINS)
+	wanderer_lineage=add_identity_choice(identity_panel,"LINEAGE",Rect2(24,166,384,48),WandererCatalog.LINEAGES)
+	wanderer_voice=add_identity_choice(identity_panel,"VOICE STYLE",Rect2(24,258,384,48),{"warm":"Warm","dry":"Dry","bold":"Bold","soft":"Soft","playful":"Playful","ominous":"Ominous"})
+	make_label(identity_panel,"PRONOUNS",12,Rect2(24,347,384,24),HORIZONTAL_ALIGNMENT_LEFT,Color("#9fb3d8"))
+	wanderer_pronouns=LineEdit.new(); wanderer_pronouns.position=Vector2(24,378); wanderer_pronouns.size=Vector2(384,48); wanderer_pronouns.max_length=24; LootlingsUI.apply_input(wanderer_pronouns); identity_panel.add_child(wanderer_pronouns)
+	make_button(identity_panel,"ORIGIN MEMORY",Rect2(24,456,384,48),Color("#17294b"),Color("#7087ae"),14).pressed.connect(func():
+		var preview:=profile.duplicate(true); preview.wanderer.preset_id=selected_wanderer; story_preview_requested.emit("origin/"+str(wanderer_origin.get_item_metadata(wanderer_origin.selected)),preview)
 	)
-	var previous := make_button(panel, "‹ PRESET", Rect2(32, 274, 120, 44), Color("#17294b"), Color("#72c8ff"), 14)
-	var next := make_button(panel, "PRESET ›", Rect2(280, 274, 120, 44), Color("#17294b"), Color("#72c8ff"), 14)
-	previous.pressed.connect(func(): cycle_wanderer(-1))
-	next.pressed.connect(func(): cycle_wanderer(1))
-	wanderer_origin = add_identity_choice(panel, "ORIGIN", Rect2(32, 382, 368, 48), WandererCatalog.ORIGINS)
-	wanderer_origin.item_selected.connect(func(_i): refresh_wanderer_lore())
-	wanderer_lore = make_label(panel, "", 13, Rect2(32, 457, 368, 36), HORIZONTAL_ALIGNMENT_CENTER, Color("#c9d8f0"))
-	wanderer_lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	wanderer_lineage = add_identity_choice(panel, "LINEAGE • LORE", Rect2(32, 498, 174, 46), WandererCatalog.LINEAGES)
-	wanderer_voice = add_identity_choice(panel, "BARK STYLE", Rect2(226, 498, 174, 46), {"warm":"Warm", "dry":"Dry", "bold":"Bold", "soft":"Soft", "playful":"Playful", "ominous":"Ominous"})
-	make_label(panel, "PRONOUNS • EDITABLE", 12, Rect2(32, 580, 368, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
-	wanderer_pronouns = LineEdit.new()
-	wanderer_pronouns.position = Vector2(32, 602)
-	wanderer_pronouns.size = Vector2(368, 44)
-	wanderer_pronouns.max_length = 24
-	wanderer_pronouns.add_theme_font_size_override("font_size", 17)
-	LootlingsUI.apply_input(wanderer_pronouns)
-	panel.add_child(wanderer_pronouns)
-	wanderer_confirm = make_button(panel, "CHOOSE WANDERER", Rect2(40, 664, 352, 58), Color("#285c4c"), Color("#69e6b0"), 18)
-	wanderer_confirm.pressed.connect(confirm_wanderer)
 
 func add_identity_choice(parent: Node, heading: String, rect: Rect2, entries: Dictionary) -> OptionButton:
 	make_label(parent, heading, 12, Rect2(rect.position, Vector2(rect.size.x, 20)), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
@@ -361,6 +334,7 @@ func show_wanderer_select() -> void:
 	select_identity(wanderer_voice, str(appearance.voice))
 	wanderer_pronouns.text = str(appearance.pronouns)
 	refresh_wanderer_selector()
+	identity_panel.visible=false
 	current_screen = "wanderer_select"
 	set_screen(wanderer_content)
 
@@ -374,7 +348,7 @@ func cycle_wanderer(direction: int) -> void:
 func refresh_wanderer_selector() -> void:
 	wanderer_portrait.texture = WandererCatalog.runtime_texture(selected_wanderer)
 	var ids := WandererCatalog.selectable_ids()
-	wanderer_name.text = "%s  %d/%d" % [str(WandererCatalog.definition(selected_wanderer).display_name).to_upper(), ids.find(selected_wanderer) + 1, ids.size()]
+	wanderer_name.text = str(WandererCatalog.definition(selected_wanderer).display_name).to_upper()
 	wanderer_confirm.disabled = wanderer_portrait.texture == null
 	refresh_wanderer_lore()
 
@@ -384,7 +358,8 @@ func refresh_wanderer_lore() -> void:
 	wanderer_lore.text = str(trait_data.name) + " • " + str(trait_data.text)
 	var cohort: Dictionary = preload("res://phase4_catalog.gd").HUMANS[selected_wanderer]
 	wanderer_portrait.tooltip_text = "%s\n%s\nAffinity: %s. No weapon lock.\nMastery: %s" % [cohort.role,cohort.bio,cohort.affinity,cohort.mastery]
-	wanderer_lore.position.y = 445; wanderer_lore.size.y = 52
+	wanderer_personality.text=str(preload("res://contextual_dialogue.gd").PERSONALITY[selected_wanderer])
+	wanderer_weapon.text="Affinity: "+str(cohort.affinity)+" • any weapon"
 
 func confirm_wanderer() -> void:
 	if WandererCatalog.runtime_texture(selected_wanderer) == null:
@@ -561,6 +536,7 @@ func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignm
 
 func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: Color, font_size: int) -> Button:
 	var button := Button.new()
+	button.set_meta("gesture_release_owned",true)
 	button.text = value
 	button.position = rect.position
 	button.size = rect.size

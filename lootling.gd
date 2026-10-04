@@ -491,7 +491,7 @@ func debug_force_drop(rarity: String) -> void:
 	var definition: Dictionary = ItemCatalog.ITEMS[rng.randi_range(0, ItemCatalog.ITEMS.size() - 1)]
 	var item := ItemCatalog.create_item(definition.id, rarity, rng.randi())
 	item = AffixCatalog.apply(item, AffixCatalog.roll_for_item(item, loot_system.rng))
-	loot_drops.append({"item":item, "rarity":rarity, "boss_choice":false, "pos":Vector2(350, 430), "vel":Vector2(-70, -225), "pickup":1.0, "bounces":0, "squash":0.0, "color":ItemCatalog.rarity_color(rarity)})
+	loot_drops.append({"item":item, "rarity":rarity, "boss_choice":false, "pos":Vector2(350, 470), "vel":Vector2(-70, -225), "pickup":1.0, "bounces":0, "squash":0.0, "color":ItemCatalog.rarity_color(rarity)})
 	play_audio_event("equipment_drop")
 
 func debug_set_core(identity: String) -> void:
@@ -630,6 +630,8 @@ func discover_story(id: String, callback: Callable = Callable(), repeat_sting: b
 
 func meet_resident(speaker: String) -> void:
 	if state != "hideout": return
+	if hideout_ui.speech_panel.visible:
+		hideout_ui.request_dialogue("tapped",speaker); return
 	var id: String = {"Salvager":"patch", "Relic Keeper":"sera", "Archivist":"ilex"}.get(speaker, "")
 	if id.is_empty(): return
 	discover_story("resident/" + id, func():
@@ -1328,7 +1330,11 @@ func build_item_ui() -> void:
 	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 357), Vector2(176, 64), Color("#295d50"), Color("#69e6b0"), inspect_item_equip)
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
-	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), func(): touch_ux.request("Scrap this item?","%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap))
+	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), func():
+		if current_item.get("rarity","COMMON") in ["EPIC","LEGENDARY","RED"] or not current_item.get("signature_hooks",[]).is_empty() or current_item.get("locked",false) or current_item.get("favourite",false) or current_item.get("id","")==retention.progress.data.tracked:
+			touch_ux.request("Salvage this item?","%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap)
+		else: accept_item_scrap()
+	)
 
 func build_route_ui() -> void:
 	route_panel = make_panel(Rect2(22, 184, 436, 534), Color("#0b1229fc"))
@@ -1469,8 +1475,8 @@ func build_merchant_ui() -> void:
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
 	merchant_panel.size.y = 650
-	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,408,376,84),14,Color("#c9d6e9"))
-	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,504),Vector2(384,54),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,428,376,74),13,Color("#c9d6e9"))
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,514),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
@@ -1505,7 +1511,7 @@ func build_boss_reward_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		boss_reward_visuals.append({"kicker":kicker, "name":title, "effects":effects})
-	boss_reward_footer = make_label(boss_reward_panel, "One prize. Three reasons to be indecisive.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
+	boss_reward_footer = make_label(boss_reward_panel, "Choose one reward to carry home.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
 
 func build_hoard_chest_ui() -> void:
 	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
@@ -1731,11 +1737,14 @@ func spawn_single_enemy() -> void:
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "zone_enter", {"zone_id":current_zone_id, "wave":wave})
 		if audio_manager != null:
 			var music_region: String = current_zone.get("future_music", "outer_ruins")
-			audio_manager.set_music("BOSS" if wave == RUN_LAST_WAVE else "SALVAGE_WARRENS" if music_region == "emberworks" else "HOARD_DEPTHS" if music_region == "hoard_depths" else "OUTER_RUINS")
+			pass # Select below after actual mode boss flags are established.
 	enemy_is_miniboss = wave == 8
 	enemy_is_boss = wave == RUN_LAST_WAVE
 	if retention.siege:
 		enemy_is_boss=retention.round_rule.boss; enemy_is_miniboss=retention.round_rule.miniboss
+	if audio_manager!=null:
+		var music_region: String=current_zone.get("future_music","outer_ruins")
+		audio_manager.set_music("BOSS" if enemy_is_boss else "SALVAGE_WARRENS" if music_region=="emberworks" else "HOARD_DEPTHS" if music_region=="hoard_depths" else "OUTER_RUINS")
 	# Steady curve with explicit special-enemy spikes; regular archetypes stay closer together.
 	var progress := pow(1.15, (mini(15,wave) if retention.siege else wave) - 1)
 	var type_bonus := 1.0
@@ -2129,7 +2138,7 @@ func perform_player_attack(is_tap: bool) -> void:
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
-			"target": enemy_encounter.target_position() + Vector2(-18, -28) if enemy_encounter.active else Vector2(ENEMY_X - 28.0, 438.0),
+			"target": enemy_encounter.target_position() + Vector2(-18, -28) if enemy_encounter.active else Vector2(ENEMY_X - 28.0, 478.0),
 			"life": travel_time,
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
@@ -2599,7 +2608,7 @@ func spawn_item_drop() -> bool:
 			boss_reward_options.append(item)
 		var rarity_color := ItemCatalog.rarity_color(item.rarity)
 		award_item_discovery(item)
-		var start_pos := Vector2(ENEMY_X, 448) if enemy_is_boss else Vector2(345 + drop_index * 20, 430)
+		var start_pos := Vector2(ENEMY_X, 488) if enemy_is_boss else Vector2(345 + drop_index * 20, 470)
 		var launch_x: float = float([-155.0, -18.0, 128.0][drop_index]) if enemy_is_boss else -75.0 + drop_index * 52.0
 		var launch_y: float = float([-310.0, -355.0, -292.0][drop_index]) if enemy_is_boss else visual_rng.randf_range(-250.0, -205.0)
 		loot_drops.append({
@@ -2695,7 +2704,7 @@ func show_boss_reward() -> void:
 	help_label.visible = false
 	boss_reward_heading.text = "WAVE FINDS — PICK ONE" if normal_loot_choice else "BOSS HOARD"
 	boss_reward_heading.add_theme_font_size_override("font_size",24 if normal_loot_choice else 30)
-	boss_reward_footer.text = "One find from this wave. The rest stay in the ruins." if normal_loot_choice else "One prize. Three reasons to be indecisive."
+	boss_reward_footer.text = "One find from this wave. The rest stay in the ruins." if normal_loot_choice else "Choose one reward to carry home."
 	for i in range(boss_reward_buttons.size()):
 		var offered := i < boss_reward_options.size()
 		boss_reward_buttons[i].visible = offered
@@ -2990,7 +2999,7 @@ func refresh_merchant_ui() -> void:
 			merchant_icons[i].visible = false
 			merchant_visuals[i].kicker.text = "SOLD • IN GOOD PAWS"
 			merchant_visuals[i].name.text = "Nothing left but the receipt."
-			merchant_visuals[i].effect.text = "Merrow packed it before you changed your mind."
+			merchant_visuals[i].effect.text = ""
 			for label in merchant_visuals[i].values():
 				label.modulate = Color("#9cacc4")
 			apply_button_style(button,Color("#141e32"),Color("#536583"))
@@ -3012,7 +3021,7 @@ func refresh_merchant_ui() -> void:
 			button.add_theme_color_override(state_name, Color.TRANSPARENT)
 		merchant_visuals[i].kicker.text = "%s  •  %s  •  %d SCRIP" % ["PREMIUM" if item.get("premium",false) else ItemCatalog.display_slot(item.get("slot", "Item")), item.rarity, price]
 		merchant_visuals[i].name.text = str(item.name)
-		merchant_visuals[i].effect.text = headline
+		merchant_visuals[i].effect.text = ""
 		for label in merchant_visuals[i].values():
 			label.modulate = Color("#a1a9bb") if button.disabled else Color.WHITE
 	var reroll_price := shop.reroll_cost(wave)
@@ -3238,6 +3247,7 @@ func end_run(victory: bool) -> void:
 	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
 	result_summary.text += "\n\nRELIC RANK %d  •  %s +%d\n%s" % [expedition_progress.rank(),Phase4.FARMS[campaign_id].material,expedition_progress.run_materials,"\n".join(expedition_progress.run_finds)]
 	result_summary.scroll_to_line(0)
+	hideout_ui.last_home_facts={"mode":"siege" if retention.siege else "dungeon" if retention.targeted else "region","region":campaign_id,"round":wave,"boss":enemy_name,"outcome":"victory" if victory else "defeat"}
 	retention.finish(victory)
 	if retention.siege:
 		result_title.text="SIEGE EXTRACTED" if victory else "SIEGE ENDED"
@@ -3264,7 +3274,7 @@ func end_run(victory: bool) -> void:
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
 
 func format_result_summary(victory: bool, reached_wave: int, kills: int, earned: int, spent: int, left: int, scrap_gained: int, shards_gained: int, notable_loot: String, gold_gained: int = 0) -> String:
-	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nLeft       %d\n\nRUN REWARDS\nGold +%d  •  Scrap +%d  •  Shards +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
+	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nAt finish  %d\n\nRUN REWARDS\nGold +%d  •  Scrap +%d  •  Shards +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
 
 func style_result_summary(summary: String) -> String:
 	var styled := summary
@@ -3334,6 +3344,8 @@ func navigate_back() -> void:
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":
+		if hideout_ui.speech_panel.visible: hideout_ui.dismiss_dialogue(); return
+		if hideout_ui.region_sheet.visible: hideout_ui.region_sheet.visible=false; return
 		if hideout_ui.current_screen != "home": hideout_ui.show_home()
 		else: show_title_from_hideout()
 	elif startup_ui.visible:
@@ -3456,10 +3468,10 @@ func update_effects(delta: float) -> void:
 		var drop_gravity := 760.0 if bool(drop.get("boss_choice", false)) else 340.0
 		drop.vel.y += drop_gravity * delta
 		drop.pos += drop.vel * delta
-		if drop.pos.y >= 540.0 and drop.vel.y > 0.0:
+		if drop.pos.y >= 580.0 and drop.vel.y > 0.0:
 			if int(drop.bounces) == 0 and bool(drop.get("boss_choice", false)):
 				play_audio_event("chest_land")
-			drop.pos.y = 540.0
+			drop.pos.y = 580.0
 			drop.vel.y = -drop.vel.y * (0.44 if int(drop.bounces) == 0 else 0.18)
 			drop.vel.x *= 0.68
 			drop.bounces += 1
@@ -3499,6 +3511,7 @@ func update_attack_projectiles(delta: float) -> void:
 			resolve_player_attack(bool(projectile.is_tap))
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
+	pos.y+=40
 	var proc_name := text_value.get_slice(" ",0)
 	if proc_name in ["ARC","QUAKE","WILDFIRE","GEAR","RELIC","WARD"] or size_value <= 15:
 		var element := "lightning" if proc_name == "ARC" else "fire" if proc_name in ["WILDFIRE","BURN"] else "poison" if proc_name in ["POISON","VENOM"] else "neutral"
@@ -3539,6 +3552,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		floating_texts.pop_front()
 
 func add_particles(pos: Vector2, color: Color, count: int) -> void:
+	pos.y+=40
 	for i in range(mini(count,8)):
 		particles.append({"pos":pos, "vel":Vector2(visual_rng.randf_range(-105, 105), visual_rng.randf_range(-155, -25)), "color":color, "life":visual_rng.randf_range(0.25, 0.55), "max_life":0.55})
 	while particles.size() > 96: particles.pop_front()
@@ -3547,11 +3561,11 @@ func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
 	var coin_cap := 14 if enemy_is_boss else 9 if enemy_is_miniboss else 7
 	var coin_count := mini(coin_cap, maxi(3, int(coin_reward / 7) + 3))
 	for i in range(coin_count):
-		var start := Vector2(360, 450) + Vector2(visual_rng.randf_range(-24, 24), visual_rng.randf_range(-18, 20))
+		var start := Vector2(360, 490) + Vector2(visual_rng.randf_range(-24, 24), visual_rng.randf_range(-18, 20))
 		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "vel":Vector2(visual_rng.randf_range(-130.0, 85.0), visual_rng.randf_range(-230.0, -120.0)), "delay":0.16 + i * 0.035, "life":0.72, "max_life":0.72})
 	var xp_count := mini(7 if enemy_is_boss else 5, maxi(2, int(xp_reward / 25.0) + 2))
 	for i in range(xp_count):
-		var start := Vector2(365, 450) + Vector2(visual_rng.randf_range(-28, 28), visual_rng.randf_range(-15, 22))
+		var start := Vector2(365, 490) + Vector2(visual_rng.randf_range(-28, 28), visual_rng.randf_range(-15, 22))
 		reward_pickups.append({"kind":"xp", "start":start, "pos":start, "target":Vector2(250, 92), "vel":Vector2(visual_rng.randf_range(-95.0, 110.0), visual_rng.randf_range(-210.0, -105.0)), "delay":0.20 + i * 0.045, "life":0.78, "max_life":0.78})
 
 func _draw() -> void:
@@ -3570,10 +3584,10 @@ func _draw() -> void:
 	draw_moment_overlay()
 
 func draw_background() -> void:
-	draw_rect(Rect2(0, 0, 480, 146), Color("#080d20"))
+	draw_rect(Rect2(0, 0, 480, 112), Color("#080d20"))
 	var arena_background: Texture2D = current_zone.get("background", ZoneCatalog.OUTER_RUINS_BACKGROUND)
 	var texture_size := arena_background.get_size()
-	var target := Rect2(0, 146, 480, 568)
+	var target := Rect2(0, 112, 480, 664)
 	var crop_height: float = texture_size.x * target.size.y / target.size.x
 	var source_height := minf(texture_size.y, crop_height)
 	var max_source_y := maxf(0.0, texture_size.y - source_height)
@@ -3582,7 +3596,7 @@ func draw_background() -> void:
 	draw_texture_rect_region(arena_background, target, source, current_zone.get("presentation_tint", Color.WHITE))
 	if campaign_id != "act_i":
 		# Reuse painted masonry to anchor feet; scenery is not the collision plane.
-		draw_texture_rect(preload("res://beta_art_catalog.gd").PLATFORM, Rect2(0, 504, 480, 110), false, Color("#ddb99a") if current_zone_id == "cinder_crown" else Color.WHITE)
+		draw_texture_rect(preload("res://beta_art_catalog.gd").PLATFORM, Rect2(0, 544, 480, 110), false, Color("#ddb99a") if current_zone_id == "cinder_crown" else Color.WHITE)
 	# Quiet the combat band slightly while keeping the lanterns and moon visible.
 	var plane_tint := Color("#17100c28") if current_zone_id == "emberworks" else Color("#09082230") if current_zone_id == "hoard_depths" else Color("#08122922")
 	draw_rect(Rect2(0, 182, 480, 382), plane_tint, true)
@@ -3610,7 +3624,7 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0,0,480,140),Color("#081329c9"))
+	draw_rect(Rect2(0,0,480,112),Color("#081329c9"))
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
 	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
@@ -3625,22 +3639,11 @@ func draw_hud() -> void:
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
 	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(334, 61), ("SIEGE EMBERS • LV %d" if retention.siege else "RUN SCRIP • LV %d") % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
-	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
+	draw_bar(Rect2(18, 98, 444, 9), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 10)
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
-		draw_rect(Rect2(18, 77, 444, 18), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
-	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
-	if state == "playing":
-		var wave_target: int=int(retention.round_rule.get("count",3)) if retention.siege else 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
-		var foe_number := clampi(wave_kills + (1 if enemy_alive else 0), 1, wave_target)
-		var encounter_text := "%s     %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "FOE", foe_number, wave_target]
-		if enemy_encounter.active:
-			encounter_text = "%s • TAP A FOE TO TARGET" % ("DUO" if enemy_encounter.actors.size() == 2 else "SMALL PACK")
-		if enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18:
-			encounter_text = "INCOMING"
-		draw_rect(Rect2(91, 151, 298, 25), Color("#0a1129d9"), true)
-		draw_line(Vector2(110, 176), Vector2(370, 176), Color("#bd904a99"), 2)
-		draw_string(body_font, Vector2(60, 169), encounter_text, HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color("#d8e3ff"))
+		draw_rect(Rect2(18, 98, 444, 9), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
+	draw_bar(Rect2(60, 70, 402, 20), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
 
 func draw_arena(shake: Vector2) -> void:
 	var show_combat_context := state == "playing"
@@ -3652,17 +3655,17 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_name_size := 19
 		while enemy_name_size > 11 and body_font.get_string_size(enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
 			enemy_name_size -= 1
-		draw_string(body_font, Vector2(40, 210), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, enemy_name_size, Color("#f4f7ff"))
-		draw_bar(Rect2(75, 232, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13, combat_presentation.health_ratio(enemy_serial))
+		draw_string(body_font, Vector2(40, 151), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, enemy_name_size, Color("#f4f7ff"))
+		draw_bar(Rect2(75, 166, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0
 		if enemy_burn_dps > 0.0:
-			draw_status_chip(Vector2(status_x, 261), "BURN", build.color("Fire"), "status_burn")
+			draw_status_chip(Vector2(status_x, 195), "BURN", build.color("Fire"), "status_burn")
 			status_x += 80.0
 		if enemy_poison_stacks > 0:
-			draw_status_chip(Vector2(status_x, 261), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
+			draw_status_chip(Vector2(status_x, 195), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
 		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240, 287), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
+			draw_status_chip(Vector2(240, 222), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:
@@ -3680,17 +3683,17 @@ func draw_arena(shake: Vector2) -> void:
 				"tank": behavior_offset = Vector2(0, sin(run_time * 2.2) * 1.0)
 				"hexer": behavior_offset = Vector2(12.0 + sin(run_time * 2.5) * 6.0, sin(run_time * 3.2) * 5.0)
 		var enemy_attack_ratio := clampf(enemy_attack_anim / 0.18, 0.0, 1.0)
-		var enemy_lunge := 12.0 if enemy_is_boss else 10.0 if enemy_is_miniboss or enemy_archetype == "tank" else 15.0
+		var enemy_lunge: float = preload("res://boss_presentation.gd").profile(campaign_id).attack_distance if enemy_is_boss else 10.0 if enemy_is_miniboss or enemy_archetype == "tank" else 15.0
 		behavior_offset.x -= enemy_attack_ratio * enemy_lunge
-		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 467) + behavior_offset + shake
+		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 507) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
-		if show_combat_context: combat_presentation.draw_cue(self, Vector2(ENEMY_X, 510) + shake)
+		if show_combat_context: combat_presentation.draw_cue(self, Vector2(ENEMY_X, 550) + shake)
 	elif enemy_death_anim > 0.0:
 		var death_duration := 0.82 if enemy_is_boss else 0.70 if enemy_is_miniboss else 0.62
 		var death_progress := 1.0 - enemy_death_anim / death_duration
 		var death_color := enemy_color
 		death_color.a = 1.0 - death_progress
-		draw_enemy(Vector2(ENEMY_X + death_progress * 35.0, 467 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
+		draw_enemy(Vector2(ENEMY_X + death_progress * 35.0, 507 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
 	if status_clock > 0.0 and show_combat_context:
 		draw_rect(Rect2(67, 662, 346, 36), Color("#091127d6"), true)
 		draw_rect(Rect2(67, 662, 346, 36), Color("#b98b477a"), false, 1)
@@ -3726,7 +3729,7 @@ func build_summary() -> String:
 	return build.short_summary()
 
 func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value: String, font_size: int, trail_ratio: float = -1.0) -> void:
-	var kind := "xp" if rect.size.y == 18 else "health" if rect.size.y == 25 else "enemy"
+	var kind := ("xp" if rect.size.y<=12 else "health") if rect.position.y<140 else "enemy"
 	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind, trail_ratio)
 	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
@@ -3874,7 +3877,7 @@ func draw_moment_overlay() -> void:
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
 	if state == "zone_transition" and (presentation_director == null or not presentation_director.travel_active):
 		var transition_ratio := clampf(zone_transition_timer / 0.85, 0.0, 1.0)
-		draw_rect(Rect2(0, 146, 480, 568), Color(0.02, 0.03, 0.09, 0.72 * transition_ratio), true)
+		draw_rect(Rect2(0, 112, 480, 664), Color(0.02, 0.03, 0.09, 0.72 * transition_ratio), true)
 		var title_color: Color = current_zone.accent
 		title_color.a = minf(1.0, transition_ratio * 2.0)
 		draw_string(title_font, Vector2(40, 368), zone_transition_title, HORIZONTAL_ALIGNMENT_CENTER, 400, 17, title_color)

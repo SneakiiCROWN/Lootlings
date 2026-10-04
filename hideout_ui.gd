@@ -59,6 +59,7 @@ const RESIDENT_BODIES := {
 	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_idle.png"),
 	"Archivist":preload("res://art/sprites/npcs/beta/ilex_idle.png")
 }
+const HOME_SLOTS := {"pet_bed":Rect2(38,700,60,48),"trophy":Rect2(338,176,56,56),"weapon_display":Rect2(202,519,48,48),"banner":Rect2(92,124,48,100),"hearth":Rect2(32,268,64,64),"shelf":Rect2(350,614,64,48)}
 const RESIDENT_RECTS := {"Salvager":Rect2(346,336,88,132), "Relic Keeper":Rect2(42,334,88,132), "Archivist":Rect2(352,562,80,120)}
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
@@ -171,6 +172,20 @@ var cache_pulse := 0.0
 var cache_pulse_duration := 0.72
 var cache_pulse_color := Color("#c99cff")
 var ui_sparks: Array = []
+var home_weapon: Control
+var home_weapon_name: Label
+var speech_portrait: TextureRect
+var speech_role: Button
+var speech_speaker := ""
+var last_home_facts: Dictionary={}
+var home_dialogue = preload("res://contextual_dialogue.gd").new()
+var region_sheet: Panel
+var region_detail: RichTextLabel
+var region_depart: Button
+var phase4_heading: Label
+var phase4_nav: Array[Button]=[]
+var stash_scroll: ScrollContainer
+var stash_opened_at := 0
 var speech_panel: Panel
 var speech_label: Label
 var speech_timer := 4.5
@@ -291,39 +306,31 @@ func set_screen(active: Control) -> void:
 	ui_event.emit("menu_transition")
 
 func build_home() -> void:
-	home_content = Control.new()
-	home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	add_child(home_content)
-	make_label(home_content, "HIDEOUT", 26, Rect2(90, 20, 300, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	var profile_button := make_button(home_content, "PROFILE", Rect2(10, 16, 78, 38), Color("#172442c8"), Color("#72c8ff"), 10)
-	profile_button.pressed.connect(func(): profile_requested.emit())
-	var title_button := make_button(home_content, "TITLE", Rect2(392, 16, 78, 38), Color("#172442c8"), Color("#d1a85a"), 10)
-	title_button.pressed.connect(func(): title_requested.emit())
-	resource_label = LootlingsUI.rich_label(home_content, Rect2(30, 60, 420, 40), 13, Color("#d9e5ff"))
-	var play_button := make_hotspot_button(home_content, "BEGIN EXPEDITION", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
-	play_button.set_meta("ui_intent","primary")
-	play_button.set_meta("gesture_release_owned",true)
-	LootlingsUI.apply_button(play_button,Color("#49346b"),Color("#ffd468"))
-	play_button.pressed.connect(func(): play_requested.emit())
-	var upgrades_button := make_hotspot_button(home_content, "UPGRADES", Rect2(14, 244, 138, 112), Color("#c99cff"), 15)
-	upgrades_button.pressed.connect(show_upgrades)
-	var shop_button := make_hotspot_button(home_content, "SHOP", Rect2(328, 244, 138, 112), Color("#ffbd69"), 15)
-	shop_button.pressed.connect(show_shop)
-	var stash_button := make_hotspot_button(home_content, "GEAR", Rect2(14, 476, 150, 110), Color("#72c8ff"), 15)
-	stash_button.pressed.connect(show_stash)
-	var lootbook_button := make_hotspot_button(home_content, "ARCHIVE\nLOOTBOOK", Rect2(316, 476, 150, 110), Color("#91a6ce"), 15)
-	lootbook_button.text = "ARCHIVE"
-	lootbook_button.pressed.connect(show_achievements)
-	loadout_panel = make_panel(home_content, Rect2(34, 704, 412, 88), Color("#0c1430c9"), Color("#c99a4e"))
-	LootlingsUI.apply_material(loadout_panel, "leather", 16)
-	make_label(loadout_panel, "EXPEDITION LOADOUT", 13, Rect2(12, 6, 388, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe39a"))
-	loadout_label = LootlingsUI.rich_label(loadout_panel, Rect2(14, 27, 384, 54), 15, Color("#e6edff"))
-	loadout_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var inspect_loadout := make_button(home_content,"LOADOUT  ▾",Rect2(150,650,180,48),Color("#172442"),Color("#7087ae"),13)
-	inspect_loadout.pressed.connect(func(): loadout_panel.visible = not loadout_panel.visible)
-	for speaker in RESIDENT_RECTS:
-		make_npc_hotspot(home_content, RESIDENT_RECTS[speaker], speaker)
-	make_npc_hotspot(home_content, Rect2(204, 382, 76, 102), "Mascot")
+	home_content = Control.new(); home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); add_child(home_content)
+	var empty:=Button.new(); empty.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); empty.flat=true; empty.focus_mode=Control.FOCUS_NONE; empty.set_meta("gesture_release_owned",true); home_content.add_child(empty); empty.pressed.connect(dismiss_dialogue)
+	make_label(home_content,"HOME",18,Rect2(84,14,312,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	make_button(home_content,"YOU",Rect2(14,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): profile_requested.emit())
+	make_button(home_content,"TITLE",Rect2(402,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): title_requested.emit())
+	resource_label=LootlingsUI.rich_label(home_content,Rect2(86,40,310,27),12,Color("#d9e5ff"))
+	var gate:=make_button(home_content,"GATE  ›",Rect2(188,145,104,48),Color("#172442b0"),Color("#e2b563"),14); gate.set_meta("gesture_release_owned",true); gate.pressed.connect(func(): play_requested.emit())
+	for speaker in RESIDENT_RECTS: make_npc_hotspot(home_content,RESIDENT_RECTS[speaker],speaker)
+	make_npc_hotspot(home_content,Rect2(166,355,148,146),"Mascot")
+	make_button(home_content,"GEAR",Rect2(25,488,52,52),Color("#172442b0"),Color("#72c8ff"),12).pressed.connect(show_stash)
+	make_button(home_content,"JOBS",Rect2(332,268,52,52),Color("#172442b0"),Color("#e2b563"),12).pressed.connect(show_contracts)
+	make_button(home_content,"SHOP",Rect2(398,264,66,48),Color("#172442b0"),Color("#e2b563"),12).pressed.connect(show_shop)
+	for child in home_content.get_children():
+		if child is Button and not child.flat:
+			for state in ["normal","hover","pressed","focus"]:
+				var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99") if state=="normal" else Color("#29404cdd"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); child.add_theme_stylebox_override(state,style)
+	make_label(home_content,"Tap a resident or a marked object",12,Rect2(60,747,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
+	loadout_panel=make_panel(home_content,Rect2(34,665,412,70),Color("#0c1430e9"),Color("#7087ae")); loadout_panel.visible=false
+	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
+	home_weapon=ItemIcon.new(); home_weapon.position=Vector2(179,519); home_weapon.size=Vector2(48,48); home_weapon.mouse_filter=Control.MOUSE_FILTER_IGNORE; home_content.add_child(home_weapon)
+	home_weapon_name=make_label(home_content,"",13,Rect2(233,521,206,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6ad")); home_weapon_name.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	var loadout:=make_button(home_content,"LOADOUT",Rect2(172,609,136,48),Color("#172442b0"),Color("#7087ae"),12)
+	for state in ["normal","hover","pressed","focus"]:
+		var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); loadout.add_theme_stylebox_override(state,style)
+	loadout.pressed.connect(func(): loadout_panel.visible=not loadout_panel.visible)
 
 func build_stash() -> void:
 	stash_content = Control.new()
@@ -341,32 +348,33 @@ func build_stash() -> void:
 		filter_buttons[filter_name] = filter_button
 	for index in range(4):
 		var slot: String = ["Weapon", "Armour", "Relic", "Rune"][index]
-		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 130, 104, 132), Color("#172442"), Color("#7194c4"), 13)
+		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 130, 104, 88), Color("#172442"), Color("#7194c4"), 13)
 		slot_button.pressed.connect(set_stash_filter.bind(ItemCatalog.display_slot(slot)))
 		var slot_art := ItemIcon.new()
 		slot_art.name = "SlotArt"
-		slot_art.position = Vector2(13, 12)
-		slot_art.size = Vector2(78, 78)
+		slot_art.position = Vector2(25, 4)
+		slot_art.size = Vector2(54, 54)
 		slot_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		slot_button.add_child(slot_art)
-		make_label(slot_button, ItemCatalog.display_slot(slot), 13, Rect2(4, 98, 96, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+		make_label(slot_button, ItemCatalog.display_slot(slot), 13, Rect2(4, 61, 96, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 		equipped_slot_buttons[slot] = slot_button
-	var scroll_panel := make_panel(stash_content, Rect2(20, 282, 440, 190), Color("#0b1229d6"), Color("#7194c4"))
+	var scroll_panel := make_panel(stash_content, Rect2(20, 236, 440, 565), Color("#0b1229d6"), Color("#7194c4"))
 	LootlingsUI.apply_material(scroll_panel, "leather", 16)
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(10, 12)
-	scroll.size = Vector2(420, 166)
+	scroll.size = Vector2(420, 541)
+	stash_scroll=scroll
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll_panel.add_child(scroll)
 	stash_list = VBoxContainer.new()
 	stash_list.custom_minimum_size = Vector2(402, 0)
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
-	stash_detail_panel = make_panel(stash_content, Rect2(20, 486, 440, 190), Color("#0d1530dc"), Color("#c99a4e"))
+	stash_detail_panel = make_panel(stash_content, Rect2(20, 477, 440, 213), Color("#0d1530dc"), Color("#c99a4e"))
 	LootlingsUI.apply_material(stash_detail_panel, "leather", 16)
 	stash_detail_icon = ItemIcon.new()
 	stash_detail_icon.position = Vector2(18, 12)
-	stash_detail_icon.size = Vector2(78, 78)
+	stash_detail_icon.size = Vector2(54, 54)
 	stash_detail_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stash_detail_panel.add_child(stash_detail_icon)
 	stash_detail_name = make_label(stash_detail_panel, "", 20, Rect2(110, 12, 312, 50), HORIZONTAL_ALIGNMENT_LEFT, Color("#e5edff"))
@@ -382,17 +390,21 @@ func build_stash() -> void:
 	stash_detail_panel.add_child(stash_detail)
 	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 694, 210, 66), Color("#285c4c"), Color("#69e6b0"), 18)
 	stash_equip_button.pressed.connect(request_stash_equip)
-	stash_scrap_button = make_button(stash_content, "SCRAP", Rect2(250, 694, 210, 66), Color("#5a3828"), Color("#ffbd69"), 18)
+	stash_scrap_button = make_button(stash_content, "SALVAGE", Rect2(250, 694, 210, 66), Color("#5a3828"), Color("#ffbd69"), 18)
 	stash_scrap_button.pressed.connect(request_stash_scrap)
-	var forge := make_button(stash_content, "WEAPON FORGE", Rect2(125, 777, 230, 54), Color("#493052"), Color("#e2b563"), 17)
-	forge.pressed.connect(show_forge)
+	make_button(stash_detail_panel,"×",Rect2(386,2,48,48),Color("#172442"),Color("#7087ae"),20).pressed.connect(close_stash_detail)
+	close_stash_detail()
+
+func close_stash_detail() -> void:
+	stash_detail_panel.visible=false; stash_equip_button.visible=false; stash_scrap_button.visible=false
+	if stash_scroll!=null: stash_scroll.size.y=541
 
 func build_forge() -> void:
 	forge_content = Control.new()
 	forge_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	forge_content.visible = false
 	add_child(forge_content)
-	make_button(forge_content, "‹ STASH", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_stash)
+	make_button(forge_content, "‹ HOME", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
 	make_label(forge_content, "WEAPON FORGE", 25, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	make_button(forge_content,"BLUEPRINT FORGE",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("blueprints"))
 	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 14, Rect2(28, 126, 424, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
@@ -425,10 +437,14 @@ func build_phase4() -> void:
 	phase4_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	phase4_content.visible = false; add_child(phase4_content)
 	make_button(phase4_content,"‹ HIDEOUT",Rect2(20,20,126,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(show_home)
-	make_label(phase4_content,"RELIC WORKSHOP",25,Rect2(150,23,310,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
-	for index in range(3):
-		var mode: String = ["blueprints","contracts","archive"][index]
-		make_button(phase4_content,["BLUEPRINTS","BOUNTIES","COLLECTION"][index],Rect2(20+index*148,86,140,48),Color("#172442"),Color("#7087ae"),12).pressed.connect(func(): show_phase4(mode))
+	phase4_heading=make_label(phase4_content,"BLUEPRINT FORGE",25,Rect2(150,23,310,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	for index in range(2):
+		var nav:=make_button(phase4_content,"",Rect2(20+index*224,86,216,48),Color("#172442"),Color("#7087ae"),14); phase4_nav.append(nav)
+		nav.pressed.connect(func():
+			if phase4_mode=="blueprints": show_forge() if index==0 else show_phase4("blueprints")
+			elif phase4_mode=="contracts": show_contracts() if index==0 else show_phase4("contracts")
+			else: show_achievements() if index==0 else show_lore()
+		)
 	var scroll := ScrollContainer.new(); scroll.position = Vector2(24,150); scroll.size = Vector2(432,346)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	phase4_content.add_child(scroll)
@@ -452,7 +468,11 @@ func build_phase4() -> void:
 
 func show_phase4(mode: String) -> void:
 	dismiss_dialogue(); current_screen = "workshop"; phase4_mode = mode
-	set_screen(phase4_content); refresh_phase4()
+	set_screen(phase4_content)
+	phase4_heading.text={"blueprints":"BLUEPRINT FORGE","contracts":"CONTRACT BOARD","archive":"COLLECTION"}.get(mode,"ARCHIVE")
+	phase4_nav[0].text={"blueprints":"WEAPON EVOLUTION","contracts":"LOCAL CONTRACTS","archive":"TROPHIES"}.get(mode,"")
+	phase4_nav[1].text={"blueprints":"BLUEPRINTS","contracts":"REGIONAL BOUNTIES","archive":"FIELD NOTES"}.get(mode,"")
+	refresh_phase4()
 
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
@@ -506,34 +526,23 @@ func refresh_phase4() -> void:
 		)
 
 func build_campaign() -> void:
-	campaign_content = Control.new()
-	campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	campaign_content.visible = false
-	add_child(campaign_content)
-	make_button(campaign_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
-	make_label(campaign_content, "EXPEDITIONS", 26, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(campaign_content, "Boss clears unlock regions. Return anytime to farm.", 14, Rect2(24, 76, 432, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	campaign_content=Control.new(); campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); campaign_content.visible=false; add_child(campaign_content)
+	make_button(campaign_content,"‹ HOME",Rect2(20,20,122,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(show_home)
+	make_label(campaign_content,"EXPEDITIONS",24,Rect2(150,23,310,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	make_button(campaign_content,"REGIONS",Rect2(20,85,140,48),Color("#293a46"),Color("#e2b563"),14).pressed.connect(show_campaign)
+	dungeon_start_button=make_button(campaign_content,"RELIC SIEGE",Rect2(170,85,140,48),Color("#172442"),Color("#7087ae"),13); dungeon_start_button.pressed.connect(func(): dungeon_requested.emit())
+	make_button(campaign_content,"DUNGEONS",Rect2(320,85,140,48),Color("#172442"),Color("#7087ae"),13).pressed.connect(func(): get_parent().retention.show_modes("dungeons"))
 	for index in range(3):
-		var tier_button := make_button(campaign_content,str(Phase4.TIERS[index].name),Rect2(24+index*147,132,138,48),Color("#172442"),Color("#7087ae"),14)
-		tier_button.pressed.connect(func(): selected_tier = index; tier_requested.emit(index); show_campaign())
-		tier_buttons.append(tier_button)
-	var scroll := ScrollContainer.new()
-	scroll.position = Vector2(24, 190)
-	scroll.size = Vector2(432, 460)
-	campaign_content.add_child(scroll)
-	campaign_list = VBoxContainer.new()
-	campaign_list.custom_minimum_size.x = 408
-	campaign_list.add_theme_constant_override("separation", 12)
-	scroll.add_child(campaign_list)
-	dungeon_start_button = make_button(campaign_content, "MODES • RELIC SIEGE / DUNGEONS", Rect2(24, 676, 432, 60), Color("#493052"), Color("#d4ad65"), 15)
-	dungeon_start_button.pressed.connect(func(): dungeon_requested.emit())
-	make_button(campaign_content, "LOCAL CONTRACTS", Rect2(24, 755, 210, 66), Color("#172442"), Color("#d4ad65"), 15).pressed.connect(show_contracts)
-	var patrol_button := make_button(campaign_content, "PATROLS: SOLO\nTap for group encounters", Rect2(246, 755, 210, 66), Color("#172442"), Color("#78e4ff"), 13)
-	patrol_button.pressed.connect(func():
-		group_patrols_enabled = not group_patrols_enabled
-		patrol_button.text = "PATROLS: GROUPS\nTap foes to choose target" if group_patrols_enabled else "PATROLS: SOLO\nTap for group encounters"
-		group_patrols_changed.emit(group_patrols_enabled)
-	)
+		var button:=make_button(campaign_content,Phase4.TIERS[index].name,Rect2(24+index*146,146,140,48),Color("#172442"),Color("#d4ad65"),14); tier_buttons.append(button)
+		button.pressed.connect(func(): selected_tier=index; tier_requested.emit(index); show_campaign())
+	var scroll:=ScrollContainer.new(); scroll.position=Vector2(24,212); scroll.size=Vector2(432,522); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; campaign_content.add_child(scroll)
+	campaign_list=VBoxContainer.new(); campaign_list.custom_minimum_size.x=408; campaign_list.add_theme_constant_override("separation",10); scroll.add_child(campaign_list)
+	var patrol:=make_button(campaign_content,"PATROLS: SOLO",Rect2(24,761,432,48),Color("#172442"),Color("#7087ae"),13)
+	patrol.pressed.connect(func(): group_patrols_enabled=not group_patrols_enabled; patrol.text="PATROLS: GROUPS" if group_patrols_enabled else "PATROLS: SOLO"; group_patrols_changed.emit(group_patrols_enabled))
+	region_sheet=make_panel(campaign_content,Rect2(20,432,440,393),Color("#10182bfa"),Color("#d8bd7b")); region_sheet.z_index=20; region_sheet.visible=false
+	region_detail=LootlingsUI.rich_label(region_sheet,Rect2(22,62,396,231),17,Color("#e7edff")); region_detail.scroll_active=true
+	make_button(region_sheet,"×",Rect2(382,6,48,48),Color("#172442"),Color("#7087ae"),20).pressed.connect(func(): region_sheet.visible=false)
+	region_depart=make_button(region_sheet,"DEPART",Rect2(22,316,396,56),Color("#285c4c"),Color("#69e6b0"),18)
 
 func build_contracts() -> void:
 	contracts_content = Control.new()
@@ -573,10 +582,11 @@ func show_campaign() -> void:
 		apply_display_button_style(tier_buttons[index],Color("#d4ad65"),selected_tier == index)
 	if dungeon_start_button != null:
 		dungeon_start_button.disabled = campaign == null
-		dungeon_start_button.text = "MODES / RELIC SIEGE / DUNGEONS"
+		dungeon_start_button.text = "RELIC SIEGE"
 	dismiss_dialogue()
 	current_screen = "campaign"
 	set_screen(campaign_content)
+	region_sheet.visible=false
 	for child in campaign_list.get_children():
 		campaign_list.remove_child(child)
 		child.queue_free()
@@ -593,13 +603,20 @@ func show_campaign() -> void:
 		var detail := "Farm %s • hunt %s\n%s" % [farm.material,target_name,Phase4.TIERS[selected_tier].text]
 		var status := "RETURN TO FARM" if campaign != null and id in campaign.completed else "EXPEDITION" if available else "LOCKED"
 		if tracked_here: status="★ TRACKED SOURCE • "+status
-		var button := make_button(campaign_list, "%s\n%s\n%s" % [CampaignSystem.title(id), detail, status], Rect2(0, 0, 408, 112), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
-		button.custom_minimum_size = Vector2(408, 112)
+		var button := make_button(campaign_list, "", Rect2(0, 0, 408, 88), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
+		button.custom_minimum_size = Vector2(408, 88)
+		var preview:=TextureRect.new(); preview.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; preview.texture=CampaignSystem.zone_for(id,1).background; preview.position=Vector2(10,10); preview.size=Vector2(66,68); preview.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; preview.mouse_filter=Control.MOUSE_FILTER_IGNORE; preview.clip_contents=true; button.add_child(preview)
+		make_label(button,CampaignSystem.title(id),14,Rect2(88,13,302,25),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6a0") if available else Color("#91a3c2")).mouse_filter=Control.MOUSE_FILTER_IGNORE
+		make_label(button,"%s • %s" % [farm.material,"★ TRACKED" if tracked_here else status],12,Rect2(88,42,302,29),HORIZONTAL_ALIGNMENT_LEFT,Color("#bacbe0")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.set_meta("gesture_release_owned",true)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
 		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
 		button.disabled = not available
-		button.pressed.connect(func(): campaign_requested.emit(id))
+		button.pressed.connect(func():
+			region_sheet.visible=true; region_detail.text="[font_size=23]%s[/font_size]\n\n%s\n\n%s\n%s" % [CampaignSystem.title(id),WorldStory.region_line(id,0),detail,status]
+			for callback in region_depart.pressed.get_connections(): region_depart.pressed.disconnect(callback.callable)
+			region_depart.pressed.connect(func(): region_sheet.visible=false; campaign_requested.emit(id))
+		)
 
 func show_forge() -> void:
 	dismiss_dialogue()
@@ -979,7 +996,8 @@ func refresh_home() -> void:
 	var display_name := str(profile.get("display_name", "TREASURE SEEKER")).to_upper()
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
-	resource_label.text = "[center]%s %s GOLD   %s %s SCRAP\n%s %s STAR SHARDS • power details in UPGRADES[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), LootlingsUI.inline_icon("currency_star_shard"), preload("res://display_numbers.gd").compact(shards)]
+	resource_label.text="[center]%s %s   %s %s   %s %s[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
+	home_weapon.configure(current_inventory.equipped_item("Weapon")); home_weapon_name.text=str(current_inventory.equipped_item("Weapon").get("name","No weapon"))
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
@@ -1035,13 +1053,15 @@ func refresh_stash() -> void:
 		stash_detail.text = "[center][color=#8fa4ce]No %s equipment found.[/color][/center]" % stash_filter.to_lower()
 		stash_equip_button.disabled = true
 		stash_scrap_button.disabled = true
-	else:
-		select_entry(clampi(selected_entry, 0, entries.size() - 1))
+	close_stash_detail()
 
 func select_entry(entry_index: int) -> void:
 	if entry_index < 0 or entry_index >= entries.size():
 		return
 	selected_entry = entry_index
+	stash_opened_at=Time.get_ticks_msec()
+	stash_detail_panel.visible=true; stash_equip_button.visible=true; stash_scrap_button.visible=true
+	stash_scroll.size.y=211
 	if entry_index < stash_list.get_child_count():
 		pulse_control(stash_list.get_child(entry_index), Color("#72c8ff"))
 	var entry: Dictionary = entries[entry_index]
@@ -1060,7 +1080,7 @@ func select_entry(entry_index: int) -> void:
 		stash_equip_button.disabled = true
 		stash_scrap_button.disabled = true
 		stash_equip_button.text = "EQUIPPED"
-		stash_scrap_button.text = "SCRAP"
+		stash_scrap_button.text = "SALVAGE"
 	else:
 		var equipped: Dictionary = current_inventory.equipped_item(item.get("slot", ""))
 		stash_detail.text = comparison_callable.call(item, equipped)
@@ -1068,7 +1088,7 @@ func select_entry(entry_index: int) -> void:
 		stash_equip_button.disabled = false
 		stash_scrap_button.disabled = false
 		stash_equip_button.text = "EQUIP"
-		stash_scrap_button.text = "SCRAP  +%d" % ItemCatalog.scrap_value(item)
+		stash_scrap_button.text = "SALVAGE  +%d" % ItemCatalog.scrap_value(item)
 
 func refresh_upgrades() -> void:
 	if upgrade_summary == null:
@@ -1187,20 +1207,20 @@ func item_matches_filter(item: Dictionary) -> bool:
 	return item.get("slot", "") == internal_filter
 
 func request_stash_equip() -> void:
-	if selected_entry < 0 or selected_entry >= entries.size():
+	if selected_entry < 0 or selected_entry >= entries.size() or Time.get_ticks_msec()-stash_opened_at<180:
 		return
 	var entry: Dictionary = entries[selected_entry]
 	if not entry.equipped:
 		stash_equip_requested.emit(int(entry.stash_index))
 
 func request_stash_scrap() -> void:
-	if selected_entry < 0 or selected_entry >= entries.size():
-		return
-	var entry: Dictionary = entries[selected_entry]
-	if not entry.equipped:
-		var item: Dictionary = entry.item
-		var index := int(entry.stash_index)
-		get_parent().touch_ux.request("Scrap %s?" % item.name,"Receive %d Scrap. This item is destroyed permanently." % ItemCatalog.scrap_value(item),func(): stash_scrap_requested.emit(index))
+	if selected_entry<0 or selected_entry>=entries.size() or Time.get_ticks_msec()-stash_opened_at<250: return
+	var entry: Dictionary=entries[selected_entry]
+	if entry.equipped: return
+	var item: Dictionary=entry.item; var index:=int(entry.stash_index)
+	var risky: bool=item.get("rarity","COMMON") in ["EPIC","LEGENDARY","RED","SIGNATURE"] or item.get("locked",false) or item.get("favourite",false) or not item.get("signature_hooks",[]).is_empty() or (endgame_progress!=null and item.id==endgame_progress.data.tracked)
+	if risky: get_parent().touch_ux.request("Salvage %s?" % item.name,"Receive %d Scrap. This item is destroyed permanently." % ItemCatalog.scrap_value(item),func(): stash_scrap_requested.emit(index))
+	else: stash_scrap_requested.emit(index)
 
 func select_shop_offer(index: int) -> void:
 	if current_shop == null or index < 0 or index >= current_shop.stock.size() or current_shop.stock[index].is_empty():
@@ -1301,26 +1321,32 @@ func dismiss_dialogue() -> void:
 		speech_panel.visible = false
 	speech_visible_timer = 0.0
 	speech_timer = 6.0
+	speech_speaker = ""
 
 func build_transition_overlay() -> void:
 	presentation = PresentationDirector.new()
 	add_child(presentation)
 
 func build_dialogue_overlay() -> void:
-	speech_panel = make_panel(self, Rect2(24, 590, 308, 110), Color("#10182bf2"), Color("#d8bd7b"))
-	speech_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	speech_panel.visible = false
-	speech_panel.z_index = 80
-	speech_label = make_label(speech_panel, "", 14, Rect2(16, 18, 276, 74), HORIZONTAL_ALIGNMENT_CENTER, Color("#f3edda"))
-	speech_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	speech_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	speech_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	speech_panel=make_panel(self,Rect2(20,655,440,168),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
+	speech_portrait=TextureRect.new(); speech_portrait.position=Vector2(14,14); speech_portrait.size=Vector2(54,64); speech_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; speech_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; speech_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; speech_panel.add_child(speech_portrait)
+	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,92),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	make_button(speech_panel,"×",Rect2(386,6,48,48),Color("#172442"),Color("#7087ae"),22).pressed.connect(dismiss_dialogue)
+	speech_role=make_button(speech_panel,"",Rect2(82,112,304,48),Color("#293a46"),Color("#d8bd7b"),14)
+	speech_role.pressed.connect(func():
+		match speech_speaker:
+			"Salvager": show_forge()
+			"Relic Keeper": show_upgrades()
+			"Archivist": show_achievements()
+			_: profile_requested.emit(); dismiss_dialogue()
+	)
 
 func make_npc_hotspot(parent: Control, rect: Rect2, speaker: String) -> void:
 	var hotspot := Button.new()
 	hotspot.position = rect.position
 	hotspot.size = rect.size
 	hotspot.flat = true
+	hotspot.set_meta("gesture_release_owned",true)
 	hotspot.focus_mode = Control.FOCUS_NONE
 	hotspot.tooltip_text = "Talk to %s" % WorldStory.SPEAKERS.get(speaker, speaker)
 	hotspot.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
@@ -1342,45 +1368,25 @@ func queue_dialogue_context(context: String) -> void:
 		speech_panel.visible = false
 
 func request_dialogue(context: String = "idle", requested_speaker: String = "") -> void:
-	# At rest the physical hub speaks through its artwork. Residents talk when selected.
-	if context != "tapped": return
-	if dialogue == null or speech_panel == null or speech_visible_timer > 0.0:
-		return
-	var entry: Dictionary = dialogue.choose(context, requested_speaker)
-	if entry.is_empty():
-		return
-	var speaker := str(entry.speaker)
-	var voice_name: String = WorldStory.SPEAKERS.get(speaker, speaker)
-	var line := str(entry.text)
-	if context == "tapped" and speaker in WorldStory.RESIDENT_REACTIONS:
-		if Avatar.is_wanderer(profile):
-			line = {"Salvager":"Coat pockets count as storage. Ask me how I know.", "Relic Keeper":"The Core listens to intent, not your silhouette.", "Archivist":"An origin is a beginning, not a verdict."}.get(speaker, line)
-		else:
-			line = str(WorldStory.RESIDENT_REACTIONS[speaker].get(str(profile.get("current_lootling_id", "relic_beast")), line))
-	if speaker == "Mascot" and context in ["idle", "tapped", "victory"]:
-		var id := str(profile.get("current_lootling_id", "relic_beast"))
-		voice_name = Avatar.display_name(profile)
-		if Avatar.is_wanderer(profile):
-			var appearance: Dictionary = profile.get("wanderer", {})
-			line = WandererCatalog.bark(appearance, context)
-		else:
-			line = WorldStory.mascot_line(id, 1 if context == "victory" else 0)
-	speech_label.text = "%s\n%s" % [voice_name.to_upper(), line]
-	# Fit the actual wrapped copy rather than truncating longer practical tips.
-	var font: Font = speech_label.get_theme_font("font")
-	var line_height := font.get_height(speech_label.get_theme_font_size("font_size"))
-	speech_label.size.y = maxf(74.0, speech_label.get_line_count() * line_height)
-	speech_panel.size.y = speech_label.size.y + 36.0
-	speech_panel.position = dialogue_anchor(speaker)
-	speech_panel.position.y = minf(speech_panel.position.y, 830.0-speech_panel.size.y)
-	speech_panel.visible = true
-	speech_panel.modulate = Color(1, 1, 1, 0)
-	speech_panel.scale = Vector2(0.96, 0.96)
-	speech_panel.pivot_offset = speech_panel.size * 0.5
-	var tween := create_tween().set_parallel(true)
-	tween.tween_property(speech_panel, "modulate", Color.WHITE, 0.16)
-	tween.tween_property(speech_panel, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	speech_visible_timer = clampf(2.0 + line.length() * 0.045, 4.0, 10.0)
+	if context!="tapped" or speech_panel==null: return
+	if speech_panel.visible and speech_speaker==requested_speaker: dismiss_dialogue(); return
+	speech_speaker=requested_speaker
+	var game=get_parent()
+	var facts: Dictionary={"event":queued_dialogue_context,"weapon":str(current_inventory.equipped_item("Weapon").get("weapon_type","")) if current_inventory!=null else "","mode":"siege" if game.retention.siege else "dungeon" if game.retention.targeted else "region"}
+	facts.merge(last_home_facts,true); facts.event=queued_dialogue_context
+	facts.activity=resident_activity(requested_speaker)
+	var line: String=home_dialogue.choose(requested_speaker,facts)
+	var voice_name: String=WorldStory.SPEAKERS.get(requested_speaker,requested_speaker)
+	if requested_speaker=="Mascot":
+		voice_name=Avatar.display_name(profile)
+		line=str(preload("res://contextual_dialogue.gd").PERSONALITY.get(Avatar.preset_id(profile),"")) if Avatar.is_wanderer(profile) else WorldStory.mascot_line(str(profile.get("current_lootling_id","relic_beast")),0)
+	queued_dialogue_context=""; queued_dialogue_priority=-1
+	speech_label.text=voice_name+"
+"+line
+	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile))
+	speech_role.text={"Salvager":"FORGE  ›","Relic Keeper":"SHRINE  ›","Archivist":"ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
+	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE
+	speech_visible_timer=0.0
 
 func dialogue_anchor(speaker: String) -> Vector2:
 	if current_screen == "shop":
@@ -1438,9 +1444,9 @@ func _draw() -> void:
 	elif current_screen == "upgrades": veil = Color("#160a2a26")
 	elif current_screen == "coming": veil = Color("#10172b56")
 	draw_rect(Rect2(0, 0, 480, 854), veil, true)
-	draw_rect(Rect2(0, 0, 480, 102), Color("#080e24d8"), true)
+	draw_rect(Rect2(0, 0, 480, 74 if current_screen=="home" else 74), Color("#080e24b0"), true)
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
-	draw_rect(Rect2(0, 101, 480, 2), Color("#ad8040"), true)
+
 	match current_screen:
 		"home": draw_home_scene()
 		"shop": draw_shop_scene()
@@ -1502,14 +1508,24 @@ func draw_home_scene() -> void:
 	draw_resident("Archivist", RESIDENT_RECTS.Archivist, "ILEX", 2.0)
 
 func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
-	rect.position.y += sin(scene_time * 1.7 + phase) * 1.2
+	var active: bool=int(scene_time/7.0)%3==int(phase)
+	var activity: float=sin(scene_time*1.4+phase) if active else 0.0
+	rect.position.x+=activity*2.0
+	rect.position.y+=absf(activity)*-1.2
 	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,0.22))
 	draw_circle(Vector2.ZERO,31,Color("#03061280"))
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 	draw_texture_rect(RESIDENT_BODIES[speaker],rect,false)
-	# A small anchored name chip, not a floating portrait frame in the world.
-	draw_style_box(LootlingsUI.panel_style(Color("#0b1430d9"),Color("#d1a85a"),1),Rect2(rect.position.x,rect.end.y-2,rect.size.x,20))
-	draw_string(ThemeDB.fallback_font,Vector2(rect.position.x+3,rect.end.y+13),name,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-6,12,Color("#ffe178"))
+	if active:
+		var glint:=rect.get_center()+Vector2(10,9)
+		var color:=Color("#edbc76") if speaker=="Salvager" else Color("#a9d8e8")
+		color.a=.12+maxf(0,sin(scene_time*2.0))*.15
+		draw_circle(glint,3.0,color)
+
+func resident_activity(speaker: String) -> String:
+	var index: int=["Salvager","Relic Keeper","Archivist"].find(speaker)
+	if index<0 or int(scene_time/7.0)%3!=index: return "resting"
+	return ["working","inspecting","reading"][index]
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
@@ -1584,6 +1600,7 @@ func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignm
 
 func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: Color, font_size: int) -> Button:
 	var button := Button.new()
+	button.set_meta("gesture_release_owned",true)
 	button.text = value
 	button.position = rect.position
 	button.size = Vector2(rect.size.x,maxf(48,rect.size.y))

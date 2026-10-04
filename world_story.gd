@@ -42,7 +42,7 @@ const RESIDENT_REACTIONS := {
 		"mosskin":"The Archive appreciates your shade. Not your roots.",
 		"moonkip":"Return the bookmark. It opens nothing. Usually.",
 		"pebblewyrm":"The book was heavy. The shelf was heavier.",
-		"glimmerfin":"An encore needs footnotes. Yours had twelve.",
+		"glimmerfin":"The tide remembers every passage. Tell me where yours led.",
 		"gloomlet":"A blank page is not an erased name."
 	}
 }
@@ -57,7 +57,7 @@ const LOOTLINGS := {
 }
 # Premise / midpoint / boss hook / victory / next-region hook.
 const REGIONS := {
-	"act_i":["Your Core remembers this road. Someone meant to come back.", "Fallen Crown. Working locks. The paperwork accepts swords.", "The Hoard Dragon stole promises. Dispute the inventory.", "The vault opens. Forgotten names see daylight again.", "Beyond the ruins, a jade pool holds the forest's lost spring."],
+	"act_i":["Your Core remembers this road. Someone meant to come back.", "The Crown fell. Its vaults still guard the promises inside.", "The Hoard Dragon keeps what others were sworn to return.", "The vault opens. Forgotten names see daylight again.", "Beyond the ruins, a jade pool holds the forest's lost spring."],
 	"mossglass_wilds":["Roots claimed the Crown's treasure. Better landlords.", "Every leaf reflects a different sky. None of them is today's.", "The Mirror stole the spring. Downstream, nothing flowers.", "Water finds its old path. Something stolen gets to go home.", "Lanterns wait in Moonfen. Ilex has underlined 'wait'."],
 	"moonfen":["Follow lanterns. Not all of them are friendly.", "The marsh keeps what the moon forgets.", "The Lantern Jackal knows your scent.", "The false lights go dark.", "A bell rings beneath the ice."],
 	"frostbell_hollows":["A frozen warning still rings here.", "The ice holds unfinished songs.", "Belljaw has swallowed the last chime.", "For once, the silence is kind.", "Meltwater leads to the drowned machines."],

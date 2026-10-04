@@ -53,6 +53,9 @@ static func variant_count(event: String) -> int:
 
 var players := {}
 var streams := {}
+var transition_player: AudioStreamPlayer
+var transition_tween: Tween
+var cue_gain_db:=4.0
 var music_player: AudioStreamPlayer
 var ambience_player: AudioStreamPlayer
 var current_music := ""
@@ -81,6 +84,7 @@ func _ready() -> void:
 			player.bus = bus_name
 			add_child(player)
 			players[bus_name].append(player)
+	transition_player=AudioStreamPlayer.new(); transition_player.bus="Music"; add_child(transition_player)
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
 	add_child(music_player)
@@ -194,6 +198,9 @@ func play_event(event_name: String) -> void:
 	# Trim overlapping impact/weapon families; preserve species timbre and saved sliders.
 	if event_mix_trim:
 		player.volume_db -= 4.0 if event_name in ["normal_hit","heavy_hit","crit","boss_hit","explosion"] else 3.0 if event_name.begins_with("swing_") or event_name in ["tap_attack","ranger_release","mage_cast","vanguard_swing","rogue_slash"] else 2.0
+	# Keep routine UI/attack repetitions behind landmark feedback.
+	if bus_name=="UI": player.volume_db-=2.0
+	elif event_name not in IMPORTANT_EVENTS: player.volume_db-=2.0
 	player.play()
 
 func play_voice(profile: String, role: String) -> void:
@@ -222,7 +229,13 @@ func set_music(cue: String) -> void:
 		return
 	if cue == current_music:
 		return
+	if duck_tween!=null and duck_tween.is_valid(): duck_tween.kill()
+	if transition_tween!=null and transition_tween.is_valid(): transition_tween.kill()
+	transition_player.stop()
+	if music_player.playing:
+		transition_player.stream=music_player.stream; transition_player.volume_db=music_player.volume_db; transition_player.play(music_player.get_playback_position())
 	current_music = cue
+	cue_gain_db=music_gain_db+({"TITLE":1.0,"HIDEOUT":1.5,"VICTORY":0.0,"DEFEAT":-1.0,"BOSS":-1.1,"HOARD_DEPTHS":-1.1}.get(cue,0.0))
 	if ambience_player != null:
 		ambience_player.stop()
 		ambience_player.stream = null
@@ -232,10 +245,11 @@ func set_music(cue: String) -> void:
 			ambient.loop_mode = AudioStreamWAV.LOOP_FORWARD
 			ambient.loop_end = int(ambient.get_length()*ambient.mix_rate)
 			ambience_player.stream = ambient
-			ambience_player.volume_db = -9
+			ambience_player.volume_db = -7.5 if cue=="HIDEOUT" else -9
 			ambience_player.play()
 	if cue.is_empty():
 		music_player.stop()
+		music_player.stream=null; transition_player.stop(); transition_player.stream=null; music_streams.clear()
 		return
 	if not MUSIC_PATHS.has(cue):
 		return
@@ -256,8 +270,12 @@ func set_music(cue: String) -> void:
 	music_player.stream = music_streams[cue]
 	# The prebaked score is intentionally low-amplitude to retain source
 	# headroom; restore body here before the saved Music and Master controls.
-	music_player.volume_db = music_gain_db
+	music_player.volume_db = cue_gain_db-14.0
 	music_player.play()
+	transition_tween=create_tween().set_parallel(true)
+	transition_tween.tween_property(music_player,"volume_db",cue_gain_db,.28)
+	transition_tween.tween_property(transition_player,"volume_db",-60.0,.28)
+	transition_tween.chain().tween_callback(func(): transition_player.stop(); transition_player.stream=null)
 
 func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
 	if not output_enabled or music_player == null:
@@ -267,7 +285,7 @@ func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:
 	duck_tween = create_tween()
 	duck_tween.tween_property(music_player, "volume_db", depth_db, 0.045)
 	duck_tween.tween_interval(maxf(0.04, duration))
-	duck_tween.tween_property(music_player, "volume_db", music_gain_db, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	duck_tween.tween_property(music_player, "volume_db", cue_gain_db, 0.20).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func make_tone(frequency: float, duration: float, gain: float, event_name: String, variant: int = 0) -> AudioStreamWAV:
 	var sample_rate := 22050

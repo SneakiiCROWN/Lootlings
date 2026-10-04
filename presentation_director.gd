@@ -161,7 +161,7 @@ func toast_context_clear() -> bool:
 
 func update_toast(delta: float) -> void:
 	# Freeze the reading time while combat is paused or a choice owns the screen.
-	if not toast_context_clear():
+	if not toast_context_clear() or (get_parent().state=="hideout" and get_parent().hideout_ui.speech_panel.visible):
 		toast_panel.visible = false
 		return
 	if active_toast.is_empty():
@@ -172,10 +172,14 @@ func update_toast(delta: float) -> void:
 		fit_title(toast_title, toast_title.text, 17)
 		toast_title.add_theme_color_override("font_color", active_toast.accent.lightened(0.18))
 		toast_subtitle.text = active_toast.subtitle
+		var big: bool=toast_title.text.contains("LEGENDARY") or toast_title.text.contains("RED ") or toast_title.text.contains("SECRET") or toast_title.text.contains("MAJOR")
+		toast_panel.size.y=126 if big else 68
+		toast_title.position=Vector2(18,8); toast_title.size.y=30; toast_title.add_theme_font_size_override("font_size",17 if big else 13)
+		toast_subtitle.position=Vector2(18,68 if big else 35); toast_subtitle.size.y=48 if big else 26; toast_subtitle.add_theme_font_size_override("font_size",14 if big else 12)
 	toast_elapsed += delta
 	toast_panel.visible = true
 	var reduced: bool = get_parent().audio_settings.get("cinematic_reduced_motion", false)
-	toast_panel.position = Vector2(56, (536.0 if get_parent().state == "playing" else 704.0) + (0.0 if reduced else (1.0 - clampf(toast_elapsed / 0.20, 0.0, 1.0)) * 8.0))
+	toast_panel.position = Vector2(56, (678.0 if get_parent().state == "playing" else 754.0) + (0.0 if reduced else (1.0 - clampf(toast_elapsed / 0.20, 0.0, 1.0)) * 8.0))
 	toast_panel.modulate.a = minf(clampf(toast_elapsed / 0.16, 0.0, 1.0), clampf((3.4 - toast_elapsed) / 0.25, 0.0, 1.0))
 	if toast_elapsed >= 3.4:
 		active_toast.clear()

@@ -39,7 +39,7 @@ static func fit_rect(profile: Dictionary, rect: Rect2) -> Rect2:
 	return Rect2(rect.position + Vector2((rect.size.x - width) * 0.5, 0), Vector2(width, rect.size.y))
 
 static func display_name(profile: Dictionary) -> String:
-	return "Wanderer" if is_wanderer(profile) else str(Lootlings.definition(str(profile.get("current_lootling_id", "relic_beast"))).display_name)
+	return str(Wanderers.definition(preset_id(profile)).display_name) if is_wanderer(profile) else str(Lootlings.definition(str(profile.get("current_lootling_id", "relic_beast"))).display_name)
 
 static func identity_line(profile: Dictionary) -> String:
 	if is_wanderer(profile):

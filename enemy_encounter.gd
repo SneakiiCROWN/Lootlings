@@ -55,7 +55,7 @@ func begin(g, count: int) -> void:
 	g.player_x = minf(g.player_x, 170.0)
 
 func position(index: int) -> Vector2:
-	return Vector2(310 + index * 106, 475) if actors.size() == 2 else Vector2(278 + index * 79, 478)
+	return Vector2(310 + index * 106, 515) if actors.size() == 2 else Vector2(278 + index * 79, 518)
 
 func target_position() -> Vector2:
 	return position(selected)
