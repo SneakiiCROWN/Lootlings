@@ -3,21 +3,26 @@ from pathlib import Path
 import argparse, json, hashlib, shutil
 from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[1]
-p = argparse.ArgumentParser(); p.add_argument('--final', required=True); p.add_argument('--native', required=True); p.add_argument('--layout', required=True); p.add_argument('--tablet', required=True); a = p.parse_args()
+p = argparse.ArgumentParser(); p.add_argument('--final', required=True); p.add_argument('--native', required=True); p.add_argument('--layout', required=True); p.add_argument('--tablet', required=True); p.add_argument('--lane', required=True); p.add_argument('--art', required=True); a = p.parse_args()
 out = ROOT/'docs/production/predevice'; evidence = out/'evidence'; evidence.mkdir(parents=True,exist_ok=True)
 accepted = []; history = []
-for label, run in [('broad_final',a.final),('native_final',a.native),('layout_followup',a.layout),('tablet_followup',a.tablet)]:
+for label, run in [('broad_final',a.final),('native_final',a.native),('layout_followup',a.layout),('tablet_followup',a.tablet),('lane_followup',a.lane),('art_followup',a.art)]:
     folder = ROOT/'.godot_test_data/qa_logs'/run
     results = json.loads((folder/'results.json').read_text())
     history.append({'label':label,'run':run,'results':results})
     for r in results:
-        if label == 'native_final' and r['name'] == 'mobile_layout_qa': continue
+        if (label == 'native_final' and r['name'] == 'mobile_layout_qa') or (label == 'lane_followup' and r['name'] == 'item_art_qa'): continue
         assert r['exit'] == 0 and not r['errors'], (label,r)
         accepted.append(dict(r,run=run))
     for log in folder.glob('*.log'):
         if label == 'broad_final' and log.name.startswith('parse-'): continue
         shutil.copy2(log,evidence/(label+'-'+log.name))
-(out/'qa-results.json').write_text(json.dumps({'accepted':accepted,'history':history,'supersession':'Original native layout touch failures retained; isolated followup must pass unchanged assertions. The broad final suite is not rerun.'},indent=2))
+for folder in sorted((ROOT/'.godot_test_data/qa_logs').glob('rc-layout-*')):
+    if folder.name == a.layout: continue
+    if (folder/'results.json').exists():
+        history.append({'label':'layout_investigation','run':folder.name,'results':json.loads((folder/'results.json').read_text())})
+    for log in folder.glob('*.log'): shutil.copy2(log,evidence/(folder.name+'-'+log.name))
+(out/'qa-results.json').write_text(json.dumps({'accepted':accepted,'history':history,'supersession':'Original layout failures and timing investigations retained; fresh-scene layout followup passes all original gameplay assertions. The native item-art fixture assumed 480x854 despite a requested tablet resolution; actual requested-size assertion supersedes it. The broad final suite is not rerun.'},indent=2))
 shutil.copy2(ROOT/'builds/android/build-report.json',out/'android-build.json')
 manifest = []; thumbnails = []
 for size in ['1080x2316','1600x2560']:

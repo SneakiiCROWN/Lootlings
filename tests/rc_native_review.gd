@@ -85,6 +85,20 @@ func review() -> void:
 	await create_timer(.3).timeout; await tap(game.touch_ux.confirm_button)
 	assert(game.current_item.serial == 992 and game.attack_sequence == attacks)
 	game.accept_item_keep(); assert(game.pending_items.is_empty())
+	game.prepare_hoard_chest(); game.show_boss_reward()
+	# Large rune/armour icons previously covered the first rarity glyphs.
+	for index in range(3):
+		var icon_rect: Rect2 = game.boss_reward_icons[index].get_global_rect()
+		var text_rect: Rect2 = game.boss_reward_visuals[index].kicker.get_global_rect()
+		assert(icon_rect.end.x < text_rect.position.x)
+	await capture("boss_hoard_icon_lane")
+	if root.size.x >= 1500:
+		var original_size := root.size; var original_folder := folder
+		root.size = Vector2i(1080,2316); await process_frame; await process_frame
+		folder = "res://.godot_test_data/rc/1080x2316/"
+		await capture("boss_hoard_icon_lane")
+		root.size = original_size; folder = original_folder
+		await process_frame; await process_frame
 	var file := FileAccess.open(folder+"review.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify({"real_trace":real_trace,"size":str(root.size),"seen":seen,"changed_touch_contracts":true},"  ")); file.close()
 	game.free(); await process_frame

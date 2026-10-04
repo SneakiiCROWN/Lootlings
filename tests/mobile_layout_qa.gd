@@ -31,6 +31,14 @@ func run_qa() -> void:
 		await create_timer(0.2).timeout
 		await process_frame
 		for notch in [false, true]:
+			# A layout case is a complete independent menu/run flow. Reusing the
+			# previous flow also reuses native GUI focus, modal controls and tweens.
+			game.free(); await process_frame
+			game = load("res://main.tscn").instantiate(); root.add_child(game)
+			await process_frame; await process_frame
+			game.set_process(false)
+			game.app_lifecycle.platform_notifications_enabled = false
+			game.audio_settings.cinematic_first_time = false
 			var canvas := root.get_visible_rect().size
 			var logical_safe := Rect2(0,24,canvas.x,canvas.y-54) if notch else Rect2(Vector2.ZERO, canvas)
 			game.safe_area_layout.apply(logical_safe)
@@ -87,6 +95,9 @@ func run_qa() -> void:
 			await capture(label + "_rewards")
 			await tap_control(game.boss_reward_buttons[1])
 			check(game.state == "boss_reward",label + " reward tap inspects without choosing")
+			if not is_instance_valid(game.touch_ux.dialog):
+				check(false,label + " reward tap must open a live confirmation; window=" + str(root.position) + " screen=" + str(root.get_screen_transform()))
+				game.free(); quit(1); return
 			await create_timer(.2).timeout
 			await tap_control(game.touch_ux.confirm_button)
 			check(game.state == "item" and game.current_item.serial == 9001,label + " actual touch reward selection")
@@ -215,12 +226,14 @@ func tap_canvas(point: Vector2) -> void:
 	var physical := root.get_screen_transform() * point - Vector2(root.position)
 	press.position = physical
 	Input.parse_input_event(press)
+	Input.flush_buffered_events()
 	await process_frame
 	var release := InputEventScreenTouch.new()
 	release.index = 0
 	release.pressed = false
 	release.position = physical
 	Input.parse_input_event(release)
+	Input.flush_buffered_events()
 	await process_frame
 
 func capture(label: String) -> void:

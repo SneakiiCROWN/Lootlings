@@ -1,9 +1,10 @@
 from pathlib import Path
 import argparse, json, statistics, collections
-p=argparse.ArgumentParser(); p.add_argument('folder',type=Path); p.add_argument('--label',required=True); args=p.parse_args()
+p=argparse.ArgumentParser(); p.add_argument('folder',type=Path); p.add_argument('--label',required=True); p.add_argument('--pressure-log',type=Path); args=p.parse_args()
 root=Path(__file__).resolve().parents[1]
 def rows(name,prefix):
-    return [json.loads(l[len(prefix):]) for l in (args.folder/name).read_text().splitlines() if l.startswith(prefix+'{')]
+    path=args.pressure_log if name=='phase3_pressure_qa.log' and args.pressure_log else args.folder/name
+    return [json.loads(l[len(prefix):]) for l in path.read_text().splitlines() if l.startswith(prefix+'{')]
 roster=rows('phase3_roster_runs.log','PHASE3_ROSTER ')
 assert len(roster)==192 and all('won' in r for r in roster)
 out=root/'docs/production/phase3'/args.label; out.mkdir(exist_ok=True,parents=True)

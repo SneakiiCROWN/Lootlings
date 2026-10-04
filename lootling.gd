@@ -1454,9 +1454,9 @@ func build_boss_reward_ui() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		boss_reward_panel.add_child(icon)
 		boss_reward_icons.append(icon)
-		var kicker := make_label(button, "", 13, Rect2(100, 9, 270, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9c9ff"))
-		var title := make_label(button, "", 18, Rect2(100, 30, 270, 26), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff1cd"))
-		var effects := make_label(button, "", 14, Rect2(100, 56, 270, 48), HORIZONTAL_ALIGNMENT_LEFT, Color("#e0e9ff"))
+		var kicker := make_label(button, "", 13, Rect2(124, 9, 246, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9c9ff"))
+		var title := make_label(button, "", 18, Rect2(124, 30, 246, 26), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff1cd"))
+		var effects := make_label(button, "", 14, Rect2(124, 56, 246, 48), HORIZONTAL_ALIGNMENT_LEFT, Color("#e0e9ff"))
 		for label in [kicker, title, effects]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
@@ -2642,7 +2642,7 @@ func show_boss_reward() -> void:
 		visuals.kicker.text = "%s  •  %s" % [str(item.rarity), ItemCatalog.display_slot(item.get("slot", "Relic")).to_upper()]
 		visuals.kicker.add_theme_color_override("font_color", ItemCatalog.rarity_color(item.rarity).lightened(0.25))
 		visuals.name.text = str(item.name)
-		fit_label_font(visuals.name, str(item.name), 266.0, 18, 14)
+		fit_label_font(visuals.name, str(item.name), 242.0, 18, 14)
 		# The catalog limit reserves an extra signature line; this compact card
 		# keeps the same two headline effects as the original reward contract.
 		visuals.effects.text = "\n".join(ItemCatalog.describe_headline_effects(item, 1).split("\n").slice(0, 2))

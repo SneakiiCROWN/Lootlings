@@ -63,5 +63,5 @@ func capture(label: String) -> void:
 	await create_timer(0.35).timeout
 	await RenderingServer.frame_post_draw
 	var shot := root.get_texture().get_image()
-	assert(shot.get_size() == Vector2i(480, 854))
+	assert(shot.get_size() == root.size)
 	assert(shot.save_png("res://.godot_test_data/%s_qa.png" % label) == OK)
