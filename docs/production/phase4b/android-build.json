@@ -1,0 +1,48 @@
+{
+  "apk": "builds\\android\\Lootlings-phase4b-debug.apk",
+  "bytes": 131867143,
+  "sha256": "709a60cc23954f50e865f0b9e99535b78a272377784c3a5b236feede3f83350a",
+  "engine": "4.7.2.stable",
+  "template": "official Android debug Perfetto",
+  "architecture": "arm64-v8a",
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "signed": true,
+  "zipalign_16k": true,
+  "offline_no_permissions": true,
+  "contains_manifest_and_test_monitor": true,
+  "source_test_reference_art_excluded": true,
+  "contains_motion_and_safe_area_modules": true,
+  "final_imported_poses": {
+    "greatsword_ready": {
+      "source_sha256": "ea6d34711ab369c28abde49c4adb09ce66ac7920abaeb9f4cc140c43e6e2c568",
+      "imported_sha256": "f39c5435e938c06363ba517b2a5bce1c37dcb27d516e0ed7ce8aaa745d8ed7ee",
+      "runtime_size_limit": 768,
+      "matches_local_import": true
+    },
+    "greatsword_strike": {
+      "source_sha256": "08687f852a19080af18c60012c66c938733336e2da26708c0cbe99a8a7d53a58",
+      "imported_sha256": "b394156ed2c4fa2a82803d58b0221dce4c5dbc44cb7632fe2e442954082e11ea",
+      "runtime_size_limit": 768,
+      "matches_local_import": true
+    }
+  },
+  "mobile_gesture_owner_exported": true,
+  "current_pcm_audio_assets": 329,
+  "audio_license_manifest_exported": true,
+  "version_code": 9,
+  "version_name": "0.4.0-phase4b",
+  "splash_theme_patch": {
+    "color": "#0d182d",
+    "replaced_background_values": 2,
+    "original_verified_template_preserved": true
+  },
+  "final_imported_bow": {
+    "source_sha256": "7b9a1dcf3eecb3765fc2671b8d6e2b2df580b6a0a2e9f2844f0dbc7f160a4642",
+    "imported_sha256": "1d1526f66acddb957191a66efbfe7927fba71d35fab3473d16aa6d309fb7b5c8",
+    "runtime_size_limit": 512,
+    "matches_local_import": true
+  },
+  "device_validated": false,
+  "debug_only": true
+}

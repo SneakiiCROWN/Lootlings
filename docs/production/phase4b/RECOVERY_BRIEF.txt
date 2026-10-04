@@ -1,0 +1,1106 @@
+LOOTLINGS — PHASE 4B RECOVERY, ACCEPTANCE, CHECKPOINT + FULL PROJECT QA
+
+IMPORTANT:
+Continue from the EXACT current local working tree and current Phase 4B state.
+
+DO NOT:
+- restart Phase 4B
+- reset/revert/discard the working tree
+- checkout an older GitHub state over current local work
+- redo tests that already passed unless changed code requires it
+- begin Phase 4C feature development yet
+- redesign working systems without evidence
+- replace current assets with random placeholders
+- claim unfinished beta/generated art is final
+- make giant refactors while uncommitted work exists
+
+The first priority is to MAKE THE CURRENT WORK SAFE.
+
+==================================================
+STAGE 1 — RECOVER EXACTLY WHERE YOU STOPPED
+==================================================
+
+You hit the usage limit while working on a real native Relic Siege
+mode-entry / extraction touch-flow issue.
+
+Resume from that exact point.
+
+Inspect the current diff and determine:
+- what files are modified
+- what Phase 4B work is complete
+- what was partially edited when the limit hit
+- whether any temporary debugging code remains
+- whether any tests/builds were interrupted
+
+Do not overwrite current progress.
+
+The previously mentioned active files included:
+- hideout_ui.gd
+- retention_runtime.gd
+- tests/dungeon_qa.gd
+
+but inspect the actual working tree rather than assuming only those changed.
+
+==================================================
+STAGE 2 — FINISH THE REAL TOUCH / MODE-ENTRY BUG
+==================================================
+
+Finish and validate the native phone/tablet issue you were tracing.
+
+Specifically verify:
+
+- tapping Relic Siege enters Relic Siege exactly once
+- tapping targeted Dungeon enters Dungeon exactly once
+- normal Expedition remains correct
+- no combat attack is emitted from the UI tap
+- no double activation
+- no stale mode state survives after leaving
+- extraction button works once
+- continue button works once
+- death resolution works once
+- rewards are not duplicated
+- mode currency does not leak between runs
+- permanent gear is never deleted by extraction/death
+- normal campaign state is not corrupted
+- back/navigation actions do not accidentally begin combat
+- rapid repeated taps cannot double-charge/double-reward
+- scroll gestures are not interpreted as selection/attack
+- phone and tablet fixture paths both behave correctly
+
+Fix the underlying cause, not merely the test fixture.
+
+==================================================
+STAGE 3 — PHASE 4B FUNCTIONAL ACCEPTANCE
+==================================================
+
+Run FOCUSED validation of all Phase 4B systems.
+
+RELIC SIEGE:
+- starts correctly
+- rounds advance correctly
+- enemies actually scale/escalate
+- guaranteed elite milestones work
+- RNG elite encounters work
+- miniboss events work
+- boss checkpoints occur where intended
+- current target was rounds 10 and 20 where implemented
+- deep runs do not softlock
+- all 12 currently playable characters can complete valid combat flows
+- temporary upgrades stay temporary
+- Siege currency stays run-only
+- owned/permanent equipment survives
+- pause/resume behaves
+- death ends the run cleanly
+- extraction ends the run cleanly
+- extract-or-continue decision cannot duplicate rewards
+- highest round/stat tracking persists correctly
+- ordinary modes still work afterward
+
+DUNGEON:
+- target Dungeon can be selected
+- correct region/source is shown
+- correct enemies/boss are used
+- targeted rewards actually come from intended pool
+- tracked item information is correct
+- boss/miniboss fragments progress correctly
+- no impossible loot source text
+- no accidental campaign progression
+- no reward duplication
+- completion/failure state persists correctly
+
+RED CHASE:
+- rare full-drop route works
+- guaranteed fragment route works
+- drought/pity protection works
+- progress is persistent
+- no reset from reopening game
+- full item cannot be awarded twice from one transaction
+- fragment overflow is handled safely
+- target source remains understandable
+- simulate time-to-acquisition, not only number of clears
+
+Report:
+- p50 acquisition clears
+- p90 acquisition clears
+- approximate minutes/hours using measured or current expected clear duration
+- worst-case guaranteed acquisition path
+
+If the current guaranteed RED route is around ~24 clears,
+judge whether that is reasonable based on ACTUAL run duration.
+
+Do not blindly preserve 24 if it represents an absurd time requirement.
+
+SPINNER:
+- max meaningful spins remain bounded
+- expected current target is around 3 spins if that is still current implementation
+- correct currency is consumed
+- costs increase correctly if escalating costs exist
+- cannot spin without enough currency
+- rapid tap cannot duplicate spin/reward
+- closing/reopening cannot duplicate outcome
+- boss seals/full RED items remain excluded unless explicitly designed otherwise
+- spinner cannot become better reward/hour than actually farming content
+- spinner remains earned-currency only
+- NO real money
+- NO ads
+- NO premium currency
+
+SAVE / RECOVERY:
+- save before/after extraction
+- save before/after dungeon
+- interrupted save
+- malformed save recovery
+- Forge transaction recovery
+- spinner transaction recovery
+- RED fragment persistence
+- mastery persistence
+- tracked item persistence
+- highest Siege round persistence
+- old-save compatibility
+- no duplicate crafted/rewarded items after recovery
+
+==================================================
+STAGE 4 — BALANCE / ECONOMY SANITY
+==================================================
+
+Re-check the Phase 4A issue where harder tiers could become effectively
+easier because increased rewards accelerated the player faster than
+enemy pressure increased.
+
+Do not solve difficulty with giant HP multipliers.
+
+Measure where practical:
+- clear time
+- time-to-kill
+- incoming damage
+- elite density
+- miniboss/boss frequency
+- currency earned
+- permanent rewards/hour
+- temporary build acceleration
+- healing/sustain
+- death rate
+- extraction rate
+- progression per failed run
+- progression per successful run
+
+Harder content should:
+- demand better play/build decisions
+- increase encounter complexity/pressure
+- improve reward opportunity
+
+It should NOT accidentally trivialise itself by handing out excessive
+temporary power.
+
+Keep the core rule:
+
+ANY MODE gives some useful progression.
+SPECIFIC CONTENT gives specific progression faster.
+
+Audit currency roles:
+- Run Scrip
+- Siege currency
+- Gold
+- Scrap
+- Star Shards
+- regional materials
+- Boss Seals/Cores
+- blueprint fragments
+- mastery XP
+
+If two currencies currently perform essentially the same purpose,
+flag it clearly.
+
+DO NOT invent ten more currencies.
+
+==================================================
+STAGE 5 — UI / HUD / POP-UP ACCEPTANCE
+==================================================
+
+Review the CURRENT native UI after Phase 4B integration.
+
+The game's direction is:
+WORLD FIRST.
+MENU SECOND.
+
+Check for:
+
+COMBAT HUD:
+- HP readable
+- XP readable
+- enemy HP readable
+- round/wave readable
+- Siege currency readable when relevant
+- no unnecessary permanent giant panels
+- no proc-word soup
+- no excessive YEET/QUAKE/CRIT spam
+- VFX does not hide enemies/player
+- trophy/toast cards do not cover HP
+- temporary messages disappear promptly
+- critical information is prioritised
+
+POPUPS:
+Use hierarchy.
+
+TINY:
+- XP
+- common currency
+- common materials
+- routine pickups
+
+MEDIUM:
+- mastery level
+- blueprint fragment
+- meaningful rare item
+- bounty/contract progress where important
+
+BIG:
+- boss kill
+- major unlock
+- Legendary
+- RED
+- major character/mastery unlock
+- exceptional secret
+
+Do not use giant modal cards for everything.
+
+MENUS:
+- no clipped text
+- no tiny touch targets
+- no accidental buys
+- select before destructive/expensive action where appropriate
+- scrolling feels natural
+- back navigation consistent
+- button importance visually clear
+- too many gold/ornate buttons are avoided
+- long descriptions scroll only where needed
+- important information visible without precision scrolling
+- phone and tablet layouts both valid
+
+HOME / HIDEOUT:
+Do NOT clutter it with every new system.
+
+The Home should remain visually calm and friendly.
+
+==================================================
+STAGE 6 — HOMESTEAD / HIDEOUT AUDIT
+==================================================
+
+DO NOT implement a giant housing system in this Phase 4B checkpoint.
+
+However, audit the current Hideout against this future direction
+and prepare the architecture so later work does not fight it.
+
+The Hideout should evolve into a HOMESTEAD / HOME,
+not just a menu hub.
+
+Desired eventual experience:
+
+run
+→ come home
+→ see residents/pet/trophies/home changes
+→ handle gear/crafting/customisation
+→ prepare next run
+→ leave
+
+Future diegetic destinations should include:
+
+EXPEDITION GATE
+- Campaign
+- Expeditions
+- Dungeons
+- Relic Siege
+
+PATCH / FORGE
+- crafting
+- weapon evolution
+- repairs/presentation
+
+WARDROBE / future Edda
+- outfit
+- hair
+- armour glamour
+- colours/dyes
+- jewellery/accessories
+- weapon skin
+- idle pose
+- victory pose
+- saved looks
+
+STASH
+- inventory
+- loadout
+
+ILEX / ARCHIVE
+- discoveries
+- enemies
+- bosses
+- REDs
+- secrets
+- lore
+
+SERA / SHRINE
+- Relic progression/mastery
+
+CONTRACT BOARD
+- optional goals
+
+FUTURE:
+- pet corner / pet bed
+- decoration slots
+- region trophies
+- boss trophies
+- banners
+- fireplace/hearth style
+- weapon display
+- furniture/home themes
+- reactive props
+
+Do NOT build freeform Sims-style furniture placement.
+
+Future decoration should preferably use clear authored slots,
+for example:
+- wall trophy
+- hearth
+- banner
+- pet bed
+- shelf object
+- central display
+- weapon rack
+
+Audit existing code/data so these future features can be added
+without turning hideout_ui.gd into an even larger monolith.
+
+Do not perform a giant refactor now.
+
+==================================================
+STAGE 7 — CHARACTER BEHAVIOUR / DIALOGUE AUDIT
+==================================================
+
+This is IMPORTANT.
+
+The current character dialogue often feels random,
+generic, repetitive or nonsensical for the situation.
+
+Audit:
+- dialogue_director.gd
+- world_story.gd
+- wanderer_catalog.gd
+- vignette_catalog.gd
+- NPC/resident hooks
+- dialogue calls from Hideout/gameplay/results
+- any new Phase 4A/4B dialogue
+
+KNOWN ISSUE:
+Current broad random pools such as idle/victory/etc. do not provide
+enough contextual specificity.
+
+KNOWN ISSUE:
+Wanderer barks currently fall back too often to generic/origin lines
+for contexts they do not explicitly handle.
+
+KNOWN ISSUE:
+Characters can feel like interchangeable "voice styles"
+instead of actual people.
+
+KNOWN ISSUE:
+The Archivist/tap flow has historically been capable of replacing
+a character reaction with a generic next-region story line.
+
+DO NOT just add hundreds of random lines.
+
+Design/prepare a context-aware dialogue architecture using factual tags.
+
+Potential conditions:
+- speaker
+- active character
+- Lootling vs Wanderer
+- Wanderer preset/personality
+- origin
+- weapon family
+- equipped named item
+- region
+- current/last mode
+- current/last boss
+- boss defeated
+- return after victory
+- return after early defeat
+- new Legendary
+- new RED
+- blueprint completed
+- forge evolution
+- mastery milestone
+- Siege highest round
+- Dungeon completion
+- tracked item
+- repeated interaction
+- first visit
+- story progress
+- rare/secret discovery
+- resident activity/state
+
+Selection model should favour:
+ELIGIBLE LINES
+→ SPECIFICITY / PRIORITY
+→ COOLDOWN / HISTORY
+→ small weighted choice among similarly relevant lines
+
+Specific contextual dialogue should beat generic idle dialogue.
+
+Ambient chatter frequency should be REDUCED substantially.
+
+Current frequent home barks should not fire every ~8–13 seconds forever.
+
+Target a calmer system, roughly:
+- meaningful event reactions immediately where appropriate
+- normal idle chatter much less frequently
+- contextual resident-to-resident exchanges occasionally
+- rare lines actually rare
+
+Do not spam jokes.
+
+CHARACTER VOICE DIRECTION:
+
+PATCH BRASSWICK:
+- competent craftsman first
+- dry humour second
+- notices equipment/material/mechanical details
+- cares about people returning safely
+- fewer repetitive dent/screw/opinion jokes
+
+ILEX QUILL:
+- precise
+- educated
+- dark humour
+- deeply protective of names/history/witnesses
+- reacts to actual discoveries/bosses
+- fewer endless footnote/paperwork jokes
+
+SERA VEY:
+- warm
+- firm
+- ethical about living Cores
+- spiritual/curious without fortune-cookie dialogue
+- grounded human reactions
+
+LOOTLINGS:
+Preserve each distinct personality already documented.
+
+RELIC BEAST:
+curious, loyal, treasure distracted
+
+EMBERHORN:
+warm-hearted, impatient, brave, fears failing others
+
+MOSSKIN:
+patient, protective, quietly funny
+
+MOONKIP:
+proudly sneaky, clever, loyal
+
+PEBBLEWYRM:
+cheerful, stubborn, dependable
+
+GLIMMERFIN:
+theatrical, generous, fears silence
+
+GLOOMLET:
+dry, secretly affectionate, hates public gratitude
+
+WANDERER DEFAULT CHARACTER IDENTITIES:
+
+VAULT RUNNER:
+- quick-thinking
+- cool
+- opportunistic
+- sardonic
+- calculated risk-taker
+
+RUIN WARDEN:
+- calm
+- protective
+- imposing
+- understated humour
+- prioritises getting everyone home
+
+NIGHTSTAGE DRIFTER:
+- confident
+- darkly playful
+- irreverent
+- stylish
+- occasional flirtiness where natural
+- NOT "random goth meme person"
+
+VELVET ASTROLOGER:
+- elegant
+- sharp
+- knowingly theatrical
+- intelligent
+- use cosmic metaphor sparingly
+
+ASHTRAIL HUNTER:
+- experienced
+- practical
+- tracker/monster knowledge
+- clipped dry delivery
+- does not waste words
+
+Origins/voice selections may colour these personalities,
+but should not replace them.
+
+DO NOT implement the entire dialogue rewrite before Phase 4B is secured.
+
+For this checkpoint:
+- fix obviously wrong/mismatched lines only if low-risk
+- otherwise produce exact recommended changes for Phase 4C
+
+==================================================
+STAGE 8 — ITEM / TEXT WRITING AUDIT
+==================================================
+
+Audit:
+- item names
+- descriptions
+- upgrade names
+- rarity text
+- route text
+- boss text
+- popups
+- menu labels
+- contracts
+- Archive entries
+
+The writing currently overuses the same pattern:
+serious setup → quirky punchline.
+
+Avoid making every item sound like an AI-generated joke.
+
+Desired approximate writing mix:
+- 40% world/lore flavour
+- 30% clear mechanical/item identity
+- 20% character humour
+- 10% intentionally ridiculous/memorable joke items
+
+Humour should land because it is NOT everywhere.
+
+Reduce routine reliance on:
+- YEET
+- BONK
+- generic meme wording
+- "it has opinions"
+- paperwork/footnote jokes
+- structurally identical one-liners
+
+Keep genuinely good memorable names/ideas.
+
+Do NOT rename stable internal IDs just because display writing changes.
+
+==================================================
+STAGE 9 — CHARACTER ART / ANIMATION / WEAPON FIT AUDIT
+==================================================
+
+Do not claim beta art is final.
+
+CURRENT HUMAN WANDERERS:
+Existing five human presets are functional beta art.
+
+They must NOT be presented as final production human art.
+
+Eventually each identity needs locked consistency:
+- same face
+- same apparent height
+- same body proportions
+- same skin
+- same hair
+- same outfit
+- same jewellery/details
+- same silhouette
+
+Across:
+- idle
+- anticipation
+- attack/release
+- recovery
+- hurt
+- victory
+- opposite facing where required
+
+No character should change anatomy/height/face between poses.
+
+Review existing authored pose manifest and fit contract.
+
+Explicitly report remaining problems for:
+- Bow
+- Crossbow
+- Twin Daggers
+- Claws
+- Sling
+- creature support-hand poses
+- staff/polearm/heavy where any remain
+- left/right authored facing
+- projectile sockets
+- grip alignment
+- weapon occlusion
+- embedded weapons on bodies
+
+Known production issues include:
+- Relic Sling final art
+- paired Daggers/Claws proper separate hand assets
+- Gloomlet final clean body
+- Moonkip weaponless body
+- Glimmerfin weaponless body
+- incomplete support-hand/paired poses
+- Hoard Dragon anatomy/final replacement
+- remaining region boss art
+
+DO NOT fake authored poses via warped anatomy and mark them done.
+
+==================================================
+STAGE 10 — GRAPHICS / TEXTURES / PERFORMANCE AUDIT
+==================================================
+
+Audit the actual import/runtime use of:
+- character bodies
+- character pose textures
+- weapon textures
+- UI
+- backgrounds
+- item sprites
+- bosses/enemies
+- VFX
+
+Check:
+- unnecessary duplicate textures
+- absurd source resolution for tiny screen usage
+- mipmap consistency
+- alpha edge artifacts
+- visible compression artifacts
+- mobile texture residency
+- resource lifetime
+- preloading too many 1024×1536 human bodies/poses
+- per-frame loading
+- oversized hidden textures remaining resident
+- redundant atlas opportunities
+
+Do not destroy art quality simply to save memory.
+
+Prefer:
+- load what is needed
+- unload/cycle where safe
+- sensible size limits only where visually indistinguishable
+- shared registered layers when genuinely appropriate
+- no needless duplicate full-body texture for tiny changes
+
+Report approximate worst-case texture memory if practical.
+
+Check native performance:
+- S23-class portrait target
+- ordinary combat
+- heavy Siege
+- deep Siege
+- boss reveal
+- item decision
+- Hideout
+- Forge
+- character selection
+- scrolling large lists
+
+Watch:
+- FPS
+- frame spikes
+- allocation spikes
+- texture stalls
+- scene transition stalls
+- app background/resume
+
+==================================================
+STAGE 11 — AUDIO AUDIT
+==================================================
+
+The repository currently states FINAL PRODUCTION AUDIO IS PENDING.
+
+Do not pretend current procedural/generated audio is final.
+
+Audit:
+- Audio buses
+- limiter
+- ducking
+- volume settings
+- voice limits
+- music transitions
+- hit priority
+- reward priority
+- repeated SFX fatigue
+- mute settings
+- phone speaker path
+- headphone path
+
+Current final-production needs include:
+- title theme
+- Hideout/Home theme
+- region music
+- boss music
+- victory/defeat
+- authored UI sounds
+- weapon-family SFX
+- elemental proc SFX
+- creature-specific Lootling voices/sounds
+- enemy identities
+- ambient region beds
+- Hideout ambience
+
+Desired identity:
+- dark fantasy
+- strong low percussion
+- strings/cello
+- relic crystal bells/chimes
+- industrial Gearworks language
+- infernal/Cinder heaviness
+- occasional tasteful distorted/metal texture
+- warm, comfortable Homestead contrast
+
+Avoid generic cheerful mobile-game music.
+
+For now:
+- preserve working audio fallback
+- fix obvious routing/mix bugs only
+- report final-audio production needs clearly
+
+Do not download/use unlicensed assets.
+
+==================================================
+STAGE 12 — HOMESTEAD LIVENESS FUTURE CONTRACT
+==================================================
+
+Do not implement all of this now.
+
+But preserve/prepare for:
+
+NPC low-cost schedules:
+- working
+- walking between 2–4 anchors
+- reading
+- repairing
+- inspecting object
+- eating/drinking
+- sitting
+- sleeping/offscreen
+- talking to another resident
+- reacting to trophy
+- reacting to rare loot
+- reacting to player returning
+
+Use simple deterministic/weighted states.
+Do NOT build a heavy life simulation.
+
+Future reactive Home props:
+- bells
+- books
+- lanterns
+- crystals
+- training dummy
+- barrels
+- instrument
+- pet bed
+- trophy display
+- weapon rack
+
+Future PET system:
+Initial pets should be cosmetic/social.
+
+Potential pet behaviour:
+- wander Homestead
+- sleep
+- react to return
+- inspect loot
+- sit near resident
+- idle/emotes
+- names/skins/accessories
+- optional result-screen appearance
+
+DO NOT initially attach mandatory combat stats to cute pets.
+Player choice should not become spreadsheet optimisation.
+
+==================================================
+STAGE 13 — CODE HEALTH
+==================================================
+
+Do NOT perform a giant refactor in this checkpoint.
+
+However inspect/report risk around oversized controllers such as:
+- lootling.gd
+- hideout_ui.gd
+
+Future extraction candidates:
+- DialogueDirector
+- CombatController
+- RewardController
+- RelicSiegeController
+- DungeonController
+- HideoutHomeScreen
+- ForgeScreen
+- ExpeditionScreen
+- ArchiveScreen
+- WardrobeScreen
+- SaveProvider
+
+Only extract code NOW if:
+- it directly fixes a current bug
+- change is small
+- tests cover it
+- it does not threaten the Phase 4B checkpoint
+
+Otherwise document for next phase.
+
+==================================================
+STAGE 14 — DOCUMENTATION TRUTH AUDIT
+==================================================
+
+Update authoritative docs after current runtime is known.
+
+There are stale/historical contradictions in existing files.
+
+Ensure current truth is clear in:
+- PROJECT_STATE.md
+- MASTER_ROADMAP.md
+- CONTENT_IMPLEMENTATION_STATUS.md
+- DESIGN_BIBLE.md where needed
+- ART_REFERENCE_INDEX.md
+- BETA_ART_PROVENANCE.md
+- relevant Phase 4B documentation
+
+Do NOT delete historical provenance.
+
+Instead clearly label:
+CURRENT
+HISTORICAL
+BETA
+FINAL
+MISSING
+DEFERRED
+
+Examples of known contradictory areas:
+- old sections saying characters are unavailable vs newer playable state
+- historical weapon-fit missing-count snapshots beside newer counts
+- beta/final art terminology
+- older region implementation status
+- older audio status
+
+The repository should not mislead the next Codex/ChatGPT session.
+
+==================================================
+STAGE 15 — ANDROID / DEVICE BUILD
+==================================================
+
+After Phase 4B issues are fixed and focused tests pass:
+
+Build the current Android debug APK.
+
+Validate:
+- package
+- ARM64
+- install/update compatibility
+- 16 KB alignment if part of existing pipeline
+- launch
+- no parser errors
+- no missing assets
+- existing save can load
+- fresh save can start
+
+Report EXACT FULL APK PATH.
+
+Expected naming may be something like:
+Lootlings-phase4b-debug.apk
+
+but use the actual generated filename/path.
+
+==================================================
+STAGE 16 — CHECKPOINT BEFORE ANYTHING ELSE
+==================================================
+
+THIS IS MANDATORY.
+
+Once current Phase 4B is validated:
+
+1. commit the complete Phase 4B working tree
+2. verify working tree is clean
+3. report commit SHA
+4. push/back up to GitHub if repo authentication/remote access is available
+5. verify the remote branch actually contains that commit if pushed
+
+Do not claim GitHub backup succeeded unless verified.
+
+If push is unavailable:
+- keep local commit
+- report exact reason
+- report exact local SHA
+- do NOT destroy/reset anything
+
+Current remote GitHub has been behind the local work,
+so preserving the local checkpoint is high priority.
+
+==================================================
+STAGE 17 — POST-CHECKPOINT FULL QA REPORT
+==================================================
+
+After checkpointing, perform a NON-DESTRUCTIVE review of the current
+game and give one consolidated report.
+
+Use status:
+PASS
+ISSUE
+BLOCKER
+DEFERRED
+
+Review:
+
+- CORE COMBAT
+- CHARACTERS
+- WANDERERS
+- LOOTLINGS
+- WEAPON FIT
+- ENEMIES
+- ELITES
+- MINIBOSSES
+- BOSSES
+- CAMPAIGN
+- EXPEDITIONS
+- DUNGEONS
+- RELIC SIEGE
+- RNG
+- RED CHASE
+- LOOT
+- FORGE
+- BLUEPRINTS
+- MASTERY
+- ECONOMY
+- SAVES
+- UI
+- HUD
+- POPUPS
+- HOMESTEAD
+- DIALOGUE
+- STORY
+- ARCHIVE
+- GRAPHICS
+- TEXTURES
+- ANIMATION
+- VFX
+- AUDIO
+- MOBILE UX
+- PERFORMANCE
+- ACCESSIBILITY
+- ANDROID
+- DOCUMENTATION
+- COMMERCIAL ART READINESS
+- PRODUCTION READINESS
+
+For every ISSUE/BLOCKER give:
+- exact problem
+- severity
+- player impact
+- recommended fix
+- whether it belongs in Phase 4C, later production, or device testing
+
+==================================================
+STAGE 18 — STOP CONDITION
+==================================================
+
+DO NOT begin a large Phase 4C implementation automatically.
+
+Once Phase 4B is:
+- fixed
+- validated
+- built
+- committed
+- clean
+- pushed/backed up if possible
+
+STOP and report to me.
+
+We need to install/play the APK on the physical S23 and visually/audibly
+judge the current game before another major implementation phase.
+
+The next likely phase will focus on:
+- character personality/dialogue
+- Homestead life
+- visual/art consistency
+- human production identity
+- remaining weapon poses
+- boss/enemy art
+- item writing
+- UI/HUD refinement
+- audio production identity
+- deeper content inside current systems
+
+But do NOT start that large pass until the current build has been
+human-tested.
+
+==================================================
+FINAL RESPONSE FORMAT
+==================================================
+
+Give me:
+
+PHASE 4B STATUS
+- complete / incomplete
+
+FIXES MADE
+- exact bugs fixed
+
+VALIDATION
+- tests and outcomes
+
+RELIC SIEGE
+- what is actually playable
+
+DUNGEON
+- what is actually playable
+
+RED CHASE
+- acquisition metrics
+
+SPINNER
+- behaviour/economy findings
+
+ECONOMY
+- notable results
+
+SAVE SAFETY
+- result
+
+MOBILE / UI
+- result
+
+PERFORMANCE
+- result
+
+ART BLOCKERS
+- exact list
+
+AUDIO BLOCKERS
+- exact list
+
+DIALOGUE / CHARACTER ISSUES
+- exact list
+
+HOMESTEAD READINESS
+- current vs future
+
+DOCUMENTATION UPDATED
+- files changed
+
+APK
+- exact full path
+
+GIT
+- commit SHA
+- clean/dirty
+- push status
+- remote verification
+
+GO / HOLD
+- whether this build is ready for physical S23 acceptance testing
+
+Do not report “production ready” while final human art,
+boss art, audio, device acceptance, or other known production gates remain.

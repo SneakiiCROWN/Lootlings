@@ -4,14 +4,17 @@ signal play_requested
 signal forge_requested(stash_index: int)
 signal forge_craft_requested(weapon_type: String)
 signal campaign_requested(region_id: String)
+signal tracked_requested(id: String)
 signal tier_requested(tier: int)
 signal blueprint_requested(id: String)
 signal farm_contract_requested(region: String)
 var expedition_progress
+var endgame_progress
 var phase4_content: Control
 var phase4_list: VBoxContainer
 var phase4_detail: RichTextLabel
 var phase4_action: Button
+var track_button: Button
 var phase4_selected := ""
 var phase4_mode := "blueprints"
 var phase4_message := ""
@@ -299,6 +302,7 @@ func build_home() -> void:
 	resource_label = LootlingsUI.rich_label(home_content, Rect2(30, 60, 420, 40), 13, Color("#d9e5ff"))
 	var play_button := make_hotspot_button(home_content, "BEGIN EXPEDITION", Rect2(140, 118, 200, 92), Color("#ffd468"), 17)
 	play_button.set_meta("ui_intent","primary")
+	play_button.set_meta("gesture_release_owned",true)
 	LootlingsUI.apply_button(play_button,Color("#49346b"),Color("#ffd468"))
 	play_button.pressed.connect(func(): play_requested.emit())
 	var upgrades_button := make_hotspot_button(home_content, "UPGRADES", Rect2(14, 244, 138, 112), Color("#c99cff"), 15)
@@ -433,6 +437,11 @@ func build_phase4() -> void:
 	phase4_detail = LootlingsUI.rich_label(detail_panel,Rect2(16,12,400,198),15,Color("#e7edff"))
 	phase4_detail.scroll_active = true
 	phase4_action = make_button(phase4_content,"SELECT A FIND",Rect2(24,754,432,56),Color("#493052"),Color("#e2b563"),16)
+	phase4_action.position.x=156; phase4_action.size.x=300
+	track_button=make_button(phase4_content,"TRACK",Rect2(24,754,120,56),Color("#172442"),Color("#78e4ff"),14)
+	track_button.pressed.connect(func():
+		if not phase4_selected.is_empty(): tracked_requested.emit(phase4_selected)
+	)
 	phase4_action.set_meta("ui_intent","primary"); apply_button_style(phase4_action,Color("#493052"),Color("#e2b563"))
 	phase4_action.pressed.connect(func():
 		if phase4_selected.is_empty() or Time.get_ticks_msec()-phase4_selected_msec < 180: return
@@ -447,17 +456,21 @@ func show_phase4(mode: String) -> void:
 
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
-	phase4_selected = ""; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
+	phase4_selected = ""; track_button.disabled=true; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
 	for child in phase4_list.get_children(): phase4_list.remove_child(child); child.queue_free()
 	phase4_detail.text = phase4_message if not phase4_message.is_empty() else "Relic Rank %d\nRegional materials shape named gear. Boss seals bind a Rare blueprint craft.\nMastery comes from use; no daily clock." % expedition_progress.rank()
 	phase4_message = ""
 	if phase4_mode == "archive":
 		phase4_detail.text = "Select a record to inspect. Unknown finds keep their names until you discover them."
-		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints"]:
+		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege"]:
 			var button := make_button(phase4_list,category,Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
 			button.custom_minimum_size = Vector2(410,56)
 			button.pressed.connect(func():
 				phase4_detail.text = expedition_progress.collection_text()
+				if category == "Relic Siege" and endgame_progress != null:
+					phase4_detail.text="Highest round %d • best score %d\nRootglass Vault clears %d\n%s\nRound 10: extraction. Round 20+: Crownroot chase.\nOwned gear, mastery and discoveries survive defeat." % [endgame_progress.data.highest,endgame_progress.data.best_score,endgame_progress.data.dungeon_clears,endgame_progress.target_text()]
+					var owned_red: bool=current_inventory!=null and (current_inventory.equipped_item("Weapon").get("id","")=="gravebloom_staff" or current_inventory.stash.any(func(item): return item.id=="gravebloom_staff"))
+					phase4_detail.text+="\nGravebloom Staff: "+("OWNED" if owned_red else "TARGET AVAILABLE")
 				if category == "Characters":
 					phase4_detail.text = ""
 					for id in Phase4.HUMANS:
@@ -481,7 +494,7 @@ func refresh_phase4() -> void:
 		var button := make_button(phase4_list,text,Rect2(0,0,410,88),Color("#172442"),Color("#7087ae"),14)
 		button.custom_minimum_size = Vector2(410,88); button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; button.clip_text = true
 		button.pressed.connect(func():
-			phase4_selected = id; phase4_selected_msec = Time.get_ticks_msec()
+			phase4_selected = id; track_button.disabled=phase4_mode!="blueprints"; phase4_selected_msec = Time.get_ticks_msec()
 			if phase4_mode == "blueprints":
 				phase4_detail.text = "%s\n%s\n\nSource: %s bosses/minibosses; regional loot also drops directly.\nForge: 12 %s + one boss seal.\nOwned: %d material / %d seals. Recipe fragments %d/3.\nRare gear • keeps its named behaviour." % [entry.name,entry.desc,CampaignSystem.title(region),Phase4.FARMS[region].material,int(expedition_progress.data.materials.get(region,0)),int(expedition_progress.data.boss_parts.get(region,0)),pieces]
 				phase4_action.text = "FORGE %s" % str(entry.name).to_upper()
@@ -512,7 +525,7 @@ func build_campaign() -> void:
 	campaign_list.custom_minimum_size.x = 408
 	campaign_list.add_theme_constant_override("separation", 12)
 	scroll.add_child(campaign_list)
-	dungeon_start_button = make_button(campaign_content, "SEEDED RELIC ROUTE • CHOOSE YOUR PATH", Rect2(24, 676, 432, 60), Color("#493052"), Color("#d4ad65"), 15)
+	dungeon_start_button = make_button(campaign_content, "MODES • RELIC SIEGE / DUNGEONS", Rect2(24, 676, 432, 60), Color("#493052"), Color("#d4ad65"), 15)
 	dungeon_start_button.pressed.connect(func(): dungeon_requested.emit())
 	make_button(campaign_content, "LOCAL CONTRACTS", Rect2(24, 755, 210, 66), Color("#172442"), Color("#d4ad65"), 15).pressed.connect(show_contracts)
 	var patrol_button := make_button(campaign_content, "PATROLS: SOLO\nTap for group encounters", Rect2(246, 755, 210, 66), Color("#172442"), Color("#78e4ff"), 13)
@@ -559,8 +572,8 @@ func show_campaign() -> void:
 		tier_buttons[index].tooltip_text = str(Phase4.TIERS[index].text)+" • Relic Rank %d" % int(Phase4.TIERS[index].rank)
 		apply_display_button_style(tier_buttons[index],Color("#d4ad65"),selected_tier == index)
 	if dungeon_start_button != null:
-		dungeon_start_button.disabled = campaign == null or not "act_i" in campaign.completed
-		dungeon_start_button.text = "RELIC ROUTE • CLEAR ACT I TO UNLOCK" if dungeon_start_button.disabled else "SEEDED RELIC ROUTE • CHOOSE YOUR PATH"
+		dungeon_start_button.disabled = campaign == null
+		dungeon_start_button.text = "MODES / RELIC SIEGE / DUNGEONS"
 	dismiss_dialogue()
 	current_screen = "campaign"
 	set_screen(campaign_content)
@@ -572,10 +585,17 @@ func show_campaign() -> void:
 		var tuning: Array = CampaignSystem.TRAITS.get(id, [])
 		var farm: Dictionary = Phase4.FARMS[id]
 		var target_name: String = ItemCatalog.definition(str(farm.items[0])).name
+		var tracked_here := false
+		if endgame_progress != null and not str(endgame_progress.data.tracked).is_empty():
+			var tracked: String=endgame_progress.data.tracked
+			tracked_here=Phase4.home_for(tracked)==id or (tracked=="gravebloom_staff" and id=="mossglass_wilds")
+			if tracked_here: target_name=ItemCatalog.definition(tracked).name
 		var detail := "Farm %s • hunt %s\n%s" % [farm.material,target_name,Phase4.TIERS[selected_tier].text]
 		var status := "RETURN TO FARM" if campaign != null and id in campaign.completed else "EXPEDITION" if available else "LOCKED"
+		if tracked_here: status="★ TRACKED SOURCE • "+status
 		var button := make_button(campaign_list, "%s\n%s\n%s" % [CampaignSystem.title(id), detail, status], Rect2(0, 0, 408, 112), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
 		button.custom_minimum_size = Vector2(408, 112)
+		button.set_meta("gesture_release_owned",true)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
 		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
 		button.disabled = not available
@@ -1337,9 +1357,6 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 			line = {"Salvager":"Coat pockets count as storage. Ask me how I know.", "Relic Keeper":"The Core listens to intent, not your silhouette.", "Archivist":"An origin is a beginning, not a verdict."}.get(speaker, line)
 		else:
 			line = str(WorldStory.RESIDENT_REACTIONS[speaker].get(str(profile.get("current_lootling_id", "relic_beast")), line))
-		if speaker == "Archivist" and campaign != null and not campaign.completed.is_empty():
-			var next_region: String = CampaignSystem.ORDER[mini(campaign.completed.size(), CampaignSystem.ORDER.size() - 1)]
-			line = WorldStory.region_line(next_region, 0)
 	if speaker == "Mascot" and context in ["idle", "tapped", "victory"]:
 		var id := str(profile.get("current_lootling_id", "relic_beast"))
 		voice_name = Avatar.display_name(profile)

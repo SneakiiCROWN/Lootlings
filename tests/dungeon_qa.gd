@@ -29,6 +29,9 @@ func run_qa() -> void:
 	game.campaign.finish("act_i")
 	game.hideout_ui.show_campaign()
 	game.hideout_ui.dungeon_requested.emit()
+	assert(game.state == "mode_menu")
+	game.retention.selected_at = -1000
+	game.retention.choose(2)
 	await create_timer(0.8).timeout
 	assert(game.state == "route" and not game.enemy_alive)
 	var before_gold: int = game.gold

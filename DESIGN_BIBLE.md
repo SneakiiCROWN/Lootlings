@@ -1,3 +1,5 @@
+CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
+
 # Lootlings Design Bible
 
 ## Normal run reward decisions

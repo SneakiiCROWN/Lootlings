@@ -40,4 +40,4 @@ func _draw() -> void:
 		draw_circle(center, radius * 1.20, Color(rarity_color, 0.12))
 		LootlingsUI.draw_icon(get_canvas_item(), painted_texture, Rect2(Vector2.ZERO, size))
 	var badge_size := minf(28, minf(size.x, size.y) * 0.28)
-	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("rarity_%s" % rarity.to_lower()), Rect2(size - Vector2.ONE * badge_size, Vector2.ONE * badge_size))
+	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("rarity_legendary" if rarity=="RED" else "rarity_%s" % rarity.to_lower()), Rect2(size - Vector2.ONE * badge_size, Vector2.ONE * badge_size))

@@ -1,0 +1,235 @@
+[
+  {
+    "run": "phase4b-accepted-state-ccc4a8e49b",
+    "results": [
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 5.33,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-final-functional-b5fc80023f",
+    "results": [
+      {
+        "name": "dungeon_qa",
+        "exit": 0,
+        "seconds": 10.45,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "mobile_gesture_qa",
+        "exit": 0,
+        "seconds": 9.25,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 3.22,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_runs",
+        "exit": 0,
+        "seconds": 26.76,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "rc_reward_qa",
+        "exit": 0,
+        "seconds": 1.55,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-live-balance-15c31e88e6",
+    "results": [
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 3.6,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_runs",
+        "exit": 0,
+        "seconds": 24.0,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_tier_runs",
+        "exit": 0,
+        "seconds": 23.04,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-final-saves-03ccf3f081",
+    "results": [
+      {
+        "name": "evolution_qa",
+        "exit": 0,
+        "seconds": 2.81,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "mobile_monitor_qa",
+        "exit": 0,
+        "seconds": 3.94,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 5.04,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-final-native-focus-layout-8f21150d6b",
+    "results": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 0,
+        "seconds": 52.0,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-regression-final-7ec0debbf5",
+    "results": [
+      {
+        "name": "dungeon_qa",
+        "exit": 0,
+        "seconds": 10.99,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "mobile_gesture_qa",
+        "exit": 0,
+        "seconds": 9.55,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 4.68,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_tier_runs",
+        "exit": 0,
+        "seconds": 27.64,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "rc_reward_qa",
+        "exit": 0,
+        "seconds": 2.23,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "save_recovery_qa",
+        "exit": 0,
+        "seconds": 2.21,
+        "errors": [],
+        "expected_diagnostics": [
+          "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+          "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+        ]
+      }
+    ]
+  },
+  {
+    "run": "phase4b-reward-visibility-5dad018ce4",
+    "results": [
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 3.69,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-frozen-code-0a2cc11de8",
+    "results": [
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 3.62,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-owned-touch-native-46094685ab",
+    "results": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 0,
+        "seconds": 54.04,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-owned-navigation-final-f32d9de268",
+    "results": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 0,
+        "seconds": 53.42,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-final-navigation-regression-af6cb5bb0b",
+    "results": [
+      {
+        "name": "mobile_gesture_qa",
+        "exit": 0,
+        "seconds": 9.76,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4b_qa",
+        "exit": 0,
+        "seconds": 4.95,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ]
+  }
+]

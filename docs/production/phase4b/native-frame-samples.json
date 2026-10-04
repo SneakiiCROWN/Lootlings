@@ -1,0 +1,71 @@
+{
+  "platform": "Windows RTX 4080 SUPER, Godot compatibility OpenGL; not S23",
+  "samples": [
+    {
+      "draw_calls": 59.0,
+      "frames": 90,
+      "label": "siege_open",
+      "max_ms": 17.455,
+      "median_ms": 16.668,
+      "p95_ms": 17.026,
+      "static_bytes": 129955161.0,
+      "texture_bytes": 237870845.0,
+      "viewport": "(1080, 2316)"
+    },
+    {
+      "draw_calls": 60.0,
+      "frames": 90,
+      "label": "boss_checkpoint",
+      "max_ms": 17.271,
+      "median_ms": 16.66,
+      "p95_ms": 17.184,
+      "static_bytes": 129968887.0,
+      "texture_bytes": 237870845.0,
+      "viewport": "(1080, 2316)"
+    },
+    {
+      "draw_calls": 36.0,
+      "frames": 90,
+      "label": "archive_scroll",
+      "max_ms": 17.042,
+      "median_ms": 16.663,
+      "p95_ms": 16.849,
+      "static_bytes": 136412621.0,
+      "texture_bytes": 243943835.0,
+      "viewport": "(1080, 2316)"
+    },
+    {
+      "draw_calls": 56.0,
+      "frames": 90,
+      "label": "siege_open",
+      "max_ms": 17.297,
+      "median_ms": 16.674,
+      "p95_ms": 16.854,
+      "static_bytes": 137697949.0,
+      "texture_bytes": 259585179.0,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "draw_calls": 60.0,
+      "frames": 90,
+      "label": "boss_checkpoint",
+      "max_ms": 17.272,
+      "median_ms": 16.663,
+      "p95_ms": 16.793,
+      "static_bytes": 137692831.0,
+      "texture_bytes": 259585179.0,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "draw_calls": 35.0,
+      "frames": 90,
+      "label": "archive_scroll",
+      "max_ms": 17.484,
+      "median_ms": 16.671,
+      "p95_ms": 16.931,
+      "static_bytes": 148758143.0,
+      "texture_bytes": 270114625.0,
+      "viewport": "(1600, 2560)"
+    }
+  ]
+}

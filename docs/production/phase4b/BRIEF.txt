@@ -1,0 +1,799 @@
+LOOTLINGS — PHASE 4B
+RETENTION, RELIC SIEGE, DUNGEONS & TARGETED ENDGAME
+
+Continue from the CLEAN CHECKPOINTED Phase 4A state.
+
+Do not restart old audits.
+Do not undo the S23 human-QA cleanup.
+Do not replace working authored art/audio with generic placeholders.
+Do not generate fake “final” human art where authored assets are missing.
+
+This phase must create a VISIBLE, PLAYABLE new reason to keep playing.
+
+==================================================
+CORE PRODUCT RULE
+==================================================
+
+Lootlings is:
+
+CAMPAIGN
++ REPLAYABLE EXPEDITIONS
++ TARGETED DUNGEONS
++ RELIC SIEGE ENDLESS MODE
++ PERSISTENT COLLECTION / FORGE / MASTERY
+
+The RUN resets.
+
+The PLAYER'S COLLECTION does NOT.
+
+Permanent:
+- characters
+- owned weapons
+- armour
+- jewellery
+- relics
+- blueprints
+- forged equipment
+- weapon upgrades
+- character mastery
+- weapon mastery
+- Relic Rank
+- materials
+- boss components
+- Archive discoveries
+- cosmetics
+- region unlocks
+- difficulty unlocks
+
+Temporary per-run:
+- Run Scrip
+- run blessings
+- run curses
+- proc combinations
+- temporary stat stacks
+- merchant inventory
+- temporary event modifiers
+- run-only evolutions
+
+A failed run must still provide some meaningful permanent progress.
+
+==================================================
+1. RELIC SIEGE — FIRST PLAYABLE VERSION
+==================================================
+
+Create an original round-based survival mode.
+
+Do not directly reproduce Call of Duty Zombies maps, assets, names, UI,
+puzzles, characters, perks or protected mechanics.
+
+Capture the FEELING:
+- escalating rounds
+- increasingly strange runs
+- build adaptation
+- map progression
+- secrets
+- miniboss interruptions
+- elite chaos
+- boss milestones
+- “one more round” tension
+
+Working player-facing name:
+RELIC SIEGE
+
+Use this unless an obviously stronger canon name already exists.
+
+Initial playable Siege should support:
+
+- endless rounds
+- one selected owned character
+- permanent owned equipment foundation
+- heavy run-specific RNG
+- Siege-only currency
+- milestone encounters
+- extraction decisions
+- increasingly valuable reward pools
+- score / highest round tracking locally
+
+Do NOT require internet.
+
+==================================================
+2. ROUND STRUCTURE
+==================================================
+
+Use predictable milestones PLUS random disruption.
+
+Suggested initial structure:
+
+Rounds 1–4:
+baseline enemies, room/map learning, first purchases
+
+Round 5:
+guaranteed elite event
+
+Rounds 6–9:
+higher density + RNG event chance
+
+Round 10:
+guaranteed miniboss/boss checkpoint
+reward room
+EXTRACT or CONTINUE
+
+Every 5 rounds:
+guaranteed meaningful pressure event
+
+Every 10 rounds:
+major encounter + reward/extraction checkpoint
+
+Between milestones:
+weighted chance for:
+- surprise elite
+- elite pack
+- rare named elite
+- miniboss invasion
+- shrine
+- merchant
+- challenge room
+- resource anomaly
+- curse/blessing event
+- environmental modifier
+
+Do NOT simply scale enemy HP endlessly.
+
+==================================================
+3. ELITES
+==================================================
+
+Elites must alter decisions, not just gain health.
+
+Build a reusable elite-affix framework.
+
+Candidate original affixes:
+- Vampiric: heals through nearby deaths/damage
+- Stormbound: chains electricity through units
+- Bulwark: protects nearby enemies
+- Blink: teleports/repositions
+- Gravecaller: revives defeated enemies
+- Greedborn: carries bonus Siege currency but may escape
+- Cursed: imposes a temporary debuff but carries enhanced rewards
+- Frenzied: cadence/speed pressure
+- Mirrorbound: temporary retaliation/reflection windows
+- Hoarder: steals dropped currency until killed
+
+Use readable mobile telegraphs.
+
+Allow multiple affixes only at deeper rounds where readable.
+
+==================================================
+4. MINIBOSSES / BOSSES
+==================================================
+
+Mix guaranteed and RNG encounters.
+
+Guaranteed:
+- progression milestones
+- every major round band
+- map/secret progression
+
+RNG:
+- rare invasion minibosses
+- named elite/miniboss encounters
+- rare boss variants
+
+Rare named enemies should create:
+“WHAT THE FUCK IS THAT?”
+moments.
+
+They may have:
+- unique Archive entry
+- unique loot table
+- blueprint fragment
+- cosmetic
+- boss material
+- RED-tier component chance
+
+Do NOT reuse a normal enemy with only inflated stats and call it a boss.
+
+Existing art debt must remain explicitly tracked.
+
+==================================================
+5. SIEGE RNG
+==================================================
+
+Relic Siege should contain MORE run RNG than ordinary expeditions.
+
+Possible systems:
+- Blessing Shrine
+- Cursed Shrine
+- Greed bargain
+- temporary relic machine
+- mystery room
+- wandering merchant
+- challenge room
+- weapon evolution choice
+- environmental mutation
+- rare NPC
+- secret room
+- unusual elite combination
+- boss mutation
+
+RNG must produce interesting decisions.
+
+Avoid:
+- unreadable clutter
+- constant interruption
+- pure lottery progression
+- long droughts with no permanent progress
+
+==================================================
+6. RUN BUILD INSANITY
+==================================================
+
+Let temporary Siege builds become much more extreme than campaign builds.
+
+Examples of SYSTEM interactions:
+- projectiles ricochet
+- elemental chains
+- kill explosions
+- shatter
+- bleed propagation
+- summoned effects
+- temporary lifesteal
+- crit-trigger transformations
+- projectile duplication
+- cursed high-risk effects
+
+These expire when the Siege ends.
+
+Permanent weapon balance must not be destroyed by allowing these effects
+to permanently transfer into normal modes.
+
+==================================================
+7. SIEGE ECONOMY
+==================================================
+
+Add a dedicated SIEGE-ONLY currency.
+
+It is earned during the current Siege.
+
+Spend it on:
+- temporary upgrades
+- random weapon/relic machinery
+- shrine activation
+- map mechanisms
+- temporary services
+- run recovery
+- reward spinner where appropriate
+
+Siege currency disappears when the Siege ends.
+
+Do NOT use real-money currency.
+Do NOT allow premium purchases.
+Do NOT require ads.
+
+==================================================
+8. END-OF-RUN RELIC SPINNER
+==================================================
+
+Implement a FUN end-run sink for leftover RUN currency / Siege currency.
+
+This is NOT paid gambling.
+
+No real money.
+No purchasable premium currency.
+No ad requirement.
+
+Player may spend leftover run currency on a limited number of spins.
+
+Suggested reward families:
+- Scrap
+- Gold
+- regional material
+- blueprint fragment
+- boss material
+- mastery bonus
+- named-item cache
+- rare crafting component
+- extremely rare RED fragment/item where allowed
+
+Region/mode should affect the reward pool.
+
+Cap meaningful spins, e.g. 3–5 per completed run.
+
+Use increasing spin cost so hoarding does not produce 30 boring spins.
+
+Example:
+100
+175
+275
+400
+
+Tune from simulation rather than blindly using these exact numbers.
+
+The spinner must NEVER outperform actually completing difficult content
+as the best farming strategy.
+
+==================================================
+9. RED-TIER CHASE
+==================================================
+
+Add the foundation for the highest chase rarity.
+
+Working rarity designation:
+RED
+
+Final lore-facing rarity name can be more original if appropriate.
+
+RED items should be:
+- extremely rare
+- distinctive
+- build-defining or prestigious
+- permanently owned
+- upgradeable
+- visually obvious
+- tied to meaningful sources
+
+RED sources may include:
+- specific dungeon boss
+- secret boss
+- deep Siege milestone
+- region-specific endgame challenge
+- extremely rare full drop
+- blueprint/fragment completion
+
+Do NOT use pure tiny-RNG-only acquisition.
+
+Use:
+RARE COMPLETE DROP
++ FRAGMENTS
++ DROUGHT/PITY PROTECTION
++ TARGET FARMING
+
+Players must be able to make eventual progress even while unlucky.
+
+==================================================
+10. TARGETED DUNGEONS
+==================================================
+
+Add the architecture for replayable Dungeons.
+
+Initial dungeon structure should support:
+- specific region identity
+- specific enemy families
+- distinct modifiers
+- miniboss
+- main boss
+- target loot pool
+- regional material
+- named item family
+- rare/RED chase
+
+Dungeons are NOT one-use story stages.
+
+They are farming destinations.
+
+A player should be able to think:
+
+“I need THIS component, so I am going THERE.”
+
+==================================================
+11. ANYWHERE PROGRESS + TARGET FARMING
+==================================================
+
+Critical balance rule:
+
+ANY mode should advance some useful progression.
+
+SPECIFIC modes/regions should advance specific goals faster.
+
+Examples:
+
+Play anywhere:
+- Gold
+- Scrap
+- mastery
+- Relic Rank
+- general progression
+
+Play Mossglass:
+- Mossglass materials
+- poison/nature blueprints
+- Mossglass boss components
+- Mossglass named drops
+
+Play a specific Dungeon:
+- targeted set
+- exclusive blueprint
+- specific boss component
+- RED chase
+
+Play Relic Siege:
+- Siege mastery/progression
+- deep-round rewards
+- Siege-specific named items
+- rare RED opportunities
+
+Never make favourite content feel useless.
+
+==================================================
+12. TRACKED LOOT
+==================================================
+
+Allow player to TRACK a desired item/blueprint.
+
+Example:
+
+TRACKED:
+Gravebloom Staff
+
+Mossglass
+Fragments: 3 / 7
+Primary Sources:
+Elite / Boss / Dungeon
+
+Then subtly mark relevant destinations.
+
+Do NOT fully spoil hidden secrets.
+
+Tracked loot should answer:
+“Where should I play next?”
+
+==================================================
+13. PERMANENT WEAPON INVESTMENT
+==================================================
+
+Owned weapons must remain relevant.
+
+Support permanent systems such as:
+- mastery
+- upgrade levels
+- rarity ascension
+- evolution
+- traits
+- affinity
+- cosmetic appearance
+
+Avoid making a favourite weapon obsolete simply because
+“Generic Sword #829 has +4 damage.”
+
+Old/favourite equipment should be able to remain viable with investment.
+
+Keep meaningful balance tradeoffs.
+
+==================================================
+14. ECONOMY ROLES
+==================================================
+
+Audit all existing currencies and materials.
+
+Each resource must have ONE CLEAR PURPOSE.
+
+Current candidates:
+- Run Scrip
+- Gold
+- Scrap
+- Star Shards
+- regional materials
+- Boss Seals
+- blueprint fragments
+- Siege currency
+
+Merge/rework anything redundant.
+
+Do NOT make 30 currencies.
+
+Recommended conceptual roles:
+
+Run Scrip:
+current Expedition only
+
+Siege currency:
+current Relic Siege only
+
+Gold:
+general persistent purchases
+
+Scrap:
+common upgrading/salvage
+
+Regional material:
+target crafting
+
+Boss Seal/Core:
+high-tier boss crafting/evolution
+
+Blueprint fragments:
+recipe acquisition
+
+Rare universal resource:
+only if genuinely needed
+
+==================================================
+15. RETENTION GOAL STRUCTURE
+==================================================
+
+Every player session should expose:
+
+SHORT GOAL
+e.g. next chest / wave / upgrade
+
+MEDIUM GOAL
+e.g. finish blueprint / bounty / forge upgrade
+
+LONG GOAL
+e.g. RED item / mastery / Relic Rank / dungeon completion
+
+Do not overwhelm the HUD with these simultaneously.
+
+Use contextual presentation.
+
+==================================================
+16. FAILURE REWARDS
+==================================================
+
+Dying should hurt but not erase the evening.
+
+In Siege:
+- mastery earned stays
+- some general resources stay
+- Archive progress stays
+- bounty/achievement progress stays where appropriate
+
+High-value extracted loot may require successful extraction.
+
+This creates risk without total frustration.
+
+==================================================
+17. EXTRACT OR GREED
+==================================================
+
+At major Siege checkpoints:
+
+EXTRACT
+- secure eligible rewards
+- end safely
+
+CONTINUE
+- increased reward multiplier
+- increased rare-event weighting
+- increased difficulty
+- risk some unsecured loot
+
+Do NOT risk permanently owned gear.
+
+This should create:
+“Fuck it, ten more rounds.”
+moments.
+
+==================================================
+18. SECRETS
+==================================================
+
+Lay the systems foundation for deep optional secrets.
+
+Potential triggers:
+- environmental clue
+- unusual dialogue
+- element used on object
+- hidden sequence
+- weapon interaction
+- round condition
+- miniboss condition
+- Forge recipe
+- NPC interaction
+
+Some secrets should be discoverable naturally.
+
+Some can be deep enough to drive:
+- player discussion
+- guides
+- videos
+- community speculation
+
+Do not copy Treyarch puzzle sequences.
+
+==================================================
+19. HUMAN + BEAST ROSTER
+==================================================
+
+All existing playable humans and beasts must work in Siege.
+
+Maintain:
+- character identity
+- affinities
+- mastery
+- unique perks
+- weapon fit
+
+Human art MUST NOT drift into generic AI-looking imagery.
+
+Use existing authored/canonical references.
+
+If required authored poses do not exist:
+- record exact missing art requirement
+- do not invent fake final assets
+- do not mark visual production complete
+
+==================================================
+20. MOBILE UX
+==================================================
+
+Relic Siege must remain readable on S23-class portrait displays.
+
+Avoid:
+- walls of floating text
+- giant permanent upgrade panels
+- tiny buttons
+- overlapping reward cards
+- constant modal interruption
+
+Make round number, threat, currency and key objectives obvious.
+
+Everything deeper belongs in contextual panels.
+
+==================================================
+21. SAVE ARCHITECTURE
+==================================================
+
+Do NOT require online connectivity.
+
+Persist:
+- owned gear
+- resources
+- mastery
+- Relic Rank
+- Forge state
+- blueprints
+- Archive
+- highest Siege round
+- dungeon unlocks
+- tracked item
+- progression
+
+Use the existing save recovery protections.
+
+Create a SAVE PROVIDER abstraction if practical so future Google Play
+Games cloud save can wrap the persistent save without rewriting the
+whole save system later.
+
+Do NOT attempt fake Google cloud integration without real project
+credentials/configuration.
+
+==================================================
+22. MONETISATION RULE — FOR LATER
+==================================================
+
+DO NOT add paid progression now.
+
+DO NOT add premium loot boxes.
+DO NOT connect the Relic Spinner to real money.
+DO NOT add energy timers.
+DO NOT add mandatory daily attendance.
+
+The game must be compelling WITHOUT monetisation first.
+
+Future commercial options may include:
+- cosmetics
+- outfits
+- weapon skins
+- VFX
+- Hideout cosmetics
+- optional convenience that does not invalidate gameplay
+
+Do not implement monetisation in this phase.
+
+==================================================
+23. FIRST PHASE 4B DELIVERY
+==================================================
+
+Do NOT attempt to build the entire final game in one pass.
+
+Deliver a polished FIRST PLAYABLE slice containing:
+
+1. Relic Siege accessible from the existing hub/mode flow
+2. endless round progression
+3. guaranteed elite milestones
+4. RNG elites/miniboss events
+5. at least one meaningful boss checkpoint
+6. extract-or-continue
+7. Siege currency
+8. temporary Siege upgrades
+9. first reward spinner implementation
+10. RED-tier data/acquisition foundation
+11. first targeted dungeon architecture/sample dungeon
+12. tracked-loot support
+13. permanent progression integration
+14. clean Archive additions
+15. save persistence
+16. phone/tablet layout support
+
+Make it visibly feel like NEW GAMEPLAY.
+
+==================================================
+24. TESTING
+==================================================
+
+Run focused validation only.
+
+Test:
+- round progression
+- milestone encounters
+- elite spawning
+- miniboss/boss spawning
+- extraction
+- death
+- reward persistence
+- spinner economy
+- spinner duplication protection
+- RED drought simulation
+- target farming
+- tracked loot
+- Forge integration
+- mastery
+- saves
+- interrupted save
+- UI touch isolation
+- phone/tablet layout
+- combat performance
+- Android package
+
+Use seeded simulations for:
+- reward economy
+- RED acquisition time
+- resource faucets/sinks
+- elite frequency
+- progression pace
+
+Do NOT rerun giant unrelated historical matrices unless changed code
+requires it.
+
+==================================================
+25. BALANCE SAFETY
+==================================================
+
+Do not tune difficulty merely through HP.
+
+Measure:
+- time-to-kill
+- enemy density
+- elite density
+- player damage received
+- resource gain
+- build acceleration
+- clear time
+- reward/hour
+
+A harder tier that becomes easier because it gives too much power
+must be corrected through system design, not arbitrary stat inflation.
+
+==================================================
+26. FINAL REPORT
+==================================================
+
+Report:
+
+- new visible gameplay
+- Relic Siege implementation
+- round rules
+- elite/miniboss/boss structure
+- extraction
+- new RNG events
+- Siege currency
+- spinner behaviour
+- RED-tier foundation
+- dungeon architecture
+- targeted loot
+- tracked loot
+- permanent upgrades affected
+- save changes
+- human/beast compatibility
+- art blockers
+- economy simulation
+- mobile performance
+- tests passed/failed
+- exact APK path
+- checkpoints
+- remaining production blockers
+
+Do not claim production-ready if physical acceptance/art/audio gates remain.
+
+Keep the working tree clean and checkpoint the validated slice.

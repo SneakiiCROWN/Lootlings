@@ -1,3 +1,5 @@
+CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
+
 # Canonical beta art integration — 2026-10-01
 
 2026-10-02: three additive adult presets and three identity-preserving resident bodies are live beta exports. Accepted players/portraits/reference originals unchanged. Exact paths/output IDs/prompt sets/rejected candidates/QA: `WANDERER_BETA_ART.md` and `NPC_BETA_ART.md`. Earlier no-regenerated-art notes describe the illustrated-memory checkpoint only.

@@ -17,6 +17,11 @@ var dialog: Control
 var pending := Callable()
 var confirm_button: Button
 var dialog_opened := 0
+var owned_buttons: Array[Button] = []
+var owned_button: Button
+
+func register_button(button: Button) -> void:
+	if not button in owned_buttons: owned_buttons.append(button)
 
 func configure(target) -> void:
 	game = target
@@ -65,6 +70,11 @@ func _input(event: InputEvent) -> void:
 			return
 		if event.pressed:
 			block_mouse_until = 0 # a new finger press owns a new gesture
+			owned_button = null
+			owned_buttons=owned_buttons.filter(func(button): return is_instance_valid(button))
+			# Destination cards are rebuilt when the region list refreshes.
+			for button in game.find_children("*","Button",true,false):
+				if button.get_meta("gesture_release_owned",false): register_button(button)
 			for node in game.find_children("*","Range",true,false):
 				if not node is ScrollBar and hit(node,event.position):
 					finger = -1 # sliders retain their native drag interaction
@@ -77,13 +87,31 @@ func _input(event: InputEvent) -> void:
 			velocity = 0
 			scroll = scroller_at(start)
 			start_state = game.state
+			# These contextual buttons change screens on release. Own the touch
+			# directly rather than delegating it to synthetic mouse ordering.
+			if not game.presentation_director.travel_active and not game.presentation_director.vignette.active and not is_instance_valid(dialog):
+				for button in owned_buttons:
+					if is_instance_valid(button) and not button.disabled and hit(button,start):
+						owned_button=button
+						button.set_pressed_no_signal(true)
+						block_mouse_until=Time.get_ticks_msec()+300
+						get_viewport().set_input_as_handled()
+						break
 			var local: Vector2 = game.get_global_transform_with_canvas().affine_inverse()*start
 			arena = game.state == "playing" and Rect2(0,310,480,344).has_point(local) and not ui_at(start) and not game.presentation_director.vignette.active and not game.presentation_director.travel_active
 			if arena:
 				block_mouse_until = Time.get_ticks_msec()+300
 				get_viewport().set_input_as_handled()
 		elif finger == event.index:
-			if arena:
+			if is_instance_valid(owned_button):
+				var button: Button=owned_button
+				owned_button=null
+				button.set_pressed_no_signal(false)
+				block_mouse_until=Time.get_ticks_msec()+200
+				get_viewport().set_input_as_handled()
+				if not dragged and not event.canceled and game.state==start_state and not button.disabled and hit(button,event.position):
+					button.pressed.emit()
+			elif arena:
 				block_mouse_until = Time.get_ticks_msec()+200
 				if not dragged and not event.canceled and game.state == start_state and not is_instance_valid(dialog):
 					var local: Vector2 = game.get_global_transform_with_canvas().affine_inverse()*event.position

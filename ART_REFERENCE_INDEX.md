@@ -1,3 +1,5 @@
+CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
+
 > **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Current release/status authority is AUDIT_REPORT.md. Reference files remain preserved research, excluded from imports/exports. Identical Emberhorn/ClassTemplate canonical sheets have documented distinct reference roles; neither is silently deleted. Historical delivery counts below do not establish current production readiness.
 
 # Canonical Art Reference Index

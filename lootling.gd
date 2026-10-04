@@ -22,6 +22,8 @@ const CharacterTraits = preload("res://character_traits.gd")
 const Phase4 = preload("res://phase4_catalog.gd")
 var expedition_progress := preload("res://expedition_progress.gd").new()
 var expedition_tier := 0
+var run_resolved := false
+var retention=preload("res://retention_runtime.gd").new()
 const BossPatterns = preload("res://boss_patterns.gd")
 const ExpeditionEvents = preload("res://expedition_event_catalog.gd")
 const StartupUI = preload("res://startup_ui.gd")
@@ -358,6 +360,7 @@ func _ready() -> void:
 	responsive_backdrop.configure(self)
 	touch_ux = preload("res://touch_ux.gd").new()
 	add_child(touch_ux)
+	retention.configure(self)
 	touch_ux.configure(self)
 	if OS.has_feature("s23_test") or OS.get_environment("LOOTLINGS_MOBILE_TEST") == "1":
 		mobile_test_monitor = preload("res://mobile_test_monitor.gd").new()
@@ -973,6 +976,8 @@ func start_presented_run() -> void:
 	story_run_presentations = true
 
 func show_hideout() -> void:
+	retention.progress.recover(self)
+	retention.reset()
 	if presentation_director != null: presentation_director.vignette.cancel()
 	dungeon.active = false
 	if route_panel != null: route_panel.visible = false
@@ -1548,6 +1553,8 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	run_resolved=false
+	retention.begin()
 	expedition_progress.begin_run(campaign_id,expedition_tier,int(hash("farm:%s:%d" % [campaign_id,rng.seed])))
 	proc_timer = 0.0; proc_texture = null
 	character_trait = CharacterTraits.definition(profile)
@@ -1600,7 +1607,7 @@ func start_run() -> void:
 	player_max_hp += int(character_trait.hp)
 	player_hp = player_max_hp
 	base_damage = 11.0 * meta_bonus + int(gold_upgrades.get("whetstone", 0)) * 0.6
-	coins = int(gold_upgrades.get("pouch", 0)) * 8
+	coins = 0 if retention.siege else int(gold_upgrades.get("pouch", 0)) * 8
 	attack_interval = 0.85
 	attack_clock = 0.3
 	crit_chance = 0.08
@@ -1727,8 +1734,10 @@ func spawn_single_enemy() -> void:
 			audio_manager.set_music("BOSS" if wave == RUN_LAST_WAVE else "SALVAGE_WARRENS" if music_region == "emberworks" else "HOARD_DEPTHS" if music_region == "hoard_depths" else "OUTER_RUINS")
 	enemy_is_miniboss = wave == 8
 	enemy_is_boss = wave == RUN_LAST_WAVE
+	if retention.siege:
+		enemy_is_boss=retention.round_rule.boss; enemy_is_miniboss=retention.round_rule.miniboss
 	# Steady curve with explicit special-enemy spikes; regular archetypes stay closer together.
-	var progress := pow(1.15, wave - 1)
+	var progress := pow(1.15, (mini(15,wave) if retention.siege else wave) - 1)
 	var type_bonus := 1.0
 	if enemy_is_boss:
 		type_bonus = 4.8
@@ -1750,7 +1759,7 @@ func spawn_single_enemy() -> void:
 			enemy_archetype = dungeon.room.members[clampi(wave_kills, 0, dungeon.room.members.size() - 1)]
 		var enemy_definition := ZoneCatalog.enemy_for(current_zone, enemy_archetype)
 		enemy_name = enemy_definition.name
-	enemy_max_hp = (24.0 + wave * 7.0) * progress * type_bonus
+	enemy_max_hp = (24.0 + (mini(15,wave) if retention.siege else wave) * 7.0) * progress * type_bonus
 	enemy_damage = (3.5 + wave * 0.92) * (1.3 if enemy_is_miniboss else 1.0) * (1.55 if enemy_is_boss else 1.0)
 	enemy_damage *= event_risk
 	enemy_attack_interval = maxf(0.85, 2.25 - wave * 0.045)
@@ -1784,6 +1793,9 @@ func spawn_single_enemy() -> void:
 		# third wave. Bosses/Act I are untouched; no presentation RNG is consumed.
 		if CampaignSystem.REGIONAL_VARIANTS.has(campaign_id) and wave % 3 == 0 and wave_kills == 0:
 			enemy_variant_id = CampaignSystem.REGIONAL_VARIANTS[campaign_id]
+		if retention.siege:
+			var selected: String=retention.elite_id()
+			if not selected.is_empty(): enemy_variant_id=selected
 		if not enemy_variant_id.is_empty():
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
 			var modified := EnemyVariantCatalog.apply(enemy_variant_id, {"hp":enemy_max_hp, "damage":enemy_damage, "interval":enemy_attack_interval, "hit":enemy_hit_multiplier})
@@ -1796,6 +1808,12 @@ func spawn_single_enemy() -> void:
 			enemy_variant_name = str(variant.name)
 			enemy_variant_color = variant.accent
 			enemy_name = "%s %s" % [enemy_variant_name, enemy_name]
+	# Keep temporary power income independent of forced tier pressure.
+	if retention.siege:
+		enemy_attack_interval=maxf(.65,enemy_attack_interval/(1.0+maxi(0,wave-10)*.025))
+		enemy_reward_multiplier=1.0; enemy_xp_multiplier=.50
+	elif expedition_tier>0 and wave>=3 and wave_kills<expedition_tier:
+		enemy_reward_multiplier=minf(1.0,enemy_reward_multiplier); enemy_xp_multiplier=minf(1.0,enemy_xp_multiplier)
 	enemy_max_hp *= float(current_zone.get("hp_scale", 1.0))
 	if dungeon.active:
 		if enemy_is_boss:
@@ -1991,7 +2009,7 @@ func _process(delta: float) -> void:
 			return
 		spawn_clock -= delta
 		if spawn_clock <= 0.0:
-			if wave in [8, RUN_LAST_WAVE] and special_intro_wave != wave:
+			if not retention.siege and wave in [8, RUN_LAST_WAVE] and special_intro_wave != wave:
 				begin_special_intro()
 			else:
 				spawn_enemy()
@@ -2503,10 +2521,10 @@ func kill_enemy() -> void:
 		player_hp = maxf(1.0, player_hp - blast_damage)
 		add_float("POP -%.0f" % blast_damage, Vector2(180, 423), enemy_variant_color, 16)
 		add_particles(Vector2(345, 455), enemy_variant_color, 12)
-	var reward := int(round((5.0 + wave * 1.8) * coin_reward_mult * (1.0 + inventory.effect_total("coin_mult")) * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0) * enemy_reward_multiplier))
+	var reward := int(round((5.0 + (mini(15,wave) if retention.siege else wave) * 1.8) * coin_reward_mult * (1.0 + inventory.effect_total("coin_mult")) * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0) * enemy_reward_multiplier))
 	coins += reward
 	run_coins_earned += reward
-	var xp_reward := (13.0 + wave * 2.2) * xp_reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0) * enemy_xp_multiplier
+	var xp_reward := (13.0 + (mini(15,wave) if retention.siege else wave) * 2.2) * xp_reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0) * enemy_xp_multiplier
 	var fire_count: int = build.count("Fire")
 	if fire_count >= 3 or wildfire_power > 0:
 		var explosion := base_damage * (0.45 * fire_count + wildfire_power * 0.5)
@@ -2522,7 +2540,7 @@ func kill_enemy() -> void:
 	if fire_count >= 3 or wildfire_power > 0 or gear_explosion > 0.0:
 		play_audio_event("explosion")
 	var equipment_dropped := false
-	if enemy_is_boss:
+	if enemy_is_boss and not retention.siege:
 		prepare_hoard_chest()
 	else:
 		equipment_dropped = spawn_item_drop()
@@ -2537,6 +2555,8 @@ func kill_enemy() -> void:
 	add_reward_burst(reward, xp_reward)
 	status_message = "MINIBOSS DEFEATED" if enemy_is_miniboss else ""
 	status_clock = 0.9 if enemy_is_miniboss else 0.0
+	if retention.siege:
+		retention.killed(); carried_shockwave=minf(carried_shockwave,base_damage*12.0); return
 	if enemy_is_boss:
 		pending_victory = true
 		item_review_due = true
@@ -2556,7 +2576,7 @@ func kill_enemy() -> void:
 		if wave in [6, 11]:
 			merchant_due = true
 			pending_zone_transition = true
-		player_hp = minf(player_max_hp, player_hp + player_max_hp * 0.20)
+		player_hp = minf(player_max_hp, player_hp + player_max_hp * ([.20,.12,.08][expedition_tier]))
 		status_message = ""
 		status_clock = 0.0
 		if not pending_zone_transition and not wave in [8, RUN_LAST_WAVE]:
@@ -3164,7 +3184,8 @@ func apply_upgrade_effect(up: Dictionary) -> void:
 		"plague": plague_power += 1
 
 func end_run(victory: bool) -> void:
-	if state == "result": return
+	if run_resolved or state in ["result","relic_spinner"]: return
+	run_resolved=true
 	run_won = victory
 	expedition_progress.finish(victory)
 	if route_panel != null: route_panel.visible = false
@@ -3184,11 +3205,13 @@ func end_run(victory: bool) -> void:
 		var caps: Dictionary = dungeon.reward_caps(total_kills, victory)
 		run_gold_earned = mini(run_gold_earned, int(caps.gold))
 		run_shards_earned = mini(run_shards_earned, int(caps.shards))
+	if retention.siege:
+		run_gold_earned=mini(500,total_kills*3); run_shards_earned=mini(40,total_kills/4)
 	meta_shards += run_shards_earned
 	gold += run_gold_earned
 	if victory:
 		contracts.record("win")
-		if not dungeon.active:
+		if not dungeon.active and not retention.siege:
 			campaign.finish(campaign_id)
 			campaign.save("user://campaign.cfg")
 		award_achievement("first_expedition")
@@ -3215,9 +3238,13 @@ func end_run(victory: bool) -> void:
 	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
 	result_summary.text += "\n\nRELIC RANK %d  •  %s +%d\n%s" % [expedition_progress.rank(),Phase4.FARMS[campaign_id].material,expedition_progress.run_materials,"\n".join(expedition_progress.run_finds)]
 	result_summary.scroll_to_line(0)
+	retention.finish(victory)
+	if retention.siege:
+		result_title.text="SIEGE EXTRACTED" if victory else "SIEGE ENDED"
+		result_summary.text=result_summary.text.replace("RUN SCRIP","SIEGE EMBERS").replace("Wave reached  %d / %d" % [wave,RUN_LAST_WAVE],"Round reached  %d" % wave)
 	refresh_result_loot()
 	if dungeon.active:
-		result_title.text = "RELIC ROUTE CLEARED!" if victory else "ROUTE ENDED"
+		result_title.text = ("ROOTGLASS VAULT CLEARED!" if retention.targeted else "RELIC ROUTE CLEARED!") if victory else "ROUTE ENDED"
 		result_summary.text = result_summary.text.replace("Wave reached  %d / %d" % [wave, RUN_LAST_WAVE], "Rooms entered  %d / 8 • Seed %d" % [dungeon.depth + 1, dungeon.seed_value])
 	if presentation_director != null:
 		presentation_director.present_card(result_panel, Color("#ffe178") if victory else Color("#ff8995"), 0.34)
@@ -3271,7 +3298,7 @@ func refresh_hideout() -> void:
 
 func refresh_result_loot() -> void:
 	var ranked := run_notable_items.duplicate()
-	var rarity_order := {"COMMON":0,"UNCOMMON":1,"RARE":2,"EPIC":3,"LEGENDARY":4}
+	var rarity_order := {"COMMON":0,"UNCOMMON":1,"RARE":2,"EPIC":3,"LEGENDARY":4,"RED":5}
 	ranked.sort_custom(func(a,b): return int(rarity_order.get(a.get("rarity","COMMON"),0)) > int(rarity_order.get(b.get("rarity","COMMON"),0)))
 	for i in range(result_loot_cards.size()):
 		var card: Control = result_loot_cards[i]
@@ -3302,6 +3329,8 @@ func navigate_back() -> void:
 		return
 	if presentation_director.vignette.active:
 		presentation_director.vignette.finish()
+	elif state == "mode_menu": retention.panel.visible=false; show_hideout()
+	elif state == "relic_spinner": retention.panel.visible=false; state="result"
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":
@@ -3586,21 +3615,23 @@ func draw_hud() -> void:
 	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
 	var location_line := "ROOM %02d / 08 • RELIC ROUTE" % (dungeon.depth + 1) if dungeon.active else "WAVE %02d • %s" % [wave, hud_region]
+	if retention.siege: location_line="ROUND %02d • RELIC SIEGE" % wave
 	if dungeon.active and dungeon.depth < 0: location_line = "RELIC ROUTE • CHOOSE PATH"
+	if retention.targeted: location_line="ROOTGLASS VAULT • %s" % ("CHOOSE PATH" if dungeon.depth<0 else "ROOM %02d" % (dungeon.depth+1))
 	draw_string(body_font, Vector2(60, 59), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
 	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
-	draw_string(body_font, Vector2(334, 61), "RUN SCRIP  •  LV %d" % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
+	draw_string(body_font, Vector2(334, 61), ("SIEGE EMBERS • LV %d" if retention.siege else "RUN SCRIP • LV %d") % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
 	draw_bar(Rect2(18, 77, 444, 18), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 12)
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
 		draw_rect(Rect2(18, 77, 444, 18), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
 	draw_bar(Rect2(18, 106, 444, 25), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
 	if state == "playing":
-		var wave_target := 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
+		var wave_target: int=int(retention.round_rule.get("count",3)) if retention.siege else 1 if wave == 8 or wave == RUN_LAST_WAVE else ENEMIES_PER_WAVE
 		var foe_number := clampi(wave_kills + (1 if enemy_alive else 0), 1, wave_target)
 		var encounter_text := "%s     %d / %d" % ["BOSS" if enemy_is_boss else "MINIBOSS" if enemy_is_miniboss else "FOE", foe_number, wave_target]
 		if enemy_encounter.active:

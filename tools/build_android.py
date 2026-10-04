@@ -99,7 +99,7 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
+        for script in ['retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries

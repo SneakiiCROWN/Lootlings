@@ -1,3 +1,5 @@
+CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
+
 # Lootlings production roadmap — current authority
 
 Owner fidelity tranche 5 is implemented at `a1ceabe`; [current report](docs/production/phase2/fidelity/REPORT.md) owns version-4 APK, species voices, bow direction/string/nock, projectiles, pickups and native evidence. Next: retest that exact build on S23, then approved bow draw/support anatomy and weaponless Moonkip, followed by unique boss animation and final music. Existing mobile/touch, save/economy and corrected combat-seed work remain preserved. Do not re-audit or repeat completed tranches.

@@ -1,0 +1,210 @@
+[
+  {
+    "run": "phase4b-accepted-native-measured-419d3c8e2b",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 103.61,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-complete-native-c6c9cd5959",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 105.09,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-delivery-native-84738aa112",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 113.68,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-focused-native-86a70990de",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 109.51,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-input-trace-4ae73fcc0c",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 4294967295,
+        "seconds": 89.87,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed."
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-native-acceptance-complete-c684a2dce9",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 108.33,
+        "errors": [
+          "SCRIPT ERROR: Invalid access to property or key 'play_button' on a base object of type 'Control (hideout_ui.gd)'.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-native-c352a2cfec",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 105.65,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-native-debug-6515894443",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 104.98,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-native-finger-acfc460a87",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 103.33,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-native-gesture-final-9d9996d95a",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 109.35,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-native-measured-dccfd662df",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 104.93,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-original-touch-reproduction-5cf1dbd12b",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 109.44,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-regression-7151e5d1a5",
+    "failed": [
+      {
+        "name": "dungeon_qa",
+        "exit": 4294967295,
+        "seconds": 239.13,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed."
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  },
+  {
+    "run": "phase4b-touch-values-2a1cc8820f",
+    "failed": [
+      {
+        "name": "phase4b_native_qa",
+        "exit": 1,
+        "seconds": 109.18,
+        "errors": [
+          "SCRIPT ERROR: Assertion failed.",
+          "ERROR: Phase4 native timeout"
+        ],
+        "expected_diagnostics": []
+      }
+    ]
+  }
+]

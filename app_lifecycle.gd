@@ -43,6 +43,7 @@ func restore_focus() -> void:
 	# Combat stays on the existing Pause screen until the player resumes.
 
 func persist() -> void:
+	game.retention.progress.save()
 	game.expedition_progress.save()
 	game.save_meta()
 	game.inventory.save(game.INVENTORY_SAVE_PATH)

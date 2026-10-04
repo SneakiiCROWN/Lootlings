@@ -1,3 +1,7 @@
+Current runtime counts: twelve selectable actors, twelve weapon families, ten campaign destinations and 73 item definitions (71 prior + two source-exclusive Phase 4B items). Siege/Dungeon/RED foundations are playable; no new final character/boss/audio art is claimed.
+
+CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
+
 # Current implementation and production status — 2026-10-03
 
 Latest fidelity tranche: [delivery, native evidence, current APK and genuine blockers](docs/production/phase2/fidelity/REPORT.md), implementation `a1ceabe`. This supersedes earlier generic reaction/audio-count/bow/build details while preserving completed mobile/save/combat/QA work. Bow direction/string/nock is natively verified for twelve actors/both facings; draw/support-hand anatomy remains missing. New original ranged motifs and actual currency/item pickup art are live; no generated final art.

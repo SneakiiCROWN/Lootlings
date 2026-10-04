@@ -4,14 +4,14 @@ const AffixCatalog = preload("res://affix_catalog.gd")
 const WeaponCatalog = preload("res://weapon_catalog.gd")
 const Phase3 = preload("res://phase3_item_catalog.gd")
 
-const RARITIES := ["COMMON", "RARE", "EPIC", "LEGENDARY"]
+const RARITIES := ["COMMON", "RARE", "EPIC", "LEGENDARY", "RED"]
 const RARITY_COLORS := {
 	"COMMON": Color("#b7c0ca"),
 	"RARE": Color("#62bfff"),
 	"EPIC": Color("#c879ff"),
-	"LEGENDARY": Color("#ffb43f")
+	"LEGENDARY": Color("#ffb43f"), "RED":Color("#ff4e69")
 }
-const RARITY_POWER := {"COMMON":1.0, "RARE":1.25, "EPIC":1.6, "LEGENDARY":2.15}
+const RARITY_POWER := {"COMMON":1.0, "RARE":1.25, "EPIC":1.6, "LEGENDARY":2.15,"RED":2.15}
 
 const ITEMS := [
 	{"id":"scrapfang_blade", "name":"Scrapfang Blade", "slot":"Weapon", "family":"VANGUARD", "weapon_type":"greatsword", "icon":"BLADE", "evolution_path":["Vaultcleaver", "Crowncleaver"], "desc":"Heavy steel, a steady grip, and no intention of asking the lock nicely.", "effects":{"damage_mult":0.14, "armor":0.03}},
@@ -49,7 +49,7 @@ const ITEMS := [
 	{"id":"vault_receipt", "name":"Vault Receipt", "slot":"Relic", "icon":"RING", "desc":"Proof that the vault definitely owes you treasure.", "effects":{"coin_mult":0.22, "boss_damage":0.045}},
 	{"id":"critical_script", "name":"Critical Script", "slot":"Rune", "icon":"SPARK", "desc":"A very short instruction ending in an exclamation mark.", "effects":{"crit":0.055, "crit_lightning":0.13}},
 	{"id":"bossbane_sigil", "name":"Bossbane Sigil", "slot":"Rune", "icon":"SLAM", "desc":"Tiny engraving. Extremely large grudge.", "effects":{"boss_damage":0.16, "heavy_bonus":0.10}}
-] + Phase3.ITEMS + preload("res://phase4_catalog.gd").ITEMS
+] + Phase3.ITEMS + preload("res://phase4_catalog.gd").ITEMS + preload("res://phase4b_catalog.gd").ITEMS
 
 static func definition(id: String) -> Dictionary:
 	for item in ITEMS:
@@ -110,7 +110,7 @@ static func evolution_hint(item: Dictionary) -> String:
 	return "FORGE PATH  •  %s" % "  >  ".join(path)
 
 static func scrap_value(item: Dictionary) -> int:
-	return [3, 8, 18, 45][rarity_rank(item.get("rarity", "COMMON"))]
+	return [3, 8, 18, 45, 70][rarity_rank(item.get("rarity", "COMMON"))]
 
 static func describe_effects(item: Dictionary) -> String:
 	var effects: Dictionary = item.get("effects", {})
