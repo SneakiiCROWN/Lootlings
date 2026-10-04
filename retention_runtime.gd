@@ -102,6 +102,7 @@ func choose(index: int) -> void:
 				if int(progress.data.spins)==prior: show_spinner(spin_message); return
 				spin_kind=str(progress.data.pending.back().get("kind","")) if not progress.data.pending.is_empty() else ""
 				spin_message+="\n"+progress.recover(game); game.coins=int(progress.data.spin_wallet)
+				panel.get_node("Wallet").text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-int(progress.data.spins)]
 				spin_busy=true; buttons[0].disabled=true; buttons[1].disabled=true; buttons[2].visible=true; buttons[2].disabled=false; buttons[2].text="SKIP REVEAL"
 				machine.wind_up(); detail.text="Winding up…"; game.play_audio_event("chest_windup")
 				spin_tween=game.create_tween(); spin_tween.tween_interval(.85); spin_tween.tween_callback(finish_spin)
