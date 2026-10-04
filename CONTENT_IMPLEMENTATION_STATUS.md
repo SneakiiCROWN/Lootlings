@@ -1,4 +1,4 @@
-Current runtime counts: twelve selectable actors, twelve weapon families, ten campaign destinations and 73 item definitions (71 prior + two source-exclusive Phase 4B items). Siege/Dungeon/RED foundations are playable; no new final character/boss/audio art is claimed.
+CURRENT — Phase 4C visible presentation rescue: [PRODUCTION_PHASE4C.md](PRODUCTION_PHASE4C.md). Owner S23 review of Phase 4B authorized this pass. Implementation `6ebf74d` preserves all prior systems; version 10 / `0.4.1-phase4c` is ready for another S23 owner test. Final support/human/boss art, final audio and physical acceptance remain open. Earlier dated paragraphs below are historical where superseded. Stop before full pets/decoration/final-art work.
 
 CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
 

@@ -1,0 +1,181 @@
+[
+  {
+    "name": "audio_production_qa",
+    "exit": 0,
+    "seconds": 0.47,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "dungeon_qa",
+    "exit": 0,
+    "seconds": 10.36,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "evolution_qa",
+    "exit": 0,
+    "seconds": 1.94,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.26,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 2.96,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.58,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "rc_reward_qa",
+    "exit": 0,
+    "seconds": 1.48,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "rc_save_qa",
+    "exit": 0,
+    "seconds": 0.28,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.58,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "weapon_fit_qa",
+    "exit": 0,
+    "seconds": 4.26,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-regression-final-12a3c89289"
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.24,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-final-followup-678e9f9b47"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-final-followup-678e9f9b47"
+  },
+  {
+    "name": "rc_reward_qa",
+    "exit": 0,
+    "seconds": 1.56,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-final-followup-678e9f9b47"
+  },
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 3.13,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-release-contract-32e6b5baf8"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-release-contract-32e6b5baf8"
+  },
+  {
+    "name": "phase4c_native_qa",
+    "exit": 0,
+    "seconds": 57.3,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-native-release-047ad255ec"
+  },
+  {
+    "name": "phase4c_boss_native_qa",
+    "exit": 0,
+    "seconds": 26.41,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-native-delivery-23a2f958fc"
+  },
+  {
+    "name": "phase4c_native_qa",
+    "exit": 0,
+    "seconds": 57.53,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-native-delivery-23a2f958fc"
+  },
+  {
+    "name": "phase4c_weapon_native_qa",
+    "exit": 0,
+    "seconds": 28.35,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-weapons-2b9a13a9d3"
+  },
+  {
+    "name": "human_audio_qa",
+    "exit": 0,
+    "seconds": 27.99,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-audio-after-1de709650f"
+  },
+  {
+    "name": "phase4c_spinner_native_qa",
+    "exit": 0,
+    "seconds": 8.25,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-spinner-wallet-638b2d90ca"
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [],
+    "run": "phase4c-spinner-final-a8653ab372"
+  }
+]
