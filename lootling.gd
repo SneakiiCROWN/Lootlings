@@ -810,7 +810,7 @@ func build_pause_ui() -> void:
 	pause_button = Button.new()
 	pause_button.text = "Ⅱ  PAUSE"
 	pause_button.position = Vector2(232, 10)
-	pause_button.size = Vector2(86, 64)
+	pause_button.size = Vector2(86, 48)
 	pause_button.add_theme_font_size_override("font_size", 12)
 	apply_button_style(pause_button, Color("#172442df"), Color("#8fa6cf"))
 	pause_button.pressed.connect(pause_run)
@@ -3624,7 +3624,7 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0,0,480,112),Color("#081329c9"))
+	draw_rect(Rect2(0,0,480,96),Color("#081329b8"))
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
 	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
@@ -3639,11 +3639,11 @@ func draw_hud() -> void:
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
 	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(334, 61), ("SIEGE EMBERS • LV %d" if retention.siege else "RUN SCRIP • LV %d") % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
-	draw_bar(Rect2(18, 98, 444, 9), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "XP  %.0f / %.0f" % [xp, xp_needed], 10)
+	draw_bar(Rect2(18, 88, 444, 5), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "", 10)
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
-		draw_rect(Rect2(18, 98, 444, 9), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
-	draw_bar(Rect2(60, 70, 402, 20), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 14, combat_presentation.health_ratio(-1))
+		draw_rect(Rect2(18, 88, 444, 5), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
+	draw_bar(Rect2(60, 66, 402, 18), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 13, combat_presentation.health_ratio(-1))
 
 func draw_arena(shake: Vector2) -> void:
 	var show_combat_context := state == "playing"
@@ -3652,20 +3652,21 @@ func draw_arena(shake: Vector2) -> void:
 		enemy_color = Color.WHITE
 	var special_entering := enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
+		var display_enemy_name: String=enemy_name.to_upper()+ (" • BETA" if enemy_is_boss and campaign_id!="act_i" else "")
 		var enemy_name_size := 19
-		while enemy_name_size > 11 and body_font.get_string_size(enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
+		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
 			enemy_name_size -= 1
-		draw_string(body_font, Vector2(40, 151), enemy_name.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, enemy_name_size, Color("#f4f7ff"))
-		draw_bar(Rect2(75, 166, 330, 22), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 13, combat_presentation.health_ratio(enemy_serial))
+		draw_string(body_font, Vector2(40, 243), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, 400, mini(enemy_name_size,17), Color("#f4f7ff"))
+		draw_bar(Rect2(100, 255, 280, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0
 		if enemy_burn_dps > 0.0:
-			draw_status_chip(Vector2(status_x, 195), "BURN", build.color("Fire"), "status_burn")
+			draw_status_chip(Vector2(status_x, 283), "BURN", build.color("Fire"), "status_burn")
 			status_x += 80.0
 		if enemy_poison_stacks > 0:
-			draw_status_chip(Vector2(status_x, 195), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
+			draw_status_chip(Vector2(status_x, 283), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
 		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240, 222), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
+			draw_status_chip(Vector2(240, 310), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:
@@ -3731,7 +3732,7 @@ func build_summary() -> String:
 func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value: String, font_size: int, trail_ratio: float = -1.0) -> void:
 	var kind := ("xp" if rect.size.y<=12 else "health") if rect.position.y<140 else "enemy"
 	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind, trail_ratio)
-	draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
+	if not text_value.is_empty(): draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
 
 func draw_effects() -> void:
 	if state == "hoard_chest":

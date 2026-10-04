@@ -10,9 +10,9 @@ static func player(g) -> String:
 
 static func enemy(g) -> String:
 	if g.enemy_is_boss:
-		if g.campaign_id == "mossglass_wilds": return "moss"
-		if g.campaign_id == "cinder_crown": return "forge"
-		return "dragon" # Other campaigns currently reuse the approved dragon body.
+		# Follow the actual approved BETA body until unique regional art/voices
+		# arrive. A caster or armoured person must not inherit dragon reactions.
+		return {"mossglass_wilds":"moss","moonfen":"brute","frostbell_hollows":"brute","sunken_gearworks":"forge","cinder_crown":"forge","starfall_archive":"hexer","nullglass_expanse":"human_heavy","skyhook_bastion":"human_heavy"}.get(g.campaign_id,"dragon")
 	if g.enemy_is_miniboss: return "human_heavy" # Armoured Grump Knight.
 	if g.enemy_archetype == "tank":
 		return "forge" if g.current_zone_id == "emberworks" else "brute"

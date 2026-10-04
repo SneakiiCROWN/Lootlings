@@ -9,6 +9,7 @@ const MUSIC_PATHS := {
 	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav"
 }
 const BASE_EVENT_SPECS := {
+	"home_bench":["Ambience",0,.12,.15], "home_page":["Ambience",0,.10,.10],
 	"swing_greatsword":["SFX",0,.28,.5], "swing_greataxe":["SFX",0,.30,.5], "swing_maul":["SFX",0,.32,.5],
 	"swing_spear":["SFX",0,.18,.4], "swing_daggers":["SFX",0,.15,.4], "swing_claws":["SFX",0,.12,.4],
 	"swing_bow":["SFX",0,.18,.4], "swing_crossbow":["SFX",0,.16,.4], "swing_sling":["SFX",0,.18,.4],
@@ -111,8 +112,9 @@ static func production_event_streams(event_name: String) -> Array[AudioStreamWAV
 	var result: Array[AudioStreamWAV] = []
 	if not EVENT_SPECS.has(event_name): return result
 	var count := variant_count(event_name)
+	var source_event: String={"home_bench":"scrap","home_page":"menu_open"}.get(event_name,event_name)
 	for index in range(count):
-		var path := PRODUCTION_ROOT + "sfx/%s_%02d.wav" % [event_name,index+1]
+		var path := PRODUCTION_ROOT + "sfx/%s_%02d.wav" % [source_event,index+1]
 		if not ResourceLoader.exists(path):
 			# Require the complete four-variant pack for frequent cues; otherwise
 			# retain the original anti-fatigue bank, never a partial repetitive pack.
@@ -201,6 +203,7 @@ func play_event(event_name: String) -> void:
 	# Keep routine UI/attack repetitions behind landmark feedback.
 	if bus_name=="UI": player.volume_db-=2.0
 	elif event_name not in IMPORTANT_EVENTS: player.volume_db-=2.0
+	if event_name in ["home_bench","home_page"]: player.volume_db-=10.0
 	player.play()
 
 func play_voice(profile: String, role: String) -> void:

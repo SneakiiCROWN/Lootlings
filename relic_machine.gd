@@ -53,6 +53,14 @@ func _draw() -> void:
 	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
 	var center:=size*.5
 	draw_style_box(UI.panel_style(Color("#070e20"),Color("#b99759"),14),Rect2(Vector2.ZERO,size))
+	# Mechanical cheeks, axle bolts and reel rims distinguish the engine from
+	# an ordinary reward menu without new raster art or an extra particle node.
+	for side in [0,1]:
+		var x: float=9 if side==0 else size.x-9
+		draw_line(Vector2(x,44),Vector2(x,size.y-41),Color("#725e40"),5,true)
+		for y in [48.0,size.y-46]:
+			draw_circle(Vector2(x,y),3.5,Color("#c9aa66"))
+			draw_line(Vector2(x-2,y),Vector2(x+2,y),Color("#433e38"),1,true)
 	var aperture:=Rect2(18,38,size.x-36,size.y-66)
 	draw_style_box(Catalog.flat_style(Color("#030917"),tint.darkened(.3)),aperture)
 	var width:=aperture.size.x/3
@@ -60,6 +68,8 @@ func _draw() -> void:
 	for reel in range(3):
 		var turns: float=(14+reel)*eased
 		var x:=aperture.position.x+width*(reel+.5)
+		for edge in [-1,1]:
+			draw_line(Vector2(x+edge*(width*.5-4),65),Vector2(x+edge*(width*.5-4),size.y-50),Color("#514b415c"),3,true)
 		var displacement:=fposmod(turns,1.0)*76.0
 		if stage=="rolling":
 			for row in range(-1,3):

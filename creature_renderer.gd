@@ -164,15 +164,24 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		g.draw_circle(Vector2.ZERO, shadow_radius + 14.0, threat_color)
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if g.enemy_is_boss:
-		# Hoard Guardian motif: one slow relic halo with two controlled violet seals.
+		# Regional stage motifs are presentation only; they never alter telegraphs.
 		var halo_angle := float(g.run_time) * 0.22
+		var stage_color: Color=boss_data.accent
+		stage_color.a=.38
 		g.draw_set_transform(pos, 0.0, Vector2.ONE * extra_scale)
-		g.draw_arc(Vector2.ZERO, 97.0, halo_angle, halo_angle + 4.55, 38, Color("#d7aa5066"), 3.0)
-		for seal_index in range(2):
-			var seal_angle := halo_angle + 0.35 + seal_index * 2.85
-			var seal_pos := Vector2.RIGHT.rotated(seal_angle) * 97.0
-			g.draw_circle(seal_pos, 5.0, Color("#b968ff99"))
-			g.draw_circle(seal_pos, 2.2, Color("#f0d5ff"))
+		g.draw_arc(Vector2(0,-22), 108.0, halo_angle, halo_angle + 4.55, 38, stage_color, 2.0)
+		for seal_index in range(3):
+			var seal_angle := halo_angle + .35 + seal_index * 2.09
+			var seal_pos := Vector2(0,-22)+Vector2.RIGHT.rotated(seal_angle)*108.0
+			match str(boss_data.motif):
+				"script", "mirror":
+					g.draw_polyline(PackedVector2Array([seal_pos+Vector2(0,-7),seal_pos+Vector2(5,0),seal_pos+Vector2(0,7),seal_pos+Vector2(-5,0),seal_pos+Vector2(0,-7)]),stage_color.lightened(.3),1.5,true)
+				"engine", "chain", "chime":
+					g.draw_circle(seal_pos,6,stage_color,false,2,true)
+					g.draw_line(seal_pos+Vector2(0,-8),seal_pos+Vector2(0,8),stage_color,1.5,true)
+				_:
+					g.draw_circle(seal_pos,4,stage_color.lightened(.3))
+					g.draw_circle(seal_pos,9,Color(stage_color, .12))
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var tint := Color.WHITE
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:

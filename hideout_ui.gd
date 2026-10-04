@@ -13,6 +13,7 @@ var endgame_progress
 var phase4_content: Control
 var phase4_list: VBoxContainer
 var phase4_detail: RichTextLabel
+var phase4_detail_panel: Panel
 var phase4_action: Button
 var track_button: Button
 var phase4_selected := ""
@@ -179,6 +180,7 @@ var speech_role: Button
 var speech_speaker := ""
 var last_home_facts: Dictionary={}
 var home_dialogue = preload("res://contextual_dialogue.gd").new()
+var station_cycle := -1
 var region_sheet: Panel
 var region_detail: RichTextLabel
 var region_depart: Button
@@ -312,17 +314,24 @@ func build_home() -> void:
 	make_button(home_content,"YOU",Rect2(14,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): profile_requested.emit())
 	make_button(home_content,"TITLE",Rect2(402,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): title_requested.emit())
 	resource_label=LootlingsUI.rich_label(home_content,Rect2(86,40,310,27),12,Color("#d9e5ff"))
-	var gate:=make_button(home_content,"GATE  ›",Rect2(188,145,104,48),Color("#172442b0"),Color("#e2b563"),14); gate.set_meta("gesture_release_owned",true); gate.pressed.connect(func(): play_requested.emit())
+	var gate:=make_button(home_content,"",Rect2(156,104,168,198),Color.TRANSPARENT,Color.TRANSPARENT,14); gate.flat=true; gate.pressed.connect(func(): play_requested.emit())
+	gate.name="GateEntrance"
+	for state in ["normal","hover","pressed","focus"]: gate.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	make_label(home_content,"ENTER THE GATE  ›",14,Rect2(150,270,180,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6ad")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 	for speaker in RESIDENT_RECTS: make_npc_hotspot(home_content,RESIDENT_RECTS[speaker],speaker)
 	make_npc_hotspot(home_content,Rect2(166,355,148,146),"Mascot")
 	make_button(home_content,"GEAR",Rect2(25,488,52,52),Color("#172442b0"),Color("#72c8ff"),12).pressed.connect(show_stash)
 	make_button(home_content,"JOBS",Rect2(332,268,52,52),Color("#172442b0"),Color("#e2b563"),12).pressed.connect(show_contracts)
 	make_button(home_content,"SHOP",Rect2(398,264,66,48),Color("#172442b0"),Color("#e2b563"),12).pressed.connect(show_shop)
+	make_object_hotspot(home_content,"StorageChest",Rect2(18,488,126,156),show_stash,"Open Gear")
+	make_object_hotspot(home_content,"ShrineProp",Rect2(4,204,88,126),show_upgrades,"Visit the shrine")
+	make_object_hotspot(home_content,"ArchiveDesk",Rect2(326,628,120,54),func(): show_phase4("archive"),"Open Ilex's Archive")
+	make_object_hotspot(home_content,"ContractBoard",Rect2(330,232,62,48),show_contracts,"Read the pinned jobs")
 	for child in home_content.get_children():
 		if child is Button and not child.flat:
 			for state in ["normal","hover","pressed","focus"]:
 				var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99") if state=="normal" else Color("#29404cdd"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); child.add_theme_stylebox_override(state,style)
-	make_label(home_content,"Tap a resident or a marked object",12,Rect2(60,747,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
+	make_label(home_content,"Your fire. Your people. Your way back.",12,Rect2(60,747,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
 	loadout_panel=make_panel(home_content,Rect2(34,665,412,70),Color("#0c1430e9"),Color("#7087ae")); loadout_panel.visible=false
 	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
 	home_weapon=ItemIcon.new(); home_weapon.position=Vector2(179,519); home_weapon.size=Vector2(48,48); home_weapon.mouse_filter=Control.MOUSE_FILTER_IGNORE; home_content.add_child(home_weapon)
@@ -343,12 +352,12 @@ func build_stash() -> void:
 	var filters := ["ALL", "WEAPON", "ARMOUR", "CHARM", "RUNE"]
 	for index in range(filters.size()):
 		var filter_name: String = filters[index]
-		var filter_button := make_button(stash_content, filter_name, Rect2(20 + index * 89, 78, 84, 40), Color("#1c2948"), Color("#6f89b5"), 11)
+		var filter_button := make_button(stash_content, filter_name, Rect2(20 + index * 89, 176, 84, 48), Color("#1c2948"), Color("#6f89b5"), 12)
 		filter_button.pressed.connect(set_stash_filter.bind(filter_name))
 		filter_buttons[filter_name] = filter_button
 	for index in range(4):
 		var slot: String = ["Weapon", "Armour", "Relic", "Rune"][index]
-		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 130, 104, 88), Color("#172442"), Color("#7194c4"), 13)
+		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 78, 104, 88), Color("#172442"), Color("#7194c4"), 13)
 		slot_button.pressed.connect(set_stash_filter.bind(ItemCatalog.display_slot(slot)))
 		var slot_art := ItemIcon.new()
 		slot_art.name = "SlotArt"
@@ -416,7 +425,8 @@ func build_forge() -> void:
 	forge_list.custom_minimum_size.x = 398
 	forge_list.add_theme_constant_override("separation", 10)
 	scroll.add_child(forge_list)
-	make_panel(forge_content, Rect2(28, 478, 424, 222), Color("#0b1229ec"), Color("#b39466"))
+	var forge_plate:=make_panel(forge_content, Rect2(28, 478, 424, 222), Color("#0b1229ec"), Color("#b39466"))
+	forge_plate.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	forge_detail = make_label(forge_content, "", 19, Rect2(48, 490, 384, 200), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 725, 370, 70), Color("#493052"), Color("#e2b563"), 19)
@@ -450,6 +460,7 @@ func build_phase4() -> void:
 	phase4_content.add_child(scroll)
 	phase4_list = VBoxContainer.new(); phase4_list.custom_minimum_size.x = 410; phase4_list.add_theme_constant_override("separation",10); scroll.add_child(phase4_list)
 	var detail_panel := make_panel(phase4_content,Rect2(24,510,432,222),Color("#0b1229ec"),Color("#7087ae"))
+	phase4_detail_panel=detail_panel
 	phase4_detail = LootlingsUI.rich_label(detail_panel,Rect2(16,12,400,198),15,Color("#e7edff"))
 	phase4_detail.scroll_active = true
 	phase4_action = make_button(phase4_content,"SELECT A FIND",Rect2(24,754,432,56),Color("#493052"),Color("#e2b563"),16)
@@ -477,13 +488,22 @@ func show_phase4(mode: String) -> void:
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
 	phase4_selected = ""; track_button.disabled=true; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
+	phase4_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").paper() if phase4_mode=="archive" else preload("res://station_presentation.gd").metal())
+	phase4_detail.add_theme_color_override("default_color",Color("#382e32") if phase4_mode=="archive" else Color("#e7edff"))
 	for child in phase4_list.get_children(): phase4_list.remove_child(child); child.queue_free()
 	phase4_detail.text = phase4_message if not phase4_message.is_empty() else "Relic Rank %d\nRegional materials shape named gear. Boss seals bind a Rare blueprint craft.\nMastery comes from use; no daily clock." % expedition_progress.rank()
 	phase4_message = ""
 	if phase4_mode == "archive":
 		phase4_detail.text = "Select a record to inspect. Unknown finds keep their names until you discover them."
 		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege"]:
-			var button := make_button(phase4_list,category,Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
+			var button := make_button(phase4_list,"",Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
+			preload("res://station_presentation.gd").paper_button(button)
+			var icon_name: String={"Mastery":"core","Characters":"gear_charm","Named gear":"gear_armour","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune"}[category]
+			# Use verified canonical icons, with all decorative children ignoring touch.
+			if icon_name=="core": icon_name="currency_star_shard"
+			if icon_name=="gear_weapon": icon_name="res://art/sprites/weapons/vanguard_hammer.png"
+			LootlingsUI.add_icon(button,Rect2(12,6,44,44),icon_name)
+			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#382e32")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 			button.custom_minimum_size = Vector2(410,56)
 			button.pressed.connect(func():
 				phase4_detail.text = expedition_progress.collection_text()
@@ -554,9 +574,9 @@ func build_contracts() -> void:
 	make_button(contracts_content,"REGIONAL BOUNTIES",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("contracts"))
 	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 14, Rect2(24, 126, 432, 52), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	for slot in range(3):
-		var button := make_button(contracts_content, "", Rect2(30, 210 + slot * 180, 420, 154), Color("#172442"), Color("#d4ad65"), 18)
-		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
-		button.add_theme_color_override("font_disabled_color", Color("#b9cadd"))
+		var button := make_button(contracts_content, "", Rect2(30, 190 + slot * 148, 420, 126), Color("#172442"), Color("#d4ad65"), 16)
+		preload("res://station_presentation.gd").paper_button(button)
+		LootlingsUI.add_icon(button,Rect2(16,38,44,44),"currency_gold")
 		button.pressed.connect(func(): contract_claim_requested.emit(slot))
 		contract_buttons.append(button)
 
@@ -603,11 +623,13 @@ func show_campaign() -> void:
 		var detail := "Farm %s • hunt %s\n%s" % [farm.material,target_name,Phase4.TIERS[selected_tier].text]
 		var status := "RETURN TO FARM" if campaign != null and id in campaign.completed else "EXPEDITION" if available else "LOCKED"
 		if tracked_here: status="★ TRACKED SOURCE • "+status
-		var button := make_button(campaign_list, "", Rect2(0, 0, 408, 88), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
-		button.custom_minimum_size = Vector2(408, 88)
+		var button := make_button(campaign_list, "", Rect2(0, 0, 408, 104), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
+		button.custom_minimum_size = Vector2(408, 104)
 		var preview:=TextureRect.new(); preview.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; preview.texture=CampaignSystem.zone_for(id,1).background; preview.position=Vector2(10,10); preview.size=Vector2(66,68); preview.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; preview.mouse_filter=Control.MOUSE_FILTER_IGNORE; preview.clip_contents=true; button.add_child(preview)
 		make_label(button,CampaignSystem.title(id),14,Rect2(88,13,302,25),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6a0") if available else Color("#91a3c2")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 		make_label(button,"%s • %s" % [farm.material,"★ TRACKED" if tracked_here else status],12,Rect2(88,42,302,29),HORIZONTAL_ALIGNMENT_LEFT,Color("#bacbe0")).mouse_filter=Control.MOUSE_FILTER_IGNORE
+		var loot_hint: String=str(preload("res://world_content_catalog.gd").FUTURE_ZONES.get(id,{}).get("loot","steel / relics / regional blueprints"))
+		make_label(button,loot_hint,12,Rect2(88,74,302,23),HORIZONTAL_ALIGNMENT_LEFT,Color("#a6d2c3")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.set_meta("gesture_release_owned",true)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
 		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
@@ -659,6 +681,10 @@ func add_forge_entry(item: Dictionary, index: int) -> void:
 func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
 	var button := make_button(forge_list, "", Rect2(0, 0, 398, 72), Color("#172442"), accent, 15)
 	button.custom_minimum_size = Vector2(398, 72)
+	for state in ["normal","hover","pressed","focus"]:
+		var plate:=preload("res://station_presentation.gd").metal(); plate.border_color=accent.darkened(.25)
+		if state in ["hover","focus"]: plate.bg_color=Color("#2e3e40")
+		button.add_theme_stylebox_override(state,plate)
 	button.tooltip_text = text
 	var visual := ItemIcon.new()
 	visual.position = Vector2(10, 6)
@@ -1328,11 +1354,11 @@ func build_transition_overlay() -> void:
 	add_child(presentation)
 
 func build_dialogue_overlay() -> void:
-	speech_panel=make_panel(self,Rect2(20,655,440,168),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
+	speech_panel=make_panel(self,Rect2(20,635,440,188),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
 	speech_portrait=TextureRect.new(); speech_portrait.position=Vector2(14,14); speech_portrait.size=Vector2(54,64); speech_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; speech_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; speech_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; speech_panel.add_child(speech_portrait)
-	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,92),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,110),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	make_button(speech_panel,"×",Rect2(386,6,48,48),Color("#172442"),Color("#7087ae"),22).pressed.connect(dismiss_dialogue)
-	speech_role=make_button(speech_panel,"",Rect2(82,112,304,48),Color("#293a46"),Color("#d8bd7b"),14)
+	speech_role=make_button(speech_panel,"",Rect2(82,132,304,48),Color("#293a46"),Color("#d8bd7b"),14)
 	speech_role.pressed.connect(func():
 		match speech_speaker:
 			"Salvager": show_forge()
@@ -1355,6 +1381,11 @@ func make_npc_hotspot(parent: Control, rect: Rect2, speaker: String) -> void:
 		else: resident_meeting_requested.emit(speaker)
 	)
 	parent.add_child(hotspot)
+
+func make_object_hotspot(parent: Control, node_name: String, rect: Rect2, action: Callable, hint: String) -> void:
+	var hotspot:=Button.new(); hotspot.name=node_name; hotspot.position=rect.position; hotspot.size=rect.size; hotspot.flat=true; hotspot.focus_mode=Control.FOCUS_NONE; hotspot.tooltip_text=hint; hotspot.set_meta("gesture_release_owned",true)
+	for state in ["normal","hover","pressed","focus"]: hotspot.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	hotspot.pressed.connect(action); parent.add_child(hotspot)
 
 func queue_dialogue_context(context: String) -> void:
 	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "signature_find":7, "large_hoard":5, "forge_evolved":4, "contract_complete":3, "cache_opened":3, "trophy_earned":2}
@@ -1379,7 +1410,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	var voice_name: String=WorldStory.SPEAKERS.get(requested_speaker,requested_speaker)
 	if requested_speaker=="Mascot":
 		voice_name=Avatar.display_name(profile)
-		line=str(preload("res://contextual_dialogue.gd").PERSONALITY.get(Avatar.preset_id(profile),"")) if Avatar.is_wanderer(profile) else WorldStory.mascot_line(str(profile.get("current_lootling_id","relic_beast")),0)
+		line=home_dialogue.choose(Avatar.preset_id(profile),facts) if Avatar.is_wanderer(profile) else WorldStory.mascot_line(str(profile.get("current_lootling_id","relic_beast")),0)
 	queued_dialogue_context=""; queued_dialogue_priority=-1
 	speech_label.text=voice_name+"
 "+line
@@ -1409,6 +1440,11 @@ func _process(delta: float) -> void:
 	if not visible:
 		return
 	if current_screen == "home":
+		var cycle:=int(scene_time/7.0)
+		if cycle!=station_cycle:
+			station_cycle=cycle
+			if cycle>0 and cycle%3==0: ui_event.emit("home_bench")
+			elif cycle%3==2: ui_event.emit("home_page")
 		life_event_clock -= delta
 		life_event_time = maxf(0.0, life_event_time - delta)
 		if life_event_clock <= 0.0:
@@ -1458,7 +1494,9 @@ func _draw() -> void:
 
 func background_for_screen() -> Texture2D:
 	match current_screen:
-		"campaign", "contracts", "forge": return BetaArt.MARKET
+		"campaign", "contracts": return BetaArt.MARKET
+		"forge": return BetaArt.GEARWORKS
+		"workshop": return BetaArt.ARCHIVE if phase4_mode=="archive" else BetaArt.GEARWORKS if phase4_mode=="blueprints" else BetaArt.MARKET
 		"shop": return SHOP_BACKGROUND
 		"stash": return STASH_BACKGROUND
 		"upgrades": return SHRINE_BACKGROUND
@@ -1471,6 +1509,13 @@ func draw_home_scene() -> void:
 	draw_hideout_light(Vector2(179, 244), 20.0, 0.040, 0.0)
 	draw_hideout_light(Vector2(302, 244), 20.0, 0.040, 1.3)
 	draw_hideout_light(Vector2(442, 169), 17.0, 0.030, 2.1)
+	# Accents live on the painted locations, rather than covering them with a menu.
+	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(scene_time*1.7)*.025
+	draw_arc(Vector2(240,179),63,-PI,0,32,gate_light,4,true)
+	for rune in range(5):
+		var point:=Vector2(240,182)+Vector2.RIGHT.rotated(PI+rune*PI/4)*63
+		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(scene_time*2-rune))*.16))
+	draw_home_board()
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.26))
 	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
@@ -1497,8 +1542,7 @@ func draw_home_scene() -> void:
 				draw_circle(Vector2(coin_x, 668 + absf(sin(scene_time * 9.0)) * -7.0), 5.0, Color("#ffd468"), false, 2.0)
 			"chest":
 				var twitch := sin(scene_time * 18.0) * 2.5
-				draw_rect(Rect2(38 + twitch, 612, 38, 27), Color("#704328"), true)
-				draw_line(Vector2(38 + twitch, 622), Vector2(76 + twitch, 622), Color("#d5a85a"), 3.0)
+				LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/sprites/rewards/scavenged_chest_beta.png"),Rect2(35+twitch,603,46,40))
 			"motes":
 				for mote_index in range(5):
 					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
@@ -1506,6 +1550,37 @@ func draw_home_scene() -> void:
 	draw_resident("Salvager", RESIDENT_RECTS.Salvager, "PATCH", 0.0)
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
 	draw_resident("Archivist", RESIDENT_RECTS.Archivist, "ILEX", 2.0)
+	draw_home_workstations()
+
+func draw_home_board() -> void:
+	# Original small sign nailed to the market side, with three pinned jobs.
+	draw_colored_polygon(PackedVector2Array([Vector2(335,236),Vector2(386,233),Vector2(389,269),Vector2(333,271)]),Color("#382a24"))
+	for page in range(3):
+		var x:=339+page*15
+		draw_colored_polygon(PackedVector2Array([Vector2(x,241),Vector2(x+12,240),Vector2(x+12,261),Vector2(x,263)]),Color("#c6ab79"))
+		draw_circle(Vector2(x+6,243),1.5,Color("#967344"))
+		for line in range(3): draw_line(Vector2(x+2,249+line*3),Vector2(x+9,249+line*3),Color("#655747"),.8,true)
+
+func draw_home_workstations() -> void:
+	# Foreground furniture grounds the residents. The canonical painting remains
+	# the room; these bounded accents add work, not a new homestead subsystem.
+	var working: bool=resident_activity("Salvager")=="working"
+	# The supplied painted counter is the furniture; do not synthesize a block.
+	if current_inventory!=null:
+		LootlingsUI.draw_icon(get_canvas_item(),LootlingsUI.item_texture(current_inventory.equipped_item("Weapon")),Rect2(370,411,47,42))
+	if working:
+		for spark in range(3):
+			var t:=fmod(scene_time*2+spark*.31,1.0)
+			draw_line(Vector2(397,435)+Vector2(spark*4-5,-t*20),Vector2(397,435)+Vector2(spark*4-3,-t*20-3),Color(1,.65,.25,(1-t)*.65),1.3,true)
+	# Archive reading light and page-turn highlights sit on the existing desk.
+	draw_colored_polygon(PackedVector2Array([Vector2(359,643),Vector2(374,640),Vector2(387,644),Vector2(389,653),Vector2(374,650),Vector2(359,653)]),Color("#b9a47c"))
+	draw_line(Vector2(374,642),Vector2(374,651),Color("#5c4c45"),1,true)
+	if resident_activity("Archivist")=="reading":
+		var turn:=sin(scene_time*1.4)*3
+		draw_line(Vector2(374,641),Vector2(382+turn,638),Color("#e6d5a6"),1.5,true)
+	draw_hideout_light(Vector2(404,631),13,.04,1.1)
+	var shrine_pulse:=.08+maxf(0,sin(scene_time*1.6))*.06
+	draw_circle(Vector2(66,372),16,Color(.64,.51,1,shrine_pulse))
 
 func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
 	var active: bool=int(scene_time/7.0)%3==int(phase)

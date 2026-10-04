@@ -225,10 +225,12 @@ func build_lootling_select() -> void:
 	add_roster_tabs(lootling_content,false)
 	var panel:=make_panel(lootling_content,Rect2(24,82,432,758),Color("#0b1430ed"),Color("#d1a85a"))
 	make_label(panel,"CHOOSE YOUR COMPANION",21,Rect2(20,16,392,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
-	selector_portrait=TextureRect.new(); selector_portrait.position=Vector2(86,60); selector_portrait.size=Vector2(260,246); selector_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; selector_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; panel.add_child(selector_portrait)
+	style_hero_stage(panel)
+	selector_portrait=TextureRect.new(); selector_portrait.position=Vector2(51,47); selector_portrait.size=Vector2(330,270); selector_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; selector_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; selector_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; panel.add_child(selector_portrait)
 	selector_name=make_label(panel,"",24,Rect2(24,319,384,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))
 	selector_lore=make_label(panel,"",15,Rect2(28,365,376,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); selector_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	selector_note=make_label(panel,"",15,Rect2(28,417,376,58),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); selector_note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	make_label(panel,"Your trait travels with every weapon.",12,Rect2(28,474,376,23),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
 	add_roster_strip(panel,false,Vector2(18,500))
 	selector_confirm=make_button(panel,"CHOOSE",Rect2(26,644,380,56),Color("#285c4c"),Color("#69e6b0"),18); selector_confirm.pressed.connect(confirm_lootling)
 	make_button(panel,"ORIGIN MEMORY",Rect2(26,706,380,48),Color("#17294b"),Color("#7087ae"),13).pressed.connect(func():
@@ -237,7 +239,7 @@ func build_lootling_select() -> void:
 
 func add_roster_tabs(parent: Control, human: bool) -> void:
 	make_button(parent,"LOOTLINGS",Rect2(24,20,210,48),Color("#293a46") if not human else Color("#17294b"),Color("#e2b563") if not human else Color("#7087ae"),16).pressed.connect(show_lootling_select)
-	make_button(parent,"WANDERERS",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),16).pressed.connect(show_wanderer_select)
+	make_button(parent,"WANDERERS • BETA",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),15).pressed.connect(show_wanderer_select)
 
 func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
 	var scroll:=ScrollContainer.new(); scroll.position=point; scroll.size=Vector2(396,136); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; scroll.scroll_deadzone=12; parent.add_child(scroll)
@@ -246,7 +248,7 @@ func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
 	for id in ids:
 		var button:=make_button(row,"",Rect2(0,0,190,82),Color("#17294b"),Color("#7087ae"),12); button.custom_minimum_size=Vector2(190,82)
 		var portrait:=TextureRect.new(); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.texture=WandererCatalog.runtime_texture(id) if human else LootlingCatalog.runtime_texture(id); portrait.position=Vector2(8,5); portrait.size=Vector2(60,70); portrait.custom_minimum_size=Vector2(60,70); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; button.add_child(portrait)
-		make_label(button,str(WandererCatalog.definition(id).display_name) if human else str(LootlingCatalog.definition(id).display_name),10,Rect2(74,24,110,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")).mouse_filter=Control.MOUSE_FILTER_IGNORE
+		var name_label:=make_label(button,str(WandererCatalog.definition(id).display_name) if human else str(LootlingCatalog.definition(id).display_name),12,Rect2(72,14,110,55),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; name_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.pressed.connect(func():
 			if human: selected_wanderer=id; refresh_wanderer_selector()
 			else: selected_lootling_id=id; refresh_selector()
@@ -287,7 +289,8 @@ func build_wanderer_select() -> void:
 	wanderer_content=Control.new(); wanderer_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); wanderer_content.visible=false; add_child(wanderer_content); add_roster_tabs(wanderer_content,true)
 	var panel:=make_panel(wanderer_content,Rect2(24,82,432,758),Color("#0b1430ed"),Color("#d1a85a"))
 	make_label(panel,"WANDERERS",21,Rect2(20,16,392,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
-	wanderer_portrait=TextureRect.new(); wanderer_portrait.position=Vector2(116,52); wanderer_portrait.size=Vector2(200,260); wanderer_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; wanderer_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; panel.add_child(wanderer_portrait)
+	style_hero_stage(panel)
+	wanderer_portrait=TextureRect.new(); wanderer_portrait.position=Vector2(76,45); wanderer_portrait.size=Vector2(280,270); wanderer_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; wanderer_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; wanderer_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; panel.add_child(wanderer_portrait)
 	wanderer_name=make_label(panel,"",20,Rect2(20,319,392,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))
 	wanderer_personality=make_label(panel,"",14,Rect2(28,358,376,45),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); wanderer_personality.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	wanderer_lore=make_label(panel,"",14,Rect2(28,411,376,48),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); wanderer_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
@@ -486,6 +489,17 @@ func _draw() -> void:
 	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
 	if get_parent().responsive_backdrop == null: draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
 	draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
+	if current_screen in ["lootling_select","wanderer_select"]:
+		# Original stage lighting, not a replacement character illustration.
+		for ring in range(4):
+			draw_circle(Vector2(240,260),145-ring*26,Color(.27,.40,.60,.04+ring*.015))
+		draw_set_transform(Vector2(240,387),0,Vector2(1,.20))
+		draw_circle(Vector2.ZERO,136,Color("#050a17bb"))
+		draw_arc(Vector2.ZERO,138,0,TAU,64,Color("#bc9c5870"),2,true)
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+		for mote in range(6):
+			var point:=Vector2(102+mote*55,350-fmod(scene_time*12+mote*31,180))
+			draw_circle(point,1.4,Color("#dfb65a66"))
 	if current_screen == "title":
 		var bob := sin(scene_time * 2.0) * 5.0
 		var breathe := 1.0 + sin(scene_time * 1.7) * 0.012
@@ -522,6 +536,10 @@ func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:
 	panel.add_theme_stylebox_override("panel", LootlingsUI.panel_style(fill, border, 22))
 	parent.add_child(panel)
 	return panel
+
+func style_hero_stage(panel: Panel) -> void:
+	var style:=StyleBoxFlat.new(); style.bg_color=Color("#07101e26"); style.border_color=Color("#c5a77766"); style.set_border_width_all(1); style.set_corner_radius_all(18)
+	panel.add_theme_stylebox_override("panel",style)
 
 func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignment: HorizontalAlignment, color: Color) -> Label:
 	var label := Label.new()

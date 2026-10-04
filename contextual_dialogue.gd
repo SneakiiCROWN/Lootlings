@@ -1,31 +1,36 @@
 extends RefCounted
 # Presentation-only facts/history. Never draws from gameplay RNG.
 const GREETINGS := {
-	"Salvager":["Bring the weapon over. I'll check the edge before we change anything.","A good grip matters more than a bright finish. Let's see what you're carrying."],
-	"Relic Keeper":["Put your pack down. Nothing here needs to be earned twice.","The shrine is ready when you are. There is no hurry at home."],
-	"Archivist":["Tell me who you met. Places keep their names when someone remembers.","I've kept your place in the record. Start with what you actually saw."]
+	"Salvager":["Set it on the bench. If the grip slips, the shine won't save you.","Warm fire, sound hinges, sharp steel. That's a home worth keeping."],
+	"Relic Keeper":["Put your pack down. You don't have to be useful every waking moment.","I'll tend the shrine. You tend the bruises. Neither job needs a hero."],
+	"Archivist":["Tell me who you met. Ruins are full of people reduced to architecture.","The dead rarely correct my spelling. I try not to take advantage."],
+	"vault_runner":["Count the exits before the coins. Then you get to spend them.","That door sticks. A useful fact when someone is chasing you."],
+	"ruin_warden":["Eat while it's warm. I'll take the first watch.","Check the straps. A loose buckle shouldn't decide who comes home."],
+	"nightstage_drifter":["Stay close. I like an audience that makes it home.","You kept me a seat? Careful. I'll start coming back for more than treasure."],
+	"velvet_astrologer":["An uncertain sky is no excuse for an unprepared departure.","I trust the calculations. I still check the bowstring."],
+	"ashtrail_hunter":["Three fresh tracks by the gate. One limps.","Wind's turning. We should leave before it carries our scent."]
 }
 const PERSONALITY := {
-	"vault_runner":"One safe way out. Two profitable ways in. I'll take a look.",
-	"ruin_warden":"We go together. We come home together.",
-	"nightstage_drifter":"Clean boots, sharp steel. Let's make an entrance worth leaving.",
-	"velvet_astrologer":"A promising alignment. Naturally, I've brought a contingency.",
-	"ashtrail_hunter":"Fresh tracks past the gate. We leave before the wind turns."
+	"vault_runner":"Exit first. Treasure second. That's how you get to spend it.",
+	"ruin_warden":"Keep behind my shoulder. Nobody gets left at the gate.",
+	"nightstage_drifter":"Stay close. I like an audience that makes it home.",
+	"velvet_astrologer":"The pattern is clear. The risk isn't. I brought a contingency.",
+	"ashtrail_hunter":"Fresh tracks. One limps. We leave before the wind turns."
 }
 const LINES := [
 	{"speaker":"Salvager","event":"forge_evolved","text":"The balance has changed. Give the new movement room on your next trip."},
 	{"speaker":"Salvager","event":"early_defeat","text":"You came back. That's the part I can't replace. We'll check your gear next."},
-	{"speaker":"Salvager","event":"legendary_find","text":"That edge was made for a particular job. Read its effect before you trade away your old weapon."},
+	{"speaker":"Salvager","event":"legendary_find","text":"Fine edge. Unusual balance. Keep the old weapon until you know what this one asks of you."},
 	{"speaker":"Relic Keeper","event":"early_defeat","text":"Rest first. A living Core is worth more than the treasure left behind."},
 	{"speaker":"Relic Keeper","event":"victory","text":"You returned with something the Crown couldn't keep. We'll give it a home."},
 	{"speaker":"Archivist","event":"boss_defeated","text":"The guardian is gone. Tell me its name before we count the spoils."},
 	{"speaker":"Archivist","event":"signature_find","text":"A named relic carries a witness. I'll record yours beside it."},
-	{"speaker":"Archivist","event":"contract_complete","text":"The work is recorded. Your reward is waiting at the board."},
-	{"speaker":"Archivist","mode":"siege","outcome":"victory","text":"You chose a way home from the Siege. The highest round is recorded; the choice is yours."},
+	{"speaker":"Archivist","event":"contract_complete","text":"The board owes you a reward. Collect it before generosity becomes a historical footnote."},
+	{"speaker":"Archivist","mode":"siege","outcome":"victory","text":"You left the Siege alive. A satisfying ending. The Crown prefers its stories unfinished."},
 	{"speaker":"Relic Keeper","mode":"dungeon","outcome":"victory","text":"Another Crownroot from the Vault. Small returns can restore something whole."},
 	{"speaker":"Salvager","weapon":"bow","text":"I'll check the string and grip. A bow should pull cleanly, not fight its bearer."},
 	{"speaker":"Salvager","weapon":"crossbow","text":"Let me inspect the catch before you head out. Keep the bolt clear of the mechanism."}
-	,{"speaker":"Salvager","activity":"working","text":"I'm dressing an old edge. Leave your weapon on the bench; I'll check its balance next."}
+	,{"speaker":"Salvager","activity":"working","text":"An old edge, made sound again. Leave yours on the bench; I'll check its balance."}
 	,{"speaker":"Archivist","activity":"reading","text":"This account names the people who built the vault. I'd like your next journey to add a witness."}
 	,{"speaker":"Relic Keeper","activity":"inspecting","text":"I'm checking the shrine bindings. Your Core can rest here while I finish."}
 ]
