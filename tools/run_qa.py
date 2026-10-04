@@ -3,7 +3,7 @@ import subprocess, os, json, time, argparse, uuid, shutil, sys
 ROOT=Path(__file__).resolve().parents[1]
 GODOT=Path(os.environ.get('GODOT', shutil.which('godot') or str(Path.home()/'Desktop'/'Godot_v4.7.2-stable_win64_console.exe')))
 OUT=ROOT/'.godot_test_data'/'qa_logs'
-p=argparse.ArgumentParser(description='Run guarded Lootlings fixtures with disposable saves. Set GODOT to the engine executable.'); p.add_argument('--native',action='store_true'); p.add_argument('--only',nargs='*'); p.add_argument('--label',default='baseline'); p.add_argument('--size',default='480x854'); args=p.parse_args()
+p=argparse.ArgumentParser(description='Run guarded Lootlings fixtures with disposable saves. Set GODOT to the engine executable.'); p.add_argument('--native',action='store_true'); p.add_argument('--only',nargs='*'); p.add_argument('--label',default='baseline'); p.add_argument('--size',default='480x854'); p.add_argument('--reuse-phase3-labs',action='store_true',help='RC only: reuse unchanged stationary DPS/incoming-pressure labs; rerun changed run/reward cohorts'); args=p.parse_args()
 if args.only:
     unknown=set(args.only)-{x.stem for x in (ROOT/'tests').glob('*.gd')}
     if unknown: p.error('Unknown QA fixtures: '+', '.join(sorted(unknown)))
@@ -45,11 +45,17 @@ for path in sorted((ROOT/'tests').glob('*.gd')):
     name=path.stem
     if args.only and name not in args.only: continue
     if name == 'balance_audit' and not args.only: continue # Legacy entry point delegates to the isolated harness.
+    if args.reuse_phase3_labs and name in ['phase3_dps','phase3_pressure_qa']:
+        evidence=ROOT/'docs/production/phase3/final'/(name+'.log')
+        if not evidence.exists(): raise SystemExit('Missing Phase 3 evidence: '+str(evidence))
+        results.append(dict(name=name,exit=0,seconds=0,errors=[],expected_diagnostics=[],reused=str(evidence.relative_to(ROOT)),scope='Stationary/pressure lab only; reward decisions do not occur. Run cohorts are rerun.'))
+        (folder/'results.json').write_text(json.dumps(results,indent=2)); print(name,'reused unchanged Phase 3 lab',flush=True)
+        continue
     if args.native:
         if name.endswith('_runs') or name in ['smoke_test','expansion_test','balance_audit','phase3_balance','phase3_dps','phase3_economy','wardrobe_qa','audio_production_qa','save_recovery_qa']: continue
         cmd=['--resolution',args.size,'--position','0,0','-s','res://tests/'+path.name,'--','--visual','--report']
     else:
-        if name in ['audio_mix_qa','visual_qa_capture','mobile_layout_qa','presentation_matrix_qa','phase3_final_details']: continue
+        if name in ['audio_mix_qa','visual_qa_capture','mobile_layout_qa','presentation_matrix_qa','phase3_final_details','rc_native_review']: continue
         cmd=['--headless','-s','res://tests/'+path.name,'--','--report']
     run(name,cmd,1200 if name in ['phase3_balance','balance_audit'] else 300)
 

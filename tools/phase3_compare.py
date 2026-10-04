@@ -2,8 +2,8 @@
 from pathlib import Path
 import json, statistics, collections, argparse
 ROOT = Path(__file__).resolve().parents[1]
-p = argparse.ArgumentParser(); p.add_argument('candidate', type=Path); args = p.parse_args()
-base = [json.loads(x) for x in (ROOT/'docs/production/phase3/baseline/runs.jsonl').read_text().splitlines()]
+p = argparse.ArgumentParser(); p.add_argument('candidate', type=Path); p.add_argument('--baseline', type=Path, default=ROOT/'docs/production/phase3/baseline/runs.jsonl'); args = p.parse_args()
+base = [json.loads(x) for x in args.baseline.read_text().splitlines()]
 final = [json.loads(x) for x in args.candidate.read_text().splitlines()]
 assert len(base) == len(final) == 512
 def dist(values):

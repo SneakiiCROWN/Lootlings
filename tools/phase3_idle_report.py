@@ -1,10 +1,10 @@
 """Preserve the no-tap breadth cohort separately from paired baseline results."""
 from pathlib import Path
 import argparse, json, statistics
-p = argparse.ArgumentParser(); p.add_argument('log', type=Path); a = p.parse_args()
+p = argparse.ArgumentParser(); p.add_argument('log', type=Path); p.add_argument('--label', default='final-idle'); a = p.parse_args()
 rows = [json.loads(line.removeprefix('PHASE3_IDLE ')) for line in a.log.read_text().splitlines() if line.startswith('PHASE3_IDLE {')]
 assert len(rows) == 96 and all(r['policy'] == 'idle' for r in rows)
-out = Path(__file__).resolve().parents[1]/'docs/production/phase3/final-idle'; out.mkdir(parents=True, exist_ok=True)
+out = Path(__file__).resolve().parents[1]/'docs/production/phase3'/a.label; out.mkdir(parents=True, exist_ok=True)
 (out/'runs.jsonl').write_text(''.join(json.dumps(r,separators=(',',':'))+'\n' for r in rows))
 summary = {}
 for actor in sorted({r['actor'] for r in rows}):

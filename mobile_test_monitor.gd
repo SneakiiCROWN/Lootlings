@@ -136,7 +136,7 @@ func show_report() -> void:
 	column.add_theme_constant_override("separation", 12)
 	panel.add_child(column)
 	var title := Label.new()
-	title.text = "S23 TEST REPORT"
+	title.text = "DEVICE TEST REPORT"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var data := report()

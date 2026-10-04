@@ -183,6 +183,7 @@ var item_review_due := false
 var return_to_merchant := false
 var equipment_hp_bonus := 0.0
 var boss_reward_options: Array = []
+var normal_loot_choice := false
 var hoard_chest_phase := ""
 var hoard_chest_timer := 0.0
 var hoard_chest_y := 330.0
@@ -273,6 +274,8 @@ var merchant_visuals: Array[Dictionary] = []
 var merchant_reroll_button: Button
 var merchant_continue_button: Button
 var boss_reward_panel: Panel
+var boss_reward_heading: Label
+var boss_reward_footer: Label
 var boss_reward_buttons: Array[Button] = []
 var boss_reward_icons: Array = []
 var boss_reward_visuals: Array[Dictionary] = []
@@ -785,8 +788,8 @@ func build_overlay_ui() -> void:
 func build_pause_ui() -> void:
 	pause_button = Button.new()
 	pause_button.text = "Ⅱ  PAUSE"
-	pause_button.position = Vector2(232, 17)
-	pause_button.size = Vector2(86, 42)
+	pause_button.position = Vector2(232, 10)
+	pause_button.size = Vector2(86, 64)
 	pause_button.add_theme_font_size_override("font_size", 12)
 	apply_button_style(pause_button, Color("#172442df"), Color("#8fa6cf"))
 	pause_button.pressed.connect(pause_run)
@@ -1010,6 +1013,7 @@ func confirm_abandon_run() -> void:
 	pending_items.clear()
 	loot_drops.clear()
 	boss_reward_options.clear()
+	normal_loot_choice = false
 	current_item.clear()
 	pending_victory = false
 	merchant_due = false
@@ -1433,7 +1437,7 @@ func build_boss_reward_ui() -> void:
 	boss_reward_panel = make_panel(Rect2(20, 155, 440, 570), Color("#17142ff8"))
 	LootlingsUI.apply_material(boss_reward_panel, "hoard")
 	boss_reward_panel.visible = false
-	make_label(boss_reward_panel, "BOSS HOARD", 30, Rect2(20, 18, 400, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffd36a"))
+	boss_reward_heading = make_label(boss_reward_panel, "BOSS HOARD", 30, Rect2(20, 18, 400, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffd36a"))
 	make_label(boss_reward_panel, "Inspect a reward, then confirm one", 16, Rect2(20, 64, 400, 30), HORIZONTAL_ALIGNMENT_CENTER, Color("#d9c9ff"))
 	for i in range(3):
 		var button := Button.new()
@@ -1457,7 +1461,7 @@ func build_boss_reward_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		boss_reward_visuals.append({"kicker":kicker, "name":title, "effects":effects})
-	make_label(boss_reward_panel, "One prize. Three reasons to be indecisive.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
+	boss_reward_footer = make_label(boss_reward_panel, "One prize. Three reasons to be indecisive.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
 
 func build_hoard_chest_ui() -> void:
 	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
@@ -1591,6 +1595,7 @@ func start_run() -> void:
 	pending_items.clear()
 	current_item.clear()
 	boss_reward_options.clear()
+	normal_loot_choice = false
 	hoard_chest_phase = ""
 	hoard_chest_timer = 0.0
 	if hoard_chest_button != null:
@@ -1907,7 +1912,15 @@ func _process(delta: float) -> void:
 				queue_redraw()
 				return
 			if not pending_items.is_empty():
-				show_next_item()
+				if pending_items.size() > 1:
+					normal_loot_choice = true
+					boss_reward_options = pending_items.duplicate(true)
+					if boss_reward_options.size() > 3:
+						boss_reward_options.sort_custom(func(a,b): return ItemCatalog.rarity_rank(a.rarity) > ItemCatalog.rarity_rank(b.rarity))
+						boss_reward_options = boss_reward_options.slice(0,3)
+					pending_items.clear()
+					show_boss_reward()
+				else: show_next_item()
 				queue_redraw()
 				return
 			item_review_due = false
@@ -2539,6 +2552,7 @@ func spawn_item_drop() -> bool:
 	return spawned_count > 0
 
 func prepare_hoard_chest() -> void:
+	normal_loot_choice = false
 	boss_reward_options.clear()
 	for drop_index in range(3):
 		var item: Dictionary = loot_system.roll_drop(false, true)
@@ -2612,7 +2626,14 @@ func show_boss_reward() -> void:
 	pause_button.visible = false
 	boss_reward_panel.visible = true
 	help_label.visible = false
+	boss_reward_heading.text = "WAVE FINDS — PICK ONE" if normal_loot_choice else "BOSS HOARD"
+	boss_reward_heading.add_theme_font_size_override("font_size",24 if normal_loot_choice else 30)
+	boss_reward_footer.text = "One find from this wave. The rest stay in the ruins." if normal_loot_choice else "One prize. Three reasons to be indecisive."
 	for i in range(boss_reward_buttons.size()):
+		var offered := i < boss_reward_options.size()
+		boss_reward_buttons[i].visible = offered
+		boss_reward_icons[i].visible = offered
+		if not offered: continue
 		var item: Dictionary = boss_reward_options[i]
 		boss_reward_buttons[i].text = boss_reward_card_text(item)
 		boss_reward_buttons[i].add_theme_font_size_override("font_size", 13)
@@ -2646,17 +2667,17 @@ func boss_reward_card_text(item: Dictionary) -> String:
 	return "                 %s  •  %s\n                 %s\n                 %s" % [str(item.get("rarity", "EPIC")), name, ItemCatalog.display_identity(item), headline]
 
 func inspect_boss_reward(index: int) -> void:
-	if state != "boss_reward" or index >= boss_reward_options.size(): return
+	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size(): return
 	var item: Dictionary = boss_reward_options[index]
-	touch_ux.request(str(item.name),"%s\n\n%s\n\nTake this reward? The other two stay in the hoard." % [ItemCatalog.display_identity(item),ItemCatalog.describe_headline_effects(item,4)],choose_boss_reward.bind(index))
+	touch_ux.request(str(item.name),"%s\n\n%s\n\nTake this reward? The other finds stay behind." % [ItemCatalog.display_identity(item),ItemCatalog.describe_headline_effects(item,4)],choose_boss_reward.bind(index))
 
 func inspect_merchant_item(index: int) -> void:
-	if state != "merchant" or index >= shop.stock.size(): return
+	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
 	var item: Dictionary = shop.stock[index]
-	touch_ux.request(str(item.name),"%s\n\nBuy for %d Run Scrip? You can inspect and decide whether to equip it next." % [ItemCatalog.describe_headline_effects(item,3),int(item.price)],buy_merchant_item.bind(index))
+	touch_ux.request(str(item.name),"Buy for %d Run Scrip?\nOne purchase at this stop. Other offers stay behind.\n\n%s" % [int(item.price),ItemCatalog.describe_headline_effects(item,3)],buy_merchant_item.bind(index))
 
 func inspect_upgrade(index: int) -> void:
-	if state != "upgrade" or index >= selected_upgrades.size(): return
+	if state != "upgrade" or index < 0 or index >= selected_upgrades.size(): return
 	var upgrade: Dictionary = selected_upgrades[index]
 	touch_ux.request(str(upgrade.name),"%s\n\nApplies to this expedition. Choose this upgrade; the other two are discarded." % upgrade.desc,choose_upgrade.bind(index))
 
@@ -2664,6 +2685,7 @@ func choose_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size():
 		return
 	var chosen: Dictionary = boss_reward_options[index]
+	normal_loot_choice = false
 	play_rarity_audio(chosen.get("rarity", "EPIC"))
 	boss_reward_options.clear()
 	boss_reward_panel.visible = false
@@ -2827,7 +2849,8 @@ func finish_item_decision() -> void:
 		show_next_item()
 	elif return_to_merchant:
 		return_to_merchant = false
-		show_merchant()
+		state = "merchant"
+		leave_merchant()
 	elif pending_victory:
 		end_run(true)
 	else:
@@ -2854,7 +2877,7 @@ func show_merchant() -> void:
 	state = "merchant"
 	merchant_due = false
 	if shop.stock.is_empty():
-		shop.generate_stock(loot_system, wave,current_weapon_family())
+		shop.begin_visit(loot_system, wave,current_weapon_family())
 	merchant_panel.visible = true
 	help_label.visible = false
 	refresh_merchant_ui()
@@ -2863,8 +2886,9 @@ func show_merchant() -> void:
 
 func refresh_merchant_ui() -> void:
 	merchant_title.text = "PACK PEDDLER"
-	merchant_subtitle.text = shop.stock_style
-	merchant_coin_label.text = "[center]%s  %d RUN SCRIP[/center]" % [LootlingsUI.inline_icon("currency_run_scrip", 20), coins]
+	merchant_subtitle.text = shop.stock_style + " • PICK ONE"
+	merchant_subtitle.add_theme_font_size_override("font_size",11)
+	merchant_coin_label.text = "[center]%s  %s RUN SCRIP[/center]" % [LootlingsUI.inline_icon("currency_run_scrip", 20), preload("res://display_numbers.gd").compact(coins)]
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
 		if i >= shop.stock.size():
@@ -2889,7 +2913,7 @@ func refresh_merchant_ui() -> void:
 			headline = headline.left(42) + "…"
 		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, headline]
 		button.tooltip_text = "%s\n%s" % [item.name, ItemCatalog.describe_headline_effects(item, 2)]
-		button.disabled = coins < price
+		button.disabled = shop.purchase_taken or coins < price
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
 		# Keep the semantic button text, but render its information in an icon-safe lane.
 		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
@@ -2901,7 +2925,7 @@ func refresh_merchant_ui() -> void:
 			label.modulate = Color("#a1a9bb") if button.disabled else Color.WHITE
 	var reroll_price := shop.reroll_cost(wave)
 	merchant_reroll_button.text = "REROLL  %d" % reroll_price
-	merchant_reroll_button.disabled = coins < reroll_price
+	merchant_reroll_button.disabled = shop.purchase_taken or coins < reroll_price
 
 func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dictionary) -> void:
 	category_icon.visible = true
@@ -2911,13 +2935,8 @@ func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dict
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.add_theme_constant_override("icon_max_width", 62)
 
-func merchant_weapon_texture(item: Dictionary) -> Texture2D:
-	if item.get("slot", "") != "Weapon":
-		return null
-	return LootlingsUI.item_texture(item)
-
 func buy_merchant_item(index: int) -> void:
-	if state != "merchant" or index < 0 or index >= shop.stock.size():
+	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size():
 		return
 	var price := int(shop.stock[index].get("price", 0))
 	if coins < price:
@@ -2934,7 +2953,7 @@ func buy_merchant_item(index: int) -> void:
 	show_next_item()
 
 func reroll_merchant() -> void:
-	if state != "merchant":
+	if state != "merchant" or shop.purchase_taken:
 		return
 	var price := shop.reroll_cost(wave)
 	if coins < price:

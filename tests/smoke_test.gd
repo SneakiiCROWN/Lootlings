@@ -446,7 +446,7 @@ func run_tests() -> void:
 	var rare_price_wave_6 := test_shop.price_for(ItemCatalog.create_item("mossguard_harness", "RARE", 902), 6)
 	var rare_price_wave_11 := test_shop.price_for(ItemCatalog.create_item("mossguard_harness", "RARE", 903), 11)
 	check(common_price_wave_6 == 94 and rare_price_wave_6 == 144 and rare_price_wave_11 == 174, "merchant prices use the tuned rarity and later-stop curve")
-	check(test_shop.reroll_cost(6) == 91 and test_shop.reroll_cost(11) == 121, "merchant rerolls are meaningful wave-scaled decisions")
+	check(test_shop.reroll_cost(6) == 36 and test_shop.reroll_cost(11) == 51, "merchant rerolls leave room for the single paid choice")
 	var first_serial: int = test_shop.stock[0].serial
 	test_shop.reroll(test_loot, 6)
 	check(test_shop.stock.size() == 3 and int(test_shop.stock[0].serial) != first_serial, "merchant reroll replaces its stock")
@@ -529,15 +529,18 @@ func run_tests() -> void:
 	game.coins = 999
 	game.wave = 6
 	game.show_merchant()
+	var coins_before_reroll: int = game.coins
+	game.reroll_merchant()
+	check(game.coins == coins_before_reroll - 36 and game.shop.rerolls == 1, "merchant reroll spends Run Scrip before the paid choice")
 	var coins_before_purchase: int = game.coins
 	var purchase_price: int = game.shop.stock[0].price
 	game.buy_merchant_item(0)
 	check(game.coins == coins_before_purchase - purchase_price and game.state == "item", "merchant purchase spends Run Scrip and opens the item decision")
 	game.accept_item_scrap()
-	check(game.state == "merchant", "merchant purchase returns safely to the shop")
-	var coins_before_reroll: int = game.coins
+	check(game.state == "playing" and game.shop.purchase_taken, "merchant purchase settles one find and closes the stop")
+	var coins_after_purchase: int = game.coins
 	game.reroll_merchant()
-	check(game.coins < coins_before_reroll and game.shop.rerolls == 1, "merchant reroll spends Run Scrip")
+	check(game.coins == coins_after_purchase, "a completed stop cannot reroll or charge again")
 	game.leave_merchant()
 	for mechanic_id in ["ignite", "storm", "venom", "heavy"]:
 		game.start_run()
@@ -745,8 +748,8 @@ func run_tests() -> void:
 			elif game.state == "item":
 				game.accept_item_equip()
 			elif game.state == "boss_reward":
-				check(game.boss_reward_options.size() == 3, "boss reward presents three meaningful Epic+ choices")
-				game.choose_boss_reward((run_index + 1) % 3)
+				check(game.boss_reward_options.size() in [2,3] if game.normal_loot_choice else game.boss_reward_options.size() == 3 and game.boss_reward_options.all(func(item): return item.rarity in ["EPIC","LEGENDARY"]), "wave finds offer alternatives; boss hoards retain three Epic+ choices")
+				game.choose_boss_reward((run_index + 1) % game.boss_reward_options.size())
 			elif game.state == "hoard_chest":
 				game._process(0.08)
 				if game.hoard_chest_phase == "ready":
@@ -795,7 +798,7 @@ func resolve_interstitials(game, upgrade_index: int) -> void:
 		elif game.state == "item":
 			game.accept_item_scrap()
 		elif game.state == "boss_reward":
-			check(game.boss_reward_options.size() == 3, "boss reward presents three meaningful Epic+ choices")
+			check(game.boss_reward_options.size() in [2,3] if game.normal_loot_choice else game.boss_reward_options.size() == 3 and game.boss_reward_options.all(func(item): return item.rarity in ["EPIC","LEGENDARY"]), "wave finds offer alternatives; boss hoards retain three Epic+ choices")
 			game.choose_boss_reward(0)
 		elif game.state == "hoard_chest":
 			game._process(0.7)

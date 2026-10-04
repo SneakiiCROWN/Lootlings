@@ -38,7 +38,8 @@ func run_qa() -> void:
 	# Every live starter's physical drops must use its actual family art.
 	for type in preload("res://weapon_catalog.gd").STARTERS:
 		var weapon := preload("res://weapon_catalog.gd").starter(type)
-		assert(game.merchant_weapon_texture(weapon) == UI.item_texture(weapon))
+		game.apply_merchant_thumbnail(game.merchant_buttons[0],game.merchant_icons[0],weapon)
+		assert(game.merchant_icons[0].painted_texture == UI.item_texture(weapon))
 	game.show_hideout()
 	# Other isolated suite tests may have persisted an equipped charm. This UI
 	# fixture must select the item it just creates, not a previous test's gear.

@@ -69,7 +69,7 @@ func simulate(game, policy: String, sample: int) -> Dictionary:
 			"item":
 				items.append({"id":game.current_item.id, "rarity":game.current_item.rarity, "slot":game.current_item.slot})
 				game.accept_item_equip()
-			"boss_reward": game.choose_boss_reward((sample + 1) % 3)
+			"boss_reward": game.choose_boss_reward((sample + 1) % game.boss_reward_options.size())
 			"hoard_chest":
 				game._process(0.08)
 				if game.hoard_chest_phase == "ready": game.open_hoard_chest()

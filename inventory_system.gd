@@ -125,24 +125,44 @@ func load(path: String) -> void:
 	var config := ConfigFile.new()
 	if preload("res://safe_config.gd").load_config(config, path, "inventory") != OK:
 		return
-	scrap = clampi(int(config.get_value("inventory", "scrap", 0)), 0, 999999)
-	var loaded_capacity := int(config.get_value("inventory", "stash_capacity", DEFAULT_STASH_CAPACITY))
+	scrap = clampi(preload("res://safe_config.gd").int_value(config.get_value("inventory", "scrap", 0)), 0, 999999)
+	var loaded_capacity := preload("res://safe_config.gd").int_value(config.get_value("inventory", "stash_capacity", DEFAULT_STASH_CAPACITY),DEFAULT_STASH_CAPACITY)
 	stash_capacity = loaded_capacity if loaded_capacity in STASH_CAPACITY_STEPS else DEFAULT_STASH_CAPACITY
 	var loaded_stash = config.get_value("inventory", "stash", [])
-	stash = loaded_stash.slice(0, stash_capacity) if loaded_stash is Array else []
+	stash.clear()
+	if loaded_stash is Array:
+		for record in loaded_stash:
+			var item := sanitize_saved_item(record)
+			if not item.is_empty() and stash.size() < stash_capacity: stash.append(item)
 	var loaded_equipped = config.get_value("inventory", "equipped", {})
 	if loaded_equipped is Dictionary:
 		for slot in SLOTS:
-			var item = loaded_equipped.get(slot, {})
-			if item is Dictionary and (item.is_empty() or item.get("slot", slot) == slot):
-				equipped[slot] = item
+			equipped[slot] = sanitize_saved_item(loaded_equipped.get(slot, {}),slot)
 	if equipped_item("Weapon").is_empty():
 		equipped.Weapon = ItemCatalog.create_item("scrapfang_blade", "COMMON", -1)
 	# v1/v2 items retain their exact effects; missing evolution is stage zero.
 	for item in stash:
 		if item is Dictionary:
-			item.evolution_stage = clampi(int(item.get("evolution_stage", 0)), 0, 2)
+			item.evolution_stage = clampi(preload("res://safe_config.gd").int_value(item.get("evolution_stage", 0)), 0, 2)
 	for slot in SLOTS:
 		var item: Dictionary = equipped.get(slot, {})
 		if not item.is_empty():
-			item.evolution_stage = clampi(int(item.get("evolution_stage", 0)), 0, 2)
+			item.evolution_stage = clampi(preload("res://safe_config.gd").int_value(item.get("evolution_stage", 0)), 0, 2)
+
+static func sanitize_saved_item(record: Variant, expected_slot: String = "") -> Dictionary:
+	if not record is Dictionary or record.is_empty(): return {}
+	var slot = record.get("slot",expected_slot)
+	if not slot is String or not slot in SLOTS or (not expected_slot.is_empty() and slot != expected_slot): return {}
+	if not record.get("id",null) is String or not record.get("effects",{}) is Dictionary: return {}
+	var item: Dictionary = record.duplicate(true)
+	item.slot = slot
+	for key in item.get("effects",{}):
+		var value = item.effects[key]
+		if not (value is int or value is float) or not is_finite(float(value)): return {}
+	var defaults := ItemCatalog.definition(item.id)
+	for key in ["name","desc","rarity","family","weapon_type","signature"]:
+		if item.has(key) and not item[key] is String: item[key] = str(defaults.get(key,""))
+	if item.has("signature_hooks"):
+		item.signature_hooks = item.signature_hooks.filter(func(hook): return hook is String) if item.signature_hooks is Array else []
+	if item.has("serial"): item.serial = preload("res://safe_config.gd").int_value(item.serial)
+	return item

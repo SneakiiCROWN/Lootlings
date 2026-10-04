@@ -29,7 +29,7 @@ def invoke(command, env, log=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare', action='store_true')
-    parser.add_argument('--output', default='builds/android/Lootlings-phase2-s23-debug.apk')
+    parser.add_argument('--output', default='builds/android/Lootlings-predevice-rc-debug.apk')
     args = parser.parse_args()
     WORK.mkdir(parents=True, exist_ok=True)
     for name, (url, algorithm, expected) in PACKAGES.items():

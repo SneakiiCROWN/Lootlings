@@ -119,8 +119,9 @@ func run_qa() -> void:
 					if native: await capture_once("hoard_chest")
 					game.open_hoard_chest()
 			"boss_reward":
-				assert(game.boss_reward_options.size() == 3)
-				for item in game.boss_reward_options: assert(item.rarity in ["EPIC", "LEGENDARY"])
+				assert(game.boss_reward_options.size() in [2,3] if game.normal_loot_choice else game.boss_reward_options.size() == 3)
+				if not game.normal_loot_choice:
+					for item in game.boss_reward_options: assert(item.rarity in ["EPIC", "LEGENDARY"])
 				for visuals in game.boss_reward_visuals:
 					assert(visuals.effects.get_minimum_size().y <= 48.0)
 					assert(visuals.name.get_theme_font("font").get_string_size(visuals.name.text, HORIZONTAL_ALIGNMENT_LEFT, -1, visuals.name.get_theme_font_size("font_size")).x <= 270.0)

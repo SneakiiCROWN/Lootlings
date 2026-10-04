@@ -1,4 +1,10 @@
 extends RefCounted
+static func int_value(value: Variant, fallback: int = 0) -> int:
+	if value is int: return value
+	if value is float and is_finite(value): return int(value)
+	if value is String and value.is_valid_int(): return int(value)
+	return fallback
+
 # A verified temporary file plus one previous parseable generation per store.
 # This is per-file recovery, not a cross-store transaction or a resumable run.
 static func load_config(config: ConfigFile, path: String, section: String) -> Error:

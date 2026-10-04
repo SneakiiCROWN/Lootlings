@@ -103,7 +103,7 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 					game.accept_item_equip()
 				else: game.accept_item_scrap()
 				decisions += 1
-			"boss_reward": game.choose_boss_reward(sample % 3); decisions += 1
+			"boss_reward": game.choose_boss_reward(sample % game.boss_reward_options.size()); decisions += 1
 			"hoard_chest":
 				game._process(.05); seconds += .05
 				if game.hoard_chest_phase == "ready": game.open_hoard_chest()

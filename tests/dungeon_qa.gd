@@ -69,8 +69,9 @@ func run_qa() -> void:
 					"item": game.accept_item_scrap()
 					"merchant": game.leave_merchant()
 					"boss_reward":
-						assert(game.boss_reward_options.size() == 3)
-						for item in game.boss_reward_options: assert(item.rarity in ["EPIC", "LEGENDARY"])
+						assert(game.boss_reward_options.size() in [2,3] if game.normal_loot_choice else game.boss_reward_options.size() == 3)
+						if not game.normal_loot_choice:
+							for item in game.boss_reward_options: assert(item.rarity in ["EPIC", "LEGENDARY"])
 						if native: await capture("route_boss_hoard")
 						game.choose_boss_reward(0)
 					"hoard_chest":

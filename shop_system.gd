@@ -6,6 +6,14 @@ var stock: Array = []
 var rerolls := 0
 var stock_style := "Roadside goods"
 var discount := 1.0
+var purchase_taken := false
+var preferred_family := ""
+
+func begin_visit(loot_system, wave: int, family: String = "") -> void:
+	purchase_taken = false
+	rerolls = 0
+	preferred_family = family
+	generate_stock(loot_system, wave, family)
 
 func generate_stock(loot_system, wave: int, preferred_family: String = "") -> void:
 	stock.clear()
@@ -22,19 +30,21 @@ func generate_stock(loot_system, wave: int, preferred_family: String = "") -> vo
 		stock.append(item)
 
 func price_for(item: Dictionary, wave: int) -> int:
-	# Run Scrip is plentiful by design; meaningful rarity steps make each of the two stops a choice.
+	# One purchase per stop; rarity and reroll costs create alternatives.
 	return [58, 108, 185, 320][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 6
 
 func reroll_cost(wave: int) -> int:
-	return 55 + wave * 6 + rerolls * 25
+	return 18 + wave * 3 + rerolls * 18
 
 func reroll(loot_system, wave: int) -> void:
+	if purchase_taken: return
 	rerolls += 1
-	generate_stock(loot_system, wave)
+	generate_stock(loot_system, wave, preferred_family)
 
 func take(index: int) -> Dictionary:
-	if index < 0 or index >= stock.size():
+	if purchase_taken or index < 0 or index >= stock.size():
 		return {}
 	var item: Dictionary = stock[index]
+	purchase_taken = true
 	stock.remove_at(index)
 	return item
