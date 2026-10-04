@@ -1,5 +1,6 @@
 extends RefCounted
 const Catalog=preload("res://phase4b_catalog.gd")
+const SpinCatalog=preload("res://relic_spin_catalog.gd")
 var game
 var progress=preload("res://endgame_progress.gd").new()
 var rng:=RandomNumberGenerator.new()
@@ -20,6 +21,12 @@ var spin_message:=""
 var spin_kind:=""
 var spin_tween: Tween
 var selected_at:=0
+var spin_reward: Dictionary={}
+var spinner_from_modes:=false
+var dimmer: ColorRect
+var chase: Label
+var chase_bar: ProgressBar
+var pool_panel: Panel
 func configure(target) -> void:
 	game=target; progress.load_progress(); progress.recover(game)
 	game.hideout_ui.endgame_progress=progress
@@ -32,6 +39,20 @@ func configure(target) -> void:
 		b.add_theme_font_size_override("font_size",14); buttons.append(b)
 		game.touch_ux.register_button(b)
 	machine=preload("res://relic_machine.gd").new(); machine.position=Vector2(54,126); machine.size=Vector2(316,208); machine.visible=false; panel.add_child(machine)
+	machine.locked.connect(lock_spin); machine.completed.connect(finish_spin); machine.cue.connect(game.play_audio_event)
+	dimmer=ColorRect.new(); dimmer.color=Color(0.01,.02,.05,.74); dimmer.position=Vector2.ZERO; dimmer.size=Vector2(480,854); dimmer.z_index=79; dimmer.mouse_filter=Control.MOUSE_FILTER_STOP; dimmer.visible=false; panel.get_parent().add_child(dimmer)
+	chase=game.make_label(panel,"",13,Rect2(24,92,376,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ff9baa")); chase.visible=false
+	chase_bar=ProgressBar.new(); chase_bar.position=Vector2(24,132); chase_bar.size=Vector2(376,8); chase_bar.max_value=Catalog.RED_TARGET*SpinCatalog.SPARK_TARGET; chase_bar.show_percentage=false; chase_bar.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	chase_bar.add_theme_font_size_override("font_size",1)
+	chase_bar.add_theme_stylebox_override("fill",SpinCatalog.flat_style(Color("#dd5068"),Color("#dd5068"),3)); chase_bar.add_theme_stylebox_override("background",SpinCatalog.flat_style(Color("#25304b"),Color("#25304b"),3)); panel.add_child(chase_bar); chase_bar.visible=false
+	for style_name in ["fill","background"]:
+		var bar_style: StyleBox=chase_bar.get_theme_stylebox(style_name); bar_style.content_margin_top=0; bar_style.content_margin_bottom=0; bar_style.content_margin_left=0; bar_style.content_margin_right=0
+	pool_panel=game.make_panel(Rect2(28,110,424,690),Color("#081226")); pool_panel.z_index=82; pool_panel.visible=false
+	preload("res://lootlings_ui.gd").apply_material(pool_panel,"hoard")
+	game.make_label(pool_panel,"THE REWARD POOL",22,Rect2(20,20,384,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	preload("res://lootlings_ui.gd").rich_label(pool_panel,Rect2(24,76,376,510),16,Color("#e7edff")).text=SpinCatalog.pool_text()
+	var close_pool: Button=game.make_action_button(pool_panel,"‹ RELIC ENGINE",Vector2(24,606),Vector2(376,54),Color("#172442"),Color("#78e4ff"),func(): pool_panel.visible=false)
+	game.touch_ux.register_button(close_pool)
 	game.result_panel.size.y=625
 	spinner_button=game.make_action_button(game.result_panel,"RELIC SPINNER",Vector2(47,557),Vector2(330,50),Color("#493052"),Color("#e2b563"),show_spinner)
 	game.touch_ux.register_button(spinner_button)
@@ -41,9 +62,12 @@ func configure(target) -> void:
 	game.hideout_ui.tracked_requested.connect(func(id): progress.track(id); game.hideout_ui.phase4_message=progress.target_text(); game.hideout_ui.refresh_phase4())
 func open(state: String, heading: String, line: String, choices: Array) -> void:
 	spin_busy=false; machine.visible=state=="relic_spinner"
+	dimmer.visible=state=="relic_spinner"; chase.visible=false; chase_bar.visible=false; pool_panel.visible=false
+	panel.position=Vector2(28,150); panel.size=Vector2(424,625)
+	title.position.y=14; detail.add_theme_font_size_override("normal_font_size",14); detail.add_theme_color_override("default_color",Color("#e7edff"))
 	if panel.has_node("Wallet"): panel.get_node("Wallet").visible=false
 	detail.position=Vector2(24,72); detail.size=Vector2(376,150)
-	for index in range(buttons.size()): buttons[index].position=Vector2(24,240+index*72)
+	for index in range(buttons.size()): buttons[index].position=Vector2(24,240+index*72); buttons[index].size=Vector2(376,60)
 	game.state=state; panel.visible=true; title.text=heading; detail.text=line; selected_at=Time.get_ticks_msec()
 	game.pause_button.visible=false
 	for index in range(buttons.size()):
@@ -68,7 +92,9 @@ func choose(index: int) -> void:
 			if index==4: panel.visible=false; game.show_hideout(); return
 			if index==3:
 				progress.track("gravebloom_staff")
-				if progress.forge_red(): progress.recover(game)
+				if progress.forge_red():
+					spin_reward=progress.data.pending.back().duplicate(true); spin_message=progress.recover(game)
+					game.state="result"; show_spinner(); spinner_from_modes=true; buttons[1].text="‹ MODES"; start_reveal(false); return
 				game.state="hideout"; show_modes(mode_tab); return
 			panel.visible=false; game.state="hideout"
 			if index==0:
@@ -94,29 +120,76 @@ func choose(index: int) -> void:
 			panel.visible=false; next_round()
 		"relic_spinner":
 			if spin_busy:
-				if index==2: finish_spin()
+				if index==2 and machine.skip(): finish_spin()
+				return
+			if index==3: pool_panel.visible=true; return
+			if index==4:
+				if progress.forge_red():
+					spin_reward=progress.data.pending.back().duplicate(true); spin_message=progress.recover(game); start_reveal(false)
 				return
 			if index==0:
 				var prior: int=int(progress.data.spins)
 				spin_message=progress.spin(rng,game.CharacterTraits.actor_id(game.profile),str(game.inventory.equipped_item("Weapon").get("weapon_type","greatsword")))
 				if int(progress.data.spins)==prior: show_spinner(spin_message); return
-				spin_kind=str(progress.data.pending.back().get("kind","")) if not progress.data.pending.is_empty() else ""
-				spin_message+="\n"+progress.recover(game); game.coins=int(progress.data.spin_wallet)
+				spin_reward=progress.data.pending.back().duplicate(true)
+				if spin_reward.kind=="blueprint" and preload("res://phase4_catalog.gd").FARMS[progress.data.region].items.all(func(id): return int(game.expedition_progress.data.fragments.get(id,0))>=3):
+					spin_reward.display_name=preload("res://phase4_catalog.gd").FARMS[progress.data.region].material; spin_reward.display_amount=2; spin_reward.converted=true
+				spin_message=progress.recover(game)+"\n"+("+1 Crownroot fragment!" if progress.data.spin_sparks==0 else "+1 Crownroot spark."); game.coins=int(progress.data.spin_wallet)
 				panel.get_node("Wallet").text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-int(progress.data.spins)]
-				spin_busy=true; buttons[0].disabled=true; buttons[1].disabled=true; buttons[2].visible=true; buttons[2].disabled=false; buttons[2].text="SKIP REVEAL"
-				machine.wind_up(); detail.text="Winding up…"; game.play_audio_event("chest_windup")
-				spin_tween=game.create_tween(); spin_tween.tween_interval(.85); spin_tween.tween_callback(finish_spin)
-			else: panel.visible=false; machine.rolling=false; machine.set_process(false); game.state="result"
+				start_reveal(prior>0)
+			else: close_spinner()
+
+func start_reveal(quick: bool) -> void:
+	spin_kind=str(spin_reward.get("kind","material"))
+	var rarity: String=str(spin_reward.get("rarity",spin_reward.get("item",{}).get("rarity","COMMON")))
+	spin_busy=true; selected_at=Time.get_ticks_msec(); buttons[0].disabled=true; buttons[1].disabled=true; buttons[3].disabled=true; buttons[4].disabled=true
+	buttons[2].visible=true; buttons[2].disabled=SpinCatalog.tier(rarity)>=3; buttons[2].text="PREMIUM REVEAL" if buttons[2].disabled else "SKIP REVEAL"
+	buttons[2].position=Vector2(24,606); buttons[2].size=Vector2(376,50); buttons[1].visible=false; buttons[3].visible=false; buttons[4].visible=false
+	update_chase(); detail.text="The seals are turning…\nReward reserved. Nothing is lost if you leave."; detail.add_theme_color_override("default_color",Color("#e7edff"))
+	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
+	machine.reduced_motion=game.audio_settings.get("cinematic_reduced_motion",false)
+	machine.wind_up(spin_kind,rarity,quick)
+
+func lock_spin() -> void:
+	if game.state!="relic_spinner": return
+	var rarity: String=machine.rarity
+	var name: String=SpinCatalog.reward_name(spin_reward,progress.data.region)
+	var amount: int=int(spin_reward.get("display_amount",spin_reward.get("amount",1)))
+	detail.add_theme_color_override("default_color",SpinCatalog.color(rarity))
+	detail.add_theme_stylebox_override("normal",SpinCatalog.flat_style(SpinCatalog.color(rarity).darkened(.88),SpinCatalog.color(rarity).darkened(.25),10))
+	detail.text="[center][b]%s\n%s%s[/b]\n%s[/center]" % ["CROWNROOT RELIC" if rarity=="RED" else rarity,name," × %d" % amount if spin_kind!="item" else "",spin_message]
+	if rarity=="RED": game.play_audio_event("legendary_reveal")
 
 func finish_spin() -> void:
 	if not spin_busy: return
 	spin_busy=false
 	if spin_tween!=null and spin_tween.is_valid(): spin_tween.kill()
-	machine.reveal(spin_kind)
-	if game.state=="relic_spinner": show_spinner(spin_message); game.play_audio_event("chest_open")
+	if machine.stage!="settled": machine.reveal(spin_kind)
+	if game.state=="relic_spinner":
+		buttons[2].visible=false; buttons[1].visible=true; buttons[1].disabled=false; buttons[3].visible=true; buttons[3].disabled=false
+		buttons[0].disabled=spinner_from_modes or progress.data.spins>=3 or progress.data.spin_wallet<Catalog.SPIN_COSTS[mini(2,progress.data.spins)]
+		buttons[0].text="SPINS COMPLETE" if progress.data.spins>=3 else "FAST SPIN • %d" % Catalog.SPIN_COSTS[progress.data.spins]
+		# Keep the revealed card unobstructed. Forge remains in Modes and on
+		# reopening this engine, with a dedicated row before the next spin.
+		buttons[4].visible=false; detail.size.y=130
+		selected_at=Time.get_ticks_msec()
+
+func close_spinner() -> void:
+	if pool_panel.visible: pool_panel.visible=false; return
+	# Leaving never cancels the already committed reward. Return to its real origin.
+	if spin_busy and SpinCatalog.tier(machine.rarity)>=3: return
+	spin_busy=false; machine.stop(); panel.visible=false; dimmer.visible=false
+	if spinner_from_modes:
+		spinner_from_modes=false; game.state="hideout"; show_modes(mode_tab)
+	else: game.state="result"
+
+func update_chase() -> void:
+	chase.visible=true; chase_bar.visible=true
+	chase.text="CROWNROOT  %d / 24 fragments\nSPARKS  %d / 12 • every paid spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
+	chase_bar.value=mini(Catalog.RED_TARGET,progress.data.red_fragments)*SpinCatalog.SPARK_TARGET+progress.data.spin_sparks
 
 func begin() -> void:
-	progress.begin(game.campaign_id); escrow=0; extracted=false; panel.visible=false
+	progress.begin(game.campaign_id); escrow=0; extracted=false; panel.visible=false; dimmer.visible=false; spinner_from_modes=false; spin_reward.clear()
 	if siege:
 		rng.seed=hash("siege:%d" % game.rng.seed); round_rule=Catalog.round_rule(1,rng); game.coins=0; game.grouped_patrols=false
 func elite_id() -> String:
@@ -149,9 +222,11 @@ func finish(victory: bool) -> void:
 		progress.data.dungeon_clears+=1; progress.secure_red(1,rng)
 		game.expedition_progress.data.seen["dungeon:rootglass_vault"]=true; game.expedition_progress.save()
 	var secured_names:=[]
+	var red_drop: Dictionary={}
 	for reward in progress.data.pending:
 		if reward.get("kind","")=="item" and str(reward.receipt).contains(str(progress.data.session)):
 			secured_names.append(reward.item.name); game.run_notable_items.append(reward.item.duplicate(true))
+			if reward.item.get("rarity","")=="RED": red_drop=reward.duplicate(true)
 	progress.settle(game.coins,game.total_kills)
 	var delivery: String=progress.recover(game)
 	if not secured_names.is_empty():
@@ -159,23 +234,39 @@ func finish(victory: bool) -> void:
 		game.result_summary.text+="\n\nKEEPSAKES\n"+", ".join(secured_names)+"\n"+delivery
 	if victory and ((siege and game.wave>=20) or targeted): game.result_summary.text+="\nCrownroot fragments %d / %d" % [progress.data.red_fragments,Catalog.RED_TARGET]
 	spinner_button.disabled=game.total_kills<10
+	if not red_drop.is_empty(): call_deferred("present_red_drop",red_drop,delivery)
+func present_red_drop(reward: Dictionary, delivery: String) -> void:
+	if game.state!="result": return
+	show_spinner(); spin_reward=reward; spin_message=delivery; start_reveal(false)
 func show_spinner(message: String="") -> void:
 	if game.state not in ["result","relic_spinner"]: return
+	if spin_busy: return
+	if game.state=="result": spinner_from_modes=false
 	var spins: int=progress.data.spins
-	open("relic_spinner","RELIC ENGINE","%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-spins],["SPIN • %s" % ("COMPLETE" if spins>=3 else str(Catalog.SPIN_COSTS[spins])),"‹ RESULTS"])
+	open("relic_spinner","RELIC ENGINE","",["%s • %s" % ["FAST SPIN" if spins>0 else "SPIN","COMPLETE" if spins>=3 else str(Catalog.SPIN_COSTS[spins])],"‹ RESULTS","","POOL & ODDS","FORGE RED"])
+	panel.position=Vector2(28,110); panel.size=Vector2(424,690); title.position.y=8
 	var top_line: Label=game.make_label(panel,"",14,Rect2(24,70,376,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#e7edff")) if not panel.has_node("Wallet") else panel.get_node("Wallet")
-	top_line.name="Wallet"; top_line.text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-spins]; top_line.visible=true
-	detail.position=Vector2(24,349); detail.size=Vector2(376,116)
-	detail.text=message if not message.is_empty() else "Turn leftover run currency into a local material, a recipe clue or mastery.\nNo boss seals or RED rewards."
-	buttons[0].position=Vector2(24,480); buttons[1].position=Vector2(24,552); buttons[2].position=Vector2(24,552)
+	top_line.name="Wallet"; top_line.position.y=54; top_line.text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-spins]; top_line.visible=true
+	update_chase(); machine.position=Vector2(24,154); machine.size=Vector2(376,224)
+	detail.position=Vector2(24,394); detail.size=Vector2(376,130); detail.add_theme_font_size_override("normal_font_size",16)
+	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
+	detail.text=message if not message.is_empty() else "[center]Useful spoils on every spin.\nEpic + Legendary bundles get a full reveal.\n12 sparks earn 1 Crownroot fragment.[/center]"
+	buttons[0].position=Vector2(24,534); buttons[0].size=Vector2(376,58)
+	buttons[1].position=Vector2(24,606); buttons[1].size=Vector2(178,50); buttons[1].text="‹ MODES" if spinner_from_modes else "‹ RESULTS"
+	buttons[3].position=Vector2(214,606); buttons[3].size=Vector2(186,50)
+	buttons[2].visible=false; buttons[4].visible=progress.data.red_fragments>=Catalog.RED_TARGET
+	buttons[4].position=Vector2(24,476); buttons[4].size=Vector2(376,48); buttons[4].disabled=not progress.data.pending.is_empty()
+	if buttons[4].visible: detail.size.y=76
 	buttons[0].disabled=spins>=3 or (spins<3 and progress.data.spin_wallet<Catalog.SPIN_COSTS[spins])
 	buttons[1].disabled=false
 
 func reset() -> void:
 	if panel!=null: panel.visible=false
+	if dimmer!=null: dimmer.visible=false
+	if pool_panel!=null: pool_panel.visible=false
 	if spin_tween!=null and spin_tween.is_valid(): spin_tween.kill()
 	spin_busy=false
-	if machine!=null: machine.rolling=false; machine.set_process(false)
+	if machine!=null: machine.stop()
 	siege=false; targeted=false
 
 func setup_targeted(seed_value: int) -> void:

@@ -11,5 +11,4 @@ static func round_rule(round_number: int, rng: RandomNumberGenerator) -> Diction
 	var disruption:=rng.randf()
 	return {"boss":boss,"miniboss":not boss and round_number>5 and disruption<.07,"elite":round_number%5==0 or disruption<minf(.45,.10+round_number*.012),"event":not boss and round_number%3==0,"count":1 if boss or (round_number>5 and disruption<.07) else 3+mini(3,round_number/10)}
 static func spin_reward(rng: RandomNumberGenerator) -> Dictionary:
-	var value:=rng.randf()
-	return {"kind":"material","amount":2} if value<.50 else {"kind":"mastery","amount":6} if value<.85 else {"kind":"blueprint","amount":1}
+	return preload("res://relic_spin_catalog.gd").roll(rng)

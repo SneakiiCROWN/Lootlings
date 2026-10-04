@@ -3340,7 +3340,7 @@ func navigate_back() -> void:
 	if presentation_director.vignette.active:
 		presentation_director.vignette.finish()
 	elif state == "mode_menu": retention.panel.visible=false; show_hideout()
-	elif state == "relic_spinner": retention.panel.visible=false; state="result"
+	elif state == "relic_spinner": retention.close_spinner()
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":

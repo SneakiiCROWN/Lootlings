@@ -3,7 +3,7 @@ const Catalog=preload("res://phase4b_catalog.gd")
 const Items=preload("res://item_catalog.gd")
 const Safe=preload("res://safe_config.gd")
 var provider=preload("res://local_save_provider.gd").new()
-var data: Dictionary={"version":1,"highest":0,"best_score":0,"delivery_serial":0,"tracked":"","red_fragments":0,"dungeon_clears":0,"pending":[],"spin_wallet":0,"spins":0,"session":"","region":"act_i"}
+var data: Dictionary={"version":1,"highest":0,"best_score":0,"delivery_serial":0,"tracked":"","red_fragments":0,"spin_sparks":0,"dungeon_clears":0,"pending":[],"spin_wallet":0,"spins":0,"session":"","region":"act_i"}
 const PATH="user://endgame.cfg"
 func load_progress() -> void:
 	var loaded: Dictionary=provider.load_snapshot(PATH,"endgame")
@@ -11,6 +11,7 @@ func load_progress() -> void:
 		if loaded.has(key) and typeof(loaded[key])==typeof(data[key]): data[key]=loaded[key]
 	for key in ["highest","best_score","delivery_serial","red_fragments","dungeon_clears","spin_wallet","spins"]: data[key]=clampi(Safe.int_value(data[key]),0,999999)
 	data.spins=mini(3,data.spins)
+	data.spin_sparks=clampi(Safe.int_value(data.spin_sparks),0,preload("res://relic_spin_catalog.gd").SPARK_TARGET-1)
 	if not data.region in preload("res://phase4_catalog.gd").FARMS: data.region="act_i"
 	data.pending=data.pending.filter(valid_reward)
 static func valid_reward(value) -> bool:
@@ -57,6 +58,10 @@ func spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
 	var before:=data.duplicate(true); var reward:=Catalog.spin_reward(rng)
 	reward.receipt="spin:%s:%d" % [data.session,data.spins]; reward.region=data.region; reward.actor=actor; reward.family=family
 	data.spin_wallet-=cost; data.spins+=1; data.pending.append(reward)
+	# Debit, reserved reward and guaranteed chase progress share one atomic snapshot.
+	data.spin_sparks+=1
+	if data.spin_sparks>=preload("res://relic_spin_catalog.gd").SPARK_TARGET:
+		data.spin_sparks=0; data.red_fragments=mini(999999,int(data.red_fragments)+1)
 	if save()!=OK: data=before; return "Could not save; no currency spent."
 	return "Found %d %s. Remaining %d." % [reward.amount,reward.kind,data.spin_wallet]
 func recover(game) -> String:

@@ -22,6 +22,12 @@ func review() -> void:
 		game.wave=round_number; game.retention.round_rule=game.retention.Catalog.round_rule(round_number,game.retention.rng); game.spawn_enemy()
 		assert((game.audio_manager.current_music=="BOSS")==game.enemy_is_boss)
 	game.total_kills=20; game.coins=1000; game.end_run(false); game.retention.show_spinner(); game.retention.selected_at=0
+	# This checks skippable low-tier delivery; premium outcomes now deliberately
+	# retain their full reveal and are covered by relic_spinner_qa.
+	var spin_rng:=RandomNumberGenerator.new()
+	for seed_value in range(1000):
+		spin_rng.seed=seed_value
+		if preload("res://relic_spin_catalog.gd").roll(spin_rng).rarity=="COMMON": game.retention.rng.seed=seed_value; break
 	game.retention.choose(0); game.retention.selected_at=0; game.retention.choose(0)
 	assert(game.retention.progress.data.spins==1 and game.retention.progress.data.spin_wallet==860)
 	game.retention.choose(2); assert(not game.retention.spin_busy)
