@@ -1,0 +1,54 @@
+[
+  {
+    "name": "audio_production_qa",
+    "exit": 0,
+    "seconds": 0.46,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 2.97,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4c_qa",
+    "exit": 0,
+    "seconds": 1.58,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4d_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "relic_spinner_qa",
+    "exit": 0,
+    "seconds": 2.17,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.57,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  },
+  {
+    "name": "weapon_fit_qa",
+    "exit": 0,
+    "seconds": 4.27,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]
