@@ -19,6 +19,9 @@ const VoiceIdentity = preload("res://voice_identity.gd")
 const ProjectilePresentation = preload("res://projectile_presentation.gd")
 const PickupPresentation = preload("res://pickup_presentation.gd")
 const CharacterTraits = preload("res://character_traits.gd")
+const Phase4 = preload("res://phase4_catalog.gd")
+var expedition_progress := preload("res://expedition_progress.gd").new()
+var expedition_tier := 0
 const BossPatterns = preload("res://boss_patterns.gd")
 const ExpeditionEvents = preload("res://expedition_event_catalog.gd")
 const StartupUI = preload("res://startup_ui.gd")
@@ -332,6 +335,8 @@ func _ready() -> void:
 	profile = ProfileStore.load_profile(PROFILE_SAVE_PATH)
 	audio_settings = SettingsStore.load_settings(SETTINGS_SAVE_PATH)
 	inventory.load(INVENTORY_SAVE_PATH)
+	expedition_progress.load_progress()
+	expedition_progress.recover_delivery(inventory,INVENTORY_SAVE_PATH)
 	hideout_shop.load(HIDEOUT_SHOP_SAVE_PATH)
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	build_hideout()
@@ -758,7 +763,7 @@ func build_overlay_ui() -> void:
 	result_summary.position = Vector2(35, 91)
 	result_summary.size = Vector2(354, 318)
 	result_summary.bbcode_enabled = true
-	result_summary.scroll_active = false
+	result_summary.scroll_active = true
 	result_summary.add_theme_font_size_override("normal_font_size", 14)
 	result_summary.add_theme_color_override("default_color", Color("#e9efff"))
 	result_panel.add_child(result_summary)
@@ -853,6 +858,11 @@ func build_expedition_event_ui() -> void:
 func show_expedition_event() -> void:
 	event_due = false
 	event_id = ExpeditionEvents.roll(rng,event_seen)
+	var rare_id: String = ["secret_bell","wandering_smith","mimic_parley"][expedition_progress.rng.randi_range(0,2)]
+	var misses := int(expedition_progress.data.counts.get("discovery_misses",0))
+	if not rare_id in event_seen and (expedition_progress.rng.randf() < .08+.04*expedition_tier or misses >= 5):
+		event_id = rare_id; expedition_progress.data.counts.discovery_misses = 0
+	else: expedition_progress.data.counts.discovery_misses = mini(5,misses+1)
 	if event_id.is_empty(): return
 	state = "event"; help_label.visible = false
 	pause_button.visible = false
@@ -881,6 +891,7 @@ func choose_expedition_event(index: int) -> void:
 	var scrip := int(choice.get("scrip",0))
 	var hp := float(choice.get("hp",0))
 	if coins+scrip < 0 or player_hp+hp <= 0: return
+	if index != 2: expedition_progress.record_event(event_id,float(choice.get("risk",1.0)) > 1.0)
 	# Leave decision state before rewards; a second tap cannot repeat payment.
 	state = "playing"; event_panel.visible = false; event_id = ""
 	pause_button.visible = true
@@ -905,9 +916,19 @@ func build_hideout() -> void:
 	campaign.load_progress("user://campaign.cfg")
 	contracts.load_progress("user://contracts.cfg")
 	hideout_ui.contracts = contracts
+	hideout_ui.expedition_progress = expedition_progress
 	hideout_ui.campaign = campaign
 	hideout_ui.play_requested.connect(hideout_ui.show_campaign)
 	hideout_ui.campaign_requested.connect(start_campaign)
+	hideout_ui.tier_requested.connect(func(tier): expedition_tier = tier)
+	hideout_ui.blueprint_requested.connect(func(id):
+		if state != "hideout": return
+		var message: String = expedition_progress.craft(id,inventory,INVENTORY_SAVE_PATH)
+		hideout_ui.phase4_message = message; hideout_ui.refresh_phase4()
+	)
+	hideout_ui.farm_contract_requested.connect(func(region):
+		if state == "hideout": expedition_progress.claim_job(region); hideout_ui.refresh_phase4()
+	)
 	hideout_ui.group_patrols_changed.connect(func(enabled: bool): grouped_patrols = enabled)
 	hideout_ui.dungeon_requested.connect(start_dungeon)
 	hideout_ui.stash_equip_requested.connect(equip_stash_item)
@@ -1203,6 +1224,7 @@ func start_campaign(region_id: String) -> void:
 	if presentation_director.vignette.active or presentation_director.travel_active: return
 	if state != "hideout" or not campaign.available(region_id):
 		return
+	if expedition_progress.rank() < int(Phase4.TIERS[expedition_tier].rank): return
 	dungeon.active = false
 	campaign_id = region_id
 	request_start_run()
@@ -1526,6 +1548,7 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	expedition_progress.begin_run(campaign_id,expedition_tier,int(hash("farm:%s:%d" % [campaign_id,rng.seed])))
 	proc_timer = 0.0; proc_texture = null
 	character_trait = CharacterTraits.definition(profile)
 	player_ward = 0.0; survived_hits = 0
@@ -1541,6 +1564,7 @@ func start_run() -> void:
 	story_run_presentations = false # Direct deterministic harnesses omit UI stings.
 	enemy_encounter.clear()
 	loot_system.region_pool = CampaignSystem.LOOT_POOLS.get(campaign_id, []).duplicate()
+	loot_system.region_pool.append_array(Phase4.FARMS[campaign_id].items)
 	award_achievement("first_steps")
 	state = "playing"
 	if startup_ui != null:
@@ -1753,6 +1777,9 @@ func spawn_single_enemy() -> void:
 				enemy_damage *= 0.88
 		enemy_post_guard_hit_multiplier = enemy_hit_multiplier
 		enemy_variant_id = EnemyVariantCatalog.roll(rng, wave, false, current_zone_id)
+		if expedition_tier > 0 and wave >= 3 and wave_kills < expedition_tier:
+			enemy_variant_id = CampaignSystem.REGIONAL_VARIANTS.get(campaign_id,"armoured")
+		if expedition_tier == 2: enemy_attack_interval *= .92
 		# New regions showcase an existing readable mechanic on one patrol every
 		# third wave. Bosses/Act I are untouched; no presentation RNG is consumed.
 		if CampaignSystem.REGIONAL_VARIANTS.has(campaign_id) and wave % 3 == 0 and wave_kills == 0:
@@ -2447,6 +2474,7 @@ func kill_enemy() -> void:
 		coins += 8; run_coins_earned += 8
 	if str(character_trait.get("perk","")) == "advance": carried_shockwave += base_damage*.10
 	contracts.record("kill")
+	expedition_progress.record_kill(CharacterTraits.actor_id(profile),str(inventory.equipped_item("Weapon").get("weapon_type","greatsword")),enemy_name,enemy_variant_id,enemy_is_miniboss,enemy_is_boss)
 	award_achievement("hundred_kills")
 	award_achievement("thousand_kills")
 	if not enemy_variant_id.is_empty():
@@ -2737,6 +2765,8 @@ func show_next_item() -> void:
 		return
 	state = "item"
 	current_item = pending_items.pop_front()
+	expedition_progress.data.seen["item:"+str(current_item.get("id",""))] = true
+	expedition_progress.save()
 	var rarity: String = current_item.get("rarity", "COMMON")
 	var color := ItemCatalog.rarity_color(rarity)
 	var title_text := "%s  •  %s" % [rarity, current_item.get("name", "Unknown Loot")]
@@ -3136,6 +3166,7 @@ func apply_upgrade_effect(up: Dictionary) -> void:
 func end_run(victory: bool) -> void:
 	if state == "result": return
 	run_won = victory
+	expedition_progress.finish(victory)
 	if route_panel != null: route_panel.visible = false
 	state = "result"
 	if event_panel != null: event_panel.visible = false
@@ -3182,6 +3213,8 @@ func end_run(victory: bool) -> void:
 			notable_loot += ", " + run_kept_loot[1]
 	var scrap_gained := maxi(0, inventory.scrap - run_start_scrap)
 	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
+	result_summary.text += "\n\nRELIC RANK %d  •  %s +%d\n%s" % [expedition_progress.rank(),Phase4.FARMS[campaign_id].material,expedition_progress.run_materials,"\n".join(expedition_progress.run_finds)]
+	result_summary.scroll_to_line(0)
 	refresh_result_loot()
 	if dungeon.active:
 		result_title.text = "RELIC ROUTE CLEARED!" if victory else "ROUTE ENDED"
@@ -3232,6 +3265,8 @@ func buy_meta_power() -> void:
 
 func refresh_hideout() -> void:
 	if hideout_ui != null:
+		if not expedition_progress.data.craft_pending.is_empty():
+			hideout_ui.phase4_message = expedition_progress.recover_delivery(inventory,INVENTORY_SAVE_PATH)
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 
 func refresh_result_loot() -> void:

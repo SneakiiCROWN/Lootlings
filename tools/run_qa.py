@@ -55,7 +55,7 @@ for path in sorted((ROOT/'tests').glob('*.gd')):
         if name.endswith('_runs') or name in ['smoke_test','expansion_test','balance_audit','phase3_balance','phase3_dps','phase3_economy','wardrobe_qa','audio_production_qa','save_recovery_qa']: continue
         cmd=['--resolution',args.size,'--position','0,0','-s','res://tests/'+path.name,'--','--visual','--report']
     else:
-        if name in ['human_pressure_qa','human_native_qa','human_audio_qa','audio_mix_qa','visual_qa_capture','mobile_layout_qa','presentation_matrix_qa','phase3_final_details','rc_native_review']: continue
+        if name in ['phase4_result_native_qa','phase4_native_qa','human_pressure_qa','human_native_qa','human_audio_qa','audio_mix_qa','visual_qa_capture','mobile_layout_qa','presentation_matrix_qa','phase3_final_details','rc_native_review']: continue
         cmd=['--headless','-s','res://tests/'+path.name,'--','--report']
     run(name,cmd,1200 if name in ['phase3_balance','balance_audit'] else 300)
 

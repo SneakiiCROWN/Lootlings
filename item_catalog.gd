@@ -49,7 +49,7 @@ const ITEMS := [
 	{"id":"vault_receipt", "name":"Vault Receipt", "slot":"Relic", "icon":"RING", "desc":"Proof that the vault definitely owes you treasure.", "effects":{"coin_mult":0.22, "boss_damage":0.045}},
 	{"id":"critical_script", "name":"Critical Script", "slot":"Rune", "icon":"SPARK", "desc":"A very short instruction ending in an exclamation mark.", "effects":{"crit":0.055, "crit_lightning":0.13}},
 	{"id":"bossbane_sigil", "name":"Bossbane Sigil", "slot":"Rune", "icon":"SLAM", "desc":"Tiny engraving. Extremely large grudge.", "effects":{"boss_damage":0.16, "heavy_bonus":0.10}}
-] + Phase3.ITEMS
+] + Phase3.ITEMS + preload("res://phase4_catalog.gd").ITEMS
 
 static func definition(id: String) -> Dictionary:
 	for item in ITEMS:

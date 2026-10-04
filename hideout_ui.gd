@@ -4,6 +4,21 @@ signal play_requested
 signal forge_requested(stash_index: int)
 signal forge_craft_requested(weapon_type: String)
 signal campaign_requested(region_id: String)
+signal tier_requested(tier: int)
+signal blueprint_requested(id: String)
+signal farm_contract_requested(region: String)
+var expedition_progress
+var phase4_content: Control
+var phase4_list: VBoxContainer
+var phase4_detail: RichTextLabel
+var phase4_action: Button
+var phase4_selected := ""
+var phase4_mode := "blueprints"
+var phase4_message := ""
+var phase4_selected_msec := 0
+var tier_buttons: Array[Button] = []
+var selected_tier := 0
+const Phase4 = preload("res://phase4_catalog.gd")
 signal group_patrols_changed(enabled: bool)
 signal dungeon_requested
 var group_patrols_enabled := false
@@ -174,6 +189,7 @@ func _ready() -> void:
 	build_home()
 	build_stash()
 	build_forge()
+	build_phase4()
 	build_campaign()
 	build_contracts()
 	build_upgrades()
@@ -260,13 +276,14 @@ func refresh_current_screen() -> void:
 		"shop": refresh_shop()
 		"achievements": refresh_achievements()
 		"contracts": refresh_contracts()
+		"workshop": refresh_phase4()
 		_: refresh_home()
 
 func set_screen(active: Control) -> void:
 	# A screen transition must never leave a resident bubble over unrelated UI.
 	dismiss_dialogue()
 	if presentation != null: presentation.cancel_chest_showcase()
-	var screens := [home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
+	var screens := [phase4_content,home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -373,7 +390,8 @@ func build_forge() -> void:
 	add_child(forge_content)
 	make_button(forge_content, "‹ STASH", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_stash)
 	make_label(forge_content, "WEAPON FORGE", 25, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 16, Rect2(28, 112, 424, 62), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	make_button(forge_content,"BLUEPRINT FORGE",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("blueprints"))
+	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 14, Rect2(28, 126, 424, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(28, 180)
 	scroll.size = Vector2(424, 285)
@@ -398,6 +416,82 @@ func build_forge() -> void:
 			forge_confirm.text = "CONFIRM EVOLUTION" if forge_recipe.is_empty() else "CONFIRM • MAKE WEAPON"
 	)
 
+func build_phase4() -> void:
+	phase4_content = Control.new()
+	phase4_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	phase4_content.visible = false; add_child(phase4_content)
+	make_button(phase4_content,"‹ HIDEOUT",Rect2(20,20,126,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(show_home)
+	make_label(phase4_content,"RELIC WORKSHOP",25,Rect2(150,23,310,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	for index in range(3):
+		var mode: String = ["blueprints","contracts","archive"][index]
+		make_button(phase4_content,["BLUEPRINTS","BOUNTIES","COLLECTION"][index],Rect2(20+index*148,86,140,48),Color("#172442"),Color("#7087ae"),12).pressed.connect(func(): show_phase4(mode))
+	var scroll := ScrollContainer.new(); scroll.position = Vector2(24,150); scroll.size = Vector2(432,346)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	phase4_content.add_child(scroll)
+	phase4_list = VBoxContainer.new(); phase4_list.custom_minimum_size.x = 410; phase4_list.add_theme_constant_override("separation",10); scroll.add_child(phase4_list)
+	var detail_panel := make_panel(phase4_content,Rect2(24,510,432,222),Color("#0b1229ec"),Color("#7087ae"))
+	phase4_detail = LootlingsUI.rich_label(detail_panel,Rect2(16,12,400,198),15,Color("#e7edff"))
+	phase4_detail.scroll_active = true
+	phase4_action = make_button(phase4_content,"SELECT A FIND",Rect2(24,754,432,56),Color("#493052"),Color("#e2b563"),16)
+	phase4_action.set_meta("ui_intent","primary"); apply_button_style(phase4_action,Color("#493052"),Color("#e2b563"))
+	phase4_action.pressed.connect(func():
+		if phase4_selected.is_empty() or Time.get_ticks_msec()-phase4_selected_msec < 180: return
+		var selected := phase4_selected; phase4_selected = ""; phase4_action.disabled = true
+		if phase4_mode == "blueprints": blueprint_requested.emit(selected)
+		elif phase4_mode == "contracts": farm_contract_requested.emit(selected)
+	)
+
+func show_phase4(mode: String) -> void:
+	dismiss_dialogue(); current_screen = "workshop"; phase4_mode = mode
+	set_screen(phase4_content); refresh_phase4()
+
+func refresh_phase4() -> void:
+	if expedition_progress == null: return
+	phase4_selected = ""; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
+	for child in phase4_list.get_children(): phase4_list.remove_child(child); child.queue_free()
+	phase4_detail.text = phase4_message if not phase4_message.is_empty() else "Relic Rank %d\nRegional materials shape named gear. Boss seals bind a Rare blueprint craft.\nMastery comes from use; no daily clock." % expedition_progress.rank()
+	phase4_message = ""
+	if phase4_mode == "archive":
+		phase4_detail.text = "Select a record to inspect. Unknown finds keep their names until you discover them."
+		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints"]:
+			var button := make_button(phase4_list,category,Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
+			button.custom_minimum_size = Vector2(410,56)
+			button.pressed.connect(func():
+				phase4_detail.text = expedition_progress.collection_text()
+				if category == "Characters":
+					phase4_detail.text = ""
+					for id in Phase4.HUMANS:
+						var actor: Dictionary = Phase4.HUMANS[id]
+						phase4_detail.text += "%s • %s\n%s\nAffinity: %s. Every weapon is welcome.\nMastery: %s\n\n" % [str(id).capitalize().replace("_"," "),actor.role,actor.bio,actor.affinity,actor.mastery]
+				elif category in ["Named gear","Blueprints"]:
+					phase4_detail.text = ""
+					for source in Phase4.ITEMS:
+						var found: bool = expedition_progress.data.seen.has("item:"+str(source.id))
+						var pieces: int = int(expedition_progress.data.fragments.get(source.id,0))
+						phase4_detail.text += "%s • %s\n" % [str(source.name) if found or pieces > 0 else "???", "collected" if found else "blueprint %d/3" % pieces]
+			)
+		phase4_action.text = "EXPLORE TO DISCOVER"; return
+	var entries: Array = Phase4.ITEMS if phase4_mode == "blueprints" else CampaignSystem.ORDER
+	for entry in entries:
+		var id: String = str(entry.id) if entry is Dictionary else str(entry)
+		var region: String = Phase4.home_for(id) if phase4_mode == "blueprints" else id
+		if phase4_mode == "contracts" and (campaign == null or not campaign.available(region)): continue
+		var pieces: int = int(expedition_progress.data.fragments.get(id,0))
+		var text: String = "%s  •  blueprint %d/3\n%s • %s" % [entry.name,pieces,CampaignSystem.title(region),Phase4.FARMS[region].material] if phase4_mode == "blueprints" else "%s\n%s" % [CampaignSystem.title(region),expedition_progress.job(region).name]
+		var button := make_button(phase4_list,text,Rect2(0,0,410,88),Color("#172442"),Color("#7087ae"),14)
+		button.custom_minimum_size = Vector2(410,88); button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; button.clip_text = true
+		button.pressed.connect(func():
+			phase4_selected = id; phase4_selected_msec = Time.get_ticks_msec()
+			if phase4_mode == "blueprints":
+				phase4_detail.text = "%s\n%s\n\nSource: %s bosses/minibosses; regional loot also drops directly.\nForge: 12 %s + one boss seal.\nOwned: %d material / %d seals. Recipe fragments %d/3.\nRare gear • keeps its named behaviour." % [entry.name,entry.desc,CampaignSystem.title(region),Phase4.FARMS[region].material,int(expedition_progress.data.materials.get(region,0)),int(expedition_progress.data.boss_parts.get(region,0)),pieces]
+				phase4_action.text = "FORGE %s" % str(entry.name).to_upper()
+				phase4_action.disabled = pieces < 3 or int(expedition_progress.data.materials.get(region,0)) < 12 or int(expedition_progress.data.boss_parts.get(region,0)) < 1 or current_inventory.stash.size() >= current_inventory.stash_capacity
+			else:
+				var current: Dictionary = expedition_progress.job(region)
+				phase4_detail.text = "%s\n%s • %d / %d\nReturn anytime. No expiry.\nReward: 6 %s + one local blueprint fragment." % [CampaignSystem.title(region),current.name,current.progress,current.target,Phase4.FARMS[region].material]
+				phase4_action.text = "CLAIM BOUNTY"; phase4_action.disabled = current.progress < current.target
+		)
+
 func build_campaign() -> void:
 	campaign_content = Control.new()
 	campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -405,7 +499,11 @@ func build_campaign() -> void:
 	add_child(campaign_content)
 	make_button(campaign_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
 	make_label(campaign_content, "EXPEDITIONS", 26, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(campaign_content, "Defeat a region boss to unlock the next.\n15 waves • miniboss • boss • merchant stops", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	make_label(campaign_content, "Boss clears unlock regions. Return anytime to farm.", 14, Rect2(24, 76, 432, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	for index in range(3):
+		var tier_button := make_button(campaign_content,str(Phase4.TIERS[index].name),Rect2(24+index*147,132,138,48),Color("#172442"),Color("#7087ae"),14)
+		tier_button.pressed.connect(func(): selected_tier = index; tier_requested.emit(index); show_campaign())
+		tier_buttons.append(tier_button)
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(24, 190)
 	scroll.size = Vector2(432, 460)
@@ -431,7 +529,8 @@ func build_contracts() -> void:
 	add_child(contracts_content)
 	make_button(contracts_content, "‹ EXPEDITIONS", Rect2(20, 20, 158, 48), Color("#202d4d"), Color("#7f94bc"), 13).pressed.connect(show_campaign)
 	make_label(contracts_content, "CONTRACTS", 26, Rect2(180, 23, 280, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 16, Rect2(24, 112, 432, 65), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+	make_button(contracts_content,"REGIONAL BOUNTIES",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("contracts"))
+	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 14, Rect2(24, 126, 432, 52), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	for slot in range(3):
 		var button := make_button(contracts_content, "", Rect2(30, 210 + slot * 180, 420, 154), Color("#172442"), Color("#d4ad65"), 18)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
@@ -454,6 +553,11 @@ func refresh_contracts() -> void:
 		contract_buttons[slot].disabled = not ready
 
 func show_campaign() -> void:
+	for index in range(tier_buttons.size()):
+		var rank_value: int = expedition_progress.rank() if expedition_progress != null else 1
+		tier_buttons[index].disabled = rank_value < int(Phase4.TIERS[index].rank)
+		tier_buttons[index].tooltip_text = str(Phase4.TIERS[index].text)+" • Relic Rank %d" % int(Phase4.TIERS[index].rank)
+		apply_display_button_style(tier_buttons[index],Color("#d4ad65"),selected_tier == index)
 	if dungeon_start_button != null:
 		dungeon_start_button.disabled = campaign == null or not "act_i" in campaign.completed
 		dungeon_start_button.text = "RELIC ROUTE • CLEAR ACT I TO UNLOCK" if dungeon_start_button.disabled else "SEEDED RELIC ROUTE • CHOOSE YOUR PATH"
@@ -466,10 +570,10 @@ func show_campaign() -> void:
 	for id in CampaignSystem.ORDER:
 		var available: bool = campaign != null and campaign.available(id)
 		var tuning: Array = CampaignSystem.TRAITS.get(id, [])
-		var detail := WorldStory.region_line(id, 0)
-		if not tuning.is_empty():
-			detail += "\n%s patrols • %s" % [str(CampaignSystem.REGIONAL_VARIANTS[id]).capitalize(), str(tuning[2]).capitalize()]
-		var status := "CONQUERED" if campaign != null and id in campaign.completed else "PLAY" if available else "LOCKED"
+		var farm: Dictionary = Phase4.FARMS[id]
+		var target_name: String = ItemCatalog.definition(str(farm.items[0])).name
+		var detail := "Farm %s • hunt %s\n%s" % [farm.material,target_name,Phase4.TIERS[selected_tier].text]
+		var status := "RETURN TO FARM" if campaign != null and id in campaign.completed else "EXPEDITION" if available else "LOCKED"
 		var button := make_button(campaign_list, "%s\n%s\n%s" % [CampaignSystem.title(id), detail, status], Rect2(0, 0, 408, 112), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
 		button.custom_minimum_size = Vector2(408, 112)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
@@ -646,6 +750,7 @@ func build_achievements() -> void:
 	var back := make_button(achievement_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(achievement_content, "TROPHY ARCHIVE", 28, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_button(achievement_content,"COLLECTION & MASTERY",Rect2(20,797,216,48),Color("#172442"),Color("#7087ae"),12).pressed.connect(func(): show_phase4("archive"))
 	achievement_summary = make_label(achievement_content, "", 14, Rect2(46, 75, 388, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
 	var filters := ["ALL", "ADVENTURE", "COMBAT", "LOOT", "OTHER"]
 	for index in range(filters.size()):
@@ -676,7 +781,7 @@ func build_achievements() -> void:
 	achievement_detail.add_theme_font_size_override("normal_font_size", 15)
 	achievement_detail.add_theme_color_override("default_color", Color("#e7edff"))
 	detail_panel.add_child(achievement_detail)
-	var lore_button := make_button(achievement_content, "FIELD NOTES • WORLD & STORIES", Rect2(42, 797, 396, 46), Color("#252343"), Color("#b5a0de"), 14)
+	var lore_button := make_button(achievement_content, "FIELD NOTES & STORIES", Rect2(248, 797, 212, 48), Color("#252343"), Color("#b5a0de"), 12)
 	lore_button.pressed.connect(show_lore)
 
 func build_lore() -> void:

@@ -7,6 +7,7 @@ const DEFAULT_STASH_CAPACITY := 12
 
 var equipped := {}
 var stash: Array = []
+var craft_receipts: Array[String] = []
 var scrap := 0
 var stash_capacity := DEFAULT_STASH_CAPACITY
 
@@ -19,6 +20,7 @@ func reset_to_starter() -> void:
 		equipped[slot] = {}
 	equipped.Weapon = ItemCatalog.create_item("scrapfang_blade", "COMMON", -1)
 	stash.clear()
+	craft_receipts.clear()
 	scrap = 0
 	stash_capacity = DEFAULT_STASH_CAPACITY
 
@@ -119,12 +121,18 @@ func save(path: String) -> Error:
 	config.set_value("inventory", "stash_capacity", stash_capacity)
 	config.set_value("inventory", "stash", stash.slice(0, stash_capacity))
 	config.set_value("inventory", "equipped", equipped)
+	config.set_value("inventory", "craft_receipts", craft_receipts.slice(-256))
 	return preload("res://safe_config.gd").save_config(config, path)
 
 func load(path: String) -> void:
 	var config := ConfigFile.new()
 	if preload("res://safe_config.gd").load_config(config, path, "inventory") != OK:
 		return
+	craft_receipts.clear()
+	var receipts = config.get_value("inventory","craft_receipts",[])
+	if receipts is Array:
+		for receipt in receipts.slice(-256):
+			if receipt is String and receipt.length() <= 160 and not receipt in craft_receipts: craft_receipts.append(receipt)
 	scrap = clampi(preload("res://safe_config.gd").int_value(config.get_value("inventory", "scrap", 0)), 0, 999999)
 	var loaded_capacity := preload("res://safe_config.gd").int_value(config.get_value("inventory", "stash_capacity", DEFAULT_STASH_CAPACITY),DEFAULT_STASH_CAPACITY)
 	stash_capacity = loaded_capacity if loaded_capacity in STASH_CAPACITY_STEPS else DEFAULT_STASH_CAPACITY

@@ -71,6 +71,7 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 	game.rng.seed = hash("combat:%d" % sample)
 	game.loot_system.rng.seed = hash("loot:%d" % sample)
 	game.visual_rng.seed = hash("visual:%d" % sample)
+	if has_method("configure_game"): call("configure_game",game)
 	game.start_run()
 	var seconds := 0.0
 	var tap_clock := 0.0

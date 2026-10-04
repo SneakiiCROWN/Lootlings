@@ -15,9 +15,11 @@ var regular_drought := 0
 var recent_items: Array = []
 var boss_pool: Array = []
 var boss_seen: Array = []
+var target_drought := 0
 
 func reset_run(campaign: String) -> void:
 	regular_drought = 0; recent_items.clear(); boss_seen.clear()
+	target_drought = 0
 	boss_pool = preload("res://phase3_item_catalog.gd").BOSS_POOLS.get(campaign,[]).duplicate()
 
 func _init(seed_value: int = 0) -> void:
@@ -37,14 +39,20 @@ func roll_drop(is_miniboss: bool, is_boss: bool) -> Dictionary:
 	var source: Dictionary = pool[rng.randi_range(0, pool.size() - 1)]
 	if is_boss and not boss_pool.is_empty() and rng.randf() < .45:
 		source = ItemCatalog.definition(str(boss_pool[rng.randi_range(0,boss_pool.size()-1)]))
-	# New-region identity only; Act I consumes exactly its original RNG sequence.
-	if not is_boss and not region_pool.is_empty() and rng.randf() < 0.45:
+	# Farm identity covers every region; named loot changes the prior loot stream.
+	if not is_boss and not region_pool.is_empty() and (rng.randf() < 0.45 or target_drought >= 3):
 		source = ItemCatalog.definition(str(region_pool[rng.randi_range(0, region_pool.size() - 1)]))
+		target_drought = 0
+	elif not is_boss: target_drought += 1
 	# Same-rarity alternatives still feel different. Boss choices cannot repeat
 	# a base; ordinary drops avoid the immediately previous two identities.
 	var exclusions: Array = boss_seen if is_boss else recent_items
 	if source.id in exclusions:
+		var target_candidates: Array = region_pool.filter(func(id): return not id in exclusions)
+		if not is_boss and target_candidates.is_empty() and not region_pool.is_empty():
+			target_candidates = region_pool.filter(func(id): return recent_items.is_empty() or id != recent_items.back())
 		var candidates: Array = pool.filter(func(item): return not item.id in exclusions)
+		if not is_boss and not target_candidates.is_empty(): candidates = target_candidates.map(func(id): return ItemCatalog.definition(str(id)))
 		source = candidates[rng.randi_range(0,candidates.size()-1)]
 	if is_boss: boss_seen.append(source.id)
 	else:

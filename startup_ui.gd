@@ -382,6 +382,8 @@ func refresh_wanderer_lore() -> void:
 	var id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
 	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_wanderer]
 	wanderer_lore.text = str(trait_data.name) + " • " + str(trait_data.text)
+	var cohort: Dictionary = preload("res://phase4_catalog.gd").HUMANS[selected_wanderer]
+	wanderer_portrait.tooltip_text = "%s\n%s\nAffinity: %s. No weapon lock.\nMastery: %s" % [cohort.role,cohort.bio,cohort.affinity,cohort.mastery]
 	wanderer_lore.position.y = 445; wanderer_lore.size.y = 52
 
 func confirm_wanderer() -> void:
