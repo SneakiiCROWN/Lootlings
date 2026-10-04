@@ -12,4 +12,4 @@ GO for physical S23 acceptance; HOLD for commercial release and Phase 4C impleme
 
 No forced unlock or new-save requirement. Rootglass is correctly locked before Mossglass unlocks. A failed Siege loses only its unsecured checkpoint bundle. Leftover spinner currency expires when the next run starts.
 
-Source checkpoint and verified remote-backup record are appended after committing. APKs remain local ignored build artifacts; GitHub source backup does not distribute the APK.
+Implementation checkpoint: **bb875227b7e82d442ce68bba7b27c542b4066441**. Its working tree was verified clean, push to `origin/codex/phase2-vertical-slice` succeeded, and `git ls-remote` returned that exact SHA. The post-checkpoint consolidated QA and actual rare-drop/overflow/veil-guard checks are a separate documentation/acceptance checkpoint. APKs remain local ignored build artifacts; GitHub source backup does not distribute the APK.

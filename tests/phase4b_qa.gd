@@ -88,6 +88,19 @@ func review() -> void:
 	assert(not failing.forge_red() and failing.data.red_fragments==24 and failing.data.pending.is_empty())
 	# Ending again from the spinner cannot pay the same run twice.
 	game.end_run(false); var gold: int=game.gold; game.state="relic_spinner"; game.end_run(true); assert(game.gold==gold)
+	# Exercise the actual complete-drop path, not just the Bernoulli simulation.
+	var proof:=Progress.new(); proof.begin("mossglass_wilds")
+	var rare:=RandomNumberGenerator.new(); var found:=false
+	for candidate in range(1000):
+		rare.seed=candidate
+		if rare.randf()<.01: rare.seed=candidate; found=true; break
+	assert(found); proof.secure_red(1,rare)
+	assert(proof.data.red_fragments==1 and proof.data.pending.size()==1 and proof.data.pending[0].item.id=="gravebloom_staff")
+	game.inventory.stash.pop_back(); assert(proof.recover(game)=="Rewards secured.")
+	var reload:=Progress.new(); reload.load_progress(); assert(reload.data.red_fragments==1)
+	proof.data.red_fragments=999998; proof.secure_red(2,rare); assert(proof.data.red_fragments==999999)
+	game.show_hideout(); game.presentation_director.travel_active=true; game.retention.show_modes(); assert(game.state=="hideout")
+	game.presentation_director.travel_active=false; game.retention.show_modes(); assert(game.state=="mode_menu"); game.navigate_back(); assert(game.state=="hideout")
 	game.free()
 	print("PHASE4B QA PASS: round20 extraction; no campaign unlock; permanent gear; spinner cap/debit; cross-store receipt; RED forge/persistence; death escrow; run reset; exclusive loot")
 	quit()
