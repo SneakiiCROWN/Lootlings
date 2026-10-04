@@ -1,0 +1,2636 @@
+{
+  "accepted": [
+    {
+      "name": "import",
+      "exit": 0,
+      "seconds": 4.9,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-achievement_manager.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-action_pose_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-affix_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-analytics_logger.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-app_lifecycle.gd",
+      "exit": 0,
+      "seconds": 0.27,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-audio_manager.gd",
+      "exit": 0,
+      "seconds": 0.31,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-authored_pose_manifest.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-avatar_presentation.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-beta_art_catalog.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-boss_patterns.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-build_system.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-campaign_system.gd",
+      "exit": 0,
+      "seconds": 0.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-character_traits.gd",
+      "exit": 0,
+      "seconds": 0.22,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-chest_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-combat_presentation.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-contract_system.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-creature_renderer.gd",
+      "exit": 0,
+      "seconds": 0.56,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-debug_panel.gd",
+      "exit": 0,
+      "seconds": 0.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-dialogue_director.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-display_numbers.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-dungeon_route.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-enemy_encounter.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-enemy_variant_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-expedition_event_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-forge_system.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-game_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-hideout_shop_system.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-hideout_ui.gd",
+      "exit": 0,
+      "seconds": 0.74,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-inventory_system.gd",
+      "exit": 0,
+      "seconds": 0.3,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-item_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-item_icon.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-loot_system.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-lootling.gd",
+      "exit": 0,
+      "seconds": 1.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-lootling_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-lootlings_ui.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-meta_store.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-mobile_test_monitor.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-phase3_item_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-pickup_presentation.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-presentation_director.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-profile_store.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-projectile_presentation.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-relic_greatsword_motion.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-responsive_backdrop.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-reward_reveal_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-safe_area_layout.gd",
+      "exit": 0,
+      "seconds": 0.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-safe_config.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-settings_store.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-shop_system.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-startup_ui.gd",
+      "exit": 0,
+      "seconds": 0.38,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-touch_ux.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-ui_surface_style.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-vignette_catalog.gd",
+      "exit": 0,
+      "seconds": 0.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-vignette_player.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-voice_identity.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-wanderer_catalog.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-wanderer_pose_catalog.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-weapon_catalog.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-weapon_fit_catalog.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-world_content_catalog.gd",
+      "exit": 0,
+      "seconds": 0.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-world_story.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-zone_catalog.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-audio_mix_qa.gd",
+      "exit": 0,
+      "seconds": 0.27,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-audio_production_qa.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-authored_pose_qa.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-balance_audit.gd",
+      "exit": 0,
+      "seconds": 0.47,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-campaign_qa.gd",
+      "exit": 0,
+      "seconds": 0.38,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-canonical_world_qa.gd",
+      "exit": 0,
+      "seconds": 0.46,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-chest_presentation_qa.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-combat_seed_diagnostics.gd",
+      "exit": 0,
+      "seconds": 0.22,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-contract_qa.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-dungeon_qa.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-dungeon_runs.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-encounter_qa.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-encounter_runs.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-evolution_qa.gd",
+      "exit": 0,
+      "seconds": 0.29,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-evolution_runs.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-expansion_test.gd",
+      "exit": 0,
+      "seconds": 0.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-fidelity_qa.gd",
+      "exit": 0,
+      "seconds": 0.38,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-item_art_qa.gd",
+      "exit": 0,
+      "seconds": 0.3,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-mobile_gesture_qa.gd",
+      "exit": 0,
+      "seconds": 0.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-mobile_layout_qa.gd",
+      "exit": 0,
+      "seconds": 0.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-mobile_monitor_qa.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_balance.gd",
+      "exit": 0,
+      "seconds": 0.48,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_content_qa.gd",
+      "exit": 0,
+      "seconds": 0.47,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_dps.gd",
+      "exit": 0,
+      "seconds": 0.3,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_economy.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_final_details.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_idle_runs.gd",
+      "exit": 0,
+      "seconds": 0.46,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_pressure_qa.gd",
+      "exit": 0,
+      "seconds": 0.48,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-phase3_roster_runs.gd",
+      "exit": 0,
+      "seconds": 0.46,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-presentation_matrix_qa.gd",
+      "exit": 0,
+      "seconds": 0.31,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-presentation_qa.gd",
+      "exit": 0,
+      "seconds": 0.2,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-rc_native_review.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-rc_reward_qa.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-rc_runtime_qa.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-rc_save_qa.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-relic_greatsword_qa.gd",
+      "exit": 0,
+      "seconds": 0.29,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-resident_art_qa.gd",
+      "exit": 0,
+      "seconds": 0.77,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-save_recovery_qa.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-smoke_test.gd",
+      "exit": 0,
+      "seconds": 0.57,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-test_safety.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-vertical_slice_qa.gd",
+      "exit": 0,
+      "seconds": 0.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-vignette_qa.gd",
+      "exit": 0,
+      "seconds": 0.37,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-visual_qa_capture.gd",
+      "exit": 0,
+      "seconds": 0.39,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-wanderer_qa.gd",
+      "exit": 0,
+      "seconds": 0.29,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-wardrobe_qa.gd",
+      "exit": 0,
+      "seconds": 0.31,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-weapon_expansion_qa.gd",
+      "exit": 0,
+      "seconds": 0.21,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tests-weapon_fit_qa.gd",
+      "exit": 0,
+      "seconds": 0.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-compose_region_beta.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-export_authored_held.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-export_authored_staff.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-export_ui_material.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-extract_beta_boards.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-extract_chest_beta.gd",
+      "exit": 0,
+      "seconds": 0.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-extract_loot_beta.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-extract_presentation_beta.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "parse-tools-extract_weapon_beta.gd",
+      "exit": 0,
+      "seconds": 0.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "audio_production_qa",
+      "exit": 0,
+      "seconds": 0.47,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "authored_pose_qa",
+      "exit": 0,
+      "seconds": 5.02,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "campaign_qa",
+      "exit": 0,
+      "seconds": 45.83,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "canonical_world_qa",
+      "exit": 0,
+      "seconds": 2.19,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "chest_presentation_qa",
+      "exit": 0,
+      "seconds": 1.9,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "combat_seed_diagnostics",
+      "exit": 0,
+      "seconds": 42.26,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "contract_qa",
+      "exit": 0,
+      "seconds": 2.11,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "dungeon_qa",
+      "exit": 0,
+      "seconds": 11.11,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "dungeon_runs",
+      "exit": 0,
+      "seconds": 29.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "encounter_qa",
+      "exit": 0,
+      "seconds": 2.09,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "encounter_runs",
+      "exit": 0,
+      "seconds": 60.95,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "evolution_qa",
+      "exit": 0,
+      "seconds": 2.18,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "evolution_runs",
+      "exit": 0,
+      "seconds": 71.27,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "expansion_test",
+      "exit": 0,
+      "seconds": 0.48,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "fidelity_qa",
+      "exit": 0,
+      "seconds": 2.8,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "item_art_qa",
+      "exit": 0,
+      "seconds": 1.61,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 9.28,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "mobile_monitor_qa",
+      "exit": 0,
+      "seconds": 3.54,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_balance",
+      "exit": 0,
+      "seconds": 593.01,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_content_qa",
+      "exit": 0,
+      "seconds": 2.23,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_dps",
+      "exit": 0,
+      "seconds": 0,
+      "errors": [],
+      "expected_diagnostics": [],
+      "reused": "docs\\production\\phase3\\final\\phase3_dps.log",
+      "scope": "Stationary/pressure lab only; reward decisions do not occur. Run cohorts are rerun.",
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_economy",
+      "exit": 0,
+      "seconds": 0.74,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_idle_runs",
+      "exit": 0,
+      "seconds": 81.8,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_pressure_qa",
+      "exit": 0,
+      "seconds": 0,
+      "errors": [],
+      "expected_diagnostics": [],
+      "reused": "docs\\production\\phase3\\final\\phase3_pressure_qa.log",
+      "scope": "Stationary/pressure lab only; reward decisions do not occur. Run cohorts are rerun.",
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "phase3_roster_runs",
+      "exit": 0,
+      "seconds": 171.14,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "presentation_qa",
+      "exit": 0,
+      "seconds": 1.3,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "rc_reward_qa",
+      "exit": 0,
+      "seconds": 1.29,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "rc_runtime_qa",
+      "exit": 0,
+      "seconds": 1.94,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "rc_save_qa",
+      "exit": 0,
+      "seconds": 0.27,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "relic_greatsword_qa",
+      "exit": 0,
+      "seconds": 2.22,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "resident_art_qa",
+      "exit": 0,
+      "seconds": 1.39,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "save_recovery_qa",
+      "exit": 0,
+      "seconds": 1.39,
+      "errors": [],
+      "expected_diagnostics": [
+        "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+        "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+      ],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "vertical_slice_qa",
+      "exit": 0,
+      "seconds": 2.13,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "vignette_qa",
+      "exit": 0,
+      "seconds": 3.69,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "wanderer_qa",
+      "exit": 0,
+      "seconds": 3.24,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "wardrobe_qa",
+      "exit": 0,
+      "seconds": 8.06,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "weapon_expansion_qa",
+      "exit": 0,
+      "seconds": 5.84,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "weapon_fit_qa",
+      "exit": 0,
+      "seconds": 3.71,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-acceptance-626672e8a6"
+    },
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 9.95,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-native-5641e28f0f"
+    },
+    {
+      "name": "mobile_monitor_qa",
+      "exit": 0,
+      "seconds": 4.62,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-native-5641e28f0f"
+    },
+    {
+      "name": "rc_native_review",
+      "exit": 0,
+      "seconds": 178.43,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-native-5641e28f0f"
+    },
+    {
+      "name": "mobile_layout_qa",
+      "exit": 0,
+      "seconds": 56.96,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-layout-isolated-0b24b34555"
+    },
+    {
+      "name": "audio_mix_qa",
+      "exit": 0,
+      "seconds": 9.39,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-tablet-c66ffc97fc"
+    },
+    {
+      "name": "rc_native_review",
+      "exit": 0,
+      "seconds": 8.46,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-final-tablet-c66ffc97fc"
+    },
+    {
+      "name": "rc_native_review",
+      "exit": 0,
+      "seconds": 10.48,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-reward-lane-425d5ab42f"
+    },
+    {
+      "name": "item_art_qa",
+      "exit": 0,
+      "seconds": 6.35,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-art-resolution-5696923b9a"
+    },
+    {
+      "name": "smoke_test",
+      "exit": 0,
+      "seconds": 8.88,
+      "errors": [],
+      "expected_diagnostics": [],
+      "run": "rc-smoke-compatibility-83b547906c"
+    }
+  ],
+  "history": [
+    {
+      "label": "broad_final",
+      "run": "rc-final-acceptance-626672e8a6",
+      "results": [
+        {
+          "name": "import",
+          "exit": 0,
+          "seconds": 4.9,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-achievement_manager.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-action_pose_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-affix_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-analytics_logger.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-app_lifecycle.gd",
+          "exit": 0,
+          "seconds": 0.27,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-audio_manager.gd",
+          "exit": 0,
+          "seconds": 0.31,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-authored_pose_manifest.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-avatar_presentation.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-beta_art_catalog.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-boss_patterns.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-build_system.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-campaign_system.gd",
+          "exit": 0,
+          "seconds": 0.37,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-character_traits.gd",
+          "exit": 0,
+          "seconds": 0.22,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-chest_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-combat_presentation.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-contract_system.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-creature_renderer.gd",
+          "exit": 0,
+          "seconds": 0.56,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-debug_panel.gd",
+          "exit": 0,
+          "seconds": 0.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-dialogue_director.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-display_numbers.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-dungeon_route.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-enemy_encounter.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-enemy_variant_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-expedition_event_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-forge_system.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-game_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-hideout_shop_system.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-hideout_ui.gd",
+          "exit": 0,
+          "seconds": 0.74,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-inventory_system.gd",
+          "exit": 0,
+          "seconds": 0.3,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-item_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-item_icon.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-loot_system.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-lootling.gd",
+          "exit": 0,
+          "seconds": 1.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-lootling_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-lootlings_ui.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-meta_store.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-mobile_test_monitor.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-phase3_item_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-pickup_presentation.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-presentation_director.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-profile_store.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-projectile_presentation.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-relic_greatsword_motion.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-responsive_backdrop.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-reward_reveal_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-safe_area_layout.gd",
+          "exit": 0,
+          "seconds": 0.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-safe_config.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-settings_store.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-shop_system.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-startup_ui.gd",
+          "exit": 0,
+          "seconds": 0.38,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-touch_ux.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-ui_surface_style.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-vignette_catalog.gd",
+          "exit": 0,
+          "seconds": 0.37,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-vignette_player.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-voice_identity.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-wanderer_catalog.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-wanderer_pose_catalog.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-weapon_catalog.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-weapon_fit_catalog.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-world_content_catalog.gd",
+          "exit": 0,
+          "seconds": 0.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-world_story.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-zone_catalog.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-audio_mix_qa.gd",
+          "exit": 0,
+          "seconds": 0.27,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-audio_production_qa.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-authored_pose_qa.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-balance_audit.gd",
+          "exit": 0,
+          "seconds": 0.47,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-campaign_qa.gd",
+          "exit": 0,
+          "seconds": 0.38,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-canonical_world_qa.gd",
+          "exit": 0,
+          "seconds": 0.46,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-chest_presentation_qa.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-combat_seed_diagnostics.gd",
+          "exit": 0,
+          "seconds": 0.22,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-contract_qa.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-dungeon_qa.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-dungeon_runs.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-encounter_qa.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-encounter_runs.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-evolution_qa.gd",
+          "exit": 0,
+          "seconds": 0.29,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-evolution_runs.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-expansion_test.gd",
+          "exit": 0,
+          "seconds": 0.37,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-fidelity_qa.gd",
+          "exit": 0,
+          "seconds": 0.38,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-item_art_qa.gd",
+          "exit": 0,
+          "seconds": 0.3,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-mobile_gesture_qa.gd",
+          "exit": 0,
+          "seconds": 0.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-mobile_layout_qa.gd",
+          "exit": 0,
+          "seconds": 0.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-mobile_monitor_qa.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_balance.gd",
+          "exit": 0,
+          "seconds": 0.48,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_content_qa.gd",
+          "exit": 0,
+          "seconds": 0.47,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_dps.gd",
+          "exit": 0,
+          "seconds": 0.3,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_economy.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_final_details.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_idle_runs.gd",
+          "exit": 0,
+          "seconds": 0.46,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_pressure_qa.gd",
+          "exit": 0,
+          "seconds": 0.48,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-phase3_roster_runs.gd",
+          "exit": 0,
+          "seconds": 0.46,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-presentation_matrix_qa.gd",
+          "exit": 0,
+          "seconds": 0.31,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-presentation_qa.gd",
+          "exit": 0,
+          "seconds": 0.2,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-rc_native_review.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-rc_reward_qa.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-rc_runtime_qa.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-rc_save_qa.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-relic_greatsword_qa.gd",
+          "exit": 0,
+          "seconds": 0.29,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-resident_art_qa.gd",
+          "exit": 0,
+          "seconds": 0.77,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-save_recovery_qa.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-smoke_test.gd",
+          "exit": 0,
+          "seconds": 0.57,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-test_safety.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-vertical_slice_qa.gd",
+          "exit": 0,
+          "seconds": 0.37,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-vignette_qa.gd",
+          "exit": 0,
+          "seconds": 0.37,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-visual_qa_capture.gd",
+          "exit": 0,
+          "seconds": 0.39,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-wanderer_qa.gd",
+          "exit": 0,
+          "seconds": 0.29,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-wardrobe_qa.gd",
+          "exit": 0,
+          "seconds": 0.31,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-weapon_expansion_qa.gd",
+          "exit": 0,
+          "seconds": 0.21,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tests-weapon_fit_qa.gd",
+          "exit": 0,
+          "seconds": 0.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-compose_region_beta.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-export_authored_held.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-export_authored_staff.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-export_ui_material.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-extract_beta_boards.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-extract_chest_beta.gd",
+          "exit": 0,
+          "seconds": 0.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-extract_loot_beta.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-extract_presentation_beta.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "parse-tools-extract_weapon_beta.gd",
+          "exit": 0,
+          "seconds": 0.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "audio_production_qa",
+          "exit": 0,
+          "seconds": 0.47,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "authored_pose_qa",
+          "exit": 0,
+          "seconds": 5.02,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "campaign_qa",
+          "exit": 0,
+          "seconds": 45.83,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "canonical_world_qa",
+          "exit": 0,
+          "seconds": 2.19,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "chest_presentation_qa",
+          "exit": 0,
+          "seconds": 1.9,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "combat_seed_diagnostics",
+          "exit": 0,
+          "seconds": 42.26,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "contract_qa",
+          "exit": 0,
+          "seconds": 2.11,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "dungeon_qa",
+          "exit": 0,
+          "seconds": 11.11,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "dungeon_runs",
+          "exit": 0,
+          "seconds": 29.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "encounter_qa",
+          "exit": 0,
+          "seconds": 2.09,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "encounter_runs",
+          "exit": 0,
+          "seconds": 60.95,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "evolution_qa",
+          "exit": 0,
+          "seconds": 2.18,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "evolution_runs",
+          "exit": 0,
+          "seconds": 71.27,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "expansion_test",
+          "exit": 0,
+          "seconds": 0.48,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "fidelity_qa",
+          "exit": 0,
+          "seconds": 2.8,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "item_art_qa",
+          "exit": 0,
+          "seconds": 1.61,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_gesture_qa",
+          "exit": 0,
+          "seconds": 9.28,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_monitor_qa",
+          "exit": 0,
+          "seconds": 3.54,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "phase3_balance",
+          "exit": 0,
+          "seconds": 593.01,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "phase3_content_qa",
+          "exit": 0,
+          "seconds": 2.23,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "phase3_dps",
+          "exit": 0,
+          "seconds": 0,
+          "errors": [],
+          "expected_diagnostics": [],
+          "reused": "docs\\production\\phase3\\final\\phase3_dps.log",
+          "scope": "Stationary/pressure lab only; reward decisions do not occur. Run cohorts are rerun."
+        },
+        {
+          "name": "phase3_economy",
+          "exit": 0,
+          "seconds": 0.74,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "phase3_idle_runs",
+          "exit": 0,
+          "seconds": 81.8,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "phase3_pressure_qa",
+          "exit": 0,
+          "seconds": 0,
+          "errors": [],
+          "expected_diagnostics": [],
+          "reused": "docs\\production\\phase3\\final\\phase3_pressure_qa.log",
+          "scope": "Stationary/pressure lab only; reward decisions do not occur. Run cohorts are rerun."
+        },
+        {
+          "name": "phase3_roster_runs",
+          "exit": 0,
+          "seconds": 171.14,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "presentation_qa",
+          "exit": 0,
+          "seconds": 1.3,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "rc_reward_qa",
+          "exit": 0,
+          "seconds": 1.29,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "rc_runtime_qa",
+          "exit": 0,
+          "seconds": 1.94,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "rc_save_qa",
+          "exit": 0,
+          "seconds": 0.27,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "relic_greatsword_qa",
+          "exit": 0,
+          "seconds": 2.22,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "resident_art_qa",
+          "exit": 0,
+          "seconds": 1.39,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "save_recovery_qa",
+          "exit": 0,
+          "seconds": 1.39,
+          "errors": [],
+          "expected_diagnostics": [
+            "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+            "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+          ]
+        },
+        {
+          "name": "smoke_test",
+          "exit": 4294967295,
+          "seconds": 199.25,
+          "errors": [
+            "SCRIPT ERROR: Invalid call. Nonexistent function 'weapon_pose_angle' in base 'RefCounted (creature_renderer.gd)'."
+          ],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "vertical_slice_qa",
+          "exit": 0,
+          "seconds": 2.13,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "vignette_qa",
+          "exit": 0,
+          "seconds": 3.69,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "wanderer_qa",
+          "exit": 0,
+          "seconds": 3.24,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "wardrobe_qa",
+          "exit": 0,
+          "seconds": 8.06,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "weapon_expansion_qa",
+          "exit": 0,
+          "seconds": 5.84,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "weapon_fit_qa",
+          "exit": 0,
+          "seconds": 3.71,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "native_final",
+      "run": "rc-final-native-5641e28f0f",
+      "results": [
+        {
+          "name": "mobile_gesture_qa",
+          "exit": 0,
+          "seconds": 9.95,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_layout_qa",
+          "exit": 1,
+          "seconds": 51.79,
+          "errors": [
+            "ERROR: MOBILE LAYOUT QA: 480x960_full actual touch reward selection",
+            "ERROR: MOBILE LAYOUT QA: 480x960_full two taps buy once",
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch actual touch Pause",
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch scaled touch selects second foe",
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch rapid touch cooldown gives one attack"
+          ],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "mobile_monitor_qa",
+          "exit": 0,
+          "seconds": 4.62,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "rc_native_review",
+          "exit": 0,
+          "seconds": 178.43,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "layout_followup",
+      "run": "rc-layout-isolated-0b24b34555",
+      "results": [
+        {
+          "name": "mobile_layout_qa",
+          "exit": 0,
+          "seconds": 56.96,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "tablet_followup",
+      "run": "rc-final-tablet-c66ffc97fc",
+      "results": [
+        {
+          "name": "audio_mix_qa",
+          "exit": 0,
+          "seconds": 9.39,
+          "errors": [],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "rc_native_review",
+          "exit": 0,
+          "seconds": 8.46,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "lane_followup",
+      "run": "rc-reward-lane-425d5ab42f",
+      "results": [
+        {
+          "name": "item_art_qa",
+          "exit": 0,
+          "seconds": 3.71,
+          "errors": [
+            "SCRIPT ERROR: Assertion failed.",
+            "SCRIPT ERROR: Assertion failed.",
+            "SCRIPT ERROR: Assertion failed.",
+            "SCRIPT ERROR: Assertion failed.",
+            "SCRIPT ERROR: Assertion failed."
+          ],
+          "expected_diagnostics": []
+        },
+        {
+          "name": "rc_native_review",
+          "exit": 0,
+          "seconds": 10.48,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "art_followup",
+      "run": "rc-art-resolution-5696923b9a",
+      "results": [
+        {
+          "name": "item_art_qa",
+          "exit": 0,
+          "seconds": 6.35,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "smoke_followup",
+      "run": "rc-smoke-compatibility-83b547906c",
+      "results": [
+        {
+          "name": "smoke_test",
+          "exit": 0,
+          "seconds": 8.88,
+          "errors": [],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "layout_investigation",
+      "run": "rc-layout-buffered-bec81db983",
+      "results": [
+        {
+          "name": "mobile_layout_qa",
+          "exit": 1,
+          "seconds": 10.67,
+          "errors": [
+            "ERROR: MOBILE LAYOUT QA: 480x1040_full reward tap must open a live confirmation; window=(0, 0) screen=[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]"
+          ],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "layout_investigation",
+      "run": "rc-layout-delivery-02973b1d51",
+      "results": [
+        {
+          "name": "mobile_layout_qa",
+          "exit": 1,
+          "seconds": 8.86,
+          "errors": [
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch actual touch Resume",
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch scaled touch selects second foe",
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch rapid touch cooldown gives one attack",
+            "ERROR: MOBILE LAYOUT QA: 480x960_notch reward tap must open a live confirmation; window=(0, 0) screen=[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]"
+          ],
+          "expected_diagnostics": []
+        }
+      ]
+    },
+    {
+      "label": "layout_investigation",
+      "run": "rc-layout-reproduction-442176527d",
+      "results": [
+        {
+          "name": "mobile_layout_qa",
+          "exit": 4294967295,
+          "seconds": 181.1,
+          "errors": [
+            "SCRIPT ERROR: Invalid type in function 'tap_control' in base 'SceneTree (mobile_layout_qa.gd)'. The Object-derived class of argument 1 (previously freed) is not a subclass of the expected argument class."
+          ],
+          "expected_diagnostics": []
+        }
+      ]
+    }
+  ],
+  "supersession": "The broad smoke error exposed a removed still-test-used compatibility helper; restored helper and focused smoke pass supersede it. Original layout failures and timing investigations retained; fresh-scene layout followup passes all original gameplay assertions. The native item-art fixture assumed 480x854 despite a requested tablet resolution; actual requested-size assertion supersedes it. The broad final suite is not rerun."
+}

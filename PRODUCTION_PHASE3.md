@@ -1,4 +1,8 @@
-# Phase 3 production source of truth — 2026-10-03
+# Phase 3 production source of truth — 2026-10-04
+
+Current pre-device candidate: gameplay/UI checkpoints `4d262ef`, `de80adb`. [Pre-device audit, measured comparison, acceptance and open gates](docs/production/predevice/REPORT.md) supersedes version-5 delivery below. One-choice wave finds/merchant visits, affordable escalating rerolls, malformed-save guards, bounded diagnostics, larger Pause target and reward icon/text gutters are implemented. Prior DPS/art/audio/dialogue evidence is retained with [reuse proof](docs/production/predevice/reuse.json); changed run/reward cohorts are remeasured without difficulty changes.
+
+Current APK: `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-predevice-rc-debug.apk`, version 6 / `0.2.1-predevice-rc`. Physical S23 Ultra **and** S24 Ultra acceptance, canonical art, final music and human/long-term progression judgments remain open. This is an outside-test candidate with explicit debt, not commercial/full-phase acceptance.
 
 Implementation and measured correction pass delivered on `codex/phase2-vertical-slice`, preserving prior mobile, presentation, save and economy work. Frozen baseline: `bca361c`. Gameplay checkpoints: `af69ed4`, `68162a1`. [Delivery report](docs/production/phase3/REPORT.md), [exact supplied requirements](docs/production/phase3/BRIEF.md), [before/after tables](docs/production/phase3/final/METRICS.md), [accepted regression evidence](docs/production/phase3/final/qa-results.json).
 

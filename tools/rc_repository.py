@@ -6,7 +6,8 @@ OUT = ROOT/'docs/production/predevice'; OUT.mkdir(parents=True,exist_ok=True)
 paths = subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
 paths = [p for p in paths if p and (ROOT/p).is_file()]
 new = subprocess.check_output(['git','ls-files','--others','--exclude-standard','-z'],cwd=ROOT).decode().split('\0')
-paths = sorted(set(paths+[p for p in new if p and (ROOT/p).is_file() and not p.startswith('docs/production/predevice/')]))
+paths = sorted(set(paths+[p for p in new if p and (ROOT/p).is_file()]))
+paths = [p for p in paths if p != 'docs/production/predevice/repository.json'] # A snapshot cannot hash itself.
 inventory = []
 references = []; missing = []
 runtime = [p for p in paths if '/' not in p and Path(p).suffix in ['.gd','.tscn','.godot']]

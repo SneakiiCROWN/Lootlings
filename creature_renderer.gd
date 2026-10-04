@@ -1,5 +1,17 @@
 extends RefCounted
 
+# Retained for the legacy smoke contract; active sprites use WeaponFitCatalog.
+func weapon_pose_angle(family: String, windup: float, attack_pose: float) -> float:
+	match family:
+		"RANGER":
+			return lerpf(-0.12, 0.04, attack_pose) if attack_pose > 0.0 else lerpf(-0.12, -0.30, windup)
+		"MAGE":
+			return lerpf(-0.20, -0.42, attack_pose) if attack_pose > 0.0 else lerpf(-0.20, -0.36, windup)
+		"ROGUE":
+			return lerpf(-0.20, 0.62, attack_pose) if attack_pose > 0.0 else lerpf(-0.20, -0.52, windup)
+		_:
+			return lerpf(-0.28, 0.48, attack_pose) if attack_pose > 0.0 else lerpf(-0.28, -0.72, windup)
+
 const ActionPoseCatalog = preload("res://action_pose_catalog.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const WeaponCatalog = preload("res://weapon_catalog.gd")

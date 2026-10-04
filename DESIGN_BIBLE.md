@@ -1,5 +1,9 @@
 # Lootlings Design Bible
 
+## Normal run reward decisions
+
+Normal wave progression offers one meaningful acquisition per reward beat. Multiple wave finds are alternatives: select one, then equip/stash/scrap it; other finds are forfeited. A merchant stop permits one purchase, with optional paid rerolls beforehand. Earned XP levels, events and boss hoards are separately labelled choose-one beats. Persistent Hideout services and paid shopping/cache transactions remain independent deliberate purchases. Do not restock a run merchant so a wealthy player can buy every offer. Rerolls escalate by 18 Scrip from `18 + wave*3`; gear prices/income/rarity remain unchanged. [Pre-device decision record](docs/production/predevice/BASELINE.md) and [current delivery](docs/production/predevice/REPORT.md) own this correction.
+
 ## Current canonical world / beta authority
 
 Phase 3 supersedes equal-cosmetic actor mechanics: all twelve playable identities have explicit run-only perks, starter kits and HP/movement tradeoffs, while every weapon remains usable. `character_traits.gd` is the mechanics authority; `LOOTLINGS_WORLD_BIBLE.md` remains narrative authority. Twelve named equipment variants, four source-exclusive boss identities, eight optional consequence-bearing events, four merchant styles, compatible elite weights and regional boss recovery loops extend existing systems. Shared control/ward/target-serial bounds protect counterplay and released-hit ownership. Base weapon cadence, enemy HP curves, permanent prices and save formats stay intact. [Phase 3 measured decisions and limits](docs/production/phase3/REPORT.md) govern acceptance; new mechanics do not imply completed regional art, human play-feel or physical mobile validation.

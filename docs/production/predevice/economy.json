@@ -1,0 +1,151 @@
+{
+  "run_policy": "Four taps/sec, sustain/core priorities, preserves starting weapon, cheapest affordable nonweapon shopping, no rerolls. Does not model all human choices.",
+  "stops": {
+    "6": {
+      "arrival_scrip": {
+        "min": 180,
+        "p10": 180,
+        "p50": 181.0,
+        "p90": 186,
+        "max": 194
+      },
+      "cheapest": {
+        "min": 80,
+        "p10": 80,
+        "p50": 94.0,
+        "p90": 94,
+        "max": 144
+      },
+      "all_stock_total": {
+        "min": 240,
+        "p10": 282,
+        "p50": 332.0,
+        "p90": 498,
+        "max": 856
+      },
+      "reroll_ladder": [
+        {
+          "rerolls": 1,
+          "total_cost": 36,
+          "remaining_at_median_arrival": 145.0,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 1.0
+        },
+        {
+          "rerolls": 2,
+          "total_cost": 90,
+          "remaining_at_median_arrival": 91.0,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 0.1905
+        },
+        {
+          "rerolls": 3,
+          "total_cost": 162,
+          "remaining_at_median_arrival": 19.0,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 0.0
+        },
+        {
+          "rerolls": 4,
+          "total_cost": 252,
+          "remaining_at_median_arrival": -71.0,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 0.0
+        }
+      ],
+      "qualification": "Affordability example at measured median wealth over 2000 seeded inventories; not a combat reroll policy, desirability score or guarantee of better gear."
+    },
+    "11": {
+      "arrival_scrip": {
+        "min": 375,
+        "p10": 380,
+        "p50": 412.5,
+        "p90": 528,
+        "max": 563
+      },
+      "cheapest": {
+        "min": 105,
+        "p10": 105,
+        "p50": 124.0,
+        "p90": 174,
+        "max": 251
+      },
+      "all_stock_total": {
+        "min": 358,
+        "p10": 401,
+        "p50": 472.0,
+        "p90": 599,
+        "max": 896
+      },
+      "reroll_ladder": [
+        {
+          "rerolls": 1,
+          "total_cost": 51,
+          "remaining_at_median_arrival": 361.5,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 1.0
+        },
+        {
+          "rerolls": 2,
+          "total_cost": 120,
+          "remaining_at_median_arrival": 292.5,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 1.0
+        },
+        {
+          "rerolls": 3,
+          "total_cost": 207,
+          "remaining_at_median_arrival": 205.5,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 0.9985
+        },
+        {
+          "rerolls": 4,
+          "total_cost": 312,
+          "remaining_at_median_arrival": 100.5,
+          "fraction_of_sampled_new_inventories_with_any_affordable_offer": 0.0
+        }
+      ],
+      "qualification": "Affordability example at measured median wealth over 2000 seeded inventories; not a combat reroll policy, desirability score or guarantee of better gear."
+    }
+  },
+  "progression_formula_table": [
+    {
+      "training_rank": 0,
+      "cumulative_shards": 0,
+      "base_hp_before_gear_trait_home": 100.0,
+      "base_damage_before_gear_trait_home": 11.0
+    },
+    {
+      "training_rank": 5,
+      "cumulative_shards": 100,
+      "base_hp_before_gear_trait_home": 125.0,
+      "base_damage_before_gear_trait_home": 13.75
+    },
+    {
+      "training_rank": 20,
+      "cumulative_shards": 1150,
+      "base_hp_before_gear_trait_home": 200.0,
+      "base_damage_before_gear_trait_home": 22.0
+    },
+    {
+      "training_rank": 100,
+      "cumulative_shards": 25750,
+      "base_hp_before_gear_trait_home": 600.0,
+      "base_damage_before_gear_trait_home": 66.0
+    }
+  ],
+  "home_upgrade_total_gold": 11700,
+  "regular_drop_trials": 10000,
+  "regular_drops": 976,
+  "rarities": {
+    "COMMON": 696,
+    "EPIC": 45,
+    "LEGENDARY": 14,
+    "RARE": 221
+  },
+  "longest_drought": 17,
+  "successive_duplicate": 0,
+  "permanent_prices": [
+    12,
+    28,
+    65,
+    140
+  ],
+  "cache_cost": 20,
+  "cache_expected_salvage": 4.1,
+  "finite_progression_limit": "Shard training stops at rank100; all three home ladders stop at5 and Forge at2 stages/item. Shards can accumulate after training is complete. Gold/Scrap retain item/cache/service uses, but usefulness diminishes after an ideal loaded collection. This is a known finite-content/long-term economy limit, not proven endless replay depth."
+}

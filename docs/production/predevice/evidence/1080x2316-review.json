@@ -1,0 +1,161 @@
+{
+  "changed_touch_contracts": true,
+  "real_trace": {
+    "damage_taken": 508.66119968,
+    "qualification": "Native desktop real-clock run with scripted choices/taps; capture I/O and any concurrent QA affect timing. Not manual feel, listening or phone FPS.",
+    "report": {
+      "average_fps": 57.1596196203982,
+      "captured_unix": 1791090328.233,
+      "combat_frame_p95_ms": 17,
+      "combat_samples": 8990,
+      "draw_calls": 67.0,
+      "engine": "4.7.2-stable (official)",
+      "frame_p50_ms": 17,
+      "frame_p95_ms": 17,
+      "frame_p99_ms": 18,
+      "frames_over_33ms": 43,
+      "histogram_note": "1 ms buckets, values >=250ms in terminal bucket; lifecycle events reset the frame clock.",
+      "lifecycle": {
+        "focus_in": 0,
+        "focus_out": 0,
+        "paused": 0,
+        "resumed": 0
+      },
+      "loading_node_to_first_menu_ms": 19.997,
+      "loading_note": "Starts when game node is ready; excludes Android process/engine startup. Time cold launch separately.",
+      "memory_note": "Godot counters; not Android process PSS/GPU driver memory. Capture adb dumpsys meminfo separately.",
+      "model": "Z690 AERO G DDR4",
+      "platform": "Windows",
+      "recent_contexts": [
+        {
+          "elapsed_ms": 101535,
+          "reason": "state:event",
+          "state": "event",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 102483,
+          "reason": "state:item",
+          "state": "item",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 102495,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 116960,
+          "reason": "state:upgrade",
+          "state": "upgrade",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 117905,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 131200,
+          "reason": "state:item",
+          "state": "item",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 131212,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 137977,
+          "reason": "state:upgrade",
+          "state": "upgrade",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 138937,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 146654,
+          "reason": "state:item",
+          "state": "item",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 146677,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 147869,
+          "reason": "state:special_intro",
+          "state": "special_intro",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 148687,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 165806,
+          "reason": "state:hoard_chest",
+          "state": "hoard_chest",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 167698,
+          "reason": "state:playing",
+          "state": "playing",
+          "tree_paused": false
+        },
+        {
+          "elapsed_ms": 168834,
+          "reason": "state:boss_reward",
+          "state": "boss_reward",
+          "tree_paused": false
+        }
+      ],
+      "safe_area_pixels": "[P: (0, 0), S: (2560, 1392)]",
+      "samples": 9674,
+      "screen_pixels": "(2560, 1440)",
+      "state": "result",
+      "static_memory_bytes": 139893640.0,
+      "test_build": true,
+      "texture_memory_bytes": 252332393.0,
+      "viewport_rect": "[P: (0.0, 0.0), S: (480.0, 1029.0)]",
+      "window_pixels": "(1080, 2316)",
+      "worst_frame_ms": 656.017
+    },
+    "seconds": 169.791,
+    "wave": 15,
+    "won": true
+  },
+  "seen": {
+    "02_upgrade": true,
+    "03_upgrade": true,
+    "04_event": true,
+    "04_upgrade": true,
+    "05_upgrade": true,
+    "06_merchant": true,
+    "07_upgrade": true,
+    "09_upgrade": true,
+    "10_upgrade": true,
+    "11_merchant": true,
+    "11_upgrade": true,
+    "12_event": true,
+    "13_upgrade": true,
+    "14_upgrade": true,
+    "15_boss_reward": true,
+    "15_hoard_chest": true
+  },
+  "size": "(1080, 2316)"
+}

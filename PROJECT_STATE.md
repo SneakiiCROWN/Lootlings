@@ -1,4 +1,6 @@
-# Lootlings current project state — 2026-10-03
+# Lootlings current project state — 2026-10-04
+
+Latest pre-device implementation checkpoints: `4d262ef`, `de80adb`. [Current pre-device delivery](docs/production/predevice/REPORT.md) owns acceptance, version-6 `0.2.1-predevice-rc` Android delivery and the remaining S23/S24/art/music/long-term gates. One-choice run rewards and merchants, revised escalating reroll affordability, malformed-save protection, bounded diagnostics, Pause sizing and reward icon gutters are implemented and reviewed natively. Current APK is `builds/android/Lootlings-predevice-rc-debug.apk`; version-5 evidence below remains historical. No damage/HP/cadence/rarity or approved art/audio rewrite was made.
 
 Latest Phase 3 gameplay checkpoint: `68162a1`, following the frozen `bca361c` baseline and `af69ed4` implementation. [PRODUCTION_PHASE3.md](PRODUCTION_PHASE3.md) now owns current gameplay/Android delivery and [the measured report](docs/production/phase3/REPORT.md) records accepted evidence and remaining gates. Twelve run-only actor identities, new signatures/events/merchant styles, regional boss loops, bounded elite/RNG variation and healing/control/number corrections are live. Final version-5 `0.2.0-phase3` APK supersedes version 4 below. Paired 512-run evidence plus 192 active/96 idle roster samples and native review are retained. Full-phase acceptance remains open for canonical pose/regional boss art, final music, physical S23 and human/long-term balance acceptance. Earlier paragraphs are preserved history where superseded.
 
