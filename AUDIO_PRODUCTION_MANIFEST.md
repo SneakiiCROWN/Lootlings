@@ -1,3 +1,5 @@
+CURRENT PHASE 4E — Twelve-subtype weapon/material dispatch and seven material contacts are now active, with 95 newly source-documented CC0-derived variants/cues. Verdant has four action families; RED has a dedicated stinger. Native capture covers all six spinner tiers. Earlier proposed-routing tables below are historical where superseded; final mastering/perceptual and S23 approval remain open. See [Phase 4E report](docs/production/phase4e/REPORT.md) and retained `art/audio/production/sources.json` / `LICENSES.txt`.
+
 > **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). The eight actual WAV files are mono PCM16, 16 kHz, 48 seconds each (about 1.536 MB each), procedural placeholders. The stereo 44.1/48 kHz production requirements below are the future delivery contract, not the current file format. Hooks/buses/limiter/voice caps are live; final-mastered music/SFX are MISSING.
 
 # Original Lootlings audio replacement contract

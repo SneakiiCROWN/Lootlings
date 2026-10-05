@@ -1,0 +1,49 @@
+[
+  {
+    "name": "phase4e_audio_native_qa",
+    "exit": 0,
+    "seconds": 73.57,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_facing_native_qa",
+    "exit": 0,
+    "seconds": 14.26,
+    "errors": [
+      "ERROR: 2 RID allocations of type 'N5GLES312LightStorage11ShadowAtlasE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N5GLES315ReflectionAtlasE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N5GLES312RenderTargetE' were leaked at exit.",
+      "ERROR: 9 RID allocations of type 'N5GLES37TextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 10 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "ERROR: Texture with GL ID of 113: leaked 131072 bytes.",
+      "ERROR: Texture with GL ID of 114: leaked 131072 bytes.",
+      "ERROR: Texture with GL ID of 119: leaked 131072 bytes.",
+      "ERROR: Texture with GL ID of 120: leaked 131072 bytes.",
+      "ERROR: Texture with GL ID of 121: leaked 131072 bytes.",
+      "ERROR: Texture with GL ID of 122: leaked 131072 bytes.",
+      "ERROR: Texture with GL ID of 128: leaked 131072 bytes.",
+      "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_native_qa",
+    "exit": 4294967295,
+    "seconds": 225.61,
+    "errors": [
+      "SCRIPT ERROR: Assertion failed: Native dialogue must find an eligible authored example: easter"
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_weapon_native_qa",
+    "exit": 0,
+    "seconds": 127.37,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

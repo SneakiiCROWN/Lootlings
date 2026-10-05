@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.14 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080 SUPER
+
+DIALOGUE_NATIVE {"facts":{"event":"returning"},"sample":"returning","selection":{"category":"context","event":"returning","speaker":"Salvager","text":"Back on your feet? Put the weapon down and tell me where it caught."}}
+DIALOGUE_NATIVE {"facts":{"outcome":"victory"},"sample":"victory","selection":{"category":"context","outcome":"victory","speaker":"Relic Keeper","text":"You returned alive and freed something the Crown had kept. Let us tend both."}}
+DIALOGUE_NATIVE {"facts":{"event":"early_defeat","outcome":"defeat"},"sample":"defeat","selection":{"category":"context","outcome":"defeat","speaker":"Salvager","text":"The weapon is repairable. You need a rest before another run."}}
+DIALOGUE_NATIVE {"facts":{"outcome":"victory","region":"mossglass_wilds"},"sample":"boss","selection":{"category":"context","flag":"boss_memory","outcome":"victory","region":"mossglass_wilds","speaker":"Archivist","text":"The Verdant Mirror diverted the forest spring. If it fell, we should check whether water reaches the gardens again."}}
+DIALOGUE_NATIVE {"facts":{"weapon":"bow"},"sample":"weapon","selection":{"category":"gameplay","flag":"weapon_comment","speaker":"Salvager","text":"I will check the string and grip. The draw should pull cleanly, not fight you.","weapon":"bow"}}
+DIALOGUE_NATIVE {"facts":{"event":"red_find"},"sample":"loot","selection":{"category":"context","event":"red_find","speaker":"Relic Keeper","text":"Crownroot joins the fragments left by the Crownfall. We will tend what wakes inside it."}}
+SCRIPT ERROR: Assertion failed: Native dialogue must find an eligible authored example: easter
+   at: review (res://tests/phase4e_native_qa.gd:44)
+   GDScript backtrace (most recent call first):
+       [0] review (res://tests/phase4e_native_qa.gd:44)
+       [1] capture (res://tests/phase4_native_qa.gd:13)

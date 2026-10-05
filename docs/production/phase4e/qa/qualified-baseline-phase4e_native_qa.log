@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.14 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PHASE4B FRAME SAMPLE {"draw_calls":71.0,"frames":90,"label":"phase4e_home","max_ms":16.792,"median_ms":16.665,"p95_ms":16.685,"static_bytes":135439314.0,"texture_bytes":286170721.0,"viewport":"(1080, 2316)"}
+PHASE4B FRAME SAMPLE {"draw_calls":85.0,"frames":90,"label":"phase4e_bow","max_ms":25.659,"median_ms":16.666,"p95_ms":16.69,"static_bytes":136012178.0,"texture_bytes":286695009.0,"viewport":"(1080, 2316)"}
+PHASE4E NATIVE PASS before

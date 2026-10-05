@@ -1,0 +1,19 @@
+[
+  {
+    "name": "phase4e_facing_native_qa",
+    "exit": 1,
+    "seconds": 0.7,
+    "errors": [
+      "SCRIPT ERROR: Parse Error: Function \"clear_toast()\" not found in base self.",
+      "ERROR: Failed to load script \"res://tests/phase4e_facing_native_qa.gd\" with error \"Parse error\"."
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_native_qa",
+    "exit": 0,
+    "seconds": 178.04,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

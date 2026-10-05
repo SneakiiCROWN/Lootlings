@@ -1,0 +1,4271 @@
+{
+  "source_checkpoint": "117d9f0a1185c9f098a9685b146ee4448b5ea948",
+  "originals": [
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\archivist.png",
+      "sha256": "a78a39bbfff90f37ed79110c487f5538267459ead97a694b5012f65edd2f3f2f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_left_00.png",
+      "sha256": "098120532f852bf5ac29da7c1eddedc6f2609f21162bff80ea3db9e3c75181e2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_left_01.png",
+      "sha256": "87be4ddc00e97a9a37b4a7f388e7a70c48300190f18c215b41079c62d50fe32d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_left_02.png",
+      "sha256": "5e970907bc50f9fdd84ac7b196c729f79902358e731e3873ed585397c224b819",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_left_03.png",
+      "sha256": "078516dee368471e52140331aca15d6c54b477bd60d8a6149af1a0f61094a452",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_left_04.png",
+      "sha256": "da499d60acce862bfbcb562eeacc543499d0246f6f002759e12ac395a1773bf6",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_left_05.png",
+      "sha256": "2e3cc7e296784e6294c98aa694e729bca478c6e6df744bc0ff66ae799d81e742",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_right_00.png",
+      "sha256": "b686b5f14d91508d0e51ba5d6ac1534673bff62214bc20d2f1165f8b4a8c5a4c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_right_01.png",
+      "sha256": "6244aa672762dfa22e7e5e4f59b69f52c1a79c912b74049bf70db8396d9f530f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_right_02.png",
+      "sha256": "6d89c769398ce0d76c6618206ecdcfae4eaaa7d255cefd3cfc2633e057f5ab68",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_right_03.png",
+      "sha256": "12e6fe3c731d1418251128c43e133620d66ab7a14b6820217c7c7dc2fe5433c3",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_right_04.png",
+      "sha256": "a39901891d66721c5a8abda5b5eed6106d5175d4d9d62c03a286c033c8dde834",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\bow_right_05.png",
+      "sha256": "df8690042cf82ae004aca39ad9b6a1bb81c425153e6e52b345e164eee9b7aad7",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_left_00.png",
+      "sha256": "1ec43f8e4e904dc4d0c6cb52b1fdf50b91d7f28cc088c8a479d0491791905866",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_left_01.png",
+      "sha256": "44e6dc785fbca45f22af2cfe2b77b4c359f6e260109837b75f861c2350188bb5",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_left_02.png",
+      "sha256": "0870f6c2dffcdec97c4901b9948b1c41d04a1ad1b372d72bf11c1c0b8bcccb9c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_left_03.png",
+      "sha256": "b10b38fae75473a4c8ebdaa357ee608d0f9ddd6bbb13d11204b6a973907bd9d6",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_left_04.png",
+      "sha256": "d47530035c302273d520522df28a2aeee72145e486181512230456bfb369e7d5",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_left_05.png",
+      "sha256": "7cc2e745ee3cfa29c55f07fa9a9fa143453e3ac33c41d482e49bd36a244db71e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_right_00.png",
+      "sha256": "ec4d54b1682986976de360666b5244d8256a65c1504b96e8d73e6c979099a07f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_right_01.png",
+      "sha256": "b90a4d4cbbfe1d7cebbe8acab3537ee1bdb643d2dd551f074ce88f4581edb10f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_right_02.png",
+      "sha256": "c8273b50ead7fba54f3116a4e444d61b8bb1626d5e8cdd1a69a650f8afcb12e7",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_right_03.png",
+      "sha256": "b45d6e3c8770a2707b8ab38eba6e334bb58802be7698ace658bbf540613a5237",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_right_04.png",
+      "sha256": "e7c9182cfd537755e8348c43102bd71008e5cd5ac85aa3c938de55a30cee2635",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\claws_right_05.png",
+      "sha256": "1b6c8d5d8e4d98253cfd0e9b8ddeab255a3c8e39981d5a6ab546d60547846f77",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\crossbow_right_00.png",
+      "sha256": "515735872a2b0265c10e6f526f5f2a13572d8aa31c60b4760819aae12c4227f5",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\crossbow_right_01.png",
+      "sha256": "3daf74e00d5d4051e41266930b87c705e98d9eabb9e6874a0a28b2d14011ae89",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\crossbow_right_02.png",
+      "sha256": "97aa7a0acf9c2119beeae64f8df6b54aaf326119299cfa35318892957ce05b1f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\crossbow_right_03.png",
+      "sha256": "f68e1a0cd2294097087e00cf620d545b378fb02c990acbb82a6c5a34fd6ba7d2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\crossbow_right_04.png",
+      "sha256": "d77e78a2bd3c5596e59086019bed7296101c0b296741f32bb95728b422339171",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\crossbow_right_05.png",
+      "sha256": "72f84f47cc4a7e7351c37183974106d1da5a5c8b3dc5e79dadb1f71873f11d3d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_left_00.png",
+      "sha256": "18beb8c201231c45cf5e1de824182c258be57e222ea5a64aebd1a95c00cad943",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_left_01.png",
+      "sha256": "76e0344c2ac23fe5bf9d07f581b211a162c6c86831bb37b6340bb50fa4b99a76",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_left_02.png",
+      "sha256": "1b363aa5e518e765093211efd369b1eb697b2580a377ff7166c85e6cdda15477",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_left_03.png",
+      "sha256": "8e624568bfadfbb33d1a45ad5522bf86f990c3b2ced608228f7ef4119799eb3e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_left_04.png",
+      "sha256": "c436d41369bc48786fcb2fc568baa4fa757319596aa6d3af12a227c5e390a122",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_left_05.png",
+      "sha256": "e29bbdbaf6c9e06e101f963c4ca15735a4cbd421ceb883de64f8ad62032d85a2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_right_00.png",
+      "sha256": "157dfb7b55b5f0d1e68ebc9cd6c01faec3ee59d768053a550313145c38834dad",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_right_01.png",
+      "sha256": "e1ed2ebd06899f052e2daeb93e5e18bb3e4473629eb1d402c47663e99e0075a9",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_right_02.png",
+      "sha256": "2c3f2a4b3ccd2f7fb0af40f4b133eb1f6e9f2a349170a5d9359d96248f82315d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_right_03.png",
+      "sha256": "c245ec0ae741a25069251e8e273993805da80006c847e3c94afe037d76a3c5cc",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_right_04.png",
+      "sha256": "dacf5f91bff61d63cdc17eeec840d3cb5b4bc3090f9bec3ea6df8e3e0ad305d4",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\daggers_right_05.png",
+      "sha256": "601bbbfe8a3e2ce7507e1b8824848129901dd81ac02e29943a175293e358f107",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_boss.png",
+      "sha256": "dc709b8e550f6a1ad3d37792a2323241aded0102920b532f1b235240f932912e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_defeat.png",
+      "sha256": "466f504ae8a3247ce1b0663a64b83bd409f956fae1cd5f347705194905978478",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_easter.png",
+      "sha256": "1eb09d41ead75970fd2a2db9eb0be8e2f325f72c34d23f20c4f68ba6e2ed8683",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_loot.png",
+      "sha256": "6ea6b0689035c9af11530e3dff705f7fc4728aaa21b48e888d29a687b5a1b4f3",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_returning.png",
+      "sha256": "ec4e0ede87570a59e2ef41780f65673c4af460829e28e64a55b21fa44894dea7",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_secret.png",
+      "sha256": "0f90f2ba7b82366a43f585f1e63a8ccebc32ffc4bf14d6b618d5bd6f3c95090a",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_victory.png",
+      "sha256": "941074ea45f9cade274e9d55758e7102b3743a1c152eb680b2189167c5ee2aa9",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dialogue_weapon.png",
+      "sha256": "6c11a0092938e5a609af028f10f00765ee21ae721b54e5761cfab5c2fe85b7a0",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\dungeon.png",
+      "sha256": "d2e48422343e08a01988a8305e4a9ca1f4a4a63d069777c785d1a4b77e62a3bc",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\enemy_hit.png",
+      "sha256": "d51bae1e7dd60b0c0d142ab41cdc346a3fdb289e1b0afb3cbe43370ba930f012",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\gear.png",
+      "sha256": "6318d70e900d14ca0b5c6b1b7295bfdef0177d63903b5aa83d8c30c511c61bd8",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\glasswing.png",
+      "sha256": "166dbdf13d8e0fb417c0c315f55ba257a76729a30c653ff5f8f671ecb406d343",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greataxe_right_00.png",
+      "sha256": "7710703b4f0f8785d4d7a1b2830b9c914cddc578063548ac6e600586587e4fad",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greataxe_right_01.png",
+      "sha256": "d8cdd9aa99171e4ebbf8da276aae8f2a2d6a134d17f1b58e1414b94d608850d2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greataxe_right_02.png",
+      "sha256": "7a6465a842868244fd7f7b87f9f7e6a0bb9cb2f73c9486b84f9b189befa6904d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greataxe_right_03.png",
+      "sha256": "0b236bd97c03c9b6d7635312d47376bbb237cb1b42cda8f679ba1b944dda8487",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greataxe_right_04.png",
+      "sha256": "3847af4f40c6ea13e9fa234067ebe219966992720e98fa01611920e0487f8814",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greataxe_right_05.png",
+      "sha256": "25e17cb1d0b4ddf42923623016e78880f6bd15cb6580cd1eab0f825eebdcb1c8",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greatsword_right_00.png",
+      "sha256": "205e3b8312359b17f604f66c123e51c329aa203154a8eb68ba189568f2a5481c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greatsword_right_01.png",
+      "sha256": "d1626dc3d98f7e259c29948d50cbaf744b121d3814a7a170c0d7ac9935f48e83",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greatsword_right_02.png",
+      "sha256": "23201f9df605bc749dec5d692ca010bfc85827a3324daf0c9b25bca5d4691b2a",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greatsword_right_03.png",
+      "sha256": "048019f31060a34dbe8dd3c5d5fa10022f3f2ef6a779a5b12eebf8666188ff17",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greatsword_right_04.png",
+      "sha256": "e6486cd1796e6c48782f02ac0e01550ecba7d8aea49c5375d273142cf1605d77",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\greatsword_right_05.png",
+      "sha256": "e2d925b79f109629780ce6f0af5d6ab34e7daeb511ec3525c089cdc091580bb2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\home.png",
+      "sha256": "5b00ac26044cbadb8991078c574a48d1276934c52384c81facebba29425d2546",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\home_activity_003.png",
+      "sha256": "e394b2c8da6eb37d657d2fb09d7dc7863d2c5e0d28356e59cdf0264780e8c6dd",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\home_activity_028.png",
+      "sha256": "17ec867e049b28eb169f8111d274fe6c5a3b5ab83f1daaf51a06113dadea9db6",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\home_activity_056.png",
+      "sha256": "764fc0b94a3b34540fabad9860fcb005f4b0177b1f427d34f6bc163b70c7ea9c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\home_activity_084.png",
+      "sha256": "5bb8a21a02f7ba89feb71e2876d41b5bfb3d78b7686377e82151a3fde28bf0e6",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\impact_arcane.png",
+      "sha256": "76b2494c00d87c919a14bdb0b154d21172345a9b65885060c69541d6f116d2a3",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\impact_corruption.png",
+      "sha256": "b72bb5e78071158648534dafde079041c3eef4608aad3ca8ecf7999c06632f50",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\impact_fire.png",
+      "sha256": "d4f3ddced282fcdcb6d27522fa4e73ff909f314a96552f66fdb938005914f9bc",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\impact_frost.png",
+      "sha256": "27a036551aff8d486073f4d2666e714cec5353ae5e4eec864628992d4c55bed7",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\impact_lightning.png",
+      "sha256": "456e64e7d43d38d1f6a42fbd0c908248120e62345c52e5f5bc6be87d3024ebb6",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\impact_poison.png",
+      "sha256": "ec5f294010203abf89ef7f1a8c6b800b89faaff2202cfce85e659917551c2fb2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\maul_right_00.png",
+      "sha256": "fdc6ce6566cf6b17c1f8eef11716a0809efe2c9389930db28721995ff6562606",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\maul_right_01.png",
+      "sha256": "fb725a742a6513e31541c71d330c493807bc391214369431497eb9431945ac63",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\maul_right_02.png",
+      "sha256": "021deae4ac0af048e2737db314ff54eaac9b03991e3bcdd21a3ecdc2c863b93f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\maul_right_03.png",
+      "sha256": "61486e6141dc04961e8317117e6f9fec2ad639c753939e25d725978b0719f3c8",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\maul_right_04.png",
+      "sha256": "4e2a1dcaa41af007e700c9fb63bc2c951eec05a9fbd412f261c6328415ae52ad",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\maul_right_05.png",
+      "sha256": "5373d0c50a5e4cad54bc65a45c9f8b92442434f6798bfea4b7b403eb47fe2485",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\orb_right_00.png",
+      "sha256": "be1ebb9bae2f2d7835e4cae7d65eb185fc07a75bf7e3ee850ca626bf32a50b4c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\orb_right_01.png",
+      "sha256": "831c2ebc4986f09e5a3f4aba25f484e6a2ac3be4ccaab65a0ed5c47ede7aefe4",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\orb_right_02.png",
+      "sha256": "4b18a36e6c654796359f022e1e50c3d3bc78237226a0640070dee675d156792d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\orb_right_03.png",
+      "sha256": "63641db4ae180daa61579338264c324bee5068eae5d4a0d4421081f3c013f267",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\orb_right_04.png",
+      "sha256": "769e0ed21aeb7360cc4059cb5fed9f018bd50e3202a04c09c4a749b6dbf34376",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\orb_right_05.png",
+      "sha256": "c99050f8a3df065835bd11b13a74d4f21ef2188c5f0512c8f3fdcc7082e8998c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_bell_bat.png",
+      "sha256": "c0a6448cc255eef8d1e9dae960917cf9bde2cd5fd74d53a77f91545ebb820151",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_brassback.png",
+      "sha256": "77a0ca845bf9abc01f246c79534d3728d6f95604ff8cc3f54723e2e867301ef2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_chain_guard.png",
+      "sha256": "cff24cc34f10ab8d41bb25c14989d1c7aa4f7d175f93a2b28760ced58f6662fc",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_coal_pup.png",
+      "sha256": "d1bdbe5a2a4fdaf8a946aea95046efa1c23d3c6e6920e8a8ac9908c5f9905311",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_crown_shard.png",
+      "sha256": "27a18c22dab136e1479c4001bd5ff78dcffc28f0472ee586e7cc2cd7d0cbd5bb",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_deck_hexer.png",
+      "sha256": "4df8da5cc75fd11031ef9150e4b1b78aa412b4b50d28baab111ff6ae0e43e386",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_dew_hexer.png",
+      "sha256": "6629eee6627437b810548b0cea50b7631046f84c87b4f9b27174ce2113cf219d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_echo_imp.png",
+      "sha256": "df6f12e2f810d3b826e67e38638d472158687013e815cbc5f8514f306daad5f4",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_fen_sneak.png",
+      "sha256": "6a5188de38f60d19231b895044dbb9339cf96b20919d5b3be297166b4924601c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_first_guard.png",
+      "sha256": "9c21cbb372b293a548c0fcc58337e7c8de6fe4809219d55394668add38e28c13",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_forge_beetle.png",
+      "sha256": "f995dc1af89c8a38da1c031d04659a5781de5e0bc020bb8b863229d11e1a3894",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_glasswing.png",
+      "sha256": "01a750a2a435a90d81b42db6b0ea4ec564d938a487321f58e7fee96048226dab",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_hoard_echo.png",
+      "sha256": "084831548ef933c109dfc05ea8585815363dd9cb4977d1bd4d11f00010eb823f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_hookwing.png",
+      "sha256": "d381e346517f7430ac39cc839159a2e43ece04df2ecb92ec3391348041b3ac5e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_icicle_imp.png",
+      "sha256": "e7b2c36e35f4d107bdb1f1bc180276d8038686757864a5244736f30b9233451b",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_inkling.png",
+      "sha256": "fc51b90366b469478a6d7d54b0ef82f16b7c692422930cc44fdbcf95f45ef1e0",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_lantern_toad.png",
+      "sha256": "c9b6120cc91cced8c2129bb160c02ace6f0e2f01dd19ad227d03642228b21b7d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_margin_imp.png",
+      "sha256": "76e30726813fefc57ff47960a926e26989906c7e45b5454e48e954d82cbfbd1f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_mirror_knight.png",
+      "sha256": "38682f56ba58961b58f1e9a1a163867d3f992b55aca4d73fabb7e070ff342dfa",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_mossmaw.png",
+      "sha256": "dda7093c1b3cdfb9d2f3d5910dbe398444f74b3235a8b6109fd0803f7d898c6e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_hexer_commit.png",
+      "sha256": "d168748aeffc2aaf3c6ff23e6726ce27d68241f7420de5939adb79fddf2ea116",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_hexer_prepare.png",
+      "sha256": "3bd30509a6e06c08a3e91079524e7f3ac22745cbdefe9680016e38ae3a2766c2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_hexer_recover.png",
+      "sha256": "72ff1182827b9bcf5a7f77b3eb218885dc727d2753ecc504f1c6c567af916156",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_skirmisher_commit.png",
+      "sha256": "6fe16c0680ff99bc8e92fa2f2fa5715a26c243693163c55d59cd92140858a5ad",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_skirmisher_prepare.png",
+      "sha256": "bcffe927d1252950ac7c050f029e55bb84511f2ea9abe44cb009eec1d67e6b59",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_skirmisher_recover.png",
+      "sha256": "95b88e014d52a1690b0c6cc21152080aaac27b5529e383d9407db072db530ecd",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_tank_commit.png",
+      "sha256": "5bea05be4e30b850dcf44e6ede4bb6f4b42c6e7bc7896d493bfea36f2c93b4b2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_tank_prepare.png",
+      "sha256": "a45b02fd7d08141fb165e03a13c2082d955510fe84264e49f70be848e627ac68",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_motion_tank_recover.png",
+      "sha256": "582467db8d06cad217c8b2944c1b982408057305e9e93cb80acca51bf44840ab",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_mudcloak.png",
+      "sha256": "31908937a39d00eccc542dcd331b9ae2ed8eebb2bca8b14199ebc17635a648b4",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_null_hound.png",
+      "sha256": "a2a5dfafd7a235a11f3422a4a04cdfb9b00379ba1d6a8a224f0a09713da50309",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_pagewyrm.png",
+      "sha256": "c2b06036c1fd1c8baa535614105e0e4a3bf1bc4b01973fce3250d19d638608e7",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_pressure_sprite.png",
+      "sha256": "895e30595c013993b9c63f40d59df705ebf5dfb96b0f8e29ace3aced4e48c0c2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_rime_pup.png",
+      "sha256": "8cdcda403be2fbf874b8d875ec7605ecb7d2a9328dd52b504150076f6bfcb85b",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_slag_knight.png",
+      "sha256": "82ba71b3c971ea60eb9e1492ff2c48180f0ec096621f22a2cd88bd42062be925",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\regional_sluice_crab.png",
+      "sha256": "3cfbfe892f3548542278a1647991a5dbf20d2877c6e1c82ea7c39311387b0d4a",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\relic_keeper.png",
+      "sha256": "fcbdca2a7c40f8203257ccf15901c71d831fd801b207e79fe38c6af89e3e276e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\salvager.png",
+      "sha256": "b9c969d1e70bf2d52726e56423370d8b0830f5fa45146076a9d0bb04977a7e0b",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\siege.png",
+      "sha256": "3029f4a67af2383f0a23f7ab7b060951fa42dcef62136a4e4d64ca701ab9d4cd",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\sling_right_00.png",
+      "sha256": "5381690ac9d6913f58103b242f3edafb13cbc61f22c25c991959f68961fda065",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\sling_right_01.png",
+      "sha256": "68295f7c2ea7ae01d60bd6429e8f59ab91bf9ac325debbf4322c67439bab937e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\sling_right_02.png",
+      "sha256": "5938fcc7b870be9d2780ac3b12d9282205b728f688e807acae5e4ccf5bcfa316",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\sling_right_03.png",
+      "sha256": "653d1ba4d7f2ca42d86420fff7c9a12a1472767fb37a6afd10cc23e246a354d4",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\sling_right_04.png",
+      "sha256": "f0bbcabbd61ee8d485f3c22b93127f3843d07b9feb085541d7de013fbd70de1a",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\sling_right_05.png",
+      "sha256": "fac83d03965b190502e03998022753c4477908ceba509f1e568a1dfa90e4059e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spear_right_00.png",
+      "sha256": "bb7422f37635276d0a3531137bf760a033a5b7b43234923170ccefbb61f4b541",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spear_right_01.png",
+      "sha256": "8d57650351df216e52b40425778efd8b4a1d8d46626a0566bf087dc21cdc1a96",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spear_right_02.png",
+      "sha256": "da562264d7e170f6384dfcb436bc05e414f8d53248c51f21e9724b620b51c259",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spear_right_03.png",
+      "sha256": "d75fd46c08d0e2ea7b20548e5217cf26113301bf34da94694aa18d3e7435dc80",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spear_right_04.png",
+      "sha256": "fe6b867d2ddc12b3a68c01f0b211f2ef7c04053db5d023500058eedfd2b2363a",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spear_right_05.png",
+      "sha256": "ee01c316bb5288d1080ec5afd9d47e5e6fb2b672faaed88b214ba8b74941bcd5",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_anticipation.png",
+      "sha256": "3cdb5ba2933c43fbf44fa51332e85b42c07b81aa0e32e907bdd4764e87237d4c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_motion_00.png",
+      "sha256": "6eed9d4592963b88893c5534e0ad67018192f8f29da4d696a9619c9cee365041",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_motion_01.png",
+      "sha256": "05221b988fabfc808acc45e8c4f7c10e607142c42cce3bdb0adf5e78ae7ce654",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_motion_02.png",
+      "sha256": "11631bc3cb48848cc49e80bb191d60b6eb06089cd488dd3f98174995f117d3ae",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_motion_03.png",
+      "sha256": "2bbe69df08f328eb009ebdf9a9478c221cec62c4ea2f7610b3a077771c5aa5e6",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_motion_04.png",
+      "sha256": "ea657cc4500fda7f67dcfc3f3a325a6ac560a27fdb910f2ea8864ae8a7fad9b8",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_motion_05.png",
+      "sha256": "44ee4ffd68835ec37cb187b3ab900b8c20158fe754e33e7b4ef111c9a0761801",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_common_reveal.png",
+      "sha256": "11ff34d57070f0baa4b0dff7b30cb4cc6fc3f67e97db4ede0b8d2861ec9e65bb",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_disabled_state.png",
+      "sha256": "d40f8d1806fcaa27bf437ecff86b87c74a5dc027453d41949cac69cae9b99215",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_anticipation.png",
+      "sha256": "d7bf7514195d2e3fd3da5e67aecb262db0d154430bc0856ec9e640132a5f2de2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_motion_00.png",
+      "sha256": "00f603f625959611aea79a42380b808d29a0c244929071db83d6649b9f98f7c0",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_motion_01.png",
+      "sha256": "efa05906c20da46e28104163f3de08ccfe0163860ff2913e34a6832d0ac5916f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_motion_02.png",
+      "sha256": "b9cfe6c4ab288ead4127adfb008114a716a630ab65d4dd6b33d8d6457501b634",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_motion_03.png",
+      "sha256": "9d08033feccb646f339a7f7ec538d0dc20304a4653537dad79cebf89c048cb79",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_motion_04.png",
+      "sha256": "5abd34c456fbfc8b1f666cc29cda97cb43bc7d709dd1bbe76fb1435ba51e7e23",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_motion_05.png",
+      "sha256": "c7649938ca894ee685b2c0abafe61a3f2e42e778bee88df84c2992f95d66afcd",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_epic_reveal.png",
+      "sha256": "271f9f3db0bd6020ea09247ad6b33f8dd8593787459abd6080f55f8c8e26daad",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_anticipation.png",
+      "sha256": "a89d534b49aed5e3674d4f328ae9a27081aa2f14a2bf4b5f6ef11c3b6477fc2e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_motion_00.png",
+      "sha256": "9a7443d7ae3285c8e84ff7aaa548ac8af371ae13ef209a44de297f6aa8e616fe",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_motion_01.png",
+      "sha256": "ebe654c1a297491d8450c795b84533600ed28ca08c7c9b2306f8c2b0e03e7805",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_motion_02.png",
+      "sha256": "63eb150e572f9081bc021e09b4a0caeac6ffff0dda876827b0a96160567907ce",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_motion_03.png",
+      "sha256": "d1e67009181ebdc39e4bcc5e7a27379abb84cd33a7116ecfbac5a4e742f26152",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_motion_04.png",
+      "sha256": "1555ef741f80d294d41fc89e10d1f3f1d9e2d9a50a6a8cd3815728ad9d1a94b3",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_motion_05.png",
+      "sha256": "da4840fdc7ec5facb35f0b502780bc505b6550231bb5e72e0d4c905f9bb1121f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_legendary_reveal.png",
+      "sha256": "1e833fc9b4a3ba4c1adc0c37af1deeb78e7eecdb098e52fb19458dfc909c772c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_pool.png",
+      "sha256": "ee37659b2c7fe34c6db71009b67d5cbeccfdef7e55052666a8fe6fef70526201",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_anticipation.png",
+      "sha256": "832f39a312f0b78215179d64cdc31acf1c6223b94b738aed1cd1aba0237647f9",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_motion_00.png",
+      "sha256": "bb2b1753aeb8fbb3d26e150f9a2c4867a2c1081afde3cd55f49d4ec6526d44c9",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_motion_01.png",
+      "sha256": "8091318e460b1f243ed16f5902fd495737af79faba4f6820affe9bffab7420b5",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_motion_02.png",
+      "sha256": "2c36346d510488ec2cab36787827f379ecd523acf9366617234f71e2bfc1a400",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_motion_03.png",
+      "sha256": "6147de2bcd9e4d5b35669ffdb039e3c63f6feb8abe7788f2466c87f5cab57f7c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_motion_04.png",
+      "sha256": "29dc97605b85b6abc4327e451c3b3209aa674cf6bb7b2bd77eba5a63fb94ded5",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_motion_05.png",
+      "sha256": "f939f20604a854b8711799b725608ec199d291c9f284d443b7ca9ed071437083",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_rare_reveal.png",
+      "sha256": "b3b7db1570251890b30f69b08431447cf5befad4471409ccbe104ab75435f128",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_anticipation.png",
+      "sha256": "7f05e206d2e2fadd3e47d1aea7f56216257d9088c93d0900fbe5ea43a5ba85ca",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_motion_00.png",
+      "sha256": "796a9ad6e25a4f0e7261b34116e78d4f229369d9d9323c8dc9bba83bfb6e0868",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_motion_01.png",
+      "sha256": "a77c5cc16bce6b2e4471fb37a5f81136a2b7540dc9b0e2a98899c62a10f5a122",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_motion_02.png",
+      "sha256": "d7c54f475d76c075d406c16296a9a8e4249af86c8f55515a24043ad7ec7d400d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_motion_03.png",
+      "sha256": "8a682f71401fe7527b618fdf5c58b2994bac8878716ca457d5288183a4a6d64b",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_motion_04.png",
+      "sha256": "f733f7565c2048f3a2d2f5d1ac3d7fbf3f41176965ff0b7059537e338de7f159",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_motion_05.png",
+      "sha256": "08dd944c4ec56d5b3500ff04d2e9f37886f31bb545f5af9611996a62b5809c7d",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_red_reveal.png",
+      "sha256": "d67ec2654a46b815cfb1530e3750a910e0c63d2ef65aecea06005f48f2ec6ed7",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_start.png",
+      "sha256": "e4f71004c013f79713a8e448e38b21e7198882c8f2c67c7c4b1bad30efd48b8c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_anticipation.png",
+      "sha256": "e45e1722ae73f360874de8f87dbd81e3dcd3bad8167288446778e8c968361a21",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_motion_00.png",
+      "sha256": "65d6eaefe147827343960547b0e20ba92697a19ceae0981f1b032266245b5756",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_motion_01.png",
+      "sha256": "15c10427026a50dc4bf8b80e2202ff54c66415cb14e5bc1ad7a9524ae97e9425",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_motion_02.png",
+      "sha256": "a0cf0a15f2050ca712ea8eba99f221505a88e820099a0622c0092cbad19c622c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_motion_03.png",
+      "sha256": "1558daeda54d5c09e6ad95624897c695cb8043cd545a694786a522c40fc86d5e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_motion_04.png",
+      "sha256": "95028a751ff0fb7c37fb61cc4989788b9bfbf3181c6d112d3aba0296e2323491",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_motion_05.png",
+      "sha256": "8f9b100d1ca68b365d96343d5c3cff4e198a03c55f8c0d400f68da1db12bf9fe",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\spinner_uncommon_reveal.png",
+      "sha256": "90ed9f00cbc935966611106289d6f1a4d5a81237b6e8b92cf3c4964184bab9f0",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\staff_right_00.png",
+      "sha256": "e84b21fc2062828b51954f600654c3c0e956296764856a3b8437a4fe392e9545",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\staff_right_01.png",
+      "sha256": "a36b6903e8bef85a1bb1b3c876e2ae642542e7eeff2f252b4191bb90cbb453a2",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\staff_right_02.png",
+      "sha256": "a2828ab88fa6678d7d50c45f47b778eea3f598d8de53fe677df3007d600f757f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\staff_right_03.png",
+      "sha256": "b6c8abaab7afcd18282986c37e76e5083bd553d2cda574060a289ca9e9ec4003",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\staff_right_04.png",
+      "sha256": "e95ea4a40a0de5924e185b6576eac8c112e421ff4b636220d04e3e8e359b4eaf",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\staff_right_05.png",
+      "sha256": "375a42d55a412223a77ba184a3809094840f023f0fb135197a7321678d96d5a4",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_0_00.png",
+      "sha256": "da1aa87c613f9069180aa5d68e43fa36e5a85657c84e116df8817cc24aa007e3",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_0_01.png",
+      "sha256": "ec5c95ea046ca9c66c2f020280a9734919f319c8b4e8eb3ce3a59773777bab67",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_0_02.png",
+      "sha256": "edb67c30e9d39cd4cd6be61fb13b7c0a5ea71ecc92950def4797f3001c707116",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_0_03.png",
+      "sha256": "5e36cd6b0f169754b418f64d56e0eb984b78041dba2aa86703f34f3b29d22b97",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_1_00.png",
+      "sha256": "9e2822844f9c0af13e4b1306989a7334500550893c365a92ab3e7226ffd8fbdd",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_1_01.png",
+      "sha256": "69894848351c1a189f4efaa18ea06c3bf7f1b4041fd5c32f4b6999e3ff6d1610",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_1_02.png",
+      "sha256": "da0791ca8521c739bfc24b026d56217c0e834de311fedf810f3ab064771f5b6c",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_1_03.png",
+      "sha256": "bc99004b7a217898f8460b2f06670e1a09add5a2289421293982c10f38167520",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_2_00.png",
+      "sha256": "9e311f944b5c8bceb486ed78be1f3ccb35181d16cc9fb74f5a0533c1883141cb",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_2_01.png",
+      "sha256": "68d9861cf6123055a570f33c430c56ae3204b69162a280082e95e3fb7fbfa092",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_2_02.png",
+      "sha256": "236fbc600ed560a4bdaaa0434875a022235aa54ba34fd710ecc9c2310bcb0dc8",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_2_03.png",
+      "sha256": "105c86d72070b10961ed06bb829f5dc4d71241aa54ec347ceeb4586482c08d9f",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_3_00.png",
+      "sha256": "d1900e3f58696522ee25883b74fe448d9cc67c8de14f54537359033e2131a955",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_3_01.png",
+      "sha256": "9448d227b7cb7bf81ecbb01a641df839938de65a86bf05bdc9b670db33fd8ce1",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_3_02.png",
+      "sha256": "5f3d6c05df4d6e64c74d1055edb52472f4aa39257fb00d1648a2771ccd44bd13",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_attack_3_03.png",
+      "sha256": "c28a02908ebaa34c315252b454c66216784df188a13a03938000fc953676705e",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_body.png",
+      "sha256": "85038aa1ede8fff2567bbf3c00364d75ed8edae6164548b8c127b313119179de",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_death.png",
+      "sha256": "f338d4b346399b964ea241a3c4b5e172a52eea80df9dc0eacb0f5057597f7762",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_intro.png",
+      "sha256": "3933a754e155c176c3e10b72837eb1e3b420248d17fd6f20edaed62fa4d225ba",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_telegraph_0.png",
+      "sha256": "4f03072d8ef339b644b45fd7bcc10ae870b3f4d22715673c57eb355b1b6cb282",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_telegraph_1.png",
+      "sha256": "7b48fc2b157bf99d790536c2368ab90c703e235a660d670e3deffe81ce66f3ab",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_telegraph_2.png",
+      "sha256": "e4ad6d86776962d5e52c411156a0a0796ce0ee16b49bfe2d9c837e982d39bf18",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\verdant_telegraph_3.png",
+      "sha256": "f18f3cf2128c49a4a923b2b0fce3e70b6ae9282f258f6cfa88f870cc3547d3fc",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\wand_right_00.png",
+      "sha256": "0f957a46379b1e575d8cafa650759d35d5b2af370b4c608418cde27af16b2f86",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\wand_right_01.png",
+      "sha256": "601e04f922d5f4ff53130ee2707a1bc86c226d171557b2b93ccdc7922e7b57cb",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\wand_right_02.png",
+      "sha256": "13c348e40c9d1d0a3803ab0d7399eab1b518d192b004b682dd6c471d12ac6867",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\wand_right_03.png",
+      "sha256": "decc49c3590b510d74be78ee97136903b8f6dee34c49f83b38ae3a966df83bbe",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\wand_right_04.png",
+      "sha256": "76e9fef0b2bdc86c5d5928691675fc0a4fd5ae07bc847b7758c63b13938f8089",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1080x2340\\wand_right_05.png",
+      "sha256": "da77038286a78865c00bb12489eaf931de387ad9f6fa9a2adbfa6d22fccda999",
+      "dimensions": [
+        1080,
+        2340
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\archivist.png",
+      "sha256": "306cd2cc6c235d5097891781eda081d9fe3b128a48f1d9571649ec4c1d396ab1",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_left_00.png",
+      "sha256": "6288226f798a73dbc00f452dc99e10a713b3e4ccd890a8948e467156d7cb1fc6",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_left_01.png",
+      "sha256": "dc51cf35cd6e7fd858f4c3da974509373e9353ad17c74d9fdc19d79312a57cb3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_left_02.png",
+      "sha256": "4c8ecf22e5a727c5003274469968333897d5368f5e82b6f069a8ee97956825e1",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_left_03.png",
+      "sha256": "8f4c9869fa6a3706b99c6d0062a28c4e33823c0039d2793c7358824560c02bc0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_left_04.png",
+      "sha256": "84f33ee50461f5399412624d6363f9e9d0d7947d26e0f84a3fe34273e3076fcc",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_left_05.png",
+      "sha256": "9e3e8258feb807682d6f5b0de51c755db0e086ca18247d2bfa7cb4b02f42c637",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_right_00.png",
+      "sha256": "cd8ea670f6a3cdd2da763c4bba77510fbaf8288e7bc35ba79f45d9bd5f76357b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_right_01.png",
+      "sha256": "4e2fbe78d100946f7f34eeaf7d56e8d310b6a0dc2d91d6cc3fa51252a8951bfb",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_right_02.png",
+      "sha256": "9a516173ad783fa3042e8cec74d7648644ce921d3233902247bc3a6ab4d11f8d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_right_03.png",
+      "sha256": "509656ba89ab13c21aa8af591fe976ca3dbd441812732d035e454d5851f28722",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_right_04.png",
+      "sha256": "778d30eda792e83e27b46dcdb38e209caa6d5191d40b4fdede2d4a248952d97c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\bow_right_05.png",
+      "sha256": "a37eb610d5797709bcd13ae05016b6c4963d0c623ac00b267a2041285d7bdc53",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_left_00.png",
+      "sha256": "904fe1d3ebfc28f34b9269d9f04ea7a3b193ac44885f557de5faa3f5d52afccd",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_left_01.png",
+      "sha256": "da37261960120dedc75057fbfc44671f4859c65725f0246b7c9491732c6ea9f2",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_left_02.png",
+      "sha256": "653c88b963d69e6a4ed170b8bec67dc85e7afaef8784418cdf11286d5b600523",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_left_03.png",
+      "sha256": "8bcb090c274c7f0173820db203ce4bb336c696d57dd63687c921c1366991731c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_left_04.png",
+      "sha256": "235e853d55756795803a00b56d2c006e275aeca0902868ea758bd4f54ad3dcd0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_left_05.png",
+      "sha256": "5d4f93ad8b9c0761ad7d1cfe634dab0c19e85c00a0c594fe28bdbe371787f510",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_right_00.png",
+      "sha256": "a5be6bbee1ebf1f2e7136d6037a5599591c4b65a46b79a045014c002f937fe08",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_right_01.png",
+      "sha256": "b33929f76a966ac4c285ad5afa85560fee9a5f5c6405e53780c1d0bca0dcf408",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_right_02.png",
+      "sha256": "a8890461c71ad7b7fe20738511ce3d8ad5d49356227c3af0083f7955cd04f7a2",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_right_03.png",
+      "sha256": "7e79d7a3b19943c74cc42f2d9f8280ccbd1d02ca030a7f001094a8572eb11bf0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_right_04.png",
+      "sha256": "ea80efd9201181cba67d8cb0a50f00568144e9bd8baa75664757df5ff8d5ebc7",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\claws_right_05.png",
+      "sha256": "16ecd4ff979726e0f766dc9f675fd0c4451da46c12719f19ffe5ce60a899d532",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\crossbow_right_00.png",
+      "sha256": "06b068efdce325f1e09f93d8b592de8974bfe7517065643456ff456169ca1e2e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\crossbow_right_01.png",
+      "sha256": "f7580eed406c68dfea1b539253e11cbcc9e8a5a9607c5aaf921f974901a7cfa8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\crossbow_right_02.png",
+      "sha256": "68777d1a3258428924783e00577df637c6d6688711a8ff23abdc79afabd2f52f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\crossbow_right_03.png",
+      "sha256": "62fc9d7df7b449018e7c8a07e8073956ccd58bd2eb6be89386388a01c6bb8146",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\crossbow_right_04.png",
+      "sha256": "dd67036935d889444a33ae51d8995adb7f9b79a00c1800cb10e72254cbc95d84",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\crossbow_right_05.png",
+      "sha256": "a8e08d53dffb54bfdb5f67b274216dbced2ae620793f530887757ae9fa9f55b6",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_left_00.png",
+      "sha256": "baab71b8e36e582f05fcd02962f326b85d14ac99f3398fd70c1ab3067f105883",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_left_01.png",
+      "sha256": "f4586be25fb8cd3501d6db79d65254ff18c32f3c697799c4f49baac2ca3953f8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_left_02.png",
+      "sha256": "fa1d4d606affe5c46ed7a70a23bad00cd37625b5dbc8fa8c2df837a461f31fe4",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_left_03.png",
+      "sha256": "dfc3abcce2291b515724c2a9d572bbe6e16173dd9c387549f1d45fc4932a3356",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_left_04.png",
+      "sha256": "c7eb94383c3cb8f976ab8995074ed622a58de8f7ff567e4cb60178543475be5c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_left_05.png",
+      "sha256": "357af67607131b09574b57e600398c472e7e4f9ce2bdcc82c180e2b6dbfee715",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_right_00.png",
+      "sha256": "98db5df14344a1543ac742ffca61dd2f745c3713e7b0a8a40e6d70a6c6ed4f08",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_right_01.png",
+      "sha256": "be1bbe120cb9b5dbcc5e9729d268899063b5eaaa2de088b20ac883ff9168b72d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_right_02.png",
+      "sha256": "ce2b823a20dc20c59cf2d2030fcd20d86adaf3af7989bf4f859bec6045118279",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_right_03.png",
+      "sha256": "60c65040ee0cf48cdb89c87bc61f250b4a007c149ba48c3f3375bee8ba15561b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_right_04.png",
+      "sha256": "50ca5a0d78c6efe966c6e08c5cd74e39d615162051a42ea10074436e92f21b71",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\daggers_right_05.png",
+      "sha256": "6884b2fa098743dd1088a6ff1acd70d6f6c0ba9feb15bebbfe424170a71666c6",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_boss.png",
+      "sha256": "8710524b8ab24e9eff85970c28f0ce44514bc81e3b1c629ec99eef1b28927ec4",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_defeat.png",
+      "sha256": "f37034943dfed5868105506dd2f13d39fbe3d20e09d7fa9298c719f8c5778986",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_easter.png",
+      "sha256": "6ec773f760cfbb797c7a50ec24c4881cbb1eaf761d903768cdcdffba19250411",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_loot.png",
+      "sha256": "2eed13f483c2aebdaed606477d43d373daadc3095945cd1ca13731580ae87a6f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_returning.png",
+      "sha256": "2ba7d1f2ac590df564a0dddde0c0eb16dd767787124e8ccb717d5d902851da0b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_secret.png",
+      "sha256": "3f8fad404db7b76380b5ab85228eb175ca320167d43cf2246248909788bf49eb",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_victory.png",
+      "sha256": "f36242ad10eee57a23710c6ae07b8b63d7caa61040db43cbf5ddc4354e11043b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dialogue_weapon.png",
+      "sha256": "c22ac3e36963092d576a85c313e06a3e2f8c4dcee206aa043b65c220e94e49fc",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\dungeon.png",
+      "sha256": "c09e452d708d7274479cd92c6632bf3e6ea2dd50ac9bbcc08b5484907e7099f2",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\enemy_hit.png",
+      "sha256": "86c390005878bfbee31964e05a17cd612baaf4fd4b1e47f44d0e23bec1da82e9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\gear.png",
+      "sha256": "d7f768b21efd453b03b8cfe24eed83849e450ef33bc0fdbdc914d317c94ab0c3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\glasswing.png",
+      "sha256": "7c0aa0ab8e241014ab3e471721b6f90067b7d9568cddc96e523ad43671766854",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greataxe_right_00.png",
+      "sha256": "ddda87a8831d47e313983b60061f6b152c7092b6d4a6d53b8339a37bcca72213",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greataxe_right_01.png",
+      "sha256": "4d0431c6713ba60c30e1826dc6f2f5446e6e9e76b33404223c7f2d285d747ff8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greataxe_right_02.png",
+      "sha256": "02c649d231919249f6dddcdc12a56230c0d85dd4745a19015075b292f02b144d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greataxe_right_03.png",
+      "sha256": "e3da9a749fa430cff11274598a9ead50362f4b71895f573bead03c6c80b8bb43",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greataxe_right_04.png",
+      "sha256": "01f5a34233adf4dcfefa5463a13373cdb87a0d0d3ef50be9d655a89a3caaf488",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greataxe_right_05.png",
+      "sha256": "e50c3549d36e5ad24ed04321b7acc02f3ed393f212e3489c95ccc58a73497776",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greatsword_right_00.png",
+      "sha256": "5c9829f1a69dd0721be67bf24854d505f35962879f8e4cb6d62436e914a7b47b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greatsword_right_01.png",
+      "sha256": "da0ae1efb080b3b1e813d46c2e0fbd3aa45ad5badf29c2bd21d9524689e6de2f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greatsword_right_02.png",
+      "sha256": "9922b6d9112d093c3267f40481772ffe8d350f4d2eb1c21c02c54bb05db7911d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greatsword_right_03.png",
+      "sha256": "e3ee986c200f7b3985e80e207a036fec88b1f9604d2125b1829397ba55ccda5d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greatsword_right_04.png",
+      "sha256": "640ee60a627fd71415ed2ade17ff0b2b5e88514c95cfb118b1cb0a9efa97c9b8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\greatsword_right_05.png",
+      "sha256": "c8d4912a2c92c5554fe1f0d79dc809eca1c5fe7054ef7e9203265232e2686d65",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\home.png",
+      "sha256": "29e86106ec6151532ab8577162a95102b8e9bd6ab24fe267bc7c0067755702c9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\home_activity_003.png",
+      "sha256": "355c9eba4963c5e2893828a40e9d6ed227ea3fc8a345abd854f1e3256771df2e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\home_activity_028.png",
+      "sha256": "577f6ef4c7fb61351aefbf36323690dd99e1ca88c7ea2de232f3ac6181e22af5",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\home_activity_056.png",
+      "sha256": "0003d5fbf796c66c7a473dd8fa41e838fb5f07381001ba8f95d830ad021263f8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\home_activity_084.png",
+      "sha256": "da232141b1afed4a77e562e85adc23632621bd07343c836e1613c8b0f9267b90",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\impact_arcane.png",
+      "sha256": "bf232c4691150b6c54b8ca8d40d4ed4bf1cc35e8b671c4722c2472c4eee317b2",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\impact_corruption.png",
+      "sha256": "637d6841934b32b39349f52335ade29cfae7b58332e957d9f53a62e1c318743f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\impact_fire.png",
+      "sha256": "18a7203cd6b7c0658ed755c566dbfb592e81243929a0e259b5e9874ad82c8a3e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\impact_frost.png",
+      "sha256": "b1fa89ff9c9176ea655d2915be9d8f1dfc2f9fb3650cac14144089f4b5b7f5ab",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\impact_lightning.png",
+      "sha256": "673a3856c2355ff6dbfcaf6ab243392112a048995bb67aa48f99692638236cf3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\impact_poison.png",
+      "sha256": "24219c19e1dcce9dee8e368834d1a96cecd58b3791aebe9e8ce3b25847c52ce4",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\maul_right_00.png",
+      "sha256": "560538b653041f80e6afa8b2249b406811ad43da870e4294095297a65d072739",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\maul_right_01.png",
+      "sha256": "fc5a3ac584231a211100c4a2d81dee504dc3baabb8c2506979c0b24b67e59210",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\maul_right_02.png",
+      "sha256": "28ccc5e165317a28035e7316c8958a158f4aca34b427020ce186e2555a1d51ba",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\maul_right_03.png",
+      "sha256": "b8edc2f8599e754688b146048f73fd8aae5efbf800f8771492533255fb15ad5b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\maul_right_04.png",
+      "sha256": "f66056d7ec6d0fe5a3ae62cc421fd86dca3591d23e816fbbe2507059e3ce77c0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\maul_right_05.png",
+      "sha256": "560538b653041f80e6afa8b2249b406811ad43da870e4294095297a65d072739",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\orb_right_00.png",
+      "sha256": "231fe6588bb75f769fdf6c6021e8008d465db6b55766dcb71c830e39b7d41aa7",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\orb_right_01.png",
+      "sha256": "4b6126de9332b40fbb6ed9786df7e3a343b44e9b0f1388fabee152946381fb01",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\orb_right_02.png",
+      "sha256": "ccb9adbd7c8a18e152ab4d63da3b7b76159760b68c5ff07939b1646f46cb36b2",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\orb_right_03.png",
+      "sha256": "6db4d2887acc290a3db5ab544fbb38102241443210ce0e410aefb165840f9cac",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\orb_right_04.png",
+      "sha256": "df09f20c74218defde6db75a5f5707a7d5e4fa20eb1fdad146c80840098c520a",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\orb_right_05.png",
+      "sha256": "073e4701cc04d9d7b8cdaa89a1ae28026412f8d0cb1bd7075a75f7455fe52d7f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_bell_bat.png",
+      "sha256": "4ce8a8b03244ecad6b6006af44892689ee37042dacbcb753a9430e3adc6218c9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_brassback.png",
+      "sha256": "432e4b8e1bc84ddc6f1f0e0a4bf336f5d5dd9ac191491e4267c909c6c1b20681",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_chain_guard.png",
+      "sha256": "d222b292fd746ef68379193035a7f58e5d96d6ecaf7029c665275847911b2214",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_coal_pup.png",
+      "sha256": "0d695a19f662fa0e9229f21330133be0add5f72ffb7f56a43f4cc8557666fcf0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_crown_shard.png",
+      "sha256": "09f00aeab96cffa92f62529c041970e398e714356161d4850851200cfe49f904",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_deck_hexer.png",
+      "sha256": "1f24406df1de44ee59e3d1ec1f180d16117db40cac6a52ae15fbc9cd3a906610",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_dew_hexer.png",
+      "sha256": "6fba15187f6111c5d9984c4c1d78dc1a69fe84a27c9c5439c87fac8b7cf39b3e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_echo_imp.png",
+      "sha256": "9a02c70f8707327c551f7eb52e363d200e05b57f42042641023e92a6f31fd107",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_fen_sneak.png",
+      "sha256": "885c2b538fb7c72e6a3cf75bfc63bc4a4d3892155c9d293b6b45ebf12f0135df",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_first_guard.png",
+      "sha256": "847a851f070c727e2cc8114099615c9175f31ce33802f10cb5531377c4822fa0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_forge_beetle.png",
+      "sha256": "1bc6038898160f0210431033ed1b7dccec28f1e49ed1de507b493889c37c8c48",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_glasswing.png",
+      "sha256": "284dddabb18dfc43f683cdd62434288045dd18df4b709f20d26855aa1de5f516",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_hoard_echo.png",
+      "sha256": "d94ed5cf969b39b7d91b61063055faa939ff48003df9a0966b4d375668ca0b01",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_hookwing.png",
+      "sha256": "1c1c8e146853d16e5bab8f814cb1929a585ea876a00ac7ab9c97b0601b9e7487",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_icicle_imp.png",
+      "sha256": "241384d33dac44b55a7d6d101175b5ec2a26c01aa81dde9e9ae83711635dbcc9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_inkling.png",
+      "sha256": "602a41f3d369c18cab37627122870997a95786aeb2482732f829b14fa7619d08",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_lantern_toad.png",
+      "sha256": "976f7c56e7ec160b109cdac7c3474654121dcfa804e12885beb77c61acc7a707",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_margin_imp.png",
+      "sha256": "887f2e3e84210207ba531f672277e9f0498705eee7a8ebe325ee05b6e6b69bc4",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_mirror_knight.png",
+      "sha256": "9d021fa7ede82ebef68e0931dcc91783b08b2b3d908e7c904b5ac2b8725fba21",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_mossmaw.png",
+      "sha256": "394946ccd8deae5d4441c4582a0da57dfafc2b1052e686370cb60ba4db83873a",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_hexer_commit.png",
+      "sha256": "103ad0bc63b529c0aa91c119945b7e4a8337995a8794f8fe1d1984e15b84f304",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_hexer_prepare.png",
+      "sha256": "5126edbd72580884a8504a8fc4c9383b6406f9a352087fd7f2b392d84e5e928e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_hexer_recover.png",
+      "sha256": "26ac446a804c9a33c8e76f4ed6fe7339ecda9e265c881e2733fb66aaf877cff0",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_skirmisher_commit.png",
+      "sha256": "f13ccb6f68c6a4c73ad24bdfe5b9e9e2a63dc51878e342f1bed0625d0dae19bf",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_skirmisher_prepare.png",
+      "sha256": "95316fc1dfb84c7334b3fa140ff61d40d928ec4c582f5ebab029c78418cae56b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_skirmisher_recover.png",
+      "sha256": "d8e3c06a1851532ced47de321418b6704d53b041e7a8e2242087346cfd83f83e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_tank_commit.png",
+      "sha256": "61a1c98f43f236deccb8dc9b6be7ea50aed2d32f4200db7923121831ca60cecd",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_tank_prepare.png",
+      "sha256": "eaaeaa89d762551aa6c70ee0233363271a1625267bd44b71eb9591d70f928a9e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_motion_tank_recover.png",
+      "sha256": "eaef16c74ea9d8aecc1bf194e3c0994015b951d8fda95b49f13f5d1ee5a6527b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_mudcloak.png",
+      "sha256": "b3fa7e1dc755211ddafdad976fe502971869e6ce53d543c3d292abce3151105b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_null_hound.png",
+      "sha256": "18567df60b22bab4b210646616fe50fc5dd45ffa7ad29fb0c6c1f24eda3b7a60",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_pagewyrm.png",
+      "sha256": "c16b17ac407cb11becf45af067174649f9f34de646b88aca0040c02cb84a2e19",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_pressure_sprite.png",
+      "sha256": "97cd5cc2d358287e5395ff69283e74cceb66ffcfd95632fd46c8b55a69b9823d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_rime_pup.png",
+      "sha256": "14942776e315d2c9466a112c2008ac8ee00607f8f6d6ac86723a22b7273e8a61",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_slag_knight.png",
+      "sha256": "38f5de27c332ee458af17fb46a98d0776da008850093101fd0308897517c7776",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\regional_sluice_crab.png",
+      "sha256": "05bf8048b993ffef6bc9c3f5dcb2c50bce9702f79a5c2656a02542687cf196ea",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\relic_keeper.png",
+      "sha256": "c3dcea10e535391ffe28a6190757bbe473791a1354d7892ae0fa780204b109b5",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\salvager.png",
+      "sha256": "bb1c4495745e9987350bb781b1cee444db0523cc178f5ab66ef664f9814300a6",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\siege.png",
+      "sha256": "469739a2dc420be658bdb52b3aaa8b0a3a9c84fb0b6b50eaf008bb5c1e6b3049",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\sling_right_00.png",
+      "sha256": "ff0731fdde47689714aa26f4523c7929e0b376e9a8b52b9062dec403dcf4e28d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\sling_right_01.png",
+      "sha256": "7b614cd4eac2425c8c504d26372474b679a40eebf5d02121538816c7d92273dd",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\sling_right_02.png",
+      "sha256": "eaf2a44b9a657fad19fa01c0c5c6dbeaf0d83bf77ef85f6317e766c05648c858",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\sling_right_03.png",
+      "sha256": "9487daf1a629ecb4977965741f4309a7f7b142ad4769ea62e468664a24747e3b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\sling_right_04.png",
+      "sha256": "1f1b23f88bb6a55f502a65e0edf377c6ab50f336565800aded3a07c7d9e59348",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\sling_right_05.png",
+      "sha256": "ff0731fdde47689714aa26f4523c7929e0b376e9a8b52b9062dec403dcf4e28d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spear_right_00.png",
+      "sha256": "3afdb08f2bbadb6525ae97e70eb4261831d5bc203f2f14a549901598760486ca",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spear_right_01.png",
+      "sha256": "c6d37a3bbd4883543f02f94039a1f4d77a5e01156a2bc8e243def6ebcb41cb4b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spear_right_02.png",
+      "sha256": "865aaa590a81d95e004c2c313eb589780b949cfa5c368a3a0e901cf55c45a628",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spear_right_03.png",
+      "sha256": "5fd75c96187c8b5fcb605e2cd5e45d91e23c9a05f6c3e7fd29e42b10bfeaa859",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spear_right_04.png",
+      "sha256": "a71d18863d92af955d6319ba45babb18b8cbacf62136a4306ab22730089a960f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spear_right_05.png",
+      "sha256": "16e4c796fe112d075f46ce7230c6dbeadde12becab5b0aae3fcb0bc996a99051",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_anticipation.png",
+      "sha256": "bc2c343991f1abc12be285c67fdaa5827a29901030cbee936eda2b215f395a2a",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_motion_00.png",
+      "sha256": "3db6d68e937d59e27caa207d321c2328129254915d7da63a7b043b3c6bd5aa85",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_motion_01.png",
+      "sha256": "9e32908e0f51e7ab1320f6a423c5753617ebcbe869715514a6787451f5e690ef",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_motion_02.png",
+      "sha256": "83c02c1b6838d8db31aae87152f0a8a4d687edebbd798bc7c9c0802478ef5151",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_motion_03.png",
+      "sha256": "ef42a4cfcf2abb8aa040bf4812afb2e6d0aa6add4418723172eba91d05b3954d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_motion_04.png",
+      "sha256": "d13c30939df2cb7cfa77c32efb8feb7830a94186ac1f3eff71e6615373b25ce1",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_motion_05.png",
+      "sha256": "39db6a1a073661f5be937bdd56a550705a23b4c3305fd16351721788609a29d9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_common_reveal.png",
+      "sha256": "deb3aa65a77a65f8d868f55dff264ec0b489fd880972e051a5f97f0d34a8c455",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_disabled_state.png",
+      "sha256": "e309f9139a3c2d7ee3476beaaae955a7cb84bc343d38e65bfb486e0438407388",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_anticipation.png",
+      "sha256": "f939feb0446f59d00b82d16de943c3dbce6a3bc47daedbc6d0000d8a5e0182b7",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_motion_00.png",
+      "sha256": "61bfc0a32e1f63dfa363ff7cce4a04ba97b19d9bd70b4e8a62f6d61d0dd41485",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_motion_01.png",
+      "sha256": "b7273c1853993ee2e9b17998d61c1d170d950ac466b93f60dfa68ee2883f96b3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_motion_02.png",
+      "sha256": "91995a089cd9d05344696f9c647b097f9ae550cfb433dc3e25cbe65dfccfd54e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_motion_03.png",
+      "sha256": "1ac748a2b1ecbba9c7a1b9d10848353399a365b8f288a4c6d2f32d2cb74ee6ae",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_motion_04.png",
+      "sha256": "72d4d7ca9f8833b1a2f9f126229f792d5e1f3dbc1dd96afaa1f6d08523a19d3b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_motion_05.png",
+      "sha256": "ef840a04ba8206e6300b155215b0391f374c91bb548d82654aee74f6f52f5c9c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_epic_reveal.png",
+      "sha256": "dfc0a3d15c25a8f9718e5df1c87c09e3abe5ab21ede53e3ccd3c6ce50a6ff52a",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_anticipation.png",
+      "sha256": "65adbcffdfbbd91071fd1ae95335a71de144594cfcc3e49de590e97786677315",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_motion_00.png",
+      "sha256": "ae2176bfc7f43ba4b7b0f6f27be13ec7bcdec25311b129be8abb8af97cf5f676",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_motion_01.png",
+      "sha256": "19a6c291b0963b2f176748d52c44743f90ae5c31127b94cc62262cb0118df5c3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_motion_02.png",
+      "sha256": "18192ca51c3f0def471753da75928cea4ee7ed9f446a73d82fac000f7a1b686c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_motion_03.png",
+      "sha256": "b82b73c09b5bff925ad956ff86b1dc5a37e1aaf28fd0e9c9ebd0e09c5653db3e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_motion_04.png",
+      "sha256": "566bc4ff1ac2df5129af15e71c007eec02e45dad9c1b7ccd823fc9d6e7e7d78b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_motion_05.png",
+      "sha256": "10e2ae7eae68e4ec1663825420b7f7096f3040535814fd2537a92a33a38b317c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_legendary_reveal.png",
+      "sha256": "c9422e98f45ce450007d7a5014635b36630bf2ca7d3a54a0514132891e3bc302",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_pool.png",
+      "sha256": "40894798de6ab35daed5dc9f89000f9e75c606a09dbe35559aaed8d6b1c70c13",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_anticipation.png",
+      "sha256": "d2690352e1d031a9b6f87b9d2dbd71251acf8054271096aa73d9994ca84af3f4",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_motion_00.png",
+      "sha256": "52bd6bf7c3f79f805df40cfe203a03323bbd8021bccb43a7461a642a722e3846",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_motion_01.png",
+      "sha256": "950076ce959a0251abfaf080fc12a22c7fadc2367be0f081baf3c87701429169",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_motion_02.png",
+      "sha256": "f3d844eddb6105e7c3ddfd2647278f111ff002de50c3341e9dadd59aa6ec4cb5",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_motion_03.png",
+      "sha256": "5f386b4bba6ddab9570597ea1904815141a6af15fe524a2836184406d7ee473f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_motion_04.png",
+      "sha256": "57d78078fa201db4c1ae0fa9dff8b654b43f077f271a2081e0be3303b6b173e9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_motion_05.png",
+      "sha256": "5f554b709ca82926d8a0029b745e7e6b4e2d25875807900d2a0b818407289872",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_rare_reveal.png",
+      "sha256": "d04cfc28d9fa1d93dea8cbed3efc31a049dafed243e98dd2c0730fcc21b06521",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_anticipation.png",
+      "sha256": "4ffd771b1920f85936bc8f4cd0af6b5226d9ab4a1ea3ca4907f903bff08ec6c8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_motion_00.png",
+      "sha256": "777d1170725eaf1274a8a080eb53ee78e42b6166173e6482b3eac4d9b57bb6ad",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_motion_01.png",
+      "sha256": "acb437a55be86428a4b0e6da7c32399595f75a0917945e94d8bf782b64fcc35f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_motion_02.png",
+      "sha256": "5a89da54e7aae842ad2b8711e4a5c05c3772c956f1ec0c7b08da3d9a1e2dd454",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_motion_03.png",
+      "sha256": "ad30f9462638bd83e7ef90f97061ad90e9c20068958c89883771e1c139fb223d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_motion_04.png",
+      "sha256": "39664f77ba12a2ebabde8446643a4ea553532f6c138dbb6e127a3cd297dbc6e3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_motion_05.png",
+      "sha256": "a33cadebcd186f8a435bb6b0d7288b75617acb1ce6547eac7086eebc258ff18a",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_red_reveal.png",
+      "sha256": "fb7f0864e56b43fadd9b437a4c7410a5d5936b47c42b6748f768bad7d6047f13",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_start.png",
+      "sha256": "7548a34e701bae227d7cb861fb0a48b27b616f28f71927cdb86c86760c8d3045",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_anticipation.png",
+      "sha256": "c9e43e05d4f759381167b32101c472588fe2fb5127a04c9b99ad9375051b5657",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_motion_00.png",
+      "sha256": "2d509ac174361d6398a1019c9b8dd1febb205f0fde17003ba110f42cce8b922e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_motion_01.png",
+      "sha256": "a462415fc7d989e95ac237ac8b5f3e225db1bfe2f434e5b2a3b732af7809b4b9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_motion_02.png",
+      "sha256": "f6f44ac09ab139f98a8672ef441d7eafc2615bb13fb011a5b8a721c44e4a63f8",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_motion_03.png",
+      "sha256": "5294ea327c7c5b479e9cd95a4a086574be1f2aeabdaa14c2566f3e415c6a6e86",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_motion_04.png",
+      "sha256": "35ebc26dfc1775824e225bb337ddd14c11900b02bedc7bc1ebf7cef1ae72f600",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_motion_05.png",
+      "sha256": "03f05308bca5182f5fdd740aa08c036a45a16fda1156e209b66358e1ab5cd29f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\spinner_uncommon_reveal.png",
+      "sha256": "39fb3d6b08a96d683781e038083de29caf8f9d6abe32fc01cc0630625b878293",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "ISOLATED REWARD PREVIEW"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\staff_right_00.png",
+      "sha256": "9ec2ef03eb79870e8075f4679760d6626b613a3b0efceb37b76f9dd9fcf1b9e1",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\staff_right_01.png",
+      "sha256": "447fe4c653c59b7bd29e16e6bf542f2c297a21893e0848dd8225ca40250af9b4",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\staff_right_02.png",
+      "sha256": "b055845b8b3a397c9e6622997e4aeffe33d7d6dfdc3010d9d11b7a613de515c9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\staff_right_03.png",
+      "sha256": "ef04c73c40be9e23815444f31de0d94af4b08e0843a3d8a96257199fdf091678",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\staff_right_04.png",
+      "sha256": "794ca8300c9c175e50bf1182601ddf8fd7b48f052fb38b3ea73e454a28cc117b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\staff_right_05.png",
+      "sha256": "b266f3fb591403730663208a60d897adcbed66523e6eea52c1ccc909b0145e87",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_0_00.png",
+      "sha256": "ef6b05325fb677f40d738aade8af79310c10b280259bd0e936d19fa08ea5fb08",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_0_01.png",
+      "sha256": "dbe675f6e9d59ab240992f6d04d46bd57921a60fe4edef9a97cc94b7fc0301f6",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_0_02.png",
+      "sha256": "4c9acb7763fbc68699af4e7696f01014ce19bbc3b21ed7e6ff44682a2e70972b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_0_03.png",
+      "sha256": "d4d1dc7997b6338219024ae169b112e58af295f649687431fc710a3d694e5bf3",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_1_00.png",
+      "sha256": "a376bc1c81345e838d0a3f26f0b6bb8ea2d5455b5121116110eaa112c356ab88",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_1_01.png",
+      "sha256": "c6e0e99686e5fc9687d867a944690ed1d58bbacd66ea96084718a6f35feef024",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_1_02.png",
+      "sha256": "0004d8a031d70feded4f845715bf70723881413276bce52ef6bff4000264d75c",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_1_03.png",
+      "sha256": "d984e0e5c4f241a80b5401ac3988dca71f8f7d36e517fd9441bb2fe630669e53",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_2_00.png",
+      "sha256": "04c5f6005d4d0169f2b3a863d2274a1ba1d1977d6cbe1b6ae6273cdc465ed386",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_2_01.png",
+      "sha256": "1f3e186f031ac8ebf0a718e5a3437f36f02995e166c21f4b3ee26f420b2ed0ba",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_2_02.png",
+      "sha256": "97fa8cdf609086f843da78a5174eee84c230f34818c5e2db13a56d2c413beed5",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_2_03.png",
+      "sha256": "ff7636aec2ae29e572a7a3948bca3127fc9d0c27b0ae5b8b867f7b7d18e366ab",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_3_00.png",
+      "sha256": "405b1424d09db82251e58d1e7015effdd0ea950d34ecedfdb995a16aca78e2ba",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_3_01.png",
+      "sha256": "f1a38933e42e173df2267acb48fe8b11edebb2c243ba894d33c34786a0736e9e",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_3_02.png",
+      "sha256": "d0d3a8e82f8d49ba23c11c21820ce85233e4146be0289c9c12c7c39957e25fc9",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_attack_3_03.png",
+      "sha256": "bcaf11dbcc266ee15a3de8e8a7b897269df1d1c9d0667850824856f77a85822d",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_body.png",
+      "sha256": "d5d17eafe5a0aede4cfdc3fb8773293e83b1eb755e249e4c6531cc2af96f32f1",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_death.png",
+      "sha256": "c200a0230fbde40dd8dc8bd1f280270eaf7e9233ea84210f38e859200c5af9db",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_intro.png",
+      "sha256": "846657eda28fa86539e3588dfdbbdc1b1b94128f4e4eafa613deab7b7f9d27e7",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_telegraph_0.png",
+      "sha256": "27fe16fd03e6357dcfb7c88b81cde07644935ad29785c76526064e7dbdde0538",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_telegraph_1.png",
+      "sha256": "690c86f7d2464154bbc28ae3258ebca46c9b5989f4d72af4af683f7a8316995b",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_telegraph_2.png",
+      "sha256": "a79a615fd18ecadac5fb3220e9c084ce180f31dbb0eaed487d82e33c85fa3f50",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\verdant_telegraph_3.png",
+      "sha256": "5736951db7d5b37734be51132ac71b1105965e30d64afe70ba4fc0e6b9899b83",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "NATIVE QA"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\wand_right_00.png",
+      "sha256": "8fe24432723e3cbb32b08de1ee88520ac02f9b7c3a315e1cb16520e4ea303075",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\wand_right_01.png",
+      "sha256": "bd3e03eb6f51aa9d1e9faa6446a6a3f6d82cdc8be13f66e7a02994887c823252",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\wand_right_02.png",
+      "sha256": "399ca6474556ecccca58fe5ff16c94fcc63095e0a75f538b819e8848c470a2e2",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\wand_right_03.png",
+      "sha256": "38538d65718351fde5e71450c3fb85e3ee0404201ffc1550fc35f426187f3a10",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\wand_right_04.png",
+      "sha256": "499e1271f0c5adf878eb541568070374dd24d5ffee664b9fec550559a281161f",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\acceptance-final\\1600x2560\\wand_right_05.png",
+      "sha256": "4ac74fc0b1e5c7731dd61ff1e5a630292c80990320e676854c1e1b76ab57c475",
+      "dimensions": [
+        1600,
+        2560
+      ],
+      "label": "FORCED FACING TEST"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_armour.wav",
+      "sha256": "3d7aceb73342050a9d1d30fd9f5b1cbab240c16f1ebfb4afcc5b614e394f6dec",
+      "bytes": 917548,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_ethereal.wav",
+      "sha256": "c0322a3c75fd17872af46a833c28f2d3728a03e8048840e1271b6e8f1d3792ac",
+      "bytes": 917548,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_flesh.wav",
+      "sha256": "66476faaef2b2b2436a8ac8b79aeca6bdfdf14f8b49575bc0932aadaeca4af33",
+      "bytes": 917548,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_glass.wav",
+      "sha256": "033ea8a21c4022635dcd9cf3d1d86bbf17d03069db80194c1dfa8c4660ebb059",
+      "bytes": 917548,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_molten.wav",
+      "sha256": "5afee6392333ab2a421dce4933abd437f1ffa9ba95840c75891c68f4212d4c82",
+      "bytes": 917548,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_stone.wav",
+      "sha256": "ca35bf875fa626082d88a57779b2606180ebab62865d2b37061d378386b889ae",
+      "bytes": 925740,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\material_wood.wav",
+      "sha256": "1a9dc40edb5a21655270f6fb128c5ee36290a0596ac6f5c6a3ac54caef54bfcb",
+      "bytes": 925740,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\spinner_common.wav",
+      "sha256": "d3c187920ecd8291819e84e32fcd2406695e701d0e2697b253991dc1643ef2fa",
+      "bytes": 4227116,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\spinner_epic.wav",
+      "sha256": "e24877b75f71cf084783f2d7e43e36c4fd4003f05ce14b7ef8913bea476823d4",
+      "bytes": 4235308,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\spinner_legendary.wav",
+      "sha256": "ab75d336bfcc3b481ac0202b4c7890b339d77540edd293fa4cf4db76cc1bafb5",
+      "bytes": 4227116,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\spinner_rare.wav",
+      "sha256": "bba8f2540b31182c4fe0c0f4d88433333e8e6f97c5b3ec9e4982fc1ecc1937c5",
+      "bytes": 4218924,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\spinner_red.wav",
+      "sha256": "f8f5639ee2ec989bf5a3687106026730918e1ce7a16a7057e0e1a87b232ea7dd",
+      "bytes": 4218924,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\spinner_uncommon.wav",
+      "sha256": "f7fd939280a3c089a185766799d1fee38559e01b679a92f0c9bb3382155a9bd5",
+      "bytes": 4218924,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\verdant_mirror.wav",
+      "sha256": "1d655665f04b89db331779671e56e93b4921a92ccaad27ca5a7c07b4cccb75d1",
+      "bytes": 1073196,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\verdant_recover.wav",
+      "sha256": "b5ef4455ca8d35fda0649930ccc3e49fbbc172f5232745d2826819f392a90b3a",
+      "bytes": 1073196,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\verdant_root.wav",
+      "sha256": "09109344972a7126a317f0dd4c7fa58523e8d34c1249836ea0fd0635f0f19625",
+      "bytes": 1073196,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\verdant_thorn.wav",
+      "sha256": "e5c524aa172d3dbd41bbfdd0d8b7e291150b6fa71dc7eba64bd59e8bc18f829f",
+      "bytes": 1073196,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_bow.wav",
+      "sha256": "dfc8118bc58dc4dd49f59630c0db4c0a99f02c5a779c82b9493c5f668db433a3",
+      "bytes": 1237036,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_claws.wav",
+      "sha256": "c84e57ee235dea619d9e758677f745da2fe5dd7e0daeaa158dd9030887987f0e",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_crossbow.wav",
+      "sha256": "f12653dc99d51a2a6c66bd0788f98acab6f7a424c622814fb15d656f10f72617",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_daggers.wav",
+      "sha256": "bc297cd9ddf1090a98f0609143ad6901b7f430091cbaccf1d71b4506e2a4deae",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_greataxe.wav",
+      "sha256": "fd7790258220e6eb19b8ffc12f7f3de816a820ae08b4f01d0afccab6407ec396",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_greatsword.wav",
+      "sha256": "e80bc9b938d48d2fd8e637e8983de52ce39b052f41901f87669a51e3bc9e36e8",
+      "bytes": 1237036,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_maul.wav",
+      "sha256": "0d90c807f43fb340be8c548222e147b62266535e293a3a269d5b7ee2d4d8a65d",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_orb.wav",
+      "sha256": "5435ef46e450668365f60cb568d6b31c48126053541a5bf46cc61055747726cb",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_sling.wav",
+      "sha256": "774bf42c06037dd84a5225e70f0cf51b4a482a015cb42a944d867efdb5eb4ada",
+      "bytes": 1237036,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_spear.wav",
+      "sha256": "05d55b0f556d2f98aeba900ecb51750063c047b8996ce701c1786fbfee8f513e",
+      "bytes": 1237036,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_staff.wav",
+      "sha256": "448645f1e117091cec79a6c0da008e8e2f8ac7fb8afde07f2b3e385cd228283a",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": ".godot_test_data\\phase4e\\audio\\weapon_wand.wav",
+      "sha256": "b160da67226259d46166e2e04e9ded7f646b95e201a517cb1da3af25280ce9cb",
+      "bytes": 1228844,
+      "label": "NATIVE POST-MASTER CAPTURE; LISTENING APPROVAL PENDING"
+    },
+    {
+      "source": "builds/android/Lootlings-phase4e-gamefeel-debug.apk",
+      "sha256": "76c353d07917fd3a158d671aa5a9c6007ede7ee661586e92080f0524c71d2791",
+      "label": "VERIFIED OWNER-TEST APK; NOT DEVICE-ACCEPTED"
+    }
+  ],
+  "note": "Raw full-resolution captures remain in ignored .godot_test_data. Coverage sheets are labelled derivatives; full-size selected JPEG evidence and all 24 original matrix sheets are backed up. Mixed-run results retain rejected subfixtures; accepted subfixtures are explicitly identified in REPORT.md."
+}

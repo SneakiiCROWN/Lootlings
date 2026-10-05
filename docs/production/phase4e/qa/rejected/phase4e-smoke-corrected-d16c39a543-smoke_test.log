@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: SMOKE TEST: four-digit Run Scrip values use separate responsive result rows
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/smoke_test.gd:37)
+       [1] run_tests (res://tests/smoke_test.gd:701)
+BALANCE RUN 1: wave=15 level=12 hp=63 time=120.8s state=result alive=false loot=0 options=0 victory=true review=true
+BALANCE RUN 2: wave=15 level=11 hp=0 time=149.8s state=result alive=true loot=0 options=0 victory=false review=false
+BALANCE RUN 3: wave=15 level=12 hp=171 time=142.6s state=result alive=false loot=0 options=0 victory=true review=true
+BALANCE RUN 4: wave=15 level=13 hp=28 time=166.6s state=result alive=false loot=0 options=0 victory=true review=true
+BALANCE RUN 5: wave=15 level=12 hp=130 time=141.6s state=result alive=false loot=0 options=0 victory=true review=true
+SMOKE TEST FAILED: 1 issue(s)
