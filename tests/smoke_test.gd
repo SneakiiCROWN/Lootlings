@@ -58,12 +58,18 @@ func run_tests() -> void:
 	for intent in ["primary", "secondary", "destructive"]:
 		for skin_state in ["normal", "hover", "pressed", "disabled", "focus"]:
 			var skin = FoundationUI.button_style(Color.WHITE, Color.WHITE, skin_state, intent)
-			check(skin.texture.resource_path.ends_with("production/button_%s.png" % intent) and skin.texture.get_size() == Vector2(512,144) and skin.protected_margin == Vector2(64,16), "button intent uses real painted art and its protected production caps")
+			if intent=="secondary":
+				check(skin is StyleBoxFlat and skin.get_border_width(SIDE_LEFT)>0,"secondary controls retain compact readable borders")
+			else:
+				check(skin.texture.resource_path.ends_with("production/button_%s.png" % intent) and skin.texture.get_size() == Vector2(512,144) and skin.protected_margin == Vector2(64,16), "major button intent uses real painted art and protected caps")
 		var normal = FoundationUI.button_style(Color.WHITE,Color.WHITE,"normal",intent)
 		var pressed = FoundationUI.button_style(Color.WHITE,Color.WHITE,"pressed",intent)
 		var disabled = FoundationUI.button_style(Color.WHITE,Color.WHITE,"disabled",intent)
 		var focus = FoundationUI.button_style(Color.WHITE,Color.WHITE,"focus",intent)
-		check(pressed.tint.r < normal.tint.r and disabled.tint.r < pressed.tint.r and focus.tint.r > normal.tint.r,"painted button pressed/disabled/focus states are visually distinct")
+		if intent=="secondary":
+			check(disabled.bg_color.get_luminance()<normal.bg_color.get_luminance() and pressed.bg_color!=normal.bg_color and focus.border_color.get_luminance()>normal.border_color.get_luminance(),"secondary controls distinguish disabled, pressed and keyboard focus")
+		else:
+			check(pressed.tint.r < normal.tint.r and disabled.tint.r < pressed.tint.r and focus.tint.r > normal.tint.r,"painted major button states remain visually distinct")
 	check(game.hud_header_surface.texture.resource_path.ends_with("production/hud.png") and game.hud_build_surface.texture.resource_path.ends_with("production/hud.png") and game.hud_build_surface.source_scale < game.hud_header_surface.source_scale, "shared painted HUD shell preserves compact build-strip caps")
 	var review_skin = game.item_panel.get_theme_stylebox("panel")
 	check(review_skin.texture.resource_path.ends_with("production/panel.png") and review_skin.protected_margin == Vector2(96,96) and review_skin.compact_texture != null, "painted panel protects ornamental caps and has a compact small-surface treatment")
@@ -692,7 +698,7 @@ func run_tests() -> void:
 	check(game.restart_button.text == "RETURN TO HIDEOUT", "results provide one clear return to the Hideout")
 	check(game.result_summary.text.contains("RUN SCRIP") and game.result_summary.text.contains("RUN REWARDS") and game.result_summary.text.contains("Gold +"), "results separate temporary Run Scrip from persistent Gold rewards")
 	var large_result: String = game.format_result_summary(true, 9999, 9999, 9999, 8888, 1111, 7777, 6666, "A Very Long Legendary Item Name")
-	check(large_result.contains("Earned     9999\nSpent      8888\nLeft       1111"), "four-digit Run Scrip values use separate responsive result rows")
+	check(large_result.contains("Earned     9999\nSpent      8888\nAt finish  1111"), "four-digit Run Scrip values use separate responsive result rows")
 	game.show_hideout()
 	check(game.state == "hideout" and game.hideout_ui.visible, "results return safely to the Hideout")
 	var original_shards: int = game.meta_shards

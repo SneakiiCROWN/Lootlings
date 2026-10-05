@@ -124,8 +124,10 @@ static func apply_material(panel: Control, material: String, radius: int = 20) -
 static func button_style(_fill: Color, _border: Color, state_name: String = "normal", intent: String = "secondary") -> StyleBox:
 	if intent in ["utility", "secondary"]:
 		var box := StyleBoxFlat.new()
-		box.bg_color = Color("#192944") if state_name == "normal" else Color("#2b4264")
+		box.bg_color = Color({"normal":"#192944","hover":"#2b4264","pressed":"#111d32","disabled":"#101827","focus":"#243957"}.get(state_name,"#192944"))
 		box.border_color = Color("#49678e") if intent == "secondary" else Color("#7087ae")
+		if state_name == "disabled": box.border_color=Color("#35445b")
+		elif state_name == "focus": box.border_color=Color("#d1dff6")
 		box.set_border_width_all(2 if intent == "secondary" else 1)
 		box.set_corner_radius_all(10)
 		box.content_margin_left = 8
