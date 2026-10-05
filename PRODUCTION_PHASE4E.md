@@ -1,15 +1,16 @@
-# Current Phase 4E continuation — HOLD
+# Current Phase 4E continuation â€” HOLD
 
-Implementation `597486c` preserves `8416727`, `bfd7601`, `871ae53` and every prior checkpoint. Version15 technical testing APK: `builds/android/Lootlings-phase4e-connections-debug.apk`. Revised machine framing, painted single daggers, target-facing paired claws, casting connections and gesture/save/reward protections validated. **Procedural combat/regional/NPC bodies are POSE/RIG PROTOTYPES ONLY; Gloomlet identity and Hoard Dragon source tail remain blockers. No full Phase4E acceptance or Phase4F.**
+Implementation `d3a579b` preserves `597486c`, `8416727`, `bfd7601`, `871ae53` and every prior checkpoint. Version16 technical testing APK: `builds/android/Lootlings-phase4e-reconciled-debug.apk`. Revised machine framing, painted single daggers, target-facing paired claws, casting connections and gesture/save/reward protections validated. **Procedural combat/regional/NPC bodies are POSE/RIG PROTOTYPES ONLY; Gloomlet identity and Hoard Dragon source tail remain blockers. No full Phase4E acceptance or Phase4F.**
 
-- [Current implementation, native evidence, APK, device steps and multidisciplinary HOLD](docs/production/phase4e/polish/REPORT.md)
+- [Latest reconciliation, resumed dragon-proportion correction and version16 evidence](docs/production/phase4e/reconciliation/REPORT.md)
+- [Preserved broader implementation, native evidence, device steps and multidisciplinary HOLD](docs/production/phase4e/polish/REPORT.md)
 - [Exact canonical replacement register](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md)
 - [Current evidence manifest](docs/production/phase4e/polish/evidence-manifest.json)
 
 
-## Reconciled source-of-truth locks — 2026-10-05
+## Reconciled source-of-truth locks â€” 2026-10-05
 
-The implemented roster is exactly seven Lootlings + five Wanderers; the arsenal is exactly twelve families, listed in the reconciled top-level [content status](CONTENT_IMPLEMENTATION_STATUS.md). Current authored support/paired-art debt is **165 actor × weapon × facing cells (82 right / 83 left)**, derived from the newest complete native matrix; [definition and exact cells](docs/production/phase4e/polish/support-art-debt.json). Zero technical support flags is not art completion. The focused 576-state rerun does not replace the full matrix denominator.
+The implemented roster is exactly seven Lootlings + five Wanderers; the arsenal is exactly twelve families, listed in the reconciled top-level [content status](CONTENT_IMPLEMENTATION_STATUS.md). Current authored support/paired-art debt is **165 actor Ã— weapon Ã— facing cells (82 right / 83 left)**, derived from the newest complete native matrix; [definition and exact cells](docs/production/phase4e/polish/support-art-debt.json). Zero technical support flags is not art completion. The focused 576-state rerun does not replace the full matrix denominator.
 
 The canonical replacement register remains the active queue. Moonkip still needs a canonical weaponless export; Glimmerfin's existing canonical idle is weaponless; Gloomlet's canonical idle exists while its foxlike procedural combat fallback is rejected. World Bible lore/regions and stable runtime IDs remain intact. Art boards are reference only until explicitly approved/imported, never an automatic roster/NPC/region authority. Save semantic/cross-store/process-death, perceptual audio, physical S23 and final visual owner acceptance remain separately open non-art gates.
 
@@ -17,7 +18,7 @@ The canonical replacement register remains the active queue. Moonkip still needs
 
 Historical preserved checkpoint follows; its GO applies only to its earlier device-testing candidate.
 
-# Phase 4E — combat feel and presentation correction
+# Phase 4E â€” combat feel and presentation correction
 
 2026-10-05. Preserved `codex/phase4e-gamefeel` and implementation `0e57b26`; target-facing correction `78a6df4`; final sprite/UI correction `117d9f0a1185c9f098a9685b146ee4448b5ea948`. QA/report/evidence are checkpointed separately. No reset, revert, Phase 4D checkout, main merge or Phase 4F work.
 

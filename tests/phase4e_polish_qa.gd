@@ -51,5 +51,13 @@ func review() -> void:
 			if not event.is_empty(): assert(preload("res://audio_manager.gd").production_event_streams(event).size()==4)
 	var rig=preload("res://combat_sprite_rig.gd")
 	assert(rig.boot_box(Color.RED)==rig.boot_box(Color.RED))
+	var bosses=preload("res://boss_presentation.gd")
+	for region in ["act_i","first_hoard"]:
+		var data: Dictionary=bosses.profile(region)
+		var texture: Texture2D=bosses.texture_for(data)
+		var rect: Rect2=bosses.display_rect(data,texture)
+		assert(absf(rect.size.aspect()-Vector2(texture.get_size()).aspect())<.00001,"Dragon source pixels must not be rectangle-stretched")
+		assert(rect.size.x<=data.display_size.x+.001 and rect.size.y<=data.display_size.y+.001)
+		assert(absf(rect.end.y-data.baseline)<.001,"Aspect correction must preserve the planted baseline")
 	print("POLISH CONTRACTS: %d contact/facing/state samples, %d original rig samples, bounded reaches, distinct paired hands, exact string support, RNG isolation, documented regional cues" % [samples,rig_samples])
 	helper.free(); game.queue_free(); await process_frame; quit()

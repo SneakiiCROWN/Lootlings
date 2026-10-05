@@ -61,8 +61,8 @@ func run_qa() -> void:
 	label.add_theme_font_size_override("font_size",14)
 	root.add_child(label)
 	var checks := 0
-	var pending := 0
 	var pending_by_facing := {"right":0,"left":0}
+	var technical_by_facing := {"right":0,"left":0}
 	var production_matrix: Array = []
 	for id in actors:
 		var sheet: Image
@@ -95,14 +95,15 @@ func run_qa() -> void:
 					production_matrix.append({"actor":id,"body_profile":pose.body_profile,"weapon":weapon,
 						"stance":pose.stance,"facing":facing,"attack_anim":phase,"wardrobe":pose.wardrobe,
 						"support_status":pose.support_status,"authored_facing":pose.authored_facing,
-						"opposite_art_required":pose.opposite_art_required})
-					if phase == 0.0 and pose.support_status == "authored_pose_required":
-						pending_by_facing["left" if facing < 0 else "right"] += 1
+						"opposite_art_required":pose.opposite_art_required,"sprite_rig":pose.get("sprite_rig",false)})
+					if phase == 0.0:
+						var side: String="left" if facing<0 else "right"
+						if pose.support_status in ["authored_pose_required","rigged_two_hand","rigged_paired"]: pending_by_facing[side]+=1
+						if pose.support_status=="authored_pose_required": technical_by_facing[side]+=1
 			game.player_facing = 1; game.forced_facing_test=1
 			game.attack_anim = 0
 			game.attack_clock = interval
 			var pose := Fit.sample(game)
-			if pose.support_status == "authored_pose_required": pending += 1
 			label.text = "%s / %s\n%s · %s\n%s" % [id,weapon,pose.body_profile,pose.stance,pose.support_status]
 			if native:
 				game.queue_redraw()
@@ -161,12 +162,12 @@ func run_qa() -> void:
 	assert(incompatible_pose.sprite_rig)
 	assert(incompatible_pose.hand != neutral.hand+Vector2(100,100))
 	Fit.stance_assets.clear()
-	if native or "--report" in OS.get_cmdline_user_args():
+	if not interactive or native or "--report" in OS.get_cmdline_user_args():
 		var report := FileAccess.open("res://.godot_test_data/weapon_fit_report.json",FileAccess.WRITE)
 		assert(report != null)
-		report.store_string(JSON.stringify({"checks":production_matrix,"support_art_pending":pending_by_facing},"\t"))
-	print("PRODUCTION MATRIX support-hand pending per facing: ",pending_by_facing)
-	print("WEAPON FIT QA PASSED: 144 combinations; %d facing/phase checks; grip/socket transforms; stat/gameplay/loot RNG isolation; authored two-anchor solver. %d combinations still need authored support-hand art (NOT visual passes)." % [checks,pending])
+		report.store_string(JSON.stringify({"checks":production_matrix,"support_art_pending":pending_by_facing,"technical_support_pending":technical_by_facing,"count_unit":"unique actor/weapon/facing cell; rig contacts do not establish canonical art"},"\t"))
+	print("PRODUCTION MATRIX authored support-art debt per facing: ",pending_by_facing,"; unresolved technical contacts: ",technical_by_facing)
+	print("WEAPON FIT QA PASSED: 144 combinations; %d facing/phase checks; grip/socket transforms; stat/gameplay/loot RNG isolation; authored two-anchor solver. %d actor/weapon/facing cells still need approved authored support/paired art (NOT visual passes)." % [checks,int(pending_by_facing.right)+int(pending_by_facing.left)])
 	if interactive:
 		prepare(actors[0],Weapons.live_ids()[0])
 		initialized = true
