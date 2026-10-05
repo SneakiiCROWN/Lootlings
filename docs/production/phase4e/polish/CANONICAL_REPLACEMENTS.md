@@ -2,6 +2,14 @@
 
 Status: HOLD. No procedural body below is accepted canonical art. Retain all mechanics and approved heavy poses. Reference paths are identity constraints, not permission to cut portraits into crude puppets.
 
+## Owner hard canon freeze (2026-10-06)
+
+Established designs are locked. `art/reference/phase4e_handoff/REFERENCE_STATUS.json` marks conflicting boards **REFERENCE_REJECTED_IDENTITY_DRIFT**; the original images and interrupted experiment are preserved outside runtime. The new mushroom Gloomlet and changed Moonkip anatomy are rejected by the owner. Existing canonical sheets remain authoritative. Dragon boards provide compatible single-tail guidance, but their winged quadruped body changes the established wingless/coiled anatomy and is excluded under the no-redesign rule. Overview labels/designs establish no new canon.
+
+Moonkip still needs an exact weaponless export of its established hooded rogue body, 512×512 RGBA, both views and C states with actual hand/socket contact. Gloomlet needs exact violet furry Assassin C-state exports from its existing sheet, 512×512 RGBA, both views; its selector idle is retained and no static idle is falsely called an authored attack. Hoard Dragon needs the existing purple/obsidian/gold wingless body with a redrawn continuous tail, both views, all B states, transparent full silhouette and reusable boss pivots. Preserve good existing source resolutions; new delivery contract remains 2048×2048 for complete boss state packages. The cutout experiment is rejected, not a repaired tail or approved idle.
+
+No entry or support cell is closed by this freeze. The queue remains exactly the register below, with 165 support-art cells. New production assets require established-source provenance and owner approval; technical validation alone never grants canonical or aesthetic acceptance.
+
 ## Current status clarification (2026-10-05)
 
 Authoritative support/paired body-art debt: **165 actor × weapon × facing cells (82 right / 83 left)**; [exact derivation](support-art-debt.json). Rig contact flags are mechanically resolved, not art-approved. Do not reinterpret this as 165 total assets or use it to drop one-hand/body/NPC/boss work from this queue.
