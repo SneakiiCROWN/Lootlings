@@ -10,6 +10,7 @@ func review() -> void:
 		game=load("res://main.tscn").instantiate(); root.add_child(game); await process_frame
 		game.app_lifecycle.platform_notifications_enabled=false
 		folder="res://.godot_test_data/phase4e/machine-finish/%dx%d/" % [dimensions.x,dimensions.y]
+		if not OS.get_environment("LOOTLINGS_MACHINE_STAGE").is_empty(): folder="res://.godot_test_data/phase4e/%s/%dx%d/" % [OS.get_environment("LOOTLINGS_MACHINE_STAGE"),dimensions.x,dimensions.y]
 		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		game.state="result"; game.coins=1000; game.retention.show_spinner()
 		for rarity in preload("res://relic_spin_catalog.gd").TIERS:
@@ -17,6 +18,11 @@ func review() -> void:
 			machine.wind_up("item",rarity,false); machine.set_process(false)
 			machine.progress=.7; machine.elapsed=machine.reel_seconds*.7
 			machine.queue_redraw(); await capture(rarity.to_lower()+"_rolling")
+			game.retention.spin_reward={"kind":"item","rarity":rarity,"amount":1,"display_name":"Gravebloom Staff"}
+			game.retention.spin_kind="item"; game.retention.spin_message="FORCED RARITY PREVIEW — no reward granted"
+			machine._process(9); machine._process(.001); machine._process(.016)
+			assert(machine.stage=="reveal" and machine.burst>.9)
+			await capture(rarity.to_lower()+"_delayed_lock")
 			machine.progress=1; machine.stage="anticipation"
 			machine.elapsed=machine.reel_seconds+preload("res://relic_spin_catalog.gd").anticipation(rarity)*.75
 			machine.queue_redraw(); await capture(rarity.to_lower()+"_anticipation")

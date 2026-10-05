@@ -1,8 +1,9 @@
 # Current Phase 4E continuation â€” HOLD
 
-Implementation `d3a579b` preserves `597486c`, `8416727`, `bfd7601`, `871ae53` and every prior checkpoint. Version16 technical testing APK: `builds/android/Lootlings-phase4e-reconciled-debug.apk`. Revised machine framing, painted single daggers, target-facing paired claws, casting connections and gesture/save/reward protections validated. **Procedural combat/regional/NPC bodies are POSE/RIG PROTOTYPES ONLY; Gloomlet identity and Hoard Dragon source tail remain blockers. No full Phase4E acceptance or Phase4F.**
+Implementation `bce1e73` and `ed5203d` preserve `d3a579b`, `597486c`, `8416727`, `bfd7601`, `871ae53` and every prior checkpoint. Version18 technical testing APK: `builds/android/Lootlings-phase4e-art-ready-debug.apk`. Distinct projectile/material impacts, pack-target landing feedback, delayed premium bursts, readable rarity nameplate and optional approved combat-phase routing implemented. Native phone/tablet, contact/touch/reward regressions and defined desktop reward restart boundaries validated. **Procedural combat/regional/NPC bodies are POSE/RIG PROTOTYPES ONLY; approved replacements and Hoard Dragon source tail remain blockers. No full Phase4E acceptance or Phase4F.**
 
-- [Latest reconciliation, resumed dragon-proportion correction and version16 evidence](docs/production/phase4e/reconciliation/REPORT.md)
+- [Latest continued FIX work, exact art delivery requirements, native/process evidence and version18](docs/production/phase4e/feedback/REPORT.md)
+- [Preserved reconciliation, dragon-proportion correction and version16 evidence](docs/production/phase4e/reconciliation/REPORT.md)
 - [Preserved broader implementation, native evidence, device steps and multidisciplinary HOLD](docs/production/phase4e/polish/REPORT.md)
 - [Exact canonical replacement register](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md)
 - [Current evidence manifest](docs/production/phase4e/polish/evidence-manifest.json)

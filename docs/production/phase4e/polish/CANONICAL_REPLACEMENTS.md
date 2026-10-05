@@ -73,4 +73,6 @@ All current elite modifiers preserve encounter definitions and mechanics. Author
 
 ## Art integration gate
 
+Per-asset delivery requirements are in [ART_EXPORT_CONTRACT.md](ART_EXPORT_CONTRACT.md) and [replacement-export-requests.json](replacement-export-requests.json): all 52 exact register rows, their states/views/canvas/transparency/socket requirements, preserved authored rows and the unchanged 165 support cells. The current merchant role has a supplementary delivery requirement; no new NPC or canonical design is inferred. These specifications do not close any art entry.
+
 No final character/NPC/boss art has been synthesized in this continuation. The existing canonical painted dagger was isolated as a single weapon by a traced mask; its source hash and transformed grip are recorded. This is an integration derivative, not a new creature/character design. The Hoard Dragon defect remains visibly unresolved and blocks acceptance. Approved replacement combat packages are the external asset dependency; current textures/rig contracts remain available for integration.
