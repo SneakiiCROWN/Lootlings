@@ -48,7 +48,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 			var aura := accent
 			aura.a = .18 if identity == "Neutral" else .34
 			g.draw_circle(pos+Vector2(cos(angle)*(58+tier*6),sin(angle)*(43+tier*4)),2.5+tier,aura)
-	g.draw_set_transform(pos+Vector2(-4 if creature else 0,46 if creature else 52),0,Vector2(1,.30 if creature else .28))
+	g.draw_set_transform(Vector2(pos.x-4 if creature else pos.x,preload("res://combat_stage.gd").GROUND_Y),0,Vector2(1,.30 if creature else .28))
 	g.draw_circle(Vector2.ZERO,55 if creature else 39,Color("#07101f88"))
 	if pose.depth == "back": draw_fitted_weapon(g, root, pose)
 	g.draw_set_transform_matrix(root)
@@ -211,6 +211,14 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		pos.y-=17+sin(g.run_time*4)*5
 	if glasswing and regional.get("body","") != "bat":
 		preload("res://enemy_motion.gd").draw_wings(g,pos,extra_scale)
+	# Fit the source uniformly inside its archetype bounds; align full frames to
+	# one ground baseline instead of giving each size a different foot height.
+	var source_size: Vector2=atlas_region.size if atlas_region.size.x>0 else Vector2(texture.get_size())
+	if not g.enemy_is_boss:
+		var fitted: Vector2=source_size*minf(sprite_rect.size.x/source_size.x,sprite_rect.size.y/source_size.y)
+		sprite_rect=Rect2(Vector2(-fitted.x*.5,66-fitted.y),fitted)
+	else:
+		sprite_rect.position.y+=66-sprite_rect.end.y
 	# A restrained local value break keeps painted creatures readable against the rich ruin art.
 	g.draw_set_transform(pos + Vector2(0, -5), 0.0, Vector2(1.0, 0.76) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius + 16.0, Color(0.015, 0.025, 0.065, 0.18 * color.a))
@@ -282,7 +290,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		personality_tilt+=direction*(-preparation*.04+commit*.08)
 		pos.y-=preparation*4
 	if not regional.is_empty() and regional.hover: pos.y+=commit*18
-	g.draw_set_transform(pos + Vector2(0, 64 if not regional.is_empty() else 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
+	g.draw_set_transform(Vector2(pos.x,preload("res://combat_stage.gd").GROUND_Y), 0.0, Vector2(1.0, 0.28) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius, Color(0.015, 0.025, 0.06, 0.52 * color.a))
 	var cast_charge := clampf(1.0 - float(g.enemy_attack_clock) / 0.30, 0.0, 1.0) if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else 0.0
 	if cast_charge > 0.0:

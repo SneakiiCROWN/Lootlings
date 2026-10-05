@@ -8,6 +8,7 @@ var start := Vector2.ZERO
 var previous := Vector2.ZERO
 var dragged := false
 var arena := false
+var target_card := -1
 var start_state := ""
 var scroll: Control
 var velocity := 0.0
@@ -102,7 +103,8 @@ func _input(event: InputEvent) -> void:
 					owned_button.set_pressed_no_signal(true)
 					block_mouse_until=Time.get_ticks_msec()+300; get_viewport().set_input_as_handled()
 			var local: Vector2 = game.get_global_transform_with_canvas().affine_inverse()*start
-			arena = game.state == "playing" and Rect2(0,310,480,344).has_point(local) and not ui_at(start) and not game.presentation_director.vignette.active and not game.presentation_director.travel_active
+			target_card=game.enemy_encounter.card_at(local) if game.state=="playing" else -1
+			arena = game.state == "playing" and (Rect2(0,310,480,344).has_point(local) or target_card>=0) and not ui_at(start) and not game.presentation_director.vignette.active and not game.presentation_director.travel_active
 			if arena:
 				block_mouse_until = Time.get_ticks_msec()+300
 				get_viewport().set_input_as_handled()
@@ -119,8 +121,12 @@ func _input(event: InputEvent) -> void:
 				block_mouse_until = Time.get_ticks_msec()+200
 				if not dragged and not event.canceled and game.state == start_state and not is_instance_valid(dialog):
 					var local: Vector2 = game.get_global_transform_with_canvas().affine_inverse()*event.position
-					if game.enemy_encounter.active: game.enemy_encounter.select_at(game,local)
-					game.request_tap_attack()
+					var released_card: int=game.enemy_encounter.card_at(local)
+					if target_card>=0:
+						if released_card==target_card: game.enemy_encounter.select(game,target_card)
+					elif released_card<0:
+						if game.enemy_encounter.active: game.enemy_encounter.select_at(game,local)
+						game.request_tap_attack()
 				get_viewport().set_input_as_handled()
 			elif dragged:
 				block_mouse_until = Time.get_ticks_msec()+200

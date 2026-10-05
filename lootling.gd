@@ -102,6 +102,9 @@ var enemy_stage_x := ENEMY_X
 func target_combat_position() -> Vector2:
 	return enemy_encounter.target_position() if enemy_encounter.active else Vector2(enemy_stage_x,507)
 
+func target_combat_visual_position() -> Vector2:
+	return preload("res://combat_stage.gd").enemy_position(self,target_combat_position().x)
+
 func combat_facing() -> int:
 	if OS.get_environment("LOOTLINGS_QA")=="1" and forced_facing_test in [-1,1]: return forced_facing_test
 	if state=="playing" and enemy_alive:
@@ -2155,7 +2158,7 @@ func perform_player_attack(is_tap: bool) -> void:
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
-			"target": target_combat_position()+Vector2(-28*combat_facing(),-29),
+			"target": target_combat_visual_position()+Vector2(-28*combat_facing(),-29),
 			"life": travel_time,
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
@@ -3406,6 +3409,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if state != "playing":
 		return
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed and enemy_encounter.card_at(local_touch)>=0:
+		enemy_encounter.select(self,enemy_encounter.card_at(local_touch))
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton and not Rect2(0,310,480,344).has_point(local_touch): return
 	var tapped := false
 	if event is InputEventMouseButton:
@@ -3568,6 +3575,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	var lane := "damage"
 	if text_value.begins_with("-"):
 		lane = "player"
+		pos.x+=WeaponFit.world_position(self).x-player_x
 	elif text_value.contains("SCRIP") or text_value.contains("LOOT") or text_value.contains("HOARD"):
 		lane = "reward"
 	elif is_dot or prefix in ["WARD"]:
@@ -3700,19 +3708,22 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_name_size := 19
 		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
 		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
+		var enemy_hud_y := 243.0 if enemy_is_boss else 354.0
+		if not enemy_is_boss: enemy_hud_x=clampf(target_combat_visual_position().x-enemy_hud_width*.5,16,480-enemy_hud_width-16)
 		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1
-		draw_string(body_font, Vector2(enemy_hud_x, 243), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, mini(enemy_name_size,17), Color("#f4f7ff"))
-		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, 255, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
+		draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, mini(enemy_name_size,17), Color("#f4f7ff"))
+		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0
+		var status_y := 283.0 if enemy_is_boss else enemy_hud_y+51
 		if enemy_burn_dps > 0.0:
-			draw_status_chip(Vector2(status_x, 283), "BURN", build.color("Fire"), "status_burn")
+			draw_status_chip(Vector2(status_x, status_y), "BURN", build.color("Fire"), "status_burn")
 			status_x += 80.0
 		if enemy_poison_stacks > 0:
-			draw_status_chip(Vector2(status_x, 283), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
+			draw_status_chip(Vector2(status_x, status_y), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
 		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240, 310), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
+			draw_status_chip(Vector2(240, 310 if enemy_is_boss else enemy_hud_y+76), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:
@@ -3733,15 +3744,15 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_lunge: float = preload("res://boss_presentation.gd").profile(campaign_id).attack_distance if enemy_is_boss else 10.0 if enemy_is_miniboss or enemy_archetype == "tank" else 15.0
 		behavior_offset.x -= enemy_attack_ratio * enemy_lunge
 		behavior_offset.x*=-enemy_facing_at(enemy_stage_x)
-		var enemy_pos := Vector2(enemy_stage_x + (enemy_recoil + entry_offset)*-enemy_facing_at(enemy_stage_x), 507) + behavior_offset + shake
+		var enemy_pos := preload("res://combat_stage.gd").enemy_position(self,enemy_stage_x) + Vector2((enemy_recoil + entry_offset)*-enemy_facing_at(enemy_stage_x),0) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
-		if show_combat_context: combat_presentation.draw_cue(self, Vector2(enemy_stage_x, 550) + shake)
+		if show_combat_context: combat_presentation.draw_cue(self, Vector2(target_combat_visual_position().x, preload("res://combat_stage.gd").GROUND_Y+2) + shake)
 	elif enemy_death_anim > 0.0:
 		var death_duration := 0.82 if enemy_is_boss else 0.70 if enemy_is_miniboss else 0.62
 		var death_progress := 1.0 - enemy_death_anim / death_duration
 		var death_color := enemy_color
 		death_color.a = 1.0 - death_progress
-		draw_enemy(Vector2(enemy_stage_x + death_progress * 35.0*-enemy_facing_at(enemy_stage_x), 507 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
+		draw_enemy(preload("res://combat_stage.gd").enemy_position(self,enemy_stage_x)+Vector2(death_progress * 35.0*-enemy_facing_at(enemy_stage_x),-death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
 	if status_clock > 0.0 and show_combat_context:
 		draw_rect(Rect2(67, 662, 346, 36), Color("#091127d6"), true)
 		draw_rect(Rect2(67, 662, 346, 36), Color("#b98b477a"), false, 1)
@@ -3793,7 +3804,7 @@ func draw_effects() -> void:
 		var color: Color = particle.color
 		color.a = alpha
 		draw_circle(particle.pos, 3.0 + 3.0 * alpha, color)
-	var impact_center := Vector2(target_combat_position().x + enemy_recoil*-enemy_facing_at(target_combat_position().x), 455)
+	var impact_center := target_combat_visual_position()+Vector2(enemy_recoil*-enemy_facing_at(target_combat_position().x),-29)
 	if crit_flash > 0.0:
 		var crit_ratio := clampf(crit_flash / 0.18, 0.0, 1.0)
 		for ray in range(8):

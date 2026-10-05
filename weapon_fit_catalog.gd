@@ -189,7 +189,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		actor.secondary_hand = contacts[1]
 	var facing := float(g.combat_facing())
 	var creature := not Avatar.is_wanderer(g.profile)
-	var scale: Vector2 = Vector2(action.scale) * (1.10 if not relic_motion else 1.0)
+	var scale: Vector2 = Vector2(action.scale) * (1.10 if not relic_motion and not sprite_rig else 1.0)
 	if creature:
 		scale *= Vector2(1.08,.92) if g.squash > 0 else Vector2.ONE
 		if hurt: scale *= Vector2(1.06,.94)
@@ -258,6 +258,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			secondary = primary+(nock*weapon_scale).rotated(angle)
 	var socket := (rect.position+Vector2(geometry.socket)*size)*weapon_scale
 	return {"sprite_rig":sprite_rig,"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
+		"feet_baseline":float(authored.get("feet_baseline",actor.body_rect.end.y)),
 		"texture":authored.get("texture",actor.texture),"tint":actor.tint,"hand":primary,"primary_hand":primary,
 		"secondary_hand":secondary,"secondary_grip":support,"grip_span":primary.distance_to(support),
 		"weapon_rect":rect,"weapon_rotation":angle,"weapon_scale":weapon_scale,"weapon_type":subtype,"stance":stance.group,"geometry":geometry,
@@ -273,11 +274,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"baked_conflict":not sprite_rig and not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe_by_stance.get(str(stance.group),actor.wardrobe)}
 
 static func world_position(g) -> Vector2:
-	if RelicMotion.applies(g): return Vector2(float(g.player_x),512)
-	var family: String = g.current_weapon_family()
-	var distance := 20.0 if family == "ROGUE" else 17.0 if family == "VANGUARD" else 3.0
-	if g.attack_was_tap: distance += 3.0 if family in ["VANGUARD","ROGUE"] else 1.0
-	return Vector2(float(g.player_x)+clampf(float(g.attack_anim)/.22,0,1)*distance*float(g.combat_facing()),512.0+sin(float(g.run_time)*4.3)*3.0)
+	return preload("res://combat_stage.gd").player_position(g,sample(g,g.player_flash>0))
 
 static func projectile_origin(g) -> Vector2:
 	return world_position(g)+Vector2(sample(g,g.player_flash>0).projectile)
