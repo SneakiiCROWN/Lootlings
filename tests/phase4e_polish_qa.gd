@@ -10,6 +10,7 @@ func review() -> void:
 	var actors: Array=preload("res://wanderer_catalog.gd").selectable_ids()
 	actors.append_array(preload("res://lootling_catalog.gd").selectable_ids())
 	var samples:=0; var rig_samples:=0
+	var renderer=preload("res://creature_renderer.gd").new()
 	for actor in actors:
 		for weapon in preload("res://weapon_catalog.gd").live_ids():
 			helper.prepare(actor,weapon)
@@ -19,6 +20,12 @@ func review() -> void:
 				for phase in [0.0,.06,.14,.22]:
 					game.attack_anim=phase; game.attack_clock=.01 if phase==0 else game.current_attack_interval()
 					var pose:=Fit.sample(game,phase==.06)
+					if weapon in ["daggers","claws"]:
+						for hand in range(2):
+							var held: Transform2D=renderer.paired_weapon_transform(game,pose.root,pose,hand)
+							var contact: Vector2=pose.primary_hand if hand==0 else pose.secondary_hand
+							assert(held.origin.distance_to(pose.root*contact)<.001)
+							if weapon=="claws": assert(held.basis_xform(Vector2.RIGHT).dot(Vector2(facing,0))>0,"Both talon axes must face the active target")
 					assert(pose.support_status!="authored_pose_required")
 					if pose.sprite_rig:
 						rig_samples+=1

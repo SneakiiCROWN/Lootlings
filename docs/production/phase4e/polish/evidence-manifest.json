@@ -1,0 +1,433 @@
+{
+  "canonical_art_accepted": false,
+  "current_source_tail_fixed": false,
+  "curated_images": [
+    {
+      "path": "evidence/weapons/ashtrail_hunter_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/ashtrail_hunter_left.png",
+      "bytes": 1245911,
+      "sha256": "ce25e409e16265ea82c3110453470c68d9a2a015dc3b25f7cf9173a6cf669d26"
+    },
+    {
+      "path": "evidence/weapons/ashtrail_hunter_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/ashtrail_hunter_right.png",
+      "bytes": 1233277,
+      "sha256": "9ecd5b93e24f23a00dcd5c78c4c189404eef88d628415d8dd29befd26b46e712"
+    },
+    {
+      "path": "evidence/weapons/emberhorn_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/emberhorn_left.png",
+      "bytes": 1233111,
+      "sha256": "038616381bc06942c3c441942757870ab218c088f5191fe19bc9c62204c5347f"
+    },
+    {
+      "path": "evidence/weapons/emberhorn_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/emberhorn_right.png",
+      "bytes": 1226741,
+      "sha256": "8b06458c7cacea6ce91a89c746ea054feba1c48e05b303b20e9df960b467b463"
+    },
+    {
+      "path": "evidence/weapons/glimmerfin_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/glimmerfin_left.png",
+      "bytes": 1235490,
+      "sha256": "575eb4282fbd82a200282956fdd101c59e5a48bf8312c2e1b6e2e06095acede2"
+    },
+    {
+      "path": "evidence/weapons/glimmerfin_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/glimmerfin_right.png",
+      "bytes": 1231136,
+      "sha256": "c1ccf56380ae7b262e4a2cf620b69b827d04e6b9777b518e42900c3f2161463b"
+    },
+    {
+      "path": "evidence/weapons/gloomlet_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/gloomlet_left.png",
+      "bytes": 1242099,
+      "sha256": "45f2a1377159a0e8af10c901c79cfb402e8fa08ce93242f0673b45ae975cf382"
+    },
+    {
+      "path": "evidence/weapons/gloomlet_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/gloomlet_right.png",
+      "bytes": 1235166,
+      "sha256": "dc915476cee7c0993b616b232092ae4a78f14271bc5f30fbf5eb0d9ca4bc547e"
+    },
+    {
+      "path": "evidence/weapons/moonkip_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/moonkip_left.png",
+      "bytes": 1263044,
+      "sha256": "3d484c73d1db8d532263864bf0da801bd1c1f9b99905711e527ef63c89ff70c7"
+    },
+    {
+      "path": "evidence/weapons/moonkip_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/moonkip_right.png",
+      "bytes": 1257160,
+      "sha256": "5b2d01e8ca76dd27d18434f33aa24b163ccfe473a9e1acb8d3e070aec652f7b8"
+    },
+    {
+      "path": "evidence/weapons/mosskin_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/mosskin_left.png",
+      "bytes": 1213531,
+      "sha256": "ff0a921503125ece07682c78aeb83427431b26ae05c1503c80da495f8bab7607"
+    },
+    {
+      "path": "evidence/weapons/mosskin_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/mosskin_right.png",
+      "bytes": 1208410,
+      "sha256": "08a7af7d5c7b92f580f0a7c03321055605c257c2c50c1a5f505091569a991fde"
+    },
+    {
+      "path": "evidence/weapons/nightstage_drifter_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/nightstage_drifter_left.png",
+      "bytes": 1229754,
+      "sha256": "6577c5c14d7297491c94c9865fe4a652804560e93aa6f7bff34a9704c13daf3a"
+    },
+    {
+      "path": "evidence/weapons/nightstage_drifter_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/nightstage_drifter_right.png",
+      "bytes": 1219659,
+      "sha256": "976854d3aff79652b7255143e1fd04d87827f3647eb29150f55eae435981b645"
+    },
+    {
+      "path": "evidence/weapons/pebblewyrm_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/pebblewyrm_left.png",
+      "bytes": 1235375,
+      "sha256": "ac5d5b93bac1e7f35f6ffc9c86d1a67efd45611368424415c98d086ffa67758b"
+    },
+    {
+      "path": "evidence/weapons/pebblewyrm_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/pebblewyrm_right.png",
+      "bytes": 1230593,
+      "sha256": "b8cfaad3a75a2272842fd5e7b81128f741f0afa0f14398d97627a9ccb6b4ade1"
+    },
+    {
+      "path": "evidence/weapons/relic_beast_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/relic_beast_left.png",
+      "bytes": 1258414,
+      "sha256": "9b839c809942b6b8d0fbbe430e51d72604f236049071e867391a7f44ae19affc"
+    },
+    {
+      "path": "evidence/weapons/relic_beast_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/relic_beast_right.png",
+      "bytes": 1251794,
+      "sha256": "1ad28772ab06f4a3059a3cd72d6841ce4f04653b3314ecf9fd4baefc167f6b7d"
+    },
+    {
+      "path": "evidence/weapons/ruin_warden_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/ruin_warden_left.png",
+      "bytes": 1231757,
+      "sha256": "9a39fd38febeeca948d39f78cee6bc5cad64fd63d03c9bd1af7b30111ee5a4fe"
+    },
+    {
+      "path": "evidence/weapons/ruin_warden_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/ruin_warden_right.png",
+      "bytes": 1220723,
+      "sha256": "66ced089603cd9557310ea8fc4447669ad46de6f225ee89368b3f964920f9fa1"
+    },
+    {
+      "path": "evidence/weapons/vault_runner_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/vault_runner_left.png",
+      "bytes": 1230576,
+      "sha256": "7554d4c28166db3668324c20742a23761a144e70cd9aba37936622a1d4bbdf4d"
+    },
+    {
+      "path": "evidence/weapons/vault_runner_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/vault_runner_right.png",
+      "bytes": 1221383,
+      "sha256": "c4c29d7e7a19c79eacfe7f4c406dbadc88dfb76890b9b27ecb62c356e9548057"
+    },
+    {
+      "path": "evidence/weapons/velvet_astrologer_left.png",
+      "source": ".godot_test_data/phase4e/connections-final/velvet_astrologer_left.png",
+      "bytes": 1249769,
+      "sha256": "c14c9d4c3834cc0925039e6228854767187496ac4f1c3086b80403c97eae96a0"
+    },
+    {
+      "path": "evidence/weapons/velvet_astrologer_right.png",
+      "source": ".godot_test_data/phase4e/connections-final/velvet_astrologer_right.png",
+      "bytes": 1242768,
+      "sha256": "b12a07204ba81ed61136bb59c20979be658ebeda350ac59e26d6969976c72b3f"
+    },
+    {
+      "path": "evidence/spinner-phone/common_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/common_reveal.png",
+      "bytes": 1510409,
+      "sha256": "dc885581f056c902df6767e666a312954a8e47dfab3502426c9a250a02713b64"
+    },
+    {
+      "path": "evidence/spinner-phone/epic_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/epic_reveal.png",
+      "bytes": 1556258,
+      "sha256": "160d3236c3d64a2164e71242d25a1c62e6374cca184b763ad4876c5c97f0440b"
+    },
+    {
+      "path": "evidence/spinner-phone/legendary_anticipation.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/legendary_anticipation.png",
+      "bytes": 1573730,
+      "sha256": "022400413a88a4fe959f1c2aa633fbf49e1cc986baadbac5bdf81adaeecafdb0"
+    },
+    {
+      "path": "evidence/spinner-phone/legendary_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/legendary_reveal.png",
+      "bytes": 1570129,
+      "sha256": "35647500cc2ebf4c66393fe0b89a7aef98c4b59a7223d012adae59364ccc279a"
+    },
+    {
+      "path": "evidence/spinner-phone/rare_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/rare_reveal.png",
+      "bytes": 1584239,
+      "sha256": "ce5d266e94e0d89028759db163440a5e679bd3ef383bf7e044f81c6675bfac67"
+    },
+    {
+      "path": "evidence/spinner-phone/red_anticipation.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/red_anticipation.png",
+      "bytes": 1594029,
+      "sha256": "199bff2b6a47e5f9fd4fd92742d03a2f93006fb04171764c4f64082a831ccd60"
+    },
+    {
+      "path": "evidence/spinner-phone/red_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/red_reveal.png",
+      "bytes": 1556279,
+      "sha256": "a6fdf310ea298057a551531a1dc19ebeb6a9b7a39f5857de72ed6e7bacae47ee"
+    },
+    {
+      "path": "evidence/spinner-phone/uncommon_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1080x2340/uncommon_reveal.png",
+      "bytes": 1597734,
+      "sha256": "a53a1f5fe7416b7ac7ae54bbd8fe864b6de9c447b6d9fa14a6c7241dedccad6d"
+    },
+    {
+      "path": "evidence/spinner-tablet/common_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/common_reveal.png",
+      "bytes": 2235826,
+      "sha256": "c4394bd5512625e1451d03eb7f06134450a4bc6919ddcca3cc2f531e5036b613"
+    },
+    {
+      "path": "evidence/spinner-tablet/epic_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/epic_reveal.png",
+      "bytes": 2243813,
+      "sha256": "787f750a65591710eb54661df6de8d4b9214b1c7b6e946d75af2c37921a71359"
+    },
+    {
+      "path": "evidence/spinner-tablet/legendary_anticipation.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/legendary_anticipation.png",
+      "bytes": 2330637,
+      "sha256": "02865308e2c8e454371e4c23528bcda0a220dbbccfcb70ff3ff49e241431c287"
+    },
+    {
+      "path": "evidence/spinner-tablet/legendary_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/legendary_reveal.png",
+      "bytes": 2271135,
+      "sha256": "a70c5ae48c9e090352e512b98cadf0e4ac29c5801d5665218eb7738745dfa19c"
+    },
+    {
+      "path": "evidence/spinner-tablet/rare_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/rare_reveal.png",
+      "bytes": 2286810,
+      "sha256": "10767fe60ba93287921bd3d7a0ea7a2f1a866bb5ecfb05825022447c0ed2d3ad"
+    },
+    {
+      "path": "evidence/spinner-tablet/red_anticipation.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/red_anticipation.png",
+      "bytes": 2355671,
+      "sha256": "eab37dd4719c0a86137d27afec13af69f749284127945bf1014dbba8ea234f06"
+    },
+    {
+      "path": "evidence/spinner-tablet/red_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/red_reveal.png",
+      "bytes": 2250947,
+      "sha256": "7da6657898ed4f79c29404bbf8174214e22b8a2dfb5a47db2a79e1cd16938db7"
+    },
+    {
+      "path": "evidence/spinner-tablet/uncommon_reveal.png",
+      "source": ".godot_test_data/phase4e/machine-finish/1600x2560/uncommon_reveal.png",
+      "bytes": 2308446,
+      "sha256": "0e2a59f837a8ee88c6edcab5e7102b81d01d3db7fa07f0714aa923c919d953c8"
+    },
+    {
+      "path": "evidence/real-facing/claws_attack.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_attack.png",
+      "bytes": 729768,
+      "sha256": "99d9d1657932bef7fde00ccc1f86510d7d07ce62e5fc3554243e32fa9aa3236c"
+    },
+    {
+      "path": "evidence/real-facing/claws_enemy_cross_after.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_enemy_cross_after.png",
+      "bytes": 739655,
+      "sha256": "e185499665fa3a5b11acfab077955a8eee04548828fdc3717a25034ff9dea583"
+    },
+    {
+      "path": "evidence/real-facing/claws_enemy_cross_before.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_enemy_cross_before.png",
+      "bytes": 740669,
+      "sha256": "cf957767fe0267eccf108edb12aafa43b4e5ce549cef1e509392b7579d50ee8d"
+    },
+    {
+      "path": "evidence/real-facing/claws_hit.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_hit.png",
+      "bytes": 729825,
+      "sha256": "bcf33b5e111086c73812bf3222e01846ba6526b34146ef909daf9285a66c05b7"
+    },
+    {
+      "path": "evidence/real-facing/claws_player_cross_after.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_player_cross_after.png",
+      "bytes": 740303,
+      "sha256": "658c5e9be88dc137a05da10913649f397c58f1ed8281949ebb948ba47f5a5b2c"
+    },
+    {
+      "path": "evidence/real-facing/claws_player_cross_before.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_player_cross_before.png",
+      "bytes": 740526,
+      "sha256": "f9fffbfc79185527f82c15237668454246ce1e2c3f227f7548c27885a41f0d09"
+    },
+    {
+      "path": "evidence/real-facing/claws_player_left.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_player_left.png",
+      "bytes": 736387,
+      "sha256": "50267bebba963293b82072eb7c73e6fff6c26c7d4839329a599d7ca8748fd521"
+    },
+    {
+      "path": "evidence/real-facing/claws_player_right.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_player_right.png",
+      "bytes": 735592,
+      "sha256": "3e624f73dbf804a9217e7feec94dd7f67b1eaae83ccef08285202e174736f142"
+    },
+    {
+      "path": "evidence/real-facing/claws_recovery.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_recovery.png",
+      "bytes": 736145,
+      "sha256": "eafa53f326ed07d8bd13421fd221841eabada98164719d1e5479d536b9770770"
+    },
+    {
+      "path": "evidence/real-facing/claws_windup.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/claws_windup.png",
+      "bytes": 726252,
+      "sha256": "7b10d2d85d715f4172331c0c0ae1ef0a3a56e4610a38421f02acda92a9acbd86"
+    },
+    {
+      "path": "evidence/real-facing/daggers_attack.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_attack.png",
+      "bytes": 732614,
+      "sha256": "b633d292f4ee5c8176d069b69d030844666bbb19648bbde365b06192c28bd77b"
+    },
+    {
+      "path": "evidence/real-facing/daggers_enemy_cross_after.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_enemy_cross_after.png",
+      "bytes": 744072,
+      "sha256": "175cff993d285126c0e211c9ef02e8d925884719c47037da4ecdb2e406f2f7c2"
+    },
+    {
+      "path": "evidence/real-facing/daggers_enemy_cross_before.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_enemy_cross_before.png",
+      "bytes": 744814,
+      "sha256": "eb50e78b87b9a80aa5e9b5fa194cd47e31944d706481c13822d2a668a0dd945a"
+    },
+    {
+      "path": "evidence/real-facing/daggers_hit.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_hit.png",
+      "bytes": 733753,
+      "sha256": "275f0dc4fc438c046291ebf6a40767f1e28acb5fc000fb5b880c39d9dcf26c1d"
+    },
+    {
+      "path": "evidence/real-facing/daggers_player_cross_after.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_player_cross_after.png",
+      "bytes": 744436,
+      "sha256": "d330a765638044abfa8e0fdce32bf5b9622d84c7664346379c9b8d3f489ff52c"
+    },
+    {
+      "path": "evidence/real-facing/daggers_player_cross_before.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_player_cross_before.png",
+      "bytes": 744604,
+      "sha256": "a3e49a253e7c0f5ada8fe90de574c4887e10f5debd827c8c8c7d8b12c5492832"
+    },
+    {
+      "path": "evidence/real-facing/daggers_player_left.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_player_left.png",
+      "bytes": 741120,
+      "sha256": "9762baf72fe578651eee45c1b515538c1bb8226f4fb2fb574fc57a5262eed5e7"
+    },
+    {
+      "path": "evidence/real-facing/daggers_player_right.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_player_right.png",
+      "bytes": 739029,
+      "sha256": "92c816f67ddd601d8448454ffb76b79c90bcba7f1eca0f0475b4e90c80c58235"
+    },
+    {
+      "path": "evidence/real-facing/daggers_recovery.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_recovery.png",
+      "bytes": 741535,
+      "sha256": "b9551c9383a50baeb788365432f1a77d829f773932a2d32c648639b2c689a18b"
+    },
+    {
+      "path": "evidence/real-facing/daggers_windup.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/daggers_windup.png",
+      "bytes": 728535,
+      "sha256": "9219bff40c08872975449a737378bb67b8c0a06ad0cb2e689811c5ba314c3400"
+    },
+    {
+      "path": "evidence/real-facing/orb_attack.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_attack.png",
+      "bytes": 737225,
+      "sha256": "9a3952ce82062135c7ce53135521ee916126558ae4c1e88fa164109e63201435"
+    },
+    {
+      "path": "evidence/real-facing/orb_enemy_cross_after.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_enemy_cross_after.png",
+      "bytes": 739546,
+      "sha256": "978f85246ea5d1f08241a312003d0ac7142c584e9d63739f81ae37fbc9cefae9"
+    },
+    {
+      "path": "evidence/real-facing/orb_enemy_cross_before.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_enemy_cross_before.png",
+      "bytes": 740892,
+      "sha256": "c4bbeed853c24f6337f19b95e3b21c8752b0654db683f8c66a522e3e8b307848"
+    },
+    {
+      "path": "evidence/real-facing/orb_hit.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_hit.png",
+      "bytes": 735216,
+      "sha256": "595d003524ed08c54e3e8d06f77d79ab08af3c15d5f175eec874a334602f6cb7"
+    },
+    {
+      "path": "evidence/real-facing/orb_player_cross_after.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_player_cross_after.png",
+      "bytes": 742202,
+      "sha256": "4a0190e92cb16419a818303010363212827c3a4891aa9d17c62c0d6bb2710b87"
+    },
+    {
+      "path": "evidence/real-facing/orb_player_cross_before.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_player_cross_before.png",
+      "bytes": 742986,
+      "sha256": "cc54992eb729b63104e171964fd3cbeca5005821bd58b7f5361a5d0976465097"
+    },
+    {
+      "path": "evidence/real-facing/orb_player_left.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_player_left.png",
+      "bytes": 737150,
+      "sha256": "2faa3ca3ed3401697f234994907cefa42c92ec680ea73f3ad00dbb80c4333087"
+    },
+    {
+      "path": "evidence/real-facing/orb_player_right.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_player_right.png",
+      "bytes": 736283,
+      "sha256": "f6ed91ac47f2fc2765f269e5e89e4d9f2545f9cb712ba936efc11a25cabf79c4"
+    },
+    {
+      "path": "evidence/real-facing/orb_recovery.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_recovery.png",
+      "bytes": 736727,
+      "sha256": "5ab838a0abda1f1f9966fba38b9b0a97608c2ade3dd531b2f7ce17c79c6c5ba8"
+    },
+    {
+      "path": "evidence/real-facing/orb_windup.png",
+      "source": ".godot_test_data/phase4e/connections-final-real-facing/orb_windup.png",
+      "bytes": 736674,
+      "sha256": "ad576174f0fe70327b50961501111673064f4ef67345c8b8e81e6e9cae8714a7"
+    }
+  ],
+  "raw_native_coverage": {
+    "full_matrix": 1728,
+    "current_changed_families": 576,
+    "current_real_target_cases": 60,
+    "six_spinner_tiers_phone_tablet_states": 36
+  },
+  "note": "FORCED FACING TEST sheets are socket/pose evidence. Separate real-facing renderer/resolver uses QA-staged crossing with forced flag zero. Source-art blockers remain visible."
+}

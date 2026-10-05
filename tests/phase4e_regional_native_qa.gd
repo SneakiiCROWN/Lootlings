@@ -13,7 +13,7 @@ func review() -> void:
 		helper.prepare("gloomlet","bow")
 		game.enemy_entry_anim=0; game.special_intro_timer=0; game.enemy_encounter.active=false
 		game.presentation_director.toast_queue.clear(); game.presentation_director.active_toast.clear(); game.presentation_director.toast_panel.visible=false
-		folder="res://.godot_test_data/phase4e/acceptance-final/%dx%d/" % [dimensions.x,dimensions.y]
+		folder="res://.godot_test_data/phase4e/polish-regional-final/%dx%d/" % [dimensions.x,dimensions.y]
 		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		for name in preload("res://regional_enemy_presentation.gd").ENTRIES:
 			game.enemy_name=name; game.enemy_is_boss=false; game.enemy_is_miniboss=false
@@ -29,5 +29,8 @@ func review() -> void:
 		game.show_hideout(); game.hideout_ui.show_stash(); await capture("gear")
 		game.hideout_ui.visible=false; game.state="result"; game.retention.show_spinner()
 		assert(game.retention.panel.visible); await capture("spinner_disabled_state")
+		game.retention.machine.stop(); game.retention.panel.visible=false; game.retention.dimmer.visible=false
+		game.show_hideout(); await sample_performance("polish_final_home",false)
+		helper.prepare("gloomlet","bow"); await sample_performance("polish_final_bow")
 		helper.free(); game.free(); await process_frame
 	print("REGIONAL NATIVE: 27 refined species plus three attack-role sequences, phone and tablet"); quit()

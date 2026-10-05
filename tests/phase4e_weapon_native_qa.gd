@@ -11,6 +11,7 @@ func _initialize() -> void:
 	call_deferred("run_qa")
 
 func run_qa() -> void:
+	if not OS.get_environment("LOOTLINGS_4E_WEAPON_STAGE").is_empty(): output_folder="res://.godot_test_data/phase4e/"+OS.get_environment("LOOTLINGS_4E_WEAPON_STAGE")
 	var helper = Matrix.new()
 	helper.game = load("res://main.tscn").instantiate()
 	var game = helper.game
@@ -27,11 +28,13 @@ func run_qa() -> void:
 	root.add_child(caption)
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output_folder))
 	var rows: Array = []
+	var weapons: Array=["bow","crossbow","daggers","claws","sling","greatsword","spear","staff","maul","greataxe","wand","orb"]
+	if not OS.get_environment("LOOTLINGS_4E_WEAPON_FILTER").is_empty(): weapons=Array(OS.get_environment("LOOTLINGS_4E_WEAPON_FILTER").split(","))
 	for actor in actors:
 		for facing in [1,-1]:
-			var sheet := Image.create(1440,2280,false,Image.FORMAT_RGBA8)
+			var sheet := Image.create(1440,190*weapons.size(),false,Image.FORMAT_RGBA8)
 			var row := 0
-			for weapon in ["bow","crossbow","daggers","claws","sling","greatsword","spear","staff","maul","greataxe","wand","orb"]:
+			for weapon in weapons:
 				helper.prepare(actor,weapon)
 				assert(game.inventory.equipped_item("Weapon").get("weapon_type","")==weapon,"Capture must equip its labelled weapon: "+weapon)
 				game.wave = 15
@@ -73,7 +76,7 @@ func run_qa() -> void:
 				row += 1
 			assert(sheet.save_png(output_folder+"/%s_%s.png" % [actor,"right" if facing > 0 else "left"]) == OK)
 	var report := FileAccess.open(output_folder+"/report.json",FileAccess.WRITE)
-	report.store_string(JSON.stringify({"samples":rows,"total":rows.size(),"columns":STATES,"rows":["bow","crossbow","daggers","claws","sling","greatsword","spear","staff","maul","greataxe","wand","orb"],"note":"FORCED FACING TEST: isolated pose matrix only. Real target-facing is captured separately. Original articulated fallback rigs and preserved authored poses. Contact assertions are separate from owner art acceptance."},"\t"))
+	report.store_string(JSON.stringify({"samples":rows,"total":rows.size(),"columns":STATES,"rows":weapons,"note":"FORCED FACING TEST: isolated pose matrix only. Real target-facing is captured separately. Original articulated fallback rigs and preserved authored poses. Contact assertions are separate from owner art acceptance."},"\t"))
 	print("PRESENTATION MATRIX: ", rows.size(), " native state samples, 24 contact sheets")
 	helper.free()
 	quit(0)

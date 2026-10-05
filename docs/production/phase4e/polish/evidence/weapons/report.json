@@ -1,0 +1,5204 @@
+{
+	"columns": [
+		"idle",
+		"windup",
+		"strike",
+		"recovery",
+		"movement",
+		"hurt"
+	],
+	"note": "FORCED FACING TEST: isolated pose matrix only. Real target-facing is captured separately. Original articulated fallback rigs and preserved authored poses. Contact assertions are separate from owner art acceptance.",
+	"rows": [
+		"daggers",
+		"claws",
+		"staff",
+		"orb"
+	],
+	"samples": [
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "vault_runner",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ruin_warden",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "nightstage_drifter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "velvet_astrologer",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "idle",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "windup",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "strike",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "recovery",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "movement",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "res://art/sprites/weapons/stances/staff_held.png",
+			"state": "hurt",
+			"support_status": "authored_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "ashtrail_hunter",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "relic_beast",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "emberhorn",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "mosskin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "moonkip",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "pebblewyrm",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "glimmerfin",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": 1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "daggers"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_paired",
+			"weapon": "claws"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "rigged_two_hand",
+			"weapon": "staff"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "idle",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "windup",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "strike",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "recovery",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "movement",
+			"support_status": "not_required",
+			"weapon": "orb"
+		},
+		{
+			"actor": "gloomlet",
+			"death_sprite_used": false,
+			"facing": -1,
+			"held_path": "default",
+			"state": "hurt",
+			"support_status": "not_required",
+			"weapon": "orb"
+		}
+	],
+	"total": 576
+}

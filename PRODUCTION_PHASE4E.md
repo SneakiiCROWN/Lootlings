@@ -1,3 +1,15 @@
+# Current Phase 4E continuation — HOLD
+
+Implementation `597486c` preserves `8416727`, `bfd7601`, `871ae53` and every prior checkpoint. Version15 technical testing APK: `builds/android/Lootlings-phase4e-connections-debug.apk`. Revised machine framing, painted single daggers, target-facing paired claws, casting connections and gesture/save/reward protections validated. **Procedural combat/regional/NPC bodies are POSE/RIG PROTOTYPES ONLY; Gloomlet identity and Hoard Dragon source tail remain blockers. No full Phase4E acceptance or Phase4F.**
+
+- [Current implementation, native evidence, APK, device steps and multidisciplinary HOLD](docs/production/phase4e/polish/REPORT.md)
+- [Exact canonical replacement register](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md)
+- [Current evidence manifest](docs/production/phase4e/polish/evidence-manifest.json)
+
+---
+
+Historical preserved checkpoint follows; its GO applies only to its earlier device-testing candidate.
+
 # Phase 4E — combat feel and presentation correction
 
 2026-10-05. Preserved `codex/phase4e-gamefeel` and implementation `0e57b26`; target-facing correction `78a6df4`; final sprite/UI correction `117d9f0a1185c9f098a9685b146ee4448b5ea948`. QA/report/evidence are checkpointed separately. No reset, revert, Phase 4D checkout, main merge or Phase 4F work.

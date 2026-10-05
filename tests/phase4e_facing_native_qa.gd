@@ -12,10 +12,11 @@ func review() -> void:
 	game.app_lifecycle.platform_notifications_enabled=false
 	game.audio_settings.cinematic_first_time=false
 	folder="res://.godot_test_data/phase4e/target_facing/"
+	if not OS.get_environment("LOOTLINGS_4E_FACING_STAGE").is_empty(): folder="res://.godot_test_data/phase4e/"+OS.get_environment("LOOTLINGS_4E_FACING_STAGE")+"/"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 	var helper=preload("res://tests/weapon_fit_qa.gd").new(); helper.game=game
 	var rows: Array=[]
-	for weapon in ["greatsword","bow"]:
+	for weapon in ["greatsword","bow","daggers","claws","staff","orb"]:
 		helper.prepare("relic_beast",weapon)
 		game.enemy_encounter.active=false; game.enemy_entry_anim=0; game.special_intro_timer=0
 		game.enemy_is_boss=false; game.enemy_is_miniboss=false; game.enemy_name="RAZOR IMP"; game.enemy_archetype="skirmisher"
@@ -45,4 +46,4 @@ func review() -> void:
 			game.attack_projectiles.clear()
 	var report=FileAccess.open(folder+"report.json",FileAccess.WRITE)
 	report.store_string(JSON.stringify({"samples":rows,"note":"Real combat renderer and target resolver, QA-staged positions, no forced-facing override. Crossing is staged because the current game does not expose free lateral movement. Front-facing fallback bodies remain a visual blocker."},"\t"))
-	helper.free(); game.free(); print("TARGET FACING: 20 native target-driven combat captures; no forced-facing overrides"); quit()
+	helper.free(); game.free(); print("TARGET FACING: %d native target-driven combat captures; no forced-facing overrides" % rows.size()); quit()
