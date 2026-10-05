@@ -107,7 +107,7 @@ func _draw() -> void:
 		if tier==5:
 			var points:=PackedVector2Array([center+Vector2(-65,-35),center+Vector2(-40,-42),center+Vector2(-45,-20),center+Vector2(-14,-35)])
 			draw_polyline(points,Color(tint,burst),2)
-	var caption: String="CROWNROOT AWAKENS" if tier==5 and stage in ["reveal","settled"] else ""
+	var caption: String="CROWNROOT AWAKENS" if tier==5 and stage=="settled" else ""
 	draw_string(ThemeDB.fallback_font,Vector2(10,25),caption,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,14,tint)
 	var status: String="TURN THE SEALS" if stage=="idle" else "SEALS ALIGNING…" if stage=="rolling" else "HOLD…" if stage=="anticipation" else rarity
 	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-20),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,13,tint)
