@@ -176,7 +176,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	var boss_data: Dictionary={}
 	if g.enemy_is_boss:
 		boss_data=BossPresentation.profile(g.campaign_id); texture=BossPresentation.texture_for(boss_data)
-		sprite_rect=Rect2(-boss_data.display_size*boss_data.anchor+Vector2(0,boss_data.baseline),boss_data.display_size)
+		sprite_rect=BossPresentation.display_rect(boss_data,texture)
 		pos+=boss_data.offset; shadow_radius=boss_data.shadow; threat_color=Color("#a94dff2e")
 	elif g.enemy_is_miniboss:
 		texture = GRUMP_KNIGHT_TEXTURE

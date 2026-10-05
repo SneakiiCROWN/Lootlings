@@ -22,7 +22,17 @@ static func profile(region: String) -> Dictionary:
 	result.merge(PROFILES.get(region,{}),true)
 	if not result.has("accent"): result.accent=Color("#cba6ff") if region=="act_i" else Color("#84e8b4")
 	if not result.has("motif"): result.motif="crown" if region=="act_i" else "mirror"
+	# Do not add rectangle distortion to the existing TEMP dragon source.
+	# This preserves its pixels' proportions; the defective tail still needs redraw.
+	result.preserve_aspect=region in ["act_i","first_hoard"]
 	return result
+
+static func display_rect(data: Dictionary, texture: Texture2D) -> Rect2:
+	var size: Vector2=data.display_size
+	if data.get("preserve_aspect",false):
+		var source: Vector2=Vector2(texture.get_size())
+		if source.x>0 and source.y>0: size=source*minf(size.x/source.x,size.y/source.y)
+	return Rect2(-size*Vector2(data.anchor)+Vector2(0,float(data.baseline)),size)
 static func texture_for(data: Dictionary) -> Texture2D:
 	var texture: Texture2D=data.texture
 	if data.has("texture_path"):
