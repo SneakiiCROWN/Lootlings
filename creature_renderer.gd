@@ -175,7 +175,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	var threat_color := Color.TRANSPARENT
 	var boss_data: Dictionary={}
 	if g.enemy_is_boss:
-		boss_data=BossPresentation.profile(g.campaign_id); texture=BossPresentation.texture_for(boss_data)
+		boss_data=BossPresentation.profile_for(g); texture=BossPresentation.texture_for(boss_data)
 		sprite_rect=BossPresentation.display_rect(boss_data,texture)
 		pos+=boss_data.offset; shadow_radius=boss_data.shadow; threat_color=Color("#a94dff2e")
 	elif g.enemy_is_miniboss:
@@ -240,7 +240,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 					g.draw_circle(seal_pos,4,stage_color.lightened(.3))
 					g.draw_circle(seal_pos,9,Color(stage_color, .12))
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	if g.enemy_is_boss: BossPresentation.draw_identity(g,pos,extra_scale)
+	if g.enemy_is_boss and not boss_data.has("authored_state"): BossPresentation.draw_identity(g,pos,extra_scale)
 	var tint: Color=regional.get("tint",Color.WHITE)
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
 		tint = Color("#fff2ca")

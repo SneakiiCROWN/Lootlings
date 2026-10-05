@@ -44,6 +44,9 @@ static func facing_pack(actor: String, stance: String, facing: String) -> Dictio
 	return first
 
 static func resolve(row: Dictionary) -> Dictionary:
+	# Boards/reference crops must never become runtime bodies through a JSON edit.
+	var path: String=str(row.asset_path)
+	if not path.begins_with("res://art/sprites/") or ".." in path: return {}
 	if not ResourceLoader.exists(str(row.asset_path)): return {}
 	var rect := Rect2(Vector2(row.body_rect[0],row.body_rect[1]),Vector2(row.body_rect[2],row.body_rect[3]))
 	var result := {"texture":load(str(row.asset_path)),"body_rect":rect,

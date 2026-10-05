@@ -33,6 +33,22 @@ static func display_rect(data: Dictionary, texture: Texture2D) -> Rect2:
 		var source: Vector2=Vector2(texture.get_size())
 		if source.x>0 and source.y>0: size=source*minf(size.x/source.x,size.y/source.y)
 	return Rect2(-size*Vector2(data.anchor)+Vector2(0,float(data.baseline)),size)
+static func profile_for(g) -> Dictionary:
+	var result:=profile(g.campaign_id)
+	var state: Dictionary=preload("res://boss_art_manifest.gd").state_for(g)
+	var facing: int=g.enemy_facing_at(g.enemy_stage_x)
+	var frame: Dictionary=preload("res://boss_art_manifest.gd").select_frame(g.campaign_id,state.state,state.action,facing)
+	if frame.is_empty(): return result
+	# Existing renderer mirrors a left source. Cancel that mirror for explicit
+	# right exports; keep left anatomy unmirrored and preserve the current clocks.
+	result.texture_path=frame.asset_path
+	result.source=Rect2()
+	result.anchor=Vector2(frame.anchor[0],frame.anchor[1])
+	result.flip_h=facing>0
+	result.preserve_aspect=true
+	result.authored_state=state.state
+	result.status="Owner-approved canonical export; visual acceptance remains scoped"
+	return result
 static func texture_for(data: Dictionary) -> Texture2D:
 	var texture: Texture2D=data.texture
 	if data.has("texture_path"):

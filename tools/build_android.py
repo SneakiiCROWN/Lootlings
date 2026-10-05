@@ -6,6 +6,7 @@ settings, production signing keys, or player saves are touched.
 from pathlib import Path
 import argparse, hashlib, json, os, re, shutil, subprocess, urllib.request, zipfile
 from android_splash_theme import branded_template
+from validate_canonical_art import validate as validate_canonical_art
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.godot_test_data' / 'android'
@@ -31,6 +32,7 @@ def main():
     parser.add_argument('--prepare', action='store_true')
     parser.add_argument('--output', default='builds/android/Lootlings-predevice-rc-debug.apk')
     args = parser.parse_args()
+    print('Canonical freeze preflight:', validate_canonical_art(), flush=True)
     WORK.mkdir(parents=True, exist_ok=True)
     for name, (url, algorithm, expected) in PACKAGES.items():
         path = WORK / name
@@ -99,6 +101,8 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
+        assert 'assets/art/production_boss_manifest.json' in entries
+        assert not any('phase4e_handoff' in entry for entry in entries), 'Reference/rejected art must never be packaged'
         for script in ['combat_sprite_rig','resident_sprite_rig','boss_audio_identity','contextual_dialogue','combat_presentation','regional_enemy_presentation','relic_reveal_fx','impact_presentation','enemy_motion','retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
