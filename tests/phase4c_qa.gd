@@ -13,9 +13,13 @@ func review() -> void:
 	home.request_dialogue("tapped","Relic Keeper"); home.show_stash(); assert(not home.speech_panel.visible and not home.stash_detail_panel.visible)
 	home.select_entry(0); assert(home.stash_detail_panel.visible); home.close_stash_detail(); assert(not home.stash_detail_panel.visible)
 	var history=preload("res://contextual_dialogue.gd").new()
-	assert(history.choose("Archivist",{"event":"victory","outcome":"victory","mode":"siege"}).contains("Siege"))
-	assert(history.choose("Salvager",{"weapon":"bow"}).contains("string"))
-	assert(history.choose("Relic Keeper",{"event":"early_defeat"}).contains("Rest first"))
+	history.rng.seed=405
+	for example in [["Salvager",{"mode":"siege","outcome":"victory"},"mode","siege"],["Salvager",{"weapon":"bow"},"weapon","bow"],["Relic Keeper",{"event":"early_defeat"},"event","early_defeat"]]:
+		var found:=false
+		for attempt in range(40):
+			history.choose(example[0],example[1])
+			if history.last_selection.get(example[2],"")==example[3]: found=true; break
+		assert(found,"Weighted dialogue must actually expose its matching context")
 	var saved: int=game.rng.state; home.request_dialogue("tapped","Archivist"); assert(game.rng.state==saved)
 	game.show_hideout(); game.retention.siege=true; game.start_run(); game.set_process(false)
 	for round_number in [10,15,20]:

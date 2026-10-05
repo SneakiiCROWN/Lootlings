@@ -233,12 +233,34 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 				personality_scale = Vector2(1.0, 1.0 + sin(g.run_time * 7.5) * 0.025)
 			"tank": personality_scale = Vector2(1.0 + sin(g.run_time * 2.0) * 0.012, 1.0 - sin(g.run_time * 2.0) * 0.018)
 			"hexer": personality_tilt = sin(g.run_time * 2.6) * 0.018
+	var cue: Dictionary=preload("res://combat_presentation.gd").attack_cue(g)
+	var preparation: float=float(cue.progress) if cue.visible else 0
+	var commit: float=clampf(g.enemy_attack_anim/.18,0,1)
+	var direction: int=g.enemy_facing_at(pos.x)
+	if g.enemy_is_boss:
+		var action: String=g.combat_presentation.boss_action if commit>0 else str(preload("res://boss_patterns.gd").next(g).text)
+		if action=="ROOT SWEEP": personality_scale*=Vector2(1+preparation*.035+commit*.05,1-preparation*.025-commit*.045); personality_tilt+=direction*(preparation*-.025+commit*.055)
+		elif action=="THORN CAST": personality_tilt+=direction*(-preparation*.06+commit*.08)
+		elif action=="MIRROR CHARGE": pos.y-=preparation*6; personality_scale.y+=preparation*.025; personality_tilt+=sin(g.run_time*17)*preparation*.018
+		elif not g.boss_recovery>0: personality_tilt+=direction*(-preparation*.035+commit*.07)
+	elif g.enemy_archetype=="tank":
+		personality_tilt+=direction*(-preparation*.11+commit*.16)
+		personality_scale*=Vector2(1+preparation*.035,1-preparation*.04+commit*.035)
+	elif g.enemy_archetype=="skirmisher":
+		personality_tilt+=direction*(-preparation*.07+commit*.12)
+		personality_scale.y*=1-preparation*.07+commit*.035
+	else:
+		personality_tilt+=direction*(-preparation*.04+commit*.08)
+		pos.y-=preparation*4
+	if not regional.is_empty() and regional.hover: pos.y+=commit*18
 	g.draw_set_transform(pos + Vector2(0, 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius, Color(0.015, 0.025, 0.06, 0.52 * color.a))
 	var cast_charge := clampf(1.0 - float(g.enemy_attack_clock) / 0.30, 0.0, 1.0) if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else 0.0
 	if cast_charge > 0.0:
 		g.draw_circle(Vector2(pos.x - 25, pos.y - 24), 8.0 + cast_charge * 9.0, Color(0.72, 0.38, 1.0, cast_charge * 0.24))
-	var facing_scale:=Vector2(-1,1) if g.enemy_is_boss and boss_data.flip_h else Vector2.ONE
+	# Existing enemy sprites face left; flip only for a player on their right.
+	var facing_scale:=Vector2(-g.enemy_facing_at(pos.x),1)
+	if g.enemy_is_boss and boss_data.flip_h: facing_scale.x*=-1
 	var entry_scale: float=lerpf(float(boss_data.entrance_scale),1.0,1.0-clampf(float(g.enemy_entry_anim)/.55,0,1)) if g.enemy_is_boss else 1.0
 	g.draw_set_transform(pos,recoil_tilt+personality_tilt+(float(boss_data.rotation) if g.enemy_is_boss else 0.0),hit_scale*personality_scale*extra_scale*facing_scale*entry_scale)
 	var edge_strength := 3.0 if g.enemy_is_boss else 2.5 if g.enemy_is_miniboss else 1.75

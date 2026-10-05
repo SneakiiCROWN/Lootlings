@@ -99,7 +99,7 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
+        for script in ['contextual_dialogue','combat_presentation','regional_enemy_presentation','relic_reveal_fx','impact_presentation','enemy_motion','retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries
@@ -110,7 +110,12 @@ def main():
             relative = re.search(r'^path="res://([^"]+)"', config, re.MULTILINE).group(1)
             assert apk.read('assets/' + relative) == (ROOT/relative).read_bytes(), 'Stale exported sound: ' + str(sidecar)
             imported_audio += 1
-        assert imported_audio == 329, 'Expected 178 original assets minus 17 superseded reactions plus 168 species variants'
+        sound_manifest=json.loads((ROOT/'art/audio/production/sources.json').read_text(encoding='utf-8'))
+        expected_audio={str(record['asset']).replace('\\','/') for record in sound_manifest['assets'] if str(record['asset']).replace('\\','/').startswith('art/audio/production/sfx/')}
+        actual_sfx={p.relative_to(ROOT).as_posix().removesuffix('.import') for p in (ROOT/'art/audio/production/sfx').glob('*.wav.import')}
+        assert actual_sfx == expected_audio, 'Source documentation must cover exactly the packaged SFX'
+        ambience_count=len(list((ROOT/'art/audio/production/ambience').glob('*.wav.import')))
+        assert imported_audio == len(expected_audio)+ambience_count, 'Every source-documented SFX and ambient loop must be packaged exactly once'
         bow_source = ROOT/'art/sprites/weapons/bow_held.png'
         bow_config = bow_source.with_suffix('.png.import').read_text(encoding='utf-8')
         bow_relative = re.search(r'^path="res://([^"]+)"', bow_config, re.MULTILINE).group(1)

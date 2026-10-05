@@ -47,7 +47,7 @@ func run_qa() -> void:
 			var actor: String = actors[row]
 			helper.prepare(actor,"bow")
 			game.enemy_entry_anim = 0
-			game.player_facing = facing
+			game.player_facing = facing; game.forced_facing_test=facing
 			game.player_x = game.target_player_x() if facing > 0 else 295.0
 			game.enemy_max_hp = 10000; game.enemy_hp = 10000
 			game.pause_panel.visible = false

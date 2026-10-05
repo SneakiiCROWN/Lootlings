@@ -57,7 +57,7 @@ func run_qa() -> void:
 			game.special_intro_timer = 0
 			game.presentation_director.toast_panel.visible = false
 			for facing in [1,-1]:
-				game.player_facing = facing
+				game.player_facing = facing; game.forced_facing_test=facing
 				for phase in ["READY","RELEASE"]:
 					await check_pose(actor,family,phase,facing,native,sheet,cell)
 					count += 1
@@ -75,7 +75,7 @@ func run_qa() -> void:
 				assert(game.rng.state == rng and game.loot_system.rng.state == loot_rng)
 			if family == "staff":
 				# Exercise the real launch and flight path, not a painted orb fixture.
-				game.player_facing = 1
+				game.player_facing = 1; game.forced_facing_test=1
 				game.attack_anim = 0
 				game.perform_player_attack(false)
 				assert(game.attack_projectiles.size() == 1)

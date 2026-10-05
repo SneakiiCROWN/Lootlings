@@ -96,6 +96,20 @@ var pending_levels := 0
 var run_time := 0.0
 var player_x := PLAYER_HOME_X
 var player_facing := 1
+var forced_facing_test := 0 # Used only by explicitly labelled isolated pose fixtures.
+var enemy_stage_x := ENEMY_X
+
+func target_combat_position() -> Vector2:
+	return enemy_encounter.target_position() if enemy_encounter.active else Vector2(enemy_stage_x,507)
+
+func combat_facing() -> int:
+	if OS.get_environment("LOOTLINGS_QA")=="1" and forced_facing_test in [-1,1]: return forced_facing_test
+	if state=="playing" and enemy_alive:
+		return 1 if target_combat_position().x>=player_x else -1
+	return player_facing
+
+func enemy_facing_at(position_x: float) -> int:
+	return 1 if player_x>position_x else -1
 var player_hp := 100.0
 var player_max_hp := 100.0
 var base_damage := 11.0
@@ -1560,6 +1574,8 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	forced_facing_test = 0
+	enemy_stage_x = ENEMY_X
 	run_resolved=false
 	retention.begin()
 	expedition_progress.begin_run(campaign_id,expedition_tier,int(hash("farm:%s:%d" % [campaign_id,rng.seed])))
@@ -2139,7 +2155,7 @@ func perform_player_attack(is_tap: bool) -> void:
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
-			"target": enemy_encounter.target_position() + Vector2(-18, -28) if enemy_encounter.active else Vector2(ENEMY_X - 28.0, 478.0),
+			"target": target_combat_position()+Vector2(-28*combat_facing(),-29),
 			"life": travel_time,
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
@@ -2612,7 +2628,7 @@ func spawn_item_drop() -> bool:
 			boss_reward_options.append(item)
 		var rarity_color := ItemCatalog.rarity_color(item.rarity)
 		award_item_discovery(item)
-		var start_pos := Vector2(ENEMY_X, 488) if enemy_is_boss else Vector2(345 + drop_index * 20, 470)
+		var start_pos := Vector2(enemy_stage_x, 488) if enemy_is_boss else Vector2(enemy_stage_x-27 + drop_index * 20, 470)
 		var launch_x: float = float([-155.0, -18.0, 128.0][drop_index]) if enemy_is_boss else -75.0 + drop_index * 52.0
 		var launch_y: float = float([-310.0, -355.0, -292.0][drop_index]) if enemy_is_boss else visual_rng.randf_range(-250.0, -205.0)
 		loot_drops.append({
@@ -3661,12 +3677,12 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
 		var display_enemy_name: String=enemy_name.to_upper()+ (" • BETA" if enemy_is_boss and campaign_id!="act_i" else "")
 		var enemy_name_size := 19
-		var enemy_hud_x := 40.0 if enemy_is_boss else 255.0
+		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
 		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
 		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1
 		draw_string(body_font, Vector2(enemy_hud_x, 243), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, mini(enemy_name_size,17), Color("#f4f7ff"))
-		draw_bar(Rect2(100 if enemy_is_boss else 255, 255, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
+		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, 255, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0
 		if enemy_burn_dps > 0.0:
 			draw_status_chip(Vector2(status_x, 283), "BURN", build.color("Fire"), "status_burn")
@@ -3695,15 +3711,16 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_attack_ratio := clampf(enemy_attack_anim / 0.18, 0.0, 1.0)
 		var enemy_lunge: float = preload("res://boss_presentation.gd").profile(campaign_id).attack_distance if enemy_is_boss else 10.0 if enemy_is_miniboss or enemy_archetype == "tank" else 15.0
 		behavior_offset.x -= enemy_attack_ratio * enemy_lunge
-		var enemy_pos := Vector2(ENEMY_X + enemy_recoil + entry_offset, 507) + behavior_offset + shake
+		behavior_offset.x*=-enemy_facing_at(enemy_stage_x)
+		var enemy_pos := Vector2(enemy_stage_x + (enemy_recoil + entry_offset)*-enemy_facing_at(enemy_stage_x), 507) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
-		if show_combat_context: combat_presentation.draw_cue(self, Vector2(ENEMY_X, 550) + shake)
+		if show_combat_context: combat_presentation.draw_cue(self, Vector2(enemy_stage_x, 550) + shake)
 	elif enemy_death_anim > 0.0:
 		var death_duration := 0.82 if enemy_is_boss else 0.70 if enemy_is_miniboss else 0.62
 		var death_progress := 1.0 - enemy_death_anim / death_duration
 		var death_color := enemy_color
 		death_color.a = 1.0 - death_progress
-		draw_enemy(Vector2(ENEMY_X + death_progress * 35.0, 507 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
+		draw_enemy(Vector2(enemy_stage_x + death_progress * 35.0*-enemy_facing_at(enemy_stage_x), 507 - death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
 	if status_clock > 0.0 and show_combat_context:
 		draw_rect(Rect2(67, 662, 346, 36), Color("#091127d6"), true)
 		draw_rect(Rect2(67, 662, 346, 36), Color("#b98b477a"), false, 1)
@@ -3755,7 +3772,7 @@ func draw_effects() -> void:
 		var color: Color = particle.color
 		color.a = alpha
 		draw_circle(particle.pos, 3.0 + 3.0 * alpha, color)
-	var impact_center := Vector2(ENEMY_X + enemy_recoil, 455)
+	var impact_center := Vector2(target_combat_position().x + enemy_recoil*-enemy_facing_at(target_combat_position().x), 455)
 	if crit_flash > 0.0:
 		var crit_ratio := clampf(crit_flash / 0.18, 0.0, 1.0)
 		for ray in range(8):
@@ -3770,7 +3787,7 @@ func draw_effects() -> void:
 		var death_ratio := clampf(death_burst / burst_duration, 0.0, 1.0)
 		var burst_color := death_burst_color
 		burst_color.a = death_ratio * 0.75
-		var burst_center := Vector2(ENEMY_X, 462)
+		var burst_center := Vector2(enemy_stage_x, 462)
 		draw_arc(burst_center, 34.0 + (1.0 - death_ratio) * 62.0, 0.0, TAU, 32, burst_color, 5.0 * death_ratio + 1.0)
 		var ray_count := 18 if enemy_is_boss else 11 if enemy_is_miniboss else 10
 		for ray in range(ray_count):

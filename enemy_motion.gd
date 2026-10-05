@@ -15,6 +15,8 @@ static func draw_wings(g, pos: Vector2, scale_factor: float) -> void:
 
 static func verdant(g, pos: Vector2) -> void:
 	if not g.enemy_is_boss or g.campaign_id!="mossglass_wilds": return
+	g.draw_set_transform(pos,0,Vector2(-g.enemy_facing_at(pos.x),1))
+	pos=Vector2.ZERO
 	var presentation=g.combat_presentation
 	var active: float=clampf(presentation.boss_action_time/.55,0,1)
 	var cue: Dictionary=preload("res://combat_presentation.gd").attack_cue(g)
@@ -42,3 +44,4 @@ static func verdant(g, pos: Vector2) -> void:
 			g.draw_circle(core,7+charge*7,Color(.4,.9,.88,.22+charge*.25))
 	if g.boss_recovery>0:
 		g.draw_line(pos+Vector2(-30,-84),pos+Vector2(-12,-71),Color("#7a9fa888"),2,true)
+	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

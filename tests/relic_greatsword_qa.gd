@@ -32,7 +32,7 @@ func run_qa() -> void:
 	game.rng.seed = 87312
 	game.loot_system.rng.seed = 91322
 	game.start_run()
-	game.player_facing = 1
+	game.player_facing = 1; game.forced_facing_test=1
 	game.player_x = game.target_player_x()
 	game.wave_banner_timer = 0.0
 	game.enemy_entry_anim = 0.0
@@ -71,10 +71,10 @@ func run_qa() -> void:
 	game.attack_anim = 0.0
 	game.player_flash = 0.0
 	game.player_reward_flash = 0.0
-	game.player_facing = -1
+	game.player_facing = -1; game.forced_facing_test=-1
 	var left := Fit.sample(game)
 	check(left.support_status != "authored_two_hand" and left.opposite_art_required,"right-only authored set uses honest left fallback")
-	game.player_facing = 1
+	game.player_facing = 1; game.forced_facing_test=1
 	for weapon in ["greataxe","maul"]:
 		game.inventory.equip(Items.create_item("scrap_axe" if weapon == "greataxe" else "mimic_mallet","COMMON",456))
 		var other := Fit.sample(game)

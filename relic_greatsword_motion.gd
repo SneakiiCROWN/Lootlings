@@ -2,7 +2,7 @@ extends RefCounted
 # The slice's two real paw poses share a planted-foot pivot. Visual only:
 # tap damage remains immediate; automatic anticipation reads the real clock.
 static func applies(g) -> bool:
-	return str(g.profile.get("avatar_mode","lootling")) != "wanderer" and str(g.profile.get("current_lootling_id","relic_beast")) == "relic_beast" and str(g.inventory.equipped_item("Weapon").get("weapon_type","")) == "greatsword" and float(g.player_facing) > 0
+	return str(g.profile.get("avatar_mode","lootling")) != "wanderer" and str(g.profile.get("current_lootling_id","relic_beast")) == "relic_beast" and str(g.inventory.equipped_item("Weapon").get("weapon_type","")) == "greatsword" and float(g.combat_facing()) > 0
 
 static func moving(g) -> bool:
 	return g.state == "playing" and g.enemy_alive and float(g.player_x) < float(g.target_player_x()) - 4.0

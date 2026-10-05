@@ -1573,7 +1573,7 @@ func draw_home_board() -> void:
 func draw_home_workstations() -> void:
 	# Foreground furniture grounds the residents. The canonical painting remains
 	# the room; these bounded accents add work, not a new homestead subsystem.
-	var working: bool=resident_activity("Salvager")=="working"
+	var working: bool=resident_activity("Salvager")=="repair"
 	# The supplied painted counter is the furniture; do not synthesize a block.
 	if current_inventory!=null:
 		LootlingsUI.draw_icon(get_canvas_item(),LootlingsUI.item_texture(current_inventory.equipped_item("Weapon")),Rect2(370,411,47,42))
@@ -1584,7 +1584,7 @@ func draw_home_workstations() -> void:
 	# Archive reading light and page-turn highlights sit on the existing desk.
 	draw_colored_polygon(PackedVector2Array([Vector2(359,643),Vector2(374,640),Vector2(387,644),Vector2(389,653),Vector2(374,650),Vector2(359,653)]),Color("#b9a47c"))
 	draw_line(Vector2(374,642),Vector2(374,651),Color("#5c4c45"),1,true)
-	if resident_activity("Archivist")=="reading":
+	if resident_activity("Archivist")=="read":
 		var turn:=sin(scene_time*1.4)*3
 		draw_line(Vector2(374,641),Vector2(382+turn,638),Color("#e6d5a6"),1.5,true)
 	draw_hideout_light(Vector2(404,631),13,.04,1.1)

@@ -167,17 +167,17 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var relic_motion := RelicMotion.applies(g) and not authored.is_empty()
 	if relic_motion: action = RelicMotion.sample(g,hurt)
 	# Optional keyed poses and baked wardrobe compatibility stay visual-only.
-	if float(g.player_facing) < 0:
+	if float(g.combat_facing()) < 0:
 		authored = authored.get("resolved_facings",{}).get("left",authored)
 	authored = authored.get("resolved_phases",{}).get(str(action.phase),authored)
-	var opposite_art_required: bool = float(g.player_facing) < 0 and authored.get("facing_support","") == "right_only"
+	var opposite_art_required: bool = float(g.combat_facing()) < 0 and authored.get("facing_support","") == "right_only"
 	if opposite_art_required: authored = {}
 	var appearance: Dictionary = g.profile.get("wanderer",{}).get("appearance",{}).get("components",{})
 	for slot in authored.get("wardrobe_requires",{}):
 		if appearance.get(slot) != authored.wardrobe_requires[slot]:
 			authored = {}
 			break
-	var facing := float(g.player_facing)
+	var facing := float(g.combat_facing())
 	var creature := not Avatar.is_wanderer(g.profile)
 	var scale: Vector2 = Vector2(action.scale) * (1.10 if not relic_motion else 1.0)
 	if creature:
@@ -249,7 +249,7 @@ static func world_position(g) -> Vector2:
 	var family: String = g.current_weapon_family()
 	var distance := 20.0 if family == "ROGUE" else 17.0 if family == "VANGUARD" else 3.0
 	if g.attack_was_tap: distance += 3.0 if family in ["VANGUARD","ROGUE"] else 1.0
-	return Vector2(float(g.player_x)+clampf(float(g.attack_anim)/.22,0,1)*distance*float(g.player_facing),512.0+sin(float(g.run_time)*4.3)*3.0)
+	return Vector2(float(g.player_x)+clampf(float(g.attack_anim)/.22,0,1)*distance*float(g.combat_facing()),512.0+sin(float(g.run_time)*4.3)*3.0)
 
 static func projectile_origin(g) -> Vector2:
 	return world_position(g)+Vector2(sample(g,g.player_flash>0).projectile)

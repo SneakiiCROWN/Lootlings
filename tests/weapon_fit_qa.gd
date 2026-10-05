@@ -76,7 +76,7 @@ func run_qa() -> void:
 			var damage: float = game.base_damage
 			var interval: float = game.current_attack_interval()
 			for facing in [1,-1]:
-				game.player_facing = facing
+				game.player_facing = facing; game.forced_facing_test=facing
 				for phase in [0.0,.1,.22]:
 					game.attack_clock = .02 if phase == 0.0 else interval
 					game.attack_anim = phase
@@ -98,7 +98,7 @@ func run_qa() -> void:
 						"opposite_art_required":pose.opposite_art_required})
 					if phase == 0.0 and pose.support_status == "authored_pose_required":
 						pending_by_facing["left" if facing < 0 else "right"] += 1
-			game.player_facing = 1
+			game.player_facing = 1; game.forced_facing_test=1
 			game.attack_anim = 0
 			game.attack_clock = interval
 			var pose := Fit.sample(game)
@@ -130,7 +130,7 @@ func run_qa() -> void:
 				assert(game.enemy_hp == hp and game.attack_projectiles.size() == 1)
 			if native and weapon in ["maul","crossbow","bow","staff","sling"]:
 				for facing in [1,-1]:
-					game.player_facing = facing
+					game.player_facing = facing; game.forced_facing_test=facing
 					game.attack_anim = .22
 					# Facing-preview is not a new leftward combat mode. Do not
 					# retain a rightward projectile fired before changing facing.
@@ -194,8 +194,8 @@ func _process(_delta: float) -> bool:
 		changed = true
 	if changed: prepare(actors[actor_index],Weapons.live_ids()[weapon_index])
 	if Input.is_physical_key_pressed(KEY_F):
-		game.player_facing = -1
-	else: game.player_facing = 1
+		game.player_facing = -1; game.forced_facing_test=-1
+	else: game.player_facing = 1; game.forced_facing_test=1
 	game.attack_anim = .22 if Input.is_physical_key_pressed(KEY_SPACE) else 0.0
 	update_label()
 	return false
