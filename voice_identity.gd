@@ -14,6 +14,8 @@ static func enemy(g) -> String:
 		# arrive. A caster or armoured person must not inherit dragon reactions.
 		return {"mossglass_wilds":"moss","moonfen":"brute","frostbell_hollows":"brute","sunken_gearworks":"forge","cinder_crown":"forge","starfall_archive":"hexer","nullglass_expanse":"human_heavy","skyhook_bastion":"human_heavy"}.get(g.campaign_id,"dragon")
 	if g.enemy_is_miniboss: return "human_heavy" # Armoured Grump Knight.
+	var regional:=preload("res://regional_enemy_presentation.gd").profile(g.enemy_name)
+	if not regional.is_empty(): return regional.voice
 	if g.enemy_archetype == "tank":
 		return "forge" if g.current_zone_id == "emberworks" else "brute"
 	return "hexer" if g.enemy_archetype == "hexer" else "imp"

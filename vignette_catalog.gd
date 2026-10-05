@@ -14,7 +14,7 @@ const RESIDENTS := {
 const BOSS_ENTRIES := {
 	"grump_knight":{"name":"Grump Knight", "region":"act_i", "art":"res://art/sprites/enemies/grump_knight.png", "epithet":"The Unpaid Gatekeeper", "line":"The old toll is unpaid. He intends to collect it from someone still breathing."},
 	"hoard_dragon":{"name":"The Hoard Dragon", "region":"act_i", "art":"res://art/sprites/enemies/hoard_dragon.png", "epithet":"Keeper of the Count", "line":"The dragon counts treasure in coins, and trespassers in bones."},
-	"verdant_mirror":{"name":"The Verdant Mirror", "region":"mossglass_wilds", "art":"res://art/sprites/enemies/beta/verdant_mirror.png", "epithet":"Warden of the Stolen Spring", "line":"The water remembers a face that was never yours."},
+	"verdant_mirror":{"name":"The Verdant Mirror", "region":"mossglass_wilds", "art":"res://art/sprites/enemies/beta/verdant_mirror.png", "epithet":"Warden of the Stolen Spring", "line":"Its roots hold the forest spring. Downstream, the gardens are dying."},
 	"furnace_regent":{"name":"The Furnace Regent", "region":"cinder_crown", "art":"res://art/sprites/enemies/beta/furnace_regent.png", "epithet":"Crowned by Tribute", "line":"Every debt feeds the furnace. It accepts no refunds."}
 }
 

@@ -31,10 +31,10 @@ static func spin_seconds(rarity: String, fast: bool) -> float:
 static func anticipation(rarity: String) -> float: return [.12,.16,.22,.38,.50,.65][tier(rarity)]
 static func reveal_seconds(rarity: String) -> float: return [.28,.40,.52,.75,.95,1.25][tier(rarity)]
 static func sound(rarity: String) -> String:
-	return ["resource_pickup","rarity_reveal","rare_reveal","epic_reveal","legendary_reveal","core_awaken"][tier(rarity)]
+	return ["resource_pickup","rarity_reveal","rare_reveal","epic_reveal","legendary_reveal","relic_red"][tier(rarity)]
 static func reward_name(reward: Dictionary, region: String) -> String:
 	if reward.has("display_name"): return reward.display_name
 	if reward.get("kind","")=="item": return str(reward.get("item",{}).get("name","Relic"))
 	return {"material":preload("res://phase4_catalog.gd").FARMS[region].material,"mastery":"Actor + weapon mastery","blueprint":"Regional recipe clue"}.get(reward.get("kind",""),"Reward")
 static func pool_text() -> String:
-	return "[color=#899db5]COMMON 42%[/color] · 2 local materials\n[color=#79df92]UNCOMMON 35%[/color] · 6 actor + weapon mastery\n[color=#69bbff]RARE 15%[/color] · 1 regional recipe clue\n[color=#c287ff]EPIC 6%[/color] · 5 local materials\n[color=#ffda72]LEGENDARY 2%[/color] · 8 local materials\n\n[color=#ff526a]RED · guaranteed forge, not a random spin[/color]\n24 Crownroot fragments forge Gravebloom Staff.\nEvery paid spin earns 1 spark; 12 sparks earn 1 fragment. Progress survives runs.\n\nCompleted recipes convert clues to 2 materials.\nReel seals are decorative. Rewards are saved at payment; Skip never changes the result."
+	return "[color=#899db5][b]COMMON 42%[/b][/color]\n2 local materials\n\n[color=#79df92][b]UNCOMMON 35%[/b][/color]\n6 actor + weapon mastery\n\n[color=#69bbff][b]RARE 15%[/b][/color]\n1 regional recipe clue\n\n[color=#c287ff][b]EPIC 6%[/b][/color]\n5 local materials\n\n[color=#ffda72][b]LEGENDARY 2%[/b][/color]\n8 local materials\n\n[color=#ff526a][b]CROWNROOT CHASE[/b][/color]\n1 paid spin = 1 Spark\n12 Sparks = 1 fragment\n24 fragments = RED forge\n\n[font_size=12]Rewards save immediately. Reels are presentation only. Completed recipes convert clues to 2 materials. RED is a guaranteed forge, not a random spin.[/font_size]"

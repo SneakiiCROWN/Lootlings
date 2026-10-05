@@ -179,7 +179,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			break
 	var facing := float(g.player_facing)
 	var creature := not Avatar.is_wanderer(g.profile)
-	var scale: Vector2 = Vector2(action.scale)
+	var scale: Vector2 = Vector2(action.scale) * (1.10 if not relic_motion else 1.0)
 	if creature:
 		scale *= Vector2(1.08,.92) if g.squash > 0 else Vector2.ONE
 		if hurt: scale *= Vector2(1.06,.94)
@@ -206,6 +206,9 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var handling: Dictionary = HANDLING_OVERRIDES.get(str(actor.handling),{}).get(subtype,{})
 	var angle := float(handling.get("angle",geometry.angle))+float(handling.get("angle_offset",0.0))
 	var release_angle := float(handling.get("release",stance.release))
+	if subtype=="staff": release_angle=.22
+	elif subtype in ["daggers","claws"]: release_angle*=1.18
+	elif subtype=="sling" and not handling.has("release"): release_angle=.70
 	var base_angle := angle
 	angle += float(action.anticipate)*float(stance.ready)+float(action.release)*release_angle
 	var rect := Rect2(-Vector2(geometry.grip)*size,size)

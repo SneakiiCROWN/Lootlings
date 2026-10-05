@@ -321,8 +321,8 @@ func build_home() -> void:
 	for speaker in RESIDENT_RECTS: make_npc_hotspot(home_content,RESIDENT_RECTS[speaker],speaker)
 	make_npc_hotspot(home_content,Rect2(166,355,148,146),"Mascot")
 	make_button(home_content,"GEAR",Rect2(25,488,52,52),Color("#172442b0"),Color("#72c8ff"),12).pressed.connect(show_stash)
-	make_button(home_content,"JOBS",Rect2(332,268,52,52),Color("#172442b0"),Color("#e2b563"),12).pressed.connect(show_contracts)
-	make_button(home_content,"SHOP",Rect2(398,264,66,48),Color("#172442b0"),Color("#e2b563"),12).pressed.connect(show_shop)
+	make_object_hotspot(home_content,"ShopEntrance",Rect2(398,238,66,82),show_shop,"Visit the Salvager shop")
+	
 	make_object_hotspot(home_content,"StorageChest",Rect2(18,488,126,156),show_stash,"Open Gear")
 	make_object_hotspot(home_content,"ShrineProp",Rect2(4,204,88,126),show_upgrades,"Visit the shrine")
 	make_object_hotspot(home_content,"ArchiveDesk",Rect2(326,628,120,54),func(): show_phase4("archive"),"Open Ilex's Archive")
@@ -336,7 +336,7 @@ func build_home() -> void:
 	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
 	home_weapon=ItemIcon.new(); home_weapon.position=Vector2(179,519); home_weapon.size=Vector2(48,48); home_weapon.mouse_filter=Control.MOUSE_FILTER_IGNORE; home_content.add_child(home_weapon)
 	home_weapon_name=make_label(home_content,"",13,Rect2(233,521,206,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6ad")); home_weapon_name.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	var loadout:=make_button(home_content,"LOADOUT",Rect2(172,609,136,48),Color("#172442b0"),Color("#7087ae"),12)
+	var loadout:=make_button(home_content,"YOUR GEAR",Rect2(172,609,136,48),Color("#172442b0"),Color("#7087ae"),12)
 	for state in ["normal","hover","pressed","focus"]:
 		var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); loadout.add_theme_stylebox_override(state,style)
 	loadout.pressed.connect(func(): loadout_panel.visible=not loadout_panel.visible)
@@ -352,26 +352,29 @@ func build_stash() -> void:
 	var filters := ["ALL", "WEAPON", "ARMOUR", "CHARM", "RUNE"]
 	for index in range(filters.size()):
 		var filter_name: String = filters[index]
-		var filter_button := make_button(stash_content, filter_name, Rect2(20 + index * 89, 176, 84, 48), Color("#1c2948"), Color("#6f89b5"), 12)
+		var filter_button := make_button(stash_content, filter_name, Rect2(20 + index * 89, 146, 84, 48), Color("#1c2948"), Color("#6f89b5"), 12)
 		filter_button.pressed.connect(set_stash_filter.bind(filter_name))
 		filter_buttons[filter_name] = filter_button
 	for index in range(4):
 		var slot: String = ["Weapon", "Armour", "Relic", "Rune"][index]
-		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 78, 104, 88), Color("#172442"), Color("#7194c4"), 13)
-		slot_button.pressed.connect(set_stash_filter.bind(ItemCatalog.display_slot(slot)))
+		var slot_button := make_button(stash_content, "", Rect2(20 + index * 112, 76, 104, 60), Color("#172442"), Color("#7194c4"), 13)
+		slot_button.disabled=true
+		slot_button.flat=true
+		slot_button.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		slot_button.tooltip_text="Currently equipped "+ItemCatalog.display_slot(slot)
 		var slot_art := ItemIcon.new()
 		slot_art.name = "SlotArt"
-		slot_art.position = Vector2(25, 4)
-		slot_art.size = Vector2(54, 54)
+		slot_art.position = Vector2(34, 2)
+		slot_art.size = Vector2(36, 36)
 		slot_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		slot_button.add_child(slot_art)
-		make_label(slot_button, ItemCatalog.display_slot(slot), 13, Rect2(4, 61, 96, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
+		make_label(slot_button, ItemCatalog.display_slot(slot), 13, Rect2(4, 39, 96, 20), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 		equipped_slot_buttons[slot] = slot_button
-	var scroll_panel := make_panel(stash_content, Rect2(20, 236, 440, 565), Color("#0b1229d6"), Color("#7194c4"))
+	var scroll_panel := make_panel(stash_content, Rect2(20, 208, 440, 593), Color("#0b1229d6"), Color("#7194c4"))
 	LootlingsUI.apply_material(scroll_panel, "leather", 16)
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(10, 12)
-	scroll.size = Vector2(420, 541)
+	scroll.size = Vector2(420, 569)
 	stash_scroll=scroll
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll_panel.add_child(scroll)
@@ -406,7 +409,7 @@ func build_stash() -> void:
 
 func close_stash_detail() -> void:
 	stash_detail_panel.visible=false; stash_equip_button.visible=false; stash_scrap_button.visible=false
-	if stash_scroll!=null: stash_scroll.size.y=541
+	if stash_scroll!=null: stash_scroll.size.y=569
 
 func build_forge() -> void:
 	forge_content = Control.new()
@@ -506,6 +509,7 @@ func refresh_phase4() -> void:
 			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#382e32")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 			button.custom_minimum_size = Vector2(410,56)
 			button.pressed.connect(func():
+				if category=="Field discoveries": last_home_facts.event="archive_discovery"
 				phase4_detail.text = expedition_progress.collection_text()
 				if category == "Relic Siege" and endgame_progress != null:
 					phase4_detail.text="Highest round %d • best score %d\nRootglass Vault clears %d\n%s\nRound 10: extraction. Round 20+: Crownroot chase.\nOwned gear, mastery and discoveries survive defeat." % [endgame_progress.data.highest,endgame_progress.data.best_score,endgame_progress.data.dungeon_clears,endgame_progress.target_text()]
@@ -1041,7 +1045,8 @@ func refresh_stash() -> void:
 		slot_art.visible = not worn.is_empty()
 		if not worn.is_empty(): slot_art.configure(worn)
 		slot_button.tooltip_text = "Empty %s slot" % ItemCatalog.display_slot(slot) if worn.is_empty() else "%s • %s" % [worn.name, worn.rarity]
-		apply_display_button_style(slot_button, Color("#7194c4") if worn.is_empty() else ItemCatalog.rarity_color(worn.rarity), false)
+		for state in ["normal","hover","pressed","disabled"]:
+			slot_button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	stash_title.text = "STASH  •  %d / %d STORED" % [current_inventory.stash.size(), current_inventory.stash_capacity]
 	for filter_name in filter_buttons:
 		var filter_button: Button = filter_buttons[filter_name]
@@ -1388,7 +1393,7 @@ func make_object_hotspot(parent: Control, node_name: String, rect: Rect2, action
 	hotspot.pressed.connect(action); parent.add_child(hotspot)
 
 func queue_dialogue_context(context: String) -> void:
-	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "signature_find":7, "large_hoard":5, "forge_evolved":4, "contract_complete":3, "cache_opened":3, "trophy_earned":2}
+	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "red_find":8, "secret_discovered":8, "signature_find":7, "large_hoard":5, "forge_evolved":4, "contract_complete":3, "cache_opened":3, "trophy_earned":2}
 	var priority := int(priorities.get(context, 1))
 	if priority < queued_dialogue_priority:
 		return
@@ -1399,18 +1404,22 @@ func queue_dialogue_context(context: String) -> void:
 		speech_panel.visible = false
 
 func request_dialogue(context: String = "idle", requested_speaker: String = "") -> void:
+	if context not in ["idle","tapped"]:
+		last_home_facts.event=context
 	if context!="tapped" or speech_panel==null: return
 	if speech_panel.visible and speech_speaker==requested_speaker: dismiss_dialogue(); return
 	speech_speaker=requested_speaker
 	var game=get_parent()
 	var facts: Dictionary={"event":queued_dialogue_context,"weapon":str(current_inventory.equipped_item("Weapon").get("weapon_type","")) if current_inventory!=null else "","mode":"siege" if game.retention.siege else "dungeon" if game.retention.targeted else "region"}
-	facts.merge(last_home_facts,true); facts.event=queued_dialogue_context
+	facts.merge(last_home_facts,true)
+	if not queued_dialogue_context.is_empty(): facts.event=queued_dialogue_context
+	facts.character=Avatar.preset_id(profile) if Avatar.is_wanderer(profile) else str(profile.get("current_lootling_id","relic_beast"))
 	facts.activity=resident_activity(requested_speaker)
 	var line: String=home_dialogue.choose(requested_speaker,facts)
 	var voice_name: String=WorldStory.SPEAKERS.get(requested_speaker,requested_speaker)
 	if requested_speaker=="Mascot":
 		voice_name=Avatar.display_name(profile)
-		line=home_dialogue.choose(Avatar.preset_id(profile),facts) if Avatar.is_wanderer(profile) else WorldStory.mascot_line(str(profile.get("current_lootling_id","relic_beast")),0)
+		line=home_dialogue.choose(facts.character,facts)
 	queued_dialogue_context=""; queued_dialogue_priority=-1
 	speech_label.text=voice_name+"
 "+line
@@ -1440,7 +1449,7 @@ func _process(delta: float) -> void:
 	if not visible:
 		return
 	if current_screen == "home":
-		var cycle:=int(scene_time/7.0)
+		var cycle:=int(scene_time/28.0)
 		if cycle!=station_cycle:
 			station_cycle=cycle
 			if cycle>0 and cycle%3==0: ui_event.emit("home_bench")
@@ -1582,25 +1591,36 @@ func draw_home_workstations() -> void:
 	var shrine_pulse:=.08+maxf(0,sin(scene_time*1.6))*.06
 	draw_circle(Vector2(66,372),16,Color(.64,.51,1,shrine_pulse))
 
-func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
-	var active: bool=int(scene_time/7.0)%3==int(phase)
-	var activity: float=sin(scene_time*1.4+phase) if active else 0.0
-	rect.position.x+=activity*2.0
-	rect.position.y+=absf(activity)*-1.2
-	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,0.22))
-	draw_circle(Vector2.ZERO,31,Color("#03061280"))
-	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-	draw_texture_rect(RESIDENT_BODIES[speaker],rect,false)
-	if active:
-		var glint:=rect.get_center()+Vector2(10,9)
-		var color:=Color("#edbc76") if speaker=="Salvager" else Color("#a9d8e8")
-		color.a=.12+maxf(0,sin(scene_time*2.0))*.15
-		draw_circle(glint,3.0,color)
-
 func resident_activity(speaker: String) -> String:
+	if speech_panel!=null and speech_panel.visible and speech_speaker==speaker: return "talk"
 	var index: int=["Salvager","Relic Keeper","Archivist"].find(speaker)
-	if index<0 or int(scene_time/7.0)%3!=index: return "resting"
-	return ["working","inspecting","reading"][index]
+	if index<0: return "stand"
+	var state: int=int((scene_time+index*11)/28.0)%5
+	return {"Salvager":["repair","inspect","walk","sit","stand"],"Relic Keeper":["inspect","sit","walk","stand","inspect"],"Archivist":["read","inspect","walk","sit","read"]}[speaker][state]
+
+func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
+	var activity:=resident_activity(speaker)
+	var local_time:=fmod(scene_time+phase*11,28.0)
+	var walk:=sin(clampf(local_time/4,0,1)*PI)*12 if activity=="walk" else 0.0
+	rect.position.x+=walk
+	if activity=="sit": rect.position.y+=8; rect.size.y-=8
+	if speaker=="Archivist": rect=Rect2(rect.position+Vector2(6,10),rect.size*Vector2(.88,.92))
+	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
+	draw_circle(Vector2.ZERO,31,Color("#03061280"))
+	var pivot:=Vector2(rect.get_center().x,rect.end.y)
+	var lean:=sin(scene_time*2.5)*.035 if activity=="repair" else -.035 if activity=="read" else .015 if activity=="talk" else 0.0
+	draw_set_transform(pivot,lean,Vector2.ONE)
+	draw_texture_rect(RESIDENT_BODIES[speaker],Rect2(rect.position-pivot,rect.size),false,Color("#c9e2f3") if speaker=="Archivist" else Color.WHITE)
+	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	if speaker=="Archivist" and activity in ["read","inspect","talk"]:
+		var book:=Rect2(rect.get_center()+Vector2(-16,15),Vector2(28,17))
+		draw_style_box(preload("res://station_presentation.gd").paper(),book)
+		draw_line(book.position+Vector2(14,1),book.position+Vector2(14,16),Color("#604e46"),1)
+	elif speaker=="Salvager" and activity=="repair":
+		var tool:=rect.get_center()+Vector2(18,20)
+		draw_line(tool,tool+Vector2(0,-12+sin(scene_time*3)*5),Color("#bcb9ab"),3,true)
+	elif speaker=="Relic Keeper" and activity=="inspect":
+		draw_circle(rect.get_center()+Vector2(-12,18),4,Color("#ae9cff"))
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

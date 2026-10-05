@@ -2,9 +2,14 @@ extends RefCounted
 
 # Presentation only: read existing combat clocks, never change damage or RNG.
 var health_trails := {}
+var boss_action := ""
+var boss_action_time := 0.0
+var player_prepared:=false
 
 func reset() -> void:
 	health_trails.clear()
+	boss_action=""; boss_action_time=0
+	player_prepared=false
 
 func register_enemy(serial: int) -> void:
 	health_trails[serial] = {"ratio":1.0, "last":1.0, "hold":0.0}
@@ -27,6 +32,13 @@ func update_health(key: int, hp: float, maximum: float, delta: float) -> void:
 		trail.ratio = move_toward(float(trail.ratio), ratio, delta * 0.8)
 
 func step(g, delta: float) -> void:
+	boss_action_time=maxf(0,boss_action_time-delta)
+	if g.attack_clock>.22 or g.attack_anim>0: player_prepared=false
+	if g.state=="playing" and g.enemy_alive and g.attack_clock<=.18 and g.attack_anim<=0 and not player_prepared:
+		player_prepared=true
+		var weapon: String=g.inventory.equipped_item("Weapon").get("weapon_type","")
+		if weapon=="bow": g.play_audio_event("draw_bow")
+		elif weapon in ["staff","wand","orb"]: g.play_audio_event("charge_staff")
 	update_health(-1, g.player_hp, g.player_max_hp, delta)
 	if g.enemy_encounter.active:
 		g.enemy_encounter.capture(g)
@@ -51,7 +63,7 @@ static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: 
 	var cue := attack_cue(g)
 	if not cue.visible: return
 	var accent: Color = cue.accent
-	var radius := 36.0 * scale_factor
+	var radius := 24.0 * scale_factor
 	# A steady silhouette plus a filling ring reads without relying on flashing.
 	g.draw_arc(center, radius, 0, TAU, 32, Color(accent, 0.23), 3.0, true)
 	if float(cue.progress) > 0.01:

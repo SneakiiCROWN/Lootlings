@@ -62,8 +62,8 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	if identity != "Neutral":
 		var glow := accent
 		glow.a = .20+tier*.05
-		g.draw_circle(Vector2(pose.core),12+tier*3,glow)
-		g.draw_arc(Vector2(pose.core),14+tier*3,g.run_time*2,g.run_time*2+4.9,18,accent.lightened(.25),2+tier)
+		g.draw_circle(Vector2(pose.core),5+tier,Color(glow,.14))
+		g.draw_arc(Vector2(pose.core),8+tier,g.run_time*2,g.run_time*2+2.3,12,Color(accent,.45),1)
 	if pose.depth == "front": draw_fitted_weapon(g, root, pose)
 	# Only a real authored foreground layer may cover the weapon with a hand.
 	if pose.foreground is Texture2D:
@@ -72,6 +72,9 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 
 func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
+	if pose.weapon_type in ["daggers","claws"]:
+		draw_paired_weapons(g,root,pose)
+		return
 	g.draw_set_transform_matrix(root*Transform2D(float(pose.weapon_rotation),Vector2(pose.weapon_scale),0,Vector2(pose.hand)))
 	var item: Dictionary = g.inventory.equipped_item("Weapon")
 	var fallback: Texture2D = {"RANGER":RANGER_WEAPON_TEXTURE,"MAGE":MAGE_WEAPON_TEXTURE,"ROGUE":ROGUE_WEAPON_TEXTURE}.get(g.current_weapon_family(),VANGUARD_WEAPON_TEXTURE)
@@ -80,6 +83,19 @@ func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 		texture = WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),texture)
 	if pose.weapon_type == "bow": draw_bow_string(g,pose)
 	g.draw_texture_rect(texture,Rect2(pose.weapon_rect),false,Color.WHITE)
+
+func draw_paired_weapons(g, root: Transform2D, pose: Dictionary) -> void:
+	var dagger: bool=pose.weapon_type=="daggers"
+	var texture: Texture2D=preload("res://art/sprites/weapons/paired_dagger_beta.svg") if dagger else preload("res://art/sprites/weapons/claws_held.png")
+	var held_size:=Vector2(34,76) if dagger else Vector2(48,42)
+	var grip:=Vector2(.5,.82) if dagger else Vector2(.21,.44)
+	var contacts: Array=[pose.primary_hand,pose.secondary_hand]
+	for hand in range(2):
+		var leading: bool=hand==int(g.attack_sequence)%2
+		var release: float=float(pose.action.release)*(1 if leading else .45)
+		var angle: float=(-.28 if hand==0 else .28)+release*(.65 if hand==0 else -.65)-float(pose.action.anticipate)*.18
+		g.draw_set_transform_matrix(root*Transform2D(angle,Vector2(-1 if hand==1 else 1,1),0,contacts[hand]))
+		g.draw_texture_rect(texture,Rect2(-grip*held_size,held_size),false,Color.WHITE)
 
 func draw_bow_string(g, pose: Dictionary) -> void:
 	var rect: Rect2 = pose.weapon_rect
@@ -100,6 +116,7 @@ func draw_striking_blade(g, pos: Vector2) -> void:
 	# their foreground; the handle stays beneath the real closed paws.
 	if g.attack_anim <= .055: return
 	var pose := WandererPose.sample(g,g.player_flash > 0)
+	if pose.weapon_type in ["daggers","claws"]: return
 	var blade_fraction: float = {"greatsword":.61,"greataxe":.50,"maul":.47,"spear":.48,"daggers":.50,"claws":.30}.get(str(pose.weapon_type),0.0)
 	if blade_fraction == 0: return
 	var root: Transform2D = pose.root
@@ -117,6 +134,7 @@ func draw_striking_blade(g, pos: Vector2) -> void:
 
 func draw_enemy(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	draw_enemy_sprite(g, pos, color, extra_scale)
+	preload("res://enemy_motion.gd").verdant(g,pos)
 
 func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) -> void:
 	var texture: Texture2D = RAZOR_IMP_TEXTURE
@@ -154,6 +172,14 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 				"hexer":
 					texture = LANTERN_HEXER_TEXTURE
 					sprite_rect = Rect2(-55, -76, 110, 131)
+	var glasswing: bool=preload("res://enemy_motion.gd").glasswing(g)
+	var regional: Dictionary=preload("res://regional_enemy_presentation.gd").profile(g.enemy_name) if not g.enemy_is_boss and not g.enemy_is_miniboss else {}
+	if not regional.is_empty():
+		texture=regional.texture; sprite_rect=Rect2(Vector2(-regional.size.x*.5,54-regional.size.y),regional.size); atlas_region=Rect2(); shadow_radius=regional.size.x*.28
+	if not regional.is_empty() and regional.hover:
+		pos.y-=17+sin(g.run_time*4)*5
+	if glasswing:
+		preload("res://enemy_motion.gd").draw_wings(g,pos,extra_scale)
 	# A restrained local value break keeps painted creatures readable against the rich ruin art.
 	g.draw_set_transform(pos + Vector2(0, -5), 0.0, Vector2(1.0, 0.76) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius + 16.0, Color(0.015, 0.025, 0.065, 0.18 * color.a))
@@ -183,7 +209,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 					g.draw_circle(seal_pos,4,stage_color.lightened(.3))
 					g.draw_circle(seal_pos,9,Color(stage_color, .12))
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	var tint := Color.WHITE
+	var tint: Color=regional.get("tint",Color.WHITE)
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
 		tint = Color("#fff2ca")
 	tint.a = color.a
@@ -192,6 +218,10 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	if g.enemy_is_boss: recoil_tilt=clampf(recoil_tilt,-boss_data.recoil_limit,boss_data.recoil_limit)
 	var personality_scale := Vector2.ONE
 	var personality_tilt := 0.0
+	var boss_charge: float=clampf(1-g.enemy_attack_clock/.7,0,1) if g.enemy_is_boss else 0
+	if g.enemy_is_boss and g.campaign_id=="mossglass_wilds":
+		pos.x+=boss_charge*6
+		if g.boss_recovery>0: pos.y+=7; recoil_tilt+=.045; tint=tint.darkened(.16)
 	if g.enemy_is_boss:
 		personality_scale = Vector2(1.0 + sin(g.run_time * 1.35) * 0.012, 1.0 - sin(g.run_time * 1.35) * 0.014)
 	elif g.enemy_is_miniboss:

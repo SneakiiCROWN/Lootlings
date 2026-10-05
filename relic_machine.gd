@@ -15,8 +15,11 @@ var reduced_motion:=false
 var tick_at:=0.0
 var progress:=0.0
 var burst:=0.0
+var aperture_layer: Control
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE; clip_contents=true; set_process(false)
+	aperture_layer=Control.new(); aperture_layer.mouse_filter=Control.MOUSE_FILTER_IGNORE; aperture_layer.clip_contents=true; add_child(aperture_layer)
+	aperture_layer.draw.connect(draw_reels)
 func wind_up(kind: String="material", tier: String="COMMON", quick: bool=false) -> void:
 	reward_kind=kind; rarity=tier if tier in Catalog.TIERS else "COMMON"
 	fast=quick and Catalog.tier(rarity)<3
@@ -44,7 +47,8 @@ func _process(delta: float) -> void:
 			stage="anticipation"; cue.emit("chest_land")
 	elif stage=="anticipation" and elapsed>=reel_seconds+Catalog.anticipation(rarity): lock_result()
 	elif stage=="reveal":
-		burst=maxf(0,1-(elapsed-reel_seconds-Catalog.anticipation(rarity))/Catalog.reveal_seconds(rarity))
+		var hold:=.12 if Catalog.tier(rarity)>=4 else 0.0
+		burst=clampf(1-(elapsed-reel_seconds-Catalog.anticipation(rarity)-hold)/Catalog.reveal_seconds(rarity),0,1)
 		if burst<=0:
 			stage="settled"; set_process(false); completed.emit()
 	queue_redraw()
@@ -63,31 +67,19 @@ func _draw() -> void:
 			draw_line(Vector2(x-2,y),Vector2(x+2,y),Color("#433e38"),1,true)
 	var aperture:=Rect2(18,38,size.x-36,size.y-66)
 	draw_style_box(Catalog.flat_style(Color("#030917"),tint.darkened(.3)),aperture)
-	var width:=aperture.size.x/3
-	var eased:=1-pow(1-progress,3)
-	for reel in range(3):
-		var turns: float=(14+reel)*eased
-		var x:=aperture.position.x+width*(reel+.5)
-		for edge in [-1,1]:
-			draw_line(Vector2(x+edge*(width*.5-4),65),Vector2(x+edge*(width*.5-4),size.y-50),Color("#514b415c"),3,true)
-		var displacement:=fposmod(turns,1.0)*76.0
-		if stage=="rolling":
-			for row in range(-1,3):
-				var y:=center.y+row*76-displacement
-				if y<60 or y>size.y-24: continue
-				var passing: int=posmod(int(turns)+row+reel*2,6)
-				var landing: bool=int(turns)+row==14+reel
-				draw_seal(Vector2(x,y),30 if landing else 24,Catalog.color(rarity) if landing else Catalog.COLORS[passing],Catalog.icon_for(reward_kind) if landing else Catalog.icon_for(["material","mastery","blueprint","material","material","item"][passing]))
-		else:
-			var punch: float=1+burst*[.015,.03,.05,.075,.10,.14][tier] if not reduced_motion else 1.0
-			var shake:=Vector2(sin(elapsed*35)*2*burst,0) if tier==5 and not reduced_motion else Vector2.ZERO
-			draw_seal(Vector2(x,center.y)+shake,30*punch,tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
-		if reel<2: draw_line(Vector2(x+width*.5,48),Vector2(x+width*.5,size.y-25),Color("#22304b"),1)
+	aperture_layer.position=aperture.position+Vector2(2,2); aperture_layer.size=aperture.size-Vector2(4,4); aperture_layer.queue_redraw()
 	draw_rect(Rect2(19,39,size.x-38,24),Color(0.02,.04,.08,.7))
 	draw_rect(Rect2(19,size.y-49,size.x-38,20),Color(0.02,.04,.08,.7))
 	draw_line(Vector2(7,center.y),Vector2(17,center.y),Color("#ffda72"),4)
 	draw_line(Vector2(size.x-17,center.y),Vector2(size.x-7,center.y),Color("#ffda72"),4)
-	if stage=="anticipation": draw_arc(center,42,0,TAU,48,Color(tint,.35),3)
+	if stage=="anticipation":
+		draw_arc(center,42,0,TAU,48,Color(tint,.35),3)
+		if tier>=3:
+			draw_style_box(Catalog.flat_style(Color(tint,.06+.018*tier),tint),Rect2(1,1,size.x-2,size.y-2))
+		if tier==5:
+			for branch in range(4):
+				var point:=Vector2(10+branch*(size.x-20)/3,34)
+				draw_polyline(PackedVector2Array([point,point+Vector2(8,12),point+Vector2(2,17),point+Vector2(11,22)]),Color(tint,.8),2,true)
 	if burst>0:
 		var count: int=mini(6,[0,6,10,16,22,26][tier]) if reduced_motion else [0,6,10,16,22,26][tier]
 		var radius:=30+(1-burst)*95
@@ -103,8 +95,32 @@ func _draw() -> void:
 	draw_string(ThemeDB.fallback_font,Vector2(10,25),caption,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,14,tint)
 	var status: String="TURN THE SEALS" if stage=="idle" else "SEALS ALIGNING…" if stage=="rolling" else "HOLD…" if stage=="anticipation" else rarity
 	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-20),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,13,tint)
-func draw_seal(point: Vector2, radius: float, tint: Color, icon_name: String) -> void:
+func draw_reels() -> void:
+	var tier:=Catalog.tier(rarity)
+	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
+	var center:=aperture_layer.size*.5
+	var width:=aperture_layer.size.x/3
+	var eased:=1-pow(1-progress,3)
+	for reel in range(3):
+		var turns: float=(14+reel)*eased
+		var x:=width*(reel+.5)
+		for edge in [-1,1]:
+			aperture_layer.draw_line(Vector2(x+edge*(width*.5-4),0),Vector2(x+edge*(width*.5-4),aperture_layer.size.y),Color("#514b415c"),3,true)
+		var displacement:=fposmod(turns,1.0)*76.0
+		if stage=="rolling":
+			for row in range(-1,3):
+				var y:=aperture_layer.size.y*.5+row*76-displacement
+				if y < -32 or y > aperture_layer.size.y+32: continue
+				var passing: int=posmod(int(turns)+row+reel*2,6)
+				var landing: bool=int(turns)+row==14+reel
+				draw_seal(aperture_layer,Vector2(x,y),30 if landing else 24,Catalog.color(rarity) if landing else Catalog.COLORS[passing],Catalog.icon_for(reward_kind) if landing else Catalog.icon_for(["material","mastery","blueprint","material","material","item"][passing]))
+		else:
+			var punch: float=1+burst*[.015,.03,.05,.075,.10,.14][tier] if not reduced_motion else 1.0
+			var shake:=Vector2(sin(elapsed*35)*2*burst,0) if tier==5 and not reduced_motion else Vector2.ZERO
+			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,30*punch,tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
+		if reel<2: aperture_layer.draw_line(Vector2(x+width*.5,0),Vector2(x+width*.5,aperture_layer.size.y),Color("#22304b"),1)
+func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_name: String) -> void:
 	var diamond:=PackedVector2Array([point+Vector2(0,-radius),point+Vector2(radius,0),point+Vector2(0,radius),point+Vector2(-radius,0)])
-	draw_colored_polygon(diamond,tint.darkened(.75))
-	draw_polyline(PackedVector2Array([diamond[0],diamond[1],diamond[2],diamond[3],diamond[0]]),tint,2)
-	UI.draw_icon(get_canvas_item(),UI.icon(icon_name),Rect2(point-Vector2.ONE*radius*.60,Vector2.ONE*radius*1.2))
+	layer.draw_colored_polygon(diamond,tint.darkened(.75))
+	layer.draw_polyline(PackedVector2Array([diamond[0],diamond[1],diamond[2],diamond[3],diamond[0]]),tint,2)
+	UI.draw_icon(layer.get_canvas_item(),UI.icon(icon_name),Rect2(point-Vector2.ONE*radius*.60,Vector2.ONE*radius*1.2))

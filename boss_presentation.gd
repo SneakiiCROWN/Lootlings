@@ -7,8 +7,10 @@ const VAULT=preload("res://art/sprites/enemies/hoard_depths_enemies.png")
 const BRUTE=preload("res://art/sprites/enemies/mossback_brute.png")
 const HEXER=preload("res://art/sprites/enemies/lantern_hexer.png")
 const KNIGHT=preload("res://art/sprites/enemies/grump_knight.png")
+static var active_texture: Texture2D
+static var active_path := ""
 const PROFILES := {
-	"mossglass_wilds":{"texture":GROVE,"display_size":Vector2(210,230),"flip_h":true,"offset":Vector2(-17,0),"shadow":62.0,"attack_distance":18.0,"entrance_scale":.88,"recoil_limit":.045,"status":"BETA: clean Mosskin guardian reuse; unique Verdant Mirror body pending"},
+	"mossglass_wilds":{"texture_path":"res://art/sprites/enemies/beta/verdant_mirror.png","display_size":Vector2(228,278),"flip_h":false,"offset":Vector2(-17,0),"shadow":62.0,"attack_distance":18.0,"entrance_scale":.88,"recoil_limit":.045,"status":"BETA: existing intro tree/root guardian reused; authored combat phases pending"},
 	"cinder_crown":{"texture":FURNACE,"source":Rect2(724,0,724,724),"baseline":80.0,"display_size":Vector2(260,260),"flip_h":false,"offset":Vector2(-15,0),"shadow":72.0,"attack_distance":12.0,"entrance_scale":.92,"recoil_limit":.04,"accent":Color("#ff985d"),"motif":"furnace","status":"BETA: approved forge golem proxy; authored Furnace Regent needed"},
 	"moonfen":{"texture":VAULT,"source":Rect2(0,0,724,724),"baseline":80.0,"display_size":Vector2(246,246),"flip_h":false,"accent":Color("#94dcf0"),"motif":"lantern","status":"BETA: four-legged vault beast proxy; authored Lantern Jackal needed"},
 	"frostbell_hollows":{"texture":BRUTE,"display_size":Vector2(254,170),"accent":Color("#ade9ff"),"motif":"chime","status":"BETA: jawed brute proxy; authored Belljaw needed"},
@@ -26,6 +28,10 @@ static func profile(region: String) -> Dictionary:
 	return result
 static func texture_for(data: Dictionary) -> Texture2D:
 	var texture: Texture2D=data.texture
+	if data.has("texture_path"):
+		if active_path!=data.texture_path:
+			active_path=data.texture_path; active_texture=load(active_path)
+		texture=active_texture
 	if data.source.size.x>0:
 		var crop:=AtlasTexture.new(); crop.atlas=texture; crop.region=data.source; return crop
 	return texture

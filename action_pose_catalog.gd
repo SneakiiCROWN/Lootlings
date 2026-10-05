@@ -14,18 +14,20 @@ static func sample(family: String, run_time: float, attack_clock: float, attack_
 	var p: Dictionary = profile(family)
 	var idle := sin(run_time * float(p.idle_speed)) * float(p.idle_amount)
 	var breath := sin(run_time * 1.9) * 0.010
-	var anticipation_window := minf(0.18, attack_interval * 0.22)
+	var anticipation_window := minf(0.26 if family=="VANGUARD" else .22, attack_interval * 0.28)
 	var anticipate := 0.0
 	if attack_anim <= 0.0 and attack_clock <= anticipation_window:
 		anticipate = clampf(1.0 - attack_clock / maxf(0.01, anticipation_window), 0.0, 1.0)
 	var release := clampf(attack_anim / 0.22, 0.0, 1.0)
 	var impact := sin((1.0 - release) * PI) if release > 0.0 else 0.0
 	var recovery := clampf((0.10 - attack_anim) / 0.10, 0.0, 1.0) if attack_anim > 0.0 else 0.0
-	var rotation := idle + anticipate * float(p.anticipate_lean) + release * float(p.release_lean)
+	var rotation := idle + anticipate * float(p.anticipate_lean) * 1.25 + release * float(p.release_lean) * 1.12
 	rotation += impact * float(p.recoil) + recovery * float(p.settle)
-	var root_shift := Vector2(-anticipate * 5.0 + release * 7.0, -impact * 2.0)
+	var commit := sin(clampf((.22-attack_anim)/.095,0,1)*PI*.5) if attack_anim>.125 else release
+	var settle := -sin(recovery*PI)*2.5
+	var root_shift := Vector2(-anticipate * 9.0 + commit * 13.0 + settle, -impact * 2.5)
 	if family in ["RANGER", "MAGE"]:
-		root_shift.x = -anticipate * 3.0 - impact * 4.0
+		root_shift.x = -anticipate * 8.0 + commit * (7.0 if family=="MAGE" else -5.0) + settle
 		if family == "MAGE": root_shift.y -= anticipate*3.0 + impact*4.0
 	if hurt:
 		rotation -= 0.065

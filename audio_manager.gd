@@ -10,6 +10,7 @@ const MUSIC_PATHS := {
 }
 const BASE_EVENT_SPECS := {
 	"home_bench":["Ambience",0,.12,.15], "home_page":["Ambience",0,.10,.10],
+	"relic_red":["SFX",0,1.1,.4], "draw_bow":["SFX",0,.18,.3], "charge_staff":["SFX",0,.23,.3],
 	"swing_greatsword":["SFX",0,.28,.5], "swing_greataxe":["SFX",0,.30,.5], "swing_maul":["SFX",0,.32,.5],
 	"swing_spear":["SFX",0,.18,.4], "swing_daggers":["SFX",0,.15,.4], "swing_claws":["SFX",0,.12,.4],
 	"swing_bow":["SFX",0,.18,.4], "swing_crossbow":["SFX",0,.16,.4], "swing_sling":["SFX",0,.18,.4],
@@ -44,13 +45,19 @@ static var EVENT_SPECS := event_specs()
 
 static func event_specs() -> Dictionary:
 	var result := BASE_EVENT_SPECS.duplicate(true)
+	for weapon in ["greatsword","greataxe","maul","spear","daggers","claws","bow","crossbow","sling","staff","wand","orb"]:
+		result["weapon_"+weapon]=["SFX",0,.4,.4]
+	for material in ["flesh","armour","stone","wood","glass","molten","ethereal"]:
+		result["contact_"+material]=["SFX",0,.4,.4]
+	for action in ["thorn","root","mirror","recover"]:
+		result["verdant_"+action]=["SFX",0,.6,.4]
 	for profile in preload("res://voice_identity.gd").PROFILES:
 		for role in ["attack","hurt","death"]:
 			result["voice_"+profile+"_"+role] = ["SFX",0,.5,.4]
 	return result
 
 static func variant_count(event: String) -> int:
-	return 4 if event in VARIANT_EVENTS or event.begins_with("voice_") else 1
+	return 4 if event in VARIANT_EVENTS or event.begins_with("voice_") or event.begins_with("weapon_") or event.begins_with("contact_") or event.begins_with("verdant_") else 1
 
 var players := {}
 var streams := {}
@@ -71,7 +78,7 @@ var event_mix_trim := true
 
 const VARIANT_EVENTS := ["swing_greatsword", "swing_greataxe", "swing_maul", "swing_spear", "swing_daggers", "swing_claws", "swing_bow", "swing_crossbow", "swing_sling", "swing_staff", "swing_wand", "swing_orb", "magic_fire", "magic_lightning", "magic_poison", "ward", "explosion", "tap_attack", "normal_hit", "heavy_hit", "crit", "boss_hit", "gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup", "equipment_drop", "ranger_release", "mage_cast", "vanguard_swing", "rogue_slash", "enemy_skirmisher", "enemy_tank", "enemy_hexer"]
 const PICKUP_EVENTS := ["gold_pickup", "scrip_pickup", "resource_pickup", "xp_pickup"]
-const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "chest_land", "chest_windup", "chest_open", "level_up", "core_awaken", "boss_warning", "victory", "defeat"]
+const IMPORTANT_EVENTS := ["heavy_hit", "crit", "boss_hit", "equipment_drop", "rare_reveal", "epic_reveal", "legendary_reveal", "relic_red", "verdant_root", "verdant_mirror", "chest_land", "chest_windup", "chest_open", "level_up", "core_awaken", "boss_warning", "victory", "defeat"]
 
 func _ready() -> void:
 	ensure_buses()
@@ -165,6 +172,8 @@ func apply_settings(settings: Dictionary) -> void:
 func play_event(event_name: String) -> void:
 	if not output_enabled or not EVENT_SPECS.has(event_name):
 		return
+	if event_name in ["epic_reveal","legendary_reveal","relic_red","boss_warning","verdant_mirror","verdant_root"]:
+		duck_music(.35)
 	var now := Time.get_ticks_msec()
 	if event_name in PICKUP_EVENTS and now - int(last_event_msec.get(event_name, -1000)) < 65:
 		return
@@ -213,6 +222,13 @@ func play_voice(profile: String, role: String) -> void:
 	var interval := 1350 if role == "attack" else 700 if role == "hurt" else 0
 	if now-int(last_event_msec.get(event,-2000)) < interval: return
 	play_event(event)
+
+func play_contact(weapon: String, material: String, critical: bool, heavy: bool) -> void:
+	# One characteristic strike and one quieter material layer; bounded six-voice pool.
+	play_event("weapon_"+weapon)
+	play_event("contact_"+material)
+	if critical: play_event("crit")
+	elif heavy: play_event("heavy_hit")
 
 func choose_variant(event_name: String, variant_count: int) -> int:
 	if variant_count <= 1:

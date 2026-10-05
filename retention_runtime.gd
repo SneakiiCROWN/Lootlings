@@ -35,7 +35,7 @@ func configure(target) -> void:
 	preload("res://lootlings_ui.gd").apply_material(panel,"hoard")
 	title=game.make_label(panel,"RELIC SIEGE",25,Rect2(20,14,384,48),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	detail=preload("res://lootlings_ui.gd").rich_label(panel,Rect2(24,72,376,150),14,Color("#e7edff")); detail.scroll_active=true
-	mode_art=TextureRect.new(); mode_art.position=Vector2(24,70); mode_art.size=Vector2(376,88); mode_art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; mode_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; mode_art.mouse_filter=Control.MOUSE_FILTER_IGNORE; mode_art.visible=false; panel.add_child(mode_art)
+	mode_art=TextureRect.new(); mode_art.position=Vector2(24,70); mode_art.size=Vector2(376,118); mode_art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; mode_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; mode_art.mouse_filter=Control.MOUSE_FILTER_IGNORE; mode_art.visible=false; panel.add_child(mode_art)
 	for index in range(5):
 		var b: Button=game.make_action_button(panel,"",Vector2(24,240+index*72),Vector2(376,60),Color("#172442"),Color("#78e4ff"),func(): choose(index))
 		b.add_theme_font_size_override("font_size",14); buttons.append(b)
@@ -51,6 +51,9 @@ func configure(target) -> void:
 	preload("res://lootlings_ui.gd").rich_label(pool_panel,Rect2(24,76,376,510),16,Color("#e7edff")).text=SpinCatalog.pool_text()
 	var close_pool: Button=game.make_action_button(pool_panel,"‹ RELIC ENGINE",Vector2(24,606),Vector2(376,54),Color("#172442"),Color("#78e4ff"),func(): pool_panel.visible=false)
 	game.touch_ux.register_button(close_pool)
+	var reveal_light:=preload("res://relic_reveal_fx.gd").new()
+	reveal_light.machine=machine; reveal_light.panel=panel; reveal_light.card=detail
+	reveal_light.size=Vector2(480,854); reveal_light.z_index=79; panel.get_parent().add_child(reveal_light)
 	game.result_panel.size.y=625
 	spinner_button=game.make_action_button(game.result_panel,"RELIC SPINNER",Vector2(47,557),Vector2(330,50),Color("#493052"),Color("#e2b563"),show_spinner)
 	game.touch_ux.register_button(spinner_button)
@@ -81,13 +84,17 @@ func show_modes(tab: String="siege") -> void:
 	buttons[3].text="FORGE RED • 24 CROWNROOT FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
 	buttons[0].visible=tab=="siege"; buttons[1].visible=tab=="dungeons"; buttons[2].visible=tab=="dungeons"
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
-	detail.position=Vector2(24,172); detail.size=Vector2(376,122)
+	detail.position=Vector2(24,204); detail.size=Vector2(376,110)
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
 	detail.text="%s\nCrownroot: %d / %d fragments\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0
 	for button in buttons:
-		if button.visible: button.position=Vector2(24,312+visible_index*72); visible_index+=1
+		if button.visible:
+			button.position=Vector2(24,330+visible_index*65); button.size.y=54; visible_index+=1
+			var primary: bool=button==buttons[0] or (tab=="dungeons" and button==buttons[1])
+			button.add_theme_stylebox_override("normal",SpinCatalog.flat_style(Color("#304e40") if primary else Color("#101c30"),Color("#e4bd70") if primary else Color("#435371"),10))
+			button.add_theme_font_size_override("font_size",17 if primary else 13)
 
 func choose(index: int) -> void:
 	if Time.get_ticks_msec()-selected_at<180: return
@@ -153,6 +160,7 @@ func start_reveal(quick: bool) -> void:
 	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
 	machine.reduced_motion=game.audio_settings.get("cinematic_reduced_motion",false)
 	machine.wind_up(spin_kind,rarity,quick)
+	if SpinCatalog.tier(rarity)>=3 and game.audio_manager!=null: game.audio_manager.duck_music()
 
 func lock_spin() -> void:
 	if game.state!="relic_spinner": return
@@ -162,7 +170,6 @@ func lock_spin() -> void:
 	detail.add_theme_color_override("default_color",SpinCatalog.color(rarity))
 	detail.add_theme_stylebox_override("normal",SpinCatalog.flat_style(SpinCatalog.color(rarity).darkened(.88),SpinCatalog.color(rarity).darkened(.25),10))
 	detail.text="[center][b]%s\n%s%s[/b]\n%s[/center]" % ["CROWNROOT RELIC" if rarity=="RED" else rarity,name," × %d" % amount if spin_kind!="item" else "",spin_message]
-	if rarity=="RED": game.play_audio_event("legendary_reveal")
 
 func finish_spin() -> void:
 	if not spin_busy: return

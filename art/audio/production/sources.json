@@ -5477,6 +5477,1348 @@
       "seconds": 0.68,
       "sha256": "19122ab3409f31ab1e9b706301909629439bdbf5bf7e5466ae03dcb892e28189",
       "design": "Selected energy windows; organic pitch/size, room-noise filtering, restrained material layering, edge fades; no human vocal source on creature banks."
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greatsword_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_000.ogg",
+          "sha256": "e07045693e4a2b3d165c424e3dab4c781d9ff8880a386880ac89a51315d7f831",
+          "speed": 0.7796000000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.34,
+      "sha256": "8ff37535ad33aa804f06696256855c97fba576f6f8e0f72c91a9c16793de68ce"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greatsword_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_001.ogg",
+          "sha256": "83554049f81f4db9209379e103c30bfa63f65c42189a03f300b045c2c82e23ae",
+          "speed": 0.7932000000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.34,
+      "sha256": "85c59a79ed1b1cfddc52f720c16ef288e2193473c14f67a33750947ad5757327"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greatsword_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_002.ogg",
+          "sha256": "b914c8f1eb7c0f34bb165d7c77f4be0351f6be0660c13c53e65424e262e2c093",
+          "speed": 0.8068
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.34,
+      "sha256": "9e57b382b6f4f24e69df358a2edbc8de61f3271070ffe64516e7b4d348fff50f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greatsword_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_003.ogg",
+          "sha256": "b0f2ba4dabde9a87eb9c188a19d31e0c2300fd321adeba08d3b9b8aa011d7037",
+          "speed": 0.8204000000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.34,
+      "sha256": "76bc9d035cf8131244c4541162da635837818dd00ad59634e9bde35354900528"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greataxe_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_000.ogg",
+          "sha256": "112d4f93ddcc370b410630f971c0f5d991856102da9c76bc5c5540d388e75aaa",
+          "speed": 0.85756
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "053a7d45e4f20b563a26e1c1b846129dc99a4299a527bd8a1029b68beea85d44"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greataxe_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_001.ogg",
+          "sha256": "142fd6c77f13d25f318265901163f70f8dfe12f87829169a570025be43de7011",
+          "speed": 0.8725200000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "d496cf3eac6d2d1584051df7412ed5c75c3ea15d7d518a2b2a94048bd247bada"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greataxe_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_002.ogg",
+          "sha256": "b0cab75d1befa32b4cf215d8ee7e1c400a39182e8b105963b8e310f825b198a1",
+          "speed": 0.8874799999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "c5e975518e77c4b92a7bcdc341af4f27870f07fa563349e59182114090d3a4a5"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_greataxe_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_003.ogg",
+          "sha256": "59775f8979a396c8a793b0a1db206d5bdc651eae808d858e9acaee8ebda5bc6d",
+          "speed": 0.90244
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "72aa57e2cfd884ea8a02bb8f2fcb1bc10c80183996fdffe4c932349bff17284f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_maul_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_heavy_000.ogg",
+          "sha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8",
+          "speed": 0.652915
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.43,
+      "sha256": "8cf365fe8283eceb455e71799b4ecb55ff3033e9b7de7316e3a0823137027975"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_maul_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_heavy_001.ogg",
+          "sha256": "f92f5cb6ba4ff2766497292ffd90865654317eeca976f5652e0708dbdcdc0dd9",
+          "speed": 0.664305
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.43,
+      "sha256": "940453b840f0e3fcff4aee400580a6ab8a3ad799f134ba7b11f0d4099f248e82"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_maul_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_heavy_002.ogg",
+          "sha256": "7993dd4c156b9979ad69f17be5ebe31850b16039a3857f8477141be54dfee1b3",
+          "speed": 0.675695
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.43,
+      "sha256": "df368bf78fa7885f58636139eadb55fa2a0dcb087531b4173dc5b9c0e4a6e8ad"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_maul_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_heavy_003.ogg",
+          "sha256": "4ab53b26f4ea575120dcc1348526c9e0db2afc6af7a442aa0489bdead2ca80b6",
+          "speed": 0.6870850000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.43,
+      "sha256": "572e8b0b4a3340958abe0ec0d240914bcbbb065806f7027a85f935eb34d3832b"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_spear_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_000.ogg",
+          "sha256": "33b5e6e37c6e9d54e07bf5a89b12c76e879f40c1ea83cdd82714df1d6f9fec6d",
+          "speed": 1.26685
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "74360ff389398cba76a9e27cadcde9343336fc8a987e81574c2b51d20353c978"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_spear_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_001.ogg",
+          "sha256": "fba69c467ddd85da7b1d82e259f936b876d9ba6a3d6f1b24bdd10468e46bfe08",
+          "speed": 1.28895
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "c16dd31483a10819a71561a29263a272873163c5b152875d30a1becbe2c5ed94"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_spear_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_002.ogg",
+          "sha256": "25a96f90a9a1f88a531e824e126f0519504625e5635e65a72e4f31611428db29",
+          "speed": 1.31105
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "d0ca5a55cc74d24cb5432b15b81e7299f0b1b590bd9f5b4f41e3294870e2892a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_spear_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_003.ogg",
+          "sha256": "92d5db6bfc672d9dc1b4f390b2900504f013187fa36335472554fafefa9050b1",
+          "speed": 1.33315
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "8c6ef6c0ae5b6220da35db5a0c15aadaed0783afdc055c2e15c627c444a716f0"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_daggers_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_000.ogg",
+          "sha256": "33b5e6e37c6e9d54e07bf5a89b12c76e879f40c1ea83cdd82714df1d6f9fec6d",
+          "speed": 1.4812400000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.13,
+      "sha256": "42398f8864ca3bf1a64146371da174c4647b746d14c9538d64c85f130bf24b1a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_daggers_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_001.ogg",
+          "sha256": "fba69c467ddd85da7b1d82e259f936b876d9ba6a3d6f1b24bdd10468e46bfe08",
+          "speed": 1.5070800000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.13,
+      "sha256": "5aec091a61c40aeac19f36edd60f6c009cb5f846c72fa1150dc618e1f04b6744"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_daggers_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_002.ogg",
+          "sha256": "25a96f90a9a1f88a531e824e126f0519504625e5635e65a72e4f31611428db29",
+          "speed": 1.5329199999999998
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.13,
+      "sha256": "15d94b65c841dd6b6e407543d7191ac48c53e9a55e64f1bbc7f66fa707d34d0a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_daggers_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_light_003.ogg",
+          "sha256": "92d5db6bfc672d9dc1b4f390b2900504f013187fa36335472554fafefa9050b1",
+          "speed": 1.5587600000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.13,
+      "sha256": "89a177013d2f0148d8522cbc1e708adf385a1e2d63eb0905f623519474effe58"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_claws_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_000.ogg",
+          "sha256": "7d3ba0bb5e60a11b5d3e558c141303dcf494256675fbf753c0d252d2cf0481e3",
+          "speed": 1.30583
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.16,
+      "sha256": "74f98a049cdf873be3b3d4fc5b77f026cdf171caa0c2d8d6928c94050862f1c0"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_claws_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_001.ogg",
+          "sha256": "7642a4fd43e547afe4f7adfadb3dabb681c0ff512f52c1674bae30a726841faf",
+          "speed": 1.32861
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.16,
+      "sha256": "2bb73f35081ddeac2e922e10d88e41ea9f7964d9b743c573e5fbbf3433c88959"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_claws_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_002.ogg",
+          "sha256": "5069e3571a77d7f7aae9ef71d0364aa245fb7d64a7c8cc9956f221d03088c089",
+          "speed": 1.35139
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.16,
+      "sha256": "5c035df5f464e4ca93047361eb5597d211d5294f1fb8d3e43e85c682326ad5f3"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_claws_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_003.ogg",
+          "sha256": "5c4a1f35fde7e14046931da7bc3d1b23736541b7190ba107e08a379c4ca43cd6",
+          "speed": 1.3741700000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.16,
+      "sha256": "f44c6dffcb7447dc865bdbe4e6eacbd590d34bc5bcf6b002b40b8decedaef5b1"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_bow_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_light_000.ogg",
+          "sha256": "eb45e35b4bed784d3f120de4afec4b0d6ac09d9e143cce8cfcb7d739e1b1f3c3",
+          "speed": 1.20838
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.19,
+      "sha256": "a2ecaf8e36656ef6dfb1fe00ba9b29d6bb1720938ef27f54b7bcdc5cb22ed466"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_bow_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_light_001.ogg",
+          "sha256": "4b76bf3ccc8e60d19188f3165b778a7817786faa6887c55d9049bcbeef3b425f",
+          "speed": 1.22946
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.19,
+      "sha256": "d3289031058c9e0c545e6ab222c1cf092c227767f203bc811a999ac2c1bd3314"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_bow_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_light_002.ogg",
+          "sha256": "b183cf7a5bd783817e0e4b82af34ac6658fa1927049089dadc8b15c2ecc771dc",
+          "speed": 1.25054
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.19,
+      "sha256": "c88061e0a2824d04f8923171f707510bebcf304f78e6bc2138ceb310f2c6140d"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_bow_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_light_003.ogg",
+          "sha256": "cdfbe8af2fe7ff9ee28f337a0a989deee0f327620da456c8413644880e9d0004",
+          "speed": 1.2716200000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.19,
+      "sha256": "163f0fee65b5fa91fafbd16e38e1c2cfb342ec0333ed94f71e19ba92dc0c3a2b"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_crossbow_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_000.ogg",
+          "sha256": "1723a9fd25103ed41af06054814e84e65f4a772bac86ab2dc927da93d9592ff5",
+          "speed": 1.0914400000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.23,
+      "sha256": "f17496833004f1a64f65a794589b106a786dc1592152531997272839e77539f9"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_crossbow_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_001.ogg",
+          "sha256": "15271dbe8e2872dbb0ff1aeb7b12b2d2b92b7c1951c88532b9ab9158c36dfc73",
+          "speed": 1.1104800000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.23,
+      "sha256": "954bb498697cad4634b28fb06303f8034920e136f4852fad27f5efefb6d7001a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_crossbow_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_002.ogg",
+          "sha256": "3f3f1917428b828f733a963167833c707bf88296ff158e1559c57c5cb813d799",
+          "speed": 1.12952
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.23,
+      "sha256": "8fdeb33174c224d5273c18ca34fe5a92b62959dbb28530784e2b031bfc88085e"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_crossbow_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_003.ogg",
+          "sha256": "635c37cfcd854b187d643d450ff0397798dcc29ae94da32192b814fae6bd854c",
+          "speed": 1.1485600000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.23,
+      "sha256": "8b50f52be45260687edb7fb5bff9730ea9467772885fa8835a16080859e8b0d1"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_sling_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_000.ogg",
+          "sha256": "36b4ea107222d073c67ca64dde26944975609202d5090b2f2021213c1a7e35cd",
+          "speed": 1.14991
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.25,
+      "sha256": "3c589f02678af95001a5f49bb0748df8c3977aae425c01bc98517ec365773579"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_sling_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_001.ogg",
+          "sha256": "61235a18de3f3d92118235398222dbf51d448f1be70b1c8bc962b10b86f2d9c6",
+          "speed": 1.16997
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.25,
+      "sha256": "5ee06da31cae83f7d7e02260cb269c3817026f478dace5f24847a993679588e6"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_sling_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_002.ogg",
+          "sha256": "059558ec751115ca6b1441e00f0adc837c1a3eeb0a066b109e0fd879fc5d0b0c",
+          "speed": 1.19003
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.25,
+      "sha256": "b382d72e88b2e3fccc72242d1b069676d0755dde1d62baef8ffc85904652f769"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_sling_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_003.ogg",
+          "sha256": "4237fa2cd80364ad81cd0af44f67d7497f1c5edcc7bdb02cd22be2ba4580c83d",
+          "speed": 1.21009
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.25,
+      "sha256": "231ab09c064cca535030b6e1723288d7b2a12e36df749daf230e1c548fee2495"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_staff_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_medium_000.ogg",
+          "sha256": "9252d50bfb85edb17d6073c4a7806e10cdb9de56d3dbfc93a4b9727146d2df6d",
+          "speed": 0.828325
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "fcfadb80a04d5b945e0e3074c3a6450cd0796c6e59b1208197d0db975ca3a8ac"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_staff_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_medium_001.ogg",
+          "sha256": "d3d806cb3012c9ddd87010b30295ccb74d6d8b690077d19e67afd09a9d8feb03",
+          "speed": 0.842775
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "0f65b556789f68dee2a8e1503cded60c8d4716009b7784a93723263b8206bf19"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_staff_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_medium_002.ogg",
+          "sha256": "48616f22c95589ed9fe55babf0fd012721d7b2ef1b9e85c2ad6408a2cd7c164f",
+          "speed": 0.8572249999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "90eb88b828d9dcd570444edb78e1c99196f36c6b6ce7d12f10af5d6451c25f64"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_staff_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_medium_003.ogg",
+          "sha256": "dccea1ecc3d942ee5fd217c684632638f6c039c97cd3ae59c75ab15d0c3f0b59",
+          "speed": 0.8716750000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "49185c55d57523d4c37f0eb5432777dcd54b46cdb70f226d12c65af3e207f30a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_wand_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_000.ogg",
+          "sha256": "d750cf88097d0c3e69920e6e14496e1444e1a9da01aa4cca8f5ec8cb44c57b4f",
+          "speed": 1.3448099999999998
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "d1bb9936cdcf3ca5b795b211d75960cc14108280b6ac71c1d5458ff5a176204f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_wand_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_001.ogg",
+          "sha256": "05e513fbd42829060eb37855f8c3866722ec5c39a8937c9bfde518cc609effa2",
+          "speed": 1.3682699999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "1d18f4fed6bebac635a242e7160d8a2cb0fc98ba0d4c643e92188a9b203b0b5b"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_wand_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_002.ogg",
+          "sha256": "710db7451bb7857b9140dfe6afe4621ea2188ad65eda3919c569d1bb285b933d",
+          "speed": 1.39173
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "a29a50f01cf6346e3bfc5bd96d7c3a913c26c1bcc0a185a35e8c6ac4f2d70d45"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_wand_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_003.ogg",
+          "sha256": "765290ce32fa108c939a0dbd6fbacbcd05abde622b57b708eb8a64058ef4225a",
+          "speed": 1.41519
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "7c018fb2418e61d7f3c4c9d945c5baad804a3f47e87c8a86f85772f72c0bc36d"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_orb_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_000.ogg",
+          "sha256": "b44b39a940e8948e74b9bd3776bff980df43cf220abdaf0d467dc4c43c0244a5",
+          "speed": 0.72113
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "7c73905a9fdef8962b7e7c0e522d468dfa218a570780685873d40b15f7785469"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_orb_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_001.ogg",
+          "sha256": "58686e0e562612cc566791844a10e269f8d1921f4766c14ba43976fd0a429f4e",
+          "speed": 0.73371
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "2a39dcaa9c958fc06ee9ee0b93d2b749d8bf789efdedf4d2afc10725a7399078"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_orb_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_002.ogg",
+          "sha256": "4978654ac840ad519692d5d5ba48a8101cabce13b9a577be73ad589185e5e9ed",
+          "speed": 0.74629
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "48097060f9eff0ecdbf54da3d4f1f21cce9961487344352cfb061459a96df4dd"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\weapon_orb_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_003.ogg",
+          "sha256": "aed07b154f24410c17e5262bbef832842fb275d41fe297f721af7501d0e9c23a",
+          "speed": 0.75887
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "24de27870b0f05e9ae97c6af355771a4d1f14e0e3a4c143c0c113572a8b98969"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_flesh_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_medium_000.ogg",
+          "sha256": "486988aa2d6440ffc4c62a0e8ccf3c23673ba84424bd4723378d451b7255eb5c",
+          "speed": 0.925775
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "42945ad87494850f69b150e2a25c18f5079e0a332bd6f951747e966a666ca3fa"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_flesh_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_medium_001.ogg",
+          "sha256": "e71d23abcc3f10d9d6bc9615b2a431fff70b12333a5fcdd9964457564ace4349",
+          "speed": 0.941925
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "8b49ad9ac9ada9883b0aa43d0ef21d16dab05aa1a26e729d6dc8ae07d3912af9"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_flesh_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_medium_002.ogg",
+          "sha256": "6492f9ccbc8d24dcef607bb1b48790b7870961474561f7fe5601e1c73a3018ef",
+          "speed": 0.9580749999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "78d3cef90892f730fa757088e0f757869fd155254765a6ebc70a8307f1454e05"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_flesh_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPunch_medium_003.ogg",
+          "sha256": "2d7c719c05999e0532f4384e1018e04cd916db715140bf16dee2dff3f820e908",
+          "speed": 0.974225
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "0e42e152002736cdea8b65e69b7f53e1fcbcf21642bf5e536e45a78af1257fbb"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_armour_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_000.ogg",
+          "sha256": "a96f879fec0864a8938e0c745b6996a6c5679c16a234ce31a01cc995e8401003",
+          "speed": 1.0914400000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "e6fbac671e1946747ea3374a15a314b5616a9fc8e7f2605f384917945bcaa486"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_armour_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_001.ogg",
+          "sha256": "e8a9eaba7c4d27422e4eeb3e6c7100d5d7dc0f83e005efc98c960adcc5265337",
+          "speed": 1.1104800000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "0aa6e015874f6e15629149c699bd5e089331aefb4a26269d5955648104ae8fa4"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_armour_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_002.ogg",
+          "sha256": "7e89ce2ca0dbda95ea2b78d4b50791cab35c10d20e9f5ccd45dd0b00e99ff548",
+          "speed": 1.12952
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "3b30e679c03d604de21a783b12425db28f896da09997fa9163b966a812f5ac62"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_armour_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_003.ogg",
+          "sha256": "2a185e2e57211d02c1bdd33b872d6b6a2fe83e6c14f4e56f426a95e717acf08e",
+          "speed": 1.1485600000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.22,
+      "sha256": "5e85bed6af4a137fd8f29ee6b6ccd856f8a530bc6db5cce9dce2c010a9f6673a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_stone_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_000.ogg",
+          "sha256": "36b4ea107222d073c67ca64dde26944975609202d5090b2f2021213c1a7e35cd",
+          "speed": 0.83807
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.27,
+      "sha256": "9792906043af52894b0ce030c016ae727a0ffb7f4caadc8a856bdf52d209c5c7"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_stone_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_001.ogg",
+          "sha256": "61235a18de3f3d92118235398222dbf51d448f1be70b1c8bc962b10b86f2d9c6",
+          "speed": 0.8526900000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.27,
+      "sha256": "8fd73dadea3d49e8d179cfd21cc2bf717405908bbf0d7d838f67744dea8602a1"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_stone_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_002.ogg",
+          "sha256": "059558ec751115ca6b1441e00f0adc837c1a3eeb0a066b109e0fd879fc5d0b0c",
+          "speed": 0.8673099999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.27,
+      "sha256": "f78b7a27b348fb379b3d51c9ce8fefdbf37af40bdb66e4c15f7b0d32a5e5f7d2"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_stone_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMining_003.ogg",
+          "sha256": "4237fa2cd80364ad81cd0af44f67d7497f1c5edcc7bdb02cd22be2ba4580c83d",
+          "speed": 0.8819300000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.27,
+      "sha256": "5768137e8b66ac7f85135a6d681eaff168232e656eb95a4ca1a36a53bb1c8226"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_wood_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_000.ogg",
+          "sha256": "1723a9fd25103ed41af06054814e84e65f4a772bac86ab2dc927da93d9592ff5",
+          "speed": 1.023225
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.21,
+      "sha256": "3e38a4dc38743be22b817d3ee224d03e783c2f688728ea28b38545168f1dd219"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_wood_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_001.ogg",
+          "sha256": "15271dbe8e2872dbb0ff1aeb7b12b2d2b92b7c1951c88532b9ab9158c36dfc73",
+          "speed": 1.0410750000000002
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.21,
+      "sha256": "7ddfca66eca45ce37eec807f2c4fbb54499d833b542d4bcf644ade9cbb59965a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_wood_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_002.ogg",
+          "sha256": "3f3f1917428b828f733a963167833c707bf88296ff158e1559c57c5cb813d799",
+          "speed": 1.058925
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.21,
+      "sha256": "5aabe1a5beafa2440a87c55bd3741965b6345220cc14fa7ce8b87548ef6d8f4a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_wood_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_003.ogg",
+          "sha256": "635c37cfcd854b187d643d450ff0397798dcc29ae94da32192b814fae6bd854c",
+          "speed": 1.076775
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.21,
+      "sha256": "8d379980b4cc4b7469a3d4227e2fda36f68ba405d741efa32d1318055061ed71"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_glass_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_000.ogg",
+          "sha256": "d750cf88097d0c3e69920e6e14496e1444e1a9da01aa4cca8f5ec8cb44c57b4f",
+          "speed": 1.1401649999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "c3bb66859249015212661e8c518f6b50f93cdcd40e2eb39a5be176847063984a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_glass_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_001.ogg",
+          "sha256": "05e513fbd42829060eb37855f8c3866722ec5c39a8937c9bfde518cc609effa2",
+          "speed": 1.160055
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "72b1fba5c0a5ea25668010cd2b71a718eb1eac8da071f26d4900d3559a61d9a8"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_glass_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_002.ogg",
+          "sha256": "710db7451bb7857b9140dfe6afe4621ea2188ad65eda3919c569d1bb285b933d",
+          "speed": 1.1799449999999998
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "9a4bec8715930c4f0445592677df86ebd04b120f94c7e1497a2a2f38d31e0111"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_glass_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_003.ogg",
+          "sha256": "765290ce32fa108c939a0dbd6fbacbcd05abde622b57b708eb8a64058ef4225a",
+          "speed": 1.199835
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "ed5b6e860eae4e8fb669773928da88e65e457bdd238506da6bbefe17b5a00b7c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_molten_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_000.ogg",
+          "sha256": "49e7ca88743fca974bb8676ea138b751cfd8f9033b5e7af8736c2a215d6edbc1",
+          "speed": 0.70164
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.33,
+      "sha256": "f08d294cfd2b57f68ae4e6b33e2b334c3094c4d5600060a1d4e8707b8c5d163f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_molten_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_001.ogg",
+          "sha256": "4d0096364ba9e46119d2ff6df493fdc101bd2e1efae061da5e5f77a53b3fdcb6",
+          "speed": 0.71388
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.33,
+      "sha256": "8936683601b26fcf4c37d6654e6d3cd82f562c18c1aa024da90af85d81de0c22"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_molten_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_002.ogg",
+          "sha256": "d130ae541951243d3f6ed963d0057450a445ffe117fbf9a084d34eb1635cb563",
+          "speed": 0.72612
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.33,
+      "sha256": "5e24cb3311f199da439f4eac31b754a1d9c013862cb7ae2968e6a7ef860d2440"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_molten_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_003.ogg",
+          "sha256": "d00286a2dc62ee5cb4d42bf56120e7050a855f69e655fc1294410aadd337eba3",
+          "speed": 0.73836
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.33,
+      "sha256": "001f8516eef1e2b585330d7a076988ab273968347ca9eefd61aaa1df9facb239"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_ethereal_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_000.ogg",
+          "sha256": "d750cf88097d0c3e69920e6e14496e1444e1a9da01aa4cca8f5ec8cb44c57b4f",
+          "speed": 0.62368
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.38,
+      "sha256": "4a7e43449de09562fc69a418d06f80af4e5bf2cebf438b3e8595f2f2be646a46"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_ethereal_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_001.ogg",
+          "sha256": "05e513fbd42829060eb37855f8c3866722ec5c39a8937c9bfde518cc609effa2",
+          "speed": 0.63456
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.38,
+      "sha256": "1dd916a5f0d22ed5c458fb050bc7bdad522c9d9390e06e97bb37c4093d7ed088"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_ethereal_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_002.ogg",
+          "sha256": "710db7451bb7857b9140dfe6afe4621ea2188ad65eda3919c569d1bb285b933d",
+          "speed": 0.64544
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.38,
+      "sha256": "d058dd2023454e15d85df0eb1433c370a413ec75e44c5aee237d2b8da2e9a5c5"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\contact_ethereal_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_003.ogg",
+          "sha256": "765290ce32fa108c939a0dbd6fbacbcd05abde622b57b708eb8a64058ef4225a",
+          "speed": 0.65632
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.38,
+      "sha256": "4406418281ec4340e1b1faa0130115f694e5ff619841900b1a555badc8595973"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_thorn_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_000.ogg",
+          "sha256": "1723a9fd25103ed41af06054814e84e65f4a772bac86ab2dc927da93d9592ff5",
+          "speed": 0.9
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "76a549c6f8ee0520e53c219b27f869ce4d61571c5044d0f1dc7f795e88b13af3"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_thorn_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_001.ogg",
+          "sha256": "15271dbe8e2872dbb0ff1aeb7b12b2d2b92b7c1951c88532b9ab9158c36dfc73",
+          "speed": 0.9
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "5c01f562b01f246e04ab07b2bcc6139e00b60c2027a41beff0260e7007fe304b"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_thorn_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_002.ogg",
+          "sha256": "3f3f1917428b828f733a963167833c707bf88296ff158e1559c57c5cb813d799",
+          "speed": 0.9
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "445b16f7d8ddabc9753b2238f75798afc132bccdc02238697db4629ce903ea94"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_thorn_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_medium_003.ogg",
+          "sha256": "635c37cfcd854b187d643d450ff0397798dcc29ae94da32192b814fae6bd854c",
+          "speed": 0.9
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.36,
+      "sha256": "7e6806f3bd6b3991657257b5ea12980b66a552333175d8c7d28a72f36a0e575e"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_root_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_heavy_000.ogg",
+          "sha256": "15ff82332f342c30e469215539e1cc57e11b221aa2cf7e11e811d313a9927f3d",
+          "speed": 0.65
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "b4be52d959c891e1fbdeae7b318430fa4b3de3f3760a7f524929ef335d1619d9"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_root_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_heavy_001.ogg",
+          "sha256": "f1b07a53ac10c615fff9ba470511fdeb722b5902e1a8520759fc20ad6f546015",
+          "speed": 0.65
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "7521e9180b92c30c8abf9300eb4831b31fbeae46b95d02182dfd6ca8f5360692"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_root_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_heavy_002.ogg",
+          "sha256": "ce1e06f2a05f2634c645cb72f6a1623e64bc2d92be34917430a61031fb6597d4",
+          "speed": 0.65
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "81a3d2b29aa7d4d124b7762e94c52ce8a2255fe425cea6fbcaae9ea535f98f40"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_root_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_heavy_003.ogg",
+          "sha256": "af07511902b309b3f6d8f0e1fafbe93869127fb88099ebdc0aa6a00a98dc3cb0",
+          "speed": 0.65
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "9d58c39accdd704d88d11b91444935ee25d86b9f79bdfbcd49b2687ece9bfbae"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_mirror_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_000.ogg",
+          "sha256": "b44b39a940e8948e74b9bd3776bff980df43cf220abdaf0d467dc4c43c0244a5",
+          "speed": 0.7
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.64,
+      "sha256": "dbb3f2ece42d5730c6c06e8d65e49d2dd2a40c83661ea16d352bfd591e731328"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_mirror_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_001.ogg",
+          "sha256": "58686e0e562612cc566791844a10e269f8d1921f4766c14ba43976fd0a429f4e",
+          "speed": 0.7
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.64,
+      "sha256": "d27e8431428303bc74b5dc37b043f9042d7f3135e69d099b81daa0218c9f0296"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_mirror_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_002.ogg",
+          "sha256": "4978654ac840ad519692d5d5ba48a8101cabce13b9a577be73ad589185e5e9ed",
+          "speed": 0.7
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.64,
+      "sha256": "6c7eccc035f8fef07f646b00ac69df2e12dd7a6c410a6b4ed880e8ed90992d4c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_mirror_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_003.ogg",
+          "sha256": "aed07b154f24410c17e5262bbef832842fb275d41fe297f721af7501d0e9c23a",
+          "speed": 0.7
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.64,
+      "sha256": "6e6dae0dc8d11d737a080684f9efdd9285e28f289d9e5060956041ca64ccab4c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_recover_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_000.ogg",
+          "sha256": "7d3ba0bb5e60a11b5d3e558c141303dcf494256675fbf753c0d252d2cf0481e3",
+          "speed": 0.85
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.3,
+      "sha256": "fbbedf4dd71dc3ab3262152464250e671157879223070162b78425dd4b07842f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_recover_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_001.ogg",
+          "sha256": "7642a4fd43e547afe4f7adfadb3dabb681c0ff512f52c1674bae30a726841faf",
+          "speed": 0.85
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.3,
+      "sha256": "eb1ff5b4ea71ef86d0fcb4b0724605136197f4cd6de1b6cce85c0122a5277c56"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_recover_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_002.ogg",
+          "sha256": "5069e3571a77d7f7aae9ef71d0364aa245fb7d64a7c8cc9956f221d03088c089",
+          "speed": 0.85
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.3,
+      "sha256": "c0e5e3f9c995fdb3fe07950c3300a21cb9fc0c37be7e447ffb4826e146899c6d"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\verdant_recover_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_003.ogg",
+          "sha256": "5c4a1f35fde7e14046931da7bc3d1b23736541b7190ba107e08a379c4ca43cd6",
+          "speed": 0.85
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.3,
+      "sha256": "decf22195ff4e27a3b64c8dee84302934e9a3ca6a0a391228dd28aafe8095d7d"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\relic_red_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_000.ogg",
+          "sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+          "speed": 0.68
+        },
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_001.ogg",
+          "sha256": "58686e0e562612cc566791844a10e269f8d1921f4766c14ba43976fd0a429f4e",
+          "speed": 0.93
+        },
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_002.ogg",
+          "sha256": "b914c8f1eb7c0f34bb165d7c77f4be0351f6be0660c13c53e65424e262e2c093",
+          "speed": 0.66
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 1.15,
+      "sha256": "44e0f12a22a3661a38a242b230497b990fc7c2c2e069b45d70422e2a4c0985b1"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\draw_bow_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_light_000.ogg",
+          "sha256": "eb45e35b4bed784d3f120de4afec4b0d6ac09d9e143cce8cfcb7d739e1b1f3c3",
+          "speed": 0.74
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.18,
+      "sha256": "a5a60c2972c3a43c132776131fed6e693f74b81683a8028c1cdbaf04845e295a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\charge_staff_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_light_000.ogg",
+          "sha256": "d750cf88097d0c3e69920e6e14496e1444e1a9da01aa4cca8f5ec8cb44c57b4f",
+          "speed": 0.84
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.23,
+      "sha256": "e7b2c84f1299838121e675e4032cb2cfd721a1de9a7231b3328fac3115316824"
     }
   ],
   "superseded_reactions": [
@@ -5735,5 +7077,6 @@
       "sha256": "75a20195eece7062179072ff0cf48ad90083a53aa168ea3700a997f9741eade9",
       "status": "Superseded generic reaction; source history only, excluded from game export"
     }
-  ]
+  ],
+  "phase4e": "Original layered weapon/material/guardian design using the preserved CC0 Kenney impact source hashes. Four subtle variants each; no human vocal layer."
 }

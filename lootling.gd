@@ -367,7 +367,8 @@ func _ready() -> void:
 		add_child(mobile_test_monitor)
 		mobile_test_monitor.configure(self)
 		var report_button := make_action_button(pause_panel, "TEST REPORT", Vector2(35, 442), Vector2(300, 52), Color("#172442"), Color("#78e4ff"), mobile_test_monitor.show_report)
-		pause_panel.size.y = 526
+		report_button.visible = OS.is_debug_build() and OS.get_environment("LOOTLINGS_DEV_UI")=="1"
+		if report_button.visible: pause_panel.size.y = 526
 		report_button.tooltip_text = "Device frame pacing, memory and lifecycle report"
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "app_start", {"profile_exists":ProfileStore.is_created(profile)})
 	queue_redraw()
@@ -687,7 +688,7 @@ func award_achievement(id: String, amount: int = 1, set_value: bool = false) -> 
 		return
 	var entry := AchievementManager.definition_for(id)
 	if hideout_ui != null:
-		hideout_ui.queue_dialogue_context("trophy_earned")
+		hideout_ui.queue_dialogue_context("secret_discovered" if bool(entry.get("secret",false)) else "trophy_earned")
 	play_audio_event("rare_reveal")
 	if presentation_director != null:
 		presentation_director.present_toast("TROPHY UNLOCKED  •  %s" % str(entry.get("name", "Achievement")), achievements.display_description(entry), Color("#ffd36a"))
@@ -2292,12 +2293,13 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 	enemy_recoil = 40.0 if is_crit else 27.0 if is_heavy else 22.0 if is_tap else 15.0
 	impact_flash = 0.12 if is_crit else 0.052
 	crit_flash = 0.18 if is_crit else crit_flash
-	screen_shake = 0.075 if is_crit else 0.035
+	screen_shake = 0.045 if is_heavy and is_crit else 0.0
 	if is_crit or is_heavy:
 		hit_stop_timer = maxf(hit_stop_timer, 0.038 if is_crit else 0.030)
 	elif is_tap:
 		hit_stop_timer = maxf(hit_stop_timer, 0.014)
-	play_audio_event("crit" if is_crit else "boss_hit" if enemy_is_boss else "heavy_hit" if is_heavy else "normal_hit")
+	if audio_manager!=null:
+		audio_manager.play_contact(str(inventory.equipped_item("Weapon").get("weapon_type","greatsword")),preload("res://regional_enemy_presentation.gd").material(self),is_crit,is_heavy)
 	var text := ("%.0f!" if is_crit else "%.0f") % amount
 	var text_size := 29 if is_crit else 20
 	var text_color := Color("#fff178") if is_crit else Color.WHITE
@@ -2347,9 +2349,11 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	enemy_attack_anim = 0.18
 	if enemy_is_boss or enemy_is_miniboss:
 		var action := BossPatterns.next(self)
+		combat_presentation.boss_action=str(action.text); combat_presentation.boss_action_time=.55
 		if enemy_is_boss or enemy_is_miniboss:
 			match campaign_id:
 				"mossglass_wilds":
+					play_audio_event("verdant_"+{"THORN CAST":"thorn","ROOT SWEEP":"root","MIRROR CHARGE":"mirror","RECOVER":"recover"}.get(str(action.text),"recover"))
 					if action.text == "MIRROR CHARGE": enemy_hp = minf(enemy_max_hp,enemy_hp+minf(40,enemy_max_hp*.02))
 				"moonfen":
 					if action.text == "FEINT": player_x = maxf(PLAYER_HOME_X,player_x-12)
@@ -2852,7 +2856,7 @@ func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 		var gain := delta > 0.0
 		var arrow := "▲" if gain else "▼"
 		var change_color := "#69e6b0" if gain else "#ff7d88"
-		changes.append("[color=%s]%s %s[/color]" % [change_color, arrow, format_effect_delta(key, absf(delta))])
+		changes.append("[color=%s]%s %s[/color]" % [change_color, arrow, format_effect_delta(key, absf(delta)).replace("+", "-" if not gain else "+")])
 		if changes.size() >= 3:
 			break
 	if changes.is_empty():
@@ -2957,7 +2961,10 @@ func finish_item_decision() -> void:
 
 func queue_loot_dialogue(item: Dictionary) -> void:
 	var rarity := str(item.get("rarity", "COMMON"))
-	if rarity == "LEGENDARY":
+	hideout_ui.last_home_facts.rarity=rarity
+	if rarity == "RED":
+		hideout_ui.queue_dialogue_context("red_find")
+	elif rarity == "LEGENDARY":
 		hideout_ui.queue_dialogue_context("legendary_find")
 	elif rarity == "EPIC":
 		hideout_ui.queue_dialogue_context("epic_find")
@@ -3247,7 +3254,7 @@ func end_run(victory: bool) -> void:
 	result_summary.text = style_result_summary(format_result_summary(victory, wave, total_kills, run_coins_earned, run_coins_spent, coins, scrap_gained, run_shards_earned, notable_loot, run_gold_earned))
 	result_summary.text += "\n\nRELIC RANK %d  •  %s +%d\n%s" % [expedition_progress.rank(),Phase4.FARMS[campaign_id].material,expedition_progress.run_materials,"\n".join(expedition_progress.run_finds)]
 	result_summary.scroll_to_line(0)
-	hideout_ui.last_home_facts={"mode":"siege" if retention.siege else "dungeon" if retention.targeted else "region","region":campaign_id,"round":wave,"boss":enemy_name,"outcome":"victory" if victory else "defeat"}
+	hideout_ui.last_home_facts={"mode":"siege" if retention.siege else "dungeon" if retention.targeted else "region","region":campaign_id,"round":wave,"boss":enemy_name,"outcome":"victory" if victory else "defeat","event":"boss_defeated" if victory else "early_defeat" if wave<=5 else "returning","low_health":"yes" if victory and player_hp/player_max_hp<.2 else "no","enemy":enemy_name,"character":Avatar.preset_id(profile) if Avatar.is_wanderer(profile) else str(profile.get("current_lootling_id","relic_beast"))}
 	retention.finish(victory)
 	if retention.siege:
 		result_title.text="SIEGE EXTRACTED" if victory else "SIEGE ENDED"
@@ -3540,7 +3547,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		return
 	match lane:
 		"player": pos = Vector2(70, 414)
-		"reward": pos = Vector2(290, 628)
+		"reward": pos = Vector2(392, 590)
 		"proc": pos = Vector2(140, 590)
 		"secondary": pos = Vector2(350, 595)
 		_: pos = Vector2(290, 380)
@@ -3558,12 +3565,12 @@ func add_particles(pos: Vector2, color: Color, count: int) -> void:
 	while particles.size() > 96: particles.pop_front()
 
 func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
-	var coin_cap := 14 if enemy_is_boss else 9 if enemy_is_miniboss else 7
+	var coin_cap := 7 if enemy_is_boss else 4 if enemy_is_miniboss else 3
 	var coin_count := mini(coin_cap, maxi(3, int(coin_reward / 7) + 3))
 	for i in range(coin_count):
 		var start := Vector2(360, 490) + Vector2(visual_rng.randf_range(-24, 24), visual_rng.randf_range(-18, 20))
 		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "vel":Vector2(visual_rng.randf_range(-130.0, 85.0), visual_rng.randf_range(-230.0, -120.0)), "delay":0.16 + i * 0.035, "life":0.72, "max_life":0.72})
-	var xp_count := mini(7 if enemy_is_boss else 5, maxi(2, int(xp_reward / 25.0) + 2))
+	var xp_count := mini(3 if enemy_is_boss else 2, maxi(2, int(xp_reward / 25.0) + 2))
 	for i in range(xp_count):
 		var start := Vector2(365, 490) + Vector2(visual_rng.randf_range(-28, 28), visual_rng.randf_range(-15, 22))
 		reward_pickups.append({"kind":"xp", "start":start, "pos":start, "target":Vector2(250, 92), "vel":Vector2(visual_rng.randf_range(-95.0, 110.0), visual_rng.randf_range(-210.0, -105.0)), "delay":0.20 + i * 0.045, "life":0.78, "max_life":0.78})
@@ -3624,7 +3631,7 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0,0,480,96),Color("#081329b8"))
+	draw_rect(Rect2(0,0,480,86),Color("#081329b8"))
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
 	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
@@ -3632,18 +3639,18 @@ func draw_hud() -> void:
 	if retention.siege: location_line="ROUND %02d • RELIC SIEGE" % wave
 	if dungeon.active and dungeon.depth < 0: location_line = "RELIC ROUTE • CHOOSE PATH"
 	if retention.targeted: location_line="ROOTGLASS VAULT • %s" % ("CHOOSE PATH" if dungeon.depth<0 else "ROOM %02d" % (dungeon.depth+1))
-	draw_string(body_font, Vector2(60, 59), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 12, Color("#bac9eb"))
+	draw_string(body_font, Vector2(60, 52), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var scrip_center := Vector2(353, 29)
 	var scrip_radius := 10.0 + coin_pulse * 3.0
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
 	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
-	draw_string(body_font, Vector2(334, 61), ("SIEGE EMBERS • LV %d" if retention.siege else "RUN SCRIP • LV %d") % level, HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
-	draw_bar(Rect2(18, 88, 444, 5), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "", 10)
+	draw_string(body_font, Vector2(334, 51), "EMBERS" if retention.siege else "SCRIP", HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
+	draw_bar(Rect2(18, 80, 444, 4), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "", 10)
 	if xp_counter_flash > 0.0:
 		var xp_pulse := xp_counter_flash / 0.24
-		draw_rect(Rect2(18, 88, 444, 5), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
-	draw_bar(Rect2(60, 66, 402, 18), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("HP  %.0f / %.0f  •  WARD %.0f" % [player_hp,player_max_hp,player_ward]) if player_ward > 0 else "HP  %.0f / %.0f" % [player_hp, player_max_hp], 13, combat_presentation.health_ratio(-1))
+		draw_rect(Rect2(18, 80, 444, 4), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
+	draw_bar(Rect2(60, 57, 402, 19), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("LV %d • HP %.0f / %.0f • WARD %.0f" % [level,player_hp,player_max_hp,player_ward]) if player_ward > 0 else "LV %d • HP %.0f / %.0f" % [level,player_hp, player_max_hp], 12, combat_presentation.health_ratio(-1))
 
 func draw_arena(shake: Vector2) -> void:
 	var show_combat_context := state == "playing"
@@ -3654,10 +3661,12 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
 		var display_enemy_name: String=enemy_name.to_upper()+ (" • BETA" if enemy_is_boss and campaign_id!="act_i" else "")
 		var enemy_name_size := 19
-		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > 398.0:
+		var enemy_hud_x := 40.0 if enemy_is_boss else 255.0
+		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
+		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1
-		draw_string(body_font, Vector2(40, 243), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, 400, mini(enemy_name_size,17), Color("#f4f7ff"))
-		draw_bar(Rect2(100, 255, 280, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
+		draw_string(body_font, Vector2(enemy_hud_x, 243), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, mini(enemy_name_size,17), Color("#f4f7ff"))
+		draw_bar(Rect2(100 if enemy_is_boss else 255, 255, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0
 		if enemy_burn_dps > 0.0:
 			draw_status_chip(Vector2(status_x, 283), "BURN", build.color("Fire"), "status_burn")
@@ -3753,27 +3762,9 @@ func draw_effects() -> void:
 			var direction := Vector2.RIGHT.rotated(TAU * ray / 8.0)
 			draw_line(impact_center + direction * (32.0 - crit_ratio * 8.0), impact_center + direction * (54.0 + (1.0 - crit_ratio) * 16.0), Color(1.0, 0.88, 0.32, crit_ratio), 3.0)
 		draw_arc(impact_center, 28.0 + (1.0 - crit_ratio) * 24.0, 0.0, TAU, 24, Color(1.0, 0.95, 0.64, crit_ratio), 3.0)
+	preload("res://impact_presentation.gd").contact(self,impact_center)
 	if element_flash > 0.0:
-		var element_ratio := clampf(element_flash / 0.24, 0.0, 1.0)
-		var ring_color := element_flash_color
-		ring_color.a = element_ratio * 0.82
-		draw_arc(impact_center, 30.0 + (1.0 - element_ratio) * 34.0, -0.4, 5.2, 28, ring_color, 4.0)
-		draw_arc(impact_center, 39.0 + (1.0 - element_ratio) * 20.0, 2.7, 6.0, 18, ring_color.lightened(0.25), 2.0)
-		match element_flash_identity:
-			"Fire":
-				for ember in range(5):
-					draw_circle(impact_center + Vector2(-16 + ember * 8, -18 - ember % 2 * 9) * (1.0 - element_ratio * 0.25), 3.0 + element_ratio * 2.0, Color(1.0, 0.38, 0.12, element_ratio))
-			"Lightning":
-				for arc in range(3):
-					var offset := Vector2(-24 + arc * 18, -22 + arc * 5)
-					draw_polyline(PackedVector2Array([impact_center + offset, impact_center + offset + Vector2(8,-9), impact_center + offset + Vector2(3,7), impact_center + offset + Vector2(16,1)]), Color(0.65, 0.92, 1.0, element_ratio), 3.0)
-			"Poison":
-				for drip in range(4):
-					draw_circle(impact_center + Vector2(-18 + drip * 12, 10 + (1.0 - element_ratio) * 20), 4.0, Color(0.55, 1.0, 0.38, element_ratio * 0.85))
-			"Physical":
-				for debris in range(5):
-					var direction := Vector2.RIGHT.rotated(-2.7 + debris * 0.35)
-					draw_rect(Rect2(impact_center + direction * (28 + (1.0 - element_ratio) * 20), Vector2(5, 4)), Color(0.86, 0.67, 0.34, element_ratio), true)
+		preload("res://impact_presentation.gd").element(self,impact_center,element_flash_identity,clampf(element_flash/.24,0,1))
 	if death_burst > 0.0:
 		var burst_duration := 0.90 if enemy_is_boss else 0.56 if enemy_is_miniboss else 0.46
 		var death_ratio := clampf(death_burst / burst_duration, 0.0, 1.0)
