@@ -1,3 +1,17 @@
+# Current Phase 4E roadmap authority — 2026-10-05
+
+[PRODUCTION_PHASE4E.md](PRODUCTION_PHASE4E.md) and [CANONICAL_REPLACEMENTS.md](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md) supersede all production sequencing/status below. Continue targeted FIX/REPLACE work from that exact queue; do not reset or begin Phase 4F.
+
+[Current roster, twelve-family arsenal, weaponless/identity and NPC locks](CONTENT_IMPLEMENTATION_STATUS.md) apply. The [World Bible](LOOTLINGS_WORLD_BIBLE.md) preserves canon and all current regions/IDs. Boards are visual reference only until explicitly approved/imported.
+
+Authoritative support/paired-art debt: **165 actor × weapon × facing cells (82 right / 83 left)**; [exact matrix definition/cells](docs/production/phase4e/polish/support-art-debt.json). Resolved technical contacts do not close that art debt. Non-art gates (save semantic/cross-store/process-death, perceptual audio, physical S23, final visual owner acceptance) remain separately open in the current authority.
+
+---
+
+## Historical / superseded roadmap — retained verbatim
+
+Every former “CURRENT”, next-step instruction, production authority and debt count below is a historical snapshot, superseded wherever it conflicts with the Phase 4E authority above. Preserve its evidence; do not restart its old sequencing.
+
 CURRENT — Phase 4C visible presentation rescue: [PRODUCTION_PHASE4C.md](PRODUCTION_PHASE4C.md). Owner S23 review of Phase 4B authorized this pass. Implementation `6ebf74d` preserves all prior systems; version 10 / `0.4.1-phase4c` is ready for another S23 owner test. Final support/human/boss art, final audio and physical acceptance remain open. Earlier dated paragraphs below are historical where superseded. Stop before full pets/decoration/final-art work.
 
 # Lootlings production roadmap — current authority

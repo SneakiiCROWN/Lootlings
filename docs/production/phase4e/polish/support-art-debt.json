@@ -1,0 +1,840 @@
+{
+  "source_matrix": ".godot_test_data/phase4e/canonical-connections/report.json",
+  "source_matrix_sha256": "736b4283c17b4dea522fe2de40872661cc8862d1d0b66b31b9c4a3f1f7d1e93d",
+  "samples": 1728,
+  "count_unit": "unique actor x weapon x facing cell, across all captured states",
+  "authored_support_paired_art_debt": 165,
+  "by_facing": {
+    "right": 82,
+    "left": 83
+  },
+  "technical_unresolved_support_flag_cells": 0,
+  "definition": "rigged_two_hand or rigged_paired remains authored body/support art debt; not_required is outside this support-only count. Contact pass is not canonical art acceptance.",
+  "cells": [
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "greatsword",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "emberhorn",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "greatsword",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "glimmerfin",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "greatsword",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "gloomlet",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "greatsword",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "moonkip",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "greatsword",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "mosskin",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "nightstage_drifter",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "greatsword",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "pebblewyrm",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "greataxe",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "greataxe",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "greatsword",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "maul",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "maul",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "spear",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "spear",
+      "facing": "right"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "staff",
+      "facing": "left"
+    },
+    {
+      "actor": "relic_beast",
+      "weapon": "staff",
+      "facing": "right"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "ruin_warden",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "vault_runner",
+      "weapon": "daggers",
+      "facing": "right"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "bow",
+      "facing": "left"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "bow",
+      "facing": "right"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "claws",
+      "facing": "left"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "claws",
+      "facing": "right"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "crossbow",
+      "facing": "left"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "crossbow",
+      "facing": "right"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "daggers",
+      "facing": "left"
+    },
+    {
+      "actor": "velvet_astrologer",
+      "weapon": "daggers",
+      "facing": "right"
+    }
+  ]
+}

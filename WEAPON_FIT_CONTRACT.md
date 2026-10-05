@@ -1,3 +1,19 @@
+# Current Phase 4E weapon-fit status — 2026-10-05
+
+[PRODUCTION_PHASE4E.md](PRODUCTION_PHASE4E.md) and the exact [canonical replacement queue](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md) own production status. [Current roster/family and identity locks](CONTENT_IMPLEMENTATION_STATUS.md) apply; visual boards cannot add families or rename stable IDs.
+
+**Current authored support/paired-art debt: 165 actor × weapon × facing cells (82 right / 83 left).** [Exact definition, complete native matrix hash and cells](docs/production/phase4e/polish/support-art-debt.json). The full matrix has 1,728 captured states over 288 facing cells; the newer 576-state changed-family capture is a subset. Technical support/contact flags are resolved by reusable rigs, but `rigged_two_hand`/`rigged_paired` remain authored art debt. A zero technical flag count is not an art PASS. One-hand/levitated body art and final anatomy/style remain separate replacement-register entries.
+
+Current paired rendering uses one extracted canonical painted dagger per hand, target-facing paired claws, independent contacts and alternating motion. Bow support follows its actual string/nock; casting cues attach to the weapon/palm. Approved heavy/staff/polearm exports remain active where compatible. Procedural fallback body layers are POSE/SOCKET/RIG PROTOTYPES ONLY.
+
+Moonkip still needs an approved canonical weaponless export. Existing Glimmerfin idle is weaponless. Existing canonical Gloomlet idle/selector export is valid; the foxlike combat dummy is rejected, not a new canonical body. Old missing-Gloomlet/baked-Glimmerfin claims below are superseded. Current held Sling and split-dagger delivery likewise supersede old stand-in/combined-bitmap status. Runtime resolver/manifest and the replacement queue govern actual asset integration; historical counts are not additive.
+
+---
+
+## Historical / superseded contract snapshots — retained verbatim
+
+All old “current counts”, stand-in status, export requests and QA descriptions below are historical where superseded above. Keep their geometric/integration context, but do not treat their obsolete debt/status statements as the current queue.
+
 > **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Current counts: 246 manifest rows / 60 authored entries / twenty body textures / 100 tested authored phase states; 83 support-hand/paired combinations remain per facing. The manifest and runtime resolver own geometry. Chronological extension counts below are historical snapshots, not additive totals. The sling is live BETA, with Mosskin outward grip/socket corrected; missing authored anatomy remains incomplete.
 
 # Weapon / actor fit contract

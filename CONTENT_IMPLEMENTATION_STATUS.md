@@ -1,3 +1,52 @@
+# Current Phase 4E authority — reconciled 2026-10-05
+
+[PRODUCTION_PHASE4E.md](PRODUCTION_PHASE4E.md) and [CANONICAL_REPLACEMENTS.md](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md) own current production status and the active art-production queue. Phase 4E remains HOLD; no Phase 4F. Historical delivery claims below do not override them.
+
+## Locked implemented roster and arsenal
+
+**LOOTLINGS (7):** Relic Beast, Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, Gloomlet.
+
+**WANDERERS (5):** Vault Runner, Ruin Warden, Nightstage Drifter, Velvet Astrologer, Ashtrail Hunter.
+
+**Weapon families (12):** Greatsword; Greataxe; Maul; Spear/Halberd; Twin Daggers; Claws/Gauntlets; Bow; Crossbow; Relic Sling; Staff; Wand; Orb/Focus. Names inside a visual board do not create families, IDs or playable actors. Selectable/mechanically implemented does not mean final art acceptance.
+
+## One authoritative authored support-art debt count
+
+**165 unique actor × weapon × facing cells** require approved authored support/paired combat art: **82 right + 83 left**. Derived from the newest complete 1,728-state native matrix; the later 576-state matrix is a focused four-family rerun, not a new full-roster denominator. [Exact definition, matrix hash and cells](docs/production/phase4e/polish/support-art-debt.json).
+
+The rig resolves technical contact/support flags; its zero unresolved-contact result is **not zero art debt**. This support-only count excludes one-hand/levitated body-art replacement needs and is not a total asset/export/state count. Use the replacement register for actual character, regional, boss and NPC production work. Do not add historical counts together or count six captured states as six different missing bodies.
+
+## Identity and weaponless-art clarification
+
+- **Moonkip:** current canonical `art/sprites/lootlings/moonkip_idle.png` includes daggers. An approved canonical weaponless export is still missing. The weaponless procedural combat dummy does not satisfy that requirement.
+- **Glimmerfin:** current canonical `art/sprites/lootlings/glimmerfin_idle.png` is already weaponless. The old baked-wand / missing-weaponless claim is superseded. Approved articulated combat states still remain in the queue.
+- **Gloomlet:** current canonical `art/sprites/lootlings/gloomlet_idle.png` exists and is derived from the approved character sheet; selector/idle identity is not a tinted Relic Beast stand-in. The foxlike `art/sprites/combat_rigs/gloomlet.svg` is a rejected pose/socket prototype and must not establish Gloomlet's canonical silhouette. A sharper approved master and matching combat layers/states are distinct production needs.
+
+## World and NPC status
+
+[LOOTLINGS_WORLD_BIBLE.md](LOOTLINGS_WORLD_BIBLE.md) preserves written canon and the region structure: Act I and its existing route, Mossglass Wilds, Moonfen, Frostbell Hollows, Sunken Gearworks, Cinder Crown, Starfall Archive, Nullglass Expanse, Skyhook Bastion, The First Hoard. Existing runtime region IDs remain unchanged. A simplified visual board cannot remove, merge or rename regions. Dated implementation/debt notes in the Bible defer to Phase 4E status; lore/identity does not change.
+
+| Category | NPC status |
+|---|---|
+| CURRENT | Patch Brasswick / Salvager, Ilex Quill / Archivist, Sera Vey / Relic Keeper: live Home roles, interactions, dialogue and activity; world-body art remains TEMP. Existing Pack Peddler merchant encounter/tradeoffs uses the written Merrow Vane identity; this does not establish a fourth permanent Home resident or a complete authored NPC package. |
+| PLANNED | Canonical replacement world bodies/props/states for current residents and fuller merchant portrait/dialogue. No additional named NPC is confirmed as implemented merely by a reference board. |
+| FUTURE | Nessa Vale, Corvin Ash, Vesper Thread: established future regional concepts, not selectable actors, shipped residents or completed encounter art. Other board-only characters remain reference, not automatically canon. |
+
+**ChatGPT-generated art boards are VISUAL REFERENCE ONLY** until explicitly approved and imported. Written canon, game IDs, approved canonical sources and these production authorities override accidental labels/design drift in concept images. Procedural/vector/tint/composite bodies remain technical prototypes, never final/canonical art.
+
+## Non-art acceptance gates — separate from the art queue
+
+- Save semantic validation, cross-store consistency and real process-death/resume acceptance. Current guarded recovery/reward tests remain valid but do not certify every store/process boundary.
+- Final audio/mastering/perceptual acceptance: weight, material/species identity, repetition, boss cues, Legendary/RED impact and real speakers; headroom alone is insufficient.
+- Physical Samsung S23 performance, thermal/memory/rendering, lifecycle/resume, safe area and actual touch/input acceptance.
+- Final player-facing visual owner acceptance, including art integration, combat readability and reward spectacle. Native technical QA cannot grant this automatically.
+
+---
+
+## Historical / superseded record — retained verbatim
+
+Everything below is a historical snapshot. Any former “CURRENT”, “current authority”, count, pending export or sequencing statement below is superseded wherever it conflicts with the Phase 4E block above. No historical evidence is deleted.
+
 CURRENT — Phase 4C visible presentation rescue: [PRODUCTION_PHASE4C.md](PRODUCTION_PHASE4C.md). Owner S23 review of Phase 4B authorized this pass. Implementation `6ebf74d` preserves all prior systems; version 10 / `0.4.1-phase4c` is ready for another S23 owner test. Final support/human/boss art, final audio and physical acceptance remain open. Earlier dated paragraphs below are historical where superseded. Stop before full pets/decoration/final-art work.
 
 CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.

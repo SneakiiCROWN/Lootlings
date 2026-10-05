@@ -2,6 +2,14 @@
 
 Status: HOLD. No procedural body below is accepted canonical art. Retain all mechanics and approved heavy poses. Reference paths are identity constraints, not permission to cut portraits into crude puppets.
 
+## Current status clarification (2026-10-05)
+
+Authoritative support/paired body-art debt: **165 actor × weapon × facing cells (82 right / 83 left)**; [exact derivation](support-art-debt.json). Rig contact flags are mechanically resolved, not art-approved. Do not reinterpret this as 165 total assets or use it to drop one-hand/body/NPC/boss work from this queue.
+
+Moonkip's canonical idle still contains daggers: approved weaponless body missing. Glimmerfin's current canonical idle is already weaponless: no new weaponless idle required. Gloomlet's approved canonical idle/selector export exists; its foxlike combat-rig dummy is rejected and does not replace that identity. Preserve good authored poses while replacing deficient visible layers. Written World Bible lore/regions and stable game IDs override visual-board labels. New art boards are reference only unless explicitly approved/imported.
+
+The selectable roster and twelve families are locked in the reconciled top-level status. Current NPCs are Patch, Ilex and Sera plus the existing Pack Peddler merchant role (written Merrow identity); future Nessa/Corvin/Vesper are not implemented. Planned NPC work means replacement art and deeper presentation for current roles, not automatic board-character promotion. Save semantic/cross-store/process-death, perceptual audio, physical S23 and final visual owner acceptance are separate non-art gates owned by PRODUCTION_PHASE4E.md.
+
 State sets: C = idle, movement, wind-up, strike/cast, follow-through, recovery, hurt, defeat, victory/return; both target facings. E = idle, role-specific wind-up/commit, hurt, recovery, defeat; both target facings. B = idle, every named attack, hurt, vulnerability/recovery, defeat; both facings; same identity in intro. N = rest, route, work/read/tend, inspect, talk, sit.
 
 | Asset ID/name | Current problem | Canonical identity/reference | Required states | Reuse rig? |
