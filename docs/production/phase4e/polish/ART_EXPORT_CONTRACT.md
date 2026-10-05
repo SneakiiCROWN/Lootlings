@@ -31,3 +31,13 @@ Patch, Ilex and Sera: 1024 × 1536 RGBA full-body exports, same canvas/baseline,
 ## Delivery and acceptance
 
 Supply source provenance/licence, approval reference, actor/region ID, state/view list and normalized socket manifest with each package. Import only approved rows, preserve good existing poses, native-review beside portrait/environment/enemy/boss on phone and tablet, and compare both facings and real target-driven transitions. Contact/RNG tests cannot approve the artwork. Missing packages remain TEMP/BETA and owner acceptance remains explicit.
+
+### Canon freeze and approved boss-frame adapter (2026-10-06)
+
+Read `art/reference/phase4e_handoff/REFERENCE_REJECTED_IDENTITY_DRIFT.md` before using the new handoff. Its boards are excluded from body integration. Existing sheets/designs remain the production source; no whole-body reinterpretation or masked board sprite can close this contract.
+
+`tools/validate_canonical_art.py` now runs before Android export. It checks frozen sources, preserved authored pose assets, rejected reference paths/hashes, and provenance/explicit owner approval for new or changed production rows. It is an integrity guard, not an aesthetic approval service.
+
+`art/production_boss_manifest.json` is deliberately empty until proper approved exports arrive. Each approved row needs `region` (existing boss region ID), `state` (`idle`, `windup`, `commit`, `hurt`, `recovery`, `defeat`), exact named `action` for windup/commit (empty for other states), `facing` (`left`/`right`), `asset_path` under `res://art/sprites/enemies/approved/`, `canvas`, normalized `anchor`, `source_reference`, `source_sha256`, `asset_sha256`, `owner_approval` and `production_status: owner_approved_beta`. Owner approval must be real evidence, never invented boilerplate. Full transparent exports preserve the existing display bounds/baseline and their source aspect; explicit facings are not mirrored. Missing/unapproved states retain the existing TEMP source. Existing recovery/hurt/defeat/action clocks choose the frame; no combat timing, RNG or balance changes. Approved full-body frames omit old procedural identity attachments so those cannot create doubled anatomy. Native acceptance of each actual delivered frame remains outstanding.
+
+Godot's [ResourceLoader documentation](https://docs.godotengine.org/en/stable/classes/class_resourceloader.html) specifies imported resources for texture loading and separate inclusion of non-resource files. The adapter uses imported texture resources; both export presets explicitly include the JSON manifest and exclude all reference boards. The Android package was inspected for those inclusions/exclusions.

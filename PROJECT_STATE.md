@@ -1,3 +1,7 @@
+CURRENT — [Phase4E canon freeze / approved state integration](docs/production/phase4e/canon-freeze/REPORT.md), status `6dc8f82`, implementation `f365459`, Android v19 `0.4.10-phase4e-canon-freeze`. Established designs preserved; conflicting board bodies excluded. Canonical import guards and boss state/view adapter validated; no new production bodies approved. 165 support-art cells, Dragon source tail and canonical exports remain open alongside owner/audio/save/physical S23 gates. No Phase4F.
+
+Preserved prior continuation follows; version18 is historical where superseded.
+
 CURRENT — [Phase4E continued fixes / authored art delivery readiness](PRODUCTION_PHASE4E.md), implementations `bce1e73` and `ed5203d`, version18 `0.4.9-phase4e-art-ready`. Distinct impacts, pack-target hit feedback, delayed premium reveal protection, readable nameplates and approved optional phase routing validated. Eight defined desktop reward process cuts / sixteen fresh recovery checks pass. Prior rigs/saves/touch/rewards, 165-cell art queue and dragon source-aspect correction preserved. Canonical replacement art, source tail redraw, perceptual/owner and S23 acceptance remain external gates. No Phase4F.
 
 Historical states preserved below.

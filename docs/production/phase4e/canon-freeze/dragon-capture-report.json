@@ -1,0 +1,145 @@
+{
+	"note": "Native real target resolver with QA-staged positions. Rendering proportions only; malformed source tail remains unresolved TEMP art.",
+	"samples": [
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "idle",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "windup",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "attack",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "tail_sweep",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "hurt",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "recovery",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": -1,
+			"forced_facing_test": 0,
+			"phase": "defeat",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "idle",
+			"player_facing": -1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "windup",
+			"player_facing": -1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "attack",
+			"player_facing": -1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "tail_sweep",
+			"player_facing": -1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "hurt",
+			"player_facing": -1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "recovery",
+			"player_facing": -1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		},
+		{
+			"display_bounds": "(226.0, 214.0)",
+			"enemy_facing": 1,
+			"forced_facing_test": 0,
+			"phase": "defeat",
+			"player_facing": 1,
+			"preserve_source_aspect": true,
+			"source_tail_repaired": false,
+			"stage": "canon-freeze"
+		}
+	]
+}
