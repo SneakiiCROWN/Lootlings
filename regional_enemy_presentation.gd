@@ -60,8 +60,11 @@ static func profile(name: String) -> Dictionary:
 	return {}
 
 static func material(g) -> String:
-	if g.enemy_is_boss:
-		return {"mossglass_wilds":"wood","moonfen":"flesh","frostbell_hollows":"glass","sunken_gearworks":"armour","cinder_crown":"molten","starfall_archive":"ethereal","nullglass_expanse":"glass","skyhook_bastion":"armour"}.get(g.campaign_id,"armour")
-	if g.enemy_is_miniboss: return "armour"
-	var data:=profile(g.enemy_name)
-	return str(data.get("material","wood" if g.enemy_archetype=="tank" else "ethereal" if g.enemy_archetype=="hexer" else "flesh"))
+	return material_for(g.enemy_name,g.enemy_archetype,g.enemy_is_boss,g.enemy_is_miniboss,g.campaign_id)
+
+static func material_for(enemy_name: String, archetype: String, boss: bool, miniboss: bool, region: String) -> String:
+	if boss:
+		return {"mossglass_wilds":"wood","moonfen":"flesh","frostbell_hollows":"glass","sunken_gearworks":"armour","cinder_crown":"molten","starfall_archive":"ethereal","nullglass_expanse":"glass","skyhook_bastion":"armour"}.get(region,"armour")
+	if miniboss: return "armour"
+	var data:=profile(enemy_name)
+	return str(data.get("material","wood" if archetype=="tank" else "ethereal" if archetype=="hexer" else "flesh"))

@@ -16,7 +16,9 @@ var reduced_motion:=false
 var tick_at:=0.0
 var progress:=0.0
 var burst:=0.0
+var reveal_started_at:=0.0
 var aperture_layer: Control
+var plinth_style:=Catalog.flat_style(Color("#0b151b"),Color("#8c754c"),3)
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE; clip_contents=true; set_process(false)
 	aperture_layer=Control.new(); aperture_layer.mouse_filter=Control.MOUSE_FILTER_IGNORE; aperture_layer.clip_contents=true; add_child(aperture_layer)
@@ -25,14 +27,14 @@ func wind_up(kind: String="material", tier: String="COMMON", quick: bool=false) 
 	reward_kind=kind; rarity=tier if tier in Catalog.TIERS else "COMMON"
 	fast=quick and Catalog.tier(rarity)<3
 	reel_seconds=Catalog.spin_seconds(rarity,fast)
-	elapsed=0; tick_at=0; progress=0; burst=0; rolling=true; stage="rolling"
+	elapsed=0; tick_at=0; progress=0; burst=0; reveal_started_at=0; rolling=true; stage="rolling"
 	set_process(true); queue_redraw(); cue.emit("chest_windup")
 func skip() -> bool:
 	if not rolling or Catalog.tier(rarity)>=3: return false
 	elapsed=reel_seconds+Catalog.anticipation(rarity); lock_result(); return true
 func lock_result() -> void:
 	if stage=="reveal" or stage=="settled": return
-	stage="reveal"; progress=1; burst=1; rolling=false
+	stage="reveal"; progress=1; burst=1; reveal_started_at=elapsed; rolling=false
 	cue.emit(Catalog.sound(rarity)); locked.emit(); queue_redraw()
 func reveal(kind: String) -> void:
 	reward_kind=kind; rolling=false; stage="settled"; burst=0; progress=1; set_process(false); queue_redraw()
@@ -49,7 +51,9 @@ func _process(delta: float) -> void:
 	elif stage=="anticipation" and elapsed>=reel_seconds+Catalog.anticipation(rarity): lock_result()
 	elif stage=="reveal":
 		var hold:=.26 if Catalog.tier(rarity)==5 else .18 if Catalog.tier(rarity)==4 else 0.0
-		burst=clampf(1-(elapsed-reel_seconds-Catalog.anticipation(rarity)-hold)/Catalog.reveal_seconds(rarity),0,1)
+		# Measure from actual lock, not the scheduled lock: a delayed frame must
+		# never swallow the premium burst before the result can be seen.
+		burst=clampf(1-(elapsed-reveal_started_at-hold)/Catalog.reveal_seconds(rarity),0,1)
 		if burst<=0:
 			stage="settled"; set_process(false); completed.emit()
 	queue_redraw()
@@ -112,7 +116,9 @@ func _draw() -> void:
 			draw_polyline(points,Color(tint,burst),2)
 	var status: String="TURN THE SEALS" if stage=="idle" else "SEALS ALIGNING…" if stage=="rolling" else "HOLD…" if stage=="anticipation" else "CROWNROOT AWAKENS" if tier==5 and stage=="settled" else rarity
 	# Dark lower plinth, away from the bright aperture bevel and header gem.
-	draw_style_box(UI.panel_style(Color("#0b151b"),Color("#8c754c"),3),Rect2(center.x-72,size.y-25,144,21))
+	# A tiny nameplate cannot use the menu's ornate nine-slice: its oversized
+	# corners previously crushed together over the rarity text.
+	draw_style_box(plinth_style,Rect2(center.x-84,size.y-28,168,24))
 	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-10),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,11,tint.lightened(.2))
 func draw_reels() -> void:
 	var tier:=Catalog.tier(rarity)

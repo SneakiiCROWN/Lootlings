@@ -3528,13 +3528,31 @@ func update_attack_projectiles(delta: float) -> void:
 		if projectile.life > 0.0:
 			continue
 		attack_projectiles.remove_at(index)
-		if state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
-			if projectile_impacts.size() >= 16: projectile_impacts.pop_front()
-			projectile_impacts.append({"pos":projectile.target,"element":projectile.get("element","Physical"),"life":.24})
+		record_projectile_impact(projectile)
 		if state == "playing" and enemy_encounter.active:
 			enemy_encounter.resolve_projectile(self, int(projectile.enemy_serial), bool(projectile.is_tap))
 		elif state == "playing" and enemy_alive and int(projectile.enemy_serial) == enemy_serial:
 			resolve_player_attack(bool(projectile.is_tap))
+
+func record_projectile_impact(projectile: Dictionary) -> void:
+	if state!="playing": return
+	var hit_material:=""
+	if enemy_encounter.active:
+		# Capture the struck member, not the currently selected pack member. This
+		# is a visual snapshot only; encounter selection and damage stay untouched.
+		for index in range(enemy_encounter.actors.size()):
+			var actor: Dictionary=enemy_encounter.actors[index]
+			var alive: bool=enemy_alive if index==enemy_encounter.selected else bool(actor.enemy_alive)
+			if alive and int(actor.enemy_serial)==int(projectile.enemy_serial):
+				hit_material=preload("res://regional_enemy_presentation.gd").material_for(str(actor.enemy_name),str(actor.enemy_archetype),bool(actor.enemy_is_boss),bool(actor.enemy_is_miniboss),campaign_id)
+				break
+	elif enemy_alive and int(projectile.enemy_serial)==enemy_serial:
+		hit_material=preload("res://regional_enemy_presentation.gd").material(self)
+	if hit_material.is_empty(): return
+	if projectile_impacts.size()>=16: projectile_impacts.pop_front()
+	projectile_impacts.append({"pos":projectile.target,"element":projectile.get("element","Physical"),"life":.24,
+		"direction":(Vector2(projectile.target)-Vector2(projectile.start)).normalized(),
+		"weapon_type":projectile.get("weapon_type","bow"),"material":hit_material})
 
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
 	pos.y+=40

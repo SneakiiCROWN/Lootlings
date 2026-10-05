@@ -73,8 +73,32 @@ static func draw_impact(g, effect: Dictionary) -> void:
 	var element: String = effect.element
 	var color: Color = COLORS.get(element,COLORS.Physical); color.a = ratio
 	var radius := 5+(1-ratio)*21
-	# Six brief directed shards, one partial seal; bounded and separated from text.
-	for i in range(6):
-		var d := Vector2.RIGHT.rotated(TAU*i/6.0+.25)
-		g.draw_line(pos+d*radius*.55,pos+d*radius,color,2.0*ratio,true)
-	if element != "Physical": g.draw_arc(pos,radius*.8,-.4,4.4,18,color,1.5,true)
+	var direction: Vector2=effect.get("direction",Vector2.RIGHT)
+	if direction.length_squared()<.001: direction=Vector2.RIGHT
+	direction=direction.normalized()
+	# The contact reads along the actual missile flight, even after target selection
+	# changes. Keep it below floating numbers and inside a 42-unit footprint.
+	var normal:=direction.orthogonal()
+	var weapon: String=effect.get("weapon_type","bow")
+	if element=="Physical":
+		var material: String=effect.get("material","flesh")
+		var contact_color: Color={"armour":Color("#ffe3a0"),"glass":Color("#b5f5ff"),"stone":Color("#beb5a7"),"wood":Color("#c9b18b"),"flesh":Color("#eed4a1"),"molten":Color("#ffb567"),"ethereal":Color("#cbb8ff")}.get(material,COLORS.Physical)
+		for i in range(5):
+			var d:=direction.rotated(-.9+i*.45)
+			var point:=pos+d*(radius+float(i%2)*5)
+			if material in ["armour","glass","molten"]:
+				g.draw_line(point-d*6,point+d*3,Color(contact_color,ratio),2 if i%2==0 else 1,true)
+			else:
+				g.draw_colored_polygon(PackedVector2Array([point,point-d*6+d.orthogonal()*2,point-d*4-d.orthogonal()*2]),Color(contact_color,ratio*.8))
+		if weapon=="sling":
+			g.draw_arc(pos,radius*.8,-.3,3.6,16,Color(contact_color,ratio*.5),2,true)
+		else:
+			g.draw_line(pos-direction*9,pos+direction*7,Color("#fff0d0",ratio),2.5,true)
+	elif element in ["Frost","Fire","Lightning","Poison","Corruption","Arcane"]:
+		preload("res://impact_presentation.gd").element(g,pos,element,ratio)
+		if element in ["Arcane","Corruption"]:
+			g.draw_arc(pos,radius*.8,-.4,4.4,18,color,1.5,true)
+		if element=="Frost":
+			g.draw_line(pos-normal*8,pos+normal*8,Color("#f4ffff",ratio),1.5,true)
+	# One white-hot contact core; no extra particles or simulation state.
+	g.draw_circle(pos,2+ratio*2,Color("#fff2d5",ratio*.85))
