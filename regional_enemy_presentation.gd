@@ -43,14 +43,20 @@ const ENTRIES={
 	"CROWN SHARD":["shard","glass","glimmer",Color("#ffdd90")],
 	"HOARD ECHO":["hexer","ethereal","hexer",Color("#ffdab4")]
 }
+static var variant_textures: Dictionary = {}
 static func profile(name: String) -> Dictionary:
 	var normalized:=name.to_upper().replace("_"," ")
 	# Variant prefixes may precede the canonical name; choose longest exact suffix.
 	for key in ENTRIES:
 		if normalized.ends_with(key):
 			var e: Array=ENTRIES[key]
+			var texture: Texture2D=BODIES[e[0]]
+			var variant_path: String="res://art/sprites/enemies/beta/%s.svg" % key.to_lower().replace(" ","_")
+			if ResourceLoader.exists(variant_path):
+				if not variant_textures.has(key): variant_textures[key]=load(variant_path)
+				texture=variant_textures[key]
 			var size: Vector2={"hound":Vector2(154,127),"bat":Vector2(158,127),"toad":Vector2(148,119),"crab":Vector2(153,123),"beetle":Vector2(151,132),"wyrm":Vector2(143,132),"shard":Vector2(102,148),"imp":Vector2(118,105),"hexer":Vector2(111,132),"knight":Vector2(167,142),"brute":Vector2(148,99)}[e[0]]
-			return {"texture":BODIES[e[0]],"size":size,"tint":e[3],"material":e[1],"voice":e[2],"hover":e[0] in ["bat","shard"],"body":e[0],"status":"BETA: original regional sprite" if e[0] not in ["imp","hexer","knight","brute"] else "BETA: existing fitting canonical archetype"}
+			return {"texture":texture,"size":size,"tint":e[3],"material":e[1],"voice":e[2],"hover":e[0] in ["bat","shard"],"body":e[0],"status":"BETA: original regional sprite" if e[0] not in ["imp","hexer","knight","brute"] else "BETA: existing fitting canonical archetype"}
 	return {}
 
 static func material(g) -> String:

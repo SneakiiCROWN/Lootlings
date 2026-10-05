@@ -1,6 +1,6 @@
 extends SceneTree
 var game
-var folder:="res://.godot_test_data/phase4e/audio/"
+var folder:="res://.godot_test_data/phase4e/polish-audio/"
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("review")
@@ -16,6 +16,10 @@ func review() -> void:
 		await record("material_"+material,1.2,func(): game.audio_manager.play_contact("bow",material,false,false))
 	for action in ["thorn","root","mirror","recover"]:
 		await record("verdant_"+action,1.4,func(): game.play_audio_event("verdant_"+action))
+	for region in ["act_i","mossglass_wilds","moonfen","frostbell_hollows","sunken_gearworks","cinder_crown","starfall_archive","nullglass_expanse","skyhook_bastion","first_hoard"]:
+		game.start_run(); game.set_process(false); game.campaign_id=region; game.wave=15; game.spawn_enemy()
+		game.player_hp=game.player_max_hp; game.enemy_entry_anim=0; game.special_intro_timer=0
+		await record("boss_actual_"+region,1.6,func(): game.perform_enemy_attack())
 	for rarity in ["COMMON","UNCOMMON","RARE","EPIC","LEGENDARY","RED"]:
 		game.state="relic_spinner"
 		await record("spinner_"+rarity.to_lower(),5.5,func(): game.retention.machine.wind_up("item",rarity,false))

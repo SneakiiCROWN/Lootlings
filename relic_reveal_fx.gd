@@ -25,7 +25,7 @@ func _draw() -> void:
 	var charge: float=clampf((machine.elapsed-machine.reel_seconds)/maxf(.1,preload("res://relic_spin_catalog.gd").anticipation(machine.rarity)),0,1) if machine.stage=="anticipation" else 0.0
 	var energy: float=machine.burst if machine.stage=="reveal" else charge*.35
 	if energy<=0: return
-	var center:=Vector2(240,400)
+	var center:=get_global_transform().affine_inverse()*(machine.global_position+machine.size*.5)
 	if tier>=3:
 		draw_rect(Rect2(Vector2.ZERO,size),Color(tint,energy*.08))
 		for edge in [0,1]:
@@ -37,12 +37,12 @@ func _draw() -> void:
 		for ray in range(14 if tier==4 else 22):
 			var angle: float=TAU*ray/(14 if tier==4 else 22)
 			var direction:=Vector2.RIGHT.rotated(angle)
-			var distance: float=110+(1-energy)*180
+			var distance: float=180+(1-energy)*110
 			draw_line(center+direction*distance,center+direction*(distance+35+tier*6),Color(tint,energy*.7),3 if tier==4 else 4,true)
 	if tier==5:
 		# A branching crown/root frame is exclusive to RED, distinct from gold rays.
 		for side in [-1,1]:
-			var x: float=240+side*210
+			var x: float=center.x+side*210
 			for root in range(6):
-				var y: float=220+root*75
+				var y: float=center.y-210+root*75
 				draw_polyline(PackedVector2Array([Vector2(x,y+30),Vector2(x-side*12,y+17),Vector2(x+side*4,y+4),Vector2(x-side*16,y-9)]),Color(tint,energy*.9),3,true)

@@ -32,7 +32,7 @@ for name,body in shapes.items():
   rgb=[int(color[k:k+2],16) for k in (1,3,5)]
   lighter='#'+''.join(f'{min(255,int(v*.75+64)):02x}' for v in rgb)
   darker='#'+''.join(f'{int(v*.66):02x}' for v in rgb)
-  defs.append(f'<linearGradient id="shade{i}" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="{lighter}"/><stop offset=".45" stop-color="{color}"/><stop offset="1" stop-color="{darker}"/></linearGradient>')
+  defs.append(f'<linearGradient id="shade{i}" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="145" y2="190"><stop stop-color="{lighter}"/><stop offset=".45" stop-color="{color}"/><stop offset="1" stop-color="{darker}"/></linearGradient>')
   body=body.replace(f'fill="{color}"',f'fill="url(#shade{i})"')
  text=f'<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 200 200"><defs>{"".join(defs)}</defs><g stroke="#18243d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">{body}{eye}</g></svg>'
  (root/f'regional_{name}.svg').write_text(text,encoding='utf-8')

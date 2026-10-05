@@ -55,11 +55,6 @@ const RESIDENT_PORTRAITS := {
 	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_portrait.png"),
 	"Archivist":preload("res://art/sprites/npcs/beta/ilex_portrait.png")
 }
-const RESIDENT_BODIES := {
-	"Salvager":preload("res://art/sprites/npcs/beta/patch_idle.png"),
-	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_idle.png"),
-	"Archivist":preload("res://art/sprites/npcs/beta/ilex_idle.png")
-}
 const HOME_SLOTS := {"pet_bed":Rect2(38,700,60,48),"trophy":Rect2(338,176,56,56),"weapon_display":Rect2(202,519,48,48),"banner":Rect2(92,124,48,100),"hearth":Rect2(32,268,64,64),"shelf":Rect2(350,614,64,48)}
 const RESIDENT_RECTS := {"Salvager":Rect2(346,336,88,132), "Relic Keeper":Rect2(42,334,88,132), "Archivist":Rect2(352,562,80,120)}
 const LootlingsUI = preload("res://lootlings_ui.gd")
@@ -320,7 +315,6 @@ func build_home() -> void:
 	make_label(home_content,"ENTER THE GATE  ›",14,Rect2(150,270,180,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6ad")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 	for speaker in RESIDENT_RECTS: make_npc_hotspot(home_content,RESIDENT_RECTS[speaker],speaker)
 	make_npc_hotspot(home_content,Rect2(166,355,148,146),"Mascot")
-	make_button(home_content,"GEAR",Rect2(25,488,52,52),Color("#172442b0"),Color("#72c8ff"),12).pressed.connect(show_stash)
 	make_object_hotspot(home_content,"ShopEntrance",Rect2(398,238,66,82),show_shop,"Visit the Salvager shop")
 	
 	make_object_hotspot(home_content,"StorageChest",Rect2(18,488,126,156),show_stash,"Open Gear")
@@ -1607,20 +1601,7 @@ func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> 
 	if speaker=="Archivist": rect=Rect2(rect.position+Vector2(6,10),rect.size*Vector2(.88,.92))
 	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
 	draw_circle(Vector2.ZERO,31,Color("#03061280"))
-	var pivot:=Vector2(rect.get_center().x,rect.end.y)
-	var lean:=sin(scene_time*2.5)*.035 if activity=="repair" else -.035 if activity=="read" else .015 if activity=="talk" else 0.0
-	draw_set_transform(pivot,lean,Vector2.ONE)
-	draw_texture_rect(RESIDENT_BODIES[speaker],Rect2(rect.position-pivot,rect.size),false,Color("#c9e2f3") if speaker=="Archivist" else Color.WHITE)
-	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-	if speaker=="Archivist" and activity in ["read","inspect","talk"]:
-		var book:=Rect2(rect.get_center()+Vector2(-16,15),Vector2(28,17))
-		draw_style_box(preload("res://station_presentation.gd").paper(),book)
-		draw_line(book.position+Vector2(14,1),book.position+Vector2(14,16),Color("#604e46"),1)
-	elif speaker=="Salvager" and activity=="repair":
-		var tool:=rect.get_center()+Vector2(18,20)
-		draw_line(tool,tool+Vector2(0,-12+sin(scene_time*3)*5),Color("#bcb9ab"),3,true)
-	elif speaker=="Relic Keeper" and activity=="inspect":
-		draw_circle(rect.get_center()+Vector2(-12,18),4,Color("#ae9cff"))
+	preload("res://resident_sprite_rig.gd").draw(self,speaker,rect,scene_time,activity)
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

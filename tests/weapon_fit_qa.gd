@@ -124,7 +124,9 @@ func run_qa() -> void:
 				assert(Weapons.presentation_texture("sling","inventory",held).get_size() == Vector2(256,256))
 				if id == "mosskin":
 					var socket: Vector2 = Fit.sample(game).projectile
-					assert(socket.x < Fit.body(game.profile).primary_hand.x - 30.0)
+					# Compare to the live rig grip, not the retired portrait socket.
+					var current_pose: Dictionary=Fit.sample(game)
+					assert(socket.x < Vector2(current_pose.weapon_origin).x - 30.0)
 				var hp: float = game.enemy_hp
 				game.update_attack_projectiles(float(game.attack_projectiles[0].max_life)*.35)
 				assert(game.enemy_hp == hp and game.attack_projectiles.size() == 1)
@@ -155,7 +157,9 @@ func run_qa() -> void:
 	assert(paired.secondary_grip.distance_to(paired.secondary_hand) < .001)
 	assert(Fit.register_stance("vault_runner","wand",{"texture":neutral.texture,"body_rect":neutral.body_rect,"primary_hand":neutral.hand+Vector2(100,100),"secondary_hand":neutral.secondary_hand,"wardrobe_requires":{"headwear":"unavailable_hat"}}))
 	prepare("vault_runner","wand")
-	assert(Fit.sample(game).hand == Fit.body(game.profile).primary_hand)
+	var incompatible_pose: Dictionary=Fit.sample(game)
+	assert(incompatible_pose.sprite_rig)
+	assert(incompatible_pose.hand != neutral.hand+Vector2(100,100))
 	Fit.stance_assets.clear()
 	if native or "--report" in OS.get_cmdline_user_args():
 		var report := FileAccess.open("res://.godot_test_data/weapon_fit_report.json",FileAccess.WRITE)

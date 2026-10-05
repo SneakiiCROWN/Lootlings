@@ -4,7 +4,7 @@ const Fit = preload("res://weapon_fit_catalog.gd")
 const Matrix = preload("res://tests/weapon_fit_qa.gd")
 const Weapons = preload("res://weapon_catalog.gd")
 const STATES := ["idle", "windup", "strike", "recovery", "movement", "hurt"]
-var output_folder := "res://.godot_test_data/phase4e/weapons" if OS.get_environment("LOOTLINGS_FIDELITY") == "1" else "res://.godot_test_data/phase4e/weapons"
+var output_folder := "res://.godot_test_data/phase4e/polish-weapons"
 
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
@@ -73,7 +73,7 @@ func run_qa() -> void:
 				row += 1
 			assert(sheet.save_png(output_folder+"/%s_%s.png" % [actor,"right" if facing > 0 else "left"]) == OK)
 	var report := FileAccess.open(output_folder+"/report.json",FileAccess.WRITE)
-	report.store_string(JSON.stringify({"samples":rows,"total":rows.size(),"columns":STATES,"rows":["bow","crossbow","daggers","claws","sling","greatsword","spear","staff","maul","greataxe","wand","orb"],"note":"FORCED FACING TEST: isolated pose matrix only. Real target-facing is captured separately. Missing support-hand/body art remains explicit debt, not a visual pass."},"\t"))
+	report.store_string(JSON.stringify({"samples":rows,"total":rows.size(),"columns":STATES,"rows":["bow","crossbow","daggers","claws","sling","greatsword","spear","staff","maul","greataxe","wand","orb"],"note":"FORCED FACING TEST: isolated pose matrix only. Real target-facing is captured separately. Original articulated fallback rigs and preserved authored poses. Contact assertions are separate from owner art acceptance."},"\t"))
 	print("PRESENTATION MATRIX: ", rows.size(), " native state samples, 24 contact sheets")
 	helper.free()
 	quit(0)

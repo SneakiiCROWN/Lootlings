@@ -1,6 +1,6 @@
 extends RefCounted
 # Independent presentation RNG. Eligible categories only; no reward/save mutation.
-const PERSONALITY := {"vault_runner": "A rich vault with one exit is a trap with expensive wallpaper.", "ruin_warden": "Drink something warm. I will watch the gate.", "nightstage_drifter": "An encore is only worth it if the whole audience survives.", "velvet_astrologer": "The sky gives probabilities. I bring a spare string.", "ashtrail_hunter": "Fresh tracks outside the gate. Two feet, then four. Watch the bends."}
+const PERSONALITY := {"vault_runner": "A rich vault with one exit is a trap with expensive wallpaper.", "ruin_warden": "Drink something warm. I will watch the gate.", "nightstage_drifter": "An encore is only worth it if the whole audience survives.", "velvet_astrologer": "The sky gives probabilities. I pack bandages.", "ashtrail_hunter": "Fresh tracks outside the gate. Two feet, then four. Watch the bends."}
 const GREETINGS := {"Salvager": ["Set it on the bench. If the grip slips, the shine will not save you.", "Warm fire, sound hinges, sharp steel. That is a home worth keeping."], "Relic Keeper": ["Put your pack down. You do not have to be useful every waking moment.", "I will tend the shrine. You tend the bruises. Neither job needs a hero."], "Archivist": ["Tell me who you met. Ruins are full of people reduced to architecture.", "The dead rarely correct my spelling. I try not to take advantage."]}
 const LINES := [
   {
@@ -204,13 +204,13 @@ const LINES := [
   },
   {
     "speaker": "vault_runner",
-    "text": "We made it back together. Keep that habit.",
+    "text": "Paid, alive, and no doors locked behind us. I like those numbers.",
     "category": "context",
     "outcome": "victory"
   },
   {
     "speaker": "vault_runner",
-    "text": "We have another chance because we came home.",
+    "text": "The vault keeps its treasure today. I kept the map and my legs.",
     "category": "context",
     "outcome": "defeat"
   },
@@ -226,13 +226,13 @@ const LINES := [
   },
   {
     "speaker": "ruin_warden",
-    "text": "We made it back together. Keep that habit.",
+    "text": "Everyone accounted for. Now we can count the spoils.",
     "category": "context",
     "outcome": "victory"
   },
   {
     "speaker": "ruin_warden",
-    "text": "We have another chance because we came home.",
+    "text": "I held the retreat. We will mend the line before we return.",
     "category": "context",
     "outcome": "defeat"
   },
@@ -248,19 +248,19 @@ const LINES := [
   },
   {
     "speaker": "nightstage_drifter",
-    "text": "We made it back together. Keep that habit.",
+    "text": "The curtain comes down with everyone standing. That is my kind of finale.",
     "category": "context",
     "outcome": "victory"
   },
   {
     "speaker": "nightstage_drifter",
-    "text": "We have another chance because we came home.",
+    "text": "Rough rehearsal. Keep my place; I still owe you a better ending.",
     "category": "context",
     "outcome": "defeat"
   },
   {
     "speaker": "velvet_astrologer",
-    "text": "The sky gives probabilities. I bring a spare string.",
+    "text": "The sky gives probabilities. I pack bandages.",
     "category": "banter"
   },
   {
@@ -270,13 +270,13 @@ const LINES := [
   },
   {
     "speaker": "velvet_astrologer",
-    "text": "We made it back together. Keep that habit.",
+    "text": "A fortunate outcome. The spare bandages can wait another night.",
     "category": "context",
     "outcome": "victory"
   },
   {
     "speaker": "velvet_astrologer",
-    "text": "We have another chance because we came home.",
+    "text": "I misread that opening. No stars to blame; I will mark it in my notes.",
     "category": "context",
     "outcome": "defeat"
   },
@@ -292,13 +292,13 @@ const LINES := [
   },
   {
     "speaker": "ashtrail_hunter",
-    "text": "We made it back together. Keep that habit.",
+    "text": "No fresh tracks behind us. We can put the packs down.",
     "category": "context",
     "outcome": "victory"
   },
   {
     "speaker": "ashtrail_hunter",
-    "text": "We have another chance because we came home.",
+    "text": "That trail turned ugly. We take a different approach next time.",
     "category": "context",
     "outcome": "defeat"
   },

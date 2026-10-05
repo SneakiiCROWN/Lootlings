@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 			stage="anticipation"; cue.emit("chest_land")
 	elif stage=="anticipation" and elapsed>=reel_seconds+Catalog.anticipation(rarity): lock_result()
 	elif stage=="reveal":
-		var hold:=.12 if Catalog.tier(rarity)>=4 else 0.0
+		var hold:=.26 if Catalog.tier(rarity)==5 else .18 if Catalog.tier(rarity)==4 else 0.0
 		burst=clampf(1-(elapsed-reel_seconds-Catalog.anticipation(rarity)-hold)/Catalog.reveal_seconds(rarity),0,1)
 		if burst<=0:
 			stage="settled"; set_process(false); completed.emit()
@@ -65,6 +65,22 @@ func _draw() -> void:
 		for y in [48.0,size.y-46]:
 			draw_circle(Vector2(x,y),3.5,Color("#c9aa66"))
 			draw_line(Vector2(x-2,y),Vector2(x+2,y),Color("#433e38"),1,true)
+	# Premium lighting stays on the machine, visible above the modal background.
+	var charge: float=clampf((elapsed-reel_seconds)/maxf(.1,Catalog.anticipation(rarity)),0,1) if stage=="anticipation" else 0
+	var energy: float=burst if stage=="reveal" else charge
+	if tier>=3 and energy>0:
+		for side in [0,1]:
+			var x: float=6 if side==0 else size.x-6
+			for light in range(7):
+				var y: float=48+light*(size.y-92)/6
+				var lit: float=1 if stage=="reveal" or float(light)/7<=charge else .12
+				draw_circle(Vector2(x,y),4.5,Color(tint,lit*energy))
+				draw_circle(Vector2(x,y),2,Color("#fff1cf").lerp(tint,.35))
+		if tier>=4:
+			# Crown teeth distinguish a jackpot from the ordinary six-colour frame.
+			var crest:=PackedVector2Array([Vector2(center.x-32,35),Vector2(center.x-39,8),Vector2(center.x-14,22),Vector2(center.x,3),Vector2(center.x+14,22),Vector2(center.x+39,8),Vector2(center.x+32,35)])
+			draw_colored_polygon(crest,Color(tint,energy*.85))
+			draw_polyline(crest,Color("#fff0cb",energy*.75),1.5,true)
 	var aperture:=Rect2(18,38,size.x-36,size.y-66)
 	draw_style_box(Catalog.flat_style(Color("#030917"),tint.darkened(.3)),aperture)
 	aperture_layer.position=aperture.position+Vector2(2,2); aperture_layer.size=aperture.size-Vector2(4,4); aperture_layer.queue_redraw()
@@ -87,11 +103,11 @@ func _draw() -> void:
 			var angle:=particle*TAU/maxi(1,count)+particle*.17
 			var point:=center+Vector2.RIGHT.rotated(angle)*radius
 			draw_line(point,point+Vector2.RIGHT.rotated(angle)*(4+tier*2),Color(tint,burst*.8),2)
-		for halo in range(3): draw_arc(center,42+halo*6+(1-burst)*12,0,TAU,48,Color(tint,burst*.15),3)
+		for halo in range(3 if tier>=3 else 1 if tier>0 else 0): draw_arc(center,42+halo*6+(1-burst)*12,0,TAU,48,Color(tint,burst*.15),3)
 		if tier==5:
 			var points:=PackedVector2Array([center+Vector2(-65,-35),center+Vector2(-40,-42),center+Vector2(-45,-20),center+Vector2(-14,-35)])
 			draw_polyline(points,Color(tint,burst),2)
-	var caption: String="CROWNROOT AWAKENS" if tier==5 and stage in ["reveal","settled"] else "RELIC ENGINE"
+	var caption: String="CROWNROOT AWAKENS" if tier==5 and stage in ["reveal","settled"] else ""
 	draw_string(ThemeDB.fallback_font,Vector2(10,25),caption,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,14,tint)
 	var status: String="TURN THE SEALS" if stage=="idle" else "SEALS ALIGNING…" if stage=="rolling" else "HOLD…" if stage=="anticipation" else rarity
 	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-20),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,13,tint)
@@ -100,6 +116,15 @@ func draw_reels() -> void:
 	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
 	var center:=aperture_layer.size*.5
 	var width:=aperture_layer.size.x/3
+	if tier>=4 and stage=="reveal" and burst>0:
+		var count: int=6 if reduced_motion else 18 if tier==5 else 12
+		for ray in range(count):
+			var direction:=Vector2.RIGHT.rotated(ray*TAU/count)
+			if tier==5:
+				var start:=center+direction*36
+				var end:=center+direction*(80+(1-burst)*25)
+				aperture_layer.draw_polyline(PackedVector2Array([start,start.lerp(end,.35)+direction.orthogonal()*8,start.lerp(end,.6)-direction.orthogonal()*5,end]),Color(tint,burst*.7),2,true)
+			else: aperture_layer.draw_line(center+direction*18,center+direction*(70+(1-burst)*32),Color(tint,burst*.42),3,true)
 	var eased:=1-pow(1-progress,3)
 	for reel in range(3):
 		var turns: float=(14+reel)*eased

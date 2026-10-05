@@ -6819,6 +6819,454 @@
       "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
       "seconds": 0.23,
       "sha256": "e7b2c84f1299838121e675e4032cb2cfd721a1de9a7231b3328fac3115316824"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chime_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_000.ogg",
+          "sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+          "speed": 0.85624
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "018e1230fd81875d2ac1bb4e075dec6d263ceb9a19515a6a7708d291c501fb1a"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chime_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_001.ogg",
+          "sha256": "9df61e3ae9a83dc65e5a1fd3ed19d480876f3b22b963a1b9ef6fa293592dcec4",
+          "speed": 0.87208
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "52e27a0a9bebd68e17ee235f17f5ef89677e1f73575b700123446fc51b66177f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chime_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_002.ogg",
+          "sha256": "a4171ed1a4a17fb858a38de1c59b5b42e50d8f046c525706c0e3ac8671f189f5",
+          "speed": 0.8879199999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "328d8a1007ab608548096566354da97057d9ce574ca4008da5ff870c5cbcc1da"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chime_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_003.ogg",
+          "sha256": "5572ccdeb3b62373b86fa955355b3a222c36e815f0636ba16165189a21cf2514",
+          "speed": 0.9037599999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "cbd9d1f7ec576130a3c260f7ae270321a146c2a2deb9883602e72f9c93f766c2"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_steam_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_000.ogg",
+          "sha256": "112d4f93ddcc370b410630f971c0f5d991856102da9c76bc5c5540d388e75aaa",
+          "speed": 0.74921
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.55,
+      "sha256": "6d2f258f47217eed5900d92c5fe259353db5c74ff24736e6204ddf52156e9319"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_steam_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_001.ogg",
+          "sha256": "142fd6c77f13d25f318265901163f70f8dfe12f87829169a570025be43de7011",
+          "speed": 0.76307
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.55,
+      "sha256": "7892da81ce697b6a976527abbe10b33ba41646afa5af64b2f1e1298baeb88d0b"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_steam_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_002.ogg",
+          "sha256": "b0cab75d1befa32b4cf215d8ee7e1c400a39182e8b105963b8e310f825b198a1",
+          "speed": 0.7769299999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.55,
+      "sha256": "9ed58e21d6d623d8d6f79dc0751efdb7695c1ddf21ebba4c82bd43c286ea4655"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_steam_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactPlate_heavy_003.ogg",
+          "sha256": "59775f8979a396c8a793b0a1db206d5bdc651eae808d858e9acaee8ebda5bc6d",
+          "speed": 0.79079
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.55,
+      "sha256": "2ff0aae9db5ffbd03e473fd0d7276d676a3e2529c39abd89591f9496b6902678"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chain_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_000.ogg",
+          "sha256": "a96f879fec0864a8938e0c745b6996a6c5679c16a234ce31a01cc995e8401003",
+          "speed": 0.90489
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.48,
+      "sha256": "3a48c9105d5fdc304b5fc4da20c2fe037ea394537b404a74a94a684d8603318c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chain_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_001.ogg",
+          "sha256": "e8a9eaba7c4d27422e4eeb3e6c7100d5d7dc0f83e005efc98c960adcc5265337",
+          "speed": 0.9216300000000001
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.48,
+      "sha256": "0771042624d1a07538e13b5af7065bd6a1c665819dbec4deb8f08451baf943eb"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chain_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_002.ogg",
+          "sha256": "7e89ce2ca0dbda95ea2b78d4b50791cab35c10d20e9f5ccd45dd0b00e99ff548",
+          "speed": 0.9383699999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.48,
+      "sha256": "89720dffd30f45327f69b3d636fd3b4c9da527ab8bc168c14343a54bf07205ec"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_chain_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_medium_003.ogg",
+          "sha256": "2a185e2e57211d02c1bdd33b872d6b6a2fe83e6c14f4e56f426a95e717acf08e",
+          "speed": 0.95511
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.48,
+      "sha256": "19551b33948670e662c45302483c6e50a71a6a6b53e9b1e15a288cc250a814cd"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_ink_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_000.ogg",
+          "sha256": "7d3ba0bb5e60a11b5d3e558c141303dcf494256675fbf753c0d252d2cf0481e3",
+          "speed": 0.8075899999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "97fb4b14a1613eae00d61eea1883a6753333ff56a7df90f473d3ca5c8af02ef5"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_ink_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_001.ogg",
+          "sha256": "7642a4fd43e547afe4f7adfadb3dabb681c0ff512f52c1674bae30a726841faf",
+          "speed": 0.82253
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "c4b6331b3d38a75ff4845bf7ba627ddbc3999136f69407784a153a34592089e5"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_ink_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_002.ogg",
+          "sha256": "5069e3571a77d7f7aae9ef71d0364aa245fb7d64a7c8cc9956f221d03088c089",
+          "speed": 0.8374699999999998
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "f27a27c5da37cea9cd7cb47de6eada0046e79baea11e67f824a2b928b44c55a9"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_ink_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_medium_003.ogg",
+          "sha256": "5c4a1f35fde7e14046931da7bc3d1b23736541b7190ba107e08a379c4ca43cd6",
+          "speed": 0.8524099999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.42,
+      "sha256": "7225607126aad15c89c408220db4cae12cdcce4730175064ad88b026a08c42fb"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_furnace_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_000.ogg",
+          "sha256": "e07045693e4a2b3d165c424e3dab4c781d9ff8880a386880ac89a51315d7f831",
+          "speed": 0.6810999999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "e51ac659bbf8b1717f47fd7d2e91f599e79c4babad261a8fd0f9e1edee282327"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_furnace_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_001.ogg",
+          "sha256": "83554049f81f4db9209379e103c30bfa63f65c42189a03f300b045c2c82e23ae",
+          "speed": 0.6937
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "27b8f7cfd18469d2a39cdd263ccc23de18d0442feb09bbefbe4f86b9639371df"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_furnace_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_002.ogg",
+          "sha256": "b914c8f1eb7c0f34bb165d7c77f4be0351f6be0660c13c53e65424e262e2c093",
+          "speed": 0.7062999999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "ea17d145b94fec25aa4cf454f5b20d6e048ffbd632080b8ff2086c4dc53d8e1c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_furnace_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactMetal_heavy_003.ogg",
+          "sha256": "b0f2ba4dabde9a87eb9c188a19d31e0c2300fd321adeba08d3b9b8aa011d7037",
+          "speed": 0.7188999999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.58,
+      "sha256": "8dbe54bc6f600943694757555ec0d5dd45314e54791885c7f41c17dc4ea0d374"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_crown_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_000.ogg",
+          "sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f",
+          "speed": 0.66164
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.68,
+      "sha256": "e0766f00e639f1aff87a1d0fe5819aea24b1304463b3220fd9e04babd4f34e2f"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_crown_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_001.ogg",
+          "sha256": "9df61e3ae9a83dc65e5a1fd3ed19d480876f3b22b963a1b9ef6fa293592dcec4",
+          "speed": 0.67388
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.68,
+      "sha256": "c6cc8d72a75ca9a5642e6ec488e65aa4801091a28462e651d00623bb3c652ef0"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_crown_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_002.ogg",
+          "sha256": "a4171ed1a4a17fb858a38de1c59b5b42e50d8f046c525706c0e3ac8671f189f5",
+          "speed": 0.68612
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.68,
+      "sha256": "2211bc7ed188165ed9a22d87b3d3858028e8510400b65dff9957c2ffabed9686"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_crown_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactBell_heavy_003.ogg",
+          "sha256": "5572ccdeb3b62373b86fa955355b3a222c36e815f0636ba16165189a21cf2514",
+          "speed": 0.69836
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.68,
+      "sha256": "3428980f43c5e19f459e8fb53996a716507f39bedb106ae16f078f3edb424e10"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_prowler_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_000.ogg",
+          "sha256": "49e7ca88743fca974bb8676ea138b751cfd8f9033b5e7af8736c2a215d6edbc1",
+          "speed": 0.8173199999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "0726af8b1011cea4bafd72b43cb8a6c5673e3472aca77c53a1dc91ab0c096e97"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_prowler_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_001.ogg",
+          "sha256": "4d0096364ba9e46119d2ff6df493fdc101bd2e1efae061da5e5f77a53b3fdcb6",
+          "speed": 0.83244
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "854c39c0f934c68ec222719e5afe9ca75a082a3c9feb0e03f73f5582981b40ed"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_prowler_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_002.ogg",
+          "sha256": "d130ae541951243d3f6ed963d0057450a445ffe117fbf9a084d34eb1635cb563",
+          "speed": 0.8475599999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "afca752ab2ff483357d94260fa976cb2a444c9de5490427d264a63b963665d9c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_prowler_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactSoft_heavy_003.ogg",
+          "sha256": "d00286a2dc62ee5cb4d42bf56120e7050a855f69e655fc1294410aadd337eba3",
+          "speed": 0.8626799999999999
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.32,
+      "sha256": "c08c127b794415eeb70d5c22fba6f812202c088e29dc6ef356f90c1ae061cca9"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_reflection_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_000.ogg",
+          "sha256": "b44b39a940e8948e74b9bd3776bff980df43cf220abdaf0d467dc4c43c0244a5",
+          "speed": 0.78813
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "176fd407f9554571c0325f4e8a94bf68913e0bf6a49c7419d7637792a702f580"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_reflection_02.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_001.ogg",
+          "sha256": "58686e0e562612cc566791844a10e269f8d1921f4766c14ba43976fd0a429f4e",
+          "speed": 0.80271
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "332c499b8dff2b3c28a6287923225e41982eb87e9a013c507fee7a838ed1411c"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_reflection_03.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_002.ogg",
+          "sha256": "4978654ac840ad519692d5d5ba48a8101cabce13b9a577be73ad589185e5e9ed",
+          "speed": 0.81729
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "2f0a3179d905bf8c9a1b1eeb43b3a0a888296a08a64cc2154c4a3c9c8eb97346"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\boss_reflection_04.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactGlass_heavy_003.ogg",
+          "sha256": "aed07b154f24410c17e5262bbef832842fb275d41fe297f721af7501d0e9c23a",
+          "speed": 0.83187
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.62,
+      "sha256": "67aa2ba810c5c186897366366a6e0f6aff40db775750f5ffe4ceed8da935342e"
     }
   ],
   "superseded_reactions": [
@@ -7078,5 +7526,6 @@
       "status": "Superseded generic reaction; source history only, excluded from game export"
     }
   ],
-  "phase4e": "Original layered weapon/material/guardian design using the preserved CC0 Kenney impact source hashes. Four subtle variants each; no human vocal layer."
+  "phase4e": "Original layered weapon/material/guardian design using the preserved CC0 Kenney impact source hashes. Four subtle variants each; no human vocal layer.",
+  "phase4e_polish": "Eight regional boss attack families, four source variants each; original licensed layering, no franchise audio."
 }

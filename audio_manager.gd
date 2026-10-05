@@ -51,13 +51,15 @@ static func event_specs() -> Dictionary:
 		result["contact_"+material]=["SFX",0,.4,.4]
 	for action in ["thorn","root","mirror","recover"]:
 		result["verdant_"+action]=["SFX",0,.6,.4]
+	for family in ["chime","steam","chain","ink","furnace","crown","prowler","reflection"]:
+		result["boss_"+family]=["SFX",0,.6,.4]
 	for profile in preload("res://voice_identity.gd").PROFILES:
 		for role in ["attack","hurt","death"]:
 			result["voice_"+profile+"_"+role] = ["SFX",0,.5,.4]
 	return result
 
 static func variant_count(event: String) -> int:
-	return 4 if event in VARIANT_EVENTS or event.begins_with("voice_") or event.begins_with("weapon_") or event.begins_with("contact_") or event.begins_with("verdant_") else 1
+	return 4 if event in VARIANT_EVENTS or event.begins_with("voice_") or event.begins_with("weapon_") or event.begins_with("contact_") or event.begins_with("verdant_") or event.begins_with("boss_") and event not in ["boss_warning","boss_hit"] else 1
 
 var players := {}
 var streams := {}

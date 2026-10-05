@@ -11,9 +11,9 @@ static var active_texture: Texture2D
 static var active_path := ""
 const PROFILES := {
 	"mossglass_wilds":{"texture_path":"res://art/sprites/enemies/beta/verdant_mirror.png","display_size":Vector2(228,278),"flip_h":false,"offset":Vector2(-17,0),"shadow":62.0,"attack_distance":18.0,"entrance_scale":.88,"recoil_limit":.045,"status":"BETA: existing intro tree/root guardian reused; authored combat phases pending"},
-	"cinder_crown":{"texture":FURNACE,"source":Rect2(724,0,724,724),"baseline":80.0,"display_size":Vector2(260,260),"flip_h":false,"offset":Vector2(-15,0),"shadow":72.0,"attack_distance":12.0,"entrance_scale":.92,"recoil_limit":.04,"accent":Color("#ff985d"),"motif":"furnace","status":"BETA: approved forge golem proxy; authored Furnace Regent needed"},
-	"moonfen":{"texture":VAULT,"source":Rect2(0,0,724,724),"baseline":80.0,"display_size":Vector2(246,246),"flip_h":false,"accent":Color("#94dcf0"),"motif":"lantern","status":"BETA: four-legged vault beast proxy; authored Lantern Jackal needed"},
-	"frostbell_hollows":{"texture":BRUTE,"display_size":Vector2(254,170),"accent":Color("#ade9ff"),"motif":"chime","status":"BETA: jawed brute proxy; authored Belljaw needed"},
+	"cinder_crown":{"texture_path":"res://art/sprites/enemies/beta/furnace_regent.png","display_size":Vector2(258,258),"flip_h":false,"offset":Vector2(-15,0),"shadow":72.0,"attack_distance":12.0,"entrance_scale":.92,"recoil_limit":.04,"accent":Color("#ff985d"),"motif":"furnace","status":"Existing Furnace Regent intro identity; articulated combat phases pending"},
+	"moonfen":{"texture_path":"res://art/sprites/enemies/beta/lantern_jackal.svg","anchor":Vector2(.5,.885),"display_size":Vector2(248,248),"accent":Color("#94dcf0"),"motif":"lantern","status":"Original profile-facing lantern jackal; final painted animation pending"},
+	"frostbell_hollows":{"texture_path":"res://art/sprites/enemies/beta/belljaw.svg","anchor":Vector2(.5,.885),"display_size":Vector2(264,264),"accent":Color("#ade9ff"),"motif":"chime","status":"Original toothed frost/chime beast; final painted animation pending"},
 	"sunken_gearworks":{"texture":VAULT,"source":Rect2(724,0,724,724),"baseline":80.0,"display_size":Vector2(266,266),"accent":Color("#77d6c2"),"motif":"engine","status":"BETA: armoured golem proxy; authored Drowned Engine needed"},
 	"starfall_archive":{"texture":HEXER,"display_size":Vector2(202,240),"accent":Color("#dfbcff"),"motif":"script","status":"BETA: caster proxy; authored Redactor needed"},
 	"nullglass_expanse":{"texture":KNIGHT,"display_size":Vector2(258,215),"accent":Color("#c7a4ff"),"motif":"mirror","status":"BETA: armoured proxy; authored Unchosen needed"},
@@ -35,3 +35,65 @@ static func texture_for(data: Dictionary) -> Texture2D:
 	if data.source.size.x>0:
 		var crop:=AtlasTexture.new(); crop.atlas=texture; crop.region=data.source; return crop
 	return texture
+
+static func motion(g, preparation: float, direction: int) -> Dictionary:
+	var active: float=clampf(g.combat_presentation.boss_action_time/.55,0,1)
+	var commit: float=sin((1-active)*PI) if active>0 else 0
+	var action: String=g.combat_presentation.boss_action if active>0 else str(preload("res://boss_patterns.gd").next(g).text)
+	var offset:=Vector2.ZERO
+	var tilt:=0.0
+	var scale:=Vector2.ONE
+	if action in ["RECOVER","COOLING"] or g.boss_recovery>0:
+		offset.y=5; tilt=direction*-.04; scale=Vector2(1.025,.975)
+	elif action in ["POUNCE","BITE","LANTERN BITE","CLAWS","HOOK"]:
+		offset=Vector2(direction*(-preparation*8+commit*16),-commit*11)
+		tilt=direction*(-preparation*.055+commit*.11)
+		scale=Vector2(1+commit*.04,1-preparation*.06)
+	elif "SWEEP" in action or action in ["PAGE CUT","GLASS CUT","TAIL SWEEP"]:
+		tilt=direction*(-preparation*.07+commit*.09)
+		scale=Vector2(1+commit*.045,1-commit*.025)
+	elif action in ["HAMMER","PISTON","BELL STRIKE","ANCHOR SLAM","CROWN STRIKE"]:
+		offset.y=-preparation*9+commit*6
+		tilt=direction*(-preparation*.055+commit*.08)
+		scale=Vector2(1+commit*.025,1-commit*.035)
+	elif "BREATH" in action or action in ["STEAM VENT","TRIBUTE FLARE","ERASE","SHATTER"]:
+		offset.x=direction*(preparation*3-commit*7)
+		tilt=direction*(preparation*.025-commit*.055)
+		scale=Vector2(1+preparation*.02,1+preparation*.025)
+	else:
+		offset.y=-preparation*5
+		tilt=direction*(-preparation*.025+commit*.04)
+	return {"offset":offset,"tilt":tilt,"scale":scale}
+
+static func draw_identity(g, pos: Vector2, factor: float) -> void:
+	# Original bounded props give fitting older bodies a regional silhouette.
+	# These are presentation attachments, not a claim of new painted body art.
+	g.draw_set_transform(pos,0,Vector2(-g.enemy_facing_at(pos.x),1)*factor)
+	match g.campaign_id:
+		"skyhook_bastion":
+			for link in range(8):
+				var point:=Vector2(55-link*14,-68+link*12)
+				point.x+=sin(g.run_time*3+link*.3)*2
+				g.draw_arc(point,6,0,TAU,12,Color("#a2bec9"),3,true)
+			g.draw_polyline(PackedVector2Array([Vector2(-44,24),Vector2(-53,39),Vector2(-72,39),Vector2(-77,22),Vector2(-63,13)]),Color("#bfd9e1"),7,true)
+		"nullglass_expanse":
+			var points:=PackedVector2Array([Vector2(39,-146),Vector2(94,-66),Vector2(58,31),Vector2(16,-61),Vector2(39,-146)])
+			g.draw_colored_polygon(points,Color("#342f5766")); g.draw_polyline(points,Color("#b7a1e5"),4,true)
+			g.draw_polyline(PackedVector2Array([Vector2(40,-133),Vector2(50,-77),Vector2(36,-47),Vector2(60,9)]),Color("#cfe3fa"),2,true)
+		"sunken_gearworks":
+			g.draw_polyline(PackedVector2Array([Vector2(48,-35),Vector2(63,-87),Vector2(50,-100),Vector2(51,-132)]),Color("#8c9f9a"),11,true)
+			g.draw_line(Vector2(43,-132),Vector2(59,-132),Color("#c3cab1"),5,true)
+			for steam in range(3):
+				var t:=fmod(g.run_time*.65+steam*.31,1)
+				g.draw_circle(Vector2(51+t*10,-138-t*25),3+t*4,Color("#b7e8e3",(1-t)*.28))
+		"starfall_archive":
+			for page in range(4):
+				var point:=Vector2(39+page*10,-97+page*20+sin(g.run_time*2+page)*4)
+				g.draw_colored_polygon(PackedVector2Array([point,point+Vector2(26,-6),point+Vector2(30,23),point+Vector2(4,29)]),Color("#d9c6a7"))
+				for line in range(3): g.draw_line(point+Vector2(6,5+line*5),point+Vector2(22,1+line*5),Color("#695375"),1.5,true)
+		"first_hoard":
+			var point:=Vector2(-17,-117+sin(g.run_time*1.3)*3)
+			g.draw_polyline(PackedVector2Array([point+Vector2(-32,18),point+Vector2(-38,-12),point+Vector2(-13,1),point+Vector2(0,-20),point+Vector2(14,1),point+Vector2(37,-12),point+Vector2(30,18)]),Color("#e7c975"),7,true)
+			g.draw_line(point+Vector2(-27,25),point+Vector2(-3,25),Color("#b7955b"),4,true)
+			g.draw_line(point+Vector2(7,25),point+Vector2(28,25),Color("#b7955b"),4,true)
+	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

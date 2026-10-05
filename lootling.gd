@@ -2366,6 +2366,8 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if enemy_is_boss or enemy_is_miniboss:
 		var action := BossPatterns.next(self)
 		combat_presentation.boss_action=str(action.text); combat_presentation.boss_action_time=.55
+		var boss_cue: String=preload("res://boss_audio_identity.gd").event(campaign_id,str(action.text))
+		if not boss_cue.is_empty(): play_audio_event(boss_cue)
 		if enemy_is_boss or enemy_is_miniboss:
 			match campaign_id:
 				"mossglass_wilds":
@@ -2401,7 +2403,8 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if enemy_variant_id == "regenerating" and enemy_attack_count % 3 == 0:
 		enemy_hp = minf(enemy_max_hp,enemy_hp+minf(12,enemy_max_hp*.025))
 		add_float("REKNITTING",Vector2(310,370),enemy_variant_color,14)
-	play_audio_event({"skirmisher":"enemy_skirmisher", "tank":"enemy_tank", "hexer":"enemy_hexer"}.get(enemy_archetype, "enemy_skirmisher"))
+	if not enemy_is_boss and not enemy_is_miniboss:
+		play_audio_event({"skirmisher":"enemy_skirmisher", "tank":"enemy_tank", "hexer":"enemy_hexer"}.get(enemy_archetype, "enemy_skirmisher"))
 	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
 		play_audio_event("ward")
 		var ward := enemy_max_hp * 0.07
@@ -3675,7 +3678,7 @@ func draw_arena(shake: Vector2) -> void:
 		enemy_color = Color.WHITE
 	var special_entering := enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
-		var display_enemy_name: String=enemy_name.to_upper()+ (" • BETA" if enemy_is_boss and campaign_id!="act_i" else "")
+		var display_enemy_name: String=enemy_name.to_upper()
 		var enemy_name_size := 19
 		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
 		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0

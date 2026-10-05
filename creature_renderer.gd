@@ -54,6 +54,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	g.draw_circle(Vector2.ZERO,55 if creature else 39,Color("#07101f88"))
 	if pose.depth == "back": draw_fitted_weapon(g, root, pose)
 	g.draw_set_transform_matrix(root)
+	if pose.get("sprite_rig",false): preload("res://combat_sprite_rig.gd").draw_limbs(g,pose,false)
 	var rect: Rect2 = pose.body_rect
 	var edge_size := 2.0 if creature else 1.5
 	for edge in [Vector2(-edge_size,0),Vector2(edge_size,0),Vector2(0,-edge_size),Vector2(0,edge_size)]:
@@ -64,7 +65,11 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		glow.a = .20+tier*.05
 		g.draw_circle(Vector2(pose.core),5+tier,Color(glow,.14))
 		g.draw_arc(Vector2(pose.core),8+tier,g.run_time*2,g.run_time*2+2.3,12,Color(accent,.45),1)
+	if pose.get("sprite_rig",false): preload("res://combat_sprite_rig.gd").draw_limbs(g,pose,true)
 	if pose.depth == "front": draw_fitted_weapon(g, root, pose)
+	if pose.get("sprite_rig",false):
+		g.draw_set_transform_matrix(root)
+		preload("res://combat_sprite_rig.gd").draw_hands(g,pose)
 	# Only a real authored foreground layer may cover the weapon with a hand.
 	if pose.foreground is Texture2D:
 		g.draw_set_transform_matrix(root)
@@ -175,10 +180,10 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	var glasswing: bool=preload("res://enemy_motion.gd").glasswing(g)
 	var regional: Dictionary=preload("res://regional_enemy_presentation.gd").profile(g.enemy_name) if not g.enemy_is_boss and not g.enemy_is_miniboss else {}
 	if not regional.is_empty():
-		texture=regional.texture; sprite_rect=Rect2(Vector2(-regional.size.x*.5,54-regional.size.y),regional.size); atlas_region=Rect2(); shadow_radius=regional.size.x*.28
+		texture=regional.texture; sprite_rect=Rect2(Vector2(-regional.size.x*.5,66-regional.size.y*.89),regional.size); atlas_region=Rect2(); shadow_radius=regional.size.x*.28
 	if not regional.is_empty() and regional.hover:
 		pos.y-=17+sin(g.run_time*4)*5
-	if glasswing:
+	if glasswing and regional.get("body","") != "bat":
 		preload("res://enemy_motion.gd").draw_wings(g,pos,extra_scale)
 	# A restrained local value break keeps painted creatures readable against the rich ruin art.
 	g.draw_set_transform(pos + Vector2(0, -5), 0.0, Vector2(1.0, 0.76) * extra_scale)
@@ -195,10 +200,10 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		var stage_color: Color=boss_data.accent
 		stage_color.a=.38
 		g.draw_set_transform(pos, 0.0, Vector2.ONE * extra_scale)
-		g.draw_arc(Vector2(0,-22), 108.0, halo_angle, halo_angle + 4.55, 38, stage_color, 2.0)
+		g.draw_line(Vector2(-69,58),Vector2(69,58),Color(stage_color,.20),2,true)
 		for seal_index in range(3):
 			var seal_angle := halo_angle + .35 + seal_index * 2.09
-			var seal_pos := Vector2(0,-22)+Vector2.RIGHT.rotated(seal_angle)*108.0
+			var seal_pos := Vector2(-56+seal_index*56,58)
 			match str(boss_data.motif):
 				"script", "mirror":
 					g.draw_polyline(PackedVector2Array([seal_pos+Vector2(0,-7),seal_pos+Vector2(5,0),seal_pos+Vector2(0,7),seal_pos+Vector2(-5,0),seal_pos+Vector2(0,-7)]),stage_color.lightened(.3),1.5,true)
@@ -209,6 +214,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 					g.draw_circle(seal_pos,4,stage_color.lightened(.3))
 					g.draw_circle(seal_pos,9,Color(stage_color, .12))
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if g.enemy_is_boss: BossPresentation.draw_identity(g,pos,extra_scale)
 	var tint: Color=regional.get("tint",Color.WHITE)
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
 		tint = Color("#fff2ca")
@@ -238,11 +244,8 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	var commit: float=clampf(g.enemy_attack_anim/.18,0,1)
 	var direction: int=g.enemy_facing_at(pos.x)
 	if g.enemy_is_boss:
-		var action: String=g.combat_presentation.boss_action if commit>0 else str(preload("res://boss_patterns.gd").next(g).text)
-		if action=="ROOT SWEEP": personality_scale*=Vector2(1+preparation*.035+commit*.05,1-preparation*.025-commit*.045); personality_tilt+=direction*(preparation*-.025+commit*.055)
-		elif action=="THORN CAST": personality_tilt+=direction*(-preparation*.06+commit*.08)
-		elif action=="MIRROR CHARGE": pos.y-=preparation*6; personality_scale.y+=preparation*.025; personality_tilt+=sin(g.run_time*17)*preparation*.018
-		elif not g.boss_recovery>0: personality_tilt+=direction*(-preparation*.035+commit*.07)
+		var motion: Dictionary=BossPresentation.motion(g,preparation,direction)
+		pos+=Vector2(motion.offset); personality_tilt+=float(motion.tilt); personality_scale*=Vector2(motion.scale)
 	elif g.enemy_archetype=="tank":
 		personality_tilt+=direction*(-preparation*.11+commit*.16)
 		personality_scale*=Vector2(1+preparation*.035,1-preparation*.04+commit*.035)
@@ -253,7 +256,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		personality_tilt+=direction*(-preparation*.04+commit*.08)
 		pos.y-=preparation*4
 	if not regional.is_empty() and regional.hover: pos.y+=commit*18
-	g.draw_set_transform(pos + Vector2(0, 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
+	g.draw_set_transform(pos + Vector2(0, 64 if not regional.is_empty() else 49), 0.0, Vector2(1.0, 0.28) * extra_scale)
 	g.draw_circle(Vector2.ZERO, shadow_radius, Color(0.015, 0.025, 0.06, 0.52 * color.a))
 	var cast_charge := clampf(1.0 - float(g.enemy_attack_clock) / 0.30, 0.0, 1.0) if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else 0.0
 	if cast_charge > 0.0:

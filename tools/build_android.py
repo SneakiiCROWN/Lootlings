@@ -99,7 +99,7 @@ def main():
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
         assert 'assets/art/production_pose_manifest.json' in entries
-        for script in ['contextual_dialogue','combat_presentation','regional_enemy_presentation','relic_reveal_fx','impact_presentation','enemy_motion','retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
+        for script in ['combat_sprite_rig','resident_sprite_rig','boss_audio_identity','contextual_dialogue','combat_presentation','regional_enemy_presentation','relic_reveal_fx','impact_presentation','enemy_motion','retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries
@@ -126,6 +126,10 @@ def main():
                      'imported_sha256': hashlib.sha256(bow_bytes).hexdigest(),
                      'runtime_size_limit': 512, 'matches_local_import': True}
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
+        for source in list((ROOT/'art/sprites/combat_rigs').glob('*.svg')) + [ROOT/'art/sprites/enemies/beta'/(name+'.svg') for name in ['mossmaw','glasswing','bell_bat','rime_pup','coal_pup','null_hound','lantern_toad','sluice_crab','brassback','forge_beetle','inkling','pagewyrm','pressure_sprite','crown_shard','hookwing','lantern_jackal','belljaw']]:
+            config=source.with_suffix('.svg.import').read_text(encoding='utf-8')
+            relative=re.search(r'^path="res://([^"]+)"',config,re.MULTILINE).group(1)
+            assert apk.read('assets/'+relative)==(ROOT/relative).read_bytes(), 'Stale combat layer: '+str(source)
         imported_poses = {}
         for pose in ['greatsword_ready', 'greatsword_strike']:
             source = ROOT/'art/sprites/poses/relic_beast'/ (pose + '.png')

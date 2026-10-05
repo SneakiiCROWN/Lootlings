@@ -177,6 +177,16 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		if appearance.get(slot) != authored.wardrobe_requires[slot]:
 			authored = {}
 			break
+	var sprite_rig: bool = authored.is_empty()
+	if sprite_rig:
+		actor = actor.duplicate()
+		actor.texture = preload("res://combat_sprite_rig.gd").texture(str(actor.id))
+		actor.body_rect = Rect2(-96,-128,192,192)
+		actor.tint = Color.WHITE
+		actor.core = Vector2(-2,-17)
+		var contacts: Array = preload("res://combat_sprite_rig.gd").contacts(g,action,subtype)
+		actor.primary_hand = contacts[0]
+		actor.secondary_hand = contacts[1]
 	var facing := float(g.combat_facing())
 	var creature := not Avatar.is_wanderer(g.profile)
 	var scale: Vector2 = Vector2(action.scale) * (1.10 if not relic_motion else 1.0)
@@ -192,7 +202,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	if relic_motion:
 		var feet := Vector2(0,float(authored.get("feet_baseline",53)))
 		root.origin += feet-root.basis_xform(feet)
-	elif creature:
+	elif creature or sprite_rig:
 		var feet := Vector2(0,float(actor.body_rect.end.y))
 		root.origin += feet-root.basis_xform(feet)
 		if g.player_x < g.target_player_x()-4.0:
@@ -228,8 +238,26 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 					rect = Rect2(-Vector2(geometry.grip)*size,size)
 					support_status = "authored_two_hand"
 	var support := primary+((secondary_grip-Vector2(geometry.grip))*size*weapon_scale).rotated(angle)
+	if sprite_rig:
+		if stance.handling == "two_hand":
+			# Keep the support arm anatomical on long polearm follow-through.
+			# Move the whole held weapon inward, preserving both grip contacts.
+			var reach: Vector2=support-Vector2(-18,-34)
+			if subtype!="bow" and reach.length()>82:
+				primary-=reach.normalized()*(reach.length()-82)
+				support=primary+((secondary_grip-Vector2(geometry.grip))*size*weapon_scale).rotated(angle)
+			secondary = support
+			support_status = "rigged_two_hand"
+		elif stance.handling == "paired": support_status = "rigged_paired"
+		if subtype == "bow":
+			var upper := rect.position+rect.size*Vector2(.888,.258)
+			var lower := rect.position+rect.size*Vector2(.411,.887)
+			var forward := Vector2.RIGHT.rotated(-angle)*weapon_scale
+			var nock := (upper+lower)*.5-forward*float(action.anticipate)*14
+			if g.attack_anim > .16: nock += forward*sin((.22-g.attack_anim)*80)*2
+			secondary = primary+(nock*weapon_scale).rotated(angle)
 	var socket := (rect.position+Vector2(geometry.socket)*size)*weapon_scale
-	return {"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
+	return {"sprite_rig":sprite_rig,"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
 		"texture":authored.get("texture",actor.texture),"tint":actor.tint,"hand":primary,"primary_hand":primary,
 		"secondary_hand":secondary,"secondary_grip":support,"grip_span":primary.distance_to(support),
 		"weapon_rect":rect,"weapon_rotation":angle,"weapon_scale":weapon_scale,"weapon_type":subtype,"stance":stance.group,"geometry":geometry,
@@ -242,7 +270,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"opposite_art_required":opposite_art_required,
 		"authored_facing":str(authored.get("facing_support","neutral_mirrored")),
 		"body_profile":actor.category,"actor_id":actor.id,"head_bounds":actor.head_bounds,
-		"baked_conflict":not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe_by_stance.get(str(stance.group),actor.wardrobe)}
+		"baked_conflict":not sprite_rig and not str(actor.baked).is_empty(),"wardrobe":actor.wardrobe_by_stance.get(str(stance.group),actor.wardrobe)}
 
 static func world_position(g) -> Vector2:
 	if RelicMotion.applies(g): return Vector2(float(g.player_x),512)

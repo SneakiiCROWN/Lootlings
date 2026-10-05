@@ -90,7 +90,7 @@ func review() -> void:
 		for frame in range(6):
 			machine.elapsed=frame*.25; machine.progress=minf(1,machine.elapsed/machine.reel_seconds); machine.stage="rolling"; machine.queue_redraw()
 			await capture("spinner_%s_motion_%02d" % [rarity.to_lower(),frame])
-		machine.stage="anticipation"; machine.progress=1; machine.queue_redraw(); await capture("spinner_%s_anticipation" % rarity.to_lower())
+		machine.stage="anticipation"; machine.elapsed=machine.reel_seconds+preload("res://relic_spin_catalog.gd").anticipation(rarity)*.75; machine.progress=1; machine.queue_redraw(); await capture("spinner_%s_anticipation" % rarity.to_lower())
 		game.retention.spin_reward={"kind":"item" if rarity=="RED" else "material","rarity":rarity,"amount":1 if rarity=="RED" else 2,"display_name":"Gravebloom Staff" if rarity=="RED" else "Local materials"}; game.retention.spin_kind="item" if rarity=="RED" else "material"; game.retention.spin_message="DEV VISUAL PREVIEW - no reward granted"; game.retention.lock_spin(); machine.stage="reveal"; machine.burst=1; machine.queue_redraw(); await capture("spinner_%s_reveal" % rarity.to_lower())
 	game.retention.machine.stop(); game.retention.panel.visible=false; game.retention.dimmer.visible=false
 	game.show_hideout(); await sample_performance("phase4e_home",false)
