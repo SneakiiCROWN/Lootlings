@@ -88,19 +88,47 @@ func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 		texture = WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),texture)
 	if pose.weapon_type == "bow": draw_bow_string(g,pose)
 	g.draw_texture_rect(texture,Rect2(pose.weapon_rect),false,Color.WHITE)
+	if pose.weapon_type in ["staff","wand","orb"]: draw_cast_connection(g,pose)
+
+func draw_cast_connection(g, pose: Dictionary) -> void:
+	var charge: float=float(pose.action.anticipate)
+	var impact: float=float(pose.action.impact)
+	var energy: float=maxf(charge,impact)
+	if energy<=.02: return
+	var rect: Rect2=pose.weapon_rect
+	var socket: Vector2=rect.position+Vector2(pose.geometry.socket)*rect.size
+	var color: Color=preload("res://projectile_presentation.gd").COLORS.get(preload("res://projectile_presentation.gd").identity(g),Color("#a8acff"))
+	var forward:=Vector2.RIGHT.rotated(-float(pose.weapon_rotation))*Vector2(pose.weapon_scale)
+	# Charge is attached to the actual gem/socket. Orb energy comes from the
+	# casting palm rather than floating independently of the actor.
+	if pose.weapon_type=="orb":
+		var midpoint:=socket*.5+forward.orthogonal()*sin(g.run_time*13)*3*charge
+		g.draw_polyline(PackedVector2Array([Vector2.ZERO,midpoint,socket]),Color(color,energy*.65),1.8,true)
+	for shard in range(3):
+		var direction:=forward.rotated(shard*TAU/3+g.run_time*2)
+		var inner: float=5+charge*3
+		g.draw_line(socket+direction*inner,socket+direction*(inner+3+energy*5),Color(color,energy*.8),1.5,true)
+	if impact>.1:
+		g.draw_line(socket,socket+forward*(9+impact*18),Color(color,impact*.85),2,true)
 
 func draw_paired_weapons(g, root: Transform2D, pose: Dictionary) -> void:
 	var dagger: bool=pose.weapon_type=="daggers"
-	var texture: Texture2D=preload("res://art/sprites/weapons/paired_dagger_beta.svg") if dagger else preload("res://art/sprites/weapons/claws_held.png")
-	var held_size:=Vector2(34,76) if dagger else Vector2(48,42)
-	var grip:=Vector2(.5,.82) if dagger else Vector2(.21,.44)
-	var contacts: Array=[pose.primary_hand,pose.secondary_hand]
+	var texture: Texture2D=preload("res://art/sprites/weapons/paired_dagger_painted.png") if dagger else preload("res://art/sprites/weapons/claws_held.png")
+	var held_size:=Vector2(42,107) if dagger else Vector2(48,42)
+	var grip:=Vector2(.247659,.791269) if dagger else Vector2(.21,.44)
 	for hand in range(2):
-		var leading: bool=hand==int(g.attack_sequence)%2
-		var release: float=float(pose.action.release)*(1 if leading else .45)
-		var angle: float=(-.28 if hand==0 else .28)+release*(.65 if hand==0 else -.65)-float(pose.action.anticipate)*.18
-		g.draw_set_transform_matrix(root*Transform2D(angle,Vector2(-1 if hand==1 else 1,1),0,contacts[hand]))
+		g.draw_set_transform_matrix(paired_weapon_transform(g,root,pose,hand))
 		g.draw_texture_rect(texture,Rect2(-grip*held_size,held_size),false,Color.WHITE)
+
+func paired_weapon_transform(g, root: Transform2D, pose: Dictionary, hand: int) -> Transform2D:
+	var dagger: bool=pose.weapon_type=="daggers"
+	var leading: bool=hand==int(g.attack_sequence)%2
+	var release: float=float(pose.action.release)*(1 if leading else .45)
+	var angle: float
+	if dagger: angle=(.40 if hand==0 else -.55)+release*(1.1 if hand==0 else 1.8)-float(pose.action.anticipate)*.28
+	else: angle=(-.28 if hand==0 else .28)+release*(.65 if hand==0 else -.65)-float(pose.action.anticipate)*.18
+	# Both claw axes face the target. Only a curved dagger is mirrored locally.
+	return root*Transform2D(angle,Vector2(-1 if dagger and hand==1 else 1,1),0,pose.primary_hand if hand==0 else pose.secondary_hand)
 
 func draw_bow_string(g, pose: Dictionary) -> void:
 	var rect: Rect2 = pose.weapon_rect

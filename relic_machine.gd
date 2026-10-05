@@ -1,6 +1,7 @@
 extends Control
 const UI=preload("res://lootlings_ui.gd")
 const Catalog=preload("res://relic_spin_catalog.gd")
+const FRAME=preload("res://art/ui/relic_machine_frame.svg")
 signal locked
 signal completed
 signal cue(event: String)
@@ -56,7 +57,7 @@ func _draw() -> void:
 	var tier:=Catalog.tier(rarity)
 	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
 	var center:=size*.5
-	draw_style_box(UI.panel_style(Color("#070e20"),Color("#b99759"),14),Rect2(Vector2.ZERO,size))
+	draw_texture_rect(FRAME,Rect2(Vector2.ZERO,size),false)
 	# Mechanical cheeks, axle bolts and reel rims distinguish the engine from
 	# an ordinary reward menu without new raster art or an extra particle node.
 	for side in [0,1]:
@@ -81,13 +82,15 @@ func _draw() -> void:
 			var crest:=PackedVector2Array([Vector2(center.x-32,35),Vector2(center.x-39,8),Vector2(center.x-14,22),Vector2(center.x,3),Vector2(center.x+14,22),Vector2(center.x+39,8),Vector2(center.x+32,35)])
 			draw_colored_polygon(crest,Color(tint,energy*.85))
 			draw_polyline(crest,Color("#fff0cb",energy*.75),1.5,true)
-	var aperture:=Rect2(18,38,size.x-36,size.y-66)
+	var aperture:=Rect2(34*size.x/376,44*size.y/224,size.x-68*size.x/376,142*size.y/224)
 	draw_style_box(Catalog.flat_style(Color("#030917"),tint.darkened(.3)),aperture)
 	aperture_layer.position=aperture.position+Vector2(2,2); aperture_layer.size=aperture.size-Vector2(4,4); aperture_layer.queue_redraw()
-	draw_rect(Rect2(19,39,size.x-38,24),Color(0.02,.04,.08,.7))
-	draw_rect(Rect2(19,size.y-49,size.x-38,20),Color(0.02,.04,.08,.7))
-	draw_line(Vector2(7,center.y),Vector2(17,center.y),Color("#ffda72"),4)
-	draw_line(Vector2(size.x-17,center.y),Vector2(size.x-7,center.y),Color("#ffda72"),4)
+	# Actual lock axis is the reel center; bevelled teeth point at that axis.
+	var lock_y: float=aperture.get_center().y
+	for side in [-1,1]:
+		var x: float=aperture.position.x-5 if side<0 else aperture.end.x+5
+		var tooth:=PackedVector2Array([Vector2(x+side*8,lock_y-8),Vector2(x-side*7,lock_y),Vector2(x+side*8,lock_y+8)])
+		draw_colored_polygon(tooth,Color("#f0d495")); draw_polyline(PackedVector2Array([tooth[0],tooth[1],tooth[2]]),Color("#7c5732"),2,true)
 	if stage=="anticipation":
 		draw_arc(center,42,0,TAU,48,Color(tint,.35),3)
 		if tier>=3:
@@ -107,10 +110,10 @@ func _draw() -> void:
 		if tier==5:
 			var points:=PackedVector2Array([center+Vector2(-65,-35),center+Vector2(-40,-42),center+Vector2(-45,-20),center+Vector2(-14,-35)])
 			draw_polyline(points,Color(tint,burst),2)
-	var caption: String="CROWNROOT AWAKENS" if tier==5 and stage=="settled" else ""
-	draw_string(ThemeDB.fallback_font,Vector2(10,25),caption,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,14,tint)
-	var status: String="TURN THE SEALS" if stage=="idle" else "SEALS ALIGNING…" if stage=="rolling" else "HOLD…" if stage=="anticipation" else rarity
-	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-20),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,13,tint)
+	var status: String="TURN THE SEALS" if stage=="idle" else "SEALS ALIGNING…" if stage=="rolling" else "HOLD…" if stage=="anticipation" else "CROWNROOT AWAKENS" if tier==5 and stage=="settled" else rarity
+	# Dark lower plinth, away from the bright aperture bevel and header gem.
+	draw_style_box(UI.panel_style(Color("#0b151b"),Color("#8c754c"),3),Rect2(center.x-72,size.y-25,144,21))
+	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-10),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,11,tint.lightened(.2))
 func draw_reels() -> void:
 	var tier:=Catalog.tier(rarity)
 	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
@@ -142,10 +145,18 @@ func draw_reels() -> void:
 		else:
 			var punch: float=1+burst*[.015,.03,.05,.075,.10,.14][tier] if not reduced_motion else 1.0
 			var shake:=Vector2(sin(elapsed*35)*2*burst,0) if tier==5 and not reduced_motion else Vector2.ZERO
-			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,30*punch,tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
+			var seal_radius: float=42 if tier==5 and reel==1 and stage=="reveal" else 34 if tier==4 and stage=="reveal" else 30
+			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,seal_radius*punch,tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
 		if reel<2: aperture_layer.draw_line(Vector2(x+width*.5,0),Vector2(x+width*.5,aperture_layer.size.y),Color("#22304b"),1)
 func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_name: String) -> void:
-	var diamond:=PackedVector2Array([point+Vector2(0,-radius),point+Vector2(radius,0),point+Vector2(0,radius),point+Vector2(-radius,0)])
-	layer.draw_colored_polygon(diamond,tint.darkened(.75))
-	layer.draw_polyline(PackedVector2Array([diamond[0],diamond[1],diamond[2],diamond[3],diamond[0]]),tint,2)
-	UI.draw_icon(layer.get_canvas_item(),UI.icon(icon_name),Rect2(point-Vector2.ONE*radius*.60,Vector2.ONE*radius*1.2))
+	# Engraved relic medallions: depth, inset dark face, lit upper rim and runes.
+	layer.draw_circle(point+Vector2(0,3),radius+2,Color("#00040c"))
+	layer.draw_circle(point,radius,Color("#6a5035").lerp(tint,.35))
+	layer.draw_arc(point,radius-1,PI,TAU,24,Color("#ead7a5").lerp(tint,.3),3,true)
+	layer.draw_arc(point,radius-1,0,PI,24,tint.darkened(.55),3,true)
+	layer.draw_circle(point,radius-6,Color("#101b29"))
+	layer.draw_arc(point,radius-7,0,TAU,32,Color(tint,.7),1,true)
+	for rune in range(8):
+		var direction:=Vector2.RIGHT.rotated(rune*TAU/8)
+		layer.draw_line(point+direction*(radius-4),point+direction*(radius-1),Color("#f3dca8"),1,true)
+	UI.draw_icon(layer.get_canvas_item(),UI.icon(icon_name),Rect2(point-Vector2.ONE*radius*.56,Vector2.ONE*radius*1.12))
