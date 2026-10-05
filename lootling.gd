@@ -3568,8 +3568,8 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		var element := "lightning" if proc_name == "ARC" else "fire" if proc_name in ["WILDFIRE","BURN"] else "poison" if proc_name in ["POISON","VENOM"] else "neutral"
 		proc_texture = LootlingsUI.icon("core_"+element); proc_timer = .7
 		return
-	if enemy_encounter.active and pos.x >= 275.0 and pos.x <= 380.0 and not text_value.contains("SCRIP"):
-		pos.x += enemy_encounter.target_position().x - ENEMY_X
+	if pos.x >= 275.0 and pos.x <= 380.0 and not text_value.begins_with("-") and not text_value.contains("SCRIP"):
+		pos.x += target_combat_visual_position().x - ENEMY_X
 	var is_dot := size_value <= 15
 	var prefix := text_value.get_slice(" ", 0)
 	var lane := "damage"
