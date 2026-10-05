@@ -3,6 +3,7 @@ extends RefCounted
 const PATH := "res://art/production_pose_manifest.json"
 static var entries: Array = []
 static var initialized := false
+const PHASE_KEYS := {"IDLE":"IDLE","WINDUP":"ANTICIPATE","ANTICIPATE":"ANTICIPATE","STRIKE":"ATTACK","CAST":"ATTACK","ATTACK":"ATTACK","IMPACT":"IMPACT","RECOVER":"RECOVER","HURT":"HURT"}
 
 static func rows() -> Array:
 	if not initialized:
@@ -21,11 +22,13 @@ static func pack(actor: String, stance: String) -> Dictionary:
 static func facing_pack(actor: String, stance: String, facing: String) -> Dictionary:
 	var ready := {}
 	var release := {}
+	var additional := {}
 	for row in rows():
 		if row.actor != actor or row.stance != stance or row.production_status != "authored_beta" or row.facing != facing:
 			continue
 		if row.phase == "READY": ready = row
 		elif row.phase == "RELEASE": release = row
+		elif PHASE_KEYS.has(str(row.phase)): additional[PHASE_KEYS[str(row.phase)]]=row
 	if ready.is_empty() or release.is_empty(): return {}
 	var first := resolve(ready)
 	var last := resolve(release)
@@ -33,6 +36,11 @@ static func facing_pack(actor: String, stance: String, facing: String) -> Dictio
 	first.phase_variants = {"ATTACK":last,"IMPACT":last}
 	if actor == "relic_beast" and stance == "heavy_two_hand":
 		first.phase_variants["RECOVER"] = last
+	# Approved phase exports ride the existing clocks/sockets. Missing optional
+	# assets leave the good READY/RELEASE pair intact; no portrait-cutting fallback.
+	for phase in additional:
+		var resolved:=resolve(additional[phase])
+		if not resolved.is_empty(): first.phase_variants[phase]=resolved
 	return first
 
 static func resolve(row: Dictionary) -> Dictionary:
