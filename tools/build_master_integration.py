@@ -15,7 +15,12 @@ def dump(p,d):p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encodi
 def slug(v):return re.sub(r'[^a-z0-9]+','_',str(v).lower()).strip('_')
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
-    runtime=json.loads(read(ROOT/'.godot_test_data/master-integration/runtime.json'))
+    raw_snapshot=ROOT/'.godot_test_data/master-integration/runtime.json'
+    if not raw_snapshot.exists():raw_snapshot=OUT/'MASTER_RUNTIME_CATALOG_SNAPSHOT.json'
+    runtime=json.loads(read(raw_snapshot))
+    for filename,info in runtime.items():
+        assert info.get('source_sha256')==hashlib.sha256(read(ROOT/filename).encode('utf-8')).hexdigest(),'Runtime snapshot stale; rerun isolated master_runtime_inventory.gd: '+filename
+    dump(OUT/'MASTER_RUNTIME_CATALOG_SNAPSHOT.json',runtime)
     missing=json.loads(read(OUT/'phase4e/extraction/MISSING_ART_MANIFEST.json'))
     extraction=json.loads(read(ROOT/'art/production/phase4e/extraction_manifest.json'))
     pose_sources={r['asset_path']:r for r in json.loads(read(ROOT/'art/production_pose_manifest.json'))['entries']+json.loads(read(ROOT/'art/production/phase4e/runtime_manifest.json'))['entries'] if r.get('asset_path')}

@@ -21,7 +21,8 @@ func _initialize() -> void:
 		var script: Script=load("res://"+filename)
 		var methods := []
 		for method in script.get_script_method_list(): methods.append(str(method.name))
-		inventory[filename]={"constants":clean(script.get_script_constant_map()),"methods":methods}
+		var source_hash=FileAccess.get_file_as_string("res://"+filename).replace("\r\n","\n").trim_prefix("\ufeff").sha256_text()
+		inventory[filename]={"constants":clean(script.get_script_constant_map()),"methods":methods,"source_sha256":source_hash}
 	DirAccess.make_dir_recursive_absolute("res://.godot_test_data/master-integration")
 	var output=FileAccess.open("res://.godot_test_data/master-integration/runtime.json",FileAccess.WRITE)
 	output.store_string(JSON.stringify(inventory,"\t")); output.close()
