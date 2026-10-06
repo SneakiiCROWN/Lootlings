@@ -68,12 +68,40 @@ def validate():
                     elif any(im.getpixel(point)[3] for point in [(0,0),(im.width-1,0),(0,im.height-1),(im.width-1,im.height-1)]):
                         errors.append('Boss frame has opaque background or clipped canvas corners: '+path)
     # Runtime source must never name the excluded boards/cutout experiment.
+    extraction=ROOT/'art/production/phase4e/extraction_manifest.json'
+    if extraction.exists():
+        extracted=json.loads(extraction.read_text(encoding='utf-8'))['entries']
+        allowed_icons={'bow','claws','crossbow','daggers','greatsword','greataxe','maul','orb','sling','spear','staff','wand','core_fire','core_lightning','gear_rune'}
+        paths=set();body_paths=set()
+        for row in extracted:
+            p=resource(row['asset_path']);s=resource(row['source']);kind=row['kind']
+            paths.add(row['asset_path'])
+            if kind=='body':body_paths.add(row['asset_path'])
+            if not row['asset_path'].startswith('res://art/production/phase4e/') or not p.exists() or sha_file(p)!=row.get('asset_sha256'):
+                errors.append('Extracted asset path/hash mismatch: '+row['asset_path'])
+            if not s.exists() or sha_file(s)!=row['source_sha256']:errors.append('Extracted canonical source drift: '+row['source'])
+            if kind in ['body','expression_portrait'] and not row['source'].startswith('art/reference/canonical/characters/'):
+                errors.append('Body/portrait cannot derive from rejected boards: '+row['id'])
+            if kind in ['weapons','hud'] and (row['id'] not in allowed_icons or row['source']!='art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png'):
+                errors.append('Unapproved reference element extraction: '+row['id'])
+            if p.exists():
+                with Image.open(p) as im:
+                    if im.mode!='RGBA' or im.size!=tuple(row['canvas']):errors.append('Invalid extracted RGBA canvas: '+row['id'])
+                    if row.get('transparent') and any(im.getpixel(point)[3] for point in [(0,0),(im.width-1,0),(0,im.height-1),(im.width-1,im.height-1)]):errors.append('Clipped extracted canvas corners: '+row['id'])
+        runtime=json.loads((ROOT/'art/production/phase4e/runtime_manifest.json').read_text(encoding='utf-8'))['entries']
+        for row in runtime:
+            expected='ANTICIPATE' if row['asset_path'].endswith('gloomlet_windup_right.png') else 'IDLE'
+            if row['asset_path'] not in body_paths or row['phase']!=expected or row['facing'] not in ['right_only','left_only']:
+                errors.append('Unproven extracted phase/view routing: '+row['asset_path'])
     for p in ROOT.glob('*.gd'):
         if re.search(r'res://art/(?:reference/phase4e_handoff|sprites/enemies/handoff)/',p.read_text(encoding='utf-8-sig')):
             errors.append('Runtime references rejected handoff art: '+p.name)
     if errors: raise ValueError('\n'.join(errors))
     return {'frozen_sources':len(registry['frozen_sources']),'rejected_boards':len(registry['references']),
             'preserved_pose_rows':len(poses),'approved_boss_frames':len(bosses),'art_accepted':False}
+
+def sha_file(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 if __name__=='__main__':
     print(json.dumps(validate(),indent=2))

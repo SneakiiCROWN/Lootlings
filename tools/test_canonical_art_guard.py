@@ -34,5 +34,13 @@ class CanonGuard(unittest.TestCase):
         self.check_mutation(guard.ROOT/'art/production_pose_manifest.json',mutate)
     def test_boss_board_cannot_claim_approval(self):
         self.check_mutation(guard.ROOT/'art/production_boss_manifest.json',lambda d:d['entries'].append(dict(region='act_i',state='idle',action='',facing='right',production_status='owner_approved_beta',owner_approval='test-only fake',asset_path='res://art/reference/phase4e_handoff/approved_references/01_Hoard_Dragon_Canonical_Reference.png',source_reference='res://art/reference/phase4e_handoff/approved_references/01_Hoard_Dragon_Canonical_Reference.png')))
+    def test_body_extraction_cannot_use_board_identity(self):
+        def mutate(d):
+            row=next(r for r in d['entries'] if r['kind']=='body')
+            row['source']='art/reference/phase4e_handoff/approved_references/03_Gloomlet_Combat_Canonical_Reference.png'
+            row['source_sha256']=guard.sha_file(guard.ROOT/row['source'])
+        self.check_mutation(guard.ROOT/'art/production/phase4e/extraction_manifest.json',mutate)
+    def test_idle_export_cannot_claim_an_attack(self):
+        self.check_mutation(guard.ROOT/'art/production/phase4e/runtime_manifest.json',lambda d:d['entries'][0].update(phase='ATTACK'))
 
 if __name__=='__main__': unittest.main()

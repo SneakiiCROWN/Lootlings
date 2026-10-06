@@ -3,6 +3,27 @@ extends RefCounted
 const PATH := "res://art/production_pose_manifest.json"
 static var entries: Array = []
 static var initialized := false
+static var extracted_rows: Array = []
+static var extracted_loaded := false
+static var extracted_resolved := {}
+
+static func extracted_phase(actor: String, subtype: String, phase: String, facing: float) -> Dictionary:
+	if not extracted_loaded:
+		extracted_loaded = true
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/runtime_manifest.json"))
+		if data is Dictionary: extracted_rows = data.get("entries",[])
+	for row in extracted_rows:
+		if row.actor == actor and subtype in row.weapon_types and row.phase == phase and row.facing == ("left_only" if facing<0 else "right_only"):
+			# Canvas commands retain RIDs, not this local Texture2D reference.
+			# Keep source textures alive across frames, not just QA sampling.
+			if not extracted_resolved.has(row.asset_path):
+				var result := resolve(row)
+				result.baked_weapon = row.get("baked_weapon","")
+				result.extracted_idle = phase == "IDLE"
+				result.extracted_pose = true
+				extracted_resolved[row.asset_path] = result
+			return extracted_resolved[row.asset_path]
+	return {}
 const PHASE_KEYS := {"IDLE":"IDLE","WINDUP":"ANTICIPATE","ANTICIPATE":"ANTICIPATE","STRIKE":"ATTACK","CAST":"ATTACK","ATTACK":"ATTACK","IMPACT":"IMPACT","RECOVER":"RECOVER","HURT":"HURT"}
 
 static func rows() -> Array:
@@ -46,7 +67,7 @@ static func facing_pack(actor: String, stance: String, facing: String) -> Dictio
 static func resolve(row: Dictionary) -> Dictionary:
 	# Boards/reference crops must never become runtime bodies through a JSON edit.
 	var path: String=str(row.asset_path)
-	if not path.begins_with("res://art/sprites/") or ".." in path: return {}
+	if not (path.begins_with("res://art/sprites/") or path.begins_with("res://art/production/phase4e/lootlings/")) or ".." in path: return {}
 	if not ResourceLoader.exists(str(row.asset_path)): return {}
 	var rect := Rect2(Vector2(row.body_rect[0],row.body_rect[1]),Vector2(row.body_rect[2],row.body_rect[3]))
 	var result := {"texture":load(str(row.asset_path)),"body_rect":rect,

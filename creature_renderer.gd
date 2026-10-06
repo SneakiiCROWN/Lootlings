@@ -75,6 +75,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 
 func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
+	if pose.get("baked_weapon","") == pose.weapon_type: return
 	if pose.weapon_type in ["daggers","claws"]:
 		draw_paired_weapons(g,root,pose)
 		return

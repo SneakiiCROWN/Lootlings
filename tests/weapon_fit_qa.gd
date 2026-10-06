@@ -98,7 +98,7 @@ func run_qa() -> void:
 						"opposite_art_required":pose.opposite_art_required,"sprite_rig":pose.get("sprite_rig",false)})
 					if phase == 0.0:
 						var side: String="left" if facing<0 else "right"
-						if pose.support_status in ["authored_pose_required","rigged_two_hand","rigged_paired"]: pending_by_facing[side]+=1
+						if pose.support_status in ["authored_pose_required","rigged_two_hand","rigged_paired","partial_authored_paired"]: pending_by_facing[side]+=1
 						if pose.support_status=="authored_pose_required": technical_by_facing[side]+=1
 			game.player_facing = 1; game.forced_facing_test=1
 			game.attack_anim = 0
@@ -122,7 +122,7 @@ func run_qa() -> void:
 				var held: Texture2D = Weapons.presentation_texture("sling","held",load("res://art/sprites/weapons/ranger_bow.png"))
 				assert(held.resource_path == "res://art/sprites/weapons/sling_held.png")
 				assert(held.get_image().get_pixelv(Vector2i(Fit.GEOMETRY.sling.grip*512)).a > .5)
-				assert(Weapons.presentation_texture("sling","inventory",held).get_size() == Vector2(256,256))
+				assert(Weapons.presentation_texture("sling","inventory",held).resource_path == "res://art/production/phase4e/weapons/sling_inventory.png")
 				if id == "mosskin":
 					var socket: Vector2 = Fit.sample(game).projectile
 					# Compare to the live rig grip, not the retired portrait socket.

@@ -3720,7 +3720,8 @@ func draw_zone_ambient() -> void:
 
 func draw_hud() -> void:
 	draw_rect(Rect2(0,0,480,86),Color("#081329b8"))
-	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
+	var portrait_expression := "sad" if player_flash>0 else "excited" if player_reward_flash>0 else "surprised" if special_intro_timer>0 else "cheeky" if crit_flash>0 else "angry" if attack_anim>0 else "determined"
+	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile,portrait_expression), Rect2(12, 17, 42, 42))
 	var actor_name:=Avatar.display_name(profile).to_upper()
 	draw_string(title_font, Vector2(60, 36), actor_name, HORIZONTAL_ALIGNMENT_LEFT, 170, LootlingsUI.fitted_font_size(title_font,actor_name,170,18,12), Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()

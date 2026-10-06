@@ -172,6 +172,9 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	authored = authored.get("resolved_phases",{}).get(str(action.phase),authored)
 	var opposite_art_required: bool = float(g.combat_facing()) < 0 and authored.get("facing_support","") == "right_only"
 	if opposite_art_required: authored = {}
+	# Exact extracted idles do not stand in for missing action/movement views.
+	if authored.is_empty() and absf(g.player_x-g.target_player_x()) < 4.0:
+		authored = Authored.extracted_phase(str(actor.id),subtype,str(action.phase),float(g.combat_facing()))
 	var appearance: Dictionary = g.profile.get("wanderer",{}).get("appearance",{}).get("components",{})
 	for slot in authored.get("wardrobe_requires",{}):
 		if appearance.get(slot) != authored.wardrobe_requires[slot]:
@@ -190,7 +193,8 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var facing := float(g.combat_facing())
 	var creature := not Avatar.is_wanderer(g.profile)
 	var scale: Vector2 = Vector2(action.scale) * (1.10 if not relic_motion and not sprite_rig else 1.0)
-	if creature:
+	if authored.get("extracted_pose",false): scale=Vector2.ONE
+	if creature and not authored.get("extracted_pose",false):
 		scale *= Vector2(1.08,.92) if g.squash > 0 else Vector2.ONE
 		if hurt: scale *= Vector2(1.06,.94)
 	var idle := sin(clampf(float(g.player_idle_reaction)/.34,0,1)*PI)*.022*float(g.player_idle_reaction_direction) if creature else 0.0
@@ -203,7 +207,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		var feet := Vector2(0,float(authored.get("feet_baseline",53)))
 		root.origin += feet-root.basis_xform(feet)
 	elif creature or sprite_rig:
-		var feet := Vector2(0,float(actor.body_rect.end.y))
+		var feet := Vector2(0,float(authored.get("feet_baseline",actor.body_rect.end.y)))
 		root.origin += feet-root.basis_xform(feet)
 		if g.player_x < g.target_player_x()-4.0:
 			root.origin.y -= absf(sin(float(g.run_time)*8))*3.0
@@ -223,10 +227,15 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	angle += float(action.anticipate)*float(stance.ready)+float(action.release)*release_angle
 	var rect := Rect2(-Vector2(geometry.grip)*size,size)
 	var weapon_scale := Vector2(-1 if bool(geometry.get("mirror",false)) else 1,1)
+	if authored.get("extracted_pose",false) and authored.get("facing_support","")=="left_only":
+		weapon_scale.x *= -1
+		angle *= -1
+		base_angle *= -1
 	var support_status := "not_required"
 	var secondary_grip: Vector2 = geometry.get("secondary_grip",stance.secondary_grip)
 	if stance.handling in ["two_hand","paired"]:
 		support_status = "authored_pose_required"
+		if authored.get("extracted_pose",false) and stance.handling == "paired": support_status = "partial_authored_paired"
 		if bool(authored.get("supports_two_hand",false)) and secondary is Vector2:
 			var span: Vector2 = (secondary_grip-Vector2(geometry.grip))*size*weapon_scale
 			var target: Vector2 = secondary-primary
@@ -263,7 +272,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		"secondary_hand":secondary,"secondary_grip":support,"grip_span":primary.distance_to(support),
 		"weapon_rect":rect,"weapon_rotation":angle,"weapon_scale":weapon_scale,"weapon_type":subtype,"stance":stance.group,"geometry":geometry,
 		"handling":stance.handling,"support_status":support_status,
-		"depth":authored.get("depth","front"),"foreground":authored.get("foreground",null),
+		"depth":authored.get("depth","front"),"foreground":authored.get("foreground",null),"baked_weapon":authored.get("baked_weapon",""),"extracted_idle":authored.get("extracted_idle",false),"extracted_pose":authored.get("extracted_pose",false),
 		"weapon_origin":root*primary,
 		"ready_transform":root*Transform2D(base_angle+float(stance.ready),weapon_scale,0,primary),
 		"release_transform":root*Transform2D(base_angle+release_angle,weapon_scale,0,primary),

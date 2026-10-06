@@ -1426,7 +1426,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	queued_dialogue_context=""; queued_dialogue_priority=-1
 	speech_label.text=voice_name+"
 "+line
-	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile))
+	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile,"curious"))
 	speech_role.text={"Salvager":"FORGE  ›","Relic Keeper":"SHRINE  ›","Archivist":"ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
 	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE
 	speech_visible_timer=0.0

@@ -7,3 +7,7 @@
 builds/
 __pycache__/
 *.pyc
+
+# Raw handoff archives are preserved locally; locked unpacked sources are tracked.
+/art/reference/phase4e_handoff.zip
+/art/reference/phase4e_handoff/approved_references.zip

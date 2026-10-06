@@ -1,0 +1,1687 @@
+{
+  "authority": "Existing locked repository character sheets; compatible weapon/HUD elements specifically allowed by owner extraction directive; latest external sheet ignored",
+  "method": "Original source RGB; alpha-only masking; body exports uniformly resampled, portraits/icons native size; no repaint, synthesis or mirroring",
+  "entries": [
+    {
+      "id": "emberhorn_happy",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        641,
+        762,
+        729,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_happy.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "71f02ba8acefbc8656a21dc225ad3c55b35484aba5df898bf0c047ee0369d551"
+    },
+    {
+      "id": "emberhorn_cheeky",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        737,
+        762,
+        825,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_cheeky.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "ef64ce365282953e5d59f0b1e3c0ad422ee067819b15500dd95cff49a1d0969d"
+    },
+    {
+      "id": "emberhorn_angry",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        833,
+        762,
+        921,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_angry.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "9ce073d2c798e006d3e81b57e62127059513cbefc5e203c7ff2887f251d8a98a"
+    },
+    {
+      "id": "emberhorn_excited",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        929,
+        762,
+        1017,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_excited.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "79127417b83e1dee09676316e437a18695539ec5386f439ec0a6efd60252e231"
+    },
+    {
+      "id": "emberhorn_sad",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        641,
+        872,
+        729,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_sad.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "a74605a40655189ba0f10ae588707b2c15cfc737b937521d95ab240b942612b9"
+    },
+    {
+      "id": "emberhorn_curious",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        737,
+        872,
+        825,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_curious.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "3ac3d5f4de3caa91b58b77984d637ee959fa1afbb76ccffd69288c94201b79e8"
+    },
+    {
+      "id": "emberhorn_surprised",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        833,
+        872,
+        921,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_surprised.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "1d7c1f65be8a6a59138113c0067ddb699671e9d15edddf4271cf06326f09f638"
+    },
+    {
+      "id": "emberhorn_determined",
+      "actor": "emberhorn",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        929,
+        872,
+        1017,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/emberhorn_determined.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "778c56af9ac64468a28aa63e18e5311b156c296e014ffda92cc096a82199881f"
+    },
+    {
+      "id": "emberhorn_idle_right",
+      "actor": "emberhorn",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        166,
+        765,
+        318,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; no move/attack/hurt/opposite-view manufacture",
+      "baked_weapon": "",
+      "uniform_scale": 2.608695652173913,
+      "primary_anchor": [
+        0.718155570652174,
+        0.7496603260869565
+      ],
+      "secondary_anchor": [
+        0.45320991847826086,
+        0.7598505434782609
+      ],
+      "feet_baseline": 64,
+      "asset_sha256": "af377ed01a7e511e438fb566bcc52421da8f6e9a2c2bb9200d2922ad125938bc"
+    },
+    {
+      "id": "emberhorn_idle_left",
+      "actor": "emberhorn",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+      "source_sha256": "1e3ceec8910c535a5bda79eb0d01ee07032eed16b46019e96057bc71f1124c16",
+      "crop": [
+        312,
+        765,
+        462,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_idle_left.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Actual left side illustration; IDLE wand/orb only; hidden support hand remains unavailable",
+      "uniform_scale": 2.742857142857143,
+      "primary_anchor": [
+        0.3251674107142857,
+        0.6848214285714286
+      ],
+      "secondary_anchor": [
+        0.3251674107142857,
+        0.6848214285714286
+      ],
+      "feet_baseline": 58,
+      "asset_sha256": "2b95507df10a1fe70f1ae49c58d2a46414ed95c285b9eae57766bc9ce6627a12"
+    },
+    {
+      "id": "mosskin_happy",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        641,
+        762,
+        729,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_happy.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "9264b0d252a9a21b9578c8af921cb325d0e3881564b460e9c28c5a3c3c500c7b"
+    },
+    {
+      "id": "mosskin_cheeky",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        737,
+        762,
+        825,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_cheeky.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "e06b3c03cc710b8fa138dc21f759df90ad2d3087043199a54228597ff92a7f3b"
+    },
+    {
+      "id": "mosskin_angry",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        833,
+        762,
+        921,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_angry.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "420ac236f87c8b39ee1fdff2d80774d7e9634b1bdcc20819e16f25cdecb52d1e"
+    },
+    {
+      "id": "mosskin_excited",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        929,
+        762,
+        1017,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_excited.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "f95d6767eb9a01d66fcb929ce2f65b53ce85f97a41ab29099573430febadbc11"
+    },
+    {
+      "id": "mosskin_sad",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        641,
+        872,
+        729,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_sad.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "717e067973e360260319ed001028d532dc795250128440c645189e9f9833f150"
+    },
+    {
+      "id": "mosskin_curious",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        737,
+        872,
+        825,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_curious.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "c9f15e7eda51a55b0c3ca71b2c6cd1549a483d8d8fd98a5ad2d53adb4c55f6a4"
+    },
+    {
+      "id": "mosskin_surprised",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        833,
+        872,
+        921,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_surprised.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "657ea338c79684a407c204131922dca56af99c81ebf5c8da78dc004811be5ae9"
+    },
+    {
+      "id": "mosskin_determined",
+      "actor": "mosskin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        929,
+        872,
+        1017,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/mosskin_determined.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "f1140ea5438a6cfa93f1ea72891a58b5d9563cedcc6c862b6097904a027975ce"
+    },
+    {
+      "id": "mosskin_idle_right",
+      "actor": "mosskin",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        166,
+        765,
+        318,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; no move/attack/hurt/opposite-view manufacture",
+      "baked_weapon": "shield",
+      "uniform_scale": 2.711864406779661,
+      "primary_anchor": [
+        0.4801708156779661,
+        0.767478813559322
+      ],
+      "secondary_anchor": [
+        0.771484375,
+        0.7251059322033898
+      ],
+      "feet_baseline": 64,
+      "asset_sha256": "9651b77b86a515778813b784fcb3c70045ba3d75b14b28b2cb9d48c87fc6cbcd"
+    },
+    {
+      "id": "mosskin_idle_left",
+      "actor": "mosskin",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png",
+      "source_sha256": "a0d99f6afa3917213780eb7f389c0f02cd770c0a568f337ab8f51a0af5d615ef",
+      "crop": [
+        312,
+        765,
+        462,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_idle_left.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Actual left side illustration; IDLE wand/orb only; hidden support hand remains unavailable",
+      "uniform_scale": 2.6666666666666665,
+      "primary_anchor": [
+        0.3450520833333333,
+        0.7604166666666666
+      ],
+      "secondary_anchor": [
+        0.3450520833333333,
+        0.7604166666666666
+      ],
+      "feet_baseline": 58,
+      "asset_sha256": "e145f3ec8173b9e74d31f795ee35b5dec020d27362885795578d324076ecedc3"
+    },
+    {
+      "id": "moonkip_happy",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        641,
+        762,
+        729,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_happy.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "298a306a9c31ae131faf29d1b2405de680da1f083b83fd88f395ea5329653d26"
+    },
+    {
+      "id": "moonkip_cheeky",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        737,
+        762,
+        825,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_cheeky.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "efeab89027ebfa61746c538d3f250142af856f59e9a1716c4e4784c36eb0d9b9"
+    },
+    {
+      "id": "moonkip_angry",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        833,
+        762,
+        921,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_angry.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "d3ddaa4860913e7d648c3d6ea6f0b885931b55aa9690b104536a314af87cd8a1"
+    },
+    {
+      "id": "moonkip_excited",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        929,
+        762,
+        1017,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_excited.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "f1bbc4f527a97f39edb9f39a12cd74a8702c49325cd52db551740ff8f84bae13"
+    },
+    {
+      "id": "moonkip_sad",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        641,
+        872,
+        729,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_sad.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "ed752c072eaba31f99b4e51ed64dd5533e064c5fdd802bd8929aa19c8c60b148"
+    },
+    {
+      "id": "moonkip_curious",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        737,
+        872,
+        825,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_curious.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "1be4f0ae4eea650595c75976532b46f732be2bfd4e99a515843590989e9c3c1e"
+    },
+    {
+      "id": "moonkip_surprised",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        833,
+        872,
+        921,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_surprised.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "78fde53a8429cb773ccbe2607f93eab6e1236c0dd52edffffca83bb5aac3a378"
+    },
+    {
+      "id": "moonkip_determined",
+      "actor": "moonkip",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        929,
+        872,
+        1017,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/moonkip_determined.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "e6248850a95d3f8028e8e87af8e070a2eb197c0da3c404a801670b54b8f1e4aa"
+    },
+    {
+      "id": "moonkip_idle_right",
+      "actor": "moonkip",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        160,
+        765,
+        316,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; no move/attack/hurt/opposite-view manufacture",
+      "baked_weapon": "daggers",
+      "uniform_scale": 2.6519337016574585,
+      "primary_anchor": [
+        0.7120705283149171,
+        0.761567679558011
+      ],
+      "secondary_anchor": [
+        0.39611748964088395,
+        0.7201312154696132
+      ],
+      "feet_baseline": 64,
+      "asset_sha256": "d43694eb93efdaa0f3a7e2d12730cc9b00c9b055eb727923a7643d9327549a43"
+    },
+    {
+      "id": "pebblewyrm_happy",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        641,
+        762,
+        729,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_happy.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "9edc2b5baa30ddd813e6273d224b23a2bd80aa83de6eb983bfaf4f34185405e2"
+    },
+    {
+      "id": "pebblewyrm_cheeky",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        737,
+        762,
+        825,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_cheeky.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "afbc144e788ca0273b67f0f7427a84347538430d63826e6229481ef5aba2e349"
+    },
+    {
+      "id": "pebblewyrm_angry",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        833,
+        762,
+        921,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_angry.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "546045854aaa85f71a2c049264fd299b7b13124497c3ffaa1d5f9b4112cfb649"
+    },
+    {
+      "id": "pebblewyrm_excited",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        929,
+        762,
+        1017,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_excited.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "7af0fa64ae35f7812494ecb75930f3375ae54f06eaf1316f896ce538ec03e0f2"
+    },
+    {
+      "id": "pebblewyrm_sad",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        641,
+        872,
+        729,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_sad.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "807cb40b6da79f70f625c6227497b7e038e42361a1a02099519dbc03f52dd20f"
+    },
+    {
+      "id": "pebblewyrm_curious",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        737,
+        872,
+        825,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_curious.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "1d5bafe3b07a4f5b596566f59b67e01b7a174c6a88b307ff38875c9624f19b94"
+    },
+    {
+      "id": "pebblewyrm_surprised",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        833,
+        872,
+        921,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_surprised.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "8437d1114053db01c595aca4a03adced0a26910c4ae99033c50de51bad050547"
+    },
+    {
+      "id": "pebblewyrm_determined",
+      "actor": "pebblewyrm",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        929,
+        872,
+        1017,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/pebblewyrm_determined.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "8c1e4e8dc9b108ad96e47c718db2bd12b4806d48047ac2b321a813a7f34f1afb"
+    },
+    {
+      "id": "pebblewyrm_idle_right",
+      "actor": "pebblewyrm",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+      "source_sha256": "ed8fa63f169f83d5ff2b9310d788042dc5cac9895032734bc4d8e67c7f9aacfa",
+      "crop": [
+        166,
+        765,
+        318,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; no move/attack/hurt/opposite-view manufacture",
+      "baked_weapon": "",
+      "uniform_scale": 2.622950819672131,
+      "primary_anchor": [
+        0.787109375,
+        0.7382172131147541
+      ],
+      "secondary_anchor": [
+        0.42337986680327866,
+        0.7484631147540983
+      ],
+      "feet_baseline": 64,
+      "asset_sha256": "5b0767bd8c351c2de1782f8372f13152c2faac74e845cd3b1f9dc32bb6e8a11f"
+    },
+    {
+      "id": "glimmerfin_happy",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        641,
+        762,
+        729,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_happy.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "a4ac133c7078b82c9342909cc3990305f14e827e5bf44af34705fe1d4e118634"
+    },
+    {
+      "id": "glimmerfin_cheeky",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        737,
+        762,
+        825,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_cheeky.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "9da9c64fbed0fc6be16e5e9cbc448490402d6f5afad1c3d2043593a9f7a9a5b6"
+    },
+    {
+      "id": "glimmerfin_angry",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        833,
+        762,
+        921,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_angry.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "dffa4e002d974cfd794697310e4bfb9fe1075f372b7f20dc794f265f9e0c4809"
+    },
+    {
+      "id": "glimmerfin_excited",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        929,
+        762,
+        1017,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_excited.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "6d99fd88285dba565c45ac08862935c944fb8274b64b3eecc827a746d72f6129"
+    },
+    {
+      "id": "glimmerfin_sad",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        641,
+        872,
+        729,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_sad.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "6cb40fadaeab4cf01f19fc5db26ccb69e5af5b3ea4135ca5f61ba28b6e58285f"
+    },
+    {
+      "id": "glimmerfin_curious",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        737,
+        872,
+        825,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_curious.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "0326abbcfc3fa5890166e9de59079006953d08633e2ccc8c7fe6982c4b4e67fd"
+    },
+    {
+      "id": "glimmerfin_surprised",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        833,
+        872,
+        921,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_surprised.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "83024bf29133523e16b2e4a2f7a0b884e92fb2f94363e1bcffddcd95ad889401"
+    },
+    {
+      "id": "glimmerfin_determined",
+      "actor": "glimmerfin",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        929,
+        872,
+        1017,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/glimmerfin_determined.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "9f56e55333a843138761e82f3a6648fc8dd8a65c3be12e5f654c80385960856a"
+    },
+    {
+      "id": "glimmerfin_idle_right",
+      "actor": "glimmerfin",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "source_sha256": "6d1c884c86abfac6b787381b38370d72287687b815c2768f6d76bd6b4ca7d62f",
+      "crop": [
+        160,
+        765,
+        316,
+        956
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; no move/attack/hurt/opposite-view manufacture",
+      "baked_weapon": "",
+      "uniform_scale": 2.727272727272727,
+      "primary_anchor": [
+        0.8169389204545454,
+        0.7397017045454545
+      ],
+      "secondary_anchor": [
+        0.5079900568181818,
+        0.7077414772727272
+      ],
+      "feet_baseline": 64,
+      "asset_sha256": "ee5064e151b95221e9a4c8621e1c4e2b0029a7a0388149c79baabe2d8a46b1c4"
+    },
+    {
+      "id": "gloomlet_happy",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        641,
+        762,
+        729,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_happy.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "abfa57b7c22db125fc5bde00c984438b30cce4c8e43122b77c739482235a76c4"
+    },
+    {
+      "id": "gloomlet_cheeky",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        737,
+        762,
+        825,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_cheeky.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "82dfed5913eedcc5b22801edaa5d69b9b37a987f0dfc0f709b859a47cfe365cc"
+    },
+    {
+      "id": "gloomlet_angry",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        833,
+        762,
+        921,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_angry.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "6d274d2126ecef100ef2d8400622832381a13686a0cfcc4a1a1f359c26e52e54"
+    },
+    {
+      "id": "gloomlet_excited",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        929,
+        762,
+        1017,
+        848
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_excited.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "e19638ffa46d485255a153da86c651f29b0af7b86166487e671f985a43520d78"
+    },
+    {
+      "id": "gloomlet_sad",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        641,
+        872,
+        729,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_sad.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "24396467251646a25b72c9618af0666323c80a68cb2f7bb070146165fe013b2e"
+    },
+    {
+      "id": "gloomlet_curious",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        737,
+        872,
+        825,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_curious.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "6e06f5b43a25bac8f1b030c33ee215edc3efc1b44ce01cfa4fb4c72bee471676"
+    },
+    {
+      "id": "gloomlet_surprised",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        833,
+        872,
+        921,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_surprised.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "6eb58fdd25ae0b4aa76d6c32eddf1ba6d596b7858a34c64cedd015986867771a"
+    },
+    {
+      "id": "gloomlet_determined",
+      "actor": "gloomlet",
+      "kind": "expression_portrait",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        929,
+        872,
+        1017,
+        958
+      ],
+      "asset_path": "res://art/production/phase4e/ui/expressions/gloomlet_determined.png",
+      "canvas": [
+        88,
+        86
+      ],
+      "transparent": false,
+      "integrated": true,
+      "restrictions": "Contextual UI portrait only; not a body, outfit unlock, or combat state",
+      "asset_sha256": "3794da470805b61c417b53b5821806e3ad262e5907b5e5a9ad3a3a2f30ae3b80"
+    },
+    {
+      "id": "gloomlet_idle_right",
+      "actor": "gloomlet",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        150,
+        760,
+        322,
+        957
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; no move/attack/hurt/opposite-view manufacture",
+      "baked_weapon": "",
+      "uniform_scale": 2.608695652173913,
+      "primary_anchor": [
+        0.8131793478260869,
+        0.7853260869565217
+      ],
+      "secondary_anchor": [
+        0.40047554347826086,
+        0.734375
+      ],
+      "feet_baseline": 64,
+      "asset_sha256": "963428267c05f1822b8b41e6a3b3684851b82740efd264d3ac1a01412e226587"
+    },
+    {
+      "id": "relic_beast_idle_right",
+      "actor": "relic_beast",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+      "source_sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "IDLE right only; established alpha guide; canonical RGB; uniform downsample",
+      "alpha_guide": "art/sprites/relic_beast_base.png",
+      "asset_sha256": "28e9d6f8fa097d08cb95cd3fa5c99fc9a8d9359f1fd766aa87d6d443542c889d"
+    },
+    {
+      "id": "gloomlet_windup_right",
+      "actor": "gloomlet",
+      "kind": "body",
+      "source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "source_sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f",
+      "crop": [
+        563,
+        536,
+        747,
+        697
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Existing crouched unarmed attack-sequence illustration; claws anticipation only, no fake release or opposite view",
+      "primary_anchor": [
+        0.8529411764705883,
+        0.8976332720588236
+      ],
+      "secondary_anchor": [
+        0.5496323529411765,
+        0.9141773897058824
+      ],
+      "uniform_scale": 2.823529411764706,
+      "asset_sha256": "a5fe133c33addb3279e2e2f40106e3f6d9d8c27e4b2669d42046abc8cb6cfbd5"
+    },
+    {
+      "id": "bow",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        599,
+        299,
+        664,
+        374
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/bow_inventory.png",
+      "canvas": [
+        65,
+        75
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "241092ad0e8140ae799677a666a30267a11fb022a7e534e0928adac77da5a674"
+    },
+    {
+      "id": "claws",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        666,
+        299,
+        730,
+        374
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/claws_inventory.png",
+      "canvas": [
+        64,
+        75
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "8b64eb65ed732cd36451d4e583f75b3a5527f34e92f6a0cf5d1c86baebd8b81e"
+    },
+    {
+      "id": "crossbow",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        733,
+        300,
+        800,
+        374
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/crossbow_inventory.png",
+      "canvas": [
+        67,
+        74
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "836c2903ad7231371cd8b4fb5c529bc898478813d7ffe977ee1276ff52f652c4"
+    },
+    {
+      "id": "daggers",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        800,
+        298,
+        860,
+        374
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/daggers_inventory.png",
+      "canvas": [
+        60,
+        76
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "7c5087d9c153644b1ad201f61b21d9155cc8d35994d15364c885997d2c06e2f4"
+    },
+    {
+      "id": "greatsword",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        861,
+        298,
+        927,
+        375
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/greatsword_inventory.png",
+      "canvas": [
+        66,
+        77
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "3d983c232239c0bf40dba25ce2039f59aced2a52a7f452a7508a7ccb4a1725a1"
+    },
+    {
+      "id": "greataxe",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        928,
+        298,
+        1000,
+        375
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/greataxe_inventory.png",
+      "canvas": [
+        72,
+        77
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "fee4c9cb7556af3268180e5dc08cc8df27b9b00ed16b6e2eba4e3e33274407e0"
+    },
+    {
+      "id": "maul",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        599,
+        418,
+        663,
+        481
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/maul_inventory.png",
+      "canvas": [
+        64,
+        63
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "6662ed0f3dc22e718218f901b8a16ec1d54289e76a8f436b1990d26fc0417738"
+    },
+    {
+      "id": "orb",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        665,
+        418,
+        730,
+        481
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/orb_inventory.png",
+      "canvas": [
+        65,
+        63
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "6cd73f0ecadb08bccd3f210a87f1f74d908a7526da82f9d6292102f7de8de043"
+    },
+    {
+      "id": "sling",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        733,
+        418,
+        796,
+        481
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/sling_inventory.png",
+      "canvas": [
+        63,
+        63
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "4955bb851e651b8d7436ab2c608e86e805233b14ba63039e019587bf218dccd3"
+    },
+    {
+      "id": "spear",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        797,
+        418,
+        860,
+        481
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/spear_inventory.png",
+      "canvas": [
+        63,
+        63
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "f2e2f9de2676d1220367c8246f1e917b665ff3ea2b96d405b31e8d33577b9f70"
+    },
+    {
+      "id": "staff",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        861,
+        418,
+        930,
+        481
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/staff_inventory.png",
+      "canvas": [
+        69,
+        63
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "93a3a0955ac3e20a3efb3360afe3aa5dec60d0c20f415d252f10696846bc4072"
+    },
+    {
+      "id": "wand",
+      "kind": "weapons",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        930,
+        417,
+        1000,
+        482
+      ],
+      "asset_path": "res://art/production/phase4e/weapons/wand_inventory.png",
+      "canvas": [
+        70,
+        65
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "fe54b6963a33356d57f77ac84c45ac6b6844bc001cd0cd671e05e7b76beb5df7"
+    },
+    {
+      "id": "core_fire",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1318,
+        449,
+        1358,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/core_fire.png",
+      "canvas": [
+        40,
+        42
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "a1a96b13ba3d3855031c9f3994156d945f468f99afedf29a89de4b295f54408f"
+    },
+    {
+      "id": "core_lightning",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1440,
+        449,
+        1480,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/core_lightning.png",
+      "canvas": [
+        40,
+        42
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "96e7b7f66efa54aa631abf369d210577335bdb0a45ff109af8c676c7854b7508"
+    },
+    {
+      "id": "gear_rune",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1485,
+        448,
+        1527,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/gear_rune.png",
+      "canvas": [
+        42,
+        43
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
+      "asset_sha256": "34ae425702bda1fe8df4e703ffd6c716a1dd3138593a4a941cfd5bb15bd2112a"
+    }
+  ]
+}

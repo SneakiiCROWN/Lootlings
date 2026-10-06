@@ -16,8 +16,10 @@ static func texture(profile: Dictionary) -> Texture2D:
 static func tint(profile: Dictionary) -> Color:
 	return Color.WHITE if is_wanderer(profile) else Lootlings.presentation_tint(str(profile.get("current_lootling_id", "relic_beast")))
 
-static func portrait(profile: Dictionary) -> Texture2D:
+static func portrait(profile: Dictionary, expression: String = "determined") -> Texture2D:
 	if not is_wanderer(profile):
+		var extracted := preload("res://phase4e_extracted_art.gd").portrait(str(profile.get("current_lootling_id","relic_beast")),expression)
+		if extracted != null: return extracted
 		return texture(profile)
 	var id := preset_id(profile)
 	if not portraits.has(id):

@@ -524,7 +524,7 @@ func _draw() -> void:
 	elif current_screen in ["profile", "profile_create", "settings"]:
 		var actor_texture := Avatar.texture(profile)
 		if actor_texture != null:
-			draw_texture_rect(Avatar.portrait(profile), Rect2(352, 4, 116, 116), false, Avatar.tint(profile))
+			draw_texture_rect(Avatar.portrait(profile,"happy"), Rect2(352, 4, 116, 116), false, Avatar.tint(profile))
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:

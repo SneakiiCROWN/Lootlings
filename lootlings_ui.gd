@@ -37,6 +37,7 @@ static func item_texture(item: Dictionary) -> Texture2D:
 
 static func icon(name: String) -> Texture2D:
 	var path := name if name.begins_with("res://") else "res://art/ui/icons/%s.png" % name
+	if name in ["core_fire","core_lightning","gear_rune"]: path="res://art/production/phase4e/hud/"+name+".png"
 	if not icon_cache.has(path):
 		icon_cache[path] = load(path)
 	return icon_cache[path]

@@ -100,6 +100,20 @@ def main():
     assert '(Key=0x7f030015): (color) #ff0d182d' in resource_dump, 'Compatibility splash background is not branded navy'
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
+        extracted_manifest = json.loads((ROOT/'art/production/phase4e/extraction_manifest.json').read_text(encoding='utf-8'))
+        extracted_imports = {}
+        for record in extracted_manifest['entries']:
+            source = ROOT/record['asset_path'].removeprefix('res://')
+            config = source.with_suffix('.png.import').read_text(encoding='utf-8')
+            relative = re.search(r'^path="res://([^"]+)"', config, re.MULTILINE).group(1)
+            payload = apk.read('assets/'+relative)
+            assert payload == (ROOT/relative).read_bytes(), 'Stale extracted canonical asset: '+record['id']
+            extracted_imports[record['id']] = hashlib.sha256(payload).hexdigest()
+        for manifest in ['extraction_manifest.json','runtime_manifest.json']:
+            relative = 'art/production/phase4e/'+manifest
+            assert apk.read('assets/'+relative) == (ROOT/relative).read_bytes(), 'Stale extraction manifest'
+        for script in ['phase4e_extracted_art','authored_pose_manifest','weapon_fit_catalog','avatar_presentation']:
+            assert 'assets/'+script+'.gdc' in entries
         assert 'assets/art/production_pose_manifest.json' in entries
         assert 'assets/art/production_boss_manifest.json' in entries
         assert not any('phase4e_handoff' in entry for entry in entries), 'Reference/rejected art must never be packaged'
@@ -166,6 +180,8 @@ def main():
               'audio_license_manifest_exported': True, 'version_code': int(exported_version.group(1)), 'version_name': exported_version.group(2), 'splash_theme_patch': splash_patch,
               'final_imported_bow': final_bow,
               'final_imported_residents': imported_residents,
+              'current_extracted_canonical_assets': extracted_imports,
+              'extracted_canonical_count': len(extracted_imports),
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))
