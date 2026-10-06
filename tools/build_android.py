@@ -103,7 +103,7 @@ def main():
         assert 'assets/art/production_pose_manifest.json' in entries
         assert 'assets/art/production_boss_manifest.json' in entries
         assert not any('phase4e_handoff' in entry for entry in entries), 'Reference/rejected art must never be packaged'
-        for script in ['combat_controls','combat_tap_meter','combat_sprite_rig','resident_sprite_rig','boss_audio_identity','contextual_dialogue','combat_presentation','regional_enemy_presentation','relic_reveal_fx','impact_presentation','enemy_motion','retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
+        for script in ['resident_art_catalog','combat_controls','combat_tap_meter','combat_sprite_rig','resident_sprite_rig','boss_audio_identity','contextual_dialogue','combat_presentation','regional_enemy_presentation','relic_reveal_fx','impact_presentation','enemy_motion','retention_runtime','endgame_progress','phase4b_catalog','local_save_provider','phase4_catalog','expedition_progress','mobile_test_monitor', 'safe_area_layout', 'relic_greatsword_motion', 'touch_ux', 'responsive_backdrop','voice_identity','projectile_presentation','pickup_presentation','character_traits','boss_patterns','expedition_event_catalog','phase3_item_catalog']:
             assert 'assets/' + script + '.gdc' in entries
         assert 'assets/art/audio/production/sources.json' in entries
         assert 'assets/art/audio/production/LICENSES.txt' in entries
@@ -129,6 +129,16 @@ def main():
         final_bow = {'source_sha256': hashlib.sha256(bow_source.read_bytes()).hexdigest(),
                      'imported_sha256': hashlib.sha256(bow_bytes).hexdigest(),
                      'runtime_size_limit': 512, 'matches_local_import': True}
+        imported_residents = {}
+        for resident in ['patch', 'ilex', 'sera']:
+            source = ROOT/'art/sprites/npcs/beta'/(resident+'_idle.png')
+            config = source.with_suffix('.png.import').read_text(encoding='utf-8')
+            relative = re.search(r'^path="res://([^"]+)"', config, re.MULTILINE).group(1)
+            exported_bytes = apk.read('assets/' + relative)
+            assert exported_bytes == (ROOT/relative).read_bytes(), 'Stale canonical resident idle: ' + resident
+            imported_residents[resident] = {'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
+                                           'imported_sha256': hashlib.sha256(exported_bytes).hexdigest(),
+                                           'matches_local_import': True, 'authored_state': 'idle'}
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
         for source in list((ROOT/'art/sprites/combat_rigs').glob('*.svg')) + [ROOT/'art/sprites/enemies/beta'/(name+'.svg') for name in ['mossmaw','glasswing','bell_bat','rime_pup','coal_pup','null_hound','lantern_toad','sluice_crab','brassback','forge_beetle','inkling','pagewyrm','pressure_sprite','crown_shard','hookwing','lantern_jackal','belljaw']]:
             config=source.with_suffix('.svg.import').read_text(encoding='utf-8')
@@ -155,6 +165,7 @@ def main():
               'mobile_gesture_owner_exported': True, 'current_pcm_audio_assets': imported_audio,
               'audio_license_manifest_exported': True, 'version_code': int(exported_version.group(1)), 'version_name': exported_version.group(2), 'splash_theme_patch': splash_patch,
               'final_imported_bow': final_bow,
+              'final_imported_residents': imported_residents,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))

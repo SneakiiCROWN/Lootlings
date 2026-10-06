@@ -24,7 +24,7 @@ static func profile(region: String) -> Dictionary:
 	if not result.has("motif"): result.motif="crown" if region=="act_i" else "mirror"
 	# Do not add rectangle distortion to the existing TEMP dragon source.
 	# This preserves its pixels' proportions; the defective tail still needs redraw.
-	result.preserve_aspect=region in ["act_i","first_hoard"]
+	result.preserve_aspect=true
 	return result
 
 static func display_rect(data: Dictionary, texture: Texture2D) -> Rect2:

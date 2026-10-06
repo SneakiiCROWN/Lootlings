@@ -239,7 +239,7 @@ func build_lootling_select() -> void:
 
 func add_roster_tabs(parent: Control, human: bool) -> void:
 	make_button(parent,"LOOTLINGS",Rect2(24,20,210,48),Color("#293a46") if not human else Color("#17294b"),Color("#e2b563") if not human else Color("#7087ae"),16).pressed.connect(show_lootling_select)
-	make_button(parent,"WANDERERS • BETA",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),15).pressed.connect(show_wanderer_select)
+	make_button(parent,"WANDERERS",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),15).pressed.connect(show_wanderer_select)
 
 func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
 	var scroll:=ScrollContainer.new(); scroll.position=point; scroll.size=Vector2(396,136); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; scroll.scroll_deadzone=12; parent.add_child(scroll)

@@ -1576,20 +1576,9 @@ func draw_home_board() -> void:
 func draw_home_workstations() -> void:
 	# Foreground furniture grounds the residents. The canonical painting remains
 	# the room; these bounded accents add work, not a new homestead subsystem.
-	var working: bool=resident_activity("Salvager")=="repair"
-	# The supplied painted counter is the furniture; do not synthesize a block.
-	if current_inventory!=null:
-		LootlingsUI.draw_icon(get_canvas_item(),LootlingsUI.item_texture(current_inventory.equipped_item("Weapon")),Rect2(370,411,47,42))
-	if working:
-		for spark in range(3):
-			var t:=fmod(scene_time*2+spark*.31,1.0)
-			draw_line(Vector2(397,435)+Vector2(spark*4-5,-t*20),Vector2(397,435)+Vector2(spark*4-3,-t*20-3),Color(1,.65,.25,(1-t)*.65),1.3,true)
-	# Archive reading light and page-turn highlights sit on the existing desk.
-	draw_colored_polygon(PackedVector2Array([Vector2(359,643),Vector2(374,640),Vector2(387,644),Vector2(389,653),Vector2(374,650),Vector2(359,653)]),Color("#b9a47c"))
-	draw_line(Vector2(374,642),Vector2(374,651),Color("#5c4c45"),1,true)
-	if resident_activity("Archivist")=="read":
-		var turn:=sin(scene_time*1.4)*3
-		draw_line(Vector2(374,641),Vector2(382+turn,638),Color("#e6d5a6"),1.5,true)
+	# Existing painted counters/books remain the furniture. Detached prototype
+	# tools/page blocks cannot be attached to a different full-body idle export.
+	# Work/contact animation awaits the exact canonical activity layers.
 	draw_hideout_light(Vector2(404,631),13,.04,1.1)
 	var shrine_pulse:=.08+maxf(0,sin(scene_time*1.6))*.06
 	draw_circle(Vector2(66,372),16,Color(.64,.51,1,shrine_pulse))
@@ -1606,11 +1595,12 @@ func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> 
 	var local_time:=fmod(scene_time+phase*11,28.0)
 	var walk:=sin(clampf(local_time/4,0,1)*PI)*12 if activity=="walk" else 0.0
 	rect.position.x+=walk
-	if activity=="sit": rect.position.y+=8; rect.size.y-=8
+	# Until authored seated/work layers arrive, show the established idle body.
+	# Activity routes and dialogue remain live; no fake body deformation.
 	if speaker=="Archivist": rect=Rect2(rect.position+Vector2(6,10),rect.size*Vector2(.88,.92))
 	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
 	draw_circle(Vector2.ZERO,31,Color("#03061280"))
-	preload("res://resident_sprite_rig.gd").draw(self,speaker,rect,scene_time,activity)
+	preload("res://resident_art_catalog.gd").draw(self,speaker,rect)
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
