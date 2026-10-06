@@ -32,7 +32,9 @@ func review() -> void:
 		assert(preload("res://vignette_catalog.gd").available("boss/"+boss,{},[region]))
 		var entry:=preload("res://vignette_catalog.gd").entry("boss/"+boss)
 		assert(entry.actor.is_empty() and ResourceLoader.exists(entry.background))
-		assert(str(entry.lines[1]).contains(preload("res://world_story.gd").region_line(region,2)))
+		assert(entry.lines.size()==3)
+		assert(entry.lines[1]==preload("res://world_story.gd").region_line(region,2))
+		assert(entry.lines[2]==preload("res://world_story.gd").region_line(region,3))
 	var player=game.presentation_director.vignette
 	player.actor=load("res://art/sprites/enemies/beta/verdant_mirror.png")
 	player.data={"actor_kind":"boss"}

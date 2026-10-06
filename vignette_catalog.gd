@@ -96,6 +96,8 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			result.actor_kind = "boss"
 			result.duration = 5.0
 			result.lines = [boss.epithet, boss.line]
+			if key in REGIONAL_BOSS_IDS.values():
+				result.lines=[boss.epithet,Story.region_line(boss.region,2),Story.region_line(boss.region,3)]
 			result.sound = "boss_warning"
 		"story":
 			if key != "hideout": return {}
