@@ -4560,6 +4560,12 @@
       "HIDEOUT_BACKGROUND": {
         "resource_path": "res://art/backgrounds/lootlings_hideout.png"
       },
+      "HOME_GATE_ART": {
+        "resource_path": "res://art/production/phase4e/props/home_gate.png"
+      },
+      "HOME_SHRINE_ART": {
+        "resource_path": "res://art/production/phase4e/props/home_shrine.png"
+      },
       "HOME_SLOTS": {
         "banner": "[P: (92.0, 124.0), S: (48.0, 100.0)]",
         "hearth": "[P: (32.0, 268.0), S: (64.0, 64.0)]",
@@ -4744,7 +4750,7 @@
       "apply_button_style",
       "safe_action"
     ],
-    "source_sha256": "c3732ac7ec8e85ac640bae456481ba0cddbbdb4228dd67ba901d8a97f63ac234"
+    "source_sha256": "27912adeafede9f4adfacae87f3f339c95fd51f0f4061bed312e90c51025efd1"
   },
   "impact_presentation.gd": {
     "constants": {},

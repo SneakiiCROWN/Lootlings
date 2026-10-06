@@ -122,6 +122,16 @@ def main():
             payload=apk.read('assets/'+relative)
             assert payload==(ROOT/relative).read_bytes(),'Stale canonical reused body: '+record['actor']
             reuse_imports[record['actor']]=hashlib.sha256(payload).hexdigest()
+        prop_imports={}
+        prop_manifest=ROOT/'art/production/phase4e/props/source_manifest.json'
+        assert apk.read('assets/art/production/phase4e/props/source_manifest.json')==prop_manifest.read_bytes()
+        for record in json.loads(prop_manifest.read_text())['entries']:
+            source=ROOT/record['asset_path'].removeprefix('res://')
+            config=source.with_suffix('.png.import').read_text()
+            relative=re.search(r'^path="res://([^"]+)"',config,re.MULTILINE).group(1)
+            payload=apk.read('assets/'+relative)
+            assert payload==(ROOT/relative).read_bytes(),'Stale source-derived Home prop: '+record['id']
+            prop_imports[record['id']]=hashlib.sha256(payload).hexdigest()
         for script in ['phase4e_extracted_art','authored_pose_manifest','weapon_fit_catalog','avatar_presentation']:
             assert 'assets/'+script+'.gdc' in entries
         assert 'assets/art/production_pose_manifest.json' in entries
@@ -193,6 +203,7 @@ def main():
               'current_extracted_canonical_assets': extracted_imports,
               'extracted_canonical_count': len(extracted_imports),
               'reused_canonical_bodies': reuse_imports,
+              'source_derived_home_props': prop_imports,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))

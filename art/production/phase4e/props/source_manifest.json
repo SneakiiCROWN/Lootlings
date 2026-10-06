@@ -1,0 +1,45 @@
+{
+  "owner_source_root": "art/reference",
+  "entries": [
+    {
+      "id": "home_gate",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        900,
+        338,
+        1302,
+        721
+      ],
+      "asset_path": "res://art/production/phase4e/props/home_gate.png",
+      "canvas": [
+        402,
+        383
+      ],
+      "method": "original RGBA crop; no resampling/repainting/recolouring/anatomy edits",
+      "asset_sha256": "9cd7c31468557d8e57fc513faba63d88258ea14a4bce567115f29abe16191e07",
+      "runtime_slot": "Home existing gate/shrine hotspot",
+      "canon": "existing treasure portal and Relic Shrine roles; no new ID or activity"
+    },
+    {
+      "id": "home_shrine",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        0,
+        344,
+        297,
+        706
+      ],
+      "asset_path": "res://art/production/phase4e/props/home_shrine.png",
+      "canvas": [
+        297,
+        362
+      ],
+      "method": "original RGBA crop; no resampling/repainting/recolouring/anatomy edits",
+      "asset_sha256": "dac69c0ae787d63c90180a0a7a3d1ec7483590b334623fdf4d8e0e7e1423b7b9",
+      "runtime_slot": "Home existing gate/shrine hotspot",
+      "canon": "existing treasure portal and Relic Shrine roles; no new ID or activity"
+    }
+  ]
+}

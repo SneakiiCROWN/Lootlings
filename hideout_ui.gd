@@ -78,6 +78,8 @@ const HIDEOUT_BACKGROUND = preload("res://art/backgrounds/lootlings_hideout.png"
 const SHOP_BACKGROUND = preload("res://art/backgrounds/salvager_shop.png")
 const STASH_BACKGROUND = preload("res://art/backgrounds/stash_vault.png")
 const SHRINE_BACKGROUND = preload("res://art/backgrounds/relic_shrine.png")
+const HOME_GATE_ART = preload("res://art/production/phase4e/props/home_gate.png")
+const HOME_SHRINE_ART = preload("res://art/production/phase4e/props/home_shrine.png")
 const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hammer.png")
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
@@ -1522,6 +1524,10 @@ func draw_home_scene() -> void:
 	draw_hideout_light(Vector2(302, 244), 20.0, 0.040, 1.3)
 	draw_hideout_light(Vector2(442, 169), 17.0, 0.030, 2.1)
 	# Accents live on the painted locations, rather than covering them with a menu.
+	# Original approved prop pixels occupy existing destination hotspots. No new
+	# identity, touch node, station system or generated replacement silhouette.
+	LootlingsUI.draw_icon(get_canvas_item(),HOME_GATE_ART,Rect2(153,106,174,158))
+	LootlingsUI.draw_icon(get_canvas_item(),HOME_SHRINE_ART,Rect2(8,210,80,112))
 	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(scene_time*1.7)*.025
 	draw_arc(Vector2(240,179),63,-PI,0,32,gate_light,4,true)
 	for rune in range(5):
