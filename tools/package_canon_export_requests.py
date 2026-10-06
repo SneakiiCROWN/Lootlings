@@ -10,7 +10,7 @@ def main():
     for relative in source_paths:
         source=ROOT/relative;target=OUT/'canonical_sources'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
         files.append(dict(path=target.relative_to(OUT).as_posix(),original=relative,sha256=hashlib.sha256(source.read_bytes()).hexdigest()))
-    for source in [ROOT/'ART_EXPORT_CONTRACT.md',BASE/'MASTER_INTEGRATION_SUMMARY.md',ROOT/'art/production/phase4e/runtime_manifest.json']:
+    for source in [BASE/'phase4e/polish/ART_EXPORT_CONTRACT.md',BASE/'MASTER_INTEGRATION_SUMMARY.md',ROOT/'art/production/phase4e/runtime_manifest.json']:
         shutil.copy2(source,OUT/source.name)
     temp=OUT/'TEMP_EVIDENCE';temp.mkdir(exist_ok=True)
     for actor in ['relic_beast','emberhorn','mosskin','moonkip','pebblewyrm','glimmerfin','gloomlet']:
