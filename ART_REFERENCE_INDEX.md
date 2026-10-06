@@ -1,3 +1,8 @@
+Current Phase4E master integration (2026-10-06): implementation 18f462d plus tooling through 4fab67b. [Permanent game-wide production index](docs/production/MASTER_INTEGRATION_SUMMARY.md), [continuation report/native evidence/Android v26](docs/production/master-continuation/REPORT.md). 6788 records, 6058 current launch/runtime slots; 3097 missing delivery cells grouped into 106 reusable body/view bundles; separately 165 support packages. Five compatible rune glyphs integrated; v25 canonical body work preserved. GO for scoped S23 owner review; full Phase4E HOLD. No Phase4F.
+
+Prior entries below remain historical where superseded.
+
+---
 CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
 
 > **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Current release/status authority is AUDIT_REPORT.md. Reference files remain preserved research, excluded from imports/exports. Identical Emberhorn/ClassTemplate canonical sheets have documented distinct reference roles; neither is silently deleted. Historical delivery counts below do not establish current production readiness.

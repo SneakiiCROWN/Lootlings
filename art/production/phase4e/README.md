@@ -1,3 +1,5 @@
+Current v26 continuation: five compatible Fire/Frost/Poison/Lightning/Arcane rune glyphs add to the preserved v25 exports, for 78 routed exports. Additional reproducible alpha-only extraction: tools/extract_master_compatible_icons.py. Permanent routing/status inventory: docs/production/MASTER_INTEGRATION_SUMMARY.md. The completed v25 inventory below remains historical provenance.
+
 # Locked-source Phase4E exports
 
 73 source-pixel exports with runtime routes: 10 transparent combat body/views, 48 opaque expression portraits, 12 transparent inventory weapon icons, 3 transparent HUD glyphs. Original source RGB is cropped/masked; body canvases are uniformly fitted to 512×512. No synthesized states, recolouring, new identities or mirrored anatomy.

@@ -1,3 +1,8 @@
+Current Phase4E master integration (2026-10-06): implementation 18f462d plus tooling through 4fab67b. [Permanent game-wide production index](docs/production/MASTER_INTEGRATION_SUMMARY.md), [continuation report/native evidence/Android v26](docs/production/master-continuation/REPORT.md). 6788 records, 6058 current launch/runtime slots; 3097 missing delivery cells grouped into 106 reusable body/view bundles; separately 165 support packages. Five compatible rune glyphs integrated; v25 canonical body work preserved. GO for scoped S23 owner review; full Phase4E HOLD. No Phase4F.
+
+Prior entries below remain historical where superseded.
+
+---
 # Current Phase 4E authority — reconciled 2026-10-05
 
 [PRODUCTION_PHASE4E.md](PRODUCTION_PHASE4E.md) and [CANONICAL_REPLACEMENTS.md](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md) own current production status and the active art-production queue. Phase 4E remains HOLD; no Phase 4F. Historical delivery claims below do not override them.

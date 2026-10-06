@@ -1,0 +1,46 @@
+[
+  {
+    "name": "extracted_art_qa",
+    "exit": 0,
+    "seconds": 2.11,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "item_art_qa",
+    "exit": 4294967295,
+    "seconds": 80.92,
+    "errors": [
+      "SCRIPT ERROR: Assertion failed."
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "master_integration_qa",
+    "exit": 0,
+    "seconds": 0.26,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.4,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_visible_qa",
+    "exit": 0,
+    "seconds": 1.92,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "weapon_fit_qa",
+    "exit": 0,
+    "seconds": 4.61,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]
