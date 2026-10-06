@@ -56,6 +56,8 @@ func configure(target) -> void:
 	preload("res://lootlings_ui.gd").apply_material(pool_panel,"hoard")
 	game.make_label(pool_panel,"THE REWARD POOL",22,Rect2(20,20,384,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	preload("res://lootlings_ui.gd").rich_label(pool_panel,Rect2(24,76,376,510),16,Color("#e7edff")).text=SpinCatalog.pool_text()
+	for child in pool_panel.get_children():
+		if child is RichTextLabel:child.scroll_active=true
 	var close_pool: Button=game.make_action_button(pool_panel,"‹ RELIC ENGINE",Vector2(24,606),Vector2(376,54),Color("#172442"),Color("#78e4ff"),func(): pool_panel.visible=false)
 	game.touch_ux.register_button(close_pool)
 	var reveal_light:=preload("res://relic_reveal_fx.gd").new()
@@ -249,6 +251,9 @@ func killed() -> void:
 	if game.state=="siege_service":
 		detail.text+="\nCURRENT: %d hits / %.1f%% leech / %.1f%% armour\nHP %.0f / %.0f. Choose a boost or LEAVE." % [game.multi_hits,game.life_steal*100,game.armor*100,game.player_hp,game.player_max_hp]
 		buttons[0].disabled=game.multi_hits>=6;buttons[1].disabled=game.life_steal>=.20;buttons[2].disabled=game.player_hp>=game.player_max_hp
+		buttons[0].text="NEW BOOST / hits %d to %d / %d Embers" % [game.multi_hits,mini(6,game.multi_hits+1),110+mini(180,game.wave*4)]
+		buttons[1].text="NEW BOOST / leech %.1f to %.1f%%\narmour %.1f to %.1f%% / %d Embers" % [game.life_steal*100,minf(.20,game.life_steal+.025)*100,game.armor*100,(game.armor-.015)*100,165+mini(180,game.wave*4)]
+		buttons[2].text="HEAL / HP %.0f to %.0f / %d Embers" % [game.player_hp,minf(game.player_max_hp,game.player_hp+game.player_max_hp*.25),130+mini(180,game.wave*4)]
 func finish(victory: bool) -> void:
 	panel.visible=false
 	if siege and extracted and victory and game.wave>=10:

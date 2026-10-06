@@ -153,12 +153,15 @@ func draw_reels() -> void:
 				if y < -32 or y > aperture_layer.size.y+32: continue
 				var passing: int=posmod(int(turns)+row+reel*2,6)
 				var landing: bool=int(turns)+row==14+reel
-				draw_seal(aperture_layer,Vector2(x,y),30 if landing else 24,Catalog.color(rarity) if landing else Catalog.COLORS[passing],Catalog.icon_for(reward_kind) if landing else Catalog.icon_for(["material","mastery","blueprint","material","material","item"][passing]))
+				var curvature: float=clampf(1-absf(y-center.y)/aperture_layer.size.y,.48,1)
+				aperture_layer.draw_set_transform(Vector2(x,y),0,Vector2(1,curvature))
+				draw_seal(aperture_layer,Vector2.ZERO,30 if landing else 24,Catalog.color(rarity) if landing else Catalog.COLORS[passing],Catalog.icon_for(reward_kind) if landing else Catalog.icon_for(["material","mastery","blueprint","material","material","item"][passing]))
+				aperture_layer.draw_set_transform(Vector2.ZERO)
 		else:
 			var punch: float=1+burst*[.015,.03,.05,.075,.10,.14][tier] if not reduced_motion else 1.0
 			var shake:=Vector2(sin(elapsed*35)*2*burst,0) if tier==5 and not reduced_motion else Vector2.ZERO
 			var seal_radius: float=42 if tier==5 and reel==1 and stage=="reveal" else 34 if tier==4 and stage=="reveal" else 30
-			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,seal_radius*punch,tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
+			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,minf(seal_radius*punch,width*.46),tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
 		if reel<2: aperture_layer.draw_line(Vector2(x+width*.5,0),Vector2(x+width*.5,aperture_layer.size.y),Color("#22304b"),1)
 	# Cylindrical reel lighting: shadowed edges and a narrow polished lock axis.
 	for band in range(8):

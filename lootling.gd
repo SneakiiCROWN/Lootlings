@@ -1507,7 +1507,7 @@ func build_merchant_ui() -> void:
 	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 616), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
-	boss_reward_panel = make_panel(Rect2(20, 155, 440, 570), Color("#17142ff8"))
+	boss_reward_panel = make_panel(Rect2(20, 115, 440, 630), Color("#17142ff8"))
 	LootlingsUI.apply_material(boss_reward_panel, "hoard")
 	boss_reward_panel.visible = false
 	boss_reward_heading = make_label(boss_reward_panel, "BOSS HOARD", 30, Rect2(20, 18, 400, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffd36a"))
@@ -1535,6 +1535,7 @@ func build_boss_reward_ui() -> void:
 			label.clip_text = true
 		boss_reward_visuals.append({"kicker":kicker, "name":title, "effects":effects})
 	boss_reward_footer = make_label(boss_reward_panel, "Choose one reward to carry home.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
+	make_action_button(boss_reward_panel,"KEEP CURRENT / LEAVE FINDS",Vector2(25,552),Vector2(390,54),Color("#172442"),Color("#9aafc5"),skip_boss_rewards)
 
 func build_hoard_chest_ui() -> void:
 	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
@@ -2773,7 +2774,7 @@ func boss_reward_card_text(item: Dictionary) -> String:
 func inspect_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size(): return
 	var item: Dictionary = boss_reward_options[index]
-	touch_ux.request(str(item.name),"%s\n\n%s\n\nTake this reward? The other finds stay behind." % [ItemCatalog.display_identity(item),ItemCatalog.describe_headline_effects(item,4)],choose_boss_reward.bind(index))
+	touch_ux.request(str(item.name),"NEW ITEM: %s\nCOST: FREE\n%s\n\n%s\n\nTake this find to inspect? Equipping stays optional. Other finds stay behind." % [item.name,ItemCatalog.describe_headline_effects(item,4),build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))],choose_boss_reward.bind(index))
 
 func inspect_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
@@ -3382,7 +3383,8 @@ func navigate_back() -> void:
 	elif state == "result": show_hideout()
 	elif state == "abandon_confirm": cancel_abandon_run()
 	elif state == "siege_service": retention.choose(3)
-	elif state in ["route","siege_checkpoint","boss_reward","hoard_chest"]: request_return_home()
+	elif state == "boss_reward": skip_boss_rewards()
+	elif state in ["route","siege_checkpoint","hoard_chest"]: request_return_home()
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":
@@ -3405,6 +3407,12 @@ func input_surface() -> Control:
 
 func request_return_home() -> void:
 	touch_ux.request("Return to the Hideout?","End this expedition. Owned gear and secured rewards stay yours; unfinished run rewards are lost.",func(): state="abandon_confirm";confirm_abandon_run())
+
+func skip_boss_rewards() -> void:
+	if state!="boss_reward":return
+	normal_loot_choice=false;boss_reward_options.clear();boss_reward_panel.visible=false
+	status_message="Kept current gear. Finds left behind."
+	finish_item_decision()
 
 func skip_item() -> void:
 	if state!="item":return

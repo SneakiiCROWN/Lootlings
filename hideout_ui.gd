@@ -1116,7 +1116,7 @@ func select_entry(entry_index: int) -> void:
 		stash_scrap_button.text = "SALVAGE"
 	else:
 		var equipped: Dictionary = current_inventory.equipped_item(item.get("slot", ""))
-		stash_detail.text = comparison_callable.call(item, equipped)
+		stash_detail.text = "NEW ITEM / OWNED: %s\nCOST: FREE TO EQUIP\n" % item.name + comparison_callable.call(item, equipped)
 		stash_detail.tooltip_text = "%s\n%s" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
 		stash_equip_button.disabled = false
 		stash_scrap_button.disabled = false
@@ -1222,7 +1222,7 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
 	shop_detail.text = "[center][font_size=19][color=#%s]%s[/color][/font_size]\n%s  •  %s[/center]\n%s\n[color=#aebde0]%s[/color]" % [color, item.get("name", "Unknown"), rarity, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("desc", ""), ItemCatalog.describe_effects(item)]
 	shop_buy_button.text = "BUY\n%d SCRAP" % int(item.get("price", 0))
-	shop_detail.text+="\n\nCOST: %d SCRAP\n%s\nPurchase keeps it in Gear. Your current item stays equipped." % [int(item.get("price",0)),comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon"))))]
+	shop_detail.text+="\n\nNEW ITEM: %s\nCOST: %d SCRAP\n%s\nPurchase keeps it in Gear. Your current item stays equipped." % [item.name,int(item.get("price",0)),comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon"))))]
 	shop_buy_button.disabled = reveal_pending or current_inventory.scrap < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
 
 func show_shop_message(message: String, color: String = "#e5edff") -> void:
