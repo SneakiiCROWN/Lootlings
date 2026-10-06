@@ -61,9 +61,9 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | asset:art/backgrounds/beta/skyhook_city.png | skyhook_city / skyhook_city | LIVE_BETA | ['beta_art_catalog.gd'] |
 | asset:art/backgrounds/beta/starfall_sanctum.png | starfall_sanctum / starfall_sanctum | LIVE_BETA | ['beta_art_catalog.gd'] |
 | asset:art/backgrounds/hoard_depths_arena.png | hoard_depths_arena / hoard_depths_arena | LIVE_BETA | ['vignette_catalog.gd', 'zone_catalog.gd'] |
-| asset:art/backgrounds/lootlings_hideout.png | lootlings_hideout / lootlings_hideout | LIVE_BETA | ['hideout_ui.gd', 'responsive_backdrop.gd', 'vignette_catalog.gd'] |
+| asset:art/backgrounds/lootlings_hideout.png | lootlings_hideout / lootlings_hideout | LIVE_BETA | ['field_notes_catalog.gd', 'hideout_ui.gd', 'responsive_backdrop.gd', 'vignette_catalog.gd'] |
 | asset:art/backgrounds/relic_shrine.png | relic_shrine / relic_shrine | LIVE_BETA | ['hideout_ui.gd'] |
 | asset:art/backgrounds/salvage_warrens_arena.png | salvage_warrens_arena / salvage_warrens_arena | LIVE_BETA | ['vignette_catalog.gd', 'zone_catalog.gd'] |
 | asset:art/backgrounds/salvager_shop.png | salvager_shop / salvager_shop | LIVE_BETA | ['hideout_ui.gd'] |
 | asset:art/backgrounds/stash_vault.png | stash_vault / stash_vault | LIVE_BETA | ['hideout_ui.gd'] |
-| asset:art/backgrounds/treasure_ruins_arena.png | treasure_ruins_arena / treasure_ruins_arena | LIVE_BETA | ['startup_ui.gd', 'vignette_catalog.gd', 'zone_catalog.gd'] |
+| asset:art/backgrounds/treasure_ruins_arena.png | treasure_ruins_arena / treasure_ruins_arena | LIVE_BETA | ['hideout_ui.gd', 'startup_ui.gd', 'vignette_catalog.gd', 'zone_catalog.gd'] |

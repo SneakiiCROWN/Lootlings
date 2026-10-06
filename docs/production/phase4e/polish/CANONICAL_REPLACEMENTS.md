@@ -1,3 +1,7 @@
+## Canon/world presentation reuse — 2026-10-06
+
+Seven exact existing canonical neutral bodies are reused for Home/station staging and story memories; they do not close missing action/facing/support packages. Seven regional boss accounts use their actual existing location paintings and established lore, never a proxy body portrait. Replay aspect fitting is corrected, but the Hoard Dragon source tail is still REPLACE. No new body/state/art approval is claimed. Current exact queue: 3,065 cells in 106 body/view bundles; 165 complete support packages. See `docs/production/phase4e/canon-world/REPORT.md` and the regenerated master request JSON for current runtime routing.
+
 # Phase 4E canonical replacement register
 
 Status: HOLD. No procedural body below is accepted canonical art. Retain all mechanics and approved heavy poses. Reference paths are identity constraints, not permission to cut portraits into crude puppets.

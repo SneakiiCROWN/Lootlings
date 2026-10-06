@@ -33,6 +33,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:hideout_ui.gd:show_memories | show_memories / show_memories | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:refresh_memories | refresh_memories / refresh_memories | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:show_lore | show_lore / show_lore | LIVE_BETA | hideout_ui.gd |
+| screen:hideout_ui.gd:refresh_lore | refresh_lore / refresh_lore | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:refresh_achievements | refresh_achievements / refresh_achievements | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:refresh_achievement_detail | refresh_achievement_detail / refresh_achievement_detail | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:refresh_home | refresh_home / refresh_home | LIVE_BETA | hideout_ui.gd |

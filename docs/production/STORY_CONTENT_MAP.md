@@ -22,6 +22,18 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | content:vignette_catalog.gd:BOSS_ENTRIES:grump_knight | grump_knight / Grump Knight | LIVE_BETA | vignette_catalog.gd |
 | content:vignette_catalog.gd:BOSS_ENTRIES:hoard_dragon | hoard_dragon / The Hoard Dragon | LIVE_BETA | vignette_catalog.gd |
 | content:vignette_catalog.gd:BOSS_ENTRIES:verdant_mirror | verdant_mirror / The Verdant Mirror | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:first_hoard | first_hoard / first_hoard | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:frostbell_hollows | frostbell_hollows / frostbell_hollows | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:moonfen | moonfen / moonfen | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:nullglass_expanse | nullglass_expanse / nullglass_expanse | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:skyhook_bastion | skyhook_bastion / skyhook_bastion | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:starfall_archive | starfall_archive / starfall_archive | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:REGIONAL_BOSS_IDS:sunken_gearworks | sunken_gearworks / sunken_gearworks | LIVE_BETA | vignette_catalog.gd |
+| content:field_notes_catalog.gd:CATEGORIES:0 | 0 / 0 | LIVE_BETA | field_notes_catalog.gd |
+| content:field_notes_catalog.gd:CATEGORIES:1 | 1 / 1 | LIVE_BETA | field_notes_catalog.gd |
+| content:field_notes_catalog.gd:CATEGORIES:2 | 2 / 2 | LIVE_BETA | field_notes_catalog.gd |
+| content:field_notes_catalog.gd:CATEGORIES:3 | 3 / 3 | LIVE_BETA | field_notes_catalog.gd |
+| content:field_notes_catalog.gd:CATEGORIES:4 | 4 / 4 | LIVE_BETA | field_notes_catalog.gd |
 | content:world_story.gd:ORIGINS:emberhorn | emberhorn / emberhorn | LIVE_BETA | world_story.gd |
 | content:world_story.gd:ORIGINS:glimmerfin | glimmerfin / glimmerfin | LIVE_BETA | world_story.gd |
 | content:world_story.gd:ORIGINS:gloomlet | gloomlet / gloomlet | LIVE_BETA | world_story.gd |

@@ -4255,6 +4255,40 @@
     ],
     "source_sha256": "37b46bedd83b99640b7348b6f11be3944e36ae30b5bf931ab300ba6f2dedc935"
   },
+  "field_notes_catalog.gd": {
+    "constants": {
+      "Actors": {
+        "resource_path": "res://lootling_catalog.gd"
+      },
+      "CATEGORIES": [
+        "ALL",
+        "CAST",
+        "TRAILS",
+        "BOSSES",
+        "GEAR"
+      ],
+      "Items": {
+        "resource_path": "res://item_catalog.gd"
+      },
+      "Memories": {
+        "resource_path": "res://vignette_catalog.gd"
+      },
+      "Story": {
+        "resource_path": "res://world_story.gd"
+      },
+      "UI": {
+        "resource_path": "res://lootlings_ui.gd"
+      },
+      "Wanderers": {
+        "resource_path": "res://wanderer_catalog.gd"
+      }
+    },
+    "methods": [
+      "portrait",
+      "pages"
+    ],
+    "source_sha256": "e7f6d72d4e1507452fb6446b6cc27dd70654f43f1a4db633353b2d3dddf12f88"
+  },
   "forge_system.gd": {
     "constants": {
       "BONUS_PER_STAGE": 0.04,
@@ -4554,6 +4588,9 @@
       "DialogueDirector": {
         "resource_path": "res://dialogue_director.gd"
       },
+      "FieldNotes": {
+        "resource_path": "res://field_notes_catalog.gd"
+      },
       "ForgeSystem": {
         "resource_path": "res://forge_system.gd"
       },
@@ -4684,6 +4721,7 @@
       "show_memories",
       "refresh_memories",
       "show_lore",
+      "refresh_lore",
       "cycle_lore",
       "refresh_achievements",
       "set_achievement_filter",
@@ -4750,7 +4788,7 @@
       "apply_button_style",
       "safe_action"
     ],
-    "source_sha256": "27912adeafede9f4adfacae87f3f339c95fd51f0f4061bed312e90c51025efd1"
+    "source_sha256": "eee8d5767b91acc602d05c01c464cc0bca45942fa47201b7b6dfd5247bba3e49"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -5833,7 +5871,7 @@
       "configure",
       "_draw"
     ],
-    "source_sha256": "160e5ac350a69cfa908ce7a1579fc401a1559f2793d935436de0fb3539934032"
+    "source_sha256": "3afc76c43750f880535bbc095bb37efda52b67bda79896f2fde53c56a4ae75f9"
   },
   "local_save_provider.gd": {
     "constants": {
@@ -6391,7 +6429,7 @@
       "draw_loot_drop",
       "draw_moment_overlay"
     ],
-    "source_sha256": "ddfc1ca1f2f6f19ddfa13ed57e063d5b5033fc36073b90f72a9291e249aff669"
+    "source_sha256": "3af4119f75d9d331d86aa3b53a1bb7f563095a488050c7441cf967753a2f244c"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7337,10 +7375,11 @@
   "phase4e_extracted_art.gd": {
     "constants": {},
     "methods": [
+      "neutral_body",
       "inventory_icon",
       "portrait"
     ],
-    "source_sha256": "5ba571bd4fb56ba297f77f6cf762e40d2a23372c5d192d65ca350f8dd7a1a923"
+    "source_sha256": "a857c61afdebb8783ece7f00cc628096895d0ce6488697945c4a7b3a32100e87"
   },
   "pickup_presentation.gd": {
     "constants": {
@@ -7352,7 +7391,7 @@
       "draw_reward",
       "draw_item"
     ],
-    "source_sha256": "921188ed828f09d4ab3f5c6e9694167019ce0e9c8444d3ee869a148512108b5c"
+    "source_sha256": "7438edeef802f9895209dfbe5ac8af3c3ee160e9be9ca226551ef00ef158d0b4"
   },
   "presentation_director.gd": {
     "constants": {
@@ -8031,6 +8070,13 @@
           "particles": 16,
           "shake": 0.025,
           "silence": 0.06
+        },
+        "RED": {
+          "anticipation": 1.02,
+          "intensity": 1.4,
+          "particles": 56,
+          "shake": 0.12,
+          "silence": 0.14
         }
       }
     },
@@ -8038,7 +8084,7 @@
       "highest_rarity",
       "for_rewards"
     ],
-    "source_sha256": "220cf7b313031c00d8c2bc3c40cb05aa3f9ddf5403efbb6e072ec2cc831b614a"
+    "source_sha256": "e06fc82ad65408af2c80d0a3c29a6b63952ba2e433a07a86cc1f562fa49ac453"
   },
   "safe_area_layout.gd": {
     "constants": {
@@ -8240,6 +8286,15 @@
       "Lootlings": {
         "resource_path": "res://lootling_catalog.gd"
       },
+      "REGIONAL_BOSS_IDS": {
+        "first_hoard": "hollow_crown",
+        "frostbell_hollows": "belljaw",
+        "moonfen": "lantern_jackal",
+        "nullglass_expanse": "the_unchosen",
+        "skyhook_bastion": "chainwarden",
+        "starfall_archive": "redactor",
+        "sunken_gearworks": "drowned_engine"
+      },
       "REGION_ART": {
         "cinder_crown": "infernal_citadel",
         "first_hoard": "first_hoard_throne",
@@ -8291,12 +8346,13 @@
       }
     },
     "methods": [
+      "boss_entries",
       "region_background",
       "ids",
       "entry",
       "available"
     ],
-    "source_sha256": "f1cb5b414b01d7f2641741acc72b6368645256bf77817e883cc9c169a3bbe9f3"
+    "source_sha256": "a5e712e2bf1f4279fa9f8f993bfe74b55924bfe76a47dcf3e386d615d9273fa1"
   },
   "vignette_player.gd": {
     "constants": {
@@ -8313,9 +8369,10 @@
       "finish",
       "cancel",
       "_input",
+      "actor_extent",
       "_draw"
     ],
-    "source_sha256": "be0d24136e8ef649ff895e3f28125a6b72d34c75148079c46040bf4d28a5b7fd"
+    "source_sha256": "69970bc6839ae27f62608d12a23ed5342990c83f8c8a9b1c36c8046e9152b6e9"
   },
   "voice_identity.gd": {
     "constants": {
