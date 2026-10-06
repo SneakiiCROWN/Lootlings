@@ -40,4 +40,11 @@ func _draw() -> void:
 		draw_circle(center, radius * 1.20, Color(rarity_color, 0.12))
 		LootlingsUI.draw_icon(get_canvas_item(), painted_texture, Rect2(Vector2.ZERO, size))
 	var badge_size := minf(28, minf(size.x, size.y) * 0.28)
-	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("rarity_legendary" if rarity=="RED" else "rarity_%s" % rarity.to_lower()), Rect2(size - Vector2.ONE * badge_size, Vector2.ONE * badge_size))
+	var badge_rect := Rect2(size - Vector2.ONE * badge_size, Vector2.ONE * badge_size)
+	if rarity=="RED":
+		# Existing relic seal with a distinct scarlet rim; never a gold tier badge.
+		draw_circle(badge_rect.get_center(),badge_size*.52,Color("#280b22"))
+		draw_arc(badge_rect.get_center(),badge_size*.5,0,TAU,24,rarity_color,2,true)
+		LootlingsUI.draw_icon(get_canvas_item(),LootlingsUI.icon("gear_charm"),badge_rect.grow(-2))
+	else:
+		LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("rarity_%s" % rarity.to_lower()),badge_rect)

@@ -17,6 +17,15 @@ const BOSS_ENTRIES := {
 	"verdant_mirror":{"name":"The Verdant Mirror", "region":"mossglass_wilds", "art":"res://art/sprites/enemies/beta/verdant_mirror.png", "epithet":"Warden of the Stolen Spring", "line":"Its roots hold the forest spring. Downstream, the gardens are dying."},
 	"furnace_regent":{"name":"The Furnace Regent", "region":"cinder_crown", "art":"res://art/sprites/enemies/beta/furnace_regent.png", "epithet":"Crowned by Tribute", "line":"Every debt feeds the furnace. It accepts no refunds."}
 }
+# Established regional bosses whose final body art is still absent. Their
+# recovered accounts use the real region painting, never a proxy boss portrait.
+const REGIONAL_BOSS_IDS := {"moonfen":"lantern_jackal", "frostbell_hollows":"belljaw", "sunken_gearworks":"drowned_engine", "starfall_archive":"redactor", "nullglass_expanse":"the_unchosen", "skyhook_bastion":"chainwarden", "first_hoard":"hollow_crown"}
+
+static func boss_entries() -> Dictionary:
+	var entries := BOSS_ENTRIES.duplicate(true)
+	for region in REGIONAL_BOSS_IDS:
+		entries[REGIONAL_BOSS_IDS[region]]={"name":preload("res://world_content_catalog.gd").FUTURE_ZONES[region].boss, "region":region, "art":"", "epithet":preload("res://boss_patterns.gd").PATTERNS[region].title, "line":Story.region_line(region,2)+"\n\n"+Story.region_line(region,3)}
+	return entries
 
 static func region_background(id: String) -> String:
 	return "res://art/backgrounds/beta/%s.png" % REGION_ART[id] if REGION_ART.has(id) else BASE_BACKGROUND
@@ -27,7 +36,7 @@ static func ids() -> Array[String]:
 	for id in Wanderers.ORIGINS: result.append("origin/" + id)
 	for id in RESIDENTS: result.append("resident/" + id)
 	for id in Campaign.ORDER: result.append("region/" + id)
-	for id in BOSS_ENTRIES: result.append("boss/" + id)
+	for id in boss_entries(): result.append("boss/" + id)
 	return result
 
 static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
@@ -39,10 +48,12 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			var character := Lootlings.definition(key)
 			result.name = character.display_name
 			result.category = "Characters"
-			result.actor = character.runtime_sprite if not character.temp_art else Lootlings.ENTRIES.relic_beast.runtime_sprite
-			result.actor_tint = Lootlings.presentation_tint(key)
+			var neutral := preload("res://phase4e_extracted_art.gd").neutral_body(key)
+			result.actor = neutral.resource_path if neutral!=null else character.runtime_sprite
+			result.actor_tint = Color.WHITE if neutral!=null else Lootlings.presentation_tint(key)
 			result.lines = [str(Story.ORIGINS[key]).get_slice(". ", 0) + ".", str(character.lore), Story.mascot_line(key, 0)]
-			if character.temp_art: result.status = "DOCUMENTED TEMP ART • GLOOMLET EXPORT PENDING"
+			if neutral!=null: result.status = "CANONICAL NEUTRAL SOURCE VIEW • NOT A COMBAT ACTION EXPORT"
+			elif character.temp_art: result.status = "DOCUMENTED TEMP ART • EXACT EXPORT PENDING"
 		"origin":
 			if not Wanderers.ORIGINS.has(key): return {}
 			var appearance: Dictionary = profile.get("wanderer", Wanderers.create_default())
@@ -74,8 +85,8 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			result.background = region_background(key)
 			result.lines = [Story.region_line(key, 0), Story.region_line(key, 1), "Follow the trail. Bring its story home."]
 		"boss":
-			if not BOSS_ENTRIES.has(key): return {}
-			var boss: Dictionary = BOSS_ENTRIES[key]
+			if not boss_entries().has(key): return {}
+			var boss: Dictionary = boss_entries()[key]
 			result.name = boss.name
 			result.category = "Bosses"
 			result.background = region_background(boss.region)
@@ -98,7 +109,9 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 	result.duration = maxf(float(result.duration),reading_seconds)
 	return result
 
-static func available(id: String, profile: Dictionary) -> bool:
+static func available(id: String, profile: Dictionary, completed_regions: Array = []) -> bool:
+	if id.begins_with("boss/") and boss_entries().has(id.get_slice("/",1)):
+		if boss_entries()[id.get_slice("/",1)].region in completed_regions: return true
 	if id.begins_with("character/"): return Lootlings.ENTRIES.has(id.get_slice("/",1))
 	if id == "origin/" + str(profile.get("wanderer", {}).get("origin", "")) and profile.get("avatar_mode", "lootling") == "wanderer": return true
 	return id in profile.get("memories", [])

@@ -6,7 +6,8 @@ const RARITY_PROFILES := {
 	"COMMON":{"anticipation":0.24, "silence":0.04, "particles":10, "shake":0.015, "intensity":0.55},
 	"RARE":{"anticipation":0.34, "silence":0.06, "particles":16, "shake":0.025, "intensity":0.75},
 	"EPIC":{"anticipation":0.62, "silence":0.10, "particles":34, "shake":0.075, "intensity":1.0},
-	"LEGENDARY":{"anticipation":0.82, "silence":0.12, "particles":48, "shake":0.11, "intensity":1.25}
+	"LEGENDARY":{"anticipation":0.82, "silence":0.12, "particles":48, "shake":0.11, "intensity":1.25},
+	"RED":{"anticipation":1.02, "silence":0.14, "particles":56, "shake":0.12, "intensity":1.4}
 }
 
 const CHEST_PROFILES := {
@@ -44,5 +45,5 @@ static func for_rewards(chest_id: String, items: Array) -> Dictionary:
 		"shake":float(rarity_profile.shake) * scale,
 		"intensity":float(rarity_profile.intensity) * scale,
 		"arc_count":int(chest.arc_count),
-		"audio":str(chest.audio)
+		"audio":"relic_red" if rarity=="RED" else str(chest.audio)
 	}

@@ -132,7 +132,7 @@ def main():
             payload=apk.read('assets/'+relative)
             assert payload==(ROOT/relative).read_bytes(),'Stale source-derived Home prop: '+record['id']
             prop_imports[record['id']]=hashlib.sha256(payload).hexdigest()
-        for script in ['phase4e_extracted_art','authored_pose_manifest','weapon_fit_catalog','avatar_presentation']:
+        for script in ['phase4e_extracted_art','authored_pose_manifest','weapon_fit_catalog','avatar_presentation','field_notes_catalog','vignette_catalog','pickup_presentation','reward_reveal_catalog']:
             assert 'assets/'+script+'.gdc' in entries
         assert 'assets/art/production_pose_manifest.json' in entries
         assert 'assets/art/production_boss_manifest.json' in entries

@@ -627,7 +627,7 @@ func on_story_playback_changed(playing: bool) -> void:
 		hideout_ui.set_process(story_life_was_processing)
 
 func replay_memory(id: String) -> void:
-	if state != "hideout" or presentation_director.vignette.active or not Vignettes.available(id, profile): return
+	if state != "hideout" or presentation_director.vignette.active or not Vignettes.available(id, profile,campaign.completed): return
 	hideout_ui.dismiss_dialogue()
 	presentation_director.vignette.play(Vignettes.entry(id, profile), audio_settings, "replay")
 
@@ -2721,7 +2721,7 @@ func eject_hoard_loot() -> void:
 	state = "playing"
 	spawn_clock = 1.2
 	add_float("THE HOARD OPENS", Vector2(165, 350), Color("#ffd36a"), 21)
-	play_audio_event("legendary_reveal" if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY") else "epic_reveal")
+	play_audio_event("relic_red" if boss_reward_options.any(func(item): return item.get("rarity", "") == "RED") else "legendary_reveal" if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY") else "epic_reveal")
 	if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY"):
 		award_achievement("hoard_legendary")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"hoard_chest", "rolls":boss_reward_options.size()})
@@ -2849,6 +2849,7 @@ func show_next_item() -> void:
 
 func play_rarity_audio(rarity: String) -> void:
 	match rarity:
+		"RED": play_audio_event("relic_red")
 		"LEGENDARY": play_audio_event("legendary_reveal")
 		"EPIC": play_audio_event("epic_reveal")
 		"RARE": play_audio_event("rare_reveal")

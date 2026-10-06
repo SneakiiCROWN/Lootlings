@@ -68,9 +68,13 @@ const ForgeSystem = preload("res://forge_system.gd")
 const CampaignSystem = preload("res://campaign_system.gd")
 
 func actor_texture() -> Texture2D:
+	if not Avatar.is_wanderer(profile):
+		var neutral := preload("res://phase4e_extracted_art.gd").neutral_body(str(profile.get("current_lootling_id","relic_beast")))
+		if neutral!=null: return neutral
 	return Avatar.texture(profile)
 
 func actor_tint() -> Color:
+	if not Avatar.is_wanderer(profile) and preload("res://phase4e_extracted_art.gd").neutral_body(str(profile.get("current_lootling_id","relic_beast")))!=null: return Color.WHITE
 	return Avatar.tint(profile)
 const AchievementManager = preload("res://achievement_manager.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
@@ -121,6 +125,11 @@ var lore_content: Control
 var lore_detail: RichTextLabel
 var lore_entries: Array = []
 var lore_index := 0
+var lore_filter := "ALL"
+var lore_art: TextureRect
+var lore_heading: Label
+var lore_filter_buttons: Array[Button] = []
+const FieldNotes = preload("res://field_notes_catalog.gd")
 var memory_content: Control
 var memory_list: VBoxContainer
 var memory_filter := "ALL"
@@ -182,6 +191,7 @@ var home_dialogue = preload("res://contextual_dialogue.gd").new()
 var station_cycle := -1
 var region_sheet: Panel
 var region_detail: RichTextLabel
+var region_art: TextureRect
 var region_depart: Button
 var phase4_heading: Label
 var phase4_nav: Array[Button]=[]
@@ -567,7 +577,10 @@ func build_campaign() -> void:
 	var patrol:=make_button(campaign_content,"PATROLS: SOLO",Rect2(24,761,432,48),Color("#172442"),Color("#7087ae"),13)
 	patrol.pressed.connect(func(): group_patrols_enabled=not group_patrols_enabled; patrol.text="PATROLS: GROUPS" if group_patrols_enabled else "PATROLS: SOLO"; group_patrols_changed.emit(group_patrols_enabled))
 	region_sheet=make_panel(campaign_content,Rect2(20,432,440,393),Color("#10182bfa"),Color("#d8bd7b")); region_sheet.z_index=20; region_sheet.visible=false
-	region_detail=LootlingsUI.rich_label(region_sheet,Rect2(22,62,396,231),17,Color("#e7edff")); region_detail.scroll_active=true
+	region_art=LootlingsUI.add_icon(region_sheet,Rect2(22,62,396,104),"res://art/backgrounds/treasure_ruins_arena.png")
+	region_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; region_art.clip_contents=true
+	region_detail=LootlingsUI.rich_label(region_sheet,Rect2(22,179,396,122),17,Color("#e7edff")); region_detail.scroll_active=true
+	region_detail.mouse_filter=Control.MOUSE_FILTER_STOP
 	make_button(region_sheet,"×",Rect2(382,6,48,48),Color("#172442"),Color("#7087ae"),20).pressed.connect(func(): region_sheet.visible=false)
 	region_depart=make_button(region_sheet,"DEPART",Rect2(22,316,396,56),Color("#285c4c"),Color("#69e6b0"),18)
 
@@ -642,7 +655,7 @@ func show_campaign() -> void:
 		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
 		button.disabled = not available
 		button.pressed.connect(func():
-			region_sheet.visible=true; region_detail.text="[font_size=23]%s[/font_size]\n\n%s\n\n%s\n%s" % [CampaignSystem.title(id),WorldStory.region_line(id,0),detail,status]
+			region_sheet.visible=true; region_art.texture=CampaignSystem.zone_for(id,1).background; region_detail.text="[font_size=23]%s[/font_size]\n\n%s\n\n%s\n%s" % [CampaignSystem.title(id),WorldStory.region_line(id,0),detail,status]
 			for callback in region_depart.pressed.get_connections(): region_depart.pressed.disconnect(callback.callable)
 			region_depart.pressed.connect(func(): region_sheet.visible=false; campaign_requested.emit(id))
 		)
@@ -762,9 +775,10 @@ func build_shop() -> void:
 	LootlingsUI.apply_material(shop_detail_panel, "salvage", 16)
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(16, 12)
-	shop_detail.size = Vector2(274, 148)
+	shop_detail.size = Vector2(274, 134)
 	shop_detail.bbcode_enabled = true
-	shop_detail.scroll_active = false
+	shop_detail.scroll_active = true
+	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
 	shop_detail.add_theme_font_size_override("normal_font_size", 14)
 	shop_detail_panel.add_child(shop_detail)
 	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(302, 36, 122, 82), Color("#6b4a1e"), Color("#ffd468"), 13)
@@ -861,11 +875,26 @@ func build_lore() -> void:
 	add_child(lore_content)
 	make_button(lore_content, "‹ TROPHIES", Rect2(20, 20, 124, 48), Color("#202d4d"), Color("#7f94bc"), 15).pressed.connect(show_achievements)
 	make_label(lore_content, "FIELD NOTES", 27, Rect2(148, 23, 312, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	make_label(lore_content, "Recovered stories • new trails reveal new pages", 13, Rect2(22, 108, 436, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
-	var panel := make_panel(lore_content, Rect2(24, 175, 432, 528), Color("#10162ff2"), Color("#b5a0de"))
+	for index in range(FieldNotes.CATEGORIES.size()):
+		var category: String = FieldNotes.CATEGORIES[index]
+		var button := make_button(lore_content, category, Rect2(20+index*89,90,85,48), Color("#202d4d"), Color("#b5a0de"), 13)
+		button.pressed.connect(func(): lore_filter=category; lore_index=0; refresh_lore())
+		lore_filter_buttons.append(button)
+	var art_panel := make_panel(lore_content,Rect2(24,153,432,128),Color("#10162f"),Color("#b5a0de"))
+	LootlingsUI.apply_material(art_panel,"relic")
+	lore_art = TextureRect.new()
+	lore_art.position=Vector2(12,8); lore_art.size=Vector2(116,112)
+	lore_art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	lore_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	lore_art.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	art_panel.add_child(lore_art)
+	lore_heading=make_label(art_panel,"",22,Rect2(142,14,270,100),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe178"))
+	lore_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	var panel := make_panel(lore_content, Rect2(24,292,432,421), Color("#10162ff2"), Color("#b5a0de"))
 	LootlingsUI.apply_material(panel, "relic")
-	lore_detail = LootlingsUI.rich_label(panel, Rect2(28, 30, 376, 466), 18, Color("#e7edff"))
+	lore_detail = LootlingsUI.rich_label(panel, Rect2(24,22,384,377), 18, Color("#e7edff"))
 	lore_detail.scroll_active = true
+	lore_detail.mouse_filter=Control.MOUSE_FILTER_STOP
 	make_button(lore_content, "‹ PREVIOUS", Rect2(28, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(-1))
 	make_button(lore_content, "NEXT ›", Rect2(248, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(1))
 	make_button(lore_content, "▷ MEMORIES / STORY REPLAY", Rect2(40, 805, 400, 44), Color("#202d4d"), Color("#c99cff"), 14).pressed.connect(show_memories)
@@ -907,37 +936,50 @@ func refresh_memories() -> void:
 	for id in Vignettes.ids():
 		var entry := Vignettes.entry(id,profile)
 		if memory_filter != "ALL" and entry.category != memory_filter: continue
-		var unlocked := Vignettes.available(id,profile)
+		var unlocked := Vignettes.available(id,profile,campaign.completed if campaign!=null else [])
 		var button := Button.new()
 		button.custom_minimum_size = Vector2(396,80)
 		button.add_theme_font_size_override("font_size",16)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		button.text = "▷  %s\n      %s • revisit this echo" % [str(entry.name), str(entry.category).capitalize()] if unlocked else "   UNDISCOVERED MEMORY\n   %s • find this story on your travels" % str(entry.category).capitalize()
+		button.text=""
 		LootlingsUI.apply_button(button,Color("#17294b"),Color("#c99cff"))
+		var text_x:=86 if unlocked else 16
+		var caption:=make_label(button,"%s\n%s" % [str(entry.name), "Revisit this echo"] if unlocked else "UNDISCOVERED MEMORY\nFind this story on your travels",15,Rect2(text_x,12,396-text_x-16,56),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff") if unlocked else Color("#91a2c0"))
+		caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		if unlocked:
+			var art_path: String = str(entry.actor) if not str(entry.actor).is_empty() else str(entry.background)
+			if str(id).begins_with("character/"): art_path=FieldNotes.portrait(str(id).get_slice("/",1))
+			LootlingsUI.add_icon(button,Rect2(10,8,64,64),art_path)
+		button.clip_text=true
 		button.disabled = not unlocked
 		button.pressed.connect(func(): memory_replay_requested.emit(id))
 		memory_list.add_child(button)
 
 func show_lore() -> void:
 	dismiss_dialogue()
-	lore_entries = [["THE CROWNFALL", WorldStory.PREMISE]]
-	for id in LootlingCatalog.selectable_ids():
-		if LootlingCatalog.definition(id).available:
-			lore_entries.append([str(LootlingCatalog.definition(id).display_name), WorldStory.ORIGINS[id]])
-	for name in WorldStory.NPC_NOTES:
-		lore_entries.append([name, WorldStory.NPC_NOTES[name]])
-	for id in CampaignSystem.ORDER:
-		if campaign != null and campaign.available(id):
-			lore_entries.append([CampaignSystem.title(id), "%s\n\n%s" % [WorldStory.region_line(id, 0), WorldStory.region_line(id, 1)]])
-	lore_index = clampi(lore_index, 0, lore_entries.size() - 1)
 	current_screen = "lore"
 	set_screen(lore_content)
+	refresh_lore()
+
+func refresh_lore() -> void:
+	lore_entries=[]
+	for page in FieldNotes.pages(profile,campaign,current_inventory):
+		if lore_filter=="ALL" or page.category==lore_filter: lore_entries.append(page)
+	for button in lore_filter_buttons: button.disabled=button.text==lore_filter
+	lore_index=clampi(lore_index,0,maxi(0,lore_entries.size()-1))
 	cycle_lore(0)
 
 func cycle_lore(direction: int) -> void:
+	if lore_entries.is_empty():
+		lore_art.texture=null; lore_heading.text="No recovered pages"
+		lore_detail.text="Bring this story home from your travels."
+		return
 	lore_index = posmod(lore_index + direction, lore_entries.size())
-	var entry: Array = lore_entries[lore_index]
-	lore_detail.text = "[center][font_size=25][color=#ffe178]%s[/color][/font_size]\n[color=#b99de6]PAGE %d / %d[/color][/center]\n\n%s" % [str(entry[0]).to_upper(), lore_index + 1, lore_entries.size(), entry[1]]
+	var entry: Dictionary = lore_entries[lore_index]
+	lore_art.texture=entry.get("texture",LootlingsUI.icon(entry.art))
+	lore_heading.text=str(entry.name)
+	lore_detail.text="[color=#b99de6]%s • PAGE %d / %d[/color]\n\n%s" % [entry.category,lore_index+1,lore_entries.size(),entry.body]
 	lore_detail.scroll_to_line(0)
 
 func refresh_achievements() -> void:
@@ -1511,6 +1553,7 @@ func background_for_screen() -> Texture2D:
 		"campaign", "contracts": return BetaArt.MARKET
 		"forge": return BetaArt.GEARWORKS
 		"workshop": return BetaArt.ARCHIVE if phase4_mode=="archive" else BetaArt.GEARWORKS if phase4_mode=="blueprints" else BetaArt.MARKET
+		"lore", "memories", "achievements": return BetaArt.ARCHIVE
 		"shop": return SHOP_BACKGROUND
 		"stash": return STASH_BACKGROUND
 		"upgrades": return SHRINE_BACKGROUND

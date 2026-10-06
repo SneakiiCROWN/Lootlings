@@ -148,6 +148,15 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventKey and event.keycode == KEY_F1:
 		get_viewport().set_input_as_handled()
 
+func actor_extent() -> Vector2:
+	if actor==null: return Vector2.ZERO
+	var bounds:=Vector2(306,306)
+	if data.actor_kind=="adult": bounds=Vector2(234,351)
+	elif data.actor_kind=="boss": bounds=Vector2(360,320)
+	elif data.actor_kind=="portrait": bounds=Vector2(286,286)
+	var source:=actor.get_size()
+	return source*minf(bounds.x/source.x,bounds.y/source.y)
+
 func _draw() -> void:
 	if not active or background == null: return
 	var progress := clampf(elapsed / maxf(duration, 0.01), 0, 1)
@@ -163,10 +172,7 @@ func _draw() -> void:
 	draw_rect(Rect2(0,786,480,68),Color("#040716df"))
 	draw_line(Vector2(26,67),Vector2(454,67),Color("#d1a85a"),1)
 	if actor != null:
-		var extent := Vector2(306,306)
-		if data.actor_kind == "adult": extent = Vector2(234,351)
-		elif data.actor_kind == "boss": extent = Vector2(360,320)
-		elif data.actor_kind == "portrait": extent = Vector2(286,286)
+		var extent := actor_extent()
 		var bob := 0.0 if reduced_motion else sin(elapsed*1.7)*2.0
 		var arrival := 0.0 if reduced_motion else (1.0-clampf(elapsed/0.45,0,1))*18.0
 		var center := Vector2(240,416+bob+arrival)
