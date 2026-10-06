@@ -1,3 +1,17 @@
+# Implemented content status
+
+[START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
+
+## CURRENT — Phase4E / v29
+
+Runtime implementation `2d3a8028594f714a7b9b1889233db5d4967c9451`; QA/report `e263e86f1d51b6d7078821bbf9c525f1f94b4d33`. Android v29 `0.4.20-phase4e-canon-world`: `builds/android/Lootlings-phase4e-canon-world-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
+
+6,805 records / 6,075 launch slots / 3,010 LIVE_BETA / 3,065 missing cells / 106 body-view bundles / 165 support packages. Frozen identity, accepted sources and separate art/device/save/audio/owner gates are defined in START_HERE_CURRENT, the canon registry and the active replacement/export contracts. Generated inventories must be regenerated from source, never edited by hand.
+
+## HISTORICAL / SUPERSEDED — DO NOT USE FOR CURRENT DECISIONS
+
+All preserved delivery records below describe their own checkpoints, including their former “Current” claims. Their APKs, counts and acceptance scopes do not override the CURRENT block or linked authorities.
+
 ## Phase4E canon/world integration checkpoint — 2026-10-06
 
 Implementation **2d3a8028594f714a7b9b1889233db5d4967c9451** (main batch 34939d5 plus the native-reviewed caption correction) preserves the accepted 79fecef source-sync checkpoint. Android **v29 / 0.4.20-phase4e-canon-world** is the next owner-test delivery (`builds/android/Lootlings-phase4e-canon-world-debug.apk`); receipt and scoped acceptance are in [the canon/world report](docs/production/phase4e/canon-world/REPORT.md).
@@ -8,14 +22,14 @@ Existing canonical neutral exports now stage all seven Lootlings in Home/station
 
 [Native before/after gallery](docs/production/phase4e/canon-world/GALLERY.md) · [exact art requests](docs/production/NEEDS_NEW_CANON_EXPORT.json) · [later system integration](docs/production/phase4e/canon-world/LATER_SYSTEM_INTEGRATION.json)
 
-CURRENT — Phase4E source sync, 2026-10-06: authoritative root `art/reference`; written canon/stable IDs and established sheets override handoff board labels. Five accepted Wanderers preserved (`1c86aec`); 32 TEMP neutral cells replaced, two original-source Home props integrated (`49e1ea4`). Android v28 `0.4.19-phase4e-source-sync`. Exact missing cells 3,065; 106 body/view bundles and 165 full support packages remain open. [Source mapping and QA](docs/production/phase4e/source-correction/REPORT.md). GO for scoped S23 testing; HOLD for full Phase4E/production. Prior records below are historical where superseded. No Phase4F.
+Historical record — CURRENT — Phase4E source sync, 2026-10-06: authoritative root `art/reference`; written canon/stable IDs and established sheets override handoff board labels. Five accepted Wanderers preserved (`1c86aec`); 32 TEMP neutral cells replaced, two original-source Home props integrated (`49e1ea4`). Android v28 `0.4.19-phase4e-source-sync`. Exact missing cells 3,065; 106 body/view bundles and 165 full support packages remain open. [Source mapping and QA](docs/production/phase4e/source-correction/REPORT.md). GO for scoped S23 testing; HOLD for full Phase4E/production. Prior records below are historical where superseded. No Phase4F.
 
-Current Phase4E master integration (2026-10-06): implementation 18f462d plus tooling through 4fab67b. [Permanent game-wide production index](docs/production/MASTER_INTEGRATION_SUMMARY.md), [continuation report/native evidence/Android v26](docs/production/master-continuation/REPORT.md). 6788 records, 6058 current launch/runtime slots; 3097 missing delivery cells grouped into 106 reusable body/view bundles; separately 165 support packages. Five compatible rune glyphs integrated; v25 canonical body work preserved. GO for scoped S23 owner review; full Phase4E HOLD. No Phase4F.
+Historical record — Current Phase4E master integration (2026-10-06): implementation 18f462d plus tooling through 4fab67b. [Permanent game-wide production index](docs/production/MASTER_INTEGRATION_SUMMARY.md), [continuation report/native evidence/Android v26](docs/production/master-continuation/REPORT.md). 6788 records, 6058 current launch/runtime slots; 3097 missing delivery cells grouped into 106 reusable body/view bundles; separately 165 support packages. Five compatible rune glyphs integrated; v25 canonical body work preserved. GO for scoped S23 owner review; full Phase4E HOLD. No Phase4F.
 
 Prior entries below remain historical where superseded.
 
 ---
-# Current Phase 4E authority — reconciled 2026-10-05
+# Historical record — Current Phase 4E authority — reconciled 2026-10-05
 
 [PRODUCTION_PHASE4E.md](PRODUCTION_PHASE4E.md) and [CANONICAL_REPLACEMENTS.md](docs/production/phase4e/polish/CANONICAL_REPLACEMENTS.md) own current production status and the active art-production queue. Phase 4E remains HOLD; no Phase 4F. Historical delivery claims below do not override them.
 
@@ -64,17 +78,17 @@ The rig resolves technical contact/support flags; its zero unresolved-contact re
 
 Everything below is a historical snapshot. Any former “CURRENT”, “current authority”, count, pending export or sequencing statement below is superseded wherever it conflicts with the Phase 4E block above. No historical evidence is deleted.
 
-CURRENT — Phase 4C visible presentation rescue: [PRODUCTION_PHASE4C.md](PRODUCTION_PHASE4C.md). Owner S23 review of Phase 4B authorized this pass. Implementation `6ebf74d` preserves all prior systems; version 10 / `0.4.1-phase4c` is ready for another S23 owner test. Final support/human/boss art, final audio and physical acceptance remain open. Earlier dated paragraphs below are historical where superseded. Stop before full pets/decoration/final-art work.
+Historical record — CURRENT — Phase 4C visible presentation rescue: [PRODUCTION_PHASE4C.md](PRODUCTION_PHASE4C.md). Owner S23 review of Phase 4B authorized this pass. Implementation `6ebf74d` preserves all prior systems; version 10 / `0.4.1-phase4c` is ready for another S23 owner test. Final support/human/boss art, final audio and physical acceptance remain open. Earlier dated paragraphs below are historical where superseded. Stop before full pets/decoration/final-art work.
 
-CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
+Historical record — CURRENT — Phase 4B first playable slice: [PRODUCTION_PHASE4B.md](PRODUCTION_PHASE4B.md). Phase 4A/human-QA remain preserved. Final human/support/boss art, final audio and physical S23 acceptance remain open. Earlier dated tranche paragraphs below are HISTORICAL snapshots where superseded; provenance is retained. No Phase 4C implementation is authorized before device acceptance.
 
-# Current implementation and production status — 2026-10-03
+# Historical record — Current implementation and production status — 2026-10-03
 
 Latest fidelity tranche: [delivery, native evidence, current APK and genuine blockers](docs/production/phase2/fidelity/REPORT.md), implementation `a1ceabe`. This supersedes earlier generic reaction/audio-count/bow/build details while preserving completed mobile/save/combat/QA work. Bow direction/string/nock is natively verified for twelve actors/both facings; draw/support-hand anatomy remains missing. New original ranged motifs and actual currency/item pickup art are live; no generated final art.
 
 Latest owner-review correction tranche: [report and native evidence](docs/production/phase2/correction/REPORT.md). Implementation checkpoint `c99704a`; final follow-up records QA/documentation. Prior tranche/audit details remain historical where superseded.
 
-Current production authority: [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) and its correction report. [AUDIT_REPORT.md](AUDIT_REPORT.md), [previous inventory](docs/audit/2026-10-02/historical-CONTENT_IMPLEMENTATION_STATUS.md) and [per-file baseline classification](docs/audit/2026-10-02/file-status.csv) remain historical evidence where later tranches supersede them.
+Historical record — Current production authority: [PRODUCTION_PHASE2.md](PRODUCTION_PHASE2.md) and its correction report. [AUDIT_REPORT.md](AUDIT_REPORT.md), [previous inventory](docs/audit/2026-10-02/historical-CONTENT_IMPLEMENTATION_STATUS.md) and [per-file baseline classification](docs/audit/2026-10-02/file-status.csv) remain historical evidence where later tranches supersede them.
 
 | Scope | Status | Qualification |
 |---|---|---|
