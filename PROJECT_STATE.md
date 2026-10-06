@@ -1,3 +1,9 @@
+Current Phase4E canonical integration (2026-10-06): implementations `a28e119` + `6ee28a3`; [native gallery, source map, regressions and Android v23](docs/production/phase4e/canonical-integration/REPORT.md). Existing Patch/Ilex/Sera full-body idle exports now replace Home puppets; source proportions preserved in all ten boss bounds; thin XP fill and long Wanderer names corrected; selector tabs show LOOTLINGS | WANDERERS. Exact combat/state art, Hoard Dragon source-tail, 165 support cells and separate audio/save/owner/physical-S23 gates remain open. GO for scoped S23 review; full Phase4E HOLD. No Phase4F.
+
+Preserved entries below are historical where superseded.
+
+---
+
 Current Phase4E visible integration (2026-10-06): implementations `ffde284` and `1362a89`; [report, 142 native screenshots and measured earned rewards](docs/production/phase4e/visible-mass/REPORT.md). Phone/tablet navigation, hidden underlying menus, release-owned ATTACK, optional equipped comparisons/Keep/Skip, capped saved free spins and contained premium machine motion implemented. Android v22 `0.4.13-phase4e-visible-polish`: `builds/android/Lootlings-phase4e-visible-owner-debug.apk`. GO for scoped S23 retest; full Phase4E HOLD. Canonical bodies/source-tail,165 support cells, audio/owner/save/device gates remain. No Phase4F.
 
 Preserved previous entries below are historical where superseded.

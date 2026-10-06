@@ -1,0 +1,108 @@
+{
+  "implementation_sha": "6ee28a3fee33214f090a4b4f926416cb25f37d6a",
+  "integrated_existing_exports": [
+    {
+      "id": "patch",
+      "source": "art/sprites/npcs/beta/patch_idle.png",
+      "sha256": "94deac773775e44636bd2ee52eeacaf0ba00e603ea175da7f7d7a87f4e65d372",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        65,
+        23,
+        1005,
+        1514
+      ],
+      "source_use_before": "resident memory scene",
+      "source_use_added": "Home existing resident slot",
+      "state": "idle only",
+      "anchor": "full source canvas bottom-centre, uniform fit within existing resident bounds; transparent margin retained",
+      "crop": "none",
+      "tint_or_redesign": "none",
+      "remaining_states": [
+        "route/walk both views",
+        "work/read/tend",
+        "inspect",
+        "talk",
+        "sit"
+      ],
+      "hand_socket_status": "no authored moving tool contact supplied; detached prototype props removed"
+    },
+    {
+      "id": "ilex",
+      "source": "art/sprites/npcs/beta/ilex_idle.png",
+      "sha256": "4816bffca225db230c1df009aeea891e0697a3b26854cbc498a1330de63e47e4",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        63,
+        47,
+        986,
+        1487
+      ],
+      "source_use_before": "resident memory scene",
+      "source_use_added": "Home existing resident slot",
+      "state": "idle only",
+      "anchor": "full source canvas bottom-centre, uniform fit within existing resident bounds; transparent margin retained",
+      "crop": "none",
+      "tint_or_redesign": "none",
+      "remaining_states": [
+        "route/walk both views",
+        "work/read/tend",
+        "inspect",
+        "talk",
+        "sit"
+      ],
+      "hand_socket_status": "no authored moving tool contact supplied; detached prototype props removed"
+    },
+    {
+      "id": "sera",
+      "source": "art/sprites/npcs/beta/sera_idle.png",
+      "sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        53,
+        15,
+        969,
+        1514
+      ],
+      "source_use_before": "resident memory scene",
+      "source_use_added": "Home existing resident slot",
+      "state": "idle only",
+      "anchor": "full source canvas bottom-centre, uniform fit within existing resident bounds; transparent margin retained",
+      "crop": "none",
+      "tint_or_redesign": "none",
+      "remaining_states": [
+        "route/walk both views",
+        "work/read/tend",
+        "inspect",
+        "talk",
+        "sit"
+      ],
+      "hand_socket_status": "no authored moving tool contact supplied; detached prototype props removed"
+    }
+  ],
+  "preserved_pose_manifest_rows": 246,
+  "nonempty_authored_beta_rows": 62,
+  "distinct_preserved_authored_paths": 22,
+  "support_art_cells": 165,
+  "support_by_facing": {
+    "right": 82,
+    "left": 83
+  },
+  "approved_new_boss_frames": 0,
+  "queue": "../polish/CANONICAL_REPLACEMENTS.md",
+  "exact_remaining_requests": "../polish/replacement-export-requests.json",
+  "references": "../../../../art/reference/phase4e_handoff/REFERENCE_STATUS.json",
+  "canonical_art_acceptance": false
+}

@@ -6987,7 +6987,7 @@
       "asset_id": "patch",
       "name": "patch",
       "category": "resident",
-      "current_problem": "Flat resident puppet is a role/socket prototype",
+      "current_problem": "Existing canonical idle body integrated in Home; authored route/work/inspect/talk/sit layers still missing",
       "canonical_identity": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
       "required_canvas": [
         1024,
@@ -7017,13 +7017,20 @@
       "authored_support_cells": [],
       "preserve_existing_authored_rows": [],
       "approval_status": "EXTERNAL APPROVED PACKAGE REQUIRED; TEMP art is not accepted",
-      "contract": "ART_EXPORT_CONTRACT.md"
+      "contract": "ART_EXPORT_CONTRACT.md",
+      "available_export": {
+        "path": "res://art/sprites/npcs/beta/patch_idle.png",
+        "state": "idle",
+        "runtime_use": "resident memory and Home",
+        "canonical_redesign": false,
+        "animated_activity_acceptance": false
+      }
     },
     {
       "asset_id": "sera",
       "name": "sera",
       "category": "resident",
-      "current_problem": "Flat resident puppet is a role/socket prototype",
+      "current_problem": "Existing canonical idle body integrated in Home; authored route/work/inspect/talk/sit layers still missing",
       "canonical_identity": "Existing shrine/Relic personality and portrait; relic tending",
       "required_canvas": [
         1024,
@@ -7053,13 +7060,20 @@
       "authored_support_cells": [],
       "preserve_existing_authored_rows": [],
       "approval_status": "EXTERNAL APPROVED PACKAGE REQUIRED; TEMP art is not accepted",
-      "contract": "ART_EXPORT_CONTRACT.md"
+      "contract": "ART_EXPORT_CONTRACT.md",
+      "available_export": {
+        "path": "res://art/sprites/npcs/beta/sera_idle.png",
+        "state": "idle",
+        "runtime_use": "resident memory and Home",
+        "canonical_redesign": false,
+        "animated_activity_acceptance": false
+      }
     },
     {
       "asset_id": "ilex",
       "name": "ilex",
       "category": "resident",
-      "current_problem": "Flat resident puppet is a role/socket prototype",
+      "current_problem": "Existing canonical idle body integrated in Home; authored route/work/inspect/talk/sit layers still missing",
       "canonical_identity": "Existing scholarly archivist and portrait; reading/writing",
       "required_canvas": [
         1024,
@@ -7089,7 +7103,14 @@
       "authored_support_cells": [],
       "preserve_existing_authored_rows": [],
       "approval_status": "EXTERNAL APPROVED PACKAGE REQUIRED; TEMP art is not accepted",
-      "contract": "ART_EXPORT_CONTRACT.md"
+      "contract": "ART_EXPORT_CONTRACT.md",
+      "available_export": {
+        "path": "res://art/sprites/npcs/beta/ilex_idle.png",
+        "state": "idle",
+        "runtime_use": "resident memory and Home",
+        "canonical_redesign": false,
+        "animated_activity_acceptance": false
+      }
     }
   ],
   "current_merchant_requirement": {

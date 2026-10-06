@@ -71,9 +71,9 @@ State sets: C = idle, movement, wind-up, strike/cast, follow-through, recovery, 
 | nullglass_expanse / The Unchosen | Knight proxy and mirror attachment | Nullglass reflection/choice/echo identity; canonical boss data/intro text authoritative | B; dragon additionally close tail crop in idle/attack/hurt/recovery | Yes: boss phase/action clock, facing, VFX/SFX; new actual layers/exports required |
 | skyhook_bastion / Chainwarden | Knight proxy with chain/hook attachment | Bastion chain/anchor/warden silhouette; canonical boss data/intro text authoritative | B; dragon additionally close tail crop in idle/attack/hurt/recovery | Yes: boss phase/action clock, facing, VFX/SFX; new actual layers/exports required |
 | first_hoard / Hollow Crown | Hoard Dragon proxy with floating crown; not a distinct boss | Crownroot/cursed greed/vault identity; distinct from Hoard Dragon; canonical boss data/intro text authoritative | B; dragon additionally close tail crop in idle/attack/hurt/recovery | Yes: boss phase/action clock, facing, VFX/SFX; new actual layers/exports required |
-| patch | Flat resident puppet is a role/socket prototype | Competent craftsman: existing portrait, apron, forge tool/repair behaviour | N | Yes: routes/activity/prop contacts and dialogue ownership |
-| sera | Flat resident puppet is a role/socket prototype | Existing shrine/Relic personality and portrait; relic tending | N | Yes: routes/activity/prop contacts and dialogue ownership |
-| ilex | Flat resident puppet is a role/socket prototype | Existing scholarly archivist and portrait; reading/writing | N | Yes: routes/activity/prop contacts and dialogue ownership |
+| patch | Existing canonical idle body now integrated in Home; authored route/work/inspect/talk/sit layers remain missing | Competent craftsman: existing portrait, apron, forge tool/repair behaviour | N | Yes: routes/activity/prop contacts and dialogue ownership |
+| sera | Existing canonical idle body now integrated in Home; authored route/work/inspect/talk/sit layers remain missing | Existing shrine/Relic personality and portrait; relic tending | N | Yes: routes/activity/prop contacts and dialogue ownership |
+| ilex | Existing canonical idle body now integrated in Home; authored route/work/inspect/talk/sit layers remain missing | Existing scholarly archivist and portrait; reading/writing | N | Yes: routes/activity/prop contacts and dialogue ownership |
 
 ## Modifiers and named encounter exports
 
