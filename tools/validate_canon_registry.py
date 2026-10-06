@@ -15,6 +15,7 @@ def main(actual=None):
     assert pose_ids <= {e['stable_id'] for e in actual['entries']},'Current pose identity absent from canon registry'
     for entry in actual['entries']:
         assert isinstance(entry['authoritative_source'],str) and entry['authoritative_source']
+        assert entry['authoritative_source'].removeprefix('res://') not in actual['rejected_runtime_paths'],'Rejected canonical identity source'
         for source in entry['accepted_runtime_sources']:
             assert source.removeprefix('res://') not in actual['rejected_runtime_paths'],'Rejected source promoted to canon'
             assert (ROOT/source.removeprefix('res://')).is_file(),source
@@ -30,5 +31,6 @@ def main(actual=None):
     assert sum(e['category']=='lootling' for e in actual['entries'])==7
     assert sum(e['category']=='wanderer' for e in actual['entries'])==5
     assert sum(e['category']=='weapon' for e in actual['entries'])==12
+    assert {e['stable_id'] for e in actual['entries'] if e['category']=='weapon'}=={'greatsword','greataxe','maul','spear','daggers','claws','bow','crossbow','sling','staff','wand','orb'}
     print(json.dumps({'identities':len(keys),'catalog_screen_routes':len(actual['runtime_slot_coverage']),'rejected_board_paths':len(actual['rejected_runtime_paths']),'authority_boundaries':2,'frozen_hash_guard':'validate_canonical_art.py','matrix_guard':'validate_master_integration.py'}))
 if __name__=='__main__': main()

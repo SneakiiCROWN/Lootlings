@@ -20,6 +20,8 @@ class CanonGuards(TestCase):
         self.data['entries'][0]['accepted_runtime_sources']=['res://'+self.data['rejected_runtime_paths'][0]];self.rejected(self.data)
     def test_missing_runtime_source(self):
         self.data['entries'][0]['accepted_runtime_sources']=['res://art/nonexistent_canon.png'];self.rejected(self.data)
+    def test_rejected_identity_authority(self):
+        self.data['entries'][0]['authoritative_source']=self.data['rejected_runtime_paths'][0];self.rejected(self.data)
     def test_empty_canonical_authority(self):
         self.data['entries'][0]['authoritative_source']='';self.rejected(self.data)
 if __name__=='__main__': main()

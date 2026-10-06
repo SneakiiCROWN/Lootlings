@@ -2,9 +2,9 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v29
+## CURRENT — Phase4E / v30
 
-Runtime implementation `2d3a8028594f714a7b9b1889233db5d4967c9451`; QA/report `e263e86f1d51b6d7078821bbf9c525f1f94b4d33`. Android v29 `0.4.20-phase4e-canon-world`: `builds/android/Lootlings-phase4e-canon-world-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
+Runtime implementation `18738f2d909a8874371758f6e13200b276b2831e`; QA/report `c3b9d0d61473e8362f7582b94b3ba1f98b03b3cd`. Android v30 `0.4.21-phase4e-canon-lock`: `builds/android/Lootlings-phase4e-canon-lock-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
 
 6,805 records / 6,075 launch slots / 3,010 LIVE_BETA / 3,065 missing cells / 106 body-view bundles / 165 support packages. Frozen identity, accepted sources and separate art/device/save/audio/owner gates are defined in START_HERE_CURRENT, the canon registry and the active replacement/export contracts. Generated inventories must be regenerated from source, never edited by hand.
 

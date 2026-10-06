@@ -59,6 +59,8 @@ def build():
                 old=ROOT/('art/sprites/lootlings/'+id+'_idle.png')
                 if old.exists(): assets.append('res://'+old.relative_to(ROOT).as_posix())
             source=entry.get('reference',entry.get('runtime_sprite'))
+            locked='res://art/reference/canonical/characters/'+('Lootlings_Main_Mascot_RelicBeast_Canonical.png' if id=='relic_beast' else id.capitalize()+'_CharacterSheet_Canonical.png') if category=='lootling' else 'res://art/sprites/wanderers/beta/'+id+'_idle.png'
+            assert source==locked,'Stable identity changed canonical source: '+id
             add(category,id,entry['display_name'],source,assets,accepted_runtime_sources=sorted(set(assets)),
                 status='NEEDS_NEW_CANON_EXPORT',missing_required_states=missing[id],
                 identity_lock={'gloomlet':'Established violet furry Assassin; no mushroom/fox replacement.', 'moonkip':'Established hooded rogue; baked daggers do not constitute a weaponless export.'}.get(id,'Preserve established silhouette, anatomy, outfit, proportions and colours.'))

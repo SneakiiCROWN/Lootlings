@@ -24,8 +24,8 @@ Refresh: isolated Godot reflection → existing exact art recalc → tools/build
 
 Historical 2026-09/Phase2 broad scope is retained as NOT_REQUIRED_FOR_CURRENT_LAUNCH spec records. Edda is a board-only unimplemented label, not a promoted Home NPC. Existing Patch/Ilex/Sera and Pack Peddler remain current. Planned pet/decor and store art remain outside this Phase4E runtime scope.
 
-Runtime assembly opportunities: shared UI icon resource resolution, item-ID→elemental glyph mapping, cached source portraits and compatible heavy pose modules. Completed v25 extraction is preserved; this continuation adds five original compatible rune glyphs and fixes inline UI icon paths. Exact art gaps and separate save/audio/owner/device gates remain HOLD.
+Runtime assembly opportunities: shared UI icon resource resolution, item-ID→elemental glyph mapping, cached source portraits and compatible heavy pose modules. Accepted canonical extraction, five compatible rune glyphs and resolved inline UI icons are preserved. See START_HERE_CURRENT for the latest checkpoint and next work. Exact art gaps and separate save/audio/owner/device gates remain HOLD.
 
-[One consolidated art production package](NEEDS_NEW_CANON_EXPORT.json) · [current pass evidence](master-continuation/REPORT.md)
+[One consolidated art production package](NEEDS_NEW_CANON_EXPORT.json) · [current status and evidence](START_HERE_CURRENT.md)
 
-Current reuse continuation: five unchanged accepted Wanderer neutral bodies and seven compatible sling views replace 32 TEMP state/family/view cells. All opposite-facing, attack and full support gaps remain explicit. [Before/after evidence](phase4e/reuse-canon/GALLERY.md).
+Preserved accepted reuse: five unchanged Wanderer neutral bodies and seven compatible sling views previously replaced 32 TEMP state/family/view cells. All opposite-facing, attack and full support gaps remain explicit. [Before/after evidence](phase4e/reuse-canon/GALLERY.md).
