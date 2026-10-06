@@ -7140,5 +7140,369 @@
     ],
     "canon": "Existing portrait and written merchant identity",
     "status": "EXTERNAL APPROVED PACKAGE REQUIRED"
-  }
+  },
+  "post_extraction_manifest": "docs/production/phase4e/extraction/MISSING_ART_MANIFEST.json",
+  "post_extraction_total_state_cells": 3097,
+  "new_integrated_state_cells": 28,
+  "count_clarification": "165 whole actor/weapon/facing support packages remain; 3097 individual state/view/family delivery cells after actual coverage subtraction",
+  "available_extracted_states": [
+    {
+      "actor": "emberhorn",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.718155570652174,
+        0.7496603260869565
+      ],
+      "secondary_anchor": [
+        0.45320991847826086,
+        0.7598505434782609
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "IDLE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand",
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_idle_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.3251674107142857,
+        0.6848214285714286
+      ],
+      "secondary_anchor": [
+        0.3251674107142857,
+        0.6848214285714286
+      ],
+      "core_anchor": [
+        0.45,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "mosskin",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.4801708156779661,
+        0.767478813559322
+      ],
+      "secondary_anchor": [
+        0.771484375,
+        0.7251059322033898
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "shield"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "IDLE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand",
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_idle_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.3450520833333333,
+        0.7604166666666666
+      ],
+      "secondary_anchor": [
+        0.3450520833333333,
+        0.7604166666666666
+      ],
+      "core_anchor": [
+        0.45,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "moonkip",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "daggers"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.7120705283149171,
+        0.761567679558011
+      ],
+      "secondary_anchor": [
+        0.39611748964088395,
+        0.7201312154696132
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "daggers"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.787109375,
+        0.7382172131147541
+      ],
+      "secondary_anchor": [
+        0.42337986680327866,
+        0.7484631147540983
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "glimmerfin",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8169389204545454,
+        0.7397017045454545
+      ],
+      "secondary_anchor": [
+        0.5079900568181818,
+        0.7077414772727272
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8131793478260869,
+        0.7853260869565217
+      ],
+      "secondary_anchor": [
+        0.40047554347826086,
+        0.734375
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.797,
+        0.749
+      ],
+      "secondary_anchor": [
+        0.52,
+        0.707
+      ],
+      "core_anchor": [
+        0.63,
+        0.594
+      ],
+      "feet_baseline": 52,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8529411764705883,
+        0.8976332720588236
+      ],
+      "secondary_anchor": [
+        0.5496323529411765,
+        0.9141773897058824
+      ],
+      "core_anchor": [
+        0.64,
+        0.64
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": ""
+    }
+  ]
 }

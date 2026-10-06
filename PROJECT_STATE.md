@@ -1,3 +1,9 @@
+Current Phase4E locked-source extraction (2026-10-06): implementation 7803667; [73 runtime-routed exports, 168 native captures, exact post-extraction queue and Android v25](docs/production/phase4e/extraction/REPORT.md). Ten source body/view frames remove TEMP from 28 exact combat cells; 48 expression portraits, twelve weapon inventory icons and three HUD glyphs integrated. Remaining debt: 3097 individual state/view/family cells (2359 playable + 738 other); separately 165 whole support-family packages. Missing actions remain TEMP, Moonkip weaponless and Hoard Dragon actual tail remain blocked. GO for scoped S23 review; full Phase4E HOLD. No Phase4F.
+
+Earlier entries below are historical where superseded.
+
+---
+
 Current Phase4E canonical integration (2026-10-06): implementations `a28e119` + `6ee28a3` + `bd7f49c`; [native gallery, source map, regressions and Android v24](docs/production/phase4e/canonical-integration/REPORT.md). Existing Patch/Ilex/Sera full-body idle exports now replace Home puppets; source proportions preserved in all ten boss bounds; thin XP fill and long Wanderer names corrected; wrapped selector traits no longer overlap; selector tabs show LOOTLINGS | WANDERERS. Exact combat/state art, Hoard Dragon source-tail, 165 support cells and separate audio/save/owner/physical-S23 gates remain open. GO for scoped S23 review; full Phase4E HOLD. No Phase4F.
 
 Preserved entries below are historical where superseded.

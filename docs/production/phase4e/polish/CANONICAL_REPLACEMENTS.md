@@ -2,6 +2,12 @@
 
 Status: HOLD. No procedural body below is accepted canonical art. Retain all mechanics and approved heavy poses. Reference paths are identity constraints, not permission to cut portraits into crude puppets.
 
+## Post-extraction current coverage (2026-10-06)
+
+Implementation 7803667 extracts 73 locked-source assets with runtime routes. Ten body/view frames close 28 exact state/facing/family cells, not complete character or support-family packages. [Exact current missing manifest](../extraction/MISSING_ART_MANIFEST.json): **3097 individual cells = 2359 playable + 738 regional/boss/current NPC/merchant**. The separate whole support-family debt was rerun and remains **165 (82 right / 83 left)**. No target-facing/paired/bow/heavy mechanics are replaced. [Native evidence and restrictions](../extraction/REPORT.md).
+
+Gloomlet now uses its original violet Assassin right idle and actual claw anticipation where supported; missing action/views remain TEMP. Moonkip right dagger idle retains baked canonical blades; actual weaponless export still OPEN. Glimmerfin weaponless idle remains available. Dragon source-tail remains REPLACE. The 52 rows below remain the active package queue; their historical whole-package problem descriptions do not negate the exact covered subcells in the newer manifest. Source palm coordinates are supplied only for actual existing frames; missing source coordinates remain OPEN, with delivery baseline/rig targets recorded.
+
 ## Owner hard canon freeze (2026-10-06)
 
 Established designs are locked. `art/reference/phase4e_handoff/REFERENCE_STATUS.json` marks conflicting boards **REFERENCE_REJECTED_IDENTITY_DRIFT**; the original images and interrupted experiment are preserved outside runtime. The new mushroom Gloomlet and changed Moonkip anatomy are rejected by the owner. Existing canonical sheets remain authoritative. Dragon boards provide compatible single-tail guidance, but their winged quadruped body changes the established wingless/coiled anatomy and is excluded under the no-redesign rule. Overview labels/designs establish no new canon.
