@@ -158,6 +158,12 @@ static func meter_inner(rect: Rect2) -> Rect2:
 	var inset:=Vector2(minf(2,rect.size.x*.25),minf(2,maxf(0,(rect.size.y-2)*.5)))
 	return Rect2(rect.position+inset,rect.size-inset*2)
 
+static func fitted_font_size(font: Font, text: String, width: float, preferred: int, minimum: int) -> int:
+	var size:=preferred
+	while size>minimum and font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x>width:
+		size-=1
+	return size
+
 static func draw_meter(canvas: RID, rect: Rect2, ratio: float, kind: String, trail_ratio: float = -1.0) -> void:
 	var cap := 18.0 if kind == "xp" else 22.0 if kind == "enemy" else 26.0
 	var frame := skin_style("bar_%s_frame" % kind, cap, 0)

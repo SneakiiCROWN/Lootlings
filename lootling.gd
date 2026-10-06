@@ -3721,7 +3721,8 @@ func draw_zone_ambient() -> void:
 func draw_hud() -> void:
 	draw_rect(Rect2(0,0,480,86),Color("#081329b8"))
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile), Rect2(12, 17, 42, 42))
-	draw_string(title_font, Vector2(60, 36), Avatar.display_name(profile).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 170, 18, Color("#ffe178"))
+	var actor_name:=Avatar.display_name(profile).to_upper()
+	draw_string(title_font, Vector2(60, 36), actor_name, HORIZONTAL_ALIGNMENT_LEFT, 170, LootlingsUI.fitted_font_size(title_font,actor_name,170,18,12), Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
 	var location_line := "ROOM %02d / 08 • RELIC ROUTE" % (dungeon.depth + 1) if dungeon.active else "WAVE %02d • %s" % [wave, hud_region]
 	if retention.siege: location_line="ROUND %02d • RELIC SIEGE" % wave
