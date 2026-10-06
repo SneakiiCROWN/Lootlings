@@ -229,9 +229,9 @@ func build_lootling_select() -> void:
 	selector_portrait=TextureRect.new(); selector_portrait.position=Vector2(51,47); selector_portrait.size=Vector2(330,270); selector_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; selector_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; selector_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; panel.add_child(selector_portrait)
 	selector_name=make_label(panel,"",24,Rect2(24,319,384,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))
 	selector_lore=make_label(panel,"",15,Rect2(28,365,376,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); selector_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	selector_note=make_label(panel,"",15,Rect2(28,417,376,58),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); selector_note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	make_label(panel,"Your trait travels with every weapon.",12,Rect2(28,474,376,23),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
-	add_roster_strip(panel,false,Vector2(18,500))
+	selector_note=make_label(panel,"",14,Rect2(28,411,376,68),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); selector_note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	make_label(panel,"Your trait travels with every weapon.",12,Rect2(28,486,376,22),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
+	add_roster_strip(panel,false,Vector2(18,514))
 	selector_confirm=make_button(panel,"CHOOSE",Rect2(26,644,380,56),Color("#285c4c"),Color("#69e6b0"),18); selector_confirm.pressed.connect(confirm_lootling)
 	make_button(panel,"ORIGIN MEMORY",Rect2(26,706,380,48),Color("#17294b"),Color("#7087ae"),13).pressed.connect(func():
 		var preview:=profile.duplicate(true); preview.current_lootling_id=selected_lootling_id; story_preview_requested.emit("character/"+selected_lootling_id,preview)
@@ -242,7 +242,7 @@ func add_roster_tabs(parent: Control, human: bool) -> void:
 	make_button(parent,"WANDERERS",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),15).pressed.connect(show_wanderer_select)
 
 func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
-	var scroll:=ScrollContainer.new(); scroll.position=point; scroll.size=Vector2(396,136); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; scroll.scroll_deadzone=12; parent.add_child(scroll)
+	var scroll:=ScrollContainer.new(); scroll.position=point; scroll.size=Vector2(396,122); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; scroll.scroll_deadzone=12; parent.add_child(scroll)
 	var row:=GridContainer.new(); row.columns=2; row.add_theme_constant_override("h_separation",8); row.add_theme_constant_override("v_separation",8); scroll.add_child(row)
 	var ids: Array=WandererCatalog.selectable_ids() if human else LootlingCatalog.selectable_ids()
 	for id in ids:
@@ -293,9 +293,9 @@ func build_wanderer_select() -> void:
 	wanderer_portrait=TextureRect.new(); wanderer_portrait.position=Vector2(76,45); wanderer_portrait.size=Vector2(280,270); wanderer_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; wanderer_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; wanderer_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; panel.add_child(wanderer_portrait)
 	wanderer_name=make_label(panel,"",20,Rect2(20,319,392,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))
 	wanderer_personality=make_label(panel,"",14,Rect2(28,358,376,45),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); wanderer_personality.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	wanderer_lore=make_label(panel,"",14,Rect2(28,411,376,48),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); wanderer_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	wanderer_weapon=make_label(panel,"",13,Rect2(28,468,376,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
-	add_roster_strip(panel,true,Vector2(18,500))
+	wanderer_lore=make_label(panel,"",14,Rect2(28,411,376,68),HORIZONTAL_ALIGNMENT_CENTER,Color("#b9c9ee")); wanderer_lore.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	wanderer_weapon=make_label(panel,"",13,Rect2(28,486,376,22),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
+	add_roster_strip(panel,true,Vector2(18,514))
 	wanderer_confirm=make_button(panel,"CHOOSE WANDERER",Rect2(26,644,380,56),Color("#285c4c"),Color("#69e6b0"),18); wanderer_confirm.pressed.connect(confirm_wanderer)
 	make_button(panel,"IDENTITY & ORIGIN",Rect2(26,706,380,48),Color("#17294b"),Color("#7087ae"),13).pressed.connect(func(): identity_panel.visible=not identity_panel.visible)
 	identity_panel=make_panel(wanderer_content,Rect2(24,260,432,566),Color("#10182bfa"),Color("#d8bd7b")); identity_panel.z_index=30; identity_panel.visible=false
