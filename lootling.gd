@@ -3568,14 +3568,11 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		var element := "lightning" if proc_name == "ARC" else "fire" if proc_name in ["WILDFIRE","BURN"] else "poison" if proc_name in ["POISON","VENOM"] else "neutral"
 		proc_texture = LootlingsUI.icon("core_"+element); proc_timer = .7
 		return
-	if pos.x >= 275.0 and pos.x <= 380.0 and not text_value.begins_with("-") and not text_value.contains("SCRIP"):
-		pos.x += target_combat_visual_position().x - ENEMY_X
 	var is_dot := size_value <= 15
 	var prefix := text_value.get_slice(" ", 0)
 	var lane := "damage"
 	if text_value.begins_with("-"):
 		lane = "player"
-		pos.x+=WeaponFit.world_position(self).x-player_x
 	elif text_value.contains("SCRIP") or text_value.contains("LOOT") or text_value.contains("HOARD"):
 		lane = "reward"
 	elif is_dot or prefix in ["WARD"]:
@@ -3591,11 +3588,11 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	if lane_count >= 1:
 		return
 	match lane:
-		"player": pos = Vector2(70, 414)
+		"player": pos = Vector2(WeaponFit.world_position(self).x, 414)
 		"reward": pos = Vector2(392, 590)
 		"proc": pos = Vector2(140, 590)
 		"secondary": pos = Vector2(350, 595)
-		_: pos = Vector2(290, 380)
+		_: pos = Vector2(target_combat_visual_position().x, 414)
 	pos.y += min(lane_count, 2) * 26.0
 	pos.x += (-9.0 if lane_count % 2 == 0 else 9.0) * min(lane_count, 2)
 	var duration := 0.68 if size_value < 25 else 0.82
@@ -3848,7 +3845,9 @@ func draw_effects() -> void:
 		while text_size > 12 and body_font.get_string_size(item.text,HORIZONTAL_ALIGNMENT_LEFT,-1,text_size).x > 300:
 			text_size -= 1
 		var text_width := maxf(150,body_font.get_string_size(item.text,HORIZONTAL_ALIGNMENT_LEFT,-1,text_size).x+4)
-		var text_pos: Vector2 = Vector2(clampf(item.pos.x,10,470-text_width),item.pos.y)
+		var actor_label: bool = item.get("lane", "damage") in ["damage", "player"]
+		var text_left: float = item.pos.x - text_width * .5 if actor_label else item.pos.x
+		var text_pos: Vector2 = Vector2(clampf(text_left,10,470-text_width),item.pos.y)
 		draw_string(body_font, text_pos + Vector2(2, 2), item.text, HORIZONTAL_ALIGNMENT_CENTER, text_width, text_size, Color(0.02, 0.03, 0.08, alpha * 0.80))
 		draw_string_outline(body_font, text_pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, text_width, text_size, 2, Color(0.02, 0.03, 0.08, alpha * 0.92))
 		draw_string(body_font, text_pos, item.text, HORIZONTAL_ALIGNMENT_CENTER, text_width, text_size, color)

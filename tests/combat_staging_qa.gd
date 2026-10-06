@@ -45,12 +45,22 @@ func review() -> void:
 					assert(g.combat_facing()==facing and g.enemy_facing_at(g.enemy_stage_x)==-facing)
 					assert(snapshot==[g.player_x,g.enemy_stage_x,g.player_hp,g.enemy_hp,g.attack_clock,g.enemy_attack_clock,g.rng.state,g.loot_system.rng.state,JSON.stringify(g.profile)],"Staging cannot change simulation/save state")
 					samples+=1
+	for facing in [-1,1]:
+		helper.prepare("relic_beast","greatsword")
+		g.enemy_encounter.active=false;g.forced_facing_test=0
+		g.player_x=g.target_player_x() if facing>0 else 480-g.target_player_x();g.enemy_stage_x=372 if facing>0 else 108
+		g.floating_texts.clear();g.add_float("14",Vector2(324,390),Color.WHITE,19)
+		assert(absf(g.floating_texts[0].pos.x-g.target_combat_visual_position().x)<.01,"Final damage lane must anchor to rendered target in either facing")
+		g.floating_texts.clear();g.add_float("-3",Vector2(150,432),Color.WHITE,19)
+		assert(absf(g.floating_texts[0].pos.x-Fit.world_position(g).x)<.01,"Final hurt lane must anchor to rendered player")
 	for count in [2,3]:
 		helper.prepare("relic_beast","bow");g.enemy_encounter.begin(g,count)
 		for index in range(count):
 			var point:=Stage.enemy_position(g,g.enemy_encounter.position(index).x)
 			assert(g.enemy_encounter.select_at(g,point),"Visible pack actors must remain selectable")
 			assert(g.enemy_encounter.selected==index)
+			g.floating_texts.clear();g.add_float("14",Vector2(324,390),Color.WHITE,19)
+			assert(absf(g.floating_texts[0].pos.x-g.target_combat_visual_position().x)<.01,"Damage must follow selected pack actor")
 		g.enemy_encounter.select(g,0);g.attack_projectiles.clear();g.attack_anim=0
 		var sequence: int=g.attack_sequence
 		var card:=Vector2(12+(228 if count==2 else 156)+40,g.enemy_encounter.HUD_Y+35)
