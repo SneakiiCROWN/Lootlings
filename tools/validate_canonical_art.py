@@ -101,6 +101,16 @@ def validate():
         if row['asset_path']!=expected or row['source_reference']!=expected or row['phase']!='IDLE' or row['facing']!='right_only' or set(row['weapon_types'])!={'wand','orb','daggers','claws','sling'}:
             errors.append('Unproven canonical reuse state: '+row['actor'])
         if sha_file(ROOT/expected.removeprefix('res://'))!=row['source_sha256']:errors.append('Changed accepted reuse source: '+row['actor'])
+    prop_manifest=ROOT/'art/production/phase4e/props/source_manifest.json'
+    props=json.loads(prop_manifest.read_text(encoding='utf-8'))['entries']
+    if {r['id'] for r in props}!={'home_gate','home_shrine'}:errors.append('Unapproved Home source export')
+    for row in props:
+        source=ROOT/row['source'];asset=ROOT/row['asset_path'].removeprefix('res://')
+        if row['source']!='art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png' or sha_file(source)!=row['source_sha256'] or sha_file(asset)!=row['asset_sha256']:
+            errors.append('Changed approved Home prop provenance: '+row['id'])
+        with Image.open(source) as original, Image.open(asset) as exported:
+            if exported.mode!='RGBA' or exported.size!=tuple(row['canvas']) or exported.convert('RGB').tobytes()!=original.crop(row['crop']).convert('RGB').tobytes():
+                errors.append('Home prop repainted/resampled instead of original alpha-only crop: '+row['id'])
     for p in ROOT.glob('*.gd'):
         if re.search(r'res://art/(?:reference/phase4e_handoff|sprites/enemies/handoff)/',p.read_text(encoding='utf-8-sig')):
             errors.append('Runtime references rejected handoff art: '+p.name)

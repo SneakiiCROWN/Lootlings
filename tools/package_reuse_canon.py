@@ -18,4 +18,10 @@ def main():
   for p in folder.glob('*'):
    if p.suffix in ['.json','.log']:shutil.copy2(p,logs/(folder.name+'-'+p.name))
  print('Packaged native images:',len(records))
+ for source in (ROOT/'.godot_test_data/phase4e/master-continuation').rglob('*.png'):
+  rel=Path('home-source-sync')/source.parent.name/(source.stem+'.jpg');dest=OUT/rel;dest.parent.mkdir(parents=True,exist_ok=True)
+  with Image.open(source) as im:im.convert('RGB').save(dest,quality=94,subsampling=0)
+ for folder in (ROOT/'.godot_test_data/qa_logs').glob('source-home-*'):
+  for p in folder.glob('*'):
+   if p.suffix in ['.json','.log']:shutil.copy2(p,logs/(folder.name+'-'+p.name))
 if __name__=='__main__':main()
