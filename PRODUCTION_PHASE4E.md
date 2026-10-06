@@ -2,15 +2,21 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v30
+## CURRENT — Phase4E / v31
 
-Runtime implementation `18738f2d909a8874371758f6e13200b276b2831e`; QA/report `c3b9d0d61473e8362f7582b94b3ba1f98b03b3cd`. Android v30 `0.4.21-phase4e-canon-lock`: `builds/android/Lootlings-phase4e-canon-lock-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
+Runtime implementation `844b0ad2c7c4d696db0826f90863e07d4c2fbf39`; QA/report `85bbbdf2faf12d6f70470399cc5d5cd4568b9904`. Android v31 `0.4.22-phase4e-approved-mass`: `builds/android/Lootlings-phase4e-approved-mass-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
 
 6,805 records / 6,075 launch slots / 3,010 LIVE_BETA / 3,065 missing cells / 106 body-view bundles / 165 support packages. Frozen identity, accepted sources and separate art/device/save/audio/owner gates are defined in START_HERE_CURRENT, the canon registry and the active replacement/export contracts. Generated inventories must be regenerated from source, never edited by hand.
+
+Approved-source presentation batch: illustrated Forge/bounty cards, Archive portrait routing, wide Trails/three Act I pages, equipped ATTACK glyph and accepted machine frame. [Report](docs/production/phase4e/approved-mass/REPORT.md) · [108 native comparisons](docs/production/phase4e/approved-mass/GALLERY.md). No missing combat art cells closed.
 
 ## HISTORICAL / SUPERSEDED — DO NOT USE FOR CURRENT DECISIONS
 
 All preserved delivery records below describe their own checkpoints, including their former “Current” claims. Their APKs, counts and acceptance scopes do not override the CURRENT block or linked authorities.
+
+### Historical v30 canon-lock delivery
+
+Implementation `18738f2d909a8874371758f6e13200b276b2831e`; QA `c3b9d0d61473e8362f7582b94b3ba1f98b03b3cd`. Preserved [canon-lock report](docs/production/phase4e/canon-lock/REPORT.md). Superseded by the CURRENT receipt above.
 
 ## Phase4E canon/world integration checkpoint — 2026-10-06
 
