@@ -1682,6 +1682,111 @@
       "integrated": true,
       "restrictions": "Owner-authorized compatible element only; inventory/HUD icon at32-64px, never a held/combat sprite or new game ID",
       "asset_sha256": "34ae425702bda1fe8df4e703ffd6c716a1dd3138593a4a941cfd5bb15bd2112a"
+    },
+    {
+      "id": "rune_fire",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1338,
+        443,
+        1377,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/rune_fire.png",
+      "canvas": [
+        39,
+        48
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "b347956ebd4059ed02e8b5bb9541fd8718a6a12a707fefdc9ee43c8628ea384c",
+      "restrictions": "Compatible rune/element inventory glyph only; no spell mechanics, identity or body changes"
+    },
+    {
+      "id": "rune_frost",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1377,
+        443,
+        1417,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/rune_frost.png",
+      "canvas": [
+        40,
+        48
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "3d70f63b65ac804d87d9bc7954b4ed89593ff879e618f1f31ee97ab8dec51cbf",
+      "restrictions": "Compatible rune/element inventory glyph only; no spell mechanics, identity or body changes"
+    },
+    {
+      "id": "rune_poison",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1417,
+        443,
+        1457,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/rune_poison.png",
+      "canvas": [
+        40,
+        48
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "ae9dc2ea5a7f11eedcafccba8fa963e441a5fbdb1f76d8c3b453cf4ca0ae25bc",
+      "restrictions": "Compatible rune/element inventory glyph only; no spell mechanics, identity or body changes"
+    },
+    {
+      "id": "rune_lightning",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1457,
+        443,
+        1492,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/rune_lightning.png",
+      "canvas": [
+        35,
+        48
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "52c9f927976b94f9f9eea0d58e7dabcb7f703ea7b81ad3f84d72c0297ac73ca9",
+      "restrictions": "Compatible rune/element inventory glyph only; no spell mechanics, identity or body changes"
+    },
+    {
+      "id": "rune_arcane",
+      "kind": "hud",
+      "source": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "crop": [
+        1492,
+        443,
+        1533,
+        491
+      ],
+      "asset_path": "res://art/production/phase4e/hud/rune_arcane.png",
+      "canvas": [
+        41,
+        48
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "d59c0d9d4b564d66da25f8faf42c5d095f83906fbbfd59bebe711cefa37a9a6c",
+      "restrictions": "Compatible rune/element inventory glyph only; no spell mechanics, identity or body changes"
     }
   ]
 }

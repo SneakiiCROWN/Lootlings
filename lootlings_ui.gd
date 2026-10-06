@@ -10,6 +10,12 @@ const ITEM_ART := {
 	"ground_slam":"ember_stone", "bossbane_sigil":"ember_stone",
 	"echo_rune":"storm_crystal",
 }
+const RUNE_GLYPHS := {
+	"ember_pop":"rune_fire",
+	"stormspark":"rune_lightning", "storm_ledger":"rune_lightning", "threefold_ink":"rune_lightning", "critical_script":"rune_lightning",
+	"toxic_burst":"rune_poison", "mire_rune":"rune_poison", "shelter_script":"rune_poison",
+	"winter_clause":"rune_frost", "frostbell_seal":"rune_frost",
+}
 
 const NAVY := Color("#0b1430")
 const NAVY_DEEP := Color("#071027")
@@ -30,14 +36,16 @@ static func item_texture(item: Dictionary) -> Texture2D:
 		var held := WeaponArt.runtime_texture(type, icon("res://art/sprites/weapons/%s.png" % fallback_path), stage)
 		return WeaponArt.presentation_texture(type,"inventory",held,stage)
 	var id := str(item.get("id", ""))
+	if str(item.get("slot",""))=="Rune" and RUNE_GLYPHS.has(id): return icon(RUNE_GLYPHS[id])
 	if ITEM_ART.has(id):
 		return icon("res://art/sprites/items/beta/%s.png" % ITEM_ART[id])
 	var slot := str(item.get("slot", "Relic"))
+	if slot=="Rune": return icon("rune_arcane")
 	return icon("gear_%s" % ("armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"))
 
 static func icon(name: String) -> Texture2D:
 	var path := name if name.begins_with("res://") else "res://art/ui/icons/%s.png" % name
-	if name in ["core_fire","core_lightning","gear_rune"]: path="res://art/production/phase4e/hud/"+name+".png"
+	if name in ["core_fire","core_lightning","gear_rune","rune_fire","rune_frost","rune_poison","rune_lightning","rune_arcane"]: path="res://art/production/phase4e/hud/"+name+".png"
 	if not icon_cache.has(path):
 		icon_cache[path] = load(path)
 	return icon_cache[path]
@@ -64,7 +72,7 @@ static func add_icon(parent: Control, rect: Rect2, name: String) -> TextureRect:
 	return image
 
 static func inline_icon(name: String, extent: int = 16) -> String:
-	return "[img=%dx%d]res://art/ui/icons/%s.png[/img]" % [extent, extent, name]
+	return "[img=%dx%d]%s[/img]" % [extent, extent, icon(name).resource_path]
 
 static func rich_label(parent: Control, rect: Rect2, font_size: int, color: Color) -> RichTextLabel:
 	var label := RichTextLabel.new()

@@ -7,6 +7,7 @@ from pathlib import Path
 import argparse, hashlib, json, os, re, shutil, subprocess, urllib.request, zipfile
 from android_splash_theme import branded_template
 from validate_canonical_art import validate as validate_canonical_art
+from validate_master_integration import main as validate_master_integration
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.godot_test_data' / 'android'
@@ -33,6 +34,7 @@ def main():
     parser.add_argument('--output', default='builds/android/Lootlings-predevice-rc-debug.apk')
     args = parser.parse_args()
     print('Canonical freeze preflight:', validate_canonical_art(), flush=True)
+    validate_master_integration()
     WORK.mkdir(parents=True, exist_ok=True)
     for name, (url, algorithm, expected) in PACKAGES.items():
         path = WORK / name

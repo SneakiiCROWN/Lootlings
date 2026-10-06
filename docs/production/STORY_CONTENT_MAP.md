@@ -1,0 +1,205 @@
+# Story Content Map
+
+Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final owner acceptance. Historical/reference metadata never replaces current campaign order.
+
+| Slot | ID / subject | Status | Implementation |
+|---|---|---|---|
+| content:expedition_event_catalog.gd:EVENTS:cursed_coffer | cursed_coffer / cursed_coffer | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:ink_witness | ink_witness / ink_witness | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:lantern_bargain | lantern_bargain / lantern_bargain | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:mimic_parley | mimic_parley / mimic_parley | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:mirror_pool | mirror_pool / mirror_pool | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:patch_warranty | patch_warranty / patch_warranty | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:promise_shrine | promise_shrine / promise_shrine | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:sealed_cache | sealed_cache / sealed_cache | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:secret_bell | secret_bell / secret_bell | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:wandering_smith | wandering_smith / wandering_smith | LIVE_BETA | expedition_event_catalog.gd |
+| content:expedition_event_catalog.gd:EVENTS:wounded_courier | wounded_courier / wounded_courier | LIVE_BETA | expedition_event_catalog.gd |
+| content:vignette_catalog.gd:RESIDENTS:ilex | ilex / Ilex Quill | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:RESIDENTS:patch | patch / Patch Brasswick | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:RESIDENTS:sera | sera / Sera Vey | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:BOSS_ENTRIES:furnace_regent | furnace_regent / The Furnace Regent | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:BOSS_ENTRIES:grump_knight | grump_knight / Grump Knight | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:BOSS_ENTRIES:hoard_dragon | hoard_dragon / The Hoard Dragon | LIVE_BETA | vignette_catalog.gd |
+| content:vignette_catalog.gd:BOSS_ENTRIES:verdant_mirror | verdant_mirror / The Verdant Mirror | LIVE_BETA | vignette_catalog.gd |
+| content:world_story.gd:ORIGINS:emberhorn | emberhorn / emberhorn | LIVE_BETA | world_story.gd |
+| content:world_story.gd:ORIGINS:glimmerfin | glimmerfin / glimmerfin | LIVE_BETA | world_story.gd |
+| content:world_story.gd:ORIGINS:gloomlet | gloomlet / gloomlet | LIVE_BETA | world_story.gd |
+| content:world_story.gd:ORIGINS:moonkip | moonkip / moonkip | LIVE_BETA | world_story.gd |
+| content:world_story.gd:ORIGINS:mosskin | mosskin / mosskin | LIVE_BETA | world_story.gd |
+| content:world_story.gd:ORIGINS:pebblewyrm | pebblewyrm / pebblewyrm | LIVE_BETA | world_story.gd |
+| content:world_story.gd:ORIGINS:relic_beast | relic_beast / relic_beast | LIVE_BETA | world_story.gd |
+| content:world_story.gd:NPC_NOTES:Ilex Quill | ilex_quill / Ilex Quill | LIVE_BETA | world_story.gd |
+| content:world_story.gd:NPC_NOTES:Patch Brasswick | patch_brasswick / Patch Brasswick | LIVE_BETA | world_story.gd |
+| content:world_story.gd:NPC_NOTES:Sera Vey | sera_vey / Sera Vey | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:emberhorn | emberhorn / emberhorn | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:glimmerfin | glimmerfin / glimmerfin | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:gloomlet | gloomlet / gloomlet | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:moonkip | moonkip / moonkip | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:mosskin | mosskin / mosskin | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:pebblewyrm | pebblewyrm / pebblewyrm | LIVE_BETA | world_story.gd |
+| content:world_story.gd:LOOTLINGS:relic_beast | relic_beast / relic_beast | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:act_i | act_i / act_i | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:cinder_crown | cinder_crown / cinder_crown | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:first_hoard | first_hoard / first_hoard | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:frostbell_hollows | frostbell_hollows / frostbell_hollows | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:moonfen | moonfen / moonfen | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:mossglass_wilds | mossglass_wilds / mossglass_wilds | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:nullglass_expanse | nullglass_expanse / nullglass_expanse | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:skyhook_bastion | skyhook_bastion / skyhook_bastion | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:starfall_archive | starfall_archive / starfall_archive | LIVE_BETA | world_story.gd |
+| content:world_story.gd:REGIONS:sunken_gearworks | sunken_gearworks / sunken_gearworks | LIVE_BETA | world_story.gd |
+| content:world_story.gd:RESIDENT_REACTIONS:Archivist | Archivist / Archivist | LIVE_BETA | world_story.gd |
+| content:world_story.gd:RESIDENT_REACTIONS:Relic Keeper | Relic Keeper / Relic Keeper | LIVE_BETA | world_story.gd |
+| content:world_story.gd:RESIDENT_REACTIONS:Salvager | Salvager / Salvager | LIVE_BETA | world_story.gd |
+| content:contextual_dialogue.gd:LINES:0 | 0 / 0 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:1 | 1 / 1 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:2 | 2 / 2 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:3 | 3 / 3 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:4 | 4 / 4 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:5 | 5 / 5 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:6 | 6 / 6 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:7 | 7 / 7 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:8 | 8 / 8 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:9 | 9 / 9 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:10 | 10 / 10 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:11 | 11 / 11 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:12 | 12 / 12 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:13 | 13 / 13 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:14 | 14 / 14 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:15 | 15 / 15 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:16 | 16 / 16 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:17 | 17 / 17 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:18 | 18 / 18 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:19 | 19 / 19 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:20 | 20 / 20 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:21 | 21 / 21 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:22 | 22 / 22 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:23 | 23 / 23 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:24 | 24 / 24 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:25 | 25 / 25 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:26 | 26 / 26 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:27 | 27 / 27 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:28 | 28 / 28 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:29 | 29 / 29 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:30 | 30 / 30 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:31 | 31 / 31 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:32 | 32 / 32 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:33 | 33 / 33 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:34 | 34 / 34 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:35 | 35 / 35 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:36 | 36 / 36 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:37 | 37 / 37 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:38 | 38 / 38 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:39 | 39 / 39 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:40 | 40 / 40 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:41 | 41 / 41 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:42 | 42 / 42 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:43 | 43 / 43 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:44 | 44 / 44 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:45 | 45 / 45 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:46 | 46 / 46 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:47 | 47 / 47 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:48 | 48 / 48 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:49 | 49 / 49 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:50 | 50 / 50 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:51 | 51 / 51 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:52 | 52 / 52 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:53 | 53 / 53 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:54 | 54 / 54 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:55 | 55 / 55 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:56 | 56 / 56 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:57 | 57 / 57 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:58 | 58 / 58 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:59 | 59 / 59 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:60 | 60 / 60 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:61 | 61 / 61 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:62 | 62 / 62 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:63 | 63 / 63 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:64 | 64 / 64 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:65 | 65 / 65 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:66 | 66 / 66 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:67 | 67 / 67 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:68 | 68 / 68 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:69 | 69 / 69 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:70 | 70 / 70 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:71 | 71 / 71 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:72 | 72 / 72 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:73 | 73 / 73 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:74 | 74 / 74 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:75 | 75 / 75 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:76 | 76 / 76 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:77 | 77 / 77 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:78 | 78 / 78 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:79 | 79 / 79 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:80 | 80 / 80 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:81 | 81 / 81 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:82 | 82 / 82 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:83 | 83 / 83 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:84 | 84 / 84 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:85 | 85 / 85 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:86 | 86 / 86 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:87 | 87 / 87 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:88 | 88 / 88 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:89 | 89 / 89 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:90 | 90 / 90 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:91 | 91 / 91 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:92 | 92 / 92 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:93 | 93 / 93 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:94 | 94 / 94 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:95 | 95 / 95 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:96 | 96 / 96 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:97 | 97 / 97 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:98 | 98 / 98 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:99 | 99 / 99 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:100 | 100 / 100 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:101 | 101 / 101 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:102 | 102 / 102 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:103 | 103 / 103 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:104 | 104 / 104 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:105 | 105 / 105 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:106 | 106 / 106 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:107 | 107 / 107 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:108 | 108 / 108 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:109 | 109 / 109 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:110 | 110 / 110 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:111 | 111 / 111 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:112 | 112 / 112 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:113 | 113 / 113 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:114 | 114 / 114 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:115 | 115 / 115 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:116 | 116 / 116 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:117 | 117 / 117 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:118 | 118 / 118 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:119 | 119 / 119 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:120 | 120 / 120 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:121 | 121 / 121 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:122 | 122 / 122 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:123 | 123 / 123 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:124 | 124 / 124 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:125 | 125 / 125 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:126 | 126 / 126 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:127 | 127 / 127 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:128 | 128 / 128 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:129 | 129 / 129 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:130 | 130 / 130 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:131 | 131 / 131 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:132 | 132 / 132 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:133 | 133 / 133 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:134 | 134 / 134 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:135 | 135 / 135 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:136 | 136 / 136 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:137 | 137 / 137 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:LINES:138 | 138 / 138 | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:PERSONALITY:ashtrail_hunter | ashtrail_hunter / ashtrail_hunter | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:PERSONALITY:nightstage_drifter | nightstage_drifter / nightstage_drifter | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:PERSONALITY:ruin_warden | ruin_warden / ruin_warden | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:PERSONALITY:vault_runner | vault_runner / vault_runner | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:PERSONALITY:velvet_astrologer | velvet_astrologer / velvet_astrologer | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:GREETINGS:Archivist | archivist / Archivist | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:GREETINGS:Relic Keeper | relic_keeper / Relic Keeper | LIVE_BETA | contextual_dialogue.gd |
+| content:contextual_dialogue.gd:GREETINGS:Salvager | salvager / Salvager | LIVE_BETA | contextual_dialogue.gd |
+| canon:faction:lantern_compact | lantern_compact / Lantern Compact | REFERENCE_ONLY | None |
+| canon:faction:quillkeepers | quillkeepers / Quillkeepers | REFERENCE_ONLY | None |
+| canon:faction:hollow_court | hollow_court / Hollow Court | REFERENCE_ONLY | None |
+| canon:faction:unwritten | unwritten / Unwritten | REFERENCE_ONLY | None |

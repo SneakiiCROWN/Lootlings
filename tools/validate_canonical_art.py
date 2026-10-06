@@ -71,7 +71,7 @@ def validate():
     extraction=ROOT/'art/production/phase4e/extraction_manifest.json'
     if extraction.exists():
         extracted=json.loads(extraction.read_text(encoding='utf-8'))['entries']
-        allowed_icons={'bow','claws','crossbow','daggers','greatsword','greataxe','maul','orb','sling','spear','staff','wand','core_fire','core_lightning','gear_rune'}
+        allowed_icons={'bow','claws','crossbow','daggers','greatsword','greataxe','maul','orb','sling','spear','staff','wand','core_fire','core_lightning','gear_rune','rune_fire','rune_frost','rune_poison','rune_lightning','rune_arcane'}
         paths=set();body_paths=set()
         for row in extracted:
             p=resource(row['asset_path']);s=resource(row['source']);kind=row['kind']
