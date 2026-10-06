@@ -12,6 +12,12 @@ func review() -> void:
 	state.memories=[]
 	var pages:=Notes.pages(state,game.campaign,game.inventory)
 	assert(pages.filter(func(page): return page.category=="CAST").size()==15)
+	for page in pages:
+		if str(page.id).begins_with("wanderer/"):
+			var face: AtlasTexture=page.texture
+			var actor: String=str(page.id).get_slice("/",1)
+			assert(face.atlas==preload("res://wanderer_catalog.gd").runtime_texture(actor))
+			assert(face.region.end.x<=face.atlas.get_width() and face.region.end.y<=face.atlas.get_height())
 	for actor in preload("res://lootling_catalog.gd").selectable_ids():
 		var neutral:=preload("res://phase4e_extracted_art.gd").neutral_body(actor)
 		assert(neutral!=null)

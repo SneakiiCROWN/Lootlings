@@ -5,8 +5,8 @@ validate_master_integration.py (source freshness/matrix parity).
 """
 import json,re
 from build_canon_registry import ROOT,OUT,build
-def main():
-    actual=json.loads((OUT/'CANON_REGISTRY.json').read_text(encoding='utf-8'))
+def main(actual=None):
+    if actual is None: actual=json.loads((OUT/'CANON_REGISTRY.json').read_text(encoding='utf-8'))
     assert actual==build(),'Stale/edited registry: regenerate from existing catalogs and contracts'
     keys=[(e['category'],e['stable_id']) for e in actual['entries']]
     assert len(keys)==len(set(keys)),'Conflicting stable identity'

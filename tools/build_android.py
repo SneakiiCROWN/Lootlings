@@ -8,6 +8,7 @@ import argparse, hashlib, json, os, re, shutil, subprocess, urllib.request, zipf
 from android_splash_theme import branded_template
 from validate_canonical_art import validate as validate_canonical_art
 from validate_master_integration import main as validate_master_integration
+from validate_canon_registry import main as validate_canon_registry
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.godot_test_data' / 'android'
@@ -35,6 +36,7 @@ def main():
     args = parser.parse_args()
     print('Canonical freeze preflight:', validate_canonical_art(), flush=True)
     validate_master_integration()
+    validate_canon_registry()
     WORK.mkdir(parents=True, exist_ok=True)
     for name, (url, algorithm, expected) in PACKAGES.items():
         path = WORK / name

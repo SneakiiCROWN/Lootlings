@@ -22,7 +22,9 @@ static func pages(profile: Dictionary, campaign, inventory) -> Array[Dictionary]
 	for actor in Wanderers.PRESETS:
 		var entry := Wanderers.definition(actor)
 		# Appearance is not a fabricated biography or a gameplay restriction.
-		result.append({"id":"wanderer/"+actor, "category":"CAST", "name":entry.display_name, "body":"Wanderer • "+str(entry.body_frame).capitalize()+" build\n\n"+str(entry.outfit_cosmetic_id).replace("_"," ").capitalize()+"\n\nYour past does not choose your weapon.", "art":entry.runtime_sprite})
+		# Reuse the accepted HUD portrait region; never manufacture another face.
+		var face := preload("res://avatar_presentation.gd").portrait({"avatar_mode":"wanderer", "wanderer":{"preset_id":actor}})
+		result.append({"id":"wanderer/"+actor, "category":"CAST", "name":entry.display_name, "body":"Wanderer • "+str(entry.body_frame).capitalize()+" build\n\n"+str(entry.outfit_cosmetic_id).replace("_"," ").capitalize()+"\n\nYour past does not choose your weapon.", "art":entry.runtime_sprite, "texture":face})
 	for resident in Memories.RESIDENTS:
 		var entry: Dictionary = Memories.RESIDENTS[resident]
 		result.append({"id":"resident/"+resident, "category":"CAST", "name":entry.name, "body":Story.NPC_NOTES[entry.name], "art":"res://art/sprites/npcs/beta/%s_portrait.png" % resident})
