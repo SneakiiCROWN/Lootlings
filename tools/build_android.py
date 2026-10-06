@@ -111,9 +111,17 @@ def main():
             payload = apk.read('assets/'+relative)
             assert payload == (ROOT/relative).read_bytes(), 'Stale extracted canonical asset: '+record['id']
             extracted_imports[record['id']] = hashlib.sha256(payload).hexdigest()
-        for manifest in ['extraction_manifest.json','runtime_manifest.json']:
+        for manifest in ['extraction_manifest.json','runtime_manifest.json','reuse_manifest.json']:
             relative = 'art/production/phase4e/'+manifest
             assert apk.read('assets/'+relative) == (ROOT/relative).read_bytes(), 'Stale extraction manifest'
+        reuse_imports={}
+        for record in json.loads((ROOT/'art/production/phase4e/reuse_manifest.json').read_text())['entries']:
+            source=ROOT/record['asset_path'].removeprefix('res://')
+            config=source.with_suffix('.png.import').read_text()
+            relative=re.search(r'^path="res://([^"]+)"',config,re.MULTILINE).group(1)
+            payload=apk.read('assets/'+relative)
+            assert payload==(ROOT/relative).read_bytes(),'Stale canonical reused body: '+record['actor']
+            reuse_imports[record['actor']]=hashlib.sha256(payload).hexdigest()
         for script in ['phase4e_extracted_art','authored_pose_manifest','weapon_fit_catalog','avatar_presentation']:
             assert 'assets/'+script+'.gdc' in entries
         assert 'assets/art/production_pose_manifest.json' in entries
@@ -184,6 +192,7 @@ def main():
               'final_imported_residents': imported_residents,
               'current_extracted_canonical_assets': extracted_imports,
               'extracted_canonical_count': len(extracted_imports),
+              'reused_canonical_bodies': reuse_imports,
               'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))

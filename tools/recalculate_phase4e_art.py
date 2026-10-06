@@ -16,6 +16,7 @@ def main():
     requests=json.loads((ROOT/'docs/production/phase4e/polish/replacement-export-requests.json').read_text(encoding='utf-8'))
     poses=json.loads((ROOT/'art/production_pose_manifest.json').read_text())['entries']
     extracted=json.loads((ROOT/'art/production/phase4e/runtime_manifest.json').read_text())['entries']
+    extracted+=json.loads((ROOT/'art/production/phase4e/reuse_manifest.json').read_text())['entries']
     coverage={}; before={}; cells=[]
     for row in poses:
         if row['production_status']!='authored_beta':continue
@@ -65,6 +66,14 @@ def main():
         for facing in merchant['views']:
             other_before+=1
             cells.append(dict(game_id='pack_peddler',category='current merchant role',state=state,facing=facing,weapon_family=None,hand_support_requirement=merchant['sockets'],canvas=merchant['canvas'],transparent_background=True,baseline={'target_canvas_y':1504,'source_pixels':None},anchor={'target_canvas':[512,1504],'source_pixels':None},hand_socket_coordinates={'source_pixels':None,'status':'OPEN, exact authored palms/offer prop needed'},scale_restrictions='uniform; established merchant role, not a new Home NPC',source_canonical_sheet=merchant['canon'],rig_reuse=True))
+    source_rows=poses+extracted
+    for cell in cells:
+        candidates=sorted({row['asset_path'] for row in source_rows if row.get('actor')==cell['game_id'] and row.get('production_status')!='temporary_proxy' and row.get('asset_path')})
+        cell['reuse_search']={'accepted_state_manifest':'art/production_pose_manifest.json','extracted_state_manifest':'art/production/phase4e/runtime_manifest.json','direct_reuse_manifest':'art/production/phase4e/reuse_manifest.json','existing_actor_candidates':candidates}
+        cell['why_existing_source_cannot_close']='No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.'
+        if cell['game_id']=='moonkip':cell['why_existing_source_cannot_close']+=' Existing original hooded rogue idle has baked daggers; removal would require missing covered paw/anatomy pixels.'
+        if cell['game_id'] in ['hoard_dragon','act_i']:cell['why_existing_source_cannot_close']+=' Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected.'
+        if not candidates:cell['why_existing_source_cannot_close']+=' Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.'
     matrix=ROOT/'.godot_test_data/weapon_fit_report.json'
     support=json.loads(matrix.read_text())['support_art_pending'] if matrix.exists() else None
     data=dict(authority='CANONICAL_REPLACEMENTS.md; actual frozen authored exports plus phase4e/runtime_manifest.json; not concept-board labels',count_unit='one game ID × actual requested state × facing × weapon family (family=null for non-playable packages)',playable_universe=12*12*2*len(STATES),playable_before=12*12*2*len(STATES)-len(before),playable_remaining=playable_count,non_playable_remaining=other_before,total_missing_cells=len(cells),new_source_cells_removed=len(coverage)-len(before),complete_support_family_debt_recalculated=support,coverage=[dict(game_id=k[0],state=k[1],facing=k[2],weapon_family=k[3],asset_path=v) for k,v in sorted(coverage.items())],missing=cells,notes=['This expanded state count is not comparable to the old165 whole support-family count. Partial idles do not close missing paired attack/recovery packages.','Body frames may be reused only where actual hand/facing/state contracts work; this is not a request for thousands of unique drawings.','Initial rig target coordinates are provided; absent actual source-art palms are explicitly null. Inventing source coordinates would violate the canon/anatomy rule.','Boss RECOVER/COOLING downtime does not request fake attacking windup/commit frames.','No Dragon board body, changed Moonkip, mushroom Gloomlet, board NPC or new region is imported.'])

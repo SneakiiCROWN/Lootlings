@@ -12,6 +12,8 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 		extracted_loaded = true
 		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/runtime_manifest.json"))
 		if data is Dictionary: extracted_rows = data.get("entries",[])
+		var reuse: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/reuse_manifest.json"))
+		if reuse is Dictionary: extracted_rows.append_array(reuse.get("entries",[]))
 	for row in extracted_rows:
 		if row.actor == actor and subtype in row.weapon_types and row.phase == phase and row.facing == ("left_only" if facing<0 else "right_only"):
 			# Canvas commands retain RIDs, not this local Texture2D reference.

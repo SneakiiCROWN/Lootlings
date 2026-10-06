@@ -34,7 +34,7 @@ func review() -> void:
 			game.player_x+=20;assert(not Fit.sample(game).extracted_pose);game.player_x-=20
 			game.perform_player_attack(false);assert(not Fit.sample(game).extracted_pose)
 			cells+=1
-	assert(cells==28)
+	assert(cells==35)
 	for actor in ["emberhorn","mosskin","moonkip","pebblewyrm","glimmerfin","gloomlet"]:
 		for expression in ["happy","cheeky","angry","excited","sad","curious","surprised","determined"]:
 			assert(preload("res://phase4e_extracted_art.gd").portrait(actor,expression).get_size()==Vector2(88,86))
@@ -43,4 +43,4 @@ func review() -> void:
 		var icon:=preload("res://weapon_catalog.gd").presentation_texture(weapon,"inventory",held)
 		assert(icon.resource_path.begins_with("res://art/production/phase4e/weapons/"))
 		assert(not held.resource_path.begins_with("res://art/production/phase4e/"))
-	game.free();helper.free();print("EXTRACTED ART:28 exact source actor/weapon/state/view cells; alpha sockets, baselines, uniform scale, RNG isolation, movement/hurt/attack restrictions,48 portraits,12 inventory icons; held art preserved");quit()
+	game.free();helper.free();print("EXTRACTED ART:35 exact source actor/weapon/state/view cells; alpha sockets, baselines, uniform scale, RNG isolation, movement/hurt/attack restrictions,48 portraits,12 inventory icons; held art preserved");quit()

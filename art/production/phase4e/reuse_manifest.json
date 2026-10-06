@@ -1,0 +1,235 @@
+{
+  "authority": "Established accepted Wanderer runtime exports and their existing source hand contracts",
+  "entries": [
+    {
+      "actor": "vault_runner",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws",
+        "sling"
+      ],
+      "asset_path": "res://art/sprites/wanderers/beta/vault_runner_idle.png",
+      "source_reference": "res://art/sprites/wanderers/beta/vault_runner_idle.png",
+      "source_sha256": "492be45898c12fc93d44113e6f61034fa83c9d3ac9c002a2a36bf9951061b54b",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "body_rect": [
+        -75,
+        -146,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.719,
+        0.461
+      ],
+      "secondary_anchor": [
+        0.305,
+        0.49
+      ],
+      "core_anchor": [
+        0.49,
+        0.31
+      ],
+      "feet_baseline": 73.375,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "production_status": "accepted_beta_reuse",
+      "restrictions": "Original neutral right-facing body only; no mirror, no idle-as-attack, no movement/hurt/defeat claim. Paired palms partial; action support package stays open."
+    },
+    {
+      "actor": "ruin_warden",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws",
+        "sling"
+      ],
+      "asset_path": "res://art/sprites/wanderers/beta/ruin_warden_idle.png",
+      "source_reference": "res://art/sprites/wanderers/beta/ruin_warden_idle.png",
+      "source_sha256": "eb9d1e64883b788e62dbc7f1a00f46d0a514e823f4ee24836896de51569b8e8a",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "body_rect": [
+        -70,
+        -145,
+        140,
+        210
+      ],
+      "primary_anchor": [
+        0.753,
+        0.438
+      ],
+      "secondary_anchor": [
+        0.25,
+        0.48
+      ],
+      "core_anchor": [
+        0.473,
+        0.186
+      ],
+      "feet_baseline": 59.75,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "production_status": "accepted_beta_reuse",
+      "restrictions": "Original neutral right-facing body only; no mirror, no idle-as-attack, no movement/hurt/defeat claim. Paired palms partial; action support package stays open."
+    },
+    {
+      "actor": "nightstage_drifter",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws",
+        "sling"
+      ],
+      "asset_path": "res://art/sprites/wanderers/beta/nightstage_drifter_idle.png",
+      "source_reference": "res://art/sprites/wanderers/beta/nightstage_drifter_idle.png",
+      "source_sha256": "e5b838287a0acc808bc6941f6eca2a8faff4602a62a23f25e9889300eb3d5c5b",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "body_rect": [
+        -75,
+        -146,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.787,
+        0.446
+      ],
+      "secondary_anchor": [
+        0.265,
+        0.5
+      ],
+      "core_anchor": [
+        0.463,
+        0.181
+      ],
+      "feet_baseline": 73.375,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "production_status": "accepted_beta_reuse",
+      "restrictions": "Original neutral right-facing body only; no mirror, no idle-as-attack, no movement/hurt/defeat claim. Paired palms partial; action support package stays open."
+    },
+    {
+      "actor": "velvet_astrologer",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws",
+        "sling"
+      ],
+      "asset_path": "res://art/sprites/wanderers/beta/velvet_astrologer_idle.png",
+      "source_reference": "res://art/sprites/wanderers/beta/velvet_astrologer_idle.png",
+      "source_sha256": "c25a3cab3bb62bbc665c36f841c3569fbaab34505484a7cd4b442c9b9e28df12",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "body_rect": [
+        -75,
+        -146,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.766,
+        0.447
+      ],
+      "secondary_anchor": [
+        0.28,
+        0.48
+      ],
+      "core_anchor": [
+        0.504,
+        0.236
+      ],
+      "feet_baseline": 73.375,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "production_status": "accepted_beta_reuse",
+      "restrictions": "Original neutral right-facing body only; no mirror, no idle-as-attack, no movement/hurt/defeat claim. Paired palms partial; action support package stays open."
+    },
+    {
+      "actor": "ashtrail_hunter",
+      "phase": "IDLE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb",
+        "daggers",
+        "claws",
+        "sling"
+      ],
+      "asset_path": "res://art/sprites/wanderers/beta/ashtrail_hunter_idle.png",
+      "source_reference": "res://art/sprites/wanderers/beta/ashtrail_hunter_idle.png",
+      "source_sha256": "dd53dddf2900ff90b48fe9d45a133473e0f60ec3896317c400175a945e4c3dad",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "body_rect": [
+        -75,
+        -146,
+        150,
+        225
+      ],
+      "primary_anchor": [
+        0.765,
+        0.452
+      ],
+      "secondary_anchor": [
+        0.255,
+        0.47
+      ],
+      "core_anchor": [
+        0.549,
+        0.244
+      ],
+      "feet_baseline": 73.375,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "production_status": "accepted_beta_reuse",
+      "restrictions": "Original neutral right-facing body only; no mirror, no idle-as-attack, no movement/hurt/defeat claim. Paired palms partial; action support package stays open."
+    }
+  ]
+}

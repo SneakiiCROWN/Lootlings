@@ -93,6 +93,14 @@ def validate():
             expected='ANTICIPATE' if row['asset_path'].endswith('gloomlet_windup_right.png') else 'IDLE'
             if row['asset_path'] not in body_paths or row['phase']!=expected or row['facing'] not in ['right_only','left_only']:
                 errors.append('Unproven extracted phase/view routing: '+row['asset_path'])
+    reuse=json.loads((ROOT/'art/production/phase4e/reuse_manifest.json').read_text(encoding='utf-8'))['entries']
+    expected_actors={'vault_runner','ruin_warden','nightstage_drifter','velvet_astrologer','ashtrail_hunter'}
+    if {r['actor'] for r in reuse}!=expected_actors or len(reuse)!=5:errors.append('Unapproved reuse actor registry')
+    for row in reuse:
+        expected='res://art/sprites/wanderers/beta/'+row['actor']+'_idle.png'
+        if row['asset_path']!=expected or row['source_reference']!=expected or row['phase']!='IDLE' or row['facing']!='right_only' or set(row['weapon_types'])!={'wand','orb','daggers','claws','sling'}:
+            errors.append('Unproven canonical reuse state: '+row['actor'])
+        if sha_file(ROOT/expected.removeprefix('res://'))!=row['source_sha256']:errors.append('Changed accepted reuse source: '+row['actor'])
     for p in ROOT.glob('*.gd'):
         if re.search(r'res://art/(?:reference/phase4e_handoff|sprites/enemies/handoff)/',p.read_text(encoding='utf-8-sig')):
             errors.append('Runtime references rejected handoff art: '+p.name)
