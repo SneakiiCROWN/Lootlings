@@ -1,3 +1,7 @@
+CURRENT — [Phase4E owner-capture staging correction](docs/production/phase4e/staging/REPORT.md), implementation `59275da` plus final damage/hurt-label correction `b1e805a`. Native phone/tablet lanes, ground, HUD, socket/projectile and pack input regressions validated; Android v20 `0.4.11-phase4e-staging`, `builds/android/Lootlings-phase4e-staging-owner-debug.apk`. TEMP bodies remain unaccepted; established canon, 165 support-art debt, Dragon source-tail and separate owner/audio/save/physical S23 gates remain. Full Phase4E HOLD; continue targeted work, no Phase4F.
+
+Preserved previous states follow; earlier CURRENT entries are historical where superseded.
+
 CURRENT — [Phase4E canon freeze / approved state integration](docs/production/phase4e/canon-freeze/REPORT.md), status `6dc8f82`, implementation `f365459`, Android v19 `0.4.10-phase4e-canon-freeze`. Established designs preserved; conflicting board bodies excluded. Canonical import guards and boss state/view adapter validated; no new production bodies approved. 165 support-art cells, Dragon source tail and canonical exports remain open alongside owner/audio/save/physical S23 gates. No Phase4F.
 
 Preserved prior continuation follows; version18 is historical where superseded.

@@ -1,3 +1,13 @@
+# Current Phase 4E owner-capture staging correction — HOLD
+
+2026-10-06. Latest staging implementation `59275da`, final label correction `b1e805a`; [native evidence, measurements, regressions and Android v20](docs/production/phase4e/staging/REPORT.md). Neutral lanes, shared ground, proportional enemy bounds, matching weapon/projectile origins, closer enemy HUD and protected pack-card gestures are implemented. Final damage/hurt labels center on the rendered recipient in both target facings. Canonical freeze remains authoritative; flat bodies remain TEMP, 165 support-art cells and Dragon source-tail replacement remain open. Full Phase4E acceptance HOLD; no Phase4F.
+
+APK: `builds/android/Lootlings-phase4e-staging-owner-debug.apk`, version20 / `0.4.11-phase4e-staging`. Native phone/tablet and 1,152-case geometry/input regression pass; physical S23 and final art/audio/save acceptance remain open.
+
+Preserved prior checkpoints follow; earlier CURRENT headings are historical where superseded.
+
+---
+
 # Current Phase 4E continuation â€” HOLD
 
 Implementation `bce1e73` and `ed5203d` preserve `d3a579b`, `597486c`, `8416727`, `bfd7601`, `871ae53` and every prior checkpoint. Version18 technical testing APK: `builds/android/Lootlings-phase4e-art-ready-debug.apk`. Distinct projectile/material impacts, pack-target landing feedback, delayed premium bursts, readable rarity nameplate and optional approved combat-phase routing implemented. Native phone/tablet, contact/touch/reward regressions and defined desktop reward restart boundaries validated. **Procedural combat/regional/NPC bodies are POSE/RIG PROTOTYPES ONLY; approved replacements and Hoard Dragon source tail remain blockers. No full Phase4E acceptance or Phase4F.**
