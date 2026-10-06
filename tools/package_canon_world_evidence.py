@@ -1,6 +1,6 @@
 """Package full native captures and provenance for the Phase4E canon/world batch."""
 from pathlib import Path
-import hashlib,json,shutil
+import hashlib,json,re,shutil
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'.godot_test_data/phase4e/full-continuation'
@@ -24,7 +24,8 @@ for record in records:
 (OUT/'GALLERY.md').write_text('\n'.join(lines),encoding='utf-8')
 logs=ROOT/'.godot_test_data/qa_logs'
 for label in ['canon-world-final','canon-world-delivery-native','canon-world-aspect','canon-world-aspect-native','canon-world-captions','canon-world-captions-native']:
-    folder=max(logs.glob(label+'-*'),key=lambda p:p.stat().st_mtime)
+    matches=[p for p in logs.glob(label+'-*') if re.fullmatch(re.escape(label)+r'-[0-9a-f]{10}',p.name)]
+    folder=max(matches,key=lambda p:p.stat().st_mtime)
     destination=OUT/'qa'/folder.name;destination.mkdir(parents=True,exist_ok=True)
     for source in folder.glob('*'):shutil.copy2(source,destination/source.name)
 shutil.copy2(SOURCE/'baseline.log',OUT/'qa/baseline.log')
