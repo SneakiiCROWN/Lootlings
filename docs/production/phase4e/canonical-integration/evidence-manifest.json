@@ -1726,7 +1726,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1739,7 +1740,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1752,7 +1754,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1765,7 +1768,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1778,7 +1782,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1791,7 +1796,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1804,7 +1810,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1817,7 +1824,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1830,7 +1838,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1843,7 +1852,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1856,7 +1866,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -1869,7 +1880,8 @@
       1080,
       2340
     ],
-    "staging": "native UI"
+    "staging": "native UI",
+    "status": "BEFORE final trait-spacing correction; see selectors-phone"
   },
   {
     "group": "phone",
@@ -3066,5 +3078,317 @@
       1920
     ],
     "staging": "native staged game; process frozen; target positions explicit"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_ashtrail_hunter",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_ashtrail_hunter.png",
+    "source_sha256": "2d4115f0453d84907bc5ef43da1a7cf3daacc064f22713d4295db5ca68b2ad46",
+    "image": "screens/selectors-phone/select_ashtrail_hunter.jpg",
+    "image_sha256": "7e47403388e98a518696f4c99e11508774399d9dcad9d3b83f0d9ea0ccff1bbc",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_emberhorn",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_emberhorn.png",
+    "source_sha256": "10635c44f20f583972441cceea8269044b309132fdc998c4993e61ee0bc9807d",
+    "image": "screens/selectors-phone/select_emberhorn.jpg",
+    "image_sha256": "ab14df690d9336f9ffb86c651711ef40f2d5ccd19c519f484950c849268aefb8",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_glimmerfin",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_glimmerfin.png",
+    "source_sha256": "f61d188743155721dcb9ce49448c5c40b7e30c72b5ef711c88a2bd1710922aed",
+    "image": "screens/selectors-phone/select_glimmerfin.jpg",
+    "image_sha256": "864f7302c2e5930db94acdf4ad6ba8df2f900848d07d0ab0262d76b7faf5f3a3",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_gloomlet",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_gloomlet.png",
+    "source_sha256": "2763189918f6a4e9642f8c32bdd4564c0cc90a9d95b64eb66d8bb6e73dfbb99f",
+    "image": "screens/selectors-phone/select_gloomlet.jpg",
+    "image_sha256": "e0f751948175d406814e4d188f0f167372cc0ef4c3fadfe846f85e9c3e46e2d2",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_moonkip",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_moonkip.png",
+    "source_sha256": "b05c4ecb98c2bc3a24a89b95e84db795f8b33e91e04ef42ec056a889253e0e54",
+    "image": "screens/selectors-phone/select_moonkip.jpg",
+    "image_sha256": "7df1bc801819055054dc5bb3a9781fa12fbffc647ade2208abe3ef22c5f05f32",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_mosskin",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_mosskin.png",
+    "source_sha256": "58604b63599925b81eaafe4ff971cc24ee0243675c13f946bec7e3d4e626473d",
+    "image": "screens/selectors-phone/select_mosskin.jpg",
+    "image_sha256": "617ff8e79b1216e6c819d56bf802e6c9f3b812c5811c186ab48372e594ad8a47",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_nightstage_drifter",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_nightstage_drifter.png",
+    "source_sha256": "3669dd406dbad554a2b02deeaccb9f0753769aff56479bcff2832ce243bf43f8",
+    "image": "screens/selectors-phone/select_nightstage_drifter.jpg",
+    "image_sha256": "f37b16fa5671c30eecb463ceb662c4b07ea27eb52164dda10e59f2189ed9daab",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_pebblewyrm",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_pebblewyrm.png",
+    "source_sha256": "ade0be5c804a6881aa57a6a2c286364500e7a2885c9a4b84346a6c2cecb18c2b",
+    "image": "screens/selectors-phone/select_pebblewyrm.jpg",
+    "image_sha256": "77f46c879561e3f75837468798803a1f872db71fb6d793f2206c2ad5c9af69d9",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_relic_beast",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_relic_beast.png",
+    "source_sha256": "f3021adaac85b2205aeb45b0bb79df861e24ee3dfc245aba001d6387012cb599",
+    "image": "screens/selectors-phone/select_relic_beast.jpg",
+    "image_sha256": "8263e6b776f1c79dcf2823354141c07c0f2d4e229b590ab3d0cf2923a3166266",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_ruin_warden",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_ruin_warden.png",
+    "source_sha256": "a928a8e8e6f53770239041ed9ebf342a6d6b81bf8224b58a816ec878bbae4a14",
+    "image": "screens/selectors-phone/select_ruin_warden.jpg",
+    "image_sha256": "d36353a1dab3d1891d26f0d365fcf814a50c71ab5adda65768647f66ccf15146",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_vault_runner",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_vault_runner.png",
+    "source_sha256": "cfb39d0dc322fd583ebf94b28c4ac7e3e0661a76a15ec56f7250d93adeb1c9fa",
+    "image": "screens/selectors-phone/select_vault_runner.jpg",
+    "image_sha256": "d0fc76b7ca1494dee3b4b24e0f7c06cd6b48c6b956706dbaceef67b23db2a045",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-phone",
+    "label": "select_velvet_astrologer",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1080x2340/select_velvet_astrologer.png",
+    "source_sha256": "9e890952e0a72cf34f93602619c1e9524a18759dd0f2ae7de5b87d196f1ddc7c",
+    "image": "screens/selectors-phone/select_velvet_astrologer.jpg",
+    "image_sha256": "54c893652f23e88c3f13999604dcb0c308146000b1a2d30009ab82f706bf895d",
+    "dimensions": [
+      1080,
+      2340
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_ashtrail_hunter",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_ashtrail_hunter.png",
+    "source_sha256": "ddef8c5c04d354b2270431833289e17dd0ba5e7b7be3184d6a47e0bf8d3e8fd5",
+    "image": "screens/selectors-tablet/select_ashtrail_hunter.jpg",
+    "image_sha256": "26b02de814fb7f4eaddcc38c064a60f0a3c9393b210f26428847730029746e15",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_emberhorn",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_emberhorn.png",
+    "source_sha256": "04e58ea7ccbdd2e34453d1aab89ca52f052915a9171e6aeec7887dc5a5a5024b",
+    "image": "screens/selectors-tablet/select_emberhorn.jpg",
+    "image_sha256": "6f1c3866b9be4a3a93d62258bb3ed1f24ddb302418c396f524772a53723fc815",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_glimmerfin",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_glimmerfin.png",
+    "source_sha256": "ed26019c67e91c057d540da6bf48cd0ad70fe362e2ef1f68862309d1c15dbf90",
+    "image": "screens/selectors-tablet/select_glimmerfin.jpg",
+    "image_sha256": "af79288366f3627f0918848ffbc8f736cde31297594b7436af225e5f0d9e733f",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_gloomlet",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_gloomlet.png",
+    "source_sha256": "ec2656febde14adbdda13c605a6468eb8133c64342b694f2c04d80613d737403",
+    "image": "screens/selectors-tablet/select_gloomlet.jpg",
+    "image_sha256": "3100a6d0c685e68af22a37f97be92b5f67b217157cdc92f5f6921c8ca1c0385b",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_moonkip",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_moonkip.png",
+    "source_sha256": "a996632cd4527e54dafbc5424e030e83cb8d8145d48b2c7e342ffd637b2abd30",
+    "image": "screens/selectors-tablet/select_moonkip.jpg",
+    "image_sha256": "4dd9b619910787848edbfe063d3f1ad699f8d0edd9e6d29a0d4ebd8194c9db2d",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_mosskin",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_mosskin.png",
+    "source_sha256": "6a401a02f912446ca9240db7bae8f95fe34a76920c0dcb64f258b876941214d1",
+    "image": "screens/selectors-tablet/select_mosskin.jpg",
+    "image_sha256": "9c871ecf09900ba53c005aaf9b7efa2d685c1a6c676e993830b85d5a92983875",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_nightstage_drifter",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_nightstage_drifter.png",
+    "source_sha256": "b5a8c2130d5831b689672c12ffa7694cc52aa0e6f6dea27576090e77f1c6d9dc",
+    "image": "screens/selectors-tablet/select_nightstage_drifter.jpg",
+    "image_sha256": "0012a21374c8168ec47da8f6e987747ea4db7d6f6d16eeab885bd9c383698fb3",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_pebblewyrm",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_pebblewyrm.png",
+    "source_sha256": "a3d185afbd1cd28fa39e938e8fdea0e1271aac3c348e7bea97fdaa0652220fbd",
+    "image": "screens/selectors-tablet/select_pebblewyrm.jpg",
+    "image_sha256": "974c6b8ba6285a14077302a82eb279a4c88a531ee254019cb67dae84023d2a1f",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_relic_beast",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_relic_beast.png",
+    "source_sha256": "ed87ba40d99f5ef0836546358f1bdfa45d41f27fc0d4541c8d633be9b5972123",
+    "image": "screens/selectors-tablet/select_relic_beast.jpg",
+    "image_sha256": "8354942991c7463a73b4a16689f8d33d563d5bbfb3483ed51fb8fe7b70c4ddc3",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_ruin_warden",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_ruin_warden.png",
+    "source_sha256": "4aa892ab4224d62327677b7e3175128d5bc213c5037dba2938cc447cd779adc0",
+    "image": "screens/selectors-tablet/select_ruin_warden.jpg",
+    "image_sha256": "74eea7a658b5a5b5c543c85467c239a1a094112b28f85b164a0c484ef8a5fc93",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_vault_runner",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_vault_runner.png",
+    "source_sha256": "0eaaa02458a190ec99fc718100004106f75bfa5d520bedde6589649bdcd44865",
+    "image": "screens/selectors-tablet/select_vault_runner.jpg",
+    "image_sha256": "46fed86a0308835a67b42d427223dc7d4f3ccd1519cf7fbe4f12670872c3b23c",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
+  },
+  {
+    "group": "selectors-tablet",
+    "label": "select_velvet_astrologer",
+    "source": ".godot_test_data/phase4e/canonical-selectors-final/1200x1920/select_velvet_astrologer.png",
+    "source_sha256": "c206725d9aebb9018de9dc17b03c1e41bf1be7c2c86c4add65b15d7e0b58e168",
+    "image": "screens/selectors-tablet/select_velvet_astrologer.jpg",
+    "image_sha256": "d98b5896373a5fe9fd879411e36ec74755d1544eadab95ee9ee377db2ff80277",
+    "dimensions": [
+      1200,
+      1920
+    ],
+    "staging": "native visible final selector; trait bounds asserted"
   }
 ]

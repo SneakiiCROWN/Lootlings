@@ -666,51 +666,51 @@ Earlier six-tier spinner/reward/comparison evidence remains in [the preserved vi
 
 ![results_preserved](screens/phone/results_preserved.jpg)
 
-### select_ashtrail_hunter
+### BEFORE trait-spacing correction: select_ashtrail_hunter
 
 ![select_ashtrail_hunter](screens/phone/select_ashtrail_hunter.jpg)
 
-### select_emberhorn
+### BEFORE trait-spacing correction: select_emberhorn
 
 ![select_emberhorn](screens/phone/select_emberhorn.jpg)
 
-### select_glimmerfin
+### BEFORE trait-spacing correction: select_glimmerfin
 
 ![select_glimmerfin](screens/phone/select_glimmerfin.jpg)
 
-### select_gloomlet
+### BEFORE trait-spacing correction: select_gloomlet
 
 ![select_gloomlet](screens/phone/select_gloomlet.jpg)
 
-### select_moonkip
+### BEFORE trait-spacing correction: select_moonkip
 
 ![select_moonkip](screens/phone/select_moonkip.jpg)
 
-### select_mosskin
+### BEFORE trait-spacing correction: select_mosskin
 
 ![select_mosskin](screens/phone/select_mosskin.jpg)
 
-### select_nightstage_drifter
+### BEFORE trait-spacing correction: select_nightstage_drifter
 
 ![select_nightstage_drifter](screens/phone/select_nightstage_drifter.jpg)
 
-### select_pebblewyrm
+### BEFORE trait-spacing correction: select_pebblewyrm
 
 ![select_pebblewyrm](screens/phone/select_pebblewyrm.jpg)
 
-### select_relic_beast
+### BEFORE trait-spacing correction: select_relic_beast
 
 ![select_relic_beast](screens/phone/select_relic_beast.jpg)
 
-### select_ruin_warden
+### BEFORE trait-spacing correction: select_ruin_warden
 
 ![select_ruin_warden](screens/phone/select_ruin_warden.jpg)
 
-### select_vault_runner
+### BEFORE trait-spacing correction: select_vault_runner
 
 ![select_vault_runner](screens/phone/select_vault_runner.jpg)
 
-### select_velvet_astrologer
+### BEFORE trait-spacing correction: select_velvet_astrologer
 
 ![select_velvet_astrologer](screens/phone/select_velvet_astrologer.jpg)
 
@@ -955,3 +955,104 @@ Earlier six-tier spinner/reward/comparison evidence remains in [the preserved vi
 ### home_existing_idle_bodies
 
 ![home_existing_idle_bodies](screens/tablet/home_existing_idle_bodies.jpg)
+
+## FINAL selectors-phone
+
+### select_ashtrail_hunter
+
+![select_ashtrail_hunter](screens/selectors-phone/select_ashtrail_hunter.jpg)
+
+### select_emberhorn
+
+![select_emberhorn](screens/selectors-phone/select_emberhorn.jpg)
+
+### select_glimmerfin
+
+![select_glimmerfin](screens/selectors-phone/select_glimmerfin.jpg)
+
+### select_gloomlet
+
+![select_gloomlet](screens/selectors-phone/select_gloomlet.jpg)
+
+### select_moonkip
+
+![select_moonkip](screens/selectors-phone/select_moonkip.jpg)
+
+### select_mosskin
+
+![select_mosskin](screens/selectors-phone/select_mosskin.jpg)
+
+### select_nightstage_drifter
+
+![select_nightstage_drifter](screens/selectors-phone/select_nightstage_drifter.jpg)
+
+### select_pebblewyrm
+
+![select_pebblewyrm](screens/selectors-phone/select_pebblewyrm.jpg)
+
+### select_relic_beast
+
+![select_relic_beast](screens/selectors-phone/select_relic_beast.jpg)
+
+### select_ruin_warden
+
+![select_ruin_warden](screens/selectors-phone/select_ruin_warden.jpg)
+
+### select_vault_runner
+
+![select_vault_runner](screens/selectors-phone/select_vault_runner.jpg)
+
+### select_velvet_astrologer
+
+![select_velvet_astrologer](screens/selectors-phone/select_velvet_astrologer.jpg)
+
+
+## FINAL selectors-tablet
+
+### select_ashtrail_hunter
+
+![select_ashtrail_hunter](screens/selectors-tablet/select_ashtrail_hunter.jpg)
+
+### select_emberhorn
+
+![select_emberhorn](screens/selectors-tablet/select_emberhorn.jpg)
+
+### select_glimmerfin
+
+![select_glimmerfin](screens/selectors-tablet/select_glimmerfin.jpg)
+
+### select_gloomlet
+
+![select_gloomlet](screens/selectors-tablet/select_gloomlet.jpg)
+
+### select_moonkip
+
+![select_moonkip](screens/selectors-tablet/select_moonkip.jpg)
+
+### select_mosskin
+
+![select_mosskin](screens/selectors-tablet/select_mosskin.jpg)
+
+### select_nightstage_drifter
+
+![select_nightstage_drifter](screens/selectors-tablet/select_nightstage_drifter.jpg)
+
+### select_pebblewyrm
+
+![select_pebblewyrm](screens/selectors-tablet/select_pebblewyrm.jpg)
+
+### select_relic_beast
+
+![select_relic_beast](screens/selectors-tablet/select_relic_beast.jpg)
+
+### select_ruin_warden
+
+![select_ruin_warden](screens/selectors-tablet/select_ruin_warden.jpg)
+
+### select_vault_runner
+
+![select_vault_runner](screens/selectors-tablet/select_vault_runner.jpg)
+
+### select_velvet_astrologer
+
+![select_velvet_astrologer](screens/selectors-tablet/select_velvet_astrologer.jpg)
