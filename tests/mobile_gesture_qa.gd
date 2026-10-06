@@ -47,7 +47,7 @@ func run_qa() -> void:
 		game.enemy_hp = 100000
 		game.enemy_max_hp = 100000
 		var count: int = game.attack_sequence
-		for point in [Vector2(240,120),Vector2(240,270),Vector2(240,740)]:
+		for point in [Vector2(240,120),Vector2(240,270),Vector2(240,816)]:
 			await tap(local(point))
 		check(game.attack_sequence == count,"HUD and help touches never attack at " + str(size))
 		await swipe(local(Vector2(240,600)),100)
@@ -55,6 +55,9 @@ func run_qa() -> void:
 		game.tap_input_cooldown = 0
 		await tap(local(Vector2(240,620)))
 		check(game.attack_sequence == count+1,"deliberate release still attacks promptly")
+		game.tap_input_cooldown=0
+		await tap(game.combat_controls.attack.get_global_rect().get_center())
+		check(game.attack_sequence==count+2,"dedicated Attack release adds exactly one strike")
 		game.inventory.stash.clear()
 		for index in range(12): game.inventory.stash.append(game.ItemCatalog.create_item("scrapfang_blade","RARE",index+400))
 		game.show_hideout()
@@ -74,7 +77,7 @@ func run_qa() -> void:
 		var pad := Control.new()
 		pad.position = Vector2(20,300)
 		pad.size = Vector2(440,150)
-		game.add_child(pad)
+		game.hideout_ui.stash_content.add_child(pad)
 		var trap := Button.new()
 		trap.text = "DRAG MUST NOT ACTIVATE"
 		trap.size = pad.size
@@ -91,7 +94,7 @@ func run_qa() -> void:
 		slider.position = Vector2(20,300)
 		slider.size = Vector2(440,48)
 		slider.value = 20
-		game.add_child(slider)
+		game.hideout_ui.stash_content.add_child(slider)
 		var slider_start := slider.get_global_rect().position+Vector2(90,24)
 		await event_at(slider_start,true)
 		for step in range(1,7):
@@ -106,6 +109,7 @@ func run_qa() -> void:
 		slider.queue_free()
 		await process_frame
 		game.navigate_back()
+		if game.hideout_ui.current_screen=="stash":game.navigate_back()
 		check(game.hideout_ui.current_screen == "home","Back returns submenu to hub")
 		game.touch_ux.request("GUARD TEST","Only CONFIRM should run this action.",func(): game.inventory.scrap += 1)
 		await tap(game.touch_ux.confirm_button.get_global_rect().get_center())

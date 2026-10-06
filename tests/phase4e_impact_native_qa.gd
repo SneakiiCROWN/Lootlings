@@ -24,7 +24,7 @@ func review() -> void:
 		game=load("res://main.tscn").instantiate(); root.add_child(game); await process_frame
 		if stage=="before": game.draw.connect(draw_baseline)
 		game.app_lifecycle.platform_notifications_enabled=false
-		folder="res://.godot_test_data/phase4e/impacts/%s/%dx%d/" % [stage,dimensions.x,dimensions.y]
+		folder="res://.godot_test_data/phase4e/visible-mass-impacts/%s/%dx%d/" % [stage,dimensions.x,dimensions.y]
 		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		var helper=preload("res://tests/weapon_fit_qa.gd").new(); helper.game=game
 		for weapon in ["bow","staff","orb","sling"]:

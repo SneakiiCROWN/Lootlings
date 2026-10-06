@@ -1,3 +1,9 @@
+Current Phase4E visible integration (2026-10-06): implementations `ffde284` and `1362a89`; [report, 142 native screenshots and measured earned rewards](docs/production/phase4e/visible-mass/REPORT.md). Phone/tablet navigation, hidden underlying menus, release-owned ATTACK, optional equipped comparisons/Keep/Skip, capped saved free spins and contained premium machine motion implemented. Android v22 `0.4.13-phase4e-visible-polish`: `builds/android/Lootlings-phase4e-visible-owner-debug.apk`. GO for scoped S23 retest; full Phase4E HOLD. Canonical bodies/source-tail,165 support cells, audio/owner/save/device gates remain. No Phase4F.
+
+Preserved previous entries below are historical where superseded.
+
+---
+
 # Current Phase 4E owner-capture staging correction — HOLD
 
 2026-10-06. Latest staging implementation `59275da`, final label correction `b1e805a`; [native evidence, measurements, regressions and Android v20](docs/production/phase4e/staging/REPORT.md). Neutral lanes, shared ground, proportional enemy bounds, matching weapon/projectile origins, closer enemy HUD and protected pack-card gestures are implemented. Final damage/hurt labels center on the rendered recipient in both target facings. Canonical freeze remains authoritative; flat bodies remain TEMP, 165 support-art cells and Dragon source-tail replacement remain open. Full Phase4E acceptance HOLD; no Phase4F.

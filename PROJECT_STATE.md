@@ -1,3 +1,9 @@
+Current Phase4E visible integration (2026-10-06): implementations `ffde284` and `1362a89`; [report, 142 native screenshots and measured earned rewards](docs/production/phase4e/visible-mass/REPORT.md). Phone/tablet navigation, hidden underlying menus, release-owned ATTACK, optional equipped comparisons/Keep/Skip, capped saved free spins and contained premium machine motion implemented. Android v22 `0.4.13-phase4e-visible-polish`: `builds/android/Lootlings-phase4e-visible-owner-debug.apk`. GO for scoped S23 retest; full Phase4E HOLD. Canonical bodies/source-tail,165 support cells, audio/owner/save/device gates remain. No Phase4F.
+
+Preserved previous entries below are historical where superseded.
+
+---
+
 CURRENT — [Phase4E owner-capture staging correction](docs/production/phase4e/staging/REPORT.md), implementation `59275da` plus final damage/hurt-label correction `b1e805a`. Native phone/tablet lanes, ground, HUD, socket/projectile and pack input regressions validated; Android v20 `0.4.11-phase4e-staging`, `builds/android/Lootlings-phase4e-staging-owner-debug.apk`. TEMP bodies remain unaccepted; established canon, 165 support-art debt, Dragon source-tail and separate owner/audio/save/physical S23 gates remain. Full Phase4E HOLD; continue targeted work, no Phase4F.
 
 Preserved previous states follow; earlier CURRENT entries are historical where superseded.
