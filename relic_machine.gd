@@ -17,6 +17,7 @@ var tick_at:=0.0
 var progress:=0.0
 var burst:=0.0
 var reveal_started_at:=0.0
+var stopped_reels:=0
 var aperture_layer: Control
 var plinth_style:=Catalog.flat_style(Color("#0b151b"),Color("#8c754c"),3)
 func _ready() -> void:
@@ -27,7 +28,7 @@ func wind_up(kind: String="material", tier: String="COMMON", quick: bool=false) 
 	reward_kind=kind; rarity=tier if tier in Catalog.TIERS else "COMMON"
 	fast=quick and Catalog.tier(rarity)<3
 	reel_seconds=Catalog.spin_seconds(rarity,fast)
-	elapsed=0; tick_at=0; progress=0; burst=0; reveal_started_at=0; rolling=true; stage="rolling"
+	elapsed=0; tick_at=0; progress=0; burst=0; reveal_started_at=0; stopped_reels=0; rolling=true; stage="rolling"
 	set_process(true); queue_redraw(); cue.emit("chest_windup")
 func skip() -> bool:
 	if not rolling or Catalog.tier(rarity)>=3: return false
@@ -44,8 +45,12 @@ func _process(delta: float) -> void:
 	elapsed+=delta
 	if stage=="rolling":
 		progress=minf(1,elapsed/reel_seconds)
+		var stops: int=0
+		for reel in range(3):
+			if elapsed>=reel_seconds-(2-reel)*.08:stops+=1
+		if stops>stopped_reels:cue.emit("chest_land");stopped_reels=stops
 		if elapsed>=tick_at:
-			cue.emit("equip"); tick_at=elapsed+lerpf(.09,.28,progress*progress)
+			cue.emit("ui_press"); tick_at=elapsed+lerpf(.11,.30,progress*progress)
 		if progress>=1:
 			stage="anticipation"; cue.emit("chest_land")
 	elif stage=="anticipation" and elapsed>=reel_seconds+Catalog.anticipation(rarity): lock_result()
@@ -134,8 +139,9 @@ func draw_reels() -> void:
 				var end:=center+direction*(80+(1-burst)*25)
 				aperture_layer.draw_polyline(PackedVector2Array([start,start.lerp(end,.35)+direction.orthogonal()*8,start.lerp(end,.6)-direction.orthogonal()*5,end]),Color(tint,burst*.7),2,true)
 			else: aperture_layer.draw_line(center+direction*18,center+direction*(70+(1-burst)*32),Color(tint,burst*.42),3,true)
-	var eased:=1-pow(1-progress,3)
 	for reel in range(3):
+		var reel_progress: float=clampf(elapsed/maxf(.1,reel_seconds-(2-reel)*.08),0,1) if stage=="rolling" else progress
+		var eased:=1-pow(1-reel_progress,3)
 		var turns: float=(14+reel)*eased
 		var x:=width*(reel+.5)
 		for edge in [-1,1]:
@@ -154,6 +160,12 @@ func draw_reels() -> void:
 			var seal_radius: float=42 if tier==5 and reel==1 and stage=="reveal" else 34 if tier==4 and stage=="reveal" else 30
 			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,seal_radius*punch,tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
 		if reel<2: aperture_layer.draw_line(Vector2(x+width*.5,0),Vector2(x+width*.5,aperture_layer.size.y),Color("#22304b"),1)
+	# Cylindrical reel lighting: shadowed edges and a narrow polished lock axis.
+	for band in range(8):
+		var height: float=3+band*2
+		aperture_layer.draw_rect(Rect2(0,band*4,aperture_layer.size.x,height),Color("#00030b",.16-band*.016))
+		aperture_layer.draw_rect(Rect2(0,aperture_layer.size.y-band*4-height,aperture_layer.size.x,height),Color("#00030b",.16-band*.016))
+	aperture_layer.draw_line(Vector2(0,center.y-37),Vector2(aperture_layer.size.x,center.y-37),Color("#f2deb0",.12),1,true)
 func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_name: String) -> void:
 	# Engraved relic medallions: depth, inset dark face, lit upper rim and runes.
 	layer.draw_circle(point+Vector2(0,3),radius+2,Color("#00040c"))

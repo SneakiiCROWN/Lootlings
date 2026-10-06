@@ -28,6 +28,8 @@ var chase: Label
 var chase_bar: Control
 var pool_panel: Panel
 var mode_art: TextureRect
+var spinner_from_home:=false
+var mode_tabs: Array[Button]=[]
 func configure(target) -> void:
 	game=target; progress.load_progress(); progress.recover(game)
 	game.hideout_ui.endgame_progress=progress
@@ -36,9 +38,14 @@ func configure(target) -> void:
 	title=game.make_label(panel,"RELIC SIEGE",25,Rect2(20,14,384,48),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	detail=preload("res://lootlings_ui.gd").rich_label(panel,Rect2(24,72,376,150),14,Color("#e7edff")); detail.scroll_active=true
 	mode_art=TextureRect.new(); mode_art.position=Vector2(24,70); mode_art.size=Vector2(376,118); mode_art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; mode_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; mode_art.mouse_filter=Control.MOUSE_FILTER_IGNORE; mode_art.visible=false; panel.add_child(mode_art)
+	for tab in ["REGIONS","SIEGE","DUNGEONS"]:
+		var b: Button=game.make_action_button(panel,tab,Vector2(24+mode_tabs.size()*128,64),Vector2(120,48),Color("#172442"),Color("#b8a476"),func():
+			if tab=="REGIONS":panel.visible=false;game.show_hideout();game.hideout_ui.show_campaign()
+			else:show_modes("siege" if tab=="SIEGE" else "dungeons"))
+		b.add_theme_font_size_override("font_size",13);mode_tabs.append(b)
 	for index in range(5):
 		var b: Button=game.make_action_button(panel,"",Vector2(24,240+index*72),Vector2(376,60),Color("#172442"),Color("#78e4ff"),func(): choose(index))
-		b.add_theme_font_size_override("font_size",14); buttons.append(b)
+		b.add_theme_font_size_override("font_size",14); b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; b.clip_text=true; buttons.append(b)
 		game.touch_ux.register_button(b)
 	machine=preload("res://relic_machine.gd").new(); machine.position=Vector2(54,126); machine.size=Vector2(316,208); machine.visible=false; panel.add_child(machine)
 	machine.locked.connect(lock_spin); machine.completed.connect(finish_spin); machine.cue.connect(game.play_audio_event)
@@ -60,6 +67,7 @@ func configure(target) -> void:
 	game.touch_ux.register_button(game.hideout_ui.dungeon_start_button)
 	game.hideout_ui.dungeon_requested.disconnect(game.start_dungeon)
 	game.hideout_ui.dungeon_requested.connect(show_modes)
+	game.hideout_ui.engine_requested.connect(show_earned_spinner)
 	game.hideout_ui.tracked_requested.connect(func(id): progress.track(id); game.hideout_ui.phase4_message=progress.target_text(); game.hideout_ui.refresh_phase4())
 func open(state: String, heading: String, line: String, choices: Array) -> void:
 	spin_busy=false; machine.visible=state=="relic_spinner"
@@ -71,27 +79,31 @@ func open(state: String, heading: String, line: String, choices: Array) -> void:
 	detail.position=Vector2(24,72); detail.size=Vector2(376,150)
 	for index in range(buttons.size()): buttons[index].position=Vector2(24,240+index*72); buttons[index].size=Vector2(376,60)
 	game.state=state; panel.visible=true; title.text=heading; detail.text=line; selected_at=Time.get_ticks_msec()
+	game.hideout_ui.dismiss_dialogue();game.hideout_ui.visible=false;game.result_panel.visible=false
+	for tab in mode_tabs:tab.visible=state=="mode_menu"
 	game.pause_button.visible=false
 	for index in range(buttons.size()):
 		buttons[index].disabled=false; buttons[index].visible=index<choices.size(); buttons[index].text=str(choices[index]) if index<choices.size() else ""
 func show_modes(tab: String="siege") -> void:
-	if game.state!="hideout" or game.presentation_director.travel_active or game.presentation_director.vignette.active: return
+	if game.state not in ["hideout","mode_menu"] or game.presentation_director.travel_active or game.presentation_director.vignette.active: return
 	mode_tab=tab
 	var context: String="Highest Siege round %d • best score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault farms Mossglass.\nRelic Route offers branching encounters."
-	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT • Mossglass target dungeon","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ HIDEOUT"])
+	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ HIDEOUT"])
 	buttons[1].disabled=not game.campaign.available("mossglass_wilds")
 	buttons[2].disabled=not "act_i" in game.campaign.completed
 	buttons[3].text="FORGE RED • 24 CROWNROOT FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
 	buttons[0].visible=tab=="siege"; buttons[1].visible=tab=="dungeons"; buttons[2].visible=tab=="dungeons"
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
-	detail.position=Vector2(24,204); detail.size=Vector2(376,110)
+	mode_art.position.y=126;mode_art.size.y=118
+	detail.position=Vector2(24,258); detail.size=Vector2(376,122)
+	for button in mode_tabs:button.add_theme_stylebox_override("normal",SpinCatalog.flat_style(Color("#334c46") if (button.text=="SIEGE")== (tab=="siege") and button.text!="REGIONS" else Color("#101c30"),Color("#b8a476"),8))
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
 	detail.text="%s\nCrownroot: %d / %d fragments\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0
 	for button in buttons:
 		if button.visible:
-			button.position=Vector2(24,330+visible_index*65); button.size.y=54; visible_index+=1
+			button.position=Vector2(24,388+visible_index*58); button.size.y=50; visible_index+=1
 			var primary: bool=button==buttons[0] or (tab=="dungeons" and button==buttons[1])
 			button.add_theme_stylebox_override("normal",SpinCatalog.flat_style(Color("#304e40") if primary else Color("#101c30"),Color("#e4bd70") if primary else Color("#435371"),10))
 			button.add_theme_font_size_override("font_size",17 if primary else 13)
@@ -119,6 +131,7 @@ func choose(index: int) -> void:
 			else: panel.visible=false; next_round()
 		"siege_service":
 			if index<3:
+				if (index==0 and game.multi_hits>=6) or (index==1 and game.life_steal>=.20) or (index==2 and game.player_hp>=game.player_max_hp):return
 				var cost: int=[110,165,130][index]+mini(180,game.wave*4)
 				if game.coins<cost: return
 				game.coins-=cost; game.run_coins_spent+=cost
@@ -127,7 +140,7 @@ func choose(index: int) -> void:
 					1: game.life_steal=minf(.20,game.life_steal+.025); game.armor-=.015
 					2: game.player_hp=minf(game.player_max_hp,game.player_hp+game.player_max_hp*.25)
 				if index==0 and title.text=="THE QUIET MECHANISM" and game.wave>=9 and game.current_weapon_family()=="MAGE":
-					game.expedition_progress.data.seen["secret:quiet_prism"]=true; game.expedition_progress.save(); escrow+=1
+					game.expedition_progress.data.seen["secret:quiet_prism"]=true; game.expedition_progress.save(); escrow+=1;progress.earn_spin("secret")
 			panel.visible=false; next_round()
 		"relic_spinner":
 			if spin_busy:
@@ -139,15 +152,21 @@ func choose(index: int) -> void:
 					spin_reward=progress.data.pending.back().duplicate(true); spin_message=progress.recover(game); start_reveal(false)
 				return
 			if index==0:
+				if not can_spin():return
 				var prior: int=int(progress.data.spins)
-				spin_message=progress.spin(rng,game.CharacterTraits.actor_id(game.profile),str(game.inventory.equipped_item("Weapon").get("weapon_type","greatsword")))
-				if int(progress.data.spins)==prior: show_spinner(spin_message); return
+				var free_before: int=int(progress.data.get("free_spins",0))
+				var using_free: bool=free_before>0
+				var actor: String=game.CharacterTraits.actor_id(game.profile)
+				var family: String=str(game.inventory.equipped_item("Weapon").get("weapon_type","greatsword"))
+				spin_message=progress.free_spin(rng,actor,family) if using_free else progress.spin(rng,actor,family)
+				if int(progress.data.spins)==prior and int(progress.data.get("free_spins",0))==free_before: show_spinner(spin_message); return
 				spin_reward=progress.data.pending.back().duplicate(true)
 				if spin_reward.kind=="blueprint" and preload("res://phase4_catalog.gd").FARMS[progress.data.region].items.all(func(id): return int(game.expedition_progress.data.fragments.get(id,0))>=3):
 					spin_reward.display_name=preload("res://phase4_catalog.gd").FARMS[progress.data.region].material; spin_reward.display_amount=2; spin_reward.converted=true
-				spin_message=progress.recover(game)+"\n"+("+1 Crownroot fragment!" if progress.data.spin_sparks==0 else "+1 Crownroot spark."); game.coins=int(progress.data.spin_wallet)
-				panel.get_node("Wallet").text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-int(progress.data.spins)]
-				start_reveal(prior>0)
+				spin_message=("FREE / no Scrip spent.\n" if using_free else "")+progress.recover(game)+"\n"+("+1 Crownroot fragment!" if progress.data.spin_sparks==0 else "+1 Crownroot spark.")
+				if not using_free:game.coins=int(progress.data.spin_wallet)
+				panel.get_node("Wallet").text=wallet_text()
+				start_reveal(prior>0 or machine.stage=="settled")
 			else: close_spinner()
 
 func start_reveal(quick: bool) -> void:
@@ -178,8 +197,8 @@ func finish_spin() -> void:
 	if machine.stage!="settled": machine.reveal(spin_kind)
 	if game.state=="relic_spinner":
 		buttons[2].visible=false; buttons[1].visible=true; buttons[1].disabled=false; buttons[3].visible=true; buttons[3].disabled=false
-		buttons[0].disabled=spinner_from_modes or progress.data.spins>=3 or progress.data.spin_wallet<Catalog.SPIN_COSTS[mini(2,progress.data.spins)]
-		buttons[0].text="SPINS COMPLETE" if progress.data.spins>=3 else "FAST SPIN • %d" % Catalog.SPIN_COSTS[progress.data.spins]
+		buttons[0].disabled=not can_spin()
+		buttons[0].text=spin_text(true)
 		# Keep the revealed card unobstructed. Forge remains in Modes and on
 		# reopening this engine, with a dedicated row before the next spin.
 		buttons[4].visible=false; detail.size.y=130
@@ -190,14 +209,17 @@ func close_spinner() -> void:
 	# Leaving never cancels the already committed reward. Return to its real origin.
 	if spin_busy and SpinCatalog.tier(machine.rarity)>=3: return
 	spin_busy=false; machine.stop(); panel.visible=false; dimmer.visible=false
-	if spinner_from_modes:
+	if spinner_from_home:
+		spinner_from_home=false;game.show_hideout()
+	elif spinner_from_modes:
 		spinner_from_modes=false; game.state="hideout"; show_modes(mode_tab)
-	else: game.state="result"
+	else: game.state="result";game.result_panel.visible=true
 
 func update_chase() -> void:
 	chase.visible=true; chase_bar.visible=true
 	chase.text="CROWNROOT  %d / 24 fragments\nSPARKS  %d / 12 • every paid spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
 	chase_bar.value=mini(Catalog.RED_TARGET,progress.data.red_fragments)*SpinCatalog.SPARK_TARGET+progress.data.spin_sparks
+	chase.text="CROWNROOT  %d / 24 fragments\nSPARKS  %d / 12 / every spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
 
 func begin() -> void:
 	progress.begin(game.campaign_id); escrow=0; extracted=false; panel.visible=false; dimmer.visible=false; spinner_from_modes=false; spin_reward.clear()
@@ -224,6 +246,9 @@ func killed() -> void:
 		game.expedition_progress.record_event("siege_"+name.to_lower().replace(" ","_"),false)
 		open("siege_service",name,"Siege Embers %d • one service, or keep moving.\nAll enhancements expire. No owned equipment is replaced.%s" % [game.coins,"\nIts glass roots stir near a drawn staff. Nine rounds have warmed the circuit." if name=="THE QUIET MECHANISM" else ""],["PRISM SPLIT • +1 hit • %d Embers" % (110+mini(180,game.wave*4)),"BLOODFIRE • +2.5%% leech / -1.5%% armour • %d" % (165+mini(180,game.wave*4)),"PATCH UP • restore 25%% HP • %d Embers" % (130+mini(180,game.wave*4)),"KEEP MOVING"])
 	else: next_round()
+	if game.state=="siege_service":
+		detail.text+="\nCURRENT: %d hits / %.1f%% leech / %.1f%% armour\nHP %.0f / %.0f. Choose a boost or LEAVE." % [game.multi_hits,game.life_steal*100,game.armor*100,game.player_hp,game.player_max_hp]
+		buttons[0].disabled=game.multi_hits>=6;buttons[1].disabled=game.life_steal>=.20;buttons[2].disabled=game.player_hp>=game.player_max_hp
 func finish(victory: bool) -> void:
 	panel.visible=false
 	if siege and extracted and victory and game.wave>=10:
@@ -244,7 +269,10 @@ func finish(victory: bool) -> void:
 		game.result_summary.text=game.result_summary.text.replace("\nNone","\n"+", ".join(secured_names))
 		game.result_summary.text+="\n\nKEEPSAKES\n"+", ".join(secured_names)+"\n"+delivery
 	if victory and ((siege and game.wave>=20) or targeted): game.result_summary.text+="\nCrownroot fragments %d / %d" % [progress.data.red_fragments,Catalog.RED_TARGET]
-	spinner_button.disabled=game.total_kills<10
+	if victory and (not siege or extracted):progress.earn_spin("extraction")
+	spinner_button.disabled=game.total_kills<10 and int(progress.data.get("free_spins",0))==0
+	spinner_button.text="FREE EARNED SPIN / NOW OR LATER" if int(progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
+	game.result_summary.text+="\n\nEARNED SPINS: %d stored. Spin now or later at Home.\nFree spins never charge Scrip." % int(progress.data.get("free_spins",0))
 	if not red_drop.is_empty(): call_deferred("present_red_drop",red_drop,delivery)
 func present_red_drop(reward: Dictionary, delivery: String) -> void:
 	if game.state!="result": return
@@ -270,8 +298,26 @@ func show_spinner(message: String="") -> void:
 	if buttons[4].visible: detail.size.y=76
 	buttons[0].disabled=spins>=3 or (spins<3 and progress.data.spin_wallet<Catalog.SPIN_COSTS[spins])
 	buttons[1].disabled=false
+	buttons[0].disabled=not can_spin();buttons[0].text=spin_text(false)
+	top_line.text=wallet_text()
+	buttons[1].text="LATER / HOME" if spinner_from_home else "LATER / RESULTS" if not spinner_from_modes else "LATER / MODES"
+
+func can_spin() -> bool:
+	if not progress.data.pending.is_empty():return false
+	if int(progress.data.get("free_spins",0))>0:return true
+	return not spinner_from_home and not spinner_from_modes and progress.data.spins<3 and progress.data.spin_wallet>=Catalog.SPIN_COSTS[mini(2,progress.data.spins)]
+func spin_text(quick: bool) -> String:
+	if int(progress.data.get("free_spins",0))>0:return "FREE SPIN / %d EARNED" % progress.data.free_spins
+	return "SPINS COMPLETE" if progress.data.spins>=3 else "%s / %d %s" % ["FAST SPIN" if quick else "SPIN",Catalog.SPIN_COSTS[progress.data.spins],"EMBERS" if siege else "SCRIP"]
+func wallet_text() -> String:
+	return "%d FREE EARNED / %d %s" % [int(progress.data.get("free_spins",0)),progress.data.spin_wallet,"EMBERS" if siege else "SCRIP"]
+func show_earned_spinner() -> void:
+	if game.state!="hideout":return
+	spinner_from_home=true;spinner_from_modes=false;game.state="result";show_spinner()
+	spinner_from_home=true;buttons[1].text="LATER / HOME";buttons[0].disabled=not can_spin()
 
 func reset() -> void:
+	spinner_from_home=false;spinner_from_modes=false
 	if panel!=null: panel.visible=false
 	if dimmer!=null: dimmer.visible=false
 	if pool_panel!=null: pool_panel.visible=false

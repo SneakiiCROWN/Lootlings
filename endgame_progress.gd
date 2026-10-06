@@ -5,7 +5,10 @@ const Safe=preload("res://safe_config.gd")
 var provider=preload("res://local_save_provider.gd").new()
 var data: Dictionary={"version":1,"highest":0,"best_score":0,"delivery_serial":0,"tracked":"","red_fragments":0,"spin_sparks":0,"dungeon_clears":0,"pending":[],"spin_wallet":0,"spins":0,"session":"","region":"act_i"}
 const PATH="user://endgame.cfg"
+const FREE_BANK_CAP:=12
+const FREE_RUN_CAP:=3
 func load_progress() -> void:
+	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
 	var loaded: Dictionary=provider.load_snapshot(PATH,"endgame")
 	for key in data:
 		if loaded.has(key) and typeof(loaded[key])==typeof(data[key]): data[key]=loaded[key]
@@ -14,6 +17,9 @@ func load_progress() -> void:
 	data.spin_sparks=clampi(Safe.int_value(data.spin_sparks),0,preload("res://relic_spin_catalog.gd").SPARK_TARGET-1)
 	if not data.region in preload("res://phase4_catalog.gd").FARMS: data.region="act_i"
 	data.pending=data.pending.filter(valid_reward)
+	data.free_spins=clampi(Safe.int_value(data.free_spins),0,FREE_BANK_CAP)
+	data.free_run_grants=clampi(Safe.int_value(data.free_run_grants),0,FREE_RUN_CAP)
+	data.earned_receipts=data.earned_receipts.filter(func(value):return value is String and value.length()<240).slice(-128)
 static func valid_reward(value) -> bool:
 	if not value is Dictionary or not value.get("receipt",null) is String or value.receipt.is_empty(): return false
 	var kind: String=str(value.get("kind",""))
@@ -23,8 +29,35 @@ static func valid_reward(value) -> bool:
 	return kind!="mastery" or (value.get("actor",null) is String and value.get("family",null) is String)
 func save() -> Error: return provider.save_snapshot(PATH,"endgame",data)
 func begin(region: String) -> void:
+	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
 	data.session="run:%d:%d" % [Time.get_unix_time_from_system(),Time.get_ticks_usec()]
-	data.spins=0; data.spin_wallet=0; data.region=region; save()
+	data.spins=0; data.spin_wallet=0; data.region=region; data.free_run_grants=0; save()
+
+func earn_spin(reason: String) -> bool:
+	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
+	if data.session.is_empty() or reason not in ["boss","elite","milestone","secret","extraction"]:return false
+	var receipt: String="earned:%s:%s" % [data.session,reason]
+	if receipt in data.earned_receipts or data.free_spins>=FREE_BANK_CAP or data.free_run_grants>=FREE_RUN_CAP:return false
+	var before:=data.duplicate(true)
+	data.free_spins+=1;data.free_run_grants+=1;data.earned_receipts.append(receipt)
+	if data.earned_receipts.size()>128:data.earned_receipts.pop_front()
+	if save()!=OK:data=before;return false
+	return true
+
+func free_spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
+	if int(data.get("free_spins",0))<=0:return "No earned spins stored."
+	if not data.pending.is_empty():return "Recover the reserved reward first."
+	var before:=data.duplicate(true);var rng_before: int=rng.state
+	var reward:=Catalog.spin_reward(rng)
+	data.delivery_serial+=1
+	reward.receipt="earned-spin:%d:%s" % [data.delivery_serial,data.session]
+	reward.region=data.region;reward.actor=actor;reward.family=family
+	data.free_spins-=1;data.pending.append(reward)
+	data.spin_sparks+=1
+	if data.spin_sparks>=preload("res://relic_spin_catalog.gd").SPARK_TARGET:
+		data.spin_sparks=0;data.red_fragments=mini(999999,int(data.red_fragments)+1)
+	if save()!=OK:data=before;rng.state=rng_before;return "Could not save; your free spin is retained."
+	return "FREE earned spin / no Scrip spent."
 func track(id: String) -> bool:
 	if Items.definition(id).is_empty(): return false
 	var old: String=data.tracked; data.tracked=id

@@ -34,7 +34,14 @@ func configure(target) -> void:
 		node.get_v_scroll_bar().mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func hit(control: Control, point: Vector2) -> bool:
-	return control.is_visible_in_tree() and Rect2(Vector2.ZERO,control.size).has_point(control.get_global_transform_with_canvas().affine_inverse()*point)
+	if not control.is_visible_in_tree():return false
+	var surface: Control=game.input_surface()
+	if surface!=null and surface!=control and not surface.is_ancestor_of(control):return false
+	var parent:=control.get_parent()
+	while parent is Control:
+		if parent.clip_contents and not Rect2(Vector2.ZERO,parent.size).has_point(parent.get_global_transform_with_canvas().affine_inverse()*point):return false
+		parent=parent.get_parent()
+	return Rect2(Vector2.ZERO,control.size).has_point(control.get_global_transform_with_canvas().affine_inverse()*point)
 
 func scroller_at(point: Vector2) -> Control:
 	var found: Control
@@ -44,6 +51,7 @@ func scroller_at(point: Vector2) -> Control:
 
 func ui_at(point: Vector2) -> bool:
 	if is_instance_valid(dialog): return true
+	if game.input_surface()!=null: return true
 	for node in game.find_children("*","Control",true,false):
 		if (node is BaseButton or node is Range or node is LineEdit or node is ScrollContainer or node is RichTextLabel) and node.mouse_filter != Control.MOUSE_FILTER_IGNORE and hit(node,point): return true
 	return false
@@ -90,7 +98,7 @@ func _input(event: InputEvent) -> void:
 			start_state = game.state
 			# These contextual buttons change screens on release. Own the touch
 			# directly rather than delegating it to synthetic mouse ordering.
-			if not game.presentation_director.travel_active and not game.presentation_director.vignette.active and not is_instance_valid(dialog):
+			if not game.presentation_director.travel_active and not game.presentation_director.vignette.active:
 				var best_z: int=-4096
 				for button in game.find_children("*","Button",true,false):
 					if button.disabled or not hit(button,start): continue
@@ -180,6 +188,7 @@ func request(title: String, detail: String, action: Callable) -> void:
 	heading.add_theme_font_size_override("font_size",23)
 	panel.add_child(heading)
 	var body := RichTextLabel.new()
+	body.bbcode_enabled=true;body.scroll_active=true
 	body.text = detail
 	body.position = Vector2(22,102)
 	body.size = Vector2(388,196)

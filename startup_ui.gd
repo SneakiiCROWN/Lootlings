@@ -380,10 +380,8 @@ func confirm_wanderer() -> void:
 	profile_completed.emit()
 
 func show_boot() -> void:
-	current_screen = "boot"
-	boot_timer = 0.0
-	set_screen(boot_content)
-	ui_event.emit("menu_transition")
+	# Imported assets are ready; no simulated loading or skip screen.
+	show_title()
 
 func skip_boot() -> void:
 	ui_event.emit("ui_press")

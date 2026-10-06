@@ -8,12 +8,21 @@ static func contact(g, pos: Vector2) -> void:
 	var critical: bool=g.crit_flash>0
 	var count: int=9 if critical or heavy else 5
 	var tint: Color={"armour":Color("#fff0ad"),"glass":Color("#b5f5ff"),"stone":Color("#bbb7bb"),"wood":Color("#b5d28c"),"flesh":Color("#ecc39c"),"molten":Color("#ffbb62"),"ethereal":Color("#cab6ff")}[material]
+	if heavy:
+		g.draw_arc(pos,10+(1-life)*30,-2.5,-.6,18,Color(tint,life*.35),2,true)
 	for i in range(count):
 		var direction:=Vector2.RIGHT.rotated(-2.85+i*1.35/float(count))*Vector2(-g.enemy_facing_at(pos.x),1)
 		var travel: float=(1-life)*(26+(i%3)*10)*(1.15 if heavy else 1)
 		var start:=pos+direction*(8+travel)
 		var end:=start+direction*(8+(i%2)*5)*life
-		if material in ["armour","glass","molten"]:
+		if material=="glass":
+			var across:=direction.orthogonal()*3
+			g.draw_colored_polygon(PackedVector2Array([start-across,end+direction*5,start+across]),Color(tint,life*.72))
+			g.draw_line(start,end,Color("#efffff",life),1,true)
+		elif material=="wood":
+			g.draw_line(start-direction*3,end+direction*3,Color("#6d482f",life),3,true)
+			g.draw_line(start,end,Color(tint,life),1,true)
+		elif material in ["armour","molten"]:
 			g.draw_line(start,end,Color(tint,life),2.4 if i<3 else 1.2,true)
 			if i<3: g.draw_circle(end,1.4,Color("#fff6d4",life))
 		else:

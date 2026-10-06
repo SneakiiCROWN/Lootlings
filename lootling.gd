@@ -286,6 +286,8 @@ var hud_header_surface := LootlingsUI.skin_style("hud_header_9slice", 32)
 var hud_build_surface := LootlingsUI.skin_style("hud_build_ribbon_9slice", 32)
 var restart_button: Button
 var help_label: Label
+var combat_controls: Control
+var upgrade_compare: RichTextLabel
 var item_panel: Panel
 var item_title: Label
 var item_description: Label
@@ -379,6 +381,7 @@ func _ready() -> void:
 	add_child(touch_ux)
 	retention.configure(self)
 	touch_ux.configure(self)
+	combat_controls=preload("res://combat_controls.gd").new();add_child(combat_controls);combat_controls.configure(self)
 	if OS.has_feature("s23_test") or OS.get_environment("LOOTLINGS_MOBILE_TEST") == "1":
 		mobile_test_monitor = preload("res://mobile_test_monitor.gd").new()
 		add_child(mobile_test_monitor)
@@ -607,7 +610,7 @@ func request_enter_hideout() -> void:
 	if presentation_director == null:
 		show_hideout()
 		return
-	presentation_director.play_travel("THE HIDEOUT", "Warm lanterns, stranger treasure, and one suspiciously empty snack barrel.", Color("#ffd468"), func(): show_hideout(); discover_story("story/hideout"), 0.48)
+	show_hideout(); discover_story("story/hideout")
 
 func play_story_preview(id: String, preview_profile: Dictionary) -> void:
 	if presentation_director.vignette.active: return
@@ -739,7 +742,7 @@ func award_current_weapon_family() -> void:
 		award_unique_achievement("weapon_families", str(weapon.get("family", "VANGUARD")))
 
 func build_overlay_ui() -> void:
-	upgrade_panel = make_panel(Rect2(22, 205, 436, 470), Color("#172042f2"))
+	upgrade_panel = make_panel(Rect2(22, 130, 436, 630), Color("#172042f2"))
 	LootlingsUI.apply_material(upgrade_panel, "relic")
 	upgrade_panel.visible = false
 	upgrade_title = make_label(upgrade_panel, "LEVEL UP!", 30, Rect2(20, 18, 396, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
@@ -773,7 +776,9 @@ func build_overlay_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon, "core":core_icon, "rarity":rarity_icon})
-	upgrade_take_button = make_action_button(upgrade_panel,"SELECT A CARD",Vector2(20,418),Vector2(396,48),Color("#49346b"),Color("#ffe178"),take_selected_upgrade)
+	upgrade_compare=LootlingsUI.rich_label(upgrade_panel,Rect2(20,418,396,128),14,Color("#e6edff"));upgrade_compare.scroll_active=true
+	make_action_button(upgrade_panel,"KEEP CURRENT",Vector2(222,556),Vector2(194,54),Color("#172442"),Color("#7087ae"),skip_upgrade).add_theme_font_size_override("font_size",14)
+	upgrade_take_button = make_action_button(upgrade_panel,"SELECT A CARD",Vector2(20,556),Vector2(194,54),Color("#49346b"),Color("#ffe178"),take_selected_upgrade)
 	upgrade_take_button.set_meta("ui_intent","primary")
 	apply_button_style(upgrade_take_button,Color("#49346b"),Color("#ffe178"))
 	upgrade_take_button.disabled = true
@@ -815,7 +820,7 @@ func build_overlay_ui() -> void:
 		result_panel.add_child(card)
 		result_loot_cards.append(card)
 	refresh_result_loot()
-	help_label = make_label(self, "TAP THE ARENA • Auto-attacks continue", 13, Rect2(20, 812, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
+	help_label = make_label(self, "ATTACK for a strike / Auto-attacks continue", 12, Rect2(20, 810, 440, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#c6d8f4"))
 	build_item_ui()
 	build_merchant_ui()
 	build_boss_reward_ui()
@@ -911,12 +916,14 @@ func show_expedition_event() -> void:
 func choose_expedition_event(index: int) -> void:
 	if state != "event" or index < 0 or index > 2 or event_id.is_empty(): return
 	var choice: Dictionary = {} if index == 2 else ExpeditionEvents.choices_for(event_id,wave)[index]
+	var secret_found: bool=index!=2 and event_id=="secret_bell"
 	var scrip := int(choice.get("scrip",0))
 	var hp := float(choice.get("hp",0))
 	if coins+scrip < 0 or player_hp+hp <= 0: return
 	if index != 2: expedition_progress.record_event(event_id,float(choice.get("risk",1.0)) > 1.0)
 	# Leave decision state before rewards; a second tap cannot repeat payment.
 	state = "playing"; event_panel.visible = false; event_id = ""
+	if secret_found:retention.progress.earn_spin("secret")
 	pause_button.visible = true
 	coins += scrip
 	if scrip > 0: run_coins_earned += scrip
@@ -986,10 +993,7 @@ func request_start_run() -> void:
 
 func depart_presented_run() -> void:
 	if state != "hideout": return
-	if presentation_director == null:
-		start_presented_run()
-		return
-	presentation_director.play_travel("RELIC ROUTE DEPARTING" if dungeon.active else "EXPEDITION DEPARTING", "Choose a path through the sealed vaults." if dungeon.active else "The Relic Gate wakes. %s ahead." % CampaignSystem.title(campaign_id), Color("#72c8ff"), Callable(self, "start_presented_run"), 0.68)
+	start_presented_run()
 
 func start_presented_run() -> void:
 	start_run()
@@ -1016,6 +1020,8 @@ func show_hideout() -> void:
 	boss_reward_panel.visible = false
 	help_label.visible = false
 	hideout_ui.visible = true
+	event_panel.visible = false
+	if touch_ux!=null: touch_ux.close_dialog()
 	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 	hideout_ui.show_home()
 	play_audio_event("menu_transition")
@@ -1319,7 +1325,7 @@ func save_hideout_economy() -> void:
 	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 
 func build_item_ui() -> void:
-	item_panel = make_panel(Rect2(24, 166, 432, 536), Color("#0b1229fc"))
+	item_panel = make_panel(Rect2(24, 122, 432, 630), Color("#0b1229fc"))
 	LootlingsUI.apply_material(item_panel, "leather")
 	item_panel.visible = false
 	item_title = make_label(item_panel, "LOOT FOUND!", 27, Rect2(22, 12, 388, 56), HORIZONTAL_ALIGNMENT_CENTER, Color.WHITE)
@@ -1340,7 +1346,7 @@ func build_item_ui() -> void:
 	item_compare.size = Vector2(364, 126)
 	item_compare.bbcode_enabled = true
 	item_compare.fit_content = false
-	item_compare.scroll_active = false
+	item_compare.scroll_active = true
 	item_compare.add_theme_font_size_override("normal_font_size", 14)
 	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
 	item_panel.add_child(item_compare)
@@ -1353,6 +1359,8 @@ func build_item_ui() -> void:
 			touch_ux.request("Salvage this item?","%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap)
 		else: accept_item_scrap()
 	)
+
+	make_action_button(item_panel,"KEEP CURRENT / LEAVE FIND",Vector2(28,530),Vector2(376,60),Color("#172442"),Color("#7087ae"),skip_item).add_theme_font_size_override("font_size",15)
 
 func build_route_ui() -> void:
 	route_panel = make_panel(Rect2(22, 184, 436, 534), Color("#0b1229fc"))
@@ -1419,10 +1427,7 @@ func choose_route_room(index: int) -> void:
 	if room.is_empty(): return
 	route_panel.visible = false
 	state = "route_travel"
-	if presentation_director == null:
-		enter_route_room()
-	else:
-		presentation_director.play_travel(str(room.title), str(room.desc), Color("#78e4ff"), enter_route_room, 0.42)
+	enter_route_room()
 
 func enter_route_room() -> void:
 	if not dungeon.active: return
@@ -1464,7 +1469,7 @@ func enter_route_room() -> void:
 	dungeon.room_finished = true
 
 func build_merchant_ui() -> void:
-	merchant_panel = make_panel(Rect2(28, 170, 424, 540), Color("#11182ee8"))
+	merchant_panel = make_panel(Rect2(28, 112, 424, 540), Color("#11182ee8"))
 	LootlingsUI.apply_material(merchant_panel, "salvage")
 	merchant_panel.visible = false
 	merchant_title = make_label(merchant_panel, "PACK PEDDLER", 29, Rect2(20, 12, 384, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
@@ -1472,7 +1477,7 @@ func build_merchant_ui() -> void:
 	merchant_coin_label = LootlingsUI.rich_label(merchant_panel, Rect2(54, 74, 316, 26), 16, Color("#ffe078"))
 	for i in range(3):
 		var button := Button.new()
-		button.position = Vector2(20, 106 + i * 108)
+		button.position = Vector2(20, 106 + i * 96)
 		button.size = Vector2(384, 90)
 		button.add_theme_font_size_override("font_size", 15)
 		button.pressed.connect(inspect_merchant_item.bind(i))
@@ -1492,14 +1497,14 @@ func build_merchant_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
-	merchant_panel.size.y = 650
-	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,428,376,74),13,Color("#c9d6e9"))
-	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,514),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_panel.size.y = 688
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,406,376,132),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,548),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
-	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 578), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
-	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 578), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 616), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
+	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 616), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
 	boss_reward_panel = make_panel(Rect2(20, 155, 440, 570), Color("#17142ff8"))
@@ -1537,6 +1542,7 @@ func build_hoard_chest_ui() -> void:
 
 func make_action_button(parent: Node, text_value: String, pos: Vector2, button_size: Vector2, fill: Color, border: Color, callback: Callable) -> Button:
 	var button := Button.new()
+	button.set_meta("gesture_release_owned",true)
 	button.text = text_value
 	button.position = pos
 	button.size = button_size
@@ -1900,14 +1906,7 @@ func begin_zone_transition() -> void:
 	status_clock = 0.0
 	help_label.visible = false
 	play_audio_event("zone_transition")
-	if presentation_director != null:
-		var flavor := "Deeper ruins. Stranger treasure."
-		if current_zone_id == "emberworks":
-			flavor = "Warm gears turn beneath the rubble. Mind the sparks."
-		elif current_zone_id == "hoard_depths":
-			flavor = "Ancient locks stir. Something enormous counts its coins."
-		flavor = str(current_zone.get("story_line", flavor))
-		presentation_director.play_travel(zone_transition_title, "%s\n%s" % [zone_transition_subtitle, flavor], current_zone.accent, Callable(), 0.78)
+	wave_banner_text=zone_transition_subtitle.to_upper();wave_banner_color=current_zone.accent;wave_banner_timer=1.2
 
 func begin_special_intro() -> void:
 	state = "special_intro"
@@ -2523,6 +2522,9 @@ func kill_enemy() -> void:
 	death_burst_color = Color("#b75cff") if enemy_is_boss else Color("#ffba55") if enemy_is_miniboss else Color("#ffcf72")
 	enemy_hp = 0.0
 	total_kills += 1
+	if enemy_is_boss:retention.progress.earn_spin("boss")
+	elif enemy_is_miniboss or not enemy_variant_id.is_empty():retention.progress.earn_spin("elite")
+	if total_kills>=30:retention.progress.earn_spin("milestone")
 	if str(character_trait.get("perk","")) == "scavenger" and total_kills % 5 == 0:
 		coins += 8; run_coins_earned += 8
 	if str(character_trait.get("perk","")) == "advance": carried_shockwave += base_damage*.10
@@ -2777,7 +2779,7 @@ func inspect_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
 	var item: Dictionary = shop.stock[index]
 	merchant_selection = index; selection_msec = Time.get_ticks_msec()
-	merchant_detail.text = "[b]%s[/b]\n%s" % [item.name,ItemCatalog.describe_headline_effects(item,2)]
+	merchant_detail.text = "[b]NEW ITEM: %s[/b]\n%d RUN SCRIP / equip only if you choose\n%s" % [item.name,int(item.price),build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
 	merchant_buy_button.text = "BUY %d — ENDS THIS STOP" % int(item.price)
 	merchant_buy_button.disabled = coins < int(item.price)
 	for i in range(merchant_buttons.size()):
@@ -2791,9 +2793,11 @@ func buy_selected_merchant() -> void:
 func inspect_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size(): return
 	upgrade_selection = index; selection_msec = Time.get_ticks_msec()
-	upgrade_take_button.text = "TAKE %s" % str(selected_upgrades[index].name).to_upper()
+	upgrade_take_button.text = "TAKE PERK / FREE"
 	upgrade_take_button.add_theme_font_size_override("font_size",15)
 	upgrade_take_button.disabled = false
+	var up: Dictionary=selected_upgrades[index]
+	upgrade_compare.text="CURRENT: %d stacks / %s\nNEW PERK: %s / stacks %d to %d\nCOST: FREE / %s" % [int(upgrade_counts.get(up.id,0)),build.short_summary(),up.name,int(upgrade_counts.get(up.id,0)),int(upgrade_counts.get(up.id,0))+1,up.desc]
 	for i in range(upgrade_buttons.size()):
 		upgrade_buttons[i].add_theme_stylebox_override("normal",LootlingsUI.button_style(Color.WHITE,Color.WHITE,"focus" if i == index else "normal","primary" if i == index else "secondary"))
 
@@ -2851,9 +2855,9 @@ func play_rarity_audio(rarity: String) -> void:
 
 func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 	if equipped.is_empty():
-		return "[color=#8fa4ce]EQUIPPED[/color]  Empty slot\n[color=#69e6b0]▲ EVERYTHING IS A GAIN[/color]"
+		return "[color=#8fa4ce]CURRENTLY EQUIPPED[/color]  Empty slot\n[color=#69e6b0]▲ EVERYTHING IS A GAIN[/color]"
 	var equipped_summary := ItemCatalog.describe_headline_effects(equipped, 1).replace("\n", "  •  ")
-	var result := "[color=#8fa4ce]EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), equipped_summary]
+	var result := "[color=#8fa4ce]CURRENTLY EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), equipped_summary]
 	var found_effects: Dictionary = found.get("effects", {})
 	var equipped_effects: Dictionary = equipped.get("effects", {})
 	var keys: Array = found_effects.keys()
@@ -3043,7 +3047,7 @@ func refresh_merchant_ui() -> void:
 			headline = headline.left(42) + "…"
 		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, headline]
 		button.tooltip_text = "%s\n%s" % [item.name, ItemCatalog.describe_headline_effects(item, 2)]
-		button.disabled = shop.purchase_taken or coins < price
+		button.disabled = shop.purchase_taken
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
 		# Keep the semantic button text, but render its information in an icon-safe lane.
 		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
@@ -3118,6 +3122,7 @@ func add_xp(amount: float) -> void:
 		show_upgrade_choices()
 
 func show_upgrade_choices() -> void:
+	upgrade_compare.text="CURRENT: %s\nChoose a new perk to compare. FREE, or keep your current build." % build.short_summary()
 	upgrade_selection = -1
 	upgrade_take_button.disabled = true
 	upgrade_take_button.text = "SELECT A CARD"
@@ -3370,15 +3375,47 @@ func navigate_back() -> void:
 		presentation_director.vignette.finish()
 	elif state == "mode_menu": retention.panel.visible=false; show_hideout()
 	elif state == "relic_spinner": retention.close_spinner()
+	elif state == "merchant": leave_merchant()
+	elif state == "upgrade": skip_upgrade()
+	elif state == "item": skip_item()
+	elif state == "event": choose_expedition_event(2)
+	elif state == "result": show_hideout()
+	elif state == "abandon_confirm": cancel_abandon_run()
+	elif state == "siege_service": retention.choose(3)
+	elif state in ["route","siege_checkpoint","boss_reward","hoard_chest"]: request_return_home()
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":
 		if hideout_ui.speech_panel.visible: hideout_ui.dismiss_dialogue(); return
 		if hideout_ui.region_sheet.visible: hideout_ui.region_sheet.visible=false; return
+		if hideout_ui.stash_detail_panel.visible and hideout_ui.current_screen=="stash": hideout_ui.close_stash_detail(); return
 		if hideout_ui.current_screen != "home": hideout_ui.show_home()
 		else: show_title_from_hideout()
 	elif startup_ui.visible:
 		startup_ui.show_title()
+
+func input_surface() -> Control:
+	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
+	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:
+		return retention.pool_panel if retention.pool_panel.visible else retention.panel
+	if state=="hideout":
+		if hideout_ui.region_sheet.visible:return hideout_ui.region_sheet
+		return hideout_ui
+	return {"merchant":merchant_panel,"item":item_panel,"upgrade":upgrade_panel,"event":event_panel,"boss_reward":boss_reward_panel,"result":result_panel,"route":route_panel,"paused":pause_panel,"abandon_confirm":abandon_panel}.get(state,null)
+
+func request_return_home() -> void:
+	touch_ux.request("Return to the Hideout?","End this expedition. Owned gear and secured rewards stay yours; unfinished run rewards are lost.",func(): state="abandon_confirm";confirm_abandon_run())
+
+func skip_item() -> void:
+	if state!="item":return
+	status_message="Kept your current equipment. Find left behind."
+	finish_item_decision()
+
+func skip_upgrade() -> void:
+	if state!="upgrade":return
+	pending_levels=maxi(0,pending_levels-1);upgrade_panel.visible=false
+	if pending_levels>0:show_upgrade_choices()
+	else:state="playing"
 
 func save_meta() -> void:
 	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades)
@@ -3623,6 +3660,7 @@ func _draw() -> void:
 	var sx := size.x / DESIGN_SIZE.x
 	var sy := size.y / DESIGN_SIZE.y
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(sx, sy))
+	if state=="mode_menu" or (state=="relic_spinner" and retention.spinner_from_home):return
 	var shake := Vector2.ZERO
 	if screen_shake > 0.0 and not audio_settings.get("cinematic_reduced_motion", false):
 		shake = Vector2(visual_rng.randf_range(-4, 4), visual_rng.randf_range(-3, 3))
@@ -3915,10 +3953,3 @@ func draw_moment_overlay() -> void:
 			draw_rect(Rect2(100, 264, 280, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
 			draw_rect(Rect2(100, 264, 280, 2), banner_color, true)
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
-	if state == "zone_transition" and (presentation_director == null or not presentation_director.travel_active):
-		var transition_ratio := clampf(zone_transition_timer / 0.85, 0.0, 1.0)
-		draw_rect(Rect2(0, 112, 480, 664), Color(0.02, 0.03, 0.09, 0.72 * transition_ratio), true)
-		var title_color: Color = current_zone.accent
-		title_color.a = minf(1.0, transition_ratio * 2.0)
-		draw_string(title_font, Vector2(40, 368), zone_transition_title, HORIZONTAL_ALIGNMENT_CENTER, 400, 17, title_color)
-		draw_string(title_font, Vector2(30, 414), zone_transition_subtitle, HORIZONTAL_ALIGNMENT_CENTER, 420, 29, Color(1.0, 0.91, 0.64, title_color.a))

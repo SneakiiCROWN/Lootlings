@@ -25,6 +25,8 @@ var selected_tier := 0
 const Phase4 = preload("res://phase4_catalog.gd")
 signal group_patrols_changed(enabled: bool)
 signal dungeon_requested
+signal engine_requested
+var engine_button: Button
 var group_patrols_enabled := false
 var dungeon_start_button: Button
 signal contract_claim_requested(slot: int)
@@ -297,6 +299,8 @@ func refresh_current_screen() -> void:
 func set_screen(active: Control) -> void:
 	# A screen transition must never leave a resident bubble over unrelated UI.
 	dismiss_dialogue()
+	if region_sheet!=null:region_sheet.visible=false
+	if stash_detail_panel!=null:stash_detail_panel.visible=false
 	if presentation != null: presentation.cancel_chest_showcase()
 	var screens := [phase4_content,home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
@@ -305,6 +309,9 @@ func set_screen(active: Control) -> void:
 func build_home() -> void:
 	home_content = Control.new(); home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); add_child(home_content)
 	var empty:=Button.new(); empty.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); empty.flat=true; empty.focus_mode=Control.FOCUS_NONE; empty.set_meta("gesture_release_owned",true); home_content.add_child(empty); empty.pressed.connect(dismiss_dialogue)
+	engine_button=make_button(home_content,"RELIC ENGINE",Rect2(270,710,190,48),Color("#192936"),Color("#dcb973"),14)
+	engine_button.pressed.connect(func():engine_requested.emit())
+	make_button(home_content,"EXPEDITIONS",Rect2(20,710,232,48),Color("#192936"),Color("#dcb973"),14).pressed.connect(show_campaign)
 	make_label(home_content,"HOME",18,Rect2(84,14,312,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	make_button(home_content,"YOU",Rect2(14,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): profile_requested.emit())
 	make_button(home_content,"TITLE",Rect2(402,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): title_requested.emit())
@@ -325,7 +332,7 @@ func build_home() -> void:
 		if child is Button and not child.flat:
 			for state in ["normal","hover","pressed","focus"]:
 				var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99") if state=="normal" else Color("#29404cdd"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); child.add_theme_stylebox_override(state,style)
-	make_label(home_content,"Your fire. Your people. Your way back.",12,Rect2(60,747,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
+	make_label(home_content,"Your fire. Your people. Your way back.",12,Rect2(60,780,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
 	loadout_panel=make_panel(home_content,Rect2(34,665,412,70),Color("#0c1430e9"),Color("#7087ae")); loadout_panel.visible=false
 	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
 	home_weapon=ItemIcon.new(); home_weapon.position=Vector2(179,519); home_weapon.size=Vector2(48,48); home_weapon.mouse_filter=Control.MOUSE_FILTER_IGNORE; home_content.add_child(home_weapon)
@@ -1020,6 +1027,7 @@ func refresh_home() -> void:
 	var display_name := str(profile.get("display_name", "TREASURE SEEKER")).to_upper()
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
+	if endgame_progress!=null:engine_button.text="FREE SPINS: %d" % int(endgame_progress.data.get("free_spins",0)) if int(endgame_progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
 	resource_label.text="[center]%s %s   %s %s   %s %s[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
 	home_weapon.configure(current_inventory.equipped_item("Weapon")); home_weapon_name.text=str(current_inventory.equipped_item("Weapon").get("name","No weapon"))
 	if scrap_changed and current_screen == "home":
@@ -1214,6 +1222,7 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
 	shop_detail.text = "[center][font_size=19][color=#%s]%s[/color][/font_size]\n%s  •  %s[/center]\n%s\n[color=#aebde0]%s[/color]" % [color, item.get("name", "Unknown"), rarity, ItemCatalog.display_slot(item.get("slot", "Item")), item.get("desc", ""), ItemCatalog.describe_effects(item)]
 	shop_buy_button.text = "BUY\n%d SCRAP" % int(item.get("price", 0))
+	shop_detail.text+="\n\nCOST: %d SCRAP\n%s\nPurchase keeps it in Gear. Your current item stays equipped." % [int(item.get("price",0)),comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon"))))]
 	shop_buy_button.disabled = reveal_pending or current_inventory.scrap < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
 
 func show_shop_message(message: String, color: String = "#e5edff") -> void:
