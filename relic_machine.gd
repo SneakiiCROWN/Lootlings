@@ -66,7 +66,10 @@ func _draw() -> void:
 	var tier:=Catalog.tier(rarity)
 	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
 	var center:=size*.5
-	draw_texture_rect(FRAME,Rect2(Vector2.ZERO,size),false)
+	# Reuse the accepted crystal/brass production frame. The old mechanical
+	# engraving remains a light inset; it does not replace canonical UI art.
+	draw_style_box(UI.skin_style("panel_relic_9slice"),Rect2(Vector2.ZERO,size))
+	draw_texture_rect(FRAME,Rect2(Vector2.ZERO,size),false,Color(1,1,1,.38))
 	# Mechanical cheeks, axle bolts and reel rims distinguish the engine from
 	# an ordinary reward menu without new raster art or an extra particle node.
 	for side in [0,1]:

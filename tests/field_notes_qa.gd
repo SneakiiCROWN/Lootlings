@@ -24,6 +24,11 @@ func review() -> void:
 		var memory:=preload("res://vignette_catalog.gd").entry("character/"+actor)
 		assert(memory.actor==neutral.resource_path and memory.actor_tint==Color.WHITE)
 	assert(pages.filter(func(page): return page.category=="BOSSES").is_empty())
+	assert(Notes.pages({},null,null).filter(func(page): return str(page.id).begins_with("route/")).is_empty())
+	var discovered_routes := Notes.pages({"memories":["region/act_i"]},null,null).filter(func(page): return str(page.id).begins_with("route/"))
+	assert(discovered_routes.size()==3)
+	for page in discovered_routes:
+		assert(ResourceLoader.exists(page.art) and page.category=="TRAILS")
 	state.memories=["boss/hoard_dragon"]
 	pages=Notes.pages(state,game.campaign,game.inventory)
 	assert(pages.filter(func(page): return page.category=="BOSSES").size()==1)

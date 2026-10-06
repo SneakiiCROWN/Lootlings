@@ -127,6 +127,7 @@ var lore_entries: Array = []
 var lore_index := 0
 var lore_filter := "ALL"
 var lore_art: TextureRect
+var lore_landscape_backing: ColorRect
 var lore_heading: Label
 var lore_filter_buttons: Array[Button] = []
 const FieldNotes = preload("res://field_notes_catalog.gd")
@@ -548,8 +549,17 @@ func refresh_phase4() -> void:
 		if phase4_mode == "contracts" and (campaign == null or not campaign.available(region)): continue
 		var pieces: int = int(expedition_progress.data.fragments.get(id,0))
 		var text: String = "%s  •  blueprint %d/3\n%s • %s" % [entry.name,pieces,CampaignSystem.title(region),Phase4.FARMS[region].material] if phase4_mode == "blueprints" else "%s\n%s" % [CampaignSystem.title(region),expedition_progress.job(region).name]
-		var button := make_button(phase4_list,text,Rect2(0,0,410,88),Color("#172442"),Color("#7087ae"),14)
+		var button := make_button(phase4_list,"",Rect2(0,0,410,88),Color("#172442"),Color("#7087ae"),14)
 		button.custom_minimum_size = Vector2(410,88); button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; button.clip_text = true
+		if phase4_mode=="blueprints":
+			var item: Dictionary=entry.duplicate(true); item.rarity="RARE"
+			var image:=ItemIcon.new(); image.position=Vector2(10,10); image.size=Vector2(68,68); image.mouse_filter=Control.MOUSE_FILTER_IGNORE
+			image.name="BlueprintArt"; image.configure(item); button.add_child(image)
+		else:
+			var image:=LootlingsUI.add_icon(button,Rect2(10,10,68,68),CampaignSystem.zone_for(region,1).background.resource_path)
+			image.name="RegionArt"; image.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; image.clip_contents=true
+		var caption:=make_label(button,text,14,Rect2(90,8,306,72),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff"))
+		caption.name="RecordCaption"; caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.pressed.connect(func():
 			phase4_selected = id; track_button.disabled=phase4_mode!="blueprints"; phase4_selected_msec = Time.get_ticks_msec()
 			if phase4_mode == "blueprints":
@@ -888,6 +898,8 @@ func build_lore() -> void:
 	lore_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	lore_art.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	art_panel.add_child(lore_art)
+	lore_landscape_backing=ColorRect.new();lore_landscape_backing.position=Vector2(12,85);lore_landscape_backing.size=Vector2(408,35)
+	lore_landscape_backing.color=Color("#071027e8");lore_landscape_backing.mouse_filter=Control.MOUSE_FILTER_IGNORE;lore_landscape_backing.visible=false;art_panel.add_child(lore_landscape_backing)
 	lore_heading=make_label(art_panel,"",22,Rect2(142,14,270,100),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe178"))
 	lore_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	var panel := make_panel(lore_content, Rect2(24,292,432,421), Color("#10162ff2"), Color("#b5a0de"))
@@ -950,7 +962,9 @@ func refresh_memories() -> void:
 		if unlocked:
 			var art_path: String = str(entry.actor) if not str(entry.actor).is_empty() else str(entry.background)
 			if str(id).begins_with("character/"): art_path=FieldNotes.portrait(str(id).get_slice("/",1))
-			LootlingsUI.add_icon(button,Rect2(10,8,64,64),art_path)
+			if str(id).begins_with("resident/"): art_path="res://art/sprites/npcs/beta/%s_portrait.png" % str(id).get_slice("/",1)
+			var thumbnail:=LootlingsUI.add_icon(button,Rect2(10,8,64,64),art_path)
+			if str(id).begins_with("origin/"): thumbnail.texture=Avatar.portrait(profile)
 		button.clip_text=true
 		button.disabled = not unlocked
 		button.pressed.connect(func(): memory_replay_requested.emit(id))
@@ -978,6 +992,14 @@ func cycle_lore(direction: int) -> void:
 	lore_index = posmod(lore_index + direction, lore_entries.size())
 	var entry: Dictionary = lore_entries[lore_index]
 	lore_art.texture=entry.get("texture",LootlingsUI.icon(entry.art))
+	var landscape: bool=entry.category=="TRAILS"
+	lore_landscape_backing.visible=landscape
+	lore_art.position=Vector2(12,8);lore_art.size=Vector2(408,112) if landscape else Vector2(116,112)
+	lore_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED if landscape else TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	lore_art.clip_contents=landscape
+	lore_heading.position=Vector2(20,87) if landscape else Vector2(142,14)
+	lore_heading.size=Vector2(392,32) if landscape else Vector2(270,100)
+	lore_heading.add_theme_font_size_override("font_size",19 if landscape else 22)
 	lore_heading.text=str(entry.name)
 	lore_detail.text="[color=#b99de6]%s • PAGE %d / %d[/color]\n\n%s" % [entry.category,lore_index+1,lore_entries.size(),entry.body]
 	lore_detail.scroll_to_line(0)

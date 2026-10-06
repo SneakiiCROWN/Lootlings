@@ -94,7 +94,7 @@ def build():
         add('region',region,region.replace('_',' ').title(),'LOOTLINGS_WORLD_BIBLE.md#'+region,paths)
     systems={
         'home':('Home / Hideout','hideout_ui.gd',['res://art/backgrounds/lootlings_hideout.png']),
-        'relic_machine':('Relic Machine','relic_machine.gd',['res://art/ui/relic_machine_frame.svg']),
+        'relic_machine':('Relic Machine','relic_machine.gd',['res://art/ui/relic_machine_frame.svg','res://art/ui/production/relic.png']),
         'combat_hud':('Combat HUD','lootlings_ui.gd',[]), 'archive':('Archive / Field Notes','field_notes_catalog.gd',[]),
         'memory':('Recovered Memories','vignette_catalog.gd',[]), 'title_app':('Lootlings title / app','startup_ui.gd',[])}
     for id,(name,source,assets) in systems.items(): add('presentation',id,name,source,assets)

@@ -31,6 +31,13 @@ static func pages(profile: Dictionary, campaign, inventory) -> Array[Dictionary]
 	for region in Story.REGIONS:
 		if campaign != null and campaign.available(region):
 			result.append({"id":"region/"+region, "category":"TRAILS", "name":preload("res://campaign_system.gd").title(region), "body":Story.region_line(region,0)+"\n\n"+Story.region_line(region,1), "art":Memories.region_background(region)})
+	# The three established Act I locations already have individual paintings
+	# and encounter rosters. A recovered region account opens its route notes.
+	if "region/act_i" in profile.get("memories",[]) or (campaign!=null and "act_i" in campaign.completed):
+		for zone in preload("res://zone_catalog.gd").ZONES:
+			var foes: Array[String]=[]
+			for enemy in zone.enemies.values(): foes.append(str(enemy.name).capitalize())
+			result.append({"id":"route/"+str(zone.id), "category":"TRAILS", "name":str(zone.name).capitalize(), "body":"Act I • "+str(zone.entry).capitalize()+"\n\nKnown patrols\n"+"\n".join(foes), "art":zone.background.resource_path})
 	for boss in Memories.boss_entries():
 		if not Memories.available("boss/"+boss,profile,campaign.completed if campaign!=null else []): continue
 		var entry: Dictionary = Memories.boss_entries()[boss]

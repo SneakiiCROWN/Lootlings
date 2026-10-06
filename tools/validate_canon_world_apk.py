@@ -25,7 +25,9 @@ func _initialize():
   if str(page.id).begins_with("wanderer/"):
    assert(page.texture is AtlasTexture);faces+=1
  assert(faces==5)
- print("APK COMPILED CODE PASS: 11 boss accounts, 3 bounded Engine captions, 5 Field Notes categories, 5 accepted Wanderer portrait atlases");quit()
+ assert(notes.pages({},null,null).filter(func(page): return str(page.id).begins_with("route/")).is_empty())
+ assert(notes.pages({"memories":["region/act_i"]},null,null).filter(func(page): return str(page.id).begins_with("route/")).size()==3)
+ print("APK COMPILED CODE PASS: 11 boss accounts, 3 bounded Engine captions, 5 Field Notes categories, 5 accepted Wanderer portrait atlases, 3 discovery-gated Act I routes");quit()
 '''
 (work/'verify.gd').write_text(fixture,encoding='utf-8')
 env=os.environ.copy();env.update(APPDATA=str(ROOT/'.godot_test_data/isolated/apk-canon-proof'),XDG_DATA_HOME=str(ROOT/'.godot_test_data/isolated/apk-canon-proof'),LOOTLINGS_QA='1')
