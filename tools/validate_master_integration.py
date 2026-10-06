@@ -9,7 +9,7 @@ def main():
     assert all(r['status'] in data['statuses'] for r in rows)
     counts=Counter(r['status'] for r in rows);assert data['counts']['all_statuses']=={s:counts[s] for s in data['statuses']}
     assert data['counts']['total_launch_scope_slots']==sum(r['launch_scope'] for r in rows)
-    for path,expected in data['source_inputs'].items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected,'Stale source: '+path
+    for path,expected in data['source_inputs'].items():assert hashlib.sha256((ROOT/path).read_text(encoding='utf-8-sig').encode('utf-8')).hexdigest()==expected,'Stale source: '+path
     for row in rows:
         if row['status']=='REJECTED_IDENTITY_DRIFT':assert not row['launch_scope']
         if row['current_production_asset']:
