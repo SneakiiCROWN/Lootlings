@@ -14,6 +14,10 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 		if data is Dictionary: extracted_rows = data.get("entries",[])
 		var reuse: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/reuse_manifest.json"))
 		if reuse is Dictionary: extracted_rows.append_array(reuse.get("entries",[]))
+		var bow_slice: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json"))
+		if bow_slice is Dictionary:
+			for row in bow_slice.get("entries",[]):
+				if row.get("native_validated",false) and row.get("production_status","")=="validated_beta_windup_only": extracted_rows.append(row)
 	for row in extracted_rows:
 		if not preload("res://actor_identity_corrections.gd").allowed(str(row.actor),str(row.asset_path)):continue
 		if row.actor == actor and subtype in row.weapon_types and row.phase == phase and row.facing == ("left_only" if facing<0 else "right_only"):
@@ -81,6 +85,7 @@ static func resolve(row: Dictionary) -> Dictionary:
 		"supports_two_hand":bool(row.supports_two_hand),"depth":str(row.draw_depth),
 		"facing_support":str(row.facing),"wardrobe_requires":row.wardrobe_requires,
 		"feet_baseline":float(row.feet_baseline),"weapon_types":row.get("weapon_types",[]),"weapon_overrides":{}}
+	result.bow_draw_contact = bool(row.get("bow_draw_contact",false))
 	if not str(row.foreground_layer).is_empty() and ResourceLoader.exists(row.foreground_layer):
 		result.foreground = load(row.foreground_layer)
 	for id in row.weapon_overrides:

@@ -8,20 +8,20 @@ static func identity(g) -> String:
 	if g.inventory.has_signature("frostbell_chime"): return "Frost"
 	return "Arcane" if g.current_weapon_family() == "MAGE" else "Physical"
 
-static func draw_arrow(g, tip: Vector2, direction: Vector2, element: String, scale: float = 1.0, trail: bool = true, bolt: bool = false) -> void:
+static func draw_arrow(g, tip: Vector2, direction: Vector2, element: String, scale: float = 1.0, trail: bool = true, bolt: bool = false, shaft_length: float = 33.0) -> void:
 	var d := direction.normalized()*scale
 	var n := d.orthogonal()
 	var color: Color = COLORS.get(element,COLORS.Physical)
 	if trail: draw_trail(g,tip-d*33,d,element)
 	# Bronze collar, dark shaft, split feather silhouette and recurved relic head.
-	g.draw_line(tip-d*33,tip-d*5,Color("#0a1425"),5*scale,true)
-	g.draw_line(tip-d*31,tip-d*5,Color("#d1ae77"),2*scale,true)
+	g.draw_line(tip-d*shaft_length,tip-d*5,Color("#0a1425"),5*scale,true)
+	g.draw_line(tip-d*(shaft_length-2),tip-d*5,Color("#d1ae77"),2*scale,true)
 	var head := PackedVector2Array([tip,tip-d*11+n*5,tip-d*8,tip-d*11-n*5])
 	g.draw_colored_polygon(head,color.lightened(.35))
 	g.draw_polyline(PackedVector2Array([head[1],tip,head[3]]),Color("#152539"),1.2*scale,true)
 	g.draw_line(tip-d*12-n*2,tip-d*12+n*2,Color("#ce9a4d"),3*scale,true)
 	for side in [-1,1]:
-		g.draw_colored_polygon(PackedVector2Array([tip-d*31,tip-d*36+n*5*side,tip-d*23+n*3*side,tip-d*21]),Color("#a2bfbe") if element == "Physical" else color)
+		g.draw_colored_polygon(PackedVector2Array([tip-d*(shaft_length-2),tip-d*(shaft_length+3)+n*5*side,tip-d*(shaft_length-10)+n*3*side,tip-d*(shaft_length-12)]),Color("#a2bfbe") if element == "Physical" else color)
 	if bolt: g.draw_line(tip-d*23,tip-d*10,Color("#8a96ac"),3.5*scale,true)
 	if element != "Physical": g.draw_circle(tip-d*6,2.2*scale,color)
 

@@ -1,0 +1,61 @@
+{
+  "actor": "gloomlet",
+  "state": "windup",
+  "facing": "left",
+  "weapon_family": "bow",
+  "source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L02.png",
+  "source_sha256": "8ac217ac698910a2ca18a796955185b6e9ffade85d2e58da478fb3776a6c9c2a",
+  "identity_authority": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "baseline": 496,
+  "occupied_bounds": [
+    16,
+    22,
+    496,
+    496
+  ],
+  "uniform_scale": 0.40816326530612246,
+  "source_crop": [
+    53,
+    47,
+    1229,
+    1208
+  ],
+  "crop_canvas_offset": [
+    16.0,
+    22.12244897959181
+  ],
+  "alpha_background_cleanup": "Only alpha<=8 source background speckle removed; no opaque anatomy edits",
+  "measured_source_palms": [
+    [
+      96,
+      655
+    ],
+    [
+      673,
+      627
+    ]
+  ],
+  "canvas_palms": [
+    [
+      33.55102040816327,
+      270.2857142857143
+    ],
+    [
+      269.0612244897959,
+      258.85714285714283
+    ]
+  ],
+  "mirroring_allowed": false,
+  "foreground_layer": "gloomlet_bow_windup_left_grip.png",
+  "baked_weapon": false,
+  "acceptance": "NATIVE_VALIDATED_WINDUP_ONLY",
+  "evidence": "docs/production/phase4e/gloomlet-bow/REPORT.md"
+}

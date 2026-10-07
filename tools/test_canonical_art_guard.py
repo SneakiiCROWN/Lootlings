@@ -11,7 +11,7 @@ class CanonGuard(unittest.TestCase):
         mutate(data)
         def read(p,*args,**kwargs):
             return json.dumps(data) if p==path else original(p,*args,**kwargs)
-        with patch.object(Path,'read_text',read),self.assertRaises(ValueError): guard.validate()
+        with patch.object(Path,'read_text',read),self.assertRaises((ValueError,AssertionError)): guard.validate()
     def test_current_sources_remain_valid(self):
         self.assertEqual(guard.validate()['approved_boss_frames'],0)
     def test_frozen_source_drift_is_rejected(self):
@@ -49,5 +49,11 @@ class CanonGuard(unittest.TestCase):
         self.check_mutation(guard.ROOT/'art/production/phase4e/extraction_manifest.json',mutate)
     def test_idle_export_cannot_claim_an_attack(self):
         self.check_mutation(guard.ROOT/'art/production/phase4e/runtime_manifest.json',lambda d:d['entries'][0].update(phase='ATTACK'))
+
+    def test_candidate_windup_cannot_claim_release(self):
+        self.check_mutation(guard.ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json',lambda d:d['entries'][0].update(phase='ATTACK'))
+
+    def test_candidate_cannot_move_measured_grip(self):
+        self.check_mutation(guard.ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json',lambda d:d['entries'][0].update(primary_anchor=[.5,.5]))
 
 if __name__=='__main__': unittest.main()

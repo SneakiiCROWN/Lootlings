@@ -49,6 +49,7 @@ def build():
         key=add(category,id,str(name),source)
         coverage[row['slot_id']]=key
     export_rows=[]
+    export_rows+=read('art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')['entries']
     for path in ['art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']:
         export_rows+=read(path)['entries']
     for category,filename,constant in [('lootling','lootling_catalog.gd','ENTRIES'),('wanderer','wanderer_catalog.gd','PRESETS')]:
@@ -113,6 +114,7 @@ def build():
             entry['rejected_conflicting_sources']=[p for p in rejected if entry['stable_id'].split('_')[0].lower() in p.lower()]
         entry['guidance_only_sources']=['art/reference/phase4e_handoff/REFERENCE_STATUS.json']
     inputs=['docs/production/MASTER_INTEGRATION_MANIFEST.json','docs/production/MASTER_RUNTIME_CATALOG_SNAPSHOT.json','art/reference/phase4e_handoff/REFERENCE_STATUS.json','art/actor_identity_corrections.json','art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']
+    inputs.append('art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')
     approved_file='art/approved_missing_canon_references.json'
     if (ROOT/approved_file).exists():
         approved=read(approved_file)['entries']; assert len(approved)==35

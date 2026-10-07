@@ -12,6 +12,8 @@ def resource(path):
     return target
 
 def validate():
+    from validate_gloomlet_bow_handoff import validate as validate_bow_handoff
+    validate_bow_handoff()
     from validate_owner_npc_panels import validate as validate_npc_panels
     validate_npc_panels()
     from validate_companion_art import validate as validate_companions

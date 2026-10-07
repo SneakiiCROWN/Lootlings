@@ -246,7 +246,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	if stance.handling in ["two_hand","paired"]:
 		support_status = "authored_pose_required"
 		if authored.get("extracted_pose",false) and stance.handling == "paired": support_status = "partial_authored_paired"
-		if bool(authored.get("supports_two_hand",false)) and secondary is Vector2:
+		if bool(authored.get("supports_two_hand",false)) and secondary is Vector2 and not authored.get("bow_draw_contact",false):
 			var span: Vector2 = (secondary_grip-Vector2(geometry.grip))*size*weapon_scale
 			var target: Vector2 = secondary-primary
 			if span.length() > 1.0:
@@ -257,6 +257,16 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 					rect = Rect2(-Vector2(geometry.grip)*size,size)
 					support_status = "authored_two_hand"
 	var support := primary+((secondary_grip-Vector2(geometry.grip))*size*weapon_scale).rotated(angle)
+	# A bow's second palm draws its string, not a second rigid handle. Exact
+	# independent windups retain the measured palms and the existing bow module.
+	var bow_nock: Variant = null
+	var bow_forward: Variant = null
+	if subtype == "bow" and authored.get("bow_draw_contact",false):
+		angle = .65 * (1 if facing > 0 else -1)
+		bow_nock = (secondary-primary).rotated(-angle)/weapon_scale
+		bow_forward = Vector2(facing,0).rotated(-angle)/weapon_scale
+		support = secondary
+		support_status = "authored_bow_draw"
 	if sprite_rig:
 		if stance.handling == "two_hand":
 			# Keep the support arm anatomical on long polearm follow-through.
@@ -277,6 +287,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			secondary = primary+(nock*weapon_scale).rotated(angle)
 	var socket := (rect.position+Vector2(geometry.socket)*size)*weapon_scale
 	return {"sprite_rig":sprite_rig,"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
+		"bow_nock":bow_nock,"bow_forward":bow_forward,
 		"feet_baseline":float(authored.get("feet_baseline",actor.body_rect.end.y)),
 		"texture":authored.get("texture",actor.texture),"tint":actor.tint,"hand":primary,"primary_hand":primary,
 		"secondary_hand":secondary,"secondary_grip":support,"grip_span":primary.distance_to(support),

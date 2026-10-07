@@ -159,13 +159,21 @@ func draw_bow_string(g, pose: Dictionary) -> void:
 	var lower := rect.position+rect.size*Vector2(.411,.887)
 	var midpoint := (upper+lower)*.5
 	var forward := Vector2.RIGHT.rotated(-float(pose.weapon_rotation))*Vector2(pose.weapon_scale)
+	if pose.get("bow_forward") is Vector2: forward=pose.bow_forward
 	var draw_amount := float(pose.action.anticipate)
 	var nock := midpoint-forward*(draw_amount*14.0)
+	if pose.get("bow_nock") is Vector2: nock=pose.bow_nock
 	if g.attack_anim > .16: nock += forward*sin((.22-g.attack_anim)*80)*2.0
 	g.draw_polyline(PackedVector2Array([upper,nock,lower]),Color("#141a2c"),3.0,true)
 	g.draw_polyline(PackedVector2Array([upper,nock,lower]),Color("#e8d9a8"),1.2,true)
 	if g.attack_anim <= 0:
-		preload("res://projectile_presentation.gd").draw_arrow(g,nock+forward*48.0,forward,"Physical",1.3,false)
+		if pose.get("bow_nock") is Vector2:
+			# Full draw spans the delivered hand-to-grip distance. Extend only the
+			# shaft; retain the existing readable head/feathers instead of scaling.
+			var length:=nock.length()+18.0
+			preload("res://projectile_presentation.gd").draw_arrow(g,nock+forward*length,forward,"Physical",1.3,false,false,length/1.3)
+		else:
+			preload("res://projectile_presentation.gd").draw_arrow(g,nock+forward*48.0,forward,"Physical",1.3,false)
 
 func draw_striking_blade(g, pos: Vector2) -> void:
 	# Large foes used to hide the entire contact stroke. Only the blade crosses

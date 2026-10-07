@@ -1,0 +1,110 @@
+{
+  "package": "Lootlings_Gloomlet_Bow_Codex_Handoff_v1",
+  "scope": "Gloomlet + bow polished combat vertical slice only",
+  "canonical_identity_authority": "canonical_reference/Gloomlet_CharacterSheet_Canonical.png",
+  "candidate_rule": "Generated pose candidates are not canonical/runtime-complete until exact state/facing/weapon-fit validation passes.",
+  "weapon_rule": "Use existing runtime bow modules; no baked bow by default.",
+  "final_frame_contract": {
+    "canvas": [
+      512,
+      512
+    ],
+    "transparent_background": true,
+    "canvas_inset_pixels": 16,
+    "pivot": [
+      256.0,
+      341.3333333333333
+    ],
+    "target_ground_y": 496,
+    "mirroring_allowed": false
+  },
+  "required_states_by_facing": {
+    "right": [
+      "idle",
+      "movement",
+      "windup",
+      "strike_or_cast",
+      "follow_through",
+      "recovery",
+      "hurt",
+      "defeat",
+      "victory_return"
+    ],
+    "left": [
+      "idle",
+      "movement",
+      "windup",
+      "strike_or_cast",
+      "follow_through",
+      "recovery",
+      "hurt",
+      "defeat",
+      "victory_return"
+    ]
+  },
+  "known_open_likely": [
+    "hurt",
+    "defeat",
+    "victory_return",
+    "some movement/recovery",
+    "exact opposite-facing bow contact"
+  ],
+  "candidates": [
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_R01.png",
+      "orientation": "right",
+      "suggested_use": "ready/draw candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "74c490588d24547be1ffb9ba62acb00cb015af39e72b62a57c430af2c15b4780"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_R02.png",
+      "orientation": "right",
+      "suggested_use": "neutral/combat-ready candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "7b18eb0f626d607748ea4eaa9c516c6d53fe72e6d0be2033aa3ac0d8aafa61a8"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_R03.png",
+      "orientation": "right",
+      "suggested_use": "draw/windup candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "7b3b4a367c29a1d3c5c36c20ce8d96b3374f98138689be5cc8bd303928c17936"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_L01.png",
+      "orientation": "left",
+      "suggested_use": "neutral/combat-ready candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "c0dc4b6e616a8fa8e9e10fda96b9ca00093c7aefbc4d67fc255ddc9a56950ac0"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_L02.png",
+      "orientation": "left",
+      "suggested_use": "draw/windup candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "8ac217ac698910a2ca18a796955185b6e9ffade85d2e58da478fb3776a6c9c2a"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_L03.png",
+      "orientation": "left",
+      "suggested_use": "release/follow-through candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "2f434b2c24b7d6119fac7fe8c2d14908aa6290e7d44b3084d301edbc63a61fd0"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_R04.png",
+      "orientation": "right",
+      "suggested_use": "draw/windup candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "84816b242162e292ff78ba6858daa3bf8af999704cebdca9b1447291100a1ce7"
+    },
+    {
+      "file": "generated_pose_candidates/Gloomlet_BowCandidate_R05.png",
+      "orientation": "right",
+      "suggested_use": "release/follow-through candidate",
+      "status": "CANDIDATE_ONLY",
+      "sha256": "5dd607cb73c8e3eb4f291ece59960417c99c4593eb577e53cadee72463ddfecb"
+    }
+  ]
+}

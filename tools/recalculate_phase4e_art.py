@@ -17,6 +17,7 @@ def main():
     poses=json.loads((ROOT/'art/production_pose_manifest.json').read_text())['entries']
     extracted=json.loads((ROOT/'art/production/phase4e/runtime_manifest.json').read_text())['entries']
     extracted+=json.loads((ROOT/'art/production/phase4e/reuse_manifest.json').read_text())['entries']
+    extracted+=json.loads((ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json').read_text())['entries']
     coverage={}; before={}; cells=[]
     for row in poses:
         if row['production_status']!='authored_beta':continue
@@ -86,8 +87,9 @@ def main():
         if cell['game_id']=='moonkip':cell['why_existing_source_cannot_close']+=' Existing original hooded rogue idle has baked daggers; removal would require missing covered paw/anatomy pixels.'
         if cell['game_id'] in ['hoard_dragon','act_i']:cell['why_existing_source_cannot_close']+=' Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected.'
         if not candidates:cell['why_existing_source_cannot_close']+=' Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.'
-    matrix=ROOT/'.godot_test_data/weapon_fit_report.json'
-    support=json.loads(matrix.read_text())['support_art_pending'] if matrix.exists() else None
+    # A sampled windup contact pass cannot close a whole family across its
+    # missing attack/recovery/hurt states. Retain the authoritative full matrix.
+    support=json.loads((ROOT/'docs/production/phase4e/polish/support-art-debt.json').read_text())['by_facing']
     data=dict(authority='CANONICAL_REPLACEMENTS.md; actual frozen authored exports plus phase4e/runtime_manifest.json; not concept-board labels',count_unit='one game ID × actual requested state × facing × weapon family (family=null for non-playable packages)',playable_universe=12*12*2*len(STATES),playable_before=12*12*2*len(STATES)-len(before),playable_remaining=playable_count,non_playable_remaining=other_before,total_missing_cells=len(cells),new_source_cells_removed=len(coverage)-len(before),complete_support_family_debt_recalculated=support,coverage=[dict(game_id=k[0],state=k[1],facing=k[2],weapon_family=k[3],asset_path=v) for k,v in sorted(coverage.items())],missing=cells,notes=['This expanded state count is not comparable to the old165 whole support-family count. Partial idles do not close missing paired attack/recovery packages.','Body frames may be reused only where actual hand/facing/state contracts work; this is not a request for thousands of unique drawings.','Initial rig target coordinates are provided; absent actual source-art palms are explicitly null. Inventing source coordinates would violate the canon/anatomy rule.','Boss RECOVER/COOLING downtime does not request fake attacking windup/commit frames.','No Dragon board body, changed Moonkip, mushroom Gloomlet, board NPC or new region is imported.'])
     (BASE/'MISSING_ART_MANIFEST.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:v for k,v in data.items() if k not in ['coverage','missing','notes']},indent=2))

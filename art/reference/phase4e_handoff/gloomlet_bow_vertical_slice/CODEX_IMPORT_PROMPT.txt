@@ -1,0 +1,50 @@
+LOOTLINGS — GLOOMLET BOW HANDOFF IMPORT / VALIDATION
+
+A new owner-supplied handoff folder has been added at:
+art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/
+
+Read README_FIRST.txt and CANDIDATE_MANIFEST.json before changing runtime art.
+
+SOURCE AUTHORITY:
+- canonical_reference/Gloomlet_CharacterSheet_Canonical.png = Gloomlet identity authority.
+- pose_reference_boards/* = pose/choreography/hand-placement guidance only; baked bows shown there are NOT runtime authority.
+- generated_pose_candidates/* = owner-supplied transparent weaponless pose CANDIDATES. They are NOT automatically final or canonical runtime cells.
+
+GOAL:
+Finish the current Gloomlet + Bow vertical slice without POSE ART PENDING on the ordinary tested route, but only where the supplied candidates and existing repo assets can satisfy the exact runtime contracts safely.
+
+WEAPON INTEGRATION RULE:
+Prefer the existing runtime bow family assets (Moonbranch / Gilded Shortbow / other current bow item art). Do not bake a single bow into Gloomlet unless an exact item/state is explicitly declared and restricted. Fit Gloomlet's hands/body to the current bow module. Use separate foreground grip/support-hand/string-arrow layers where required.
+
+FOR EACH REQUIRED GLOOMLET+BOW CELL:
+1. Compare the candidate against Gloomlet_CharacterSheet_Canonical.png.
+2. Reject any candidate with identity/proportion/anatomy drift.
+3. Confirm facing independently; DO NOT mirror asymmetric art.
+4. Confirm both hands can make believable contact with the actual runtime bow geometry.
+5. Convert only accepted candidates to the existing 512x512 transparent runtime contract with correct baseline/pivot/bounds; do not stretch.
+6. Create/update the proper socket sidecar metadata using actual palm coordinates measured from the delivered pixels.
+7. Keep the real bow as a separate equipment module unless an exact baked-weapon exception is deliberately registered.
+8. Register only validated exact state/facing/family cells in the existing per-state manifest.
+9. A candidate/reference/fallback card does NOT count as completed art and must not reduce debt.
+
+REQUIRED BOW CELLS:
+RIGHT: idle, movement, windup, strike_or_cast, follow_through, recovery, hurt, defeat, victory_return
+LEFT:  idle, movement, windup, strike_or_cast, follow_through, recovery, hurt, defeat, victory_return
+
+IMPORTANT:
+This pack is expected to be incomplete. If hurt/defeat/victory_return or any precise grip/facing is not genuinely represented, keep that exact cell OPEN and report it. Do not invent anatomy or relabel another pose.
+
+Continue the already-started multi-enemy HUD and ATTACK-control fixes from the interrupted run. Preserve all v41 Phase4E work.
+
+Do NOT export another owner-facing APK while normal Gloomlet bow combat still reaches POSE ART PENDING. If this pack is insufficient, stop the APK gate and return the exact missing states we must author next.
+
+At the end return:
+- which supplied candidate files were accepted/rejected and why
+- exact runtime cells closed
+- exact cells still open
+- actual bow-fit/socket validation result for Moonbranch and Gilded Shortbow
+- whether normal Treasure Ruins -> Warrens -> Grump Knight -> Hoard Depths Gloomlet bow route has zero fallback cards
+- multi-enemy HUD result
+- ATTACK-control result
+- native evidence paths
+- build status (only export if gate is satisfied)

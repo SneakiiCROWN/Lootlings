@@ -20,12 +20,15 @@ var actors: Array[Dictionary] = []
 var selected := 0
 var active := false
 var aoe_active := false
+var compact_hud_skin: StyleBox
+var hud_layout_cache := {}
 
 func clear() -> void:
 	actors.clear()
 	selected = 0
 	active = false
 	aoe_active = false
+	hud_layout_cache.clear()
 
 func capture(g) -> void:
 	if not active: return
@@ -78,8 +81,46 @@ func select_at(g, point: Vector2) -> bool:
 func card_at(point: Vector2) -> int:
 	if not active: return -1
 	for index in range(actors.size()):
-		if Rect2(12+index*(228 if actors.size()==2 else 156),HUD_Y,218 if actors.size()==2 else 144,72).has_point(point): return index
+		if hud_rect(index).has_point(point): return index
 	return -1
+
+func hud_rect(index: int) -> Rect2:
+	return Rect2(12+index*(228 if actors.size()==2 else 156),HUD_Y,218 if actors.size()==2 else 144,108)
+
+func hud_layout(font: Font, text: String, index: int) -> Dictionary:
+	var key:="%s:%d:%d:%d" % [text,actors.size(),index,font.get_instance_id()]
+	if hud_layout_cache.has(key):return hud_layout_cache[key]
+	var rect:=hud_rect(index)
+	var width:=rect.size.x-12
+	var font_size:=13
+	var lines: Array[String]=[]
+	# Preserve actual words, including elite prefixes. The old fixed-character
+	# cut lost identity and still overflowed proportional-font card widths.
+	for word in text.split(" ",false):
+		if lines.is_empty():lines.append(word)
+		elif font.get_string_size(lines.back()+" "+word,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x<=width:lines[-1]+=" "+word
+		else:lines.append(word)
+	if lines.size()>3:
+		font_size=12;lines.clear()
+		for word in text.split(" ",false):
+			if lines.is_empty():lines.append(word)
+			elif font.get_string_size(lines.back()+" "+word,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x<=width:lines[-1]+=" "+word
+			else:lines.append(word)
+	var result:={"rect":rect,"name_width":width,"font_size":font_size,"lines":lines,"bar":Rect2(rect.position+Vector2(6,59),Vector2(width,18)),"status_y":rect.position.y+82}
+	if hud_layout_cache.size()>=24:hud_layout_cache.clear()
+	hud_layout_cache[key]=result
+	return result
+
+func hud_skin() -> StyleBox:
+	if compact_hud_skin==null:
+		var source=UI.skin_style("hud_header_9slice")
+		# These script fields are not exported Resource storage properties;
+		# duplicate() does not retain their loaded textures. Copy explicitly.
+		compact_hud_skin=preload("res://ui_surface_style.gd").new()
+		compact_hud_skin.texture=source.texture
+		compact_hud_skin.protected_margin=source.protected_margin
+		compact_hud_skin.source_scale=.20
+	return compact_hud_skin
 
 func on_death(g) -> void:
 	capture(g)
@@ -167,17 +208,22 @@ func draw(g, shake: Vector2) -> void:
 			var alpha: float = 1.0 if g.enemy_alive else clampf(g.enemy_death_anim / 0.5, 0.0, 1.0)
 			g.draw_enemy(preload("res://combat_stage.gd").enemy_position(g,position(index).x) + Vector2(g.enemy_recoil * 0.35, sin(g.run_time * 3.0 + index) * 1.5) + shake, Color(1, 1, 1, alpha) if g.enemy_flash > 0.0 else Color(0.45, 0.84, 0.64, alpha), scale_factor)
 		if g.state != "playing": continue
-		var width := 218.0 if actors.size() == 2 else 144.0
-		var x := 12.0 + index * (228.0 if actors.size() == 2 else 156.0)
+		var layout:=hud_layout(g.body_font,str(g.enemy_name).to_upper(),index)
+		var width: float=layout.name_width
+		var x: float=layout.rect.position.x+6
 		var accent := Color("#78e4ff") if index == original else Color("#8da3bd")
-		g.draw_string(g.body_font, Vector2(x, HUD_Y+13), ("▸ " if index == original else "") + str(g.enemy_name).left(22 if actors.size() == 2 else 15), HORIZONTAL_ALIGNMENT_CENTER, width, 13, accent)
-		g.draw_bar(Rect2(x, HUD_Y+22, width, 20), maxf(0, g.enemy_hp) / g.enemy_max_hp, Color("#4b263d"), Color("#ff6279"), "%.0f / %.0f" % [maxf(0, g.enemy_hp), g.enemy_max_hp], 12, g.combat_presentation.health_ratio(g.enemy_serial))
-		g.combat_presentation.draw_cue(g, position(index) + Vector2(0, 35) + shake, scale_factor, Rect2(x, HUD_Y+85, width, 28))
-		if g.enemy_burn_dps > 0.0: UI.draw_icon(g.get_canvas_item(), UI.icon("status_burn"), Rect2(x + 8, HUD_Y+47, 18, 18))
+		# Full-size ornate caps crowd narrow three-enemy cards. Preserve the
+		# accepted texture, reducing only its chrome scale and reserving content.
+		g.draw_style_box(hud_skin(),layout.rect)
+		if index==original:g.draw_line(layout.rect.position+Vector2(14,2),layout.rect.position+Vector2(layout.rect.size.x-14,2),accent,2,true)
+		for line in range(layout.lines.size()):g.draw_string(g.body_font,Vector2(x,HUD_Y+23+line*14),layout.lines[line],HORIZONTAL_ALIGNMENT_CENTER,width,layout.font_size,accent)
+		g.draw_bar(layout.bar, maxf(0, g.enemy_hp) / g.enemy_max_hp, Color("#4b263d"), Color("#ff6279"), "%.0f / %.0f" % [maxf(0, g.enemy_hp), g.enemy_max_hp], 12, g.combat_presentation.health_ratio(g.enemy_serial))
+		g.combat_presentation.draw_cue(g, position(index) + Vector2(0, 35) + shake, scale_factor, Rect2(x, HUD_Y+115, width, 24))
+		if g.enemy_burn_dps > 0.0: UI.draw_icon(g.get_canvas_item(), UI.icon("status_burn"), Rect2(x + 2, layout.status_y, 18, 18))
 		if g.enemy_poison_stacks > 0:
-			UI.draw_icon(g.get_canvas_item(), UI.icon("status_poison"), Rect2(x + 32, HUD_Y+47, 18, 18))
-			g.draw_string(g.body_font, Vector2(x + 52, HUD_Y+61), "×%d" % g.enemy_poison_stacks, HORIZONTAL_ALIGNMENT_LEFT, 38, 13, Color("#92f068"))
-		if not str(g.enemy_variant_id).is_empty(): UI.draw_icon(g.get_canvas_item(), UI.icon(preload("res://enemy_variant_catalog.gd").icon_id(g.enemy_variant_id)), Rect2(x + width - 26, HUD_Y+47, 18, 18))
+			UI.draw_icon(g.get_canvas_item(), UI.icon("status_poison"), Rect2(x + 26, layout.status_y, 18, 18))
+			g.draw_string(g.body_font, Vector2(x + 46, layout.status_y+14), "×%d" % g.enemy_poison_stacks, HORIZONTAL_ALIGNMENT_LEFT, width-72, 13, Color("#92f068"))
+		if not str(g.enemy_variant_id).is_empty(): UI.draw_icon(g.get_canvas_item(), UI.icon(preload("res://enemy_variant_catalog.gd").icon_id(g.enemy_variant_id)), Rect2(x + width - 20, layout.status_y, 18, 18))
 		if index == original:
 			g.draw_arc(position(index) + Vector2(0, 35), 33 * scale_factor, 0, TAU, 20, Color("#78e4ff"), 2)
 	load_actor(g, original)

@@ -1,0 +1,78 @@
+{
+  "entries": [
+    {
+      "actor": "gloomlet",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.9245645491803278,
+        0.5530225409836066
+      ],
+      "secondary_anchor": [
+        0.5003842213114753,
+        0.4984631147540983
+      ],
+      "core_anchor": [
+        0.52,
+        0.6
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": true,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right_grip.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_draw_contact": true,
+      "native_validated": true,
+      "production_status": "validated_beta_windup_only"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ANTICIPATE",
+      "facing": "left_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.06552933673469388,
+        0.5279017857142857
+      ],
+      "secondary_anchor": [
+        0.5255102040816326,
+        0.5055803571428571
+      ],
+      "core_anchor": [
+        0.52,
+        0.6
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": true,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left_grip.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_draw_contact": true,
+      "native_validated": true,
+      "production_status": "validated_beta_windup_only"
+    }
+  ]
+}
