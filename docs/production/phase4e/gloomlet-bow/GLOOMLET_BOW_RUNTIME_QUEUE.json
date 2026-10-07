@@ -1,0 +1,1561 @@
+{
+  "actor": "gloomlet",
+  "weapon_family": "bow",
+  "required_cells": 18,
+  "validated_cells": 2,
+  "open_cells": 16,
+  "closed": [
+    {
+      "state": "windup",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png"
+    },
+    {
+      "state": "windup",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png"
+    }
+  ],
+  "apk_export_allowed": false,
+  "reason": "Normal idle/movement/attack/recovery/hurt still reach POSE ART PENDING; no end-to-end zero-card route acceptance.",
+  "identity": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+  "layers": "Weaponless RGBA body + measured palm sidecar + separate grip/support fingers where needed; existing modular bow, arrow/string and VFX remain separate.",
+  "requests": [
+    {
+      "slot_id": "pose:gloomlet:idle:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "idle / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_idle_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_idle_bow_right.png",
+      "entity": "gloomlet",
+      "state": "idle",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_idle_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Grounded neutral ready pose; complete canonical silhouette and actual equipment-contact palms.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_idle_bow_right.png",
+        "metadata": "gloomlet_idle_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_idle_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_idle_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_idle_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:idle:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:movement:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_movement_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "movement / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_movement_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_movement_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_movement_bow_right.png",
+      "entity": "gloomlet",
+      "state": "movement",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_movement_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored movement step with complete feet and stable weapon contact; do not relabel a neutral frame.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_movement_bow_right.png",
+        "metadata": "gloomlet_movement_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_movement_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_movement_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_movement_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:movement:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:strike_or_cast:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "strike_or_cast / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_strike_or_cast_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+      "entity": "gloomlet",
+      "state": "strike_or_cast",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_strike_or_cast_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored target-directed strike or casting release; lead hand/weapon drives the action.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_strike_or_cast_bow_right.png",
+        "metadata": "gloomlet_strike_or_cast_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_strike_or_cast_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_strike_or_cast_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_strike_or_cast_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:strike_or_cast:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:follow_through:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "follow_through / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_follow_through_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_follow_through_bow_right.png",
+      "entity": "gloomlet",
+      "state": "follow_through",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_follow_through_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Actual committed strike/release frame before recovery; preserve limbs, contact and body weight.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_follow_through_bow_right.png",
+        "metadata": "gloomlet_follow_through_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_follow_through_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_follow_through_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_follow_through_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:follow_through:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:recovery:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "recovery / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_recovery_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_recovery_bow_right.png",
+      "entity": "gloomlet",
+      "state": "recovery",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_recovery_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored controlled return toward the neutral baseline; no invented idle/strike relabel.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_recovery_bow_right.png",
+        "metadata": "gloomlet_recovery_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_recovery_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_recovery_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_recovery_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:recovery:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:hurt:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "hurt / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_hurt_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_hurt_bow_right.png",
+      "entity": "gloomlet",
+      "state": "hurt",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_hurt_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored recoil with intact head, feet and weapon/contact hands.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_hurt_bow_right.png",
+        "metadata": "gloomlet_hurt_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_hurt_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_hurt_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_hurt_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:hurt:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:defeat:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_defeat_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "defeat / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_defeat_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_defeat_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_defeat_bow_right.png",
+      "entity": "gloomlet",
+      "state": "defeat",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_defeat_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Recognizable authored defeated pose; complete anatomy and equipment layers.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_defeat_bow_right.png",
+        "metadata": "gloomlet_defeat_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_defeat_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_defeat_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_defeat_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:defeat:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:victory_return:right:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_victory_return_bow_right.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "victory_return / right / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_victory_return_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_victory_return_bow_right.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_victory_return_bow_right.png",
+      "entity": "gloomlet",
+      "state": "victory_return",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_victory_return_bow_right.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored victory-to-ready return matching the same canonical identity.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_victory_return_bow_right.png",
+        "metadata": "gloomlet_victory_return_bow_right.json",
+        "foreground_grip_if_needed": "gloomlet_victory_return_bow_right_grip_front.png",
+        "support_hand_if_needed": "gloomlet_victory_return_bow_right_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_victory_return_bow_right_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:victory_return:right:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:idle:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "idle / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_idle_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_idle_bow_left.png",
+      "entity": "gloomlet",
+      "state": "idle",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_idle_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Grounded neutral ready pose; complete canonical silhouette and actual equipment-contact palms.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_idle_bow_left.png",
+        "metadata": "gloomlet_idle_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_idle_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_idle_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_idle_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:idle:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:movement:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_movement_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "movement / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_movement_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_movement_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_movement_bow_left.png",
+      "entity": "gloomlet",
+      "state": "movement",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_movement_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored movement step with complete feet and stable weapon contact; do not relabel a neutral frame.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_movement_bow_left.png",
+        "metadata": "gloomlet_movement_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_movement_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_movement_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_movement_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:movement:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:strike_or_cast:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "strike_or_cast / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_strike_or_cast_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+      "entity": "gloomlet",
+      "state": "strike_or_cast",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_strike_or_cast_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored target-directed strike or casting release; lead hand/weapon drives the action.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_strike_or_cast_bow_left.png",
+        "metadata": "gloomlet_strike_or_cast_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_strike_or_cast_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_strike_or_cast_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_strike_or_cast_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:strike_or_cast:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:follow_through:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "follow_through / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_follow_through_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_follow_through_bow_left.png",
+      "entity": "gloomlet",
+      "state": "follow_through",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_follow_through_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Actual committed strike/release frame before recovery; preserve limbs, contact and body weight.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_follow_through_bow_left.png",
+        "metadata": "gloomlet_follow_through_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_follow_through_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_follow_through_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_follow_through_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:follow_through:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:recovery:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "recovery / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_recovery_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_recovery_bow_left.png",
+      "entity": "gloomlet",
+      "state": "recovery",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_recovery_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored controlled return toward the neutral baseline; no invented idle/strike relabel.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_recovery_bow_left.png",
+        "metadata": "gloomlet_recovery_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_recovery_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_recovery_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_recovery_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:recovery:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:hurt:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "hurt / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_hurt_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_hurt_bow_left.png",
+      "entity": "gloomlet",
+      "state": "hurt",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_hurt_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored recoil with intact head, feet and weapon/contact hands.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_hurt_bow_left.png",
+        "metadata": "gloomlet_hurt_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_hurt_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_hurt_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_hurt_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:hurt:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:defeat:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_defeat_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "defeat / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_defeat_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_defeat_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_defeat_bow_left.png",
+      "entity": "gloomlet",
+      "state": "defeat",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_defeat_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Recognizable authored defeated pose; complete anatomy and equipment layers.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_defeat_bow_left.png",
+        "metadata": "gloomlet_defeat_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_defeat_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_defeat_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_defeat_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:defeat:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    },
+    {
+      "slot_id": "pose:gloomlet:victory_return:left:bow",
+      "weapon_family": "bow",
+      "primary_socket": {
+        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
+        "primary": [
+          48,
+          -29
+        ],
+        "secondary": [
+          14,
+          -25
+        ],
+        "source_palm_pixels": null,
+        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
+      },
+      "support_socket": "two palms plus bow draw/nock",
+      "target_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_victory_return_bow_left.png",
+      "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "existing_source_search": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
+        ]
+      },
+      "purpose": "victory_return / left / bow",
+      "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+      "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
+      "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
+      "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "expected_filename": "gloomlet_victory_return_bow_left.png",
+      "runtime_destination": "art/production/phase4e/lootlings/gloomlet/gloomlet_victory_return_bow_left.png",
+      "source_destination": "art/source/phase4e/delivery/gloomlet/gloomlet_victory_return_bow_left.png",
+      "entity": "gloomlet",
+      "state": "victory_return",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "canonical_reference": [
+        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "socket_sidecar_filename": "gloomlet_victory_return_bow_left.json",
+      "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+      "occupied_bounds": {
+        "canvas_inset_pixels": 16,
+        "maximum_bounds": [
+          16,
+          16,
+          496,
+          496
+        ],
+        "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
+      },
+      "mirroring_allowed": false,
+      "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
+      "required_pose": "Authored victory-to-ready return matching the same canonical identity.",
+      "separate_layers_required": [
+        "foreground grip fingers when equipment passes behind the palm",
+        "family weapon module unless explicitly declared source-baked",
+        "second independent weapon and palm for paired families",
+        "bowstring/nocked arrow and drawing palm for Bow",
+        "temporal charge/trail/impact/status VFX separate from body"
+      ],
+      "layer_filenames": {
+        "body": "gloomlet_victory_return_bow_left.png",
+        "metadata": "gloomlet_victory_return_bow_left.json",
+        "foreground_grip_if_needed": "gloomlet_victory_return_bow_left_grip_front.png",
+        "support_hand_if_needed": "gloomlet_victory_return_bow_left_support.png",
+        "separate_temporal_vfx_if_required": "gloomlet_victory_return_bow_left_vfx.png"
+      },
+      "current_temp_replacement": "pose:gloomlet:victory_return:left:bow; existing unapproved/missing authored-state presentation is not final art.",
+      "priority": "P0"
+    }
+  ]
+}

@@ -1277,7 +1277,7 @@
       "facing_pack",
       "resolve"
     ],
-    "source_sha256": "2d459a42b0604de5d48987c820c69bb4275fff3fc8e735bb13643914ce1b1851"
+    "source_sha256": "d7d5d532a332eb0da8fc19cfa4dece3ba61e55d8ef1ba5d5132be148e5cb38cb"
   },
   "avatar_presentation.gd": {
     "constants": {
@@ -2142,7 +2142,7 @@
       "configure",
       "_process"
     ],
-    "source_sha256": "1320854c11acd175a15b76a585a7cbb2559061137109f992b6b47bfe8d622595"
+    "source_sha256": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68"
   },
   "combat_presentation.gd": {
     "constants": {},
@@ -3289,7 +3289,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "47577ea6c7d41750c90b94230118241856eb81539f93e698ea510834f008cbff"
+    "source_sha256": "2e076f40853737da65c0c7b6a7eaf78f3f0feafdd8c9995f48cde839020de197"
   },
   "debug_panel.gd": {
     "constants": {},
@@ -3929,6 +3929,9 @@
       "select",
       "select_at",
       "card_at",
+      "hud_rect",
+      "hud_layout",
+      "hud_skin",
       "on_death",
       "step",
       "resolve_projectile",
@@ -3936,7 +3939,7 @@
       "splash",
       "draw"
     ],
-    "source_sha256": "e38bff14685d2a2822398418c619a1e28601d2a1f987a10efc542f6345a2a338"
+    "source_sha256": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7"
   },
   "enemy_motion.gd": {
     "constants": {},
@@ -7643,7 +7646,7 @@
       "n",
       "draw_impact"
     ],
-    "source_sha256": "cf364d63269c65d36121185a263ce3588459161583705fd61d7ee1727b10fb6c"
+    "source_sha256": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9"
   },
   "regional_enemy_presentation.gd": {
     "constants": {
@@ -9864,7 +9867,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "9a57feb534021560de5ba63001ed4a382b0075fd52be089824e517b8e899428a"
+    "source_sha256": "588e63280eaae8092c512631cafa90a9924fc537b106db12f2ea0f478994f7d8"
   },
   "world_content_catalog.gd": {
     "constants": {

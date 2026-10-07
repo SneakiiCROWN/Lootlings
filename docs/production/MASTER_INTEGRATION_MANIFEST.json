@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7040,
-    "total_launch_scope_slots": 6225,
+    "total_records": 7054,
+    "total_launch_scope_slots": 6228,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3176,
+      "LIVE_BETA": 3181,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3050,
-      "REFERENCE_ONLY": 587,
+      "NEEDS_NEW_CANON_EXPORT": 3048,
+      "REFERENCE_ONLY": 598,
       "REJECTED_IDENTITY_DRIFT": 6,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3175,
+      "LIVE_BETA": 3180,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3050,
+      "NEEDS_NEW_CANON_EXPORT": 3048,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 3050,
+    "exact_missing_art_cells": 3048,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -52,7 +52,7 @@
     "MASTER_ROADMAP.md": "710bfa4301aee9cad14b82edd601b3334349105cd326639729c0e6e1d50a5471",
     "CONTENT_IMPLEMENTATION_STATUS.md": "56a64320f759549a58462c01de735c3b7c38b00ac25f83007a29340564b920f0",
     "ART_REFERENCE_INDEX.md": "d087e978b43a4a83c89d75ce8dde635629f8d0a345b5d5f0f4c0173ab6b2b402",
-    "PRODUCTION_PHASE4E.md": "9ff86aba32b0500fee7d87bf298b6527fc7678ed6efcfbcd58a9274f21e906fd",
+    "PRODUCTION_PHASE4E.md": "5c54c73322ecf844ee2da05545125be4c777ca79625175c08b3ce243e5c1ef95",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
     "export_presets.cfg": "9e829265768572fd726024e1e70b9ba29226234c9dc4e882f6caf4042e46ddc8",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
@@ -60,7 +60,7 @@
     "art/production/phase4e/runtime_manifest.json": "902751f17d2c8904595f1daa32a231daa29a5c1f47978ff613b1c5378112f3b3",
     "art/production/phase4e/extraction_manifest.json": "91286e5df854c40223b95690bc764e0ab7699e8f57ff79b59845fd0a68ba5370",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "aa95b8b87b24c8cf5cde3d7b0a4b20d2fcca05fe2721c0406ce8e2ac596403c8",
-    "docs/production/phase4e/extraction/MISSING_ART_MANIFEST.json": "9ad7646a5f97ac4f9984d47a6d051d3e56bb5ead93fc286aaa70c5fdc5c53666",
+    "docs/production/phase4e/extraction/MISSING_ART_MANIFEST.json": "07fa9e3a9cf114348448bd3776a66681a8b98c78868195b3ed69d65be84150d0",
     "art/audio/production/sources.json": "d2bac5b6e1a43f441143d7bfec99d015b6b60c8510d19169a64279d4c67a9eda",
     "art/reference/docs/00_READ_ME_FIRST.txt": "8db2762668e096772f81fda1aa24428b96f76607f5c31242288556cd9a47b07d",
     "art/reference/docs/01_CURRENT_ART_RULES.md": "eb3511acc0dcfb04d68b4d4a26961168428c80b9d58442c57065a70ecc3ec874",
@@ -86,7 +86,7 @@
     "approved_missing_runtime_art.gd": "377f3fd05384ca5ca6b5ed8bf91707881722ee28ec3ee9910ccf83127a5ed0e1",
     "app_lifecycle.gd": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474",
     "audio_manager.gd": "a4ee1176d3a5f4610ba1bd6de4c14dbeb3aaed4279801490ebb1da73006aa7ea",
-    "authored_pose_manifest.gd": "2d459a42b0604de5d48987c820c69bb4275fff3fc8e735bb13643914ce1b1851",
+    "authored_pose_manifest.gd": "d7d5d532a332eb0da8fc19cfa4dece3ba61e55d8ef1ba5d5132be148e5cb38cb",
     "avatar_presentation.gd": "3d81b51609664dab8c89ea5e0e3462cb17010ef968f25b1b067a2a9fa4eff4bd",
     "beta_art_catalog.gd": "edccebe83e308529b811040b4a299a9427b96a2b50febff9dc9f893857f77a0c",
     "bible_runtime_art.gd": "60e3c70c4ac04b9515c1a39be536cce87218b00c7a6be1df11fdb3e30a535cf0",
@@ -98,7 +98,7 @@
     "campaign_system.gd": "04d4894b580ea6a8d9458b6548f85b835603151e46a75360ab59d5eb5faabd7b",
     "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
     "chest_catalog.gd": "4bf50445f8512c96ad0d645b5425cd04ade3afe4831bb1ea7eef07fe580834bb",
-    "combat_controls.gd": "1320854c11acd175a15b76a585a7cbb2559061137109f992b6b47bfe8d622595",
+    "combat_controls.gd": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68",
     "combat_presentation.gd": "076ec1401486dc5d4a0466cc74500d1a178a6b2a51869bc75314bcbd7f9214d3",
     "combat_sprite_rig.gd": "a6124fcd68d18c68336581695f821b5a9c62e1b3dd27e339805235b20150b821",
     "combat_stage.gd": "0c604eeb8edeadc4d8c8341be036f6df75c5d1895a76a87e0f199c439a42d23e",
@@ -107,14 +107,14 @@
     "companion_presentation.gd": "fd5d1310b6adb40649bfe7d51a0175b4b648079be5eb87b3dd8c17f4f3934b34",
     "contextual_dialogue.gd": "3de3ac6394b611264e0e65855a5360fbc52e4c8920e6a862359acaf4c9cda4ed",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
-    "creature_renderer.gd": "47577ea6c7d41750c90b94230118241856eb81539f93e698ea510834f008cbff",
+    "creature_renderer.gd": "2e076f40853737da65c0c7b6a7eaf78f3f0feafdd8c9995f48cde839020de197",
     "debug_panel.gd": "4cb84da52147317c138dc7add8d95ff955be4d5b7ef6a4032509da9a28248497",
     "dialogue_director.gd": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f",
     "display_numbers.gd": "0f928175102bf7d5638caa52ed55a63a418d6e3e04b27ed5121c1e402ee312ef",
     "dungeon_route.gd": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2",
     "economy_transaction.gd": "1f0be462e167a5ff1897eea4f91654f5013b9ce12615885b621378e3ebca04e4",
     "endgame_progress.gd": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8",
-    "enemy_encounter.gd": "e38bff14685d2a2822398418c619a1e28601d2a1f987a10efc542f6345a2a338",
+    "enemy_encounter.gd": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7",
     "enemy_motion.gd": "05ec8454aebbb3630a25722edea5fd2346e7937255485276b18cb07dff4b4490",
     "enemy_variant_catalog.gd": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25",
     "expedition_event_catalog.gd": "08602a2c8221b1eb2c31b4277e083b5cd6ea9b04fa6035dab454701274e1816f",
@@ -143,7 +143,7 @@
     "pickup_presentation.gd": "7438edeef802f9895209dfbe5ac8af3c3ee160e9be9ca226551ef00ef158d0b4",
     "presentation_director.gd": "034999fad57fdbc0c8751c6040b029961bf761c138ca88f954312f3427e3ae78",
     "profile_store.gd": "54af3ec02361bd9e673c1dd98c938b6145e87297e8d2b2c783de5ff18d653787",
-    "projectile_presentation.gd": "cf364d63269c65d36121185a263ce3588459161583705fd61d7ee1727b10fb6c",
+    "projectile_presentation.gd": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9",
     "regional_enemy_presentation.gd": "5f347a60c38e1be3c24db7d52c1c67a88963008f81a2fe4c68a173bf56e4268a",
     "relic_chase_meter.gd": "7d0551cb1f9817d4321c829d5c4d577b6425c3ca45faf044ab5d7c3ac38e934a",
     "relic_greatsword_motion.gd": "9aa65ee1c96323957d62c96a60fe3c1d67281e2dde492839b7b97842077685af",
@@ -169,11 +169,12 @@
     "wanderer_catalog.gd": "65bd866cae781a77c7226273f6e3f0af26d5ff8e7da2c9ba4fd746f5c1378fe2",
     "wanderer_pose_catalog.gd": "d3d87e8c37d631558c83f4c0d1c496efa934f203582296f8fc72b403e49a8130",
     "weapon_catalog.gd": "1fecdbe41da85df973020f343654c19579a898bfb4b773656bd07f7d994e0e3c",
-    "weapon_fit_catalog.gd": "9a57feb534021560de5ba63001ed4a382b0075fd52be089824e517b8e899428a",
+    "weapon_fit_catalog.gd": "588e63280eaae8092c512631cafa90a9924fc537b106db12f2ea0f478994f7d8",
     "world_content_catalog.gd": "e878d414b98fad06534cf0ae96d99a8c89f704717533fa3d4d48b969cadff746",
     "world_story.gd": "c02da453427f60c317e08c4ab5f697322a47289b9a522476d0876d99becd549c",
     "zone_catalog.gd": "9c327d60f562168a65f7a58c89dff27da20487869caa84e18078c0a3978e0408",
     "art/production/phase4e/reuse_manifest.json": "8ca6bf0e578a66b5bac8c4628edcf84a08ec7e4e1ef9412f036b97ef1efaa42f",
+    "art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json": "79a1dda02fd64cc376b6aa63257663ee3d612793d1f87f4e5894a4549cf007f0",
     "art/production/phase4e/props/source_manifest.json": "abc402978abf8417022bf2df51f9a7ef57c0ed353faa8097a4e194df50019436",
     "art/approved_missing_canon_references.json": "71f7cc500a3f148985e258b9e8d078c565d97b55a7e5d89d536b540476bfc463",
     "art/production/phase4e/approved_missing_runtime_manifest.json": "a0c716c7c8c390c1847edf560aba398da43c27e439da0b1240947cefabf42edc",
@@ -88152,6 +88153,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88223,6 +88226,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88294,6 +88299,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88365,6 +88372,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88436,6 +88445,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88507,6 +88518,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88578,6 +88591,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88649,6 +88664,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88720,6 +88737,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88791,6 +88810,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88862,6 +88883,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -88933,6 +88956,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89004,6 +89029,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89075,6 +89102,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89146,6 +89175,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89217,6 +89248,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89288,6 +89321,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89359,6 +89394,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89430,6 +89467,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89501,6 +89540,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89572,6 +89613,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89643,6 +89686,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89714,6 +89759,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89785,6 +89832,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89856,6 +89905,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89927,6 +89978,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -89998,6 +90051,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90069,6 +90124,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90140,6 +90197,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90211,6 +90270,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90282,6 +90343,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90353,6 +90416,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90424,6 +90489,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90495,6 +90562,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90566,6 +90635,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90637,6 +90708,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90708,6 +90781,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90779,6 +90854,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90850,6 +90927,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90921,6 +91000,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -90992,6 +91073,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91063,6 +91146,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91134,6 +91219,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91205,6 +91292,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91276,6 +91365,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91347,6 +91438,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91418,6 +91511,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91489,77 +91584,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
-        ]
-      }
-    },
-    {
-      "slot_id": "pose:gloomlet:windup:right:bow",
-      "game_id": "gloomlet",
-      "category": "playable",
-      "subject": "gloomlet",
-      "state": "windup",
-      "facing": "right",
-      "weapon_family": "bow",
-      "status": "NEEDS_NEW_CANON_EXPORT",
-      "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
-      ],
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_windup_bow_right.png",
-      "dimensions": [
-        512,
-        512
-      ],
-      "background": "transparent RGBA",
-      "baseline": {
-        "renderer_ground_y": 548,
-        "rig_local_y": 64,
-        "target_canvas_y": 496
-      },
-      "pivot_anchor": {
-        "rig_local": [
-          0,
-          0
-        ],
-        "target_canvas": [
-          256.0,
-          341.3333333333333
-        ]
-      },
-      "weapon_socket": {
-        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
-        "primary": [
-          48,
-          -29
-        ],
-        "secondary": [
-          14,
-          -25
-        ],
-        "source_palm_pixels": null,
-        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
-      },
-      "support_hand_socket": "two palms plus bow draw/nock",
-      "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
-      "runtime_system": "weapon_fit_catalog / creature_renderer",
-      "implementation_file": "weapon_fit_catalog.gd",
-      "dependency": [
-        "gloomlet__right"
-      ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
-      "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91631,6 +91657,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91702,6 +91730,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91773,6 +91803,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91844,6 +91876,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91915,6 +91949,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -91986,6 +92022,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92057,6 +92095,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92128,6 +92168,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92199,6 +92241,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92270,6 +92314,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92341,77 +92387,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
-          "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_right.png"
-        ]
-      }
-    },
-    {
-      "slot_id": "pose:gloomlet:windup:left:bow",
-      "game_id": "gloomlet",
-      "category": "playable",
-      "subject": "gloomlet",
-      "state": "windup",
-      "facing": "left",
-      "weapon_family": "bow",
-      "status": "NEEDS_NEW_CANON_EXPORT",
-      "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
-      ],
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_windup_bow_left.png",
-      "dimensions": [
-        512,
-        512
-      ],
-      "background": "transparent RGBA",
-      "baseline": {
-        "renderer_ground_y": 548,
-        "rig_local_y": 64,
-        "target_canvas_y": 496
-      },
-      "pivot_anchor": {
-        "rig_local": [
-          0,
-          0
-        ],
-        "target_canvas": [
-          256.0,
-          341.3333333333333
-        ]
-      },
-      "weapon_socket": {
-        "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
-        "primary": [
-          48,
-          -29
-        ],
-        "secondary": [
-          14,
-          -25
-        ],
-        "source_palm_pixels": null,
-        "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
-      },
-      "support_hand_socket": "two palms plus bow draw/nock",
-      "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
-      "runtime_system": "weapon_fit_catalog / creature_renderer",
-      "implementation_file": "weapon_fit_catalog.gd",
-      "dependency": [
-        "gloomlet__left"
-      ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
-      "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92483,6 +92460,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92554,6 +92533,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92625,6 +92606,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92696,6 +92679,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92767,6 +92752,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92838,6 +92825,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92909,6 +92898,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -92980,6 +92971,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93051,6 +93044,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93122,6 +93117,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93193,6 +93190,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93264,6 +93263,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93335,6 +93336,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93406,6 +93409,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93477,6 +93482,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93548,6 +93555,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93619,6 +93628,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93690,6 +93701,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93761,6 +93774,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93832,6 +93847,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93903,6 +93920,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -93974,6 +93993,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94045,6 +94066,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94116,6 +94139,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94187,6 +94212,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94258,6 +94285,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94329,6 +94358,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94400,6 +94431,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94471,6 +94504,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94542,6 +94577,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94613,6 +94650,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94684,6 +94723,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94755,6 +94796,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94826,6 +94869,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94897,6 +94942,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -94968,6 +95015,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95039,6 +95088,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95110,6 +95161,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95181,6 +95234,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95252,6 +95307,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95323,6 +95380,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95394,6 +95453,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95465,6 +95526,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95536,6 +95599,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95607,6 +95672,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95678,6 +95745,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95749,6 +95818,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95820,6 +95891,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95891,6 +95964,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -95962,6 +96037,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96033,6 +96110,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96104,6 +96183,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96175,6 +96256,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96246,6 +96329,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96317,6 +96402,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96388,6 +96475,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96459,6 +96548,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96530,6 +96621,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96601,6 +96694,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96672,6 +96767,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96743,6 +96840,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96814,6 +96913,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96885,6 +96986,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -96956,6 +97059,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97027,6 +97132,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97098,6 +97205,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97169,6 +97278,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97240,6 +97351,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97311,6 +97424,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97382,6 +97497,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97453,6 +97570,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97524,6 +97643,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97595,6 +97716,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97666,6 +97789,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97737,6 +97862,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97808,6 +97935,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97879,6 +98008,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -97950,6 +98081,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98021,6 +98154,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98092,6 +98227,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98163,6 +98300,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98234,6 +98373,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98305,6 +98446,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98376,6 +98519,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98447,6 +98592,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98518,6 +98665,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98589,6 +98738,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98660,6 +98811,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98731,6 +98884,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98802,6 +98957,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98873,6 +99030,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -98944,6 +99103,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99015,6 +99176,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99086,6 +99249,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99157,6 +99322,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99228,6 +99395,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99299,6 +99468,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99370,6 +99541,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99441,6 +99614,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99512,6 +99687,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99583,6 +99760,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99654,6 +99833,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99725,6 +99906,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99796,6 +99979,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99867,6 +100052,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -99938,6 +100125,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100009,6 +100198,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100080,6 +100271,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100151,6 +100344,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100222,6 +100417,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100293,6 +100490,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100364,6 +100563,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100435,6 +100636,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100506,6 +100709,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100577,6 +100782,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100648,6 +100855,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100719,6 +100928,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100790,6 +101001,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100861,6 +101074,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -100932,6 +101147,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101003,6 +101220,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101074,6 +101293,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101145,6 +101366,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101216,6 +101439,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101287,6 +101512,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101358,6 +101585,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101429,6 +101658,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101500,6 +101731,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101571,6 +101804,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101642,6 +101877,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101713,6 +101950,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101784,6 +102023,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101855,6 +102096,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101926,6 +102169,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -101997,6 +102242,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102068,6 +102315,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102139,6 +102388,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102210,6 +102461,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102281,6 +102534,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102352,6 +102607,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102423,6 +102680,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102494,6 +102753,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102565,6 +102826,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102636,6 +102899,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102707,6 +102972,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102778,6 +103045,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -102849,6 +103118,8 @@
         "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
         "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
         "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+          "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
           "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
@@ -212240,6 +212511,122 @@
       "evidence": null
     },
     {
+      "slot_id": "pose:gloomlet:windup:left:bow",
+      "game_id": "gloomlet",
+      "category": "playable",
+      "subject": "gloomlet",
+      "state": "windup",
+      "facing": "left",
+      "weapon_family": "bow",
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+      "target_production_path": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "transparent RGBA",
+      "baseline": {
+        "rig_local_y": 58,
+        "renderer_ground_y": 548
+      },
+      "pivot_anchor": {
+        "body_rect": [
+          -96,
+          -128,
+          192,
+          192
+        ],
+        "core_normalized": [
+          0.52,
+          0.6
+        ]
+      },
+      "weapon_socket": {
+        "primary_normalized": [
+          0.06552933673469388,
+          0.5279017857142857
+        ],
+        "secondary_normalized": [
+          0.5255102040816326,
+          0.5055803571428571
+        ],
+        "coordinate_space": "existing authored frame normalized canvas"
+      },
+      "support_hand_socket": true,
+      "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
+      "runtime_system": "weapon_fit_catalog / creature_renderer",
+      "implementation_file": "weapon_fit_catalog.gd",
+      "dependency": [
+        "gloomlet__left"
+      ],
+      "blocker": null,
+      "priority": "P0",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
+    },
+    {
+      "slot_id": "pose:gloomlet:windup:right:bow",
+      "game_id": "gloomlet",
+      "category": "playable",
+      "subject": "gloomlet",
+      "state": "windup",
+      "facing": "right",
+      "weapon_family": "bow",
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+      "target_production_path": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "transparent RGBA",
+      "baseline": {
+        "rig_local_y": 58,
+        "renderer_ground_y": 548
+      },
+      "pivot_anchor": {
+        "body_rect": [
+          -96,
+          -128,
+          192,
+          192
+        ],
+        "core_normalized": [
+          0.52,
+          0.6
+        ]
+      },
+      "weapon_socket": {
+        "primary_normalized": [
+          0.9245645491803278,
+          0.5530225409836066
+        ],
+        "secondary_normalized": [
+          0.5003842213114753,
+          0.4984631147540983
+        ],
+        "coordinate_space": "existing authored frame normalized canvas"
+      },
+      "support_hand_socket": true,
+      "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
+      "runtime_system": "weapon_fit_catalog / creature_renderer",
+      "implementation_file": "weapon_fit_catalog.gd",
+      "dependency": [
+        "gloomlet__right"
+      ],
+      "blocker": null,
+      "priority": "P0",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
+    },
+    {
       "slot_id": "pose:gloomlet:windup:right:claws",
       "game_id": "gloomlet",
       "category": "playable",
@@ -289374,7 +289761,7 @@
       }
     },
     {
-      "slot_id": "label:enemy_encounter.gd:173:0:4a29057e",
+      "slot_id": "label:enemy_encounter.gd:225:0:fdc98d08",
       "game_id": "enemy_encounter_gd",
       "category": "player_text",
       "subject": "enemy_encounter.gd",
@@ -289401,40 +289788,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 173,
-        "text": "▸ ",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:enemy_encounter.gd:179:0:fdc98d08",
-      "game_id": "enemy_encounter_gd",
-      "category": "player_text",
-      "subject": "enemy_encounter.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "enemy_encounter",
-      "implementation_file": "enemy_encounter.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 179,
+        "line": 225,
         "text": "×%d",
         "dynamic_template": true
       }
@@ -319341,6 +319695,162 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+      "game_id": "gloomlet_bow_windup_left",
+      "category": "combat_art",
+      "subject": "gloomlet_bow_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+      "target_production_path": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "authored_pose_manifest.gd"
+      ],
+      "implementation_file": [
+        "authored_pose_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "9600e9eaf043a78862f9eadcbeb813710e62e991fcedb8fc8497b8c7f34203e4",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left_grip.png",
+      "game_id": "gloomlet_bow_windup_left_grip",
+      "category": "combat_art",
+      "subject": "gloomlet_bow_windup_left_grip",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left_grip.png",
+      "target_production_path": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left_grip.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "lootling_catalog.gd"
+      ],
+      "implementation_file": [
+        "lootling_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "16310e0b229680414f0f29f7e2cb8870c6d17d5697c9fed57007a6fbe05cdf6d",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+      "game_id": "gloomlet_bow_windup_right",
+      "category": "combat_art",
+      "subject": "gloomlet_bow_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+      "target_production_path": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "authored_pose_manifest.gd"
+      ],
+      "implementation_file": [
+        "authored_pose_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "60a4cf5079257abd2d4fae292f35d794ef7c2fb293114782bde7f533dd2e5fea",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right_grip.png",
+      "game_id": "gloomlet_bow_windup_right_grip",
+      "category": "combat_art",
+      "subject": "gloomlet_bow_windup_right_grip",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right_grip.png",
+      "target_production_path": "art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right_grip.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "lootling_catalog.gd"
+      ],
+      "implementation_file": [
+        "lootling_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "3e5c5dd4549a48b653e49251ac3cb6d77ff72c606f218c4942504085fdc04118",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
       "game_id": "gloomlet_idle_right",
       "category": "combat_art",
@@ -326293,6 +326803,358 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "650f7e81a510c7544e20a1e988d593e8d453cd4a313dbf67a2bc3e09cf99726a",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/canonical_reference/Gloomlet_CharacterSheet_Canonical.png",
+      "game_id": "gloomlet_charactersheet_canonical",
+      "category": "reference",
+      "subject": "Gloomlet_CharacterSheet_Canonical",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/canonical_reference/Gloomlet_CharacterSheet_Canonical.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "403b79056a26a00c0b92484724bdeb3883b3b34f230d08fa0cfcb9ff913601e4",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L01.png",
+      "game_id": "gloomlet_bowcandidate_l01",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_L01",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L01.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "c0dc4b6e616a8fa8e9e10fda96b9ca00093c7aefbc4d67fc255ddc9a56950ac0",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L02.png",
+      "game_id": "gloomlet_bowcandidate_l02",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_L02",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L02.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "8ac217ac698910a2ca18a796955185b6e9ffade85d2e58da478fb3776a6c9c2a",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L03.png",
+      "game_id": "gloomlet_bowcandidate_l03",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_L03",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_L03.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "2f434b2c24b7d6119fac7fe8c2d14908aa6290e7d44b3084d301edbc63a61fd0",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R01.png",
+      "game_id": "gloomlet_bowcandidate_r01",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_R01",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R01.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "74c490588d24547be1ffb9ba62acb00cb015af39e72b62a57c430af2c15b4780",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R02.png",
+      "game_id": "gloomlet_bowcandidate_r02",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_R02",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R02.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "7b18eb0f626d607748ea4eaa9c516c6d53fe72e6d0be2033aa3ac0d8aafa61a8",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R03.png",
+      "game_id": "gloomlet_bowcandidate_r03",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_R03",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R03.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "7b3b4a367c29a1d3c5c36c20ce8d96b3374f98138689be5cc8bd303928c17936",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R04.png",
+      "game_id": "gloomlet_bowcandidate_r04",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_R04",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R04.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "84816b242162e292ff78ba6858daa3bf8af999704cebdca9b1447291100a1ce7",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R05.png",
+      "game_id": "gloomlet_bowcandidate_r05",
+      "category": "reference",
+      "subject": "Gloomlet_BowCandidate_R05",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/generated_pose_candidates/Gloomlet_BowCandidate_R05.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "5dd607cb73c8e3eb4f291ece59960417c99c4593eb577e53cadee72463ddfecb",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/pose_reference_boards/Gloomlet_Bow_PoseReference_Board_A.png",
+      "game_id": "gloomlet_bow_posereference_board_a",
+      "category": "reference",
+      "subject": "Gloomlet_Bow_PoseReference_Board_A",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/pose_reference_boards/Gloomlet_Bow_PoseReference_Board_A.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "a0cd524cba963b6e40078c40adf92f9f04019feabddaf8012b843f86a02bb012",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/pose_reference_boards/Gloomlet_Bow_PoseReference_Board_B.png",
+      "game_id": "gloomlet_bow_posereference_board_b",
+      "category": "reference",
+      "subject": "Gloomlet_Bow_PoseReference_Board_B",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/phase4e_handoff/gloomlet_bow_vertical_slice/pose_reference_boards/Gloomlet_Bow_PoseReference_Board_B.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "622bbede52b961c4841ee7e30052459936b9ccc4d2ec9775433bc9c474d605ea",
         "rejection": null
       }
     },
@@ -356182,6 +357044,9 @@
           "select",
           "select_at",
           "card_at",
+          "hud_rect",
+          "hud_layout",
+          "hud_skin",
           "on_death",
           "step",
           "resolve_projectile",

@@ -4,7 +4,11 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — Phase4E scoped canonical identity correction — v41
+## CURRENT — Gloomlet Bow handoff: APK HOLD
+
+Two exact windups (right/left), existing modular bow, measured palms and grip layers validated natively. Sixteen required bow cells remain OPEN; the normal route still reaches fallback cards. No new APK. Multi-enemy wrapped cards and ATTACK control passed phone/tablet native and touch regressions. Delivery cells3050→3048; bundles106 and full support165 unchanged. [Report and consolidated requests](phase4e/gloomlet-bow/REPORT.md). Phase4E remains active; no Phase4F.
+
+## Historical checkpoint — Phase4E scoped canonical identity correction — v41
 
 Current owner directive keeps Phase4E active; no Phase4F. Dedicated playable sheets remain primary. Patch Brasswick and Ilex Quill alone now use the owner's scoped KEY NPCS panel approval, extracted into `art/reference/canonical/npcs/Patch_Brasswick_Canonical.png` and `Ilex_Quill_Canonical.png`. `art/npc_identity_authorities.json` records exact pixel provenance and replaces old portrait/body routes with original workstation panels; no full-body state is claimed complete. The broad board remains rejected for other identity imports.
 

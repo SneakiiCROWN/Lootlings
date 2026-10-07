@@ -5,20 +5,20 @@ Current launch/runtime inventory; established canon and stable IDs override all 
 | Status | All records | Current launch slots |
 |---|---:|---:|
 | LIVE_FINAL | 0 | 0 |
-| LIVE_BETA | 3176 | 3175 |
+| LIVE_BETA | 3181 | 3180 |
 | EXTRACTABLE_NOW | 0 | 0 |
 | NEEDS_CROP_OR_MASK | 0 | 0 |
 | NEEDS_RUNTIME_ASSEMBLY | 0 | 0 |
-| NEEDS_NEW_CANON_EXPORT | 3050 | 3050 |
-| REFERENCE_ONLY | 587 | 0 |
+| NEEDS_NEW_CANON_EXPORT | 3048 | 3048 |
+| REFERENCE_ONLY | 598 | 0 |
 | REJECTED_IDENTITY_DRIFT | 6 | 0 |
 | PLANNED_NOT_IMPLEMENTED | 10 | 0 |
 | NOT_REQUIRED_FOR_CURRENT_LAUNCH | 211 | 0 |
 
-Total records: **7040**. Current launch-scope slots: **6225**.
-Exact missing art delivery cells: **3050** grouped into **106 body/view bundles**. Whole support packages: **165** (82 right / 83 left), independently rerun after integration.
+Total records: **7054**. Current launch-scope slots: **6228**.
+Exact missing art delivery cells: **3048** grouped into **106 body/view bundles**. Whole support packages: **165** (82 right / 83 left), from authoritative full-state acceptance; partial windup samples do not close a family.
 
-The 3050 cells keep their individual state/view/family contracts. Shared body poses and weapon modules group into body/view bundles; the separate support-package count must not be added as unique images. No repeated neutral art, tint substitute or fake movement/attack export closes a slot.
+The 3048 cells keep their individual state/view/family contracts. Shared body poses and weapon modules group into body/view bundles; the separate support-package count must not be added as unique images. No repeated neutral art, tint substitute or fake movement/attack export closes a slot.
 
 Refresh: isolated Godot reflection → existing exact art recalc → tools/build_master_integration.py. The reflection uses the official [Script constant/method API](https://docs.godotengine.org/en/stable/classes/class_script.html). CSV and JSON are generated together. Do not edit generated rows by hand; update the underlying catalogs or extraction/approval contracts, regenerate and validate.
 

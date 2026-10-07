@@ -2,7 +2,11 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E scoped canonical identity correction — v41
+## CURRENT — Gloomlet Bow handoff / HUD-control checkpoint — APK HOLD
+
+2026-10-08. Two exact independently authored Gloomlet/Bow windups validated with Moonbranch/Gilded Shortbow in native phone/tablet. Sixteen required bow cells remain OPEN; normal route still reaches POSE ART PENDING, so no new APK. Wrapped multi-enemy cards and canonical ATTACK control validated with mobile gesture/input regressions. Existing v41 APK and all gameplay/save/economy work preserved. Main delivery debt3050→3048; bundles106 and complete-family support165 unchanged. [Candidate decisions, exact requests and native evidence](docs/production/phase4e/gloomlet-bow/REPORT.md). No full Phase4E acceptance or Phase4F.
+
+## Historical checkpoint — Phase4E scoped canonical identity correction — v41
 
 Current owner directive keeps Phase4E active; no Phase4F. Dedicated playable sheets remain primary. Patch Brasswick and Ilex Quill alone now use the owner's scoped KEY NPCS panel approval, extracted into `art/reference/canonical/npcs/Patch_Brasswick_Canonical.png` and `Ilex_Quill_Canonical.png`. `art/npc_identity_authorities.json` records exact pixel provenance and replaces old portrait/body routes with original workstation panels; no full-body state is claimed complete. The broad board remains rejected for other identity imports.
 
