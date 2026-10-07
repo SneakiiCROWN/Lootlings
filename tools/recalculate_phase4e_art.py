@@ -75,11 +75,14 @@ def main():
             other_before+=1
             cells.append(dict(game_id='pack_peddler',category='current merchant role',state=state,facing=facing,weapon_family=None,hand_support_requirement=merchant['sockets'],canvas=merchant['canvas'],transparent_background=True,baseline={'target_canvas_y':1504,'source_pixels':None},anchor={'target_canvas':[512,1504],'source_pixels':None},hand_socket_coordinates={'source_pixels':None,'status':'OPEN, exact authored palms/offer prop needed'},scale_restrictions='uniform; established merchant role, not a new Home NPC',source_canonical_sheet=merchant['canon'],rig_reuse=True))
     source_rows=poses+extracted
+    npc_authorities={e['id']:e for e in json.loads((ROOT/'art/npc_identity_authorities.json').read_text())['entries']} if (ROOT/'art/npc_identity_authorities.json').exists() else {}
     for cell in cells:
+        if cell['game_id'] in npc_authorities:cell['source_canonical_sheet']=['res://'+npc_authorities[cell['game_id']]['canonical_source']]
         if cell['game_id'] in approved_refs:cell['source_canonical_sheet']=['res://'+approved_refs[cell['game_id']]['source']]
         candidates=sorted({row['asset_path'] for row in source_rows if row.get('actor')==cell['game_id'] and row.get('production_status')!='temporary_proxy' and row.get('asset_path')})
         cell['reuse_search']={'accepted_state_manifest':'art/production_pose_manifest.json','extracted_state_manifest':'art/production/phase4e/runtime_manifest.json','direct_reuse_manifest':'art/production/phase4e/reuse_manifest.json','existing_actor_candidates':candidates}
         cell['why_existing_source_cannot_close']='No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.'
+        if cell['game_id'] in npc_authorities:cell['why_existing_source_cannot_close']+=' Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request.'
         if cell['game_id']=='moonkip':cell['why_existing_source_cannot_close']+=' Existing original hooded rogue idle has baked daggers; removal would require missing covered paw/anatomy pixels.'
         if cell['game_id'] in ['hoard_dragon','act_i']:cell['why_existing_source_cannot_close']+=' Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected.'
         if not candidates:cell['why_existing_source_cannot_close']+=' Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.'

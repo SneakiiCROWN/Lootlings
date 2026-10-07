@@ -241,7 +241,7 @@ func build_lootling_select() -> void:
 	lootling_content=Control.new(); lootling_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); lootling_content.visible=false; add_child(lootling_content)
 	add_roster_tabs(lootling_content,false)
 	var panel:=make_panel(lootling_content,Rect2(24,82,432,758),Color("#0b1430ed"),Color("#d1a85a"))
-	make_label(panel,"CHOOSE YOUR COMPANION",21,Rect2(20,16,392,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	make_label(panel,"CHOOSE YOUR LOOTLING",21,Rect2(20,16,392,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	style_hero_stage(panel)
 	selector_portrait=TextureRect.new(); selector_portrait.position=Vector2(51,47); selector_portrait.size=Vector2(330,270); selector_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; selector_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; selector_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; panel.add_child(selector_portrait)
 	selector_name=make_label(panel,"",24,Rect2(24,319,384,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6a0"))

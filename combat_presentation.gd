@@ -6,6 +6,23 @@ var boss_action := ""
 var boss_action_time := 0.0
 var player_prepared:=false
 
+static func name_lines(font: Font, text: String, width: float, font_size: int) -> Array[String]:
+	var lines: Array[String]=[]
+	var line:=""
+	for word in text.split(" ",false):
+		var candidate:=word if line.is_empty() else line+" "+word
+		if not line.is_empty() and font.get_string_size(candidate,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x>width:
+			lines.append(line);line=word
+		else:line=candidate
+	if not line.is_empty():lines.append(line)
+	# Runtime authored names are short words; unusually long imported names
+	# must still remain within the fixed two-line HUD rather than cover combat.
+	if lines.size()>2:lines=[lines[0]," ".join(lines.slice(1))]
+	for index in range(lines.size()):
+		while font.get_string_size(lines[index],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x>width and lines[index].length()>1:
+			lines[index]=lines[index].trim_suffix("…").left(lines[index].trim_suffix("…").length()-1)+"…"
+	return lines
+
 func reset() -> void:
 	health_trails.clear()
 	boss_action=""; boss_action_time=0

@@ -173,10 +173,14 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var opposite_art_required: bool = float(g.combat_facing()) < 0 and authored.get("facing_support","") == "right_only"
 	if opposite_art_required: authored = {}
 	# Exact extracted idles do not stand in for missing action/movement views.
-	if authored.is_empty() and absf(g.player_x-g.target_player_x()) < 4.0:
+	if authored.is_empty():
 		# A source strike is valid at commit, not an invented recovery pose.
 		var source_phase: String = "RECOVER" if g.attack_anim > 0.0 and g.attack_anim < .10 else str(action.phase)
-		authored = Authored.extracted_phase(str(actor.id),subtype,source_phase,float(g.combat_facing()))
+		# A committed action remains that exact authored action while its root
+		# approaches the combat lane. Only an idle export needs a stationary root;
+		# it must never pretend to be a missing movement animation.
+		if source_phase != "IDLE" or absf(g.player_x-g.target_player_x()) < 4.0:
+			authored = Authored.extracted_phase(str(actor.id),subtype,source_phase,float(g.combat_facing()))
 		# Prefer an actual later source strike when available. Preserve the
 		# accepted release frame at commit for actors without a later export.
 		if authored.is_empty() and source_phase == "IMPACT":

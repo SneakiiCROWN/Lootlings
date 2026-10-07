@@ -54,9 +54,9 @@ const DialogueDirector = preload("res://dialogue_director.gd")
 const WorldStory = preload("res://world_story.gd")
 const BetaArt = preload("res://beta_art_catalog.gd")
 const RESIDENT_PORTRAITS := {
-	"Salvager":preload("res://art/sprites/npcs/beta/patch_portrait.png"),
+	"Salvager":preload("res://art/production/phase4e/npcs/patch_canonical_station_panel.png"),
 	"Relic Keeper":preload("res://art/sprites/npcs/beta/sera_portrait.png"),
-	"Archivist":preload("res://art/sprites/npcs/beta/ilex_portrait.png")
+	"Archivist":preload("res://art/production/phase4e/npcs/ilex_canonical_station_panel.png")
 }
 const HOME_SLOTS := {"pet_bed":Rect2(38,700,60,48),"trophy":Rect2(338,176,56,56),"weapon_display":Rect2(202,519,48,48),"banner":Rect2(92,124,48,100),"hearth":Rect2(32,268,64,64),"shelf":Rect2(350,614,64,48)}
 const RESIDENT_RECTS := {"Salvager":Rect2(346,336,88,132), "Relic Keeper":Rect2(42,334,88,132), "Archivist":Rect2(352,562,80,120)}
@@ -1617,7 +1617,9 @@ func background_for_screen() -> Texture2D:
 		"forge": return BetaArt.GEARWORKS
 		"workshop": return BetaArt.ARCHIVE if phase4_mode=="archive" else BetaArt.GEARWORKS if phase4_mode=="blueprints" else BetaArt.MARKET
 		"lore", "memories", "achievements": return BetaArt.ARCHIVE
-		"shop": return SHOP_BACKGROUND
+		# The old stall painting bakes the superseded goblin Patch identity.
+		# Reuse the current public Hub setting and the approved Patch station panel.
+		"shop": return HIDEOUT_BACKGROUND
 		"stash": return STASH_BACKGROUND
 		"upgrades": return SHRINE_BACKGROUND
 	return HIDEOUT_BACKGROUND
@@ -1703,12 +1705,13 @@ func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> 
 	var activity:=resident_activity(speaker)
 	var local_time:=fmod(scene_time+phase*11,28.0)
 	var walk:=sin(clampf(local_time/4,0,1)*PI)*12 if activity=="walk" else 0.0
-	rect.position.x+=walk
+	if speaker not in ["Salvager","Archivist"]:rect.position.x+=walk
 	# Until authored seated/work layers arrive, show the established idle body.
 	# Activity routes and dialogue remain live; no fake body deformation.
 	if speaker=="Archivist": rect=Rect2(rect.position+Vector2(6,10),rect.size*Vector2(.88,.92))
-	draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
-	draw_circle(Vector2.ZERO,31,Color("#03061280"))
+	if speaker not in ["Salvager","Archivist"]:
+		draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
+		draw_circle(Vector2.ZERO,31,Color("#03061280"))
 	preload("res://resident_art_catalog.gd").draw(self,speaker,rect)
 
 func draw_shop_scene() -> void:
@@ -1720,6 +1723,7 @@ func draw_shop_scene() -> void:
 	draw_set_transform(Vector2(73, 153 + visitor_bob), sin(scene_time * 1.2) * 0.005, Vector2(visitor_breath, 1.0 / visitor_breath))
 	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-48, -48, 96, 96)), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	LootlingsUI.draw_icon(get_canvas_item(),RESIDENT_PORTRAITS.Salvager,Rect2(330,100,84,118))
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
 			if current_shop.stock[index].is_empty():

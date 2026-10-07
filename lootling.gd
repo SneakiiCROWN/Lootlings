@@ -3788,18 +3788,20 @@ func draw_arena(shake: Vector2) -> void:
 	var special_entering := enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
 		var display_enemy_name: String=enemy_name.to_upper()
-		var enemy_name_size := 19
+		var enemy_name_size := 17
 		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
 		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
 		var enemy_hud_y := 243.0 if enemy_is_boss else 354.0
 		if not enemy_is_boss: enemy_hud_x=clampf(target_combat_visual_position().x-enemy_hud_width*.5,16,480-enemy_hud_width-16)
-		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
+		while enemy_name_size > 14 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1
-		draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(enemy_hud_x-10,enemy_hud_y-26,enemy_hud_width+20,64))
-		draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, mini(enemy_name_size,17), Color("#f4f7ff"))
-		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
-		var status_x := 165.0
-		var status_y := 283.0 if enemy_is_boss else enemy_hud_y+51
+		var name_lines:=combat_presentation.name_lines(body_font,display_enemy_name,enemy_hud_width-2,enemy_name_size)
+		var name_extra:=18.0 if name_lines.size()>1 else 0.0
+		draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(enemy_hud_x-10,enemy_hud_y-26,enemy_hud_width+20,64+name_extra))
+		for line in range(name_lines.size()):draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y+line*18), name_lines[line], HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, enemy_name_size, Color("#f4f7ff"))
+		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12+name_extra, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
+		var status_x := 165.0 if enemy_is_boss else enemy_hud_x+32
+		var status_y := (283.0 if enemy_is_boss else enemy_hud_y+51)+name_extra
 		if enemy_burn_dps > 0.0:
 			draw_status_chip(Vector2(status_x, status_y), "BURN", build.color("Fire"), "status_burn")
 			status_x += 80.0
@@ -3807,7 +3809,7 @@ func draw_arena(shake: Vector2) -> void:
 			draw_status_chip(Vector2(status_x, status_y), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
 		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240, 310 if enemy_is_boss else enemy_hud_y+76), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
+			draw_status_chip(Vector2(240 if enemy_is_boss else enemy_hud_x+enemy_hud_width*.5, (310 if enemy_is_boss else enemy_hud_y+76)+name_extra), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:

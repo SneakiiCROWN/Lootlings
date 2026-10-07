@@ -34,6 +34,9 @@ const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.pn
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 	var pose := WandererPose.sample(g, hurt)
+	if pose.get("sprite_rig",false) and not prototype_preview_enabled():
+		draw_missing_actor_reference(g,pos,pose)
+		return
 	var texture: Texture2D = pose.texture
 	if texture == null: return
 	var root: Transform2D = pose.root
@@ -73,6 +76,24 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 		g.draw_set_transform_matrix(root)
 		g.draw_texture_rect(pose.foreground,rect,false,Color.WHITE)
 	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	if pose.get("sprite_rig",false):g.draw_string(g.body_font,pos+Vector2(-78,-148),"RIG PROTOTYPE / QA ONLY",HORIZONTAL_ALIGNMENT_CENTER,156,10,Color("#ffe3ac"))
+
+static func prototype_preview_enabled() -> bool:
+	return OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_QA_RIG_PREVIEW")=="1"
+
+func draw_missing_actor_reference(g, pos: Vector2, pose: Dictionary) -> void:
+	# Explicit reference UI, not a substitute body or fake authored pose. Keep
+	# the technical rig/sockets for QA and projectile logic; never render its
+	# alternate identity or unattached weapons as accepted gameplay artwork.
+	var rect:=Rect2(pos+Vector2(-54,-81),Vector2(108,131))
+	g.draw_set_transform(Vector2.ZERO)
+	g.draw_rect(rect,Color("#0c182eea"))
+	g.draw_rect(rect,Color("#b5a17a"),false,1.5)
+	preload("res://lootlings_ui.gd").draw_icon(g.get_canvas_item(),Avatar.portrait(g.profile),Rect2(rect.position+Vector2(20,6),Vector2(68,68)))
+	var name_size:=preload("res://lootlings_ui.gd").fitted_font_size(g.body_font,Avatar.display_name(g.profile),100,12,8)
+	g.draw_string(g.body_font,rect.position+Vector2(4,91),Avatar.display_name(g.profile),HORIZONTAL_ALIGNMENT_CENTER,100,name_size,Color("#ffe3ac"))
+	g.draw_string(g.body_font,rect.position+Vector2(4,108),"POSE ART PENDING",HORIZONTAL_ALIGNMENT_CENTER,100,10,Color("#ddd6c4"))
+	g.draw_string(g.body_font,rect.position+Vector2(4,122),"REFERENCE ONLY",HORIZONTAL_ALIGNMENT_CENTER,100,9,Color("#a9b8d2"))
 
 func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 	if pose.get("baked_weapon","") == pose.weapon_type: return
@@ -151,6 +172,7 @@ func draw_striking_blade(g, pos: Vector2) -> void:
 	# their foreground; the handle stays beneath the real closed paws.
 	if g.attack_anim <= .055: return
 	var pose := WandererPose.sample(g,g.player_flash > 0)
+	if pose.get("sprite_rig",false) and not prototype_preview_enabled():return
 	if pose.weapon_type in ["daggers","claws"]: return
 	var blade_fraction: float = {"greatsword":.61,"greataxe":.50,"maul":.47,"spear":.48,"daggers":.50,"claws":.30}.get(str(pose.weapon_type),0.0)
 	if blade_fraction == 0: return

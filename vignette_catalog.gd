@@ -76,6 +76,10 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 				result.actor = body_path
 				result.actor_kind = "adult"
 				result.status = "BETA RESIDENT CUTOUT • EXISTING LORE"
+			if key in ["patch","ilex"]:
+				result.actor="res://art/production/phase4e/npcs/%s_canonical_station_panel.png" % key
+				result.actor_kind="portrait"
+				result.status="OWNER-APPROVED CANONICAL PANEL • BODY STATES PENDING"
 			result.lines = resident.lines
 			result.duration = 5.8
 		"region":

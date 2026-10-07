@@ -69,9 +69,13 @@ def build():
         add('weapon',id,entry['name'],'weapon_catalog.gd#FAMILIES/'+id,icons,
             status='ACCEPTED_BETA_SOURCE',fallback_policy='Accepted inventory glyph only. Held weapon, paired grip, support/nock and facing contracts remain in the authored pose manifests; an icon never supplies combat art.')
     for id,entry in runtime['vignette_catalog.gd']['constants']['RESIDENTS'].items():
-        add('npc',id,entry['name'],'world_story.gd#NPC_NOTES/'+entry['name'],
-            ['res://art/sprites/npcs/beta/'+id+'_idle.png','res://art/sprites/npcs/beta/'+id+'_portrait.png'],
+        scoped=next((x for x in json.loads((ROOT/'art/npc_identity_authorities.json').read_text())['entries'] if x['id']==id),None) if (ROOT/'art/npc_identity_authorities.json').exists() else None
+        add('npc',id,entry['name'],scoped['canonical_source'] if scoped else 'world_story.gd#NPC_NOTES/'+entry['name'],
+            ['res://'+scoped['runtime_asset']] if scoped else ['res://art/sprites/npcs/beta/'+id+'_idle.png','res://art/sprites/npcs/beta/'+id+'_portrait.png'],
             status='NEEDS_NEW_CANON_EXPORT',missing_required_states=missing[id])
+        if scoped:
+            entries['npc:'+id]['rejected_conflicting_sources']=scoped['superseded_runtime_assets']
+            entries['npc:'+id]['fallback_policy']=scoped['purpose']
     add('merchant','pack_peddler','Pack Peddler / Merrow','LOOTLINGS_WORLD_BIBLE.md#merchant',
         status='CANON_IDENTITY_WRITTEN_ONLY',missing_required_states=['rest','talk','offer','inspect','return'],
         fallback_policy='Keep the existing merchant role/composition; no new NPC identity from concept labels.')

@@ -28,6 +28,7 @@ def main():
     crop_sources={r['asset_path']:r for r in extraction['entries']}
     pose_sources.update({r['asset_path']:r for r in json.loads(read(ROOT/'art/production/phase4e/reuse_manifest.json'))['entries']})
     references=json.loads(read(ROOT/'art/reference/phase4e_handoff/REFERENCE_STATUS.json'))
+    npc_authorities={x['id']:x for x in json.loads(read(ROOT/'art/npc_identity_authorities.json'))['entries']} if (ROOT/'art/npc_identity_authorities.json').exists() else {}
     texts={p.name:read(p) for p in ROOT.glob('*.gd')}
     rows=[];keys=set()
     def add(id,category,subject,status='LIVE_BETA',**extra):
@@ -40,6 +41,7 @@ def main():
         absent='asset_path' not in cell;actor=cell['game_id'];state=cell['state'];face=cell['facing'];weapon=cell.get('weapon_family')
         category=cell.get('category','playable')
         source=cell.get('source_canonical_sheet'); asset=cell.get('asset_path')
+        if actor in npc_authorities:source=npc_authorities[actor]['canonical_source']
         if not absent:
             spec=pose_sources.get(asset,{});crop=crop_sources.get(asset,{})
             source=crop.get('source',spec.get('source_reference',source))
@@ -169,7 +171,7 @@ def main():
     data=dict(schema_version=1,authority='Stable IDs/written canon remain identity authority; this manifest is the permanent derivative production routing/status index. Do not override owner canon or mark BETA final automatically.',baseline='11cd6c49f62972597eec8426a344226da031fe25 / Android v25',refresh='Run isolated tools/master_runtime_inventory.gd, then tools/recalculate_phase4e_art.py and tools/build_master_integration.py; tools/validate_master_integration.py detects stale inputs/outputs',statuses=STATUSES,counts=dict(total_records=len(rows),total_launch_scope_slots=sum(launch.values()),all_statuses={s:statuses[s] for s in STATUSES},launch_statuses={s:launch[s] for s in STATUSES},exact_missing_art_cells=missing['total_missing_cells'],support_packages=sum(missing['complete_support_family_debt_recalculated'].values())),source_hash_encoding='UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256',source_inputs={p.relative_to(ROOT).as_posix():input_digest(p) for p in sources},records=rows)
     data['source_inputs']['art/production/phase4e/reuse_manifest.json']=input_digest(ROOT/'art/production/phase4e/reuse_manifest.json')
     data['source_inputs']['art/production/phase4e/props/source_manifest.json']=input_digest(ROOT/'art/production/phase4e/props/source_manifest.json')
-    for new_input in ['art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json']:
+    for new_input in ['art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json','art/npc_identity_authorities.json']:
         if (ROOT/new_input).exists():data['source_inputs'][new_input]=input_digest(ROOT/new_input)
     dump(OUT/'MASTER_INTEGRATION_MANIFEST.json',data)
     def write_csv(name,records):
@@ -230,6 +232,9 @@ def main():
         elif actor in ['patch','ilex','sera']:images=['art/sprites/npcs/beta/'+actor+'_idle.png','art/sprites/npcs/beta/'+actor+'_portrait.png']
         elif actor=='act_i':images=['art/sprites/enemies/hoard_dragon.png']
         elif actor in ['mossglass_wilds','cinder_crown']:images=['art/sprites/enemies/beta/'+('verdant_mirror' if actor=='mossglass_wilds' else 'furnace_regent')+'.png']
+        if actor in npc_authorities:
+            images=[npc_authorities[actor]['canonical_source']];pkg['canonical_sources']=['res://'+images[0]]
+            pkg['owner_reference_approval']=npc_authorities[actor]['authority']
         approval=ROOT/'art/approved_missing_canon_references.json'
         approved=next((e for e in json.loads(read(approval))['entries'] if e['game_id']==actor),None) if approval.exists() else None
         if approved:

@@ -1,0 +1,49 @@
+{
+  "scope": "Patch and Ilex only. Other broad-board bodies remain rejected. Dedicated existing actors and stable IDs unchanged.",
+  "entries": [
+    {
+      "id": "patch",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_board": "art/reference/canonical/characters/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_crop": [
+        7,
+        301,
+        119,
+        458
+      ],
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "dedicated_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "runtime_asset": "art/production/phase4e/npcs/patch_canonical_station_panel.png",
+      "runtime_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authority": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
+      "purpose": "Station vignette and portrait; original panel with painted setting/counter. Not transparent full-body idle, route, work, talk or sit animation.",
+      "full_body_states_closed": 0,
+      "superseded_runtime_assets": [
+        "art/sprites/npcs/beta/patch_idle.png",
+        "art/sprites/npcs/beta/patch_portrait.png"
+      ]
+    },
+    {
+      "id": "ilex",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_board": "art/reference/canonical/characters/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "source_crop": [
+        123,
+        301,
+        231,
+        458
+      ],
+      "source_sha256": "8caa3fc7e1f8684ec42de2b586dac7fee67b9f9f82a92fb930d7226015d24938",
+      "dedicated_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "runtime_asset": "art/production/phase4e/npcs/ilex_canonical_station_panel.png",
+      "runtime_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authority": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
+      "purpose": "Station vignette and portrait; original panel with painted setting/counter. Not transparent full-body idle, route, work, talk or sit animation.",
+      "full_body_states_closed": 0,
+      "superseded_runtime_assets": [
+        "art/sprites/npcs/beta/ilex_idle.png",
+        "art/sprites/npcs/beta/ilex_portrait.png"
+      ]
+    }
+  ]
+}

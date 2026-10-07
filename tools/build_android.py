@@ -169,14 +169,15 @@ def main():
                      'runtime_size_limit': 512, 'matches_local_import': True}
         imported_residents = {}
         for resident in ['patch', 'ilex', 'sera']:
-            source = ROOT/'art/sprites/npcs/beta'/(resident+'_idle.png')
+            scoped = resident in ['patch','ilex'] and (ROOT/'art/npc_identity_authorities.json').exists()
+            source = ROOT/('art/production/phase4e/npcs/'+resident+'_canonical_station_panel.png' if scoped else 'art/sprites/npcs/beta/'+resident+'_idle.png')
             config = source.with_suffix('.png.import').read_text(encoding='utf-8')
             relative = re.search(r'^path="res://([^"]+)"', config, re.MULTILINE).group(1)
             exported_bytes = apk.read('assets/' + relative)
             assert exported_bytes == (ROOT/relative).read_bytes(), 'Stale canonical resident idle: ' + resident
             imported_residents[resident] = {'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                                            'imported_sha256': hashlib.sha256(exported_bytes).hexdigest(),
-                                           'matches_local_import': True, 'authored_state': 'idle'}
+                                           'matches_local_import': True, 'authored_state': 'canonical_station_panel' if scoped else 'idle'}
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
         for source in list((ROOT/'art/sprites/combat_rigs').glob('*.svg')) + [ROOT/'art/sprites/enemies/beta'/(name+'.svg') for name in ['mossmaw','glasswing','bell_bat','rime_pup','coal_pup','null_hound','lantern_toad','sluice_crab','brassback','forge_beetle','inkling','pagewyrm','pressure_sprite','crown_shard','hookwing','lantern_jackal','belljaw']]:
             config=source.with_suffix('.svg.import').read_text(encoding='utf-8')
