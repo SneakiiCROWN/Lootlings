@@ -364,6 +364,287 @@
       "weapon_overrides": {},
       "wardrobe_requires": {},
       "baked_weapon": ""
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8559680451127819,
+        0.8061119595864661
+      ],
+      "secondary_anchor": [
+        0.34844924812030076,
+        0.7920142152255639
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual source attack-sequence ANTICIPATE; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8,
+        0.843359375
+      ],
+      "secondary_anchor": [
+        0.36875,
+        0.312109375
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual source attack-sequence ATTACK; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "daggers"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.693359375,
+        0.845703125
+      ],
+      "secondary_anchor": [
+        0.3359375,
+        0.58203125
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "daggers",
+      "restrictions": "Actual source attack-sequence ANTICIPATE; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Source daggers remains baked; no modular weaponless claim."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "daggers"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.767478813559322,
+        0.7673463983050848
+      ],
+      "secondary_anchor": [
+        0.3172669491525424,
+        0.5395921610169492
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "daggers",
+      "restrictions": "Actual source attack-sequence ATTACK; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Source daggers remains baked; no modular weaponless claim."
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.778072033898305,
+        0.8889036016949152
+      ],
+      "secondary_anchor": [
+        0.5026483050847457,
+        0.3380561440677966
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual source attack-sequence ANTICIPATE; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
+    },
+    {
+      "actor": "glimmerfin",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "staff"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_windup_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.775390625,
+        0.658203125
+      ],
+      "secondary_anchor": [
+        0.69921875,
+        0.693359375
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "staff",
+      "restrictions": "Actual source attack-sequence ANTICIPATE; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Source staff remains baked; no modular weaponless claim."
+    },
+    {
+      "actor": "glimmerfin",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_cast_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8570772058823529,
+        0.5344669117647058
+      ],
+      "secondary_anchor": [
+        0.8295036764705882,
+        0.5413602941176471
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual source attack-sequence ATTACK; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8835227272727273,
+        0.8885778743315508
+      ],
+      "secondary_anchor": [
+        0.5476270053475936,
+        0.8635110294117647
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual source attack-sequence ATTACK; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
     }
   ],
   "authority": "Owner extraction directive, locked sheet identity; idle-only integration, no final art acceptance"

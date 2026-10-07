@@ -90,7 +90,9 @@ def validate():
                     if row.get('transparent') and any(im.getpixel(point)[3] for point in [(0,0),(im.width-1,0),(0,im.height-1),(im.width-1,im.height-1)]):errors.append('Clipped extracted canvas corners: '+row['id'])
         runtime=json.loads((ROOT/'art/production/phase4e/runtime_manifest.json').read_text(encoding='utf-8'))['entries']
         for row in runtime:
-            expected='ANTICIPATE' if row['asset_path'].endswith('gloomlet_windup_right.png') else 'IDLE'
+            source_record=next((e for e in extracted if e['asset_path']==row['asset_path']),{})
+            expected=source_record.get('runtime_phase','ANTICIPATE' if row['asset_path'].endswith('gloomlet_windup_right.png') else 'IDLE')
+            if expected not in ['IDLE','ANTICIPATE','ATTACK']:errors.append('Unproven source action phase: '+row['asset_path'])
             if row['asset_path'] not in body_paths or row['phase']!=expected or row['facing'] not in ['right_only','left_only']:
                 errors.append('Unproven extracted phase/view routing: '+row['asset_path'])
     reuse=json.loads((ROOT/'art/production/phase4e/reuse_manifest.json').read_text(encoding='utf-8'))['entries']

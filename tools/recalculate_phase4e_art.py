@@ -28,7 +28,9 @@ def main():
                 before[key]=row['asset_path'];coverage[key]=row['asset_path']
     for row in extracted:
         for weapon in row['weapon_types']:
-            key=(row['actor'],'idle' if row['phase']=='IDLE' else 'windup',row['facing'].removesuffix('_only'),weapon)
+            states={'IDLE':'idle','ANTICIPATE':'windup','ATTACK':'strike_or_cast'}
+            assert row['phase'] in states,'Unproven extracted state: '+row['phase']
+            key=(row['actor'],states[row['phase']],row['facing'].removesuffix('_only'),weapon)
             assert key not in coverage,'Must not overwrite good authored coverage'
             coverage[key]=row['asset_path']
     for req in requests['requests']:

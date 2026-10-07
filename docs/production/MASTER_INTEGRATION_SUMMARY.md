@@ -5,20 +5,20 @@ Current launch/runtime inventory; established canon and stable IDs override all 
 | Status | All records | Current launch slots |
 |---|---:|---:|
 | LIVE_FINAL | 0 | 0 |
-| LIVE_BETA | 3036 | 3036 |
+| LIVE_BETA | 3061 | 3061 |
 | EXTRACTABLE_NOW | 0 | 0 |
 | NEEDS_CROP_OR_MASK | 0 | 0 |
 | NEEDS_RUNTIME_ASSEMBLY | 0 | 0 |
-| NEEDS_NEW_CANON_EXPORT | 3065 | 3065 |
+| NEEDS_NEW_CANON_EXPORT | 3056 | 3056 |
 | REFERENCE_ONLY | 502 | 0 |
 | REJECTED_IDENTITY_DRIFT | 6 | 0 |
 | PLANNED_NOT_IMPLEMENTED | 11 | 0 |
 | NOT_REQUIRED_FOR_CURRENT_LAUNCH | 211 | 0 |
 
-Total records: **6831**. Current launch-scope slots: **6101**.
-Exact missing art delivery cells: **3065** grouped into **106 body/view bundles**. Whole support packages: **165** (82 right / 83 left), independently rerun after integration.
+Total records: **6847**. Current launch-scope slots: **6117**.
+Exact missing art delivery cells: **3056** grouped into **106 body/view bundles**. Whole support packages: **165** (82 right / 83 left), independently rerun after integration.
 
-The 3065 cells keep their individual state/view/family contracts. Shared body poses and weapon modules group into body/view bundles; the separate support-package count must not be added as unique images. No repeated neutral art, tint substitute or fake movement/attack export closes a slot.
+The 3056 cells keep their individual state/view/family contracts. Shared body poses and weapon modules group into body/view bundles; the separate support-package count must not be added as unique images. No repeated neutral art, tint substitute or fake movement/attack export closes a slot.
 
 Refresh: isolated Godot reflection → existing exact art recalc → tools/build_master_integration.py. The reflection uses the official [Script constant/method API](https://docs.godotengine.org/en/stable/classes/class_script.html). CSV and JSON are generated together. Do not edit generated rows by hand; update the underlying catalogs or extraction/approval contracts, regenerate and validate.
 

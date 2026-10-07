@@ -174,7 +174,9 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	if opposite_art_required: authored = {}
 	# Exact extracted idles do not stand in for missing action/movement views.
 	if authored.is_empty() and absf(g.player_x-g.target_player_x()) < 4.0:
-		authored = Authored.extracted_phase(str(actor.id),subtype,str(action.phase),float(g.combat_facing()))
+		# A source strike is valid at commit, not an invented recovery pose.
+		var source_phase: String = "RECOVER" if g.attack_anim > 0.0 and g.attack_anim < .10 else "ATTACK" if action.phase == "IMPACT" else str(action.phase)
+		authored = Authored.extracted_phase(str(actor.id),subtype,source_phase,float(g.combat_facing()))
 	var appearance: Dictionary = g.profile.get("wanderer",{}).get("appearance",{}).get("components",{})
 	for slot in authored.get("wardrobe_requires",{}):
 		if appearance.get(slot) != authored.wardrobe_requires[slot]:
