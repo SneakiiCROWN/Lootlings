@@ -781,6 +781,14 @@
     ],
     "source_sha256": "c9b74f189d6e87bc46456ae047e2e30997fccc346802288c2ae46090124fe4f2"
   },
+  "approved_missing_runtime_art.gd": {
+    "constants": {},
+    "methods": [
+      "frame",
+      "enemy_neutral"
+    ],
+    "source_sha256": "377f3fd05384ca5ca6b5ed8bf91707881722ee28ec3ee9910ccf83127a5ed0e1"
+  },
   "audio_manager.gd": {
     "constants": {
       "BASE_EVENT_SPECS": {
@@ -3214,7 +3222,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "b4d6010e13db70b3fdc78aabe080778d27891ede10b623bac28b0ef287b12b9c"
+    "source_sha256": "3dbbad88ce4fb3cc4d5c48b5d6ecfbe275a22f53d80036f7f8978497c3f0ca73"
   },
   "debug_panel.gd": {
     "constants": {},

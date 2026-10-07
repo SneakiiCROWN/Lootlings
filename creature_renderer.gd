@@ -211,6 +211,8 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	var regional: Dictionary=preload("res://regional_enemy_presentation.gd").profile(g.enemy_name) if not g.enemy_is_boss and not g.enemy_is_miniboss else {}
 	if not regional.is_empty():
 		texture=regional.texture; sprite_rect=Rect2(Vector2(-regional.size.x*.5,66-regional.size.y*.89),regional.size); atlas_region=Rect2(); shadow_radius=regional.size.x*.28
+	var exact_neutral: Dictionary=preload("res://approved_missing_runtime_art.gd").enemy_neutral(g,pos.x) if not regional.is_empty() else {}
+	if not exact_neutral.is_empty(): texture=exact_neutral.texture
 	if not regional.is_empty() and regional.hover:
 		pos.y-=17+sin(g.run_time*4)*5
 	if glasswing and regional.get("body","") != "bat":
@@ -301,6 +303,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 		g.draw_circle(Vector2(pos.x - 25, pos.y - 24), 8.0 + cast_charge * 9.0, Color(0.72, 0.38, 1.0, cast_charge * 0.24))
 	# Existing enemy sprites face left; flip only for a player on their right.
 	var facing_scale:=Vector2(-g.enemy_facing_at(pos.x),1)
+	if not exact_neutral.is_empty(): facing_scale.x=1 # This export already faces the actual target; never mirror it.
 	if g.enemy_is_boss and boss_data.flip_h: facing_scale.x*=-1
 	var entry_scale: float=lerpf(float(boss_data.entrance_scale),1.0,1.0-clampf(float(g.enemy_entry_anim)/.55,0,1)) if g.enemy_is_boss else 1.0
 	g.draw_set_transform(pos,recoil_tilt+personality_tilt+(float(boss_data.rotation) if g.enemy_is_boss else 0.0),hit_scale*personality_scale*extra_scale*facing_scale*entry_scale)

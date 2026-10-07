@@ -12,6 +12,8 @@ def resource(path):
     return target
 
 def validate():
+    from validate_approved_missing_canon import validate as validate_missing
+    validate_missing()
     registry=json.loads((ROOT/'art/reference/phase4e_handoff/REFERENCE_STATUS.json').read_text(encoding='utf-8'))
     errors=[]
     rejected={r['sha256'] for r in registry['references'] if not r['runtime_allowed']}

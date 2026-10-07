@@ -1,4 +1,8 @@
-## CURRENT exact coverage � 2026-10-07 / v37
+## CURRENT approved missing-source reference promotion — v38
+
+Only the 35 formerly source-less entities now have explicit owner-approved visual reference authority in `art/approved_missing_canon_references.json`. Dedicated established identities remain primary. One actual Fen Sneak right idle export closes one delivery cell; **3,050 global cells = 2,313 playable + 737 other**, **106 bundles / 165 support packages** remain. **593 high-resolution generation cells** remain for the newly approved subset; reference boards are not production-state completion. [Current evidence/limits](../approved-canon/REPORT.md). The prior exact coverage and named register are retained as history; no existing cast or region redesigned.
+
+## Historical exact coverage — 2026-10-07 / v37
 
 Dedicated canonical sheets control playable identity. Owner-confirmed Glimmerfin and Gloomlet bodies remain accepted; conflicting broad-board designs remain rejected. Four later source impact frames improve five existing family routes without closing additional TEMP states. Correct exact debt **3,051 = 2,313 playable + 738 other actor cells**, **106 body/view bundles**, **165 support packages (82 right / 83 left)**. The reduction from 3,056 is five existing early-strike coverage corrections, not five new bodies. Accepted extraction exports **125**, all LIVE_BETA. [Current report](../source-integration/REPORT.md) and [consolidated runtime-ready requests](../../NEEDS_NEW_CANON_EXPORT.json).
 

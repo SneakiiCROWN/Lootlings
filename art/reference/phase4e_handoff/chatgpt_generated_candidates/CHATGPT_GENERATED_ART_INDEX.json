@@ -1,0 +1,180 @@
+{
+  "regional": [
+    {
+      "file": "regional_candidates/batch01_verdant_marshes.png",
+      "entities": [
+        "Mossmaw",
+        "Glasswing",
+        "Dew Hexer",
+        "Fen Sneak"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch02_moonfen_marshes.png",
+      "entities": [
+        "Lantern Toad",
+        "Mudcloak",
+        "Bell Bat"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch03_frostflow_reaches.png",
+      "entities": [
+        "Rime Pup",
+        "Icicle Imp",
+        "Sluice Crab"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch04_cinderworks.png",
+      "entities": [
+        "Pressure Sprite",
+        "Brassback",
+        "Coal Pup",
+        "Slag Knight"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch05_scribed_foundry.png",
+      "entities": [
+        "Forge Beetle",
+        "Inkling",
+        "Margin Imp"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch06_lost_archive.png",
+      "entities": [
+        "Pagewyrm",
+        "Null Hound",
+        "Echo Imp"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch07_shattered_vaults.png",
+      "entities": [
+        "Mirror Knight",
+        "Hookwing",
+        "Chain Guard"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    },
+    {
+      "file": "regional_candidates/batch08_royal_hoard.png",
+      "entities": [
+        "Deck Hexer",
+        "First Guard",
+        "Crown Shard",
+        "Hoard Echo"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_ENTITIES",
+      "runtime_asset": false
+    }
+  ],
+  "bosses": [
+    {
+      "file": "boss_candidates/missing_bosses_canonical_candidate.png",
+      "entities": [
+        "Lantern Jackal",
+        "Belljaw",
+        "Drowned Engine",
+        "Redactor",
+        "The Unchosen",
+        "Chainwarden",
+        "Hollow Crown"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_SOURCE_BOSSES",
+      "runtime_asset": false
+    }
+  ],
+  "merchant": [
+    {
+      "file": "merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
+      "entities": [
+        "Pack Peddler",
+        "Merrow"
+      ],
+      "status": "USER_APPROVED_NEW_CANON_CANDIDATE",
+      "use": "IDENTITY_AND_POSE_REFERENCE_FOR_PREVIOUSLY_MISSING_MERCHANT_ROLE",
+      "runtime_asset": false
+    }
+  ],
+  "playable_support": [
+    {
+      "file": "playable_support_candidates/lootlings_relic_beast_art_bible_sheet.png",
+      "entities": [
+        "Relic Beast"
+      ],
+      "status": "SUPPORT_ONLY_DEDICATED_REPO_SHEET_STILL_PRIMARY",
+      "runtime_asset": false
+    },
+    {
+      "file": "playable_support_candidates/moonkip_weaponless_canonical_art_package.png",
+      "entities": [
+        "Moonkip"
+      ],
+      "status": "SUPPORT_ONLY_DEDICATED_REPO_SHEET_STILL_PRIMARY",
+      "runtime_asset": false
+    },
+    {
+      "file": "playable_support_candidates/gloomlet_canonical_art_bible_reference_sheet.png",
+      "entities": [
+        "Gloomlet"
+      ],
+      "status": "SUPPORT_ONLY_DEDICATED_REPO_SHEET_STILL_PRIMARY",
+      "runtime_asset": false
+    },
+    {
+      "file": "playable_support_candidates/hoard_dragon_canonical_art_package.png",
+      "entities": [
+        "Hoard Dragon"
+      ],
+      "status": "SUPPORT_ONLY_CURRENT_REPO_BOSS_AUTHORITY_STILL_PRIMARY",
+      "runtime_asset": false
+    }
+  ],
+  "marketing": [
+    {
+      "file": "marketing_candidates/lootlings_moonlit_treasure_ruins.png",
+      "status": "MARKETING_COVER_ICON_CANDIDATE",
+      "runtime_asset": false
+    },
+    {
+      "file": "marketing_candidates/lootlings_crystal_quest.png",
+      "status": "MARKETING_COVER_ICON_CANDIDATE",
+      "runtime_asset": false
+    },
+    {
+      "file": "marketing_candidates/lootlings_moonlit_treasure_guardians.png",
+      "status": "MARKETING_COVER_ICON_CANDIDATE",
+      "runtime_asset": false
+    },
+    {
+      "file": "marketing_candidates/lootlings_moonlit_crystal_quest.png",
+      "status": "MARKETING_COVER_ICON_CANDIDATE",
+      "runtime_asset": false
+    }
+  ]
+}

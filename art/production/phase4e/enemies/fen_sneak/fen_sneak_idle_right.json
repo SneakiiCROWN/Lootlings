@@ -1,0 +1,187 @@
+{
+  "actor": "fen_sneak",
+  "state": "idle",
+  "facing": "right",
+  "source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+  "crop": [
+    731,
+    590,
+    1028,
+    800
+  ],
+  "alpha_outline": [
+    [
+      10,
+      131
+    ],
+    [
+      28,
+      114
+    ],
+    [
+      31,
+      96
+    ],
+    [
+      50,
+      74
+    ],
+    [
+      88,
+      63
+    ],
+    [
+      108,
+      35
+    ],
+    [
+      130,
+      17
+    ],
+    [
+      144,
+      23
+    ],
+    [
+      163,
+      14
+    ],
+    [
+      178,
+      28
+    ],
+    [
+      192,
+      47
+    ],
+    [
+      220,
+      26
+    ],
+    [
+      232,
+      36
+    ],
+    [
+      242,
+      54
+    ],
+    [
+      237,
+      74
+    ],
+    [
+      265,
+      93
+    ],
+    [
+      275,
+      111
+    ],
+    [
+      264,
+      125
+    ],
+    [
+      248,
+      127
+    ],
+    [
+      264,
+      144
+    ],
+    [
+      278,
+      159
+    ],
+    [
+      272,
+      172
+    ],
+    [
+      241,
+      180
+    ],
+    [
+      219,
+      182
+    ],
+    [
+      196,
+      193
+    ],
+    [
+      176,
+      194
+    ],
+    [
+      161,
+      181
+    ],
+    [
+      136,
+      176
+    ],
+    [
+      120,
+      190
+    ],
+    [
+      94,
+      187
+    ],
+    [
+      75,
+      176
+    ],
+    [
+      54,
+      181
+    ],
+    [
+      29,
+      177
+    ],
+    [
+      21,
+      161
+    ]
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "baseline": 992,
+  "pivot": [
+    512.0,
+    992
+  ],
+  "occupied_bounds": [
+    32,
+    357,
+    992,
+    992
+  ],
+  "source_body_pixels": [
+    275,
+    182
+  ],
+  "uniform_scale": 3.4909090909090907,
+  "filename": "fen_sneak_idle_right.png",
+  "asset_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_right.png",
+  "asset_sha256": "e095cf02cce5813dee966c86d4698d46fe510b707a165b9987687d05a5e69f38",
+  "restrictions": "Large neutral source panel only; no mirror, hurt, motion or attack substitution. Original baked equipment retained; no reconstructed anatomy. Source RGB preserved before uniform resample. Only this exact neutral state/view; final owner acceptance remains open.",
+  "source_sockets": {
+    "contact_or_launch_source_pixels": [
+      263,
+      153
+    ],
+    "mouth_source_pixels": [
+      253,
+      116
+    ]
+  },
+  "native_validated": true,
+  "production_status": "source_derived_beta"
+}

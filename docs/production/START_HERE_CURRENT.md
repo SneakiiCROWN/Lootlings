@@ -4,13 +4,13 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Phase4E; NO PHASE4F.** Older `main` does not override this production branch.
 
-## CURRENT � Phase4E / v37 source integration
+## CURRENT — Phase4E approved missing-source canon / v38
 
-Implementation `a3b349f660b38884ca57e515184aeb09d6259068` plus Moonkip checkpoint `0ef8636`; separate QA/report checkpoint is the commit adding `phase4e/source-integration/REPORT.md`. Four dedicated-sheet impact frames, five family routes, approved gold payout flare and existing Nature contact art integrated. Dedicated Glimmerfin/Gloomlet identities are owner-confirmed; conflicting broad-board bodies remain rejected. No balance, odds, save format or attack timing change. No Phase4F.
+Owner-approved generated references now control only the previously source-less **27 regional enemies, seven bosses and Pack Peddler/Merrow role**. `art/approved_missing_canon_references.json` records exact named panels, hashes and limits. Existing dedicated Lootling sheets, five Wanderers, Patch/Ilex/Sera, Hoard Dragon, Verdant Mirror and Furnace Regent remain unchanged. Board region labels/marketing/support bodies cannot override written IDs or established canon.
 
-Android **v37 / 0.4.28-phase4e-source-integration**: `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-phase4e-source-integration-debug.apk`. GO for scoped S23 review; **HOLD for Phase4E/release acceptance**. [Report](phase4e/source-integration/REPORT.md) / [native gallery](phase4e/source-integration/GALLERY.md).
+**One actual runtime PNG:** Fen Sneak `idle/right`, original-pixel alpha extraction from the larger whole neutral panel; actual source contact metadata and uniform 1024×1024 delivery. Runtime uses it only while neutral and facing the target to its right. No mirror or attack/hurt/recovery/opposite fallback. All other tested direct crops fail resolution, complete anatomy or contact gates. **Global debt 3,051 → 3,050 (2,313 playable + 737 other); 106 bundles / 165 support packages unchanged; zero LIVE_FINAL.** Newly approved 35-entity subset: 594 → **593 high-resolution state/view cells** in `phase4e/HIGH_RES_RUNTIME_GENERATION_QUEUE.json`.
 
-**125 accepted extraction exports; 6,900 inventory records / 6,170 launch slots / 3,119 LIVE_BETA / zero LIVE_FINAL. Exact debt 3,051 = 2,313 playable + 738 other actor cells; 106 shared body/view bundles; separately 165 support packages (82 right / 83 left).** This batch removes zero TEMP cells: the five-cell count reduction corrects previously uncounted accepted ATTACK-at-IMPACT coverage. New later frames improve those already-covered sequences. Missing recovery/hurt/opposite states, Moonkip weaponless paws, Relic Beast non-supported action bodies, Dragon continuous-tail art and distinct regional/boss/NPC states remain open. The consolidated `NEEDS_NEW_CANON_EXPORT.json` records exact runtime-ready requests. Physical S23, save lifecycle, perceptual audio and owner visual gates remain separate.
+Android v38 `0.4.29-phase4e-approved-canon`: `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-phase4e-approved-canon-debug.apk`. Native/guard/regression acceptance and build receipt: [report](phase4e/approved-canon/REPORT.md). HOLD for complete Phase4E/art/device/owner acceptance; no Phase4F. Prior v37 source batch and its APK remain historical verified deliveries.
 
 **Implemented cast:** Relic Beast, Emberhorn, Mosskin, Moonkip, Pebblewyrm, Glimmerfin, Gloomlet. **Wanderers:** Vault Runner, Ruin Warden, Nightstage Drifter, Velvet Astrologer, Ashtrail Hunter. **Residents:** Patch Brasswick, Ilex Quill, Sera Vey. **Merchant:** existing Pack Peddler/Merrow role; no new board NPCs.
 
@@ -20,7 +20,7 @@ Android **v37 / 0.4.28-phase4e-source-integration**: `C:\Users\Snkii\Documents\l
 
 **Source priority:** written canon/stable IDs/production authority → frozen canonical sheets → accepted runtime poses → established gear/UI/world assets → explicitly compatible handoff guidance → exact derived production exports. Handoff STATUS metadata overrides filenames. Reject changed Moonkip, mushroom Gloomlet and winged/quadruped Dragon bodies. Art Bible is compatible guidance only.
 
-**Generated inventory:** current v37 counts above supersede historical v34�v36 counts. [Generated summary](MASTER_INTEGRATION_SUMMARY.md). Counts describe delivery contracts, not unique paintings.
+**Generated inventory:** current v37 counts above supersede historical v34–v36 counts. [Generated summary](MASTER_INTEGRATION_SUMMARY.md). Counts describe delivery contracts, not unique paintings.
 
 **Art gates:** exact missing actions/facings/support layers; Moonkip weaponless paws; original Dragon continuous-tail repair; distinct regional/boss/NPC activity exports. Gloomlet canonical idle exists; rejected procedural combat fallback remains TEMP. Glimmerfin canonical idle is weaponless. **Non-art gates:** save semantic/cross-store/process-death acceptance; final perceptual audio/mastering; physical S23 performance/lifecycle/input; final player-facing visual owner acceptance.
 

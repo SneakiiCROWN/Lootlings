@@ -2,7 +2,15 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v37 source integration
+## CURRENT — Phase4E approved missing-source canon / v38
+
+Owner-approved generated references now control only the previously source-less **27 regional enemies, seven bosses and Pack Peddler/Merrow role**. `art/approved_missing_canon_references.json` records exact named panels, hashes and limits. Existing dedicated Lootling sheets, five Wanderers, Patch/Ilex/Sera, Hoard Dragon, Verdant Mirror and Furnace Regent remain unchanged. Board region labels/marketing/support bodies cannot override written IDs or established canon.
+
+**One actual runtime PNG:** Fen Sneak `idle/right`, original-pixel alpha extraction from the larger whole neutral panel; actual source contact metadata and uniform 1024×1024 delivery. Runtime uses it only while neutral and facing the target to its right. No mirror or attack/hurt/recovery/opposite fallback. All other tested direct crops fail resolution, complete anatomy or contact gates. **Global debt 3,051 → 3,050 (2,313 playable + 737 other); 106 bundles / 165 support packages unchanged; zero LIVE_FINAL.** Newly approved 35-entity subset: 594 → **593 high-resolution state/view cells** in `docs/production/phase4e/HIGH_RES_RUNTIME_GENERATION_QUEUE.json`.
+
+Android v38 `0.4.29-phase4e-approved-canon`: `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-phase4e-approved-canon-debug.apk`. Native/guard/regression acceptance and build receipt: [report](docs/production/phase4e/approved-canon/REPORT.md). HOLD for complete Phase4E/art/device/owner acceptance; no Phase4F. Prior v37 source batch and its APK remain historical verified deliveries.
+
+## Historical / superseded — Phase4E / v37 source integration
 
 Implementation `a3b349f660b38884ca57e515184aeb09d6259068` plus Moonkip checkpoint `0ef8636`; separate QA/report checkpoint is the commit adding `docs/production/phase4e/source-integration/REPORT.md`. Four dedicated-sheet impact frames, five family routes, approved gold payout flare and existing Nature contact art integrated. Dedicated Glimmerfin/Gloomlet identities are owner-confirmed; conflicting broad-board bodies remain rejected. No balance, odds, save format or attack timing change. No Phase4F.
 

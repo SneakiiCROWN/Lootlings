@@ -52,6 +52,8 @@ def main():
                     cells.append(dict(game_id=actor,category='playable',state=state,facing=facing,weapon_family=weapon,hand_support_requirement=hand,canvas=canvas,transparent_background=True,baseline=dict(renderer_ground_y=548,rig_local_y=64,target_canvas_y=canvas[1]-16),anchor=dict(rig_local=[0,0],target_canvas=[canvas[0]/2,canvas[1]*2/3]),hand_socket_coordinates=dict(coordinate_space='existing rig local units; initial READY target, phase-specific source artist alignment required',primary=primary,secondary=secondary,source_palm_pixels=None,source_pixels_status='OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate'),scale_restrictions='uniform only; full silhouette; preserve source aspect; no body mirror if accessories/anatomy differ',source_canonical_sheet=source or [req['canonical_identity']],rig_reuse=True))
     playable_count=len(cells)
     other_before=0
+    approved_refs={e['game_id']:e for e in json.loads((ROOT/'art/approved_missing_canon_references.json').read_text())['entries']} if (ROOT/'art/approved_missing_canon_references.json').exists() else {}
+    approved_frames=json.loads((ROOT/'art/production/phase4e/approved_missing_runtime_manifest.json').read_text())['entries'] if (ROOT/'art/production/phase4e/approved_missing_runtime_manifest.json').exists() else []
     for req in requests['requests']:
         if req['category']=='playable':continue
         states=[]
@@ -64,6 +66,7 @@ def main():
             else:states.append(original)
         for state in dict.fromkeys(states):
             for facing in req['views']:
+                if any(e['actor']==req['asset_id'] and e['state']==state and e['facing']==facing and e.get('native_validated') for e in approved_frames):continue
                 other_before+=1;canvas=req['required_canvas']
                 cells.append(dict(game_id=req['asset_id'],category=req['category'],state=state,facing=facing,weapon_family=None,hand_support_requirement=req['socket_metadata'],canvas=canvas,transparent_background=True,baseline=dict(renderer_ground_y=548 if req['category']!='resident' else None,target_canvas_y=canvas[1]-32,source_ground_or_hover_pixels=None),anchor=dict(target_canvas=[canvas[0]/2,canvas[1]-32],source_pivot_pixels=None),hand_socket_coordinates=dict(source_pixels=None,status='OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy'),scale_restrictions='uniform only; uncropped full silhouette; reuse current per-ID bounds/routes/attack clocks; no proxy or board redesign',source_canonical_sheet=req['canonical_identity'],rig_reuse=True))
     merchant=requests['current_merchant_requirement']
@@ -73,6 +76,7 @@ def main():
             cells.append(dict(game_id='pack_peddler',category='current merchant role',state=state,facing=facing,weapon_family=None,hand_support_requirement=merchant['sockets'],canvas=merchant['canvas'],transparent_background=True,baseline={'target_canvas_y':1504,'source_pixels':None},anchor={'target_canvas':[512,1504],'source_pixels':None},hand_socket_coordinates={'source_pixels':None,'status':'OPEN, exact authored palms/offer prop needed'},scale_restrictions='uniform; established merchant role, not a new Home NPC',source_canonical_sheet=merchant['canon'],rig_reuse=True))
     source_rows=poses+extracted
     for cell in cells:
+        if cell['game_id'] in approved_refs:cell['source_canonical_sheet']=['res://'+approved_refs[cell['game_id']]['source']]
         candidates=sorted({row['asset_path'] for row in source_rows if row.get('actor')==cell['game_id'] and row.get('production_status')!='temporary_proxy' and row.get('asset_path')})
         cell['reuse_search']={'accepted_state_manifest':'art/production_pose_manifest.json','extracted_state_manifest':'art/production/phase4e/runtime_manifest.json','direct_reuse_manifest':'art/production/phase4e/reuse_manifest.json','existing_actor_candidates':candidates}
         cell['why_existing_source_cannot_close']='No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.'

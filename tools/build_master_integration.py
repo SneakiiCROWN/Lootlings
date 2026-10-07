@@ -109,6 +109,10 @@ def main():
     for filename,info in runtime.items():
         for p in paths(info):used.setdefault(p,[]).append(filename)
     for entry in extraction['entries']:used.setdefault(entry['asset_path'][6:],[]).append('phase4e_extracted_art.gd')
+    new_runtime=ROOT/'art/production/phase4e/approved_missing_runtime_manifest.json'
+    if new_runtime.exists():
+        for entry in json.loads(read(new_runtime))['entries']:
+            if entry.get('native_validated'):used.setdefault(entry['asset_path'][6:],[]).append('approved_missing_runtime_art.gd')
     for p in missing['coverage']:used.setdefault(p['asset_path'][6:],[]).append('authored_pose_manifest.gd')
     audio_manifest=ROOT/'art/audio/production/sources.json'
     if audio_manifest.exists():
@@ -116,6 +120,7 @@ def main():
     for p in sorted((ROOT/'art').rglob('*')):
         if not p.is_file() or p.suffix.lower() not in ['.png','.svg','.wav','.ogg']:continue
         rel=p.relative_to(ROOT).as_posix()
+        if '/source_pack_final/' in rel:continue # Packaging copies are not new runtime/canon sources.
         if '/reference/' in rel or '/source/' in rel:
             rejected=next((r for r in references['references'] if r['path'].removeprefix('res://')==rel and not r['runtime_allowed']),None)
             add('source:'+rel,'reference',p.stem,'REJECTED_IDENTITY_DRIFT' if rejected else 'REFERENCE_ONLY',canonical_source=rel,launch_scope=False,evidence={'sha256':digest(p),'rejection':rejected},blocker='Reference is not a production state; no new canon approval inferred')
@@ -160,6 +165,8 @@ def main():
     data=dict(schema_version=1,authority='Stable IDs/written canon remain identity authority; this manifest is the permanent derivative production routing/status index. Do not override owner canon or mark BETA final automatically.',baseline='11cd6c49f62972597eec8426a344226da031fe25 / Android v25',refresh='Run isolated tools/master_runtime_inventory.gd, then tools/recalculate_phase4e_art.py and tools/build_master_integration.py; tools/validate_master_integration.py detects stale inputs/outputs',statuses=STATUSES,counts=dict(total_records=len(rows),total_launch_scope_slots=sum(launch.values()),all_statuses={s:statuses[s] for s in STATUSES},launch_statuses={s:launch[s] for s in STATUSES},exact_missing_art_cells=missing['total_missing_cells'],support_packages=sum(missing['complete_support_family_debt_recalculated'].values())),source_hash_encoding='UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256',source_inputs={p.relative_to(ROOT).as_posix():input_digest(p) for p in sources},records=rows)
     data['source_inputs']['art/production/phase4e/reuse_manifest.json']=input_digest(ROOT/'art/production/phase4e/reuse_manifest.json')
     data['source_inputs']['art/production/phase4e/props/source_manifest.json']=input_digest(ROOT/'art/production/phase4e/props/source_manifest.json')
+    for new_input in ['art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json']:
+        if (ROOT/new_input).exists():data['source_inputs'][new_input]=input_digest(ROOT/new_input)
     dump(OUT/'MASTER_INTEGRATION_MANIFEST.json',data)
     def write_csv(name,records):
         fields=list(rows[0]);
@@ -219,6 +226,12 @@ def main():
         elif actor in ['patch','ilex','sera']:images=['art/sprites/npcs/beta/'+actor+'_idle.png','art/sprites/npcs/beta/'+actor+'_portrait.png']
         elif actor=='act_i':images=['art/sprites/enemies/hoard_dragon.png']
         elif actor in ['mossglass_wilds','cinder_crown']:images=['art/sprites/enemies/beta/'+('verdant_mirror' if actor=='mossglass_wilds' else 'furnace_regent')+'.png']
+        approval=ROOT/'art/approved_missing_canon_references.json'
+        approved=next((e for e in json.loads(read(approval))['entries'] if e['game_id']==actor),None) if approval.exists() else None
+        if approved:
+            assert not images,'Do not override existing dedicated canon'
+            images=[approved['source']];pkg['canonical_sources']=['res://'+approved['source']]
+            pkg['owner_reference_approval']=approved['owner_approval']
         pkg['locked_source_images']=[dict(path=p,sha256=digest(ROOT/p)) for p in images]
         pkg['visual_source_gate']='MATCH_EXISTING_CANON_EXACTLY' if images else 'OPEN: written identity only; canonical visual must be owner-approved before final production art. Never copy current procedural/proxy body as canon.'
         pkg['scale_rules']='Uniform scale only, retain complete silhouette and original anatomy. No automatic opposite-view mirror of asymmetric gear/paws.'

@@ -1,0 +1,71 @@
+LOOTLINGS — PHASE 4E PROMOTE NEW CANON REFERENCES + BEGIN RUNTIME ART INTEGRATION
+
+We are DONE with broad planning/auditing. Do not begin another general audit.
+
+New user-approved reference folder:
+C:\Users\Snkii\Documents\lootlings\art\reference\phase4e_handoff\chatgpt_generated_candidates\
+
+Existing production contracts:
+C:\Users\Snkii\Documents\lootlings\art\reference\phase4e_handoff\source_pack_final\CANON_ART_PRODUCTION_PLAN.md
+C:\Users\Snkii\Documents\lootlings\art\reference\phase4e_handoff\source_pack_final\CANON_ART_BATCHES.json
+C:\Users\Snkii\Documents\lootlings\docs\production\NEEDS_NEW_CANON_EXPORT.json
+
+DO NOW:
+
+1. Read CHATGPT_GENERATED_ART_INDEX.json.
+
+2. For ONLY the entities that previously had NO authoritative visual source:
+   - 27 regional enemies
+   - Lantern Jackal, Belljaw, Drowned Engine, Redactor, The Unchosen, Chainwarden, Hollow Crown
+   - Pack Peddler / Merrow
+   promote the matching user-approved generated board as their new visual identity/pose authority.
+   Record this cleanly in the project canon/source registry without overwriting established actors.
+
+3. Existing dedicated canonical sheets remain primary for established Lootlings/Wanderers/NPCs/bosses.
+   Supporting ChatGPT boards must NOT override them.
+
+4. Marketing candidates are cover/icon/promo only. Never route them into combat/runtime sprites.
+
+5. IMMEDIATELY MOVE INTO ACTUAL PHASE 4E RUNTIME ART WORK.
+   Do not stop after registering canon.
+   Use CANON_ART_BATCHES.json + NEEDS_NEW_CANON_EXPORT.json as the exact delivery contract.
+
+6. For each user-approved missing-source entity, extract/reuse board artwork only where it can safely meet:
+   - exact state/view identity
+   - required canvas
+   - transparent RGBA
+   - complete silhouette
+   - correct baseline/pivot
+   - socket/support layer contract
+   - required filename and destination
+   - acceptable native/mobile readability
+
+7. If a board crop is too small, obstructed, baked into another pose/background, or cannot produce the exact
+   requested transparent state without reconstructing anatomy, DO NOT fake it and DO NOT use a TEMP stand-in.
+   Leave that exact cell open and add it to ONE consolidated HIGH_RES_RUNTIME_GENERATION_QUEUE.json.
+
+8. Install every valid direct runtime export in large batches, register it in the existing canonical manifests,
+   run canonical-art guard + weapon-fit/parser/native QA, and update missing counts honestly.
+
+9. Continue through as much of the approved new canon as possible in this same run.
+   Do not stop after one entity, one region, or one image merely to report progress.
+
+10. At the end report:
+    - new canon references registered
+    - exact runtime exports actually installed
+    - TEMP cells genuinely closed
+    - remaining exact high-res generation cells
+    - QA result
+    - next APK/build path if a build is produced
+
+DO NOT:
+- begin Phase 4F
+- alter gameplay/economy/save/touch behavior
+- overwrite accepted canon
+- silently mirror forbidden asymmetric art
+- call a reference board a finished runtime export
+- claim a missing state is complete unless its actual runtime PNG/layers pass validation
+
+Goal:
+Turn the newly approved missing-source designs into REAL in-game Phase 4E art now, while producing one precise
+queue only for cells that truly require higher-resolution authored runtime generation.
