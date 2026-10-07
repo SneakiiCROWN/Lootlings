@@ -59,11 +59,13 @@ static func draw_projectile(g, p: Dictionary) -> void:
 	else:
 		draw_trail(g,pos-d*7,d,element)
 		var radius := 6.0 if p.get("weapon_type","") == "wand" else 10.0
-		if element=="Frost":
-			# Source crystal spell points up/right. Rotate only this effect layer;
+		if element in ["Frost","Fire","Arcane"]:
+			# Approved flying motifs, not stationary wards or fabricated body poses.
+			# Crystal/comet point up-right; fire points down-left. Rotate this layer;
 			# actor facing and projectile origin/trajectory stay untouched.
-			g.draw_set_transform(pos,d.angle()+PI/4,Vector2.ONE)
-			preload("res://bible_runtime_art.gd").draw(g,"frost_projectile",Rect2(-radius*1.8,-radius*1.1,radius*3.6,radius*2.2))
+			var motif: String={"Frost":"frost_projectile","Fire":"fire_missile","Arcane":"arcane_comet"}[element]
+			g.draw_set_transform(pos,d.angle()+(-PI*.75 if element=="Fire" else PI/4),Vector2.ONE)
+			preload("res://bible_runtime_art.gd").draw(g,motif,Rect2(-radius*1.8,-radius*1.1,radius*3.6,radius*2.2))
 			g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 			return
 		if element in ["Arcane","Corruption"]:

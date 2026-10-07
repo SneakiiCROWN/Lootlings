@@ -602,6 +602,7 @@ func build_contracts() -> void:
 	add_child(contracts_content)
 	make_button(contracts_content, "‹ EXPEDITIONS", Rect2(20, 20, 158, 48), Color("#202d4d"), Color("#7f94bc"), 13).pressed.connect(show_campaign)
 	make_label(contracts_content, "CONTRACTS", 26, Rect2(180, 23, 280, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	LootlingsUI.add_icon(contracts_content,Rect2(194,26,30,38),"res://art/production/phase4e/props/contract_banner.png")
 	make_button(contracts_content,"REGIONAL BOUNTIES",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("contracts"))
 	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 14, Rect2(24, 126, 432, 52), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	for slot in range(3):
@@ -813,6 +814,9 @@ func build_shop() -> void:
 		LootlingsUI.apply_button(utility,Color("#192944"),Color("#7087ae"))
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 615, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
 	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Scrap to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
+	# Static accepted luggage art illustrates capacity; it is not a new loot roll.
+	shop_expansion_button.icon=LootlingsUI.icon("res://art/production/phase4e/props/courier_cache.png")
+	shop_expansion_button.expand_icon=true;shop_expansion_button.add_theme_constant_override("icon_max_width",28)
 	shop_status_panel = make_panel(shop_content, Rect2(20, 679, 440, 92), Color("#0d1530dc"), Color("#8ea2c8"))
 	LootlingsUI.apply_material(shop_status_panel, "salvage", 16)
 	LootlingsUI.add_divider(shop_status_panel, Rect2(28, 4, 384, 8), "salvage")
@@ -846,6 +850,7 @@ func build_achievements() -> void:
 	var back := make_button(achievement_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(achievement_content, "TROPHY ARCHIVE", 28, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	LootlingsUI.add_icon(achievement_content,Rect2(155,26,32,38),"res://art/production/phase4e/props/trophy_dais.png")
 	make_button(achievement_content,"COLLECTION & MASTERY",Rect2(20,797,216,48),Color("#172442"),Color("#7087ae"),12).pressed.connect(func(): show_phase4("archive"))
 	achievement_summary = make_label(achievement_content, "", 14, Rect2(46, 75, 388, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
 	var filters := ["ALL", "ADVENTURE", "COMBAT", "LOOT", "OTHER"]
@@ -922,6 +927,7 @@ func build_memories() -> void:
 	make_button(memory_content, "‹ NOTES", Rect2(20,20,124,48), Color("#202d4d"), Color("#7f94bc"),15).pressed.connect(show_lore)
 	make_label(memory_content, "MEMORY ARCHIVE",25,Rect2(148,23,312,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	make_label(memory_content, "Echoes of your travels • memories grant no rewards",13,Rect2(24,74,432,30),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	LootlingsUI.add_icon(memory_content,Rect2(194,107,92,70),"res://art/production/phase4e/items/memory_hourglass.png")
 	for index in range(4):
 		var filter_name: String = ["ALL","Characters","Regions","Bosses"][index]
 		make_button(memory_content, filter_name.to_upper(), Rect2(20+index*111,186,107,44), Color("#202d4d"),Color("#bba0de"),12).pressed.connect(func(): memory_filter = filter_name; refresh_memories())

@@ -4797,7 +4797,7 @@
       "apply_button_style",
       "safe_action"
     ],
-    "source_sha256": "f4426965d6eb341b393c6c5fab406408a9ae0e446af5f7250f44f5d30f5c689c"
+    "source_sha256": "ed6a41cb2e53b97ab3340ec42210e2eeec8edbc0ed110767ef7fa474b8a63fae"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6602,6 +6602,10 @@
         "safe_aperture": "ward_orbit",
         "siege_receipt": "recipe_scroll"
       },
+      "CANON_RUNE_ART": {
+        "echo_invoice": "fault_seal",
+        "fault_script": "fault_seal"
+      },
       "GOLD": {
         "rgba": "d1a85aff"
       },
@@ -6675,7 +6679,7 @@
       "add_wordmark",
       "add_divider"
     ],
-    "source_sha256": "e43e34c3de1870c432653eb2afeb341e53bdbb972da03f43960745649632d90b"
+    "source_sha256": "bf5b58e67cc7b654269cd415f993c75fa61cfd1ad36648830198e299e0f54306"
   },
   "meta_store.gd": {
     "constants": {},
@@ -7504,7 +7508,7 @@
       "n",
       "draw_impact"
     ],
-    "source_sha256": "9192563fc7e8ecfc9a8973456d58d47d8481f21306a5d7a4a0e0b3e37b44d6de"
+    "source_sha256": "cf364d63269c65d36121185a263ce3588459161583705fd61d7ee1727b10fb6c"
   },
   "regional_enemy_presentation.gd": {
     "constants": {
@@ -8010,7 +8014,7 @@
       "reset",
       "setup_targeted"
     ],
-    "source_sha256": "46dba07ae406ef0c2f93f1b54c91c1fc7bd481b850d5b98c04a50f1071cc250d"
+    "source_sha256": "eba2ec2a4e9b13c1c30c7fd6833fcfba18498fc0f8a8e6706038a2d29a598846"
   },
   "reward_reveal_catalog.gd": {
     "constants": {

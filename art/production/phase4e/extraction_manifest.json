@@ -4377,6 +4377,236 @@
       "integrated": true,
       "asset_sha256": "8f6caf749b791503f06f33bc5a7d46676aeafabd46a128c462809909a2edae73",
       "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "memory_hourglass",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        737,
+        278,
+        943,
+        545
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/items/memory_hourglass.png",
+      "canvas": [
+        214,
+        275
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "0d8a3a4d7e5a53ac8ae79f5c3d234ce42dbb0b219e1b9bd5317eaf1e60212233",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "fault_seal",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        749,
+        804,
+        941,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          192,
+          12
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/items/fault_seal.png",
+      "canvas": [
+        200,
+        290
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "c617f15984fcc61dc7dbf408c46d7e81271ddebc32a33f2b33c349b72ae88e0a",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "courier_cache",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        635,
+        55,
+        1023,
+        355
+      ],
+      "alpha_exclusions": [
+        [
+          100,
+          263,
+          190,
+          300
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/props/courier_cache.png",
+      "canvas": [
+        396,
+        308
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "9ba127a0feb68b72bb4e96f0ea3f70abefb2aa5803a630ad7fd99bde3ed9eeae",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "trophy_dais",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        299,
+        358,
+        578,
+        716
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/props/trophy_dais.png",
+      "canvas": [
+        287,
+        366
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "f18726b1fce566f013b6bf346dd0e81535e93842580a367a839dad9ae56ea288",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "contract_banner",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        0,
+        716,
+        180,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          145,
+          208,
+          180,
+          370
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/props/contract_banner.png",
+      "canvas": [
+        188,
+        378
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "9e556bc9d9cd5667e3b89377aff3450e6bb424799597e48e09ccc72a074d5701",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "fire_missile",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        0,
+        0,
+        355,
+        272
+      ],
+      "alpha_exclusions": [
+        [
+          232,
+          166,
+          355,
+          272
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/fire_missile.png",
+      "canvas": [
+        363,
+        280
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "5bfaf450a63e6bcbcfb84725ace30557d3954f735befe32e8c3544f4bbb18611",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "arcane_comet",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        861,
+        813,
+        1150,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          250,
+          75,
+          289,
+          273
+        ],
+        [
+          238,
+          140,
+          289,
+          273
+        ],
+        [
+          0,
+          238,
+          30,
+          273
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/arcane_comet.png",
+      "canvas": [
+        297,
+        281
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "d070a72b6481f345a193e3795bad5cd2d28627ce55bb3e84c4c972abe6fdbd0e",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
+    },
+    {
+      "id": "healing_wreath",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        885,
+        274,
+        1172,
+        555
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          225,
+          25,
+          281
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/healing_wreath.png",
+      "canvas": [
+        295,
+        289
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "2307438fe8c3043fd5f4597d86696bef16c03282458b4509a27814d3a729e027",
+      "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
     }
   ]
 }

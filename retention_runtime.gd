@@ -85,7 +85,12 @@ func open(state: String, heading: String, line: String, choices: Array) -> void:
 	for tab in mode_tabs:tab.visible=state=="mode_menu"
 	game.pause_button.visible=false
 	for index in range(buttons.size()):
+		buttons[index].icon=null
 		buttons[index].disabled=false; buttons[index].visible=index<choices.size(); buttons[index].text=str(choices[index]) if index<choices.size() else ""
+	if state=="siege_service":
+		for index in range(3):
+			buttons[index].icon=preload("res://bible_runtime_art.gd").texture(["crystal_ward","fire_arc","healing_wreath"][index])
+			buttons[index].expand_icon=true;buttons[index].add_theme_constant_override("icon_max_width",28)
 func show_modes(tab: String="siege") -> void:
 	if game.state not in ["hideout","mode_menu"] or game.presentation_director.travel_active or game.presentation_director.vignette.active: return
 	mode_tab=tab

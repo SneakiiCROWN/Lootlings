@@ -23,6 +23,7 @@ const CANON_RELIC_ART := {
 	"coffer_key":"treasure_key", "courier_appetite":"treasure_key",
 	"siege_receipt":"recipe_scroll",
 }
+const CANON_RUNE_ART := {"echo_invoice":"fault_seal", "fault_script":"fault_seal"}
 
 const NAVY := Color("#0b1430")
 const NAVY_DEEP := Color("#071027")
@@ -44,6 +45,7 @@ static func item_texture(item: Dictionary) -> Texture2D:
 		return WeaponArt.presentation_texture(type,"inventory",held,stage)
 	var id := str(item.get("id", ""))
 	if str(item.get("slot",""))=="Relic" and CANON_RELIC_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RELIC_ART[id])
+	if str(item.get("slot",""))=="Rune" and CANON_RUNE_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RUNE_ART[id])
 	if str(item.get("slot",""))=="Rune" and RUNE_GLYPHS.has(id): return icon(RUNE_GLYPHS[id])
 	if ITEM_ART.has(id):
 		return icon("res://art/sprites/items/beta/%s.png" % ITEM_ART[id])
