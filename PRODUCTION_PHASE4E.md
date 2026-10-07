@@ -2,7 +2,13 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v33
+## CURRENT — Phase4E / v34
+
+Implementation `d5b7b87347c003a36ce73ef1e6ca20e75d71ce3c`: eight original canonical attack-sequence exports across Emberhorn, Moonkip, Pebblewyrm, Glimmerfin and Gloomlet. Nine exact TEMP right-facing action/family cells resolved; no new identity, fake recovery/opposite view, damage/timing/economy/save change. Existing accepted v33 work and authored heavy poses remain intact. [Action report / separate QA checkpoint](docs/production/phase4e/canonical-actions/REPORT.md) · [84 native phone/tablet comparisons and captures](docs/production/phase4e/canonical-actions/GALLERY.md).
+
+Android v34 `0.4.25-phase4e-canonical-actions`: `builds/android/Lootlings-phase4e-canonical-actions-debug.apk`. GO for scoped S23 review; HOLD for full Phase4E/release. 6,847 records / 6,117 launch slots / 3,061 LIVE_BETA / **3,056 missing (2,318 playable)** / **106 body-view bundles / 165 support packages** / zero LIVE_FINAL. Dragon malformed source tail still REPLACE; exact missing weaponless/action/support art, physical-device/save and visual/audio owner gates remain open. No new NPC/enemy/boss/Wanderer state approval. No Phase4F.
+
+## Historical v33 delivery — superseded by CURRENT above
 
 Recovered implementation `f7d9ed653106b183ab05d07e9c2a9c9e7fb46d30`; world/layout continuation `7e7d48dab7e23360aa0bd55ea875afcb1346e334`; QA/report `7fb59497fd4ad79594a2c9b092cf2403cefe2520`. Android v33 `0.4.24-phase4e-bible-world`: `builds/android/Lootlings-phase4e-bible-world-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
 

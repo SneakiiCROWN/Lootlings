@@ -1,4 +1,10 @@
-## Canon/world presentation reuse — 2026-10-06
+## CURRENT exact subcell coverage — 2026-10-07 / v34
+
+Eight true canonical attack-sequence exports resolve nine right-facing cells: Emberhorn claws windup/strike (2), Moonkip baked Twin Daggers windup/strike (2), Pebblewyrm claws windup (1), Glimmerfin baked staff windup and Wand/Orb cast (3), Gloomlet claws strike (1). Current exact debt **3,056 = 2,318 playable + 738 other actor cells**; **106 body/view bundles and 165 complete support packages (82 right / 83 left)** remain open. No whole package, Dragon tail, enemy/boss/NPC/Wanderer action set or opposite/recovery view is closed. New frames are LIVE_BETA, not final owner approval. [Report/provenance/evidence](../canonical-actions/REPORT.md); [regenerated exact requests](../../NEEDS_NEW_CANON_EXPORT.json). The unchanged named register below remains the queue; historical counts do not override this current section.
+
+Moonkip source blades remain baked; weaponless paws are still OPEN. Glimmerfin neutral remains weaponless, but the new source staff windup visibly contains a staff and does not count as weaponless. Gloomlet's new strike retains its original violet Assassin identity. Additional capybara-like Relic Beast and orange winged Dragon reference bodies are incompatible, excluded. Correct continuous-tail Dragon source remains unavailable; renderer aspect correction is preserved without claiming tail repair.
+
+## Historical canon/world presentation reuse — 2026-10-06 (counts superseded above)
 
 Seven exact existing canonical neutral bodies are reused for Home/station staging and story memories; they do not close missing action/facing/support packages. Seven regional boss accounts use their actual existing location paintings and established lore, never a proxy body portrait. Replay aspect fitting is corrected, but the Hoard Dragon source tail is still REPLACE. No new body/state/art approval is claimed. Current exact queue: 3,065 cells in 106 body/view bundles; 165 complete support packages. See `docs/production/phase4e/canon-world/REPORT.md` and the regenerated master request JSON for current runtime routing.
 
