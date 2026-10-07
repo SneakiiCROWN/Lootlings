@@ -2147,6 +2147,7 @@
   "combat_presentation.gd": {
     "constants": {},
     "methods": [
+      "name_lines",
       "reset",
       "register_enemy",
       "update_health",
@@ -2155,7 +2156,7 @@
       "attack_cue",
       "draw_cue"
     ],
-    "source_sha256": "7d7b25f8bf8b4763f960374c4010e385c8159fd1fee2ce189a1218e58d3ad39d"
+    "source_sha256": "076ec1401486dc5d4a0466cc74500d1a178a6b2a51869bc75314bcbd7f9214d3"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -2303,12 +2304,13 @@
       "known_ids",
       "id_for_unlock",
       "preview",
+      "idle_preview",
       "available_ids",
       "sanitize",
       "texture",
       "runtime_path"
     ],
-    "source_sha256": "edc6d1105065906f4d5b9e678d6630ac4f56972d18e846face595afbd1cf62cc"
+    "source_sha256": "913109ecd0dee3811fb3a5ac06faf75945aea08bb1d4f39241c4b5e2913cb4d4"
   },
   "companion_presentation.gd": {
     "constants": {},
@@ -3276,6 +3278,8 @@
     "methods": [
       "weapon_pose_angle",
       "draw_lootling",
+      "prototype_preview_enabled",
+      "draw_missing_actor_reference",
       "draw_fitted_weapon",
       "draw_cast_connection",
       "draw_paired_weapons",
@@ -3285,7 +3289,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "3dbbad88ce4fb3cc4d5c48b5d6ecfbe275a22f53d80036f7f8978497c3f0ca73"
+    "source_sha256": "47577ea6c7d41750c90b94230118241856eb81539f93e698ea510834f008cbff"
   },
   "debug_panel.gd": {
     "constants": {},
@@ -4394,7 +4398,7 @@
       "portrait",
       "pages"
     ],
-    "source_sha256": "b466a7a122a8dea2c65b9d195053e7bf831e3d2f66db4d7d87d05b0c02a37f75"
+    "source_sha256": "085211ae22263dad99b98cbf2da76513a339eb6c77d0be842cf3311fcae76c01"
   },
   "forge_system.gd": {
     "constants": {
@@ -4748,13 +4752,13 @@
       },
       "RESIDENT_PORTRAITS": {
         "Archivist": {
-          "resource_path": "res://art/sprites/npcs/beta/ilex_portrait.png"
+          "resource_path": "res://art/production/phase4e/npcs/ilex_canonical_station_panel.png"
         },
         "Relic Keeper": {
           "resource_path": "res://art/sprites/npcs/beta/sera_portrait.png"
         },
         "Salvager": {
-          "resource_path": "res://art/sprites/npcs/beta/patch_portrait.png"
+          "resource_path": "res://art/production/phase4e/npcs/patch_canonical_station_panel.png"
         }
       },
       "RESIDENT_RECTS": {
@@ -4902,7 +4906,7 @@
       "choose_home_display",
       "choose_companion"
     ],
-    "source_sha256": "eedb617fcad72198476809c8065619d013f6d16999eba628874e095cc7a6af62"
+    "source_sha256": "f6a1d9379b025b1201c17db5b93e669a9aa2b0c66c38c172b401f49cdb142d7e"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6547,7 +6551,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "ecede0d5d7118cbc56a11884ecaab8c74609f42814a10c6ebb8e60734d9af373"
+    "source_sha256": "5d17fe2a86dc7860e09415f235bea7e04a3994afb8e1f79485f7b2865a3cc0d0"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8052,10 +8056,10 @@
     "constants": {
       "BODIES": {
         "ilex": {
-          "resource_path": "res://art/sprites/npcs/beta/ilex_idle.png"
+          "resource_path": "res://art/production/phase4e/npcs/ilex_canonical_station_panel.png"
         },
         "patch": {
-          "resource_path": "res://art/sprites/npcs/beta/patch_idle.png"
+          "resource_path": "res://art/production/phase4e/npcs/patch_canonical_station_panel.png"
         },
         "sera": {
           "resource_path": "res://art/sprites/npcs/beta/sera_idle.png"
@@ -8068,10 +8072,11 @@
       }
     },
     "methods": [
+      "portrait_path",
       "presentation",
       "draw"
     ],
-    "source_sha256": "e6abdd2b67108ac2632f721e8892b118d08861d19bf357a0946f757cc79c4d1c"
+    "source_sha256": "2bf966a49fda2a9521dd74b0326864a81a540a28661420b3613d1aa7544850bb"
   },
   "resident_sprite_rig.gd": {
     "constants": {
@@ -8366,7 +8371,7 @@
       "make_label",
       "make_button"
     ],
-    "source_sha256": "a79ba52896b62d075948e29f968c82298efeff1654944bc11b0665f7ec7db167"
+    "source_sha256": "650e5f6173acfb1fcbb957e7ab7773ce0882409b0d95acb3e63838c0555fe892"
   },
   "station_presentation.gd": {
     "constants": {},
@@ -8507,7 +8512,7 @@
       "entry",
       "available"
     ],
-    "source_sha256": "a5e712e2bf1f4279fa9f8f993bfe74b55924bfe76a47dcf3e386d615d9273fa1"
+    "source_sha256": "7695dc6d64bd057c6558cd6a2cb3acb4e77d4a36abacd4e9b41776384f0c5d1e"
   },
   "vignette_player.gd": {
     "constants": {
@@ -9859,7 +9864,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "8288ae051b8d34652ca0244e237ec4ca1ae5a2fec144d6847657ec4fd5530121"
+    "source_sha256": "9a57feb534021560de5ba63001ed4a382b0075fd52be089824e517b8e899428a"
   },
   "world_content_catalog.gd": {
     "constants": {

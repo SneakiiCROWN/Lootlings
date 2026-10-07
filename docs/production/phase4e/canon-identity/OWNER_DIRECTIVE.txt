@@ -1,0 +1,526 @@
+LOOTLINGS — PHASE 4E FINAL CANONICAL ART REPLACEMENT + VISUAL COMPLETION PASS
+
+This instruction is based on the latest owner S23 playtest/audit covering 74 screenshots from v40.
+
+DO NOT begin another broad audit.
+DO NOT restart planning.
+DO NOT reorganise the project again.
+DO NOT move to Phase 4F.
+DO NOT undo the working Hub/Home/companions/save/economy systems.
+DO NOT stop after fixing one character, one NPC, one screen, one region or one asset.
+
+The game systems are now substantially working.
+The primary remaining job is to make the LIVE GAME visually match the CURRENT APPROVED LOOTLINGS CANON / ART BIBLE instead of continuing to show old placeholders, superseded actor art or incomplete presentation.
+
+==================================================
+SOURCE-OF-TRUTH ORDER — LOCK THIS
+==================================================
+
+When authorities conflict, use this order:
+
+1. Dedicated canonical entity/character sheet
+   art/reference/canonical/characters/
+   and equivalent dedicated canonical authorities
+
+2. Current canon registry / owner-approved identity mapping
+
+3. Owner-approved canonical companion pack
+   art/reference/canonical/companions/
+
+4. Approved Phase 4E entity-specific reference sources already registered
+
+5. Broad Art Bible / presentation boards ONLY where they do not conflict with a dedicated identity source
+
+6. Old runtime art / prototype / TEMP material is NEVER allowed to override newer canonical identity
+
+Do not silently redesign an established actor.
+
+Do not treat “technically valid PNG” as canonical if it depicts the wrong identity.
+
+==================================================
+CURRENT VERIFIED PLAYTEST FINDINGS
+==================================================
+
+The following were observed in the owner’s latest S23 screenshots and must be treated as real acceptance issues.
+
+A. PLAYABLE COMBAT ART — CRITICAL
+
+Gloomlet is correctly selected and shown in menus/Hub, but actual combat repeatedly falls back to an old flat grey/purple placeholder/generic body.
+
+That is NOT acceptable final art.
+
+Fix playable-runtime identity continuity so:
+
+menu portrait
+→ Hub representation
+→ combat idle
+→ attack
+→ recovery
+→ hurt
+→ defeat
+→ weapon-bearing state
+
+all remain the SAME canonical actor.
+
+Apply this rule to ALL playable Lootlings and Wanderers, not only Gloomlet.
+
+Prioritise:
+- Gloomlet
+- Relic Beast
+- Emberhorn
+- Mosskin
+- Moonkip
+- Pebblewyrm
+- Glimmerfin
+- all five Wanderers
+
+Use existing approved runtime exports first.
+
+If an exact state genuinely does not exist, leave only that exact state open in the existing authored-art queue.
+Do not swap the actor to a generic placeholder body.
+
+==================================================
+B. NPC CANON MISMATCHES — CRITICAL
+==================================================
+
+Owner playtest shows at least the following old/wrong identities still winning in runtime:
+
+PATCH BRASSWICK:
+Current build presentation does not match the current canonical Patch Brasswick identity shown in the approved Art Bible.
+
+ILEX QUILL:
+Current build presentation does not match the current canonical Ilex Quill identity shown in the approved Art Bible.
+
+Resolve those against their current approved canon references and replace superseded runtime portrait/body/presentation assets.
+
+Then apply the same identity-integrity check to the other established canonical NPCs:
+- Sera Vey
+- Edda Sable
+- The Spinner
+- other established NPC/merchant identities already in canon
+
+Do not invent replacements if their current canonical source already exists.
+
+==================================================
+C. TERMINOLOGY FIX
+==================================================
+
+The playable-character selector must NOT call the playable Lootlings “companions” now that Companions are a separate pet system.
+
+Change wording such as:
+
+CHOOSE YOUR COMPANION
+
+to:
+
+CHOOSE YOUR LOOTLING
+
+or the already-approved equivalent.
+
+Reserve “COMPANION” for the six pet companions:
+- Auricub
+- Stonekith
+- Pixrask
+- Lunarwisp
+- Puffnest
+- Breezewyn
+
+==================================================
+D. WANDERER AUTHORITY
+==================================================
+
+The current runtime Wanderer visuals must be checked against their proper existing Wanderer identity authorities.
+
+Do NOT accept unrelated realistic/human art merely because it is already functional.
+
+Preserve these established identities:
+- Vault Runner
+- Ruin Warden
+- Nightshade Drifter
+- Velvet Astrologer
+- Ashtrail Hunter
+
+If current runtime art matches authority, keep it.
+If not, replace or queue the exact canonical state needed.
+
+==================================================
+E. REMAINING ENEMY / ELITE / BOSS ART
+==================================================
+
+Continue through ALL currently reachable enemy and boss actors.
+
+The current game already contains working combat and progression.
+Now remove visual TEMP/proxy debt wherever approved canonical art exists.
+
+Priority:
+- regional enemies
+- elites
+- minibosses
+- bosses
+- currently reachable Act I content first
+- then later registered regions/content
+
+Preserve enemy gameplay stats/behaviour unless there is an actual bug.
+
+This is an ART/PRESENTATION pass, not a balance redesign.
+
+Long enemy/boss names must fit readable mobile HUD layouts without overlapping combat.
+
+Enemy HP bars/names/status presentation should remain visually anchored and readable.
+
+==================================================
+F. WEAPON + HAND/SOCKET FIT
+==================================================
+
+The latest playtest still shows weapon/body compositing problems on temporary actors.
+
+For every repaired playable actor:
+
+validate:
+- correct hand contact
+- correct weapon socket/origin
+- two-hand grip where required
+- left/right facing
+- no floating weapons
+- no weapon through face/body
+- readable windup
+- readable strike/impact
+- readable recovery
+- no unsafe mirroring of asymmetric states
+
+Apply across the currently supported weapon families, including:
+- Bow
+- Claws
+- Crossbow
+- Daggers
+- Greatsword
+- Greataxe
+- Maul
+- Orb
+- Sling
+- Spear
+- Staff
+- Wand
+
+Do not fake missing hand anatomy.
+
+==================================================
+G. COMPANIONS — FINISH RUNTIME ART
+==================================================
+
+The six companion identities and collection/unlock previews are now approved and correctly registered.
+
+KEEP:
+- Auricub
+- Stonekith
+- Pixrask
+- Lunarwisp
+- Puffnest
+- Breezewyn
+
+Their portrait/unlock UI is working.
+
+The current blocker is the remaining authored body/action runtime exports.
+
+Finish the existing 36 companion state requirements in large safe batches where the approved source material allows it.
+
+Where an exact body/action state cannot be safely extracted:
+- keep that exact cell open
+- preserve the companion identity
+- do not create a different pet
+- do not substitute a Lootling
+- do not use a generic TEMP body
+
+Once valid states exist:
+- enable equipping/follow presentation
+- Home/perch visibility
+- idle/emote/interact behaviour
+- saved selected companion
+- safe scale smaller than playable Lootlings
+- no gameplay-stat advantage unless already explicitly approved
+
+==================================================
+H. HOME — KEEP ARCHITECTURE, FINISH VISUAL FANTASY
+==================================================
+
+The architecture is now correct and MUST stay:
+
+MAIN HIDEOUT / HUB
+→ HOME ENTRY
+→ SEPARATE PERSONAL HOME
+→ BACK / LEAVE
+→ MAIN HUB
+
+Do not collapse Home back into the Hub.
+
+The current Home is functionally correct but visually still reads too much like an armoury/stash/menu room.
+
+Keep the functional work, but improve the separate Home using the already-approved Lootlings personal-home/companion visual direction.
+
+The final Home should support, where already approved and technically appropriate:
+- character selection/switching
+- cosmetic/outfit/colour customisation
+- companion selection
+- companion perch/rest display
+- trophy/shelf/personal displays
+- decoration/customisation slots
+- stash/loadout access
+- other personal-base interactions already present
+
+Do NOT relocate public Hub NPCs/stations into Home.
+
+Make Home feel like a personal lived-in fantasy base, not a renamed combat arena or giant chest screen.
+
+==================================================
+I. MAIN HUB / PUBLIC SPACE
+==================================================
+
+Keep the current Main Hub as the public central space.
+
+It may contain:
+- expedition gate
+- public NPCs
+- merchant/shop
+- public stations
+- progression/navigation access
+
+Preserve the working MAIN HUB label and Home separation.
+
+Polish placement/scale where necessary, but do not redesign the working navigation architecture.
+
+==================================================
+J. REGIONS / EXPEDITIONS / DUNGEONS / SIEGE
+==================================================
+
+The current build visibly has:
+- Expeditions
+- Regions
+- Relic Siege
+- Dungeons
+- region cards/progression
+- later region backgrounds
+
+Keep those systems.
+
+Continue replacing generic/repeated presentation with approved region-specific art where it exists.
+
+Use the current canon registry to resolve region names/spelling.
+Do NOT silently invent or “correct” names from memory.
+
+Specifically verify naming conflicts such as:
+Mossglass / Mossgass Wilds
+against CURRENT CANON AUTHORITY.
+
+Do not change progression mechanics merely to fix visuals.
+
+==================================================
+K. HUD + COMBAT PRESENTATION
+==================================================
+
+Polish the existing working HUD rather than replacing it wholesale.
+
+Fix visible issues such as:
+- player/enemy overlap
+- long enemy names
+- detached HP bars
+- excessive text crowding
+- clipped actors
+- oversized/undersized actors
+- trophy/reward overlays obscuring important HUD
+- temporary combat layers appearing beneath unrelated scenes
+
+Retain mobile readability and safe areas.
+
+==================================================
+L. RELIC ENGINE / REWARD PRESENTATION
+==================================================
+
+The Relic Engine is functioning and should remain mechanically intact.
+
+Polish:
+- reel icon alignment
+- clipping
+- floating/off-centre icons
+- consistent rarity presentation
+- mobile vertical fit
+- duplicate visual readability
+- reward reveal impact
+- Crownroot/rare-state presentation
+- lower-panel content fitting within safe scrolling/layout bounds
+
+Do not change probabilities/economy unless an actual bug is found.
+
+Boss Hoard / gear comparison / reward flows are working.
+Improve visual excitement and readability without breaking current save/economy behaviour.
+
+==================================================
+M. MENUS / COLLECTION / SECONDARY UI
+==================================================
+
+Keep the established dark navy / gold / purple Lootlings UI language.
+
+Bring weaker/plain secondary screens closer to the quality of the stronger main UI.
+
+Priority areas:
+- Collection
+- Archive
+- Field Notes
+- Contracts
+- Stash
+- Salvager
+- character select
+- companion collection
+- gear comparison
+- Home customisation
+- region/dungeon selection
+
+Do not introduce a new visual style.
+
+==================================================
+N. ITEMS / LOOT / RELICS / CHESTS / GEAR
+==================================================
+
+Continue integrating approved Art Bible/source assets for:
+
+- weapons
+- armour
+- off-hands
+- jewellery
+- runes
+- spells
+- relics
+- currencies
+- materials
+- consumables
+- treasure
+- chests
+- reward items
+
+Do not leave an old generic icon active when a current approved canonical item image already exists and fits the runtime contract.
+
+==================================================
+O. VFX / AUDIO
+==================================================
+
+Keep the current gameplay and existing accepted audio/VFX improvements.
+
+Continue only where there are known gaps:
+- weapon impact differentiation
+- magic/ranged/blunt/blade distinction
+- enemy/player hurt feedback
+- boss presentation
+- region ambience
+- less pingy UI where previously flagged
+- readable status/spell effects
+
+Do not restart the audio system from scratch.
+
+==================================================
+P. BRANDING / TITLE / SPLASH / ICON
+==================================================
+
+Keep existing approved Lootlings branding.
+
+Title should continue using all seven canonical Lootlings appropriately.
+
+Do not introduce alternate marketing-only actor designs into runtime canon.
+
+Maintain approved launcher/splash assets unless a verified current canonical replacement supersedes them.
+
+==================================================
+Q. CANONICAL REFERENCE FOLDER SAFETY
+==================================================
+
+Do not move source folders again.
+
+Compatibility paths were just restored and must remain working.
+
+Keep:
+art/reference/phase2_master/
+art/reference/phase4e_handoff/
+
+and keep the approved canonical copies/authorities under:
+art/reference/canonical/
+
+Canonical references and compatibility source paths may coexist.
+
+Do not create another path migration.
+
+==================================================
+R. QA
+==================================================
+
+After meaningful large batches, run only relevant targeted QA:
+
+- parser/build
+- canonical-art guard
+- identity validation
+- weapon-fit
+- Home ↔ Hub navigation
+- companion validation
+- save/reload
+- purchase/reward persistence
+- native phone/tablet layout
+- Android export
+
+Do NOT repeatedly rerun broad audits between tiny changes.
+
+==================================================
+WORKING METHOD
+==================================================
+
+Work in LARGE PLAYER-VISIBLE BATCHES.
+
+Do not stop after one fix merely to report it.
+
+Continue independently through:
+1. playable combat identity replacements
+2. wrong canonical NPC replacements
+3. enemy/boss canonical runtime replacements
+4. weapon fit
+5. companion runtime art
+6. Home visual completion
+7. HUD / Relic Engine / reward polish
+8. regions / menus / item presentation
+9. remaining visual/audio polish
+
+If one exact art state is missing:
+- record that exact state
+- keep working on everything else
+
+One missing state must NEVER halt the whole production run.
+
+==================================================
+END CONDITION
+==================================================
+
+Continue until EITHER:
+
+A. all safe existing approved/canonical visual content has been integrated and the remaining work genuinely requires newly authored artwork or physical owner-device judgement,
+
+OR
+
+B. a real technical blocker prevents further work.
+
+At the end give ONE consolidated report containing:
+
+- exact canonical runtime assets replaced
+- old TEMP/proxy assets removed from active runtime
+- NPC identity corrections
+- playable actor state coverage
+- enemy/boss coverage
+- weapon-fit result
+- companion runtime progress
+- Home visual progress
+- region/world presentation progress
+- HUD/menu/reward polish completed
+- audio/VFX work completed
+- remaining exact authored-art cells
+- APK path/version
+- commit/checkpoint
+- targeted QA results
+- exact items requiring owner S23 judgement
+
+Do NOT claim Phase 4E complete if the game still visibly falls back to wrong character identities or generic TEMP actors.
+
+GO FOR A LARGE CONTINUOUS PHASE 4E VISUAL COMPLETION RUN NOW.

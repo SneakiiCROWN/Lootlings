@@ -9,7 +9,7 @@ apk=ROOT/report['apk'];assert hashlib.sha256(apk.read_bytes()).hexdigest()==repo
 work=ROOT/'.godot_test_data/apk-canon-proof';work.mkdir(parents=True,exist_ok=True)
 hashes={}
 with ZipFile(apk) as archive:
-    for name in ['vignette_catalog','field_notes_catalog']:
+    for name in ['vignette_catalog','field_notes_catalog','resident_art_catalog']:
         data=archive.read('assets/'+name+'.gdc');(work/(name+'.gdc')).write_bytes(data)
         hashes[name]=hashlib.sha256(data).hexdigest()
 fixture='''extends SceneTree
@@ -19,10 +19,12 @@ func _initialize():
  assert(catalog.entry("boss/drowned_engine").lines.size()==3)
  assert(catalog.boss_entries().size()==11)
  var notes=load("res://.godot_test_data/apk-canon-proof/field_notes_catalog.gdc")
+ var residents=load("res://.godot_test_data/apk-canon-proof/resident_art_catalog.gdc")
  for id in ["patch","ilex"]:
   assert(catalog.entry("resident/"+id).actor.ends_with(id+"_canonical_station_panel.png"))
   var pages=notes.pages({},null,null).filter(func(page):return page.id=="resident/"+id)
-  assert(pages.size()==1 and pages[0].texture.resource_path.ends_with(id+"_canonical_station_panel.png"))
+  assert(pages.size()==1 and pages[0].art.ends_with(id+"_canonical_station_panel.png"))
+  assert(residents.portrait_path(id)==pages[0].art)
  assert(notes.CATEGORIES==["ALL","CAST","TRAILS","BOSSES","GEAR"])
  var faces=0
  for page in notes.pages({},null,null):
@@ -31,7 +33,7 @@ func _initialize():
  assert(faces==5)
  assert(notes.pages({},null,null).filter(func(page): return str(page.id).begins_with("route/")).is_empty())
  assert(notes.pages({"memories":["region/act_i"]},null,null).filter(func(page): return str(page.id).begins_with("route/")).size()==3)
- print("APK COMPILED CODE PASS: 11 boss accounts, 3 bounded Engine captions, 5 Field Notes categories, 5 accepted Wanderer portrait atlases, 3 discovery-gated Act I routes");quit()
+ print("APK COMPILED CODE PASS: scoped Patch/Ilex memory and Field Notes identities, compiled resident portrait resolver, 11 boss accounts, 3 bounded Engine captions, 5 Field Notes categories, 5 accepted Wanderer portrait atlases, 3 discovery-gated Act I routes");quit()
 '''
 (work/'verify.gd').write_text(fixture,encoding='utf-8')
 env=os.environ.copy();env.update(APPDATA=str(ROOT/'.godot_test_data/isolated/apk-canon-proof'),XDG_DATA_HOME=str(ROOT/'.godot_test_data/isolated/apk-canon-proof'),LOOTLINGS_QA='1')

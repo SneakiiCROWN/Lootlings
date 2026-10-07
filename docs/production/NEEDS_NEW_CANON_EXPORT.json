@@ -48,7 +48,7 @@
         "puffnest",
         "breezewyn"
       ],
-      "delivery_cells": 36,
+      "delivery_cells": 34,
       "exact_delivery_cells": [
         {
           "entity": "auricub",
@@ -212,37 +212,6 @@
           "filename": "auricub_reaction_left.png",
           "source_destination": "art/source/companions/auricub/auricub_reaction_left.png",
           "runtime_destination": "art/production/companions/auricub/auricub_reaction_left.png",
-          "canvas": [
-            256,
-            256
-          ],
-          "occupied_bounds": [
-            32,
-            24,
-            224,
-            224
-          ],
-          "baseline": 224,
-          "pivot": [
-            128,
-            224
-          ],
-          "transparent_background": true,
-          "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
-          "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
-          "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
-          "layers": "Body transparent; ground shadow and temporal VFX separate",
-          "mirror": false,
-          "status": "NEEDS_NEW_CANON_EXPORT",
-          "priority": "P1"
-        },
-        {
-          "entity": "stonekith",
-          "state": "idle",
-          "facing": "right",
-          "filename": "stonekith_idle_right.png",
-          "source_destination": "art/source/companions/stonekith/stonekith_idle_right.png",
-          "runtime_destination": "art/production/companions/stonekith/stonekith_idle_right.png",
           "canvas": [
             256,
             256
@@ -797,37 +766,6 @@
         {
           "entity": "puffnest",
           "state": "idle",
-          "facing": "right",
-          "filename": "puffnest_idle_right.png",
-          "source_destination": "art/source/companions/puffnest/puffnest_idle_right.png",
-          "runtime_destination": "art/production/companions/puffnest/puffnest_idle_right.png",
-          "canvas": [
-            256,
-            256
-          ],
-          "occupied_bounds": [
-            32,
-            24,
-            224,
-            224
-          ],
-          "baseline": 224,
-          "pivot": [
-            128,
-            224
-          ],
-          "transparent_background": true,
-          "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
-          "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
-          "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
-          "layers": "Body transparent; ground shadow and temporal VFX separate",
-          "mirror": false,
-          "status": "NEEDS_NEW_CANON_EXPORT",
-          "priority": "P1"
-        },
-        {
-          "entity": "puffnest",
-          "state": "idle",
           "facing": "left",
           "filename": "puffnest_idle_left.png",
           "source_destination": "art/source/companions/puffnest/puffnest_idle_left.png",
@@ -1166,7 +1104,95 @@
           "status": "NEEDS_NEW_CANON_EXPORT",
           "priority": "P1"
         }
+      ],
+      "accepted_existing_source_states": [
+        {
+          "entity": "stonekith",
+          "state": "idle",
+          "facing": "right",
+          "filename": "stonekith_idle_right.png",
+          "source_destination": "art/source/companions/stonekith/stonekith_idle_right.png",
+          "runtime_destination": "art/production/companions/stonekith/stonekith_idle_right.png",
+          "canvas": [
+            256,
+            256
+          ],
+          "occupied_bounds": [
+            32,
+            24,
+            224,
+            224
+          ],
+          "baseline": 224,
+          "pivot": [
+            128,
+            224
+          ],
+          "transparent_background": true,
+          "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+          "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+          "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+          "layers": "Body transparent; ground shadow and temporal VFX separate",
+          "mirror": false,
+          "status": "NEEDS_NEW_CANON_EXPORT",
+          "priority": "P1"
+        },
+        {
+          "entity": "puffnest",
+          "state": "idle",
+          "facing": "right",
+          "filename": "puffnest_idle_right.png",
+          "source_destination": "art/source/companions/puffnest/puffnest_idle_right.png",
+          "runtime_destination": "art/production/companions/puffnest/puffnest_idle_right.png",
+          "canvas": [
+            256,
+            256
+          ],
+          "occupied_bounds": [
+            32,
+            24,
+            224,
+            224
+          ],
+          "baseline": 224,
+          "pivot": [
+            128,
+            224
+          ],
+          "transparent_background": true,
+          "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+          "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+          "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+          "layers": "Body transparent; ground shadow and temporal VFX separate",
+          "mirror": false,
+          "status": "NEEDS_NEW_CANON_EXPORT",
+          "priority": "P1"
+        }
       ]
+    },
+    {
+      "entity": "Personal Home interior",
+      "state": "empty furnished room background; no baked actors/pets, UI or text",
+      "facing": "environment, not actor facing",
+      "canvas": [
+        1536,
+        2732
+      ],
+      "background": "opaque RGB or RGBA",
+      "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png — section 03 HOME/PERCH environment only",
+      "required_pose": "Room has a clear standing/follower floor, furniture/perch and wall display space; no public Hub NPCs/stations. Keep current approved architectural/material language.",
+      "occupied_bounds": "Full bleed background; protect UI zones y<240 and y>1900. Keep floor beneath actor baseline y1823 in this canvas.",
+      "baseline": {
+        "design_ground_y": 570,
+        "source_ground_y": 1823
+      },
+      "pivot": "Background top-left; uniform cover scaling preserves aspect ratio",
+      "filename": "personal_home_interior.png",
+      "source_destination": "art/source/phase4e/home/personal_home_interior.png",
+      "runtime_destination": "art/production/phase4e/regions/personal_home_interior.png",
+      "layers": "Empty furnished background; optional separate perch/shelf/shadow layers. Characters, pets, reward items, UI and transient lights remain separate.",
+      "mirroring_allowed": false,
+      "why_existing_source_cannot_close": "Approved Home panel is landscape, low-resolution and baked with all six companion bodies. Cropping/erasing them cannot produce complete empty furniture/floor pixels; cannot show unequipped pets or call this a finished room."
     }
   ],
   "authority": "Existing locked identity; final production art cannot be inferred from rejected boards",
@@ -292056,7 +292082,9 @@
       "game_id": "patch",
       "category": "resident",
       "facing": "right",
-      "canonical_sources": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_sources": [
+        "res://art/reference/canonical/npcs/Patch_Brasswick_Canonical.png"
+      ],
       "canvas": [
         1024,
         1536
@@ -292097,7 +292125,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_rest_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292132,7 +292160,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_rest_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292184,7 +292212,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_route_walk_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292219,7 +292247,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_route_walk_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292271,7 +292299,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_work_read_tend_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292306,7 +292334,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_work_read_tend_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292358,7 +292386,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_inspect_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292393,7 +292421,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_inspect_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292445,7 +292473,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_talk_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292480,7 +292508,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_talk_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292532,7 +292560,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_sit_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292567,7 +292595,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_sit_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292603,14 +292631,11 @@
       "existing_source_sockets": "See art/production/phase4e/runtime_manifest.json and each delivery cell; actual missing source pixels are OPEN, not invented",
       "temp_evidence": "docs/production/phase4e/extraction/GALLERY.md",
       "no_redesign": true,
+      "owner_reference_approval": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
       "locked_source_images": [
         {
-          "path": "art/sprites/npcs/beta/patch_idle.png",
-          "sha256": "94deac773775e44636bd2ee52eeacaf0ba00e603ea175da7f7d7a87f4e65d372"
-        },
-        {
-          "path": "art/sprites/npcs/beta/patch_portrait.png",
-          "sha256": "5e422afa6110bdf551d349eb69a5cf185f714b6e3da98a8de00471ceb16a1e26"
+          "path": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+          "sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de"
         }
       ],
       "visual_source_gate": "MATCH_EXISTING_CANON_EXACTLY",
@@ -292622,7 +292647,9 @@
       "game_id": "patch",
       "category": "resident",
       "facing": "left",
-      "canonical_sources": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_sources": [
+        "res://art/reference/canonical/npcs/Patch_Brasswick_Canonical.png"
+      ],
       "canvas": [
         1024,
         1536
@@ -292663,7 +292690,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_rest_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292698,7 +292725,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_rest_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292750,7 +292777,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_route_walk_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292785,7 +292812,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_route_walk_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292837,7 +292864,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_work_read_tend_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292872,7 +292899,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_work_read_tend_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -292924,7 +292951,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_inspect_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -292959,7 +292986,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_inspect_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -293011,7 +293038,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_talk_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -293046,7 +293073,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_talk_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -293098,7 +293125,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/patch/patch_sit_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -293133,7 +293160,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+              "canonical_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
               "socket_sidecar_filename": "patch_sit_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -293169,14 +293196,11 @@
       "existing_source_sockets": "See art/production/phase4e/runtime_manifest.json and each delivery cell; actual missing source pixels are OPEN, not invented",
       "temp_evidence": "docs/production/phase4e/extraction/GALLERY.md",
       "no_redesign": true,
+      "owner_reference_approval": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
       "locked_source_images": [
         {
-          "path": "art/sprites/npcs/beta/patch_idle.png",
-          "sha256": "94deac773775e44636bd2ee52eeacaf0ba00e603ea175da7f7d7a87f4e65d372"
-        },
-        {
-          "path": "art/sprites/npcs/beta/patch_portrait.png",
-          "sha256": "5e422afa6110bdf551d349eb69a5cf185f714b6e3da98a8de00471ceb16a1e26"
+          "path": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+          "sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de"
         }
       ],
       "visual_source_gate": "MATCH_EXISTING_CANON_EXACTLY",
@@ -294320,7 +294344,9 @@
       "game_id": "ilex",
       "category": "resident",
       "facing": "right",
-      "canonical_sources": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_sources": [
+        "res://art/reference/canonical/npcs/Ilex_Quill_Canonical.png"
+      ],
       "canvas": [
         1024,
         1536
@@ -294361,7 +294387,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_rest_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294396,7 +294422,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_rest_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294448,7 +294474,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_route_walk_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294483,7 +294509,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_route_walk_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294535,7 +294561,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_work_read_tend_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294570,7 +294596,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_work_read_tend_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294622,7 +294648,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_inspect_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294657,7 +294683,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_inspect_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294709,7 +294735,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_talk_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294744,7 +294770,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_talk_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294796,7 +294822,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_sit_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294831,7 +294857,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_sit_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294867,14 +294893,11 @@
       "existing_source_sockets": "See art/production/phase4e/runtime_manifest.json and each delivery cell; actual missing source pixels are OPEN, not invented",
       "temp_evidence": "docs/production/phase4e/extraction/GALLERY.md",
       "no_redesign": true,
+      "owner_reference_approval": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
       "locked_source_images": [
         {
-          "path": "art/sprites/npcs/beta/ilex_idle.png",
-          "sha256": "4816bffca225db230c1df009aeea891e0697a3b26854cbc498a1330de63e47e4"
-        },
-        {
-          "path": "art/sprites/npcs/beta/ilex_portrait.png",
-          "sha256": "eab61421ef5b21f079b3cec5dff1f974ef9581e51badc4ffcf73ee1f6cfbf944"
+          "path": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+          "sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158"
         }
       ],
       "visual_source_gate": "MATCH_EXISTING_CANON_EXACTLY",
@@ -294886,7 +294909,9 @@
       "game_id": "ilex",
       "category": "resident",
       "facing": "left",
-      "canonical_sources": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_sources": [
+        "res://art/reference/canonical/npcs/Ilex_Quill_Canonical.png"
+      ],
       "canvas": [
         1024,
         1536
@@ -294927,7 +294952,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_rest_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294962,7 +294987,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_rest_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295014,7 +295039,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_route_walk_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -295049,7 +295074,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_route_walk_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295101,7 +295126,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_work_read_tend_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -295136,7 +295161,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_work_read_tend_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295188,7 +295213,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_inspect_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -295223,7 +295248,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_inspect_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295275,7 +295300,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_talk_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -295310,7 +295335,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_talk_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295362,7 +295387,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/ilex/ilex_sit_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -295397,7 +295422,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing scholarly archivist and portrait; reading/writing",
+              "canonical_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
               "socket_sidecar_filename": "ilex_sit_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295433,14 +295458,11 @@
       "existing_source_sockets": "See art/production/phase4e/runtime_manifest.json and each delivery cell; actual missing source pixels are OPEN, not invented",
       "temp_evidence": "docs/production/phase4e/extraction/GALLERY.md",
       "no_redesign": true,
+      "owner_reference_approval": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
       "locked_source_images": [
         {
-          "path": "art/sprites/npcs/beta/ilex_idle.png",
-          "sha256": "4816bffca225db230c1df009aeea891e0697a3b26854cbc498a1330de63e47e4"
-        },
-        {
-          "path": "art/sprites/npcs/beta/ilex_portrait.png",
-          "sha256": "eab61421ef5b21f079b3cec5dff1f974ef9581e51badc4ffcf73ee1f6cfbf944"
+          "path": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+          "sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158"
         }
       ],
       "visual_source_gate": "MATCH_EXISTING_CANON_EXACTLY",

@@ -20,13 +20,16 @@ func run_qa() -> void:
 	var rng: int = game.rng.state
 	for id in Memories.RESIDENTS:
 		var entry := Memories.entry("resident/"+id)
-		assert(entry.actor_kind == "adult" and str(entry.actor).ends_with("_idle.png"))
-		var image := Image.load_from_file(ProjectSettings.globalize_path(str(entry.actor)))
-		assert(image.get_size() == Vector2i(1024,1536))
-		var used := image.get_used_rect()
-		assert(used.position.x > 0 and used.position.y > 0 and used.end.x < 1024 and used.end.y < 1536, "No cropped costume extremities")
-		for point in [Vector2i(10,10),Vector2i(1010,10),Vector2i(1010,1500),Vector2i(10,1500)]:
-			assert(image.get_pixelv(point).a == 0)
+		if id in ["patch","ilex"]:
+			assert(entry.actor_kind=="portrait" and str(entry.actor).ends_with("_canonical_station_panel.png"))
+			assert(preload("res://resident_art_catalog.gd").presentation(Memories.RESIDENTS[id].role,Home.RESIDENT_RECTS[Memories.RESIDENTS[id].role]).export_state=="canonical_station_panel")
+		else:
+			assert(entry.actor_kind == "adult" and str(entry.actor).ends_with("_idle.png"))
+			var image := Image.load_from_file(ProjectSettings.globalize_path(str(entry.actor)))
+			assert(image.get_size() == Vector2i(1024,1536))
+			var used := image.get_used_rect()
+			assert(used.position.x > 0 and used.position.y > 0 and used.end.x < 1024 and used.end.y < 1536, "No cropped costume extremities")
+			for point in [Vector2i(10,10),Vector2i(1010,10),Vector2i(1010,1500),Vector2i(10,1500)]:assert(image.get_pixelv(point).a == 0)
 		var speaker: String = Memories.RESIDENTS[id].role
 		var rect: Rect2 = Home.RESIDENT_RECTS[speaker]
 		assert(rect.size.x >= 48 and rect.size.y >= 48)
@@ -44,7 +47,7 @@ func run_qa() -> void:
 	game.hideout_ui.show_stash()
 	assert(not game.hideout_ui.speech_panel.visible)
 	if native: await capture("resident_stash_no_leak")
-	print("RESIDENT ART QA PASSED: three clean full bodies, phone-size talk targets, existing first meetings/replay, no rewards/RNG or dialogue leaks")
+	print("RESIDENT ART QA PASSED: owner-approved Patch/Ilex station panels and preserved Sera body; talk targets, memory/replay, no rewards/RNG or dialogue leaks; two full-body art queues remain open")
 	game.queue_free()
 	await process_frame
 	quit(0)

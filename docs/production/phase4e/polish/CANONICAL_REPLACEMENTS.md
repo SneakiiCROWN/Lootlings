@@ -1,3 +1,7 @@
+# Current scoped NPC identity correction — 2026-10-07
+
+Patch and Ilex use dedicated references in `art/reference/canonical/npcs/`, derived only from their owner-approved KEY NPCS panels. `art/npc_identity_authorities.json` is the exact authority/provenance record. Old beta portrait/body identities are superseded, preserved historically and absent from active Hub/dialogue/memory routes. Transparent full-body/action states remain open; workstation panels do not close them. Sera and all other actors retain their higher-priority existing authority. No global approval of board 04.
+
 ## CURRENT approved missing-source reference promotion — v38
 
 Only the 35 formerly source-less entities now have explicit owner-approved visual reference authority in `art/approved_missing_canon_references.json`. Dedicated established identities remain primary. One actual Fen Sneak right idle export closes one delivery cell; **3,050 global cells = 2,313 playable + 737 other**, **106 bundles / 165 support packages** remain. **593 high-resolution generation cells** remain for the newly approved subset; reference boards are not production-state completion. [Current evidence/limits](../approved-canon/REPORT.md). The prior exact coverage and named register are retained as history; no existing cast or region redesigned.

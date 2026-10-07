@@ -1,0 +1,1082 @@
+[
+	{
+		"actor": "gloomlet",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+		"state": "idle",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+		"state": "strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+		"state": "recovery",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+		"state": "hurt",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+		"state": "left_strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_strike.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/relic_beast.svg",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_idle_right.png",
+		"state": "idle",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_right.png",
+		"state": "strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/emberhorn.svg",
+		"state": "recovery",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/emberhorn.svg",
+		"state": "hurt",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/emberhorn.svg",
+		"state": "left_strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "idle",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "strike",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "recovery",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "hurt",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "left_strike",
+		"weapon": "maul"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_right.png",
+		"state": "idle",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_right.png",
+		"state": "strike",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/moonkip.svg",
+		"state": "recovery",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/moonkip.svg",
+		"state": "hurt",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/moonkip.svg",
+		"state": "left_strike",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_idle_right.png",
+		"state": "idle",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "recovery",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "hurt",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "left_strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_idle_right.png",
+		"state": "idle",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_cast_right.png",
+		"state": "strike",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/glimmerfin.svg",
+		"state": "recovery",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/glimmerfin.svg",
+		"state": "hurt",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/glimmerfin.svg",
+		"state": "left_strike",
+		"weapon": "orb"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1080, 2340)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_right.png",
+		"state": "idle",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_right.png",
+		"state": "strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+		"state": "recovery",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+		"state": "hurt",
+		"weapon": "claws"
+	},
+	{
+		"actor": "gloomlet",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+		"state": "left_strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_strike.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "relic_beast",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/relic_beast.svg",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_idle_right.png",
+		"state": "idle",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_right.png",
+		"state": "strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/emberhorn.svg",
+		"state": "recovery",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/emberhorn.svg",
+		"state": "hurt",
+		"weapon": "claws"
+	},
+	{
+		"actor": "emberhorn",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/emberhorn.svg",
+		"state": "left_strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "idle",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "strike",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "recovery",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "hurt",
+		"weapon": "maul"
+	},
+	{
+		"actor": "mosskin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/mosskin.svg",
+		"state": "left_strike",
+		"weapon": "maul"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_right.png",
+		"state": "idle",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_right.png",
+		"state": "strike",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/moonkip.svg",
+		"state": "recovery",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/moonkip.svg",
+		"state": "hurt",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "moonkip",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/moonkip.svg",
+		"state": "left_strike",
+		"weapon": "daggers"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_idle_right.png",
+		"state": "idle",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "recovery",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "hurt",
+		"weapon": "claws"
+	},
+	{
+		"actor": "pebblewyrm",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/pebblewyrm.svg",
+		"state": "left_strike",
+		"weapon": "claws"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_idle_right.png",
+		"state": "idle",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_cast_right.png",
+		"state": "strike",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/glimmerfin.svg",
+		"state": "recovery",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/glimmerfin.svg",
+		"state": "hurt",
+		"weapon": "orb"
+	},
+	{
+		"actor": "glimmerfin",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": true,
+		"presentation": "REFERENCE_UI_NOT_BODY",
+		"source": "res://art/sprites/combat_rigs/glimmerfin.svg",
+		"state": "left_strike",
+		"weapon": "orb"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "vault_runner",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/vault_runner/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ruin_warden",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ruin_warden/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "nightstage_drifter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/nightstage_drifter/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "velvet_astrologer",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/velvet_astrologer/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready.png",
+		"state": "idle",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release.png",
+		"state": "strike",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release.png",
+		"state": "recovery",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_ready.png",
+		"state": "hurt",
+		"weapon": "greatsword"
+	},
+	{
+		"actor": "ashtrail_hunter",
+		"layout": "(1200, 1920)",
+		"missing_exact_art": false,
+		"presentation": "ACCEPTED_RUNTIME_POSE",
+		"source": "res://art/sprites/poses/ashtrail_hunter/heavy_two_hand_release_left.png",
+		"state": "left_strike",
+		"weapon": "greatsword"
+	}
+]

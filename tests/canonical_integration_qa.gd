@@ -9,9 +9,12 @@ func review() -> void:
 		var bounds: Rect2=preload("res://hideout_ui.gd").RESIDENT_RECTS[speaker]
 		var entry:=Residents.presentation(speaker,bounds)
 		assert(entry.texture.resource_path==preload("res://vignette_catalog.gd").entry("resident/"+entry.id).actor)
-		assert(entry.export_state=="idle" and entry.activity_states.begins_with("TEMP"))
+		if entry.id in ["patch","ilex"]:assert(entry.export_state=="canonical_station_panel" and entry.activity_states.begins_with("NEEDS_NEW_CANON_EXPORT"))
+		else:assert(entry.export_state=="idle" and entry.activity_states.begins_with("TEMP"))
 		assert(bounds.encloses(entry.rect))
 		assert(is_equal_approx(entry.rect.size.x/entry.rect.size.y,float(entry.texture.get_width())/entry.texture.get_height()))
+		var note=preload("res://field_notes_catalog.gd").pages({},null,null).filter(func(page):return page.id=="resident/"+entry.id)[0]
+		if entry.id in ["patch","ilex"]:assert(note.art==entry.texture.resource_path)
 	for region in preload("res://campaign_system.gd").ORDER:
 		var profile:=Boss.profile(region);var texture:=Boss.texture_for(profile);var rect:=Boss.display_rect(profile,texture)
 		assert(is_equal_approx(rect.size.x/rect.size.y,float(texture.get_width())/texture.get_height()))
@@ -26,5 +29,5 @@ func review() -> void:
 		var size:=preload("res://lootlings_ui.gd").fitted_font_size(game.title_font,text,170,18,12)
 		assert(game.title_font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x<=170)
 	game.free()
-	print("CANONICAL INTEGRATION: three existing idle bodies match memory identity, preserved transparency/aspect/bounds; all ten boss source ratios; visible thin XP fill; no missing state or proxy promoted")
+	print("CANONICAL INTEGRATION: scoped Patch/Ilex station panels match memory identity, Sera preserved, source aspect/bounds; all ten boss source ratios; visible thin XP fill; no absent body state promoted")
 	quit()

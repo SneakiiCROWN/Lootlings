@@ -4,13 +4,17 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — owner-authorized completion sprint — v40 checkpoint
+## CURRENT — Phase4E scoped canonical identity correction — v41
 
-The [owner completion authorization](completion-sprint/OWNER_AUTHORIZATION.md) supersedes Phase4E-only / no-Phase4F sequencing. Finish existing Phase4E, then proceed into required completion scope without waiting for another broad prompt. Canon lock, valid checkpoints and external-art limits remain unchanged. The v38 approval/extraction batch below is preserved history.
+Current owner directive keeps Phase4E active; no Phase4F. Dedicated playable sheets remain primary. Patch Brasswick and Ilex Quill alone now use the owner's scoped KEY NPCS panel approval, extracted into `art/reference/canonical/npcs/Patch_Brasswick_Canonical.png` and `Ilex_Quill_Canonical.png`. `art/npc_identity_authorities.json` records exact pixel provenance and replaces old portrait/body routes with original workstation panels; no full-body state is claimed complete. The broad board remains rejected for other identity imports.
 
-Current new work: a separate personal Home PackedScene reached from Main Hub, with clean Leave/Back, private character/style and Stash access, free persisted display choices using accepted art; one-slot cosmetic companion system shell with six approved companion identities, twelve collection/unlock previews, saved unlock ownership and authored-state availability gates (all equip gates still closed); additive schema-v4 profile semantics; malformed reward reservation quarantine; write-ahead Home currency/inventory/shop/contract recovery. Desktop save/transaction process-death and native phone/tablet checks pass within the recorded scope; physical S23 acceptance remains open. Android v40 `0.4.31-completion-home` is built at `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-completion-home-debug.apk`. See the completion-sprint report and native gallery for exact scope and remaining gates. Art debt remains 3,050 existing actor delivery cells / 106 bundles / 165 support packages, plus the supplemental companion art requirement in NEEDS_NEW_CANON_EXPORT.json. No final art or device acceptance claimed. Continue from this working checkpoint, not from an older Phase4E-only instruction.
+Accepted player action exports remain active during movement toward the combat lane. Missing exact states show labeled canonical reference UI rather than alternate generic rig bodies; rig/socket logic remains for technical QA/projectiles. Those references are not body exports and close zero missing cells. Selector wording is CHOOSE YOUR LOOTLING. Long enemy names wrap into two bounded readable lines. Separate Hub/Home, six approved companion identities, 12 UI previews and two exact right-idle collection exports, touch safety, economy and transaction recovery are preserved.
 
-[Completion report](completion-sprint/REPORT.md) · [Native gallery](completion-sprint/GALLERY.md)
+Android v41 `0.4.32-phase4e-canon-identity`: `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-phase4e-canon-identity-debug.apk`. GO for scoped owner test only after the linked build/QA receipt; HOLD for complete Phase4E/visual/device acceptance. Existing 3,050 actor cells / 106 bundles / 165 support packages remain open, plus 34 companion cells and one empty personal-Home interior request. [Current report](phase4e/canon-identity/REPORT.md). No missing state, alternate identity or low-resolution board is promoted to final art.
+
+## Historical checkpoint — completion Home/companions v40
+
+The separate personal Home and companion/persistence implementation remains preserved. Its report is historical evidence: [completion-sprint/REPORT.md](completion-sprint/REPORT.md). The current owner directive narrows this pass to Phase4E visual correction and overrides the earlier permission to move beyond it.
 
 ## Historical checkpoint — Phase4E approved missing-source canon / v38
 

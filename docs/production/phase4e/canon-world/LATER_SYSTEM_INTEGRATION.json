@@ -1,5 +1,5 @@
 {
-  "scope": "Owner completion authorization supersedes Phase4E-only sequencing. Established future NPC labels remain FUTURE; only bounded pets and Home customization promoted here.",
+  "scope": "Current Phase4E only; no Phase4F. Preserve the previously authorized bounded companion/Home shell. Established future NPC labels remain FUTURE; source references never promote new gameplay canon.",
   "items": [
     {
       "slot_id": "content:chest_catalog.gd:CHESTS:cursed_coffer",
@@ -55,7 +55,7 @@
       "subject": "authored pets",
       "status": "SYSTEM_SHELL_IMPLEMENTED_ART_OPEN",
       "source": "art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json",
-      "reason": "Six companion-only identities now owner-approved in the supplied canonical package. Catalog/UI portraits/unlock-item previews and idempotent persisted unlock hooks are installed. No complete authored transparent idle/move/reaction views exist; all six equip gates stay closed.",
+      "reason": "Six approved companion identities and 12 UI previews preserved. Stonekith and Puffnest have exact source-derived neutral right-facing 256x256 exports, validated natively and used for collection previews. Remaining 34 state/view exports stay open; all six equip gates remain closed.",
       "runtime_system": [
         "companion_catalog.gd",
         "companion_presentation.gd",
@@ -110,7 +110,7 @@
           "puffnest",
           "breezewyn"
         ],
-        "delivery_cells": 36,
+        "delivery_cells": 34,
         "exact_delivery_cells": [
           {
             "entity": "auricub",
@@ -274,37 +274,6 @@
             "filename": "auricub_reaction_left.png",
             "source_destination": "art/source/companions/auricub/auricub_reaction_left.png",
             "runtime_destination": "art/production/companions/auricub/auricub_reaction_left.png",
-            "canvas": [
-              256,
-              256
-            ],
-            "occupied_bounds": [
-              32,
-              24,
-              224,
-              224
-            ],
-            "baseline": 224,
-            "pivot": [
-              128,
-              224
-            ],
-            "transparent_background": true,
-            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
-            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
-            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
-            "layers": "Body transparent; ground shadow and temporal VFX separate",
-            "mirror": false,
-            "status": "NEEDS_NEW_CANON_EXPORT",
-            "priority": "P1"
-          },
-          {
-            "entity": "stonekith",
-            "state": "idle",
-            "facing": "right",
-            "filename": "stonekith_idle_right.png",
-            "source_destination": "art/source/companions/stonekith/stonekith_idle_right.png",
-            "runtime_destination": "art/production/companions/stonekith/stonekith_idle_right.png",
             "canvas": [
               256,
               256
@@ -859,37 +828,6 @@
           {
             "entity": "puffnest",
             "state": "idle",
-            "facing": "right",
-            "filename": "puffnest_idle_right.png",
-            "source_destination": "art/source/companions/puffnest/puffnest_idle_right.png",
-            "runtime_destination": "art/production/companions/puffnest/puffnest_idle_right.png",
-            "canvas": [
-              256,
-              256
-            ],
-            "occupied_bounds": [
-              32,
-              24,
-              224,
-              224
-            ],
-            "baseline": 224,
-            "pivot": [
-              128,
-              224
-            ],
-            "transparent_background": true,
-            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
-            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
-            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
-            "layers": "Body transparent; ground shadow and temporal VFX separate",
-            "mirror": false,
-            "status": "NEEDS_NEW_CANON_EXPORT",
-            "priority": "P1"
-          },
-          {
-            "entity": "puffnest",
-            "state": "idle",
             "facing": "left",
             "filename": "puffnest_idle_left.png",
             "source_destination": "art/source/companions/puffnest/puffnest_idle_left.png",
@@ -1228,6 +1166,70 @@
             "status": "NEEDS_NEW_CANON_EXPORT",
             "priority": "P1"
           }
+        ],
+        "accepted_existing_source_states": [
+          {
+            "entity": "stonekith",
+            "state": "idle",
+            "facing": "right",
+            "filename": "stonekith_idle_right.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_idle_right.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "idle",
+            "facing": "right",
+            "filename": "puffnest_idle_right.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_idle_right.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          }
         ]
       }
     },
@@ -1241,7 +1243,31 @@
         "personal_home.gd",
         "personal_home.tscn",
         "profile_store.gd"
-      ]
+      ],
+      "external_art_requirement": {
+        "entity": "Personal Home interior",
+        "state": "empty furnished room background; no baked actors/pets, UI or text",
+        "facing": "environment, not actor facing",
+        "canvas": [
+          1536,
+          2732
+        ],
+        "background": "opaque RGB or RGBA",
+        "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png \u2014 section 03 HOME/PERCH environment only",
+        "required_pose": "Room has a clear standing/follower floor, furniture/perch and wall display space; no public Hub NPCs/stations. Keep current approved architectural/material language.",
+        "occupied_bounds": "Full bleed background; protect UI zones y<240 and y>1900. Keep floor beneath actor baseline y1823 in this canvas.",
+        "baseline": {
+          "design_ground_y": 570,
+          "source_ground_y": 1823
+        },
+        "pivot": "Background top-left; uniform cover scaling preserves aspect ratio",
+        "filename": "personal_home_interior.png",
+        "source_destination": "art/source/phase4e/home/personal_home_interior.png",
+        "runtime_destination": "art/production/phase4e/regions/personal_home_interior.png",
+        "layers": "Empty furnished background; optional separate perch/shelf/shadow layers. Characters, pets, reward items, UI and transient lights remain separate.",
+        "mirroring_allowed": false,
+        "why_existing_source_cannot_close": "Approved Home panel is landscape, low-resolution and baked with all six companion bodies. Cropping/erasing them cannot produce complete empty furniture/floor pixels; cannot show unequipped pets or call this a finished room."
+      }
     },
     {
       "slot_id": "planned:store_screenshots",

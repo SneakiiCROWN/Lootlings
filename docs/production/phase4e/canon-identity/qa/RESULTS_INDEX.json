@@ -1,0 +1,15 @@
+{
+  "accepted_runs": [
+    "identity-runtime-40cbdd5958",
+    "identity-archive-final-b4d7e01288",
+    "identity-archive-native-70f87959cf",
+    "identity-companion-final-a0ab6ffb16",
+    "identity-home-final-a4edcc0ad6",
+    "companion-idle-final-17d6ba37c1",
+    "identity-final-public-5e8e4b132c"
+  ],
+  "guards": "GUARDS.json",
+  "native_images": 237,
+  "build": "APK_RECEIPT.json",
+  "compiled_routes": "apk-compiled-code.json"
+}

@@ -16,23 +16,23 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7028,
-    "total_launch_scope_slots": 6223,
+    "total_records": 7040,
+    "total_launch_scope_slots": 6225,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3174,
+      "LIVE_BETA": 3176,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
       "NEEDS_NEW_CANON_EXPORT": 3050,
-      "REFERENCE_ONLY": 577,
+      "REFERENCE_ONLY": 587,
       "REJECTED_IDENTITY_DRIFT": 6,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3173,
+      "LIVE_BETA": 3175,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -50,17 +50,17 @@
     "DESIGN_BIBLE.md": "5ff7cf6aec802da5f79b618df8657116d44c008f3df14aba1e50f32594420b82",
     "LOOTLINGS_WORLD_BIBLE.md": "b469f5bf0d85ccf2f2a0caf0bb4d4e2b1a9da2fa05f10051369a7663ef0690e8",
     "MASTER_ROADMAP.md": "710bfa4301aee9cad14b82edd601b3334349105cd326639729c0e6e1d50a5471",
-    "CONTENT_IMPLEMENTATION_STATUS.md": "fb52bb6591b2c1281a6875cafea7cc4a38fccf25f7682f4e8ab57c5ed154abc3",
+    "CONTENT_IMPLEMENTATION_STATUS.md": "56a64320f759549a58462c01de735c3b7c38b00ac25f83007a29340564b920f0",
     "ART_REFERENCE_INDEX.md": "d087e978b43a4a83c89d75ce8dde635629f8d0a345b5d5f0f4c0173ab6b2b402",
-    "PRODUCTION_PHASE4E.md": "79855e40b2eb40fd975145d85ea06ee22559e5ca14f1fa2bb6d9b22943cb616f",
+    "PRODUCTION_PHASE4E.md": "9ff86aba32b0500fee7d87bf298b6527fc7678ed6efcfbcd58a9274f21e906fd",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "6576e6017647421d834d06c4a166d3d3a8b6b821c39cfb5ac517d83d602762e6",
+    "export_presets.cfg": "9e829265768572fd726024e1e70b9ba29226234c9dc4e882f6caf4042e46ddc8",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "8fdbf946ed0b040ab666660993e992462167ee6da1241e14f8088996ed832d9a",
     "art/production/phase4e/runtime_manifest.json": "902751f17d2c8904595f1daa32a231daa29a5c1f47978ff613b1c5378112f3b3",
     "art/production/phase4e/extraction_manifest.json": "91286e5df854c40223b95690bc764e0ab7699e8f57ff79b59845fd0a68ba5370",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "aa95b8b87b24c8cf5cde3d7b0a4b20d2fcca05fe2721c0406ce8e2ac596403c8",
-    "docs/production/phase4e/extraction/MISSING_ART_MANIFEST.json": "a064b5d3581d8d3afa2e99e4a5cda7777137bd2f51962450f8ab7b65046b326c",
+    "docs/production/phase4e/extraction/MISSING_ART_MANIFEST.json": "9ad7646a5f97ac4f9984d47a6d051d3e56bb5ead93fc286aaa70c5fdc5c53666",
     "art/audio/production/sources.json": "d2bac5b6e1a43f441143d7bfec99d015b6b60c8510d19169a64279d4c67a9eda",
     "art/reference/docs/00_READ_ME_FIRST.txt": "8db2762668e096772f81fda1aa24428b96f76607f5c31242288556cd9a47b07d",
     "art/reference/docs/01_CURRENT_ART_RULES.md": "eb3511acc0dcfb04d68b4d4a26961168428c80b9d58442c57065a70ecc3ec874",
@@ -99,15 +99,15 @@
     "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
     "chest_catalog.gd": "4bf50445f8512c96ad0d645b5425cd04ade3afe4831bb1ea7eef07fe580834bb",
     "combat_controls.gd": "1320854c11acd175a15b76a585a7cbb2559061137109f992b6b47bfe8d622595",
-    "combat_presentation.gd": "7d7b25f8bf8b4763f960374c4010e385c8159fd1fee2ce189a1218e58d3ad39d",
+    "combat_presentation.gd": "076ec1401486dc5d4a0466cc74500d1a178a6b2a51869bc75314bcbd7f9214d3",
     "combat_sprite_rig.gd": "a6124fcd68d18c68336581695f821b5a9c62e1b3dd27e339805235b20150b821",
     "combat_stage.gd": "0c604eeb8edeadc4d8c8341be036f6df75c5d1895a76a87e0f199c439a42d23e",
     "combat_tap_meter.gd": "1df4da3fb4ac3b65f74f79eaf088fc31772a8fb0006ba8971696c7e91ba3f9cc",
-    "companion_catalog.gd": "edc6d1105065906f4d5b9e678d6630ac4f56972d18e846face595afbd1cf62cc",
+    "companion_catalog.gd": "913109ecd0dee3811fb3a5ac06faf75945aea08bb1d4f39241c4b5e2913cb4d4",
     "companion_presentation.gd": "fd5d1310b6adb40649bfe7d51a0175b4b648079be5eb87b3dd8c17f4f3934b34",
     "contextual_dialogue.gd": "3de3ac6394b611264e0e65855a5360fbc52e4c8920e6a862359acaf4c9cda4ed",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
-    "creature_renderer.gd": "3dbbad88ce4fb3cc4d5c48b5d6ecfbe275a22f53d80036f7f8978497c3f0ca73",
+    "creature_renderer.gd": "47577ea6c7d41750c90b94230118241856eb81539f93e698ea510834f008cbff",
     "debug_panel.gd": "4cb84da52147317c138dc7add8d95ff955be4d5b7ef6a4032509da9a28248497",
     "dialogue_director.gd": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f",
     "display_numbers.gd": "0f928175102bf7d5638caa52ed55a63a418d6e3e04b27ed5121c1e402ee312ef",
@@ -119,17 +119,17 @@
     "enemy_variant_catalog.gd": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25",
     "expedition_event_catalog.gd": "08602a2c8221b1eb2c31b4277e083b5cd6ea9b04fa6035dab454701274e1816f",
     "expedition_progress.gd": "37b46bedd83b99640b7348b6f11be3944e36ae30b5bf931ab300ba6f2dedc935",
-    "field_notes_catalog.gd": "b466a7a122a8dea2c65b9d195053e7bf831e3d2f66db4d7d87d05b0c02a37f75",
+    "field_notes_catalog.gd": "085211ae22263dad99b98cbf2da76513a339eb6c77d0be842cf3311fcae76c01",
     "forge_system.gd": "d27077eb3e7fa0b24ba266aa1a53b7590b9b61edea40b9593f760dbeda8a5831",
     "game_catalog.gd": "d47f5bcca5fcf99318d51234ed0765e478dbdc0084fdf9636f7d6c40631615a7",
     "hideout_shop_system.gd": "85c65c12965d28b6ead3d706c70f10aa5020533841c79791060b9e2c6986db8b",
-    "hideout_ui.gd": "eedb617fcad72198476809c8065619d013f6d16999eba628874e095cc7a6af62",
+    "hideout_ui.gd": "f6a1d9379b025b1201c17db5b93e669a9aa2b0c66c38c172b401f49cdb142d7e",
     "impact_presentation.gd": "1ed3c7973f87a66c477fc99dc555b9a165079e51229ed10387b847994502e8e4",
     "inventory_system.gd": "6bebfa96c22f25a931fdb691f481af0989bcee700b433918fd52baa03af50fc1",
     "item_catalog.gd": "0fa1e563f4f640e584f46d9d2031abca70b7489482e11f97e1824db62cad8504",
     "item_icon.gd": "3afc76c43750f880535bbc095bb37efda52b67bda79896f2fde53c56a4ae75f9",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "ecede0d5d7118cbc56a11884ecaab8c74609f42814a10c6ebb8e60734d9af373",
+    "lootling.gd": "5d17fe2a86dc7860e09415f235bea7e04a3994afb8e1f79485f7b2865a3cc0d0",
     "lootlings_ui.gd": "bf5b58e67cc7b654269cd415f993c75fa61cfd1ad36648830198e299e0f54306",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
     "loot_system.gd": "b7da5111482b7c16427b86f1cc4c9b4d3696bf91d10f4b3a20f7980e0a7e624d",
@@ -150,7 +150,7 @@
     "relic_machine.gd": "19befca3b196d6ad0b5b866cf2e39b23b86e1850bed3015d73a6345944a7b6ca",
     "relic_reveal_fx.gd": "5190335e1b7b05b233ee7f607ff6aa525d3f9a05e60ee28d72869cb622bb2892",
     "relic_spin_catalog.gd": "860ae69b742ecf599d45ae04e6c0c80b867f1da17d1c9b7fd8a5a896dabb2cd4",
-    "resident_art_catalog.gd": "e6abdd2b67108ac2632f721e8892b118d08861d19bf357a0946f757cc79c4d1c",
+    "resident_art_catalog.gd": "2bf966a49fda2a9521dd74b0326864a81a540a28661420b3613d1aa7544850bb",
     "resident_sprite_rig.gd": "018675b14fad2964b875ca99389cafa752cf5eb869a94f6440e0ddf2208908e7",
     "responsive_backdrop.gd": "5055b1adc0316f80aad91eedb1aedad7a174035bf152de8fc23d5ff77c9e8d13",
     "retention_runtime.gd": "eba2ec2a4e9b13c1c30c7fd6833fcfba18498fc0f8a8e6706038a2d29a598846",
@@ -159,24 +159,26 @@
     "safe_config.gd": "6bdd31a0d2b443a606864fe6531f44f12e0e5edc46331f61494555254fcddf75",
     "settings_store.gd": "71afdca7aa57ef3a48a7014b0c271f557b222a21466443fe9c80003f0cce95eb",
     "shop_system.gd": "018776ac3b00b06e3209dcf653e2129c904d7726dcd12d2bec03096393623911",
-    "startup_ui.gd": "a79ba52896b62d075948e29f968c82298efeff1654944bc11b0665f7ec7db167",
+    "startup_ui.gd": "650e5f6173acfb1fcbb957e7ab7773ce0882409b0d95acb3e63838c0555fe892",
     "station_presentation.gd": "a116379ba34b03fb81ad9f167151700945f067de7bc6472497139b79776e7439",
     "touch_ux.gd": "5fccfecf46d32cd3c3bf68409a257c5857755e4479210607ffd6e14c6442bd9d",
     "ui_surface_style.gd": "722177f70bf5f2be4c5e901ca1ff08e9c441711c3ece9b071019cac935794e65",
-    "vignette_catalog.gd": "a5e712e2bf1f4279fa9f8f993bfe74b55924bfe76a47dcf3e386d615d9273fa1",
+    "vignette_catalog.gd": "7695dc6d64bd057c6558cd6a2cb3acb4e77d4a36abacd4e9b41776384f0c5d1e",
     "vignette_player.gd": "69970bc6839ae27f62608d12a23ed5342990c83f8c8a9b1c36c8046e9152b6e9",
     "voice_identity.gd": "f43f2201c9b48364409a0777d5e788036541291528a9328a9fd615f1f480bc23",
     "wanderer_catalog.gd": "65bd866cae781a77c7226273f6e3f0af26d5ff8e7da2c9ba4fd746f5c1378fe2",
     "wanderer_pose_catalog.gd": "d3d87e8c37d631558c83f4c0d1c496efa934f203582296f8fc72b403e49a8130",
     "weapon_catalog.gd": "1fecdbe41da85df973020f343654c19579a898bfb4b773656bd07f7d994e0e3c",
-    "weapon_fit_catalog.gd": "8288ae051b8d34652ca0244e237ec4ca1ae5a2fec144d6847657ec4fd5530121",
+    "weapon_fit_catalog.gd": "9a57feb534021560de5ba63001ed4a382b0075fd52be089824e517b8e899428a",
     "world_content_catalog.gd": "e878d414b98fad06534cf0ae96d99a8c89f704717533fa3d4d48b969cadff746",
     "world_story.gd": "c02da453427f60c317e08c4ab5f697322a47289b9a522476d0876d99becd549c",
     "zone_catalog.gd": "9c327d60f562168a65f7a58c89dff27da20487869caa84e18078c0a3978e0408",
     "art/production/phase4e/reuse_manifest.json": "8ca6bf0e578a66b5bac8c4628edcf84a08ec7e4e1ef9412f036b97ef1efaa42f",
     "art/production/phase4e/props/source_manifest.json": "abc402978abf8417022bf2df51f9a7ef57c0ed353faa8097a4e194df50019436",
     "art/approved_missing_canon_references.json": "71f7cc500a3f148985e258b9e8d078c565d97b55a7e5d89d536b540476bfc463",
-    "art/production/phase4e/approved_missing_runtime_manifest.json": "a0c716c7c8c390c1847edf560aba398da43c27e439da0b1240947cefabf42edc"
+    "art/production/phase4e/approved_missing_runtime_manifest.json": "a0c716c7c8c390c1847edf560aba398da43c27e439da0b1240947cefabf42edc",
+    "art/npc_identity_authorities.json": "11aef972b1be1484612071509de12f2624e6eb9501b4df3ee03172f57775ec4d",
+    "art/production/companions/runtime_manifest.json": "c232dee5d2f290e52b6a191b63ccc991bd6936416e087b053f1bc2029f7580cb"
   },
   "records": [
     {
@@ -205345,7 +205347,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_rest_right.png",
@@ -205383,7 +205385,7 @@
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205403,7 +205405,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_rest_left.png",
@@ -205441,7 +205443,7 @@
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205461,7 +205463,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_route_walk_right.png",
@@ -205499,7 +205501,7 @@
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205519,7 +205521,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_route_walk_left.png",
@@ -205557,7 +205559,7 @@
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205577,7 +205579,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_work_read_tend_right.png",
@@ -205615,7 +205617,7 @@
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205635,7 +205637,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_work_read_tend_left.png",
@@ -205673,7 +205675,7 @@
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205693,7 +205695,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_inspect_right.png",
@@ -205731,7 +205733,7 @@
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205751,7 +205753,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_inspect_left.png",
@@ -205789,7 +205791,7 @@
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205809,7 +205811,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_talk_right.png",
@@ -205847,7 +205849,7 @@
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205867,7 +205869,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_talk_left.png",
@@ -205905,7 +205907,7 @@
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205925,7 +205927,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_sit_right.png",
@@ -205963,7 +205965,7 @@
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -205983,7 +205985,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Competent craftsman: existing portrait, apron, forge tool/repair behaviour",
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/patch/patch_sit_left.png",
@@ -206021,7 +206023,7 @@
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -206737,7 +206739,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_rest_right.png",
@@ -206775,7 +206777,7 @@
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -206795,7 +206797,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_rest_left.png",
@@ -206833,7 +206835,7 @@
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -206853,7 +206855,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_route_walk_right.png",
@@ -206891,7 +206893,7 @@
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -206911,7 +206913,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_route_walk_left.png",
@@ -206949,7 +206951,7 @@
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -206969,7 +206971,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_work_read_tend_right.png",
@@ -207007,7 +207009,7 @@
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207027,7 +207029,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_work_read_tend_left.png",
@@ -207065,7 +207067,7 @@
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207085,7 +207087,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_inspect_right.png",
@@ -207123,7 +207125,7 @@
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207143,7 +207145,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_inspect_left.png",
@@ -207181,7 +207183,7 @@
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207201,7 +207203,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_talk_right.png",
@@ -207239,7 +207241,7 @@
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207259,7 +207261,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_talk_left.png",
@@ -207297,7 +207299,7 @@
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207317,7 +207319,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_sit_right.png",
@@ -207355,7 +207357,7 @@
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -207375,7 +207377,7 @@
       "weapon_family": null,
       "status": "NEEDS_NEW_CANON_EXPORT",
       "launch_scope": true,
-      "canonical_source": "Existing scholarly archivist and portrait; reading/writing",
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
       "current_production_asset": null,
       "target_production_path": "art/production/phase4e/npcs/ilex/ilex_sit_left.png",
@@ -207413,7 +207415,7 @@
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
       "priority": "P1",
       "acceptance_status": "OPEN",
       "evidence": {
@@ -289108,6 +289110,138 @@
       "evidence": null
     },
     {
+      "slot_id": "label:creature_renderer.gd:79:0:064a0c35",
+      "game_id": "creature_renderer_gd",
+      "category": "player_text",
+      "subject": "creature_renderer.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "creature_renderer",
+      "implementation_file": "creature_renderer.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 79,
+        "text": "sprite_rig",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:creature_renderer.gd:79:1:2e9e37ed",
+      "game_id": "creature_renderer_gd",
+      "category": "player_text",
+      "subject": "creature_renderer.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "creature_renderer",
+      "implementation_file": "creature_renderer.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 79,
+        "text": "RIG PROTOTYPE / QA ONLY",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:creature_renderer.gd:95:0:3ed8a8e2",
+      "game_id": "creature_renderer_gd",
+      "category": "player_text",
+      "subject": "creature_renderer.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "creature_renderer",
+      "implementation_file": "creature_renderer.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 95,
+        "text": "POSE ART PENDING",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:creature_renderer.gd:96:0:86db6656",
+      "game_id": "creature_renderer_gd",
+      "category": "player_text",
+      "subject": "creature_renderer.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "creature_renderer",
+      "implementation_file": "creature_renderer.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 96,
+        "text": "REFERENCE ONLY",
+        "dynamic_template": true
+      }
+    },
+    {
       "slot_id": "label:debug_panel.gd:156:0:9c8c4c1b",
       "game_id": "debug_panel_gd",
       "category": "player_text",
@@ -293926,7 +294060,7 @@
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1918:0:e5c6b060",
+      "slot_id": "label:hideout_ui.gd:1922:0:e5c6b060",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -293953,13 +294087,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1918,
+        "line": 1922,
         "text": "NOT YET AVAILABLE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1918:1:b147a9cc",
+      "slot_id": "label:hideout_ui.gd:1922:1:b147a9cc",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -293986,13 +294120,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1918,
+        "line": 1922,
         "text": "font_size",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:0:a3f47c95",
+      "slot_id": "label:hideout_ui.gd:1933:0:a3f47c95",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294019,13 +294153,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "CURRENT • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:1:5c5d6a24",
+      "slot_id": "label:hideout_ui.gd:1933:1:5c5d6a24",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294052,13 +294186,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "USE • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:2:395d3b4c",
+      "slot_id": "label:hideout_ui.gd:1933:2:395d3b4c",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294085,13 +294219,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:3:20048f9f",
+      "slot_id": "label:hideout_ui.gd:1933:3:20048f9f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294118,13 +294252,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "Equipped weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:4:c29dac5a",
+      "slot_id": "label:hideout_ui.gd:1933:4:c29dac5a",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294151,13 +294285,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "scroll",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:5:885d7bf8",
+      "slot_id": "label:hideout_ui.gd:1933:5:885d7bf8",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294184,13 +294318,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "Recovered plans",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:6:1f5bbe7f",
+      "slot_id": "label:hideout_ui.gd:1933:6:1f5bbe7f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294217,13 +294351,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "trophy",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:7:8dffc634",
+      "slot_id": "label:hideout_ui.gd:1933:7:8dffc634",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294250,13 +294384,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "Trophy stand",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:8:71f8e797",
+      "slot_id": "label:hideout_ui.gd:1933:8:71f8e797",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294283,13 +294417,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "none",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1929:9:cf836688",
+      "slot_id": "label:hideout_ui.gd:1933:9:cf836688",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294316,13 +294450,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1929,
+        "line": 1933,
         "text": "Clear shelf",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1931:0:a40315b5",
+      "slot_id": "label:hideout_ui.gd:1935:0:a40315b5",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294349,13 +294483,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1931,
+        "line": 1935,
         "text": "No companion equipped. Companions are cosmetic; they give no combat advantage.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1932:1:cf368476",
+      "slot_id": "label:hideout_ui.gd:1936:1:cf368476",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294382,13 +294516,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1932,
+        "line": 1936,
         "text": "No companions are available yet. Your slot is ready. Companions never change combat stats.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1933:0:6b9af882",
+      "slot_id": "label:hideout_ui.gd:1937:0:6b9af882",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294415,13 +294549,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1933,
+        "line": 1937,
         "text": "Equipped: ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1933:2:6ae99955",
+      "slot_id": "label:hideout_ui.gd:1937:2:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294448,13 +294582,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1933,
+        "line": 1937,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1933:3:163ee286",
+      "slot_id": "label:hideout_ui.gd:1937:3:163ee286",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294481,13 +294615,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1933,
+        "line": 1937,
         "text": " • cosmetic only",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1937:0:1e5a19cd",
+      "slot_id": "label:hideout_ui.gd:1941:0:1e5a19cd",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294514,13 +294648,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1937,
+        "line": 1941,
         "text": "EQUIPPED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1937:1:df39feda",
+      "slot_id": "label:hideout_ui.gd:1941:1:df39feda",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294547,13 +294681,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1937,
+        "line": 1941,
         "text": "EQUIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1937:2:da6bac29",
+      "slot_id": "label:hideout_ui.gd:1941:2:da6bac29",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294580,13 +294714,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1937,
+        "line": 1941,
         "text": "LOCKED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1937:3:e5c6b060",
+      "slot_id": "label:hideout_ui.gd:1941:3:e5c6b060",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -294613,7 +294747,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1937,
+        "line": 1941,
         "text": "NOT YET AVAILABLE",
         "dynamic_template": true
       }
@@ -297556,7 +297690,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:3860:0:089331a2",
+      "slot_id": "label:lootling.gd:3862:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297583,13 +297717,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3860,
+        "line": 3862,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3861:0:e29764e7",
+      "slot_id": "label:lootling.gd:3863:0:e29764e7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297616,13 +297750,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3861,
+        "line": 3863,
         "text": "DETAILS: PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3990:0:56d441fc",
+      "slot_id": "label:lootling.gd:3992:0:56d441fc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297649,7 +297783,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3990,
+        "line": 3992,
         "text": "COMBO ×%d",
         "dynamic_template": true
       }
@@ -317941,6 +318075,76 @@
       }
     },
     {
+      "slot_id": "asset:art/production/companions/puffnest/puffnest_idle_right.png",
+      "game_id": "puffnest_idle_right",
+      "category": "combat_art",
+      "subject": "puffnest_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/companions/puffnest/puffnest_idle_right.png",
+      "target_production_path": "art/production/companions/puffnest/puffnest_idle_right.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "648a892a2a4887279b3b4822d09dae8b124efea1b47c4cd070cc4c017e82b43a",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/companions/stonekith/stonekith_idle_right.png",
+      "game_id": "stonekith_idle_right",
+      "category": "combat_art",
+      "subject": "stonekith_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/companions/stonekith/stonekith_idle_right.png",
+      "target_production_path": "art/production/companions/stonekith/stonekith_idle_right.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "54c8565c87c1bbd15898b61bc5ebe1302684de66246ef80ff5334f9c5c3fbae5",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_right.png",
       "game_id": "fen_sneak_idle_right",
       "category": "combat_art",
@@ -319666,6 +319870,88 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "28e9d6f8fa097d08cb95cd3fa5c99fc9a8d9359f1fd766aa87d6d443542c889d",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/ilex_canonical_station_panel.png",
+      "game_id": "ilex_canonical_station_panel",
+      "category": "combat_art",
+      "subject": "ilex_canonical_station_panel",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/ilex_canonical_station_panel.png",
+      "target_production_path": "art/production/phase4e/npcs/ilex_canonical_station_panel.png",
+      "dimensions": [
+        108,
+        157
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "hideout_ui.gd",
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "hideout_ui.gd",
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/patch_canonical_station_panel.png",
+      "game_id": "patch_canonical_station_panel",
+      "category": "combat_art",
+      "subject": "patch_canonical_station_panel",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/patch_canonical_station_panel.png",
+      "target_production_path": "art/production/phase4e/npcs/patch_canonical_station_panel.png",
+      "dimensions": [
+        112,
+        157
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "hideout_ui.gd",
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "hideout_ui.gd",
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -323485,6 +323771,70 @@
       }
     },
     {
+      "slot_id": "source:art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "game_id": "ilex_quill_canonical",
+      "category": "reference",
+      "subject": "Ilex_Quill_Canonical",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "game_id": "patch_brasswick_canonical",
+      "category": "reference",
+      "subject": "Patch_Brasswick_Canonical",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+        "rejection": null
+      }
+    },
+    {
       "slot_id": "source:art/reference/canonical/phase2_master/lootlings_adult_fantasy_outfits_reference.png",
       "game_id": "lootlings_adult_fantasy_outfits_reference",
       "category": "reference",
@@ -327227,6 +327577,70 @@
       }
     },
     {
+      "slot_id": "source:art/source/companions/puffnest/puffnest_idle_right.png",
+      "game_id": "puffnest_idle_right",
+      "category": "reference",
+      "subject": "puffnest_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/companions/puffnest/puffnest_idle_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "7ef6deb31be6cb81378659f2d11394a1390ebbae180e344941a080bc4a00d63b",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/companions/stonekith/stonekith_idle_right.png",
+      "game_id": "stonekith_idle_right",
+      "category": "reference",
+      "subject": "stonekith_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/companions/stonekith/stonekith_idle_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "16b3162bca4dcc8dec0f09549a9b80a20ddbd83aaff607eba5d96ce5eb858eed",
+        "rejection": null
+      }
+    },
+    {
       "slot_id": "source:art/source/held_heavy_v1/greataxe_held.png",
       "game_id": "greataxe_held",
       "category": "reference",
@@ -329782,8 +330196,8 @@
       "state": null,
       "facing": null,
       "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
       "canonical_source": null,
       "source_crop": null,
       "current_production_asset": "art/sprites/npcs/beta/ilex_idle.png",
@@ -329798,19 +330212,15 @@
       "weapon_socket": null,
       "support_hand_socket": null,
       "layering_requirements": null,
-      "runtime_system": [
-        "resident_art_catalog.gd"
-      ],
-      "implementation_file": [
-        "resident_art_catalog.gd"
-      ],
+      "runtime_system": [],
+      "implementation_file": [],
       "dependency": [],
       "blocker": null,
       "priority": "P2",
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "4816bffca225db230c1df009aeea891e0697a3b26854cbc498a1330de63e47e4",
-        "usage": "static resource or documented dynamic loader"
+        "usage": "retained unreferenced production/historical export"
       }
     },
     {
@@ -329821,8 +330231,8 @@
       "state": null,
       "facing": null,
       "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
       "canonical_source": null,
       "source_crop": null,
       "current_production_asset": "art/sprites/npcs/beta/ilex_portrait.png",
@@ -329837,19 +330247,15 @@
       "weapon_socket": null,
       "support_hand_socket": null,
       "layering_requirements": null,
-      "runtime_system": [
-        "hideout_ui.gd"
-      ],
-      "implementation_file": [
-        "hideout_ui.gd"
-      ],
+      "runtime_system": [],
+      "implementation_file": [],
       "dependency": [],
       "blocker": null,
       "priority": "P2",
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "eab61421ef5b21f079b3cec5dff1f974ef9581e51badc4ffcf73ee1f6cfbf944",
-        "usage": "static resource or documented dynamic loader"
+        "usage": "retained unreferenced production/historical export"
       }
     },
     {
@@ -329860,8 +330266,8 @@
       "state": null,
       "facing": null,
       "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
       "canonical_source": null,
       "source_crop": null,
       "current_production_asset": "art/sprites/npcs/beta/patch_idle.png",
@@ -329876,19 +330282,15 @@
       "weapon_socket": null,
       "support_hand_socket": null,
       "layering_requirements": null,
-      "runtime_system": [
-        "resident_art_catalog.gd"
-      ],
-      "implementation_file": [
-        "resident_art_catalog.gd"
-      ],
+      "runtime_system": [],
+      "implementation_file": [],
       "dependency": [],
       "blocker": null,
       "priority": "P2",
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "94deac773775e44636bd2ee52eeacaf0ba00e603ea175da7f7d7a87f4e65d372",
-        "usage": "static resource or documented dynamic loader"
+        "usage": "retained unreferenced production/historical export"
       }
     },
     {
@@ -329899,8 +330301,8 @@
       "state": null,
       "facing": null,
       "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
       "canonical_source": null,
       "source_crop": null,
       "current_production_asset": "art/sprites/npcs/beta/patch_portrait.png",
@@ -329915,19 +330317,15 @@
       "weapon_socket": null,
       "support_hand_socket": null,
       "layering_requirements": null,
-      "runtime_system": [
-        "hideout_ui.gd"
-      ],
-      "implementation_file": [
-        "hideout_ui.gd"
-      ],
+      "runtime_system": [],
+      "implementation_file": [],
       "dependency": [],
       "blocker": null,
       "priority": "P2",
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "5e422afa6110bdf551d349eb69a5cf185f714b6e3da98a8de00471ceb16a1e26",
-        "usage": "static resource or documented dynamic loader"
+        "usage": "retained unreferenced production/historical export"
       }
     },
     {
@@ -355203,6 +355601,7 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "methods": [
+          "name_lines",
           "reset",
           "register_enemy",
           "update_health",
@@ -355354,6 +355753,7 @@
           "known_ids",
           "id_for_unlock",
           "preview",
+          "idle_preview",
           "available_ids",
           "sanitize",
           "texture",
@@ -355499,6 +355899,8 @@
         "methods": [
           "weapon_pose_angle",
           "draw_lootling",
+          "prototype_preview_enabled",
+          "draw_missing_actor_reference",
           "draw_fitted_weapon",
           "draw_cast_connection",
           "draw_paired_weapons",
@@ -357439,6 +357841,7 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "methods": [
+          "portrait_path",
           "presentation",
           "draw"
         ]
