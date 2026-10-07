@@ -14,7 +14,8 @@ func _draw() -> void:
 	if game == null: return
 	var texture: Texture2D = game.current_zone.get("background",game.ZoneCatalog.OUTER_RUINS_BACKGROUND)
 	if game.state == "hideout": texture = game.hideout_ui.background_for_screen()
-	elif game.state=="mode_menu" or (game.state=="relic_spinner" and game.retention.spinner_from_home):texture=preload("res://art/backgrounds/lootlings_hideout.png")
+	elif game.state=="mode_menu":texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if game.retention.mode_tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
+	elif game.state=="relic_spinner" and game.retention.spinner_from_home:texture=preload("res://art/backgrounds/lootlings_hideout.png")
 	elif game.startup_ui.visible: texture = game.startup_ui.BACKGROUND
 	var extent := texture.get_size()
 	var scale_factor := maxf(size.x/extent.x,size.y/extent.y)

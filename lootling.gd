@@ -1414,7 +1414,9 @@ func show_route_choices() -> void:
 		route_buttons[index].visible = index < options.size()
 		if index >= options.size(): continue
 		var option: Dictionary = options[index]
-		route_buttons[index].text = "%s\n%s" % [option.title, option.desc]
+		# The visible child labels own wrapping; hidden Button text still expands its minimum size.
+		route_buttons[index].text = ""
+		route_buttons[index].tooltip_text = "%s\n%s" % [option.title, option.desc]
 		route_visuals[index].icon.texture = LootlingsUI.icon(option.icon)
 		route_visuals[index].name.text = "%s • %s" % [str(option.kind).to_upper(), option.title]
 		fit_label_font(route_visuals[index].name, route_visuals[index].name.text, 286, 17, 14)

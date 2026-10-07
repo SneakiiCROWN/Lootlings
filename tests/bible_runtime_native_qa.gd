@@ -6,12 +6,24 @@ func _initialize() -> void:
 func review_bible() -> void:
 	game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame
 	game.set_process(false);game.app_lifecycle.platform_notifications_enabled=false;game.audio_settings.cinematic_first_time=false
+	game.campaign.completed=preload("res://campaign_system.gd").ORDER.duplicate()
+	game.profile.memories=["region/act_i","resident/patch","resident/sera","resident/ilex"]
 	var helper=preload("res://tests/weapon_fit_qa.gd").new();helper.game=game
 	for layout in [Vector2i(1080,2340),Vector2i(1200,1920)]:
 		root.size=layout;folder="res://.godot_test_data/phase4e/bible-runtime/native/%dx%d/" % [layout.x,layout.y];DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		game.show_hideout();await capture("home_props")
+		game.hideout_ui.request_dialogue("tapped","Archivist");await capture("ilex_dialogue");game.hideout_ui.dismiss_dialogue()
 		game.hideout_ui.show_shop();await capture("merchant_cart")
-		game.start_dungeon();game.set_process(false);game.dungeon.depth=2;game.show_route_choices();await capture("dungeon_destinations")
+		game.hideout_ui.show_lore();game.hideout_ui.lore_filter="ALL";game.hideout_ui.refresh_lore()
+		for id in ["region/mossglass_wilds","route/hoard_depths","boss/belljaw"]:
+			for index in range(game.hideout_ui.lore_entries.size()):
+				if game.hideout_ui.lore_entries[index].id==id:
+					game.hideout_ui.lore_index=index;game.hideout_ui.cycle_lore(0);await capture("notes_"+id.replace("/","_"))
+		game.hideout_ui.show_memories();game.hideout_ui.memory_filter="Regions";game.hideout_ui.refresh_memories();await capture("regional_memories")
+		game.hideout_ui.memory_filter="Bosses";game.hideout_ui.refresh_memories();await capture("boss_memories")
+		game.hideout_ui.hide();game.dungeon.setup(4917,"moonfen");game.campaign_id="moonfen";game.start_run();game.set_process(false);game.dungeon.depth=2;game.show_route_choices();await capture("dungeon_destinations")
+		for button in game.route_buttons:
+			assert(button.position.x+button.size.x<=game.route_panel.size.x,"Dungeon destination exceeds panel")
 		game.dungeon.active=false
 		for identity in ["Fire","Frost","Arcane","Corruption"]:
 			helper.prepare("relic_beast","orb");game.forced_facing_test=0;game.enemy_entry_anim=0;game.wave_banner_timer=0;game.projectile_impacts=[{"pos":Vector2(game.target_combat_visual_position()),"life":.21,"element":identity,"weapon_type":"orb","direction":Vector2.RIGHT}]

@@ -952,20 +952,23 @@ func refresh_memories() -> void:
 		if memory_filter != "ALL" and entry.category != memory_filter: continue
 		var unlocked := Vignettes.available(id,profile,campaign.completed if campaign!=null else [])
 		var button := Button.new()
-		button.custom_minimum_size = Vector2(396,80)
+		var illustrated: bool=unlocked and entry.category in ["Regions","Bosses"]
+		button.custom_minimum_size = Vector2(396,112 if illustrated else 80)
 		button.add_theme_font_size_override("font_size",16)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.text=""
 		LootlingsUI.apply_button(button,Color("#17294b"),Color("#c99cff"))
-		var text_x:=86 if unlocked else 16
-		var caption:=make_label(button,"%s\n%s" % [str(entry.name), "Revisit this echo"] if unlocked else "UNDISCOVERED MEMORY\nFind this story on your travels",15,Rect2(text_x,12,396-text_x-16,56),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff") if unlocked else Color("#91a2c0"))
+		var text_x:=144 if illustrated else 86 if unlocked else 16
+		var caption:=make_label(button,"%s\n%s" % [str(entry.name), "Revisit this echo"] if unlocked else "UNDISCOVERED MEMORY\nFind this story on your travels",15,Rect2(text_x,12,396-text_x-16,88 if illustrated else 56),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff") if unlocked else Color("#91a2c0"))
 		caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		if unlocked:
 			var art_path: String = str(entry.actor) if not str(entry.actor).is_empty() else str(entry.background)
 			if str(id).begins_with("character/"): art_path=FieldNotes.portrait(str(id).get_slice("/",1))
 			if str(id).begins_with("resident/"): art_path="res://art/sprites/npcs/beta/%s_portrait.png" % str(id).get_slice("/",1)
-			var thumbnail:=LootlingsUI.add_icon(button,Rect2(10,8,64,64),art_path)
+			var thumbnail:=LootlingsUI.add_icon(button,Rect2(10,8,124,96) if illustrated else Rect2(10,8,64,64),art_path)
+			if illustrated and str(art_path).contains("/backgrounds/"):
+				thumbnail.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED;thumbnail.clip_contents=true
 			if str(id).begins_with("origin/"): thumbnail.texture=Avatar.portrait(profile)
 		button.clip_text=true
 		button.disabled = not unlocked
@@ -994,12 +997,17 @@ func cycle_lore(direction: int) -> void:
 	lore_index = posmod(lore_index + direction, lore_entries.size())
 	var entry: Dictionary = lore_entries[lore_index]
 	lore_art.texture=entry.get("texture",LootlingsUI.icon(entry.art))
-	var landscape: bool=entry.category=="TRAILS"
+	var landscape: bool=entry.category=="TRAILS" or str(entry.art).contains("/backgrounds/")
 	lore_landscape_backing.visible=landscape
-	lore_art.position=Vector2(12,8);lore_art.size=Vector2(408,112) if landscape else Vector2(116,112)
+	lore_art.get_parent().size.y=240 if landscape else 128
+	lore_art.position=Vector2(12,8);lore_art.size=Vector2(408,224) if landscape else Vector2(116,112)
+	lore_landscape_backing.position.y=197 if landscape else 85
+	lore_detail.get_parent().position.y=404 if landscape else 292
+	lore_detail.get_parent().size.y=309 if landscape else 421
+	lore_detail.size.y=265 if landscape else 377
 	lore_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED if landscape else TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	lore_art.clip_contents=landscape
-	lore_heading.position=Vector2(20,87) if landscape else Vector2(142,14)
+	lore_heading.position=Vector2(20,199) if landscape else Vector2(142,14)
 	lore_heading.size=Vector2(392,32) if landscape else Vector2(270,100)
 	lore_heading.add_theme_font_size_override("font_size",19 if landscape else 22)
 	lore_heading.text=str(entry.name)
@@ -1430,11 +1438,11 @@ func build_transition_overlay() -> void:
 	add_child(presentation)
 
 func build_dialogue_overlay() -> void:
-	speech_panel=make_panel(self,Rect2(20,635,440,188),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
+	speech_panel=make_panel(self,Rect2(20,599,440,224),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
 	speech_portrait=TextureRect.new(); speech_portrait.position=Vector2(14,14); speech_portrait.size=Vector2(54,64); speech_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; speech_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; speech_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; speech_panel.add_child(speech_portrait)
-	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,110),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,146),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	make_button(speech_panel,"×",Rect2(386,6,48,48),Color("#172442"),Color("#7087ae"),22).pressed.connect(dismiss_dialogue)
-	speech_role=make_button(speech_panel,"",Rect2(82,132,304,48),Color("#293a46"),Color("#d8bd7b"),14)
+	speech_role=make_button(speech_panel,"",Rect2(82,168,304,48),Color("#293a46"),Color("#d8bd7b"),14)
 	speech_role.pressed.connect(func():
 		match speech_speaker:
 			"Salvager": show_forge()
@@ -1573,6 +1581,7 @@ func _draw() -> void:
 	draw_ui_sparks()
 
 func background_for_screen() -> Texture2D:
+	if current_screen=="lore" and lore_art!=null and lore_landscape_backing.visible and lore_art.texture!=null:return lore_art.texture
 	match current_screen:
 		"campaign", "contracts": return BetaArt.MARKET
 		"forge": return BetaArt.GEARWORKS
