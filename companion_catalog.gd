@@ -26,4 +26,6 @@ static func sanitize(value: Variant) -> Dictionary:
 static func texture(id: String, state: String, facing: String) -> Texture2D:
 	if id not in available_ids(): return null
 	var path: String=ENTRIES[id].get(state+"_"+facing,"")
-	return load(path) if not path.is_empty() and ResourceLoader.exists(path) else null
+	if path.is_empty() or not ResourceLoader.exists(path):return null
+	var result: Texture2D=load(path)
+	return result if result.get_size()==Vector2(256,256) else null

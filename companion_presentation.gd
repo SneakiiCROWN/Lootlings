@@ -25,4 +25,4 @@ func draw_home(canvas: Control, selection: Dictionary) -> void:
 	var texture:=preload("res://companion_catalog.gd").texture(id,state,facing)
 	# Missing action/opposite view remains absent, never a fake idle or mirror.
 	if texture==null:return
-	preload("res://lootlings_ui.gd").draw_icon(canvas.get_canvas_item(),texture,Rect2(position-Vector2(28,56),Vector2(56,56)))
+	preload("res://lootlings_ui.gd").draw_icon(canvas.get_canvas_item(),texture,Rect2(position-Vector2(128,224)*(56.0/256.0),Vector2(56,56)))

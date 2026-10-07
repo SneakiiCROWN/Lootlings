@@ -100,6 +100,23 @@ func build_title() -> void:
 	add_child(title_content)
 	LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
 	make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
+	# Franchise ensemble uses the seven accepted canonical portrait sources,
+	# never marketing boards or alternate actor designs.
+	var index:=0
+	for id in LootlingCatalog.selectable_ids():
+		var face:=TextureRect.new()
+		face.name="FranchisePortrait_"+id
+		# Set expansion before assigning a large atlas; otherwise its intrinsic
+		# minimum expands the Control before the requested small size is applied.
+		face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+		face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		face.texture=Avatar.portrait({"current_lootling_id":id,"avatar_mode":"lootling"},"happy")
+		face.position=Vector2(46+index*56,152)
+		face.size=Vector2(52,52)
+		face.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		face.tooltip_text=LootlingCatalog.definition(id).display_name
+		title_content.add_child(face)
+		index+=1
 	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 596, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
 	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 692, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
