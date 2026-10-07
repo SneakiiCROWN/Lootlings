@@ -645,6 +645,112 @@
       "wardrobe_requires": {},
       "baked_weapon": "",
       "restrictions": "Actual source attack-sequence ATTACK; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "IMPACT",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_impact_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.6640625,
+        0.8515625
+      ],
+      "secondary_anchor": [
+        0.376953125,
+        0.453125
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual right-facing source strike/release IMPACT only; no mirror or recovery/hurt substitution. Original hands and source markings retained. Alpha masking only, uniform resample, no invented anatomy."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "IMPACT",
+      "facing": "right_only",
+      "weapon_types": [
+        "claws"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_impact_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.7823795180722891,
+        0.9287697665662651
+      ],
+      "secondary_anchor": [
+        0.3305722891566265,
+        0.8327607304216867
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual right-facing source strike/release IMPACT only; no mirror or recovery/hurt substitution. Original hands and source markings retained. Alpha masking only, uniform resample, no invented anatomy."
+    },
+    {
+      "actor": "glimmerfin",
+      "phase": "IMPACT",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand",
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/glimmerfin_impact_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8059630102040817,
+        0.6307397959183674
+      ],
+      "secondary_anchor": [
+        0.7358099489795918,
+        0.6753826530612245
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "restrictions": "Actual right-facing source strike/release IMPACT only; no mirror or recovery/hurt substitution. Original hands and source markings retained. Alpha masking only, uniform resample, no invented anatomy."
     }
   ],
   "authority": "Owner extraction directive, locked sheet identity; idle-only integration, no final art acceptance"

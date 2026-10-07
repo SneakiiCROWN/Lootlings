@@ -82,6 +82,9 @@ def validate():
             if not s.exists() or sha_file(s)!=row['source_sha256']:errors.append('Extracted canonical source drift: '+row['source'])
             if kind in ['body','expression_portrait'] and not row['source'].startswith('art/reference/canonical/characters/'):
                 errors.append('Body/portrait cannot derive from rejected boards: '+row['id'])
+            if kind in ['body','expression_portrait']:
+                expected_source='art/reference/canonical/characters/'+('Lootlings_Main_Mascot_RelicBeast_Canonical.png' if row.get('actor')=='relic_beast' else str(row.get('actor','')).capitalize()+'_CharacterSheet_Canonical.png')
+                if row['source']!=expected_source:errors.append('Actor identity does not match dedicated canonical sheet: '+row['id'])
             if kind in ['weapons','hud'] and (row['id'] not in allowed_icons or row['source']!='art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png'):
                 errors.append('Unapproved reference element extraction: '+row['id'])
             if p.exists():
@@ -92,7 +95,7 @@ def validate():
         for row in runtime:
             source_record=next((e for e in extracted if e['asset_path']==row['asset_path']),{})
             expected=source_record.get('runtime_phase','ANTICIPATE' if row['asset_path'].endswith('gloomlet_windup_right.png') else 'IDLE')
-            if expected not in ['IDLE','ANTICIPATE','ATTACK']:errors.append('Unproven source action phase: '+row['asset_path'])
+            if expected not in ['IDLE','ANTICIPATE','ATTACK','IMPACT']:errors.append('Unproven source action phase: '+row['asset_path'])
             if row['asset_path'] not in body_paths or row['phase']!=expected or row['facing'] not in ['right_only','left_only']:
                 errors.append('Unproven extracted phase/view routing: '+row['asset_path'])
     reuse=json.loads((ROOT/'art/production/phase4e/reuse_manifest.json').read_text(encoding='utf-8'))['entries']

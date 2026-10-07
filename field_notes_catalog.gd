@@ -11,6 +11,7 @@ const UI = preload("res://lootlings_ui.gd")
 const CATEGORIES := ["ALL", "CAST", "TRAILS", "BOSSES", "GEAR"]
 
 static func portrait(actor: String) -> String:
+	if preload("res://actor_identity_corrections.gd").corrected_actor(actor):return ""
 	var path := "res://art/production/phase4e/ui/expressions/%s_happy.png" % actor
 	return path if ResourceLoader.exists(path) else str(Actors.definition(actor).profile_icon)
 

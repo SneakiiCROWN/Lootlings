@@ -40,6 +40,13 @@ class CanonGuard(unittest.TestCase):
             row['source']='art/reference/phase4e_handoff/approved_references/03_Gloomlet_Combat_Canonical_Reference.png'
             row['source_sha256']=guard.sha_file(guard.ROOT/row['source'])
         self.check_mutation(guard.ROOT/'art/production/phase4e/extraction_manifest.json',mutate)
+
+    def test_authored_other_character_is_not_canon_for_actor(self):
+        def mutate(d):
+            row=next(r for r in d['entries'] if r['kind']=='body')
+            row['source']='art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png'
+            row['source_sha256']=guard.sha_file(guard.ROOT/row['source'])
+        self.check_mutation(guard.ROOT/'art/production/phase4e/extraction_manifest.json',mutate)
     def test_idle_export_cannot_claim_an_attack(self):
         self.check_mutation(guard.ROOT/'art/production/phase4e/runtime_manifest.json',lambda d:d['entries'][0].update(phase='ATTACK'))
 

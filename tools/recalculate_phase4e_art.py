@@ -28,11 +28,14 @@ def main():
                 before[key]=row['asset_path'];coverage[key]=row['asset_path']
     for row in extracted:
         for weapon in row['weapon_types']:
-            states={'IDLE':'idle','ANTICIPATE':'windup','ATTACK':'strike_or_cast'}
+            states={'IDLE':['idle'],'ANTICIPATE':['windup'],'ATTACK':['strike_or_cast','follow_through'],'IMPACT':['follow_through']}
             assert row['phase'] in states,'Unproven extracted state: '+row['phase']
-            key=(row['actor'],states[row['phase']],row['facing'].removesuffix('_only'),weapon)
-            assert key not in coverage,'Must not overwrite good authored coverage'
-            coverage[key]=row['asset_path']
+            for state in states[row['phase']]:
+                key=(row['actor'],state,row['facing'].removesuffix('_only'),weapon)
+                assert key not in before,'Must not overwrite good authored coverage'
+                # Runtime uses a real later IMPACT, otherwise the accepted
+                # source ATTACK at commit. Count that existing fallback too.
+                if key not in coverage or row['phase']=='IMPACT':coverage[key]=row['asset_path']
     for req in requests['requests']:
         if req['category']!='playable':continue
         actor=req['asset_id'];canvas=req['required_canvas'];source=re.findall(r'res://[^` ]+',req['canonical_identity'])

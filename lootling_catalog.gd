@@ -31,6 +31,7 @@ static var texture_cache: Dictionary = {}
 static var definition_cache: Dictionary = {}
 
 static func runtime_texture(id: String) -> Texture2D:
+	if preload("res://actor_identity_corrections.gd").corrected_actor(id):return null
 	if not texture_cache.has(id):
 		var entry := definition(id)
 		texture_cache[id] = load(entry.runtime_sprite) if ResourceLoader.exists(entry.runtime_sprite) else BASE_TEXTURE
@@ -51,6 +52,10 @@ static func definition(id: String) -> Dictionary:
 	if id != "relic_beast" and ENTRIES.has(id) and str(result.runtime_sprite).is_empty():
 		result.runtime_sprite = "res://art/sprites/lootlings/%s_idle.png" % id
 	result.temp_art = not ResourceLoader.exists(str(result.runtime_sprite))
+	if preload("res://actor_identity_corrections.gd").corrected_actor(id):
+		result.runtime_sprite=""
+		result.profile_icon=""
+		result.temp_art=true
 	# Existing identities remain playable even while their final art is pending.
 	result.available = true
 	result.beta_art = id != "relic_beast" and not result.temp_art

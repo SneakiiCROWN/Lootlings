@@ -2463,6 +2463,9 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		end_run(false)
 	elif survived_hits % 4 == 0 and inventory.has_signature("rooted_revenge"):
 		deal_elemental_hit(base_damage*.30,"Poison")
+		# The authored thorn motif distinguishes this specific retaliation.
+		# Poison damage/audio/status identity and the four-hit rule stay intact.
+		element_flash_identity = "Nature"
 
 func deal_elemental_hit(amount: float, identity: String) -> void:
 	if not enemy_alive:

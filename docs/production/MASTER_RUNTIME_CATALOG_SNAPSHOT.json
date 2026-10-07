@@ -332,6 +332,14 @@
     ],
     "source_sha256": "8e5aea3c7d45f3799ed5c49b2c5171642148f563048829e43aadfec48e64a737"
   },
+  "actor_identity_corrections.gd": {
+    "constants": {},
+    "methods": [
+      "corrected_actor",
+      "allowed"
+    ],
+    "source_sha256": "a097a88735df133fa0451b69d770135ec978479f685f0f8d81976b71772b6be4"
+  },
   "affix_catalog.gd": {
     "constants": {
       "AFFIXES": {
@@ -1261,7 +1269,7 @@
       "facing_pack",
       "resolve"
     ],
-    "source_sha256": "e3585b8725d2644cdab9b90a5a9c11e77ce6195ae1189a7b214a85e1aaee159c"
+    "source_sha256": "2d459a42b0604de5d48987c820c69bb4275fff3fc8e735bb13643914ce1b1851"
   },
   "avatar_presentation.gd": {
     "constants": {
@@ -1333,7 +1341,7 @@
       "draw",
       "impact"
     ],
-    "source_sha256": "82b6929419b42d6a9461d86bb869b68233b0bafe0eee949d74c18f8066b02c01"
+    "source_sha256": "60e3c70c4ac04b9515c1a39be536cce87218b00c7a6be1df11fdb3e30a535cf0"
   },
   "boss_art_manifest.gd": {
     "constants": {
@@ -4296,7 +4304,7 @@
       "portrait",
       "pages"
     ],
-    "source_sha256": "05ed684fa32798c9fdc554fa407b0d6c660a414de1c707c03518ee8322b6a8e1"
+    "source_sha256": "b466a7a122a8dea2c65b9d195053e7bf831e3d2f66db4d7d87d05b0c02a37f75"
   },
   "forge_system.gd": {
     "constants": {
@@ -6438,7 +6446,7 @@
       "draw_loot_drop",
       "draw_moment_overlay"
     ],
-    "source_sha256": "6f0122625b208a4363c02fbfd88c4e2ebe67012a6229e503ebef9d663fe47185"
+    "source_sha256": "73aa701a888356d8b95a58dcd092ea782e6bfe55fe024dbcbef4e6d5af16815d"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -6588,7 +6596,7 @@
       "selectable_ids",
       "is_runtime_ready"
     ],
-    "source_sha256": "420555a1e9105873961d94f01b1c3de081dd9b373674fcf4d79e0a318b0139db"
+    "source_sha256": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e"
   },
   "lootlings_ui.gd": {
     "constants": {
@@ -7402,7 +7410,7 @@
       "inventory_icon",
       "portrait"
     ],
-    "source_sha256": "a857c61afdebb8783ece7f00cc628096895d0ce6488697945c4a7b3a32100e87"
+    "source_sha256": "3fb5d695b9122fb05a748042062df1e35b2ea05d1edfb7344935e151b8a47f84"
   },
   "pickup_presentation.gd": {
     "constants": {
@@ -7827,7 +7835,7 @@
       "draw_reels",
       "draw_seal"
     ],
-    "source_sha256": "59c07eddfc68e2ea14853ecf0255f1cf3c2e10631ebcde89661894e2ff09f6f3"
+    "source_sha256": "19befca3b196d6ad0b5b866cf2e39b23b86e1850bed3015d73a6345944a7b6ca"
   },
   "relic_reveal_fx.gd": {
     "constants": {},
@@ -9727,7 +9735,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "2e7746c6cf38218d94fb18f664de260f7433a63b796c13fea9633eee6eeaa1ce"
+    "source_sha256": "8288ae051b8d34652ca0244e237ec4ca1ae5a2fec144d6847657ec4fd5530121"
   },
   "world_content_catalog.gd": {
     "constants": {

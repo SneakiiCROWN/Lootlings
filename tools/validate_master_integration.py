@@ -21,6 +21,15 @@ def main():
     assert len(requested)==len(set(requested))==package['delivery_cells']
     assert set(requested)=={r['slot_id'] for r in rows if r['status']=='NEEDS_NEW_CANON_EXPORT'}
     assert package['body_view_packages']==len(package['packages'])
+    filenames=[]
+    for p in package['packages']:
+        for state in p['states'].values():
+            for req in state['requirements']:
+                for field in ['entity','state','facing','canvas','transparent_background','baseline','pivot','canonical_reference','source_destination','runtime_destination','socket_sidecar_filename','integration_contract','priority']:
+                    assert field in req,(req['slot_id'],field)
+                assert req['transparent_background'] and req['canvas']==p['canvas']
+                filenames.append(req['runtime_destination'])
+    assert len(filenames)==len(set(filenames)), 'Conflicting family delivery filenames'
     assert sum(package['support_packages_recalculated'].values())==data['counts']['support_packages']
     for name,categories in [('CHARACTER_POSE_MATRIX.csv',['playable']),('BOSS_ASSET_MATRIX.csv',['boss']),('ENEMY_ASSET_MATRIX.csv',['regional enemy','enemy','elite'])]:
         with (OUT/name).open(encoding='utf-8-sig',newline='') as f:

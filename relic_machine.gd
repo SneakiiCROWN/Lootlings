@@ -133,7 +133,7 @@ func draw_reels() -> void:
 	if tier>=4 and stage=="reveal" and burst>0:
 		# Painted payout energy belongs inside the clipped reel aperture, rather
 		# than being hidden behind its opaque child surface.
-		preload("res://bible_runtime_art.gd").draw(aperture_layer,"red_pillar" if tier==5 else "treasure_burst",Rect2(center-Vector2(86,68),Vector2(172,136)),burst*.7)
+		preload("res://bible_runtime_art.gd").draw(aperture_layer,"red_pillar" if tier==5 else "gold_pillar",Rect2(center-Vector2(86,68),Vector2(172,136)),burst*.7)
 		var count: int=6 if reduced_motion else 18 if tier==5 else 12
 		for ray in range(count):
 			var direction:=Vector2.RIGHT.rotated(ray*TAU/count)

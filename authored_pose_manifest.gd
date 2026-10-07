@@ -15,6 +15,7 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 		var reuse: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/reuse_manifest.json"))
 		if reuse is Dictionary: extracted_rows.append_array(reuse.get("entries",[]))
 	for row in extracted_rows:
+		if not preload("res://actor_identity_corrections.gd").allowed(str(row.actor),str(row.asset_path)):continue
 		if row.actor == actor and subtype in row.weapon_types and row.phase == phase and row.facing == ("left_only" if facing<0 else "right_only"):
 			# Canvas commands retain RIDs, not this local Texture2D reference.
 			# Keep source textures alive across frames, not just QA sampling.
@@ -47,6 +48,7 @@ static func facing_pack(actor: String, stance: String, facing: String) -> Dictio
 	var release := {}
 	var additional := {}
 	for row in rows():
+		if not preload("res://actor_identity_corrections.gd").allowed(str(row.actor),str(row.asset_path)):continue
 		if row.actor != actor or row.stance != stance or row.production_status != "authored_beta" or row.facing != facing:
 			continue
 		if row.phase == "READY": ready = row

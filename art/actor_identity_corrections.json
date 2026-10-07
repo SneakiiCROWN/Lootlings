@@ -1,0 +1,21 @@
+{
+  "authority": "Owner authority clarification, 2026-10-07: dedicated canonical sheets take priority. The preceding rejection of these matching runtime identities is superseded. Broad board 04 remains rejected for replacement bodies.",
+  "actors": {
+    "glimmerfin": {
+      "status": "DEDICATED_CANON_CONFIRMED",
+      "canonical_identity": "Pale aquatic Glimmerfin; pink/cyan frilled ears, luminous aquatic/tail treatment, blue crystal/Core, mage/tide presentation.",
+      "canonical_source": "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png",
+      "runtime_policy": "Preserve accepted exports derived from this dedicated sheet; missing states stay TEMP.",
+      "rejected_alternative_reference": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "rule": "Preserve matching dedicated-sheet exports; broad board is compatible pose/VFX/equipment guidance only. No new or TEMP body approval."
+    },
+    "gloomlet": {
+      "status": "DEDICATED_CANON_CONFIRMED",
+      "canonical_identity": "Black-purple furry Assassin; magenta ear interiors, violet eyes/Core, clawed partial armour, shadow/pounce presentation.",
+      "canonical_source": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "runtime_policy": "Preserve accepted exports derived from this dedicated sheet; missing states stay TEMP.",
+      "rejected_alternative_reference": "art/reference/phase4e_handoff/approved_references/04_Lootlings_Art_Bible_Canonical_Reference.png",
+      "rule": "Preserve matching dedicated-sheet exports; broad board is compatible pose/VFX/equipment guidance only. No mushroom, hooded replacement or TEMP body approval."
+    }
+  }
+}
