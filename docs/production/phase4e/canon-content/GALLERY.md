@@ -1,0 +1,57 @@
+# Canon content native gallery
+
+46 full-resolution images, JPEG94 with no resizing. Native desktop GLES3 at phone/tablet dimensions; rewards, effects and six rarity tiers are explicitly controlled previews. No device or final art acceptance is implied.
+
+## 1080x2340
+
+- [dungeon boss](native/1080x2340/dungeon_boss.jpg)
+- [dungeon rest](native/1080x2340/dungeon_rest.jpg)
+- [dungeon risk](native/1080x2340/dungeon_risk.jpg)
+- [home currencies](native/1080x2340/home_currencies.jpg)
+- [merchant currencies](native/1080x2340/merchant_currencies.jpg)
+- [notes owned relic](native/1080x2340/notes_owned_relic.jpg)
+- [reward coffer key](native/1080x2340/reward_coffer_key.jpg)
+- [reward courier appetite](native/1080x2340/reward_courier_appetite.jpg)
+- [reward gilded debt](native/1080x2340/reward_gilded_debt.jpg)
+- [reward marsh promise](native/1080x2340/reward_marsh_promise.jpg)
+- [reward promise bubble](native/1080x2340/reward_promise_bubble.jpg)
+- [reward receipt ring](native/1080x2340/reward_receipt_ring.jpg)
+- [reward safe aperture](native/1080x2340/reward_safe_aperture.jpg)
+- [reward siege receipt](native/1080x2340/reward_siege_receipt.jpg)
+- [spell frost](native/1080x2340/spell_frost.jpg)
+- [spell lightning](native/1080x2340/spell_lightning.jpg)
+- [spell poison](native/1080x2340/spell_poison.jpg)
+- [spinner common](native/1080x2340/spinner_common.jpg)
+- [spinner epic](native/1080x2340/spinner_epic.jpg)
+- [spinner legendary](native/1080x2340/spinner_legendary.jpg)
+- [spinner rare](native/1080x2340/spinner_rare.jpg)
+- [spinner red](native/1080x2340/spinner_red.jpg)
+- [spinner uncommon](native/1080x2340/spinner_uncommon.jpg)
+
+## 1200x1920
+
+- [dungeon boss](native/1200x1920/dungeon_boss.jpg)
+- [dungeon rest](native/1200x1920/dungeon_rest.jpg)
+- [dungeon risk](native/1200x1920/dungeon_risk.jpg)
+- [home currencies](native/1200x1920/home_currencies.jpg)
+- [merchant currencies](native/1200x1920/merchant_currencies.jpg)
+- [notes owned relic](native/1200x1920/notes_owned_relic.jpg)
+- [reward coffer key](native/1200x1920/reward_coffer_key.jpg)
+- [reward courier appetite](native/1200x1920/reward_courier_appetite.jpg)
+- [reward gilded debt](native/1200x1920/reward_gilded_debt.jpg)
+- [reward marsh promise](native/1200x1920/reward_marsh_promise.jpg)
+- [reward promise bubble](native/1200x1920/reward_promise_bubble.jpg)
+- [reward receipt ring](native/1200x1920/reward_receipt_ring.jpg)
+- [reward safe aperture](native/1200x1920/reward_safe_aperture.jpg)
+- [reward siege receipt](native/1200x1920/reward_siege_receipt.jpg)
+- [spell frost](native/1200x1920/spell_frost.jpg)
+- [spell lightning](native/1200x1920/spell_lightning.jpg)
+- [spell poison](native/1200x1920/spell_poison.jpg)
+- [spinner common](native/1200x1920/spinner_common.jpg)
+- [spinner epic](native/1200x1920/spinner_epic.jpg)
+- [spinner legendary](native/1200x1920/spinner_legendary.jpg)
+- [spinner rare](native/1200x1920/spinner_rare.jpg)
+- [spinner red](native/1200x1920/spinner_red.jpg)
+- [spinner uncommon](native/1200x1920/spinner_uncommon.jpg)
+
+[13 original-pixel exports](exports.png) · [source/crop/alpha provenance](source-exports.json) · [report](REPORT.md) · [capture hashes](native_manifest.json)

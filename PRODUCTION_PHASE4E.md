@@ -2,7 +2,13 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v34
+## CURRENT — Phase4E / v35
+
+Implementation `a69d300169081a943190a050c8ea156f13fc8208`: 13 original-pixel relic/currency/dungeon/elemental exports, eight actual relic routes, Notes map/owned-gear presentation and all six spinner previews. No new body/action state, redesign, mechanics/balance/save/economy change. Accepted v34 actions and v33 work preserved. [Report/separate QA receipt](docs/production/phase4e/canon-content/REPORT.md) · [46 native phone/tablet captures](docs/production/phase4e/canon-content/GALLERY.md).
+
+Android v35 `0.4.26-phase4e-canon-content`: `builds/android/Lootlings-phase4e-canon-content-debug.apk`. GO for scoped S23 review; HOLD for full Phase4E/release. **6,873 records / 6,143 launch slots / 3,087 LIVE_BETA / 3,056 missing (2,318 playable) / 106 body-view bundles / 165 support packages / zero LIVE_FINAL.** 112 extracted assets. No additional combat TEMP cells resolved by this non-body batch; v34's nine-cell reduction preserved. Exact current request package supplies filenames, destinations, equipment/VFX contracts and priorities. Dragon tail, missing action/support art, physical-device/save and perceptual owner/audio gates remain open. No Phase4F.
+
+## Historical v34 delivery — superseded by CURRENT above
 
 Implementation `d5b7b87347c003a36ce73ef1e6ca20e75d71ce3c`: eight original canonical attack-sequence exports across Emberhorn, Moonkip, Pebblewyrm, Glimmerfin and Gloomlet. Nine exact TEMP right-facing action/family cells resolved; no new identity, fake recovery/opposite view, damage/timing/economy/save change. Existing accepted v33 work and authored heavy poses remain intact. [Action report / separate QA checkpoint](docs/production/phase4e/canonical-actions/REPORT.md) · [84 native phone/tablet comparisons and captures](docs/production/phase4e/canonical-actions/GALLERY.md).
 
