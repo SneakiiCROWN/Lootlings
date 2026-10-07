@@ -2,7 +2,13 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v35
+## CURRENT — Phase4E / v36
+
+Implementation `585c24cd3333b40d52e65e71395ebe7ffc3969ab`: eight original-pixel utility exports integrated into Memory/Trophy Archive, Contracts, merchant Stash Expansion, heavy-echo rune cards/Notes, Siege service controls and Fire/Arcane magic flight. Prior v35/v34 work preserved; no new body/action state, identity, mechanics/balance/save/economy change. [Report/separate QA receipt](docs/production/phase4e/canon-utilities/REPORT.md) · [24 native phone/tablet captures](docs/production/phase4e/canon-utilities/GALLERY.md).
+
+Android v36 `0.4.27-phase4e-canon-utilities`: `builds/android/Lootlings-phase4e-canon-utilities-debug.apk`. Scoped native/package QA passes; HOLD for full Phase4E/release. **6,889 records / 6,159 launch slots / 3,103 LIVE_BETA / 3,056 missing (2,318 playable) / 106 body-view bundles / 165 support packages / zero LIVE_FINAL.** 120 extracted assets. Zero additional combat TEMP cells closed and zero new missing-art requirements introduced. Existing exact state/export requests and art/device/save/audio/owner gates remain open. Continue independent safe repo work; no Phase4F.
+
+## Historical v35 delivery — superseded by CURRENT above
 
 Implementation `a69d300169081a943190a050c8ea156f13fc8208`: 13 original-pixel relic/currency/dungeon/elemental exports, eight actual relic routes, Notes map/owned-gear presentation and all six spinner previews. No new body/action state, redesign, mechanics/balance/save/economy change. Accepted v34 actions and v33 work preserved. [Report/separate QA receipt](docs/production/phase4e/canon-content/REPORT.md) · [46 native phone/tablet captures](docs/production/phase4e/canon-content/GALLERY.md).
 
