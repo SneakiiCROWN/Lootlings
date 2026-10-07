@@ -2,7 +2,15 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v31
+## CURRENT — Phase4E / v33
+
+Recovered implementation `f7d9ed653106b183ab05d07e9c2a9c9e7fb46d30`; world/layout continuation `7e7d48dab7e23360aa0bd55ea875afcb1346e334`; QA/report `7fb59497fd4ad79594a2c9b092cf2403cefe2520`. Android v33 `0.4.24-phase4e-bible-world`: `builds/android/Lootlings-phase4e-bible-world-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
+
+13 new original-pixel approved exports integrated across spell/projectile/contact, chest/Relic Engine, merchant/Forge and dungeon visuals. Accepted HUD face/frame reuse, larger illustrated Notes/Memory pages, region-aware mode/Notes backgrounds and native dungeon/dialogue spacing fixes. [Report/build receipts](docs/production/phase4e/bible-runtime/REPORT.md) · [38 full-size native captures](docs/production/phase4e/bible-runtime/GALLERY.md). No absent combat states fabricated or TEMP cells closed; no rejected handoff bodies integrated.
+
+6,831 records / 6,101 launch slots / 3,036 LIVE_BETA / 3,065 missing cells / 106 body-view bundles / 165 support packages. Source tail, exact canonical actions/supports, visual/audio owner acceptance and physical-device/save gates remain open. Current generated inventories and START_HERE_CURRENT remain authoritative.
+
+## Historical v31 delivery — superseded by CURRENT above
 
 Runtime implementation `844b0ad2c7c4d696db0826f90863e07d4c2fbf39`; QA/report `85bbbdf2faf12d6f70470399cc5d5cd4568b9904`. Android v31 `0.4.22-phase4e-approved-mass`: `builds/android/Lootlings-phase4e-approved-mass-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
 
