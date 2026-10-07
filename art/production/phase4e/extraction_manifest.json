@@ -1787,6 +1787,333 @@
       "integrated": true,
       "asset_sha256": "d59c0d9d4b564d66da25f8faf42c5d095f83906fbbfd59bebe711cefa37a9a6c",
       "restrictions": "Compatible rune/element inventory glyph only; no spell mechanics, identity or body changes"
+    },
+    {
+      "id": "fire_arc",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        355,
+        0,
+        588,
+        272
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/vfx/fire_arc.png",
+      "canvas": [
+        241,
+        280
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "cc6b2a0c334216b218b8234b1a4ad2c65f32b0e79f421376dd29be5519e99018",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "frost_burst",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        595,
+        0,
+        904,
+        266
+      ],
+      "alpha_exclusions": [
+        [
+          145,
+          252,
+          177,
+          266
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/frost_burst.png",
+      "canvas": [
+        317,
+        274
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "dd677bd68d04b2b042c2c54898dd90d86b4026c4ab4673e9d42214e510fe0396",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "shadow_seal",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        1172,
+        272,
+        1448,
+        553
+      ],
+      "alpha_exclusions": [
+        [
+          200,
+          0,
+          276,
+          18
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/shadow_seal.png",
+      "canvas": [
+        284,
+        289
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "19814a351ef6f013c1e946fb8ab13b29957f1b7da0ec86680065f4a4ce07c4d7",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "shadow_orb",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        1180,
+        559,
+        1448,
+        802
+      ],
+      "alpha_exclusions": [
+        [
+          130,
+          237,
+          160,
+          243
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/shadow_orb.png",
+      "canvas": [
+        276,
+        251
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "77a2512707cabde4bb5598994ab5680b26a0a0bdb2f885b80fba43b90ca2fc3f",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "crystal_ward",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        904,
+        563,
+        1172,
+        808
+      ],
+      "alpha_exclusions": [
+        [
+          220,
+          0,
+          268,
+          10
+        ],
+        [
+          258,
+          125,
+          268,
+          245
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/crystal_ward.png",
+      "canvas": [
+        276,
+        253
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "a4dad5dc90f4bfa69894251890bd58774ad6212eaa44479f013b08ba3802b56f",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "treasure_burst",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        298,
+        558,
+        598,
+        800
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/vfx/treasure_burst.png",
+      "canvas": [
+        308,
+        250
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "df438b2bbf9065bb5819a55df8eb1ab38f48c785d3efa818b3fda4cb0d27a2f5",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "red_pillar",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        1150,
+        808,
+        1448,
+        1086
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/vfx/red_pillar.png",
+      "canvas": [
+        306,
+        286
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "3df5d06390fdcec0b0ab27d28956f942c188dab6830961b755dbc9f1221037e3",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "nature_vines",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        581,
+        811,
+        858,
+        1086
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/vfx/nature_vines.png",
+      "canvas": [
+        285,
+        283
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "00a591f4d8be97a15eaa962fc95d8dc9e802f641baed5be814118b8eb624693c",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "recipe_scroll",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        945,
+        548,
+        1180,
+        797
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/items/recipe_scroll.png",
+      "canvas": [
+        243,
+        257
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "4ea54bf6b22898f4f5fcee1f3c2fe9874dc08aaef35392c390c41e60eb6dce0e",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "treasure_key",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        1214,
+        800,
+        1448,
+        1086
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/items/treasure_key.png",
+      "canvas": [
+        242,
+        294
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "eff8c9ac167356a09fbb4543a49586acb73a54b9ec94959f50fd432a869f8a0c",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "reward_crown",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        1204,
+        0,
+        1448,
+        273
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/items/reward_crown.png",
+      "canvas": [
+        252,
+        281
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "67e7ac6edb1fc7a6b72ffeb9e2952fec3f412799d14f8c48ab358a80c36e0e36",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "forge_station",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        174,
+        730,
+        465,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          24,
+          65
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/props/forge_station.png",
+      "canvas": [
+        299,
+        364
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "8ba5cebd8c524cd943e68f4596a166d48cbdca4da3bbe971eb78f8c256cff8aa",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
+    },
+    {
+      "id": "merchant_cart",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        1023,
+        0,
+        1448,
+        354
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/props/merchant_cart.png",
+      "canvas": [
+        433,
+        362
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "8a470467e3ef89b752aa9efaecc491e82b1df75462a16a268fa39754ce22d449",
+      "restrictions": "Original RGB crop; alpha-only silhouette isolation and recorded foreign-fragment masks; static presentation motif, never fabricated animation frame"
     }
   ]
 }

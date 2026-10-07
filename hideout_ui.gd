@@ -338,6 +338,7 @@ func build_home() -> void:
 	make_object_hotspot(home_content,"ShopEntrance",Rect2(398,238,66,82),show_shop,"Visit the Salvager shop")
 	
 	make_object_hotspot(home_content,"StorageChest",Rect2(18,488,126,156),show_stash,"Open Gear")
+	make_object_hotspot(home_content,"ForgeStation",Rect2(2,644,108,60),show_forge,"Visit the weapon Forge")
 	make_object_hotspot(home_content,"ShrineProp",Rect2(4,204,88,126),show_upgrades,"Visit the shrine")
 	make_object_hotspot(home_content,"ArchiveDesk",Rect2(326,628,120,54),func(): show_phase4("archive"),"Open Ilex's Archive")
 	make_object_hotspot(home_content,"ContractBoard",Rect2(330,232,62,48),show_contracts,"Read the pinned jobs")
@@ -777,6 +778,7 @@ func build_shop() -> void:
 	back.pressed.connect(show_home)
 	make_label(shop_content, "SALVAGER'S STALL", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
+	LootlingsUI.add_icon(shop_content,Rect2(20,97,105,88),"res://art/production/phase4e/props/merchant_cart.png")
 	for index in range(3):
 		var offer_button := make_button(shop_content, "", Rect2(20 + index * 147, 196, 137, 120), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
@@ -1593,6 +1595,8 @@ func draw_home_scene() -> void:
 	# identity, touch node, station system or generated replacement silhouette.
 	LootlingsUI.draw_icon(get_canvas_item(),HOME_GATE_ART,Rect2(153,106,174,158))
 	LootlingsUI.draw_icon(get_canvas_item(),HOME_SHRINE_ART,Rect2(8,210,80,112))
+	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("merchant_cart","props"),Rect2(388,235,80,87))
+	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("forge_station","props"),Rect2(10,646,88,58))
 	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(scene_time*1.7)*.025
 	draw_arc(Vector2(240,179),63,-PI,0,32,gate_light,4,true)
 	for rune in range(5):

@@ -1282,7 +1282,7 @@
       "display_name",
       "identity_line"
     ],
-    "source_sha256": "0078429b40b74aa1886fd313cdcc3e1cc8be99adaf0b3143b4be423ebe171a5e"
+    "source_sha256": "3d81b51609664dab8c89ea5e0e3462cb17010ef968f25b1b067a2a9fa4eff4bd"
   },
   "beta_art_catalog.gd": {
     "constants": {
@@ -1325,6 +1325,15 @@
       "region_background"
     ],
     "source_sha256": "edccebe83e308529b811040b4a299a9427b96a2b50febff9dc9f893857f77a0c"
+  },
+  "bible_runtime_art.gd": {
+    "constants": {},
+    "methods": [
+      "texture",
+      "draw",
+      "impact"
+    ],
+    "source_sha256": "437127752f784ebc1ba20a1a6949b76a9c114c9c07658761af5ef33b708610f9"
   },
   "boss_art_manifest.gd": {
     "constants": {
@@ -3197,7 +3206,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "ad2e0aceaccae4eab37b6b599fa81ad7b8c7eb5f46f1b603dd8ab659cd265773"
+    "source_sha256": "b4d6010e13db70b3fdc78aabe080778d27891ede10b623bac28b0ef287b12b9c"
   },
   "debug_panel.gd": {
     "constants": {},
@@ -3686,12 +3695,12 @@
         },
         "Merchant": {
           "desc": "Spend your Run Scrip. Existing shop tradeoffs.",
-          "icon": "currency_run_scrip",
+          "icon": "res://art/production/phase4e/props/merchant_cart.png",
           "title": "PACK PEDDLER"
         },
         "Rest": {
           "desc": "Recover 22% of maximum HP. No currency cost.",
-          "icon": "res://art/ui/icons/upgrades/regen.png",
+          "icon": "res://art/production/phase4e/vfx/nature_vines.png",
           "title": "QUIET CAMP"
         },
         "Risk": {
@@ -3701,12 +3710,12 @@
         },
         "Shrine": {
           "desc": "Choose one free run upgrade. No permanent stats.",
-          "icon": "core_neutral",
+          "icon": "res://art/production/phase4e/props/home_shrine.png",
           "title": "RELIC SHRINE"
         },
         "Treasure": {
           "desc": "Open a Relic Chest. One guaranteed item.",
-          "icon": "gear_charm",
+          "icon": "res://art/production/phase4e/items/treasure_key.png",
           "title": "SEALED TREASURY"
         }
       }
@@ -3717,7 +3726,7 @@
       "choose",
       "reward_caps"
     ],
-    "source_sha256": "524e63296cb50a500d77d20f9fb72f8c983e9fce69397c087a35d214e32b6937"
+    "source_sha256": "e35a8a6b6d1067a15b4b3831920339b96490cba3d954a942d80b3b0d7e51ab21"
   },
   "endgame_progress.gd": {
     "constants": {
@@ -4788,7 +4797,7 @@
       "apply_button_style",
       "safe_action"
     ],
-    "source_sha256": "a962f482f7eea2fb52ad0a06d3ae2ba1c75c52999c79f11b384e92de39cb4531"
+    "source_sha256": "23f1ee7fb8f5503d39afd5dcf2a3fd65b00b3186f844a152edd1790f412ec633"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -4796,7 +4805,7 @@
       "contact",
       "element"
     ],
-    "source_sha256": "8100f3af356ea1b1df75ed8fe73fc7c6b308afe5ddbb47cf545df649c7437d79"
+    "source_sha256": "1ed3c7973f87a66c477fc99dc555b9a165079e51229ed10387b847994502e8e4"
   },
   "inventory_system.gd": {
     "constants": {
@@ -6429,7 +6438,7 @@
       "draw_loot_drop",
       "draw_moment_overlay"
     ],
-    "source_sha256": "3af4119f75d9d331d86aa3b53a1bb7f563095a488050c7441cf967753a2f244c"
+    "source_sha256": "5ecfaf7d0d09791b8af557b5d857fe9947e8fdba4ea6faa9261f9b15ef038842"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7431,7 +7440,7 @@
       "draw_chest",
       "fit_title"
     ],
-    "source_sha256": "62fc1557d623773db6d5a07fd27a3da189b5d8b9de2858289411070773db3af6"
+    "source_sha256": "034999fad57fdbc0c8751c6040b029961bf761c138ca88f954312f3427e3ae78"
   },
   "profile_store.gd": {
     "constants": {
@@ -7485,7 +7494,7 @@
       "n",
       "draw_impact"
     ],
-    "source_sha256": "d0b475a12c0e54f37a2ee2acc7ef7775c22134182029e09d2b83af3bff2b137e"
+    "source_sha256": "c0292e64e5c87d77f156b922489d615c22a56b998cbd7043b7b8c6eea562dfba"
   },
   "regional_enemy_presentation.gd": {
     "constants": {
@@ -7804,7 +7813,7 @@
       "draw_reels",
       "draw_seal"
     ],
-    "source_sha256": "b9661b68c70e60eb0f9ce231d6696a3cd25adeaf374987fe55ab66b319e3c1c6"
+    "source_sha256": "59c07eddfc68e2ea14853ecf0255f1cf3c2e10631ebcde89661894e2ff09f6f3"
   },
   "relic_reveal_fx.gd": {
     "constants": {},

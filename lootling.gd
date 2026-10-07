@@ -3720,7 +3720,7 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_rect(Rect2(0,0,480,86),Color("#081329b8"))
+	draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(0,0,480,86))
 	var portrait_expression := "sad" if player_flash>0 else "excited" if player_reward_flash>0 else "surprised" if special_intro_timer>0 else "cheeky" if crit_flash>0 else "angry" if attack_anim>0 else "determined"
 	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile,portrait_expression), Rect2(12, 17, 42, 42))
 	var actor_name:=Avatar.display_name(profile).to_upper()
@@ -3758,6 +3758,7 @@ func draw_arena(shake: Vector2) -> void:
 		if not enemy_is_boss: enemy_hud_x=clampf(target_combat_visual_position().x-enemy_hud_width*.5,16,480-enemy_hud_width-16)
 		while enemy_name_size > 11 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1
+		draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(enemy_hud_x-10,enemy_hud_y-26,enemy_hud_width+20,64))
 		draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y), display_enemy_name, HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, mini(enemy_name_size,17), Color("#f4f7ff"))
 		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
 		var status_x := 165.0

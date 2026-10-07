@@ -29,6 +29,7 @@ static func contact(g, pos: Vector2) -> void:
 			g.draw_colored_polygon(PackedVector2Array([start,start+Vector2(4,1),start+Vector2(1,5)]),Color(tint,life*.85))
 
 static func element(g,pos: Vector2,identity: String,ratio: float) -> void:
+	if preload("res://bible_runtime_art.gd").impact(g,pos,identity,ratio):return
 	var tint: Color=preload("res://projectile_presentation.gd").COLORS.get(identity,Color("#b4b5ee"))
 	match identity:
 		"Fire":

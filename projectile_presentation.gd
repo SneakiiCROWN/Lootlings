@@ -59,6 +59,9 @@ static func draw_projectile(g, p: Dictionary) -> void:
 	else:
 		draw_trail(g,pos-d*7,d,element)
 		var radius := 6.0 if p.get("weapon_type","") == "wand" else 10.0
+		if element in ["Arcane","Corruption"]:
+			preload("res://bible_runtime_art.gd").draw(g,"shadow_orb" if element=="Corruption" else "crystal_ward",Rect2(pos-Vector2.ONE*radius*1.4,Vector2.ONE*radius*2.8))
+			return
 		g.draw_circle(pos,radius+3,Color(color.r,color.g,color.b,.14))
 		g.draw_colored_polygon(PackedVector2Array([pos+d*radius*1.5,pos+n(d)*radius*.65,pos-d*radius,pos-n(d)*radius*.65]),color)
 		g.draw_line(pos-d*radius*.4,pos+d*radius,Color("#fff1cf"),2,true)

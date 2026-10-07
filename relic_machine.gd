@@ -90,10 +90,7 @@ func _draw() -> void:
 				draw_circle(Vector2(x,y),4.5,Color(tint,lit*energy))
 				draw_circle(Vector2(x,y),2,Color("#fff1cf").lerp(tint,.35))
 		if tier>=4:
-			# Crown teeth distinguish a jackpot from the ordinary six-colour frame.
-			var crest:=PackedVector2Array([Vector2(center.x-32,35),Vector2(center.x-39,8),Vector2(center.x-14,22),Vector2(center.x,3),Vector2(center.x+14,22),Vector2(center.x+39,8),Vector2(center.x+32,35)])
-			draw_colored_polygon(crest,Color(tint,energy*.85))
-			draw_polyline(crest,Color("#fff0cb",energy*.75),1.5,true)
+			preload("res://bible_runtime_art.gd").draw(self,"reward_crown",Rect2(center.x-38,1,76,38),energy,"items")
 	var aperture:=Rect2(34*size.x/376,44*size.y/224,size.x-68*size.x/376,142*size.y/224)
 	draw_style_box(Catalog.flat_style(Color("#030917"),tint.darkened(.3)),aperture)
 	aperture_layer.position=aperture.position+Vector2(2,2); aperture_layer.size=aperture.size-Vector2(4,4); aperture_layer.queue_redraw()
@@ -134,6 +131,9 @@ func draw_reels() -> void:
 	var center:=aperture_layer.size*.5
 	var width:=aperture_layer.size.x/3
 	if tier>=4 and stage=="reveal" and burst>0:
+		# Painted payout energy belongs inside the clipped reel aperture, rather
+		# than being hidden behind its opaque child surface.
+		preload("res://bible_runtime_art.gd").draw(aperture_layer,"red_pillar" if tier==5 else "treasure_burst",Rect2(center-Vector2(86,68),Vector2(172,136)),burst*.7)
 		var count: int=6 if reduced_motion else 18 if tier==5 else 12
 		for ray in range(count):
 			var direction:=Vector2.RIGHT.rotated(ray*TAU/count)
@@ -183,4 +183,5 @@ func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_
 	for rune in range(8):
 		var direction:=Vector2.RIGHT.rotated(rune*TAU/8)
 		layer.draw_line(point+direction*(radius-4),point+direction*(radius-1),Color("#f3dca8"),1,true)
-	UI.draw_icon(layer.get_canvas_item(),UI.icon(icon_name),Rect2(point-Vector2.ONE*radius*.56,Vector2.ONE*radius*1.12))
+	var image: Texture2D=preload("res://bible_runtime_art.gd").texture("recipe_scroll","items") if icon_name=="gear_rune" else UI.icon(icon_name)
+	UI.draw_icon(layer.get_canvas_item(),image,Rect2(point-Vector2.ONE*radius*.73,Vector2.ONE*radius*1.46))

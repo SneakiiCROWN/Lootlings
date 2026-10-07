@@ -327,6 +327,8 @@ static func draw_chest(canvas: CanvasItem, center: Vector2, kind: String, openin
 	var color := Color(1, 1, 1, clampf(alpha, 0, 1))
 	canvas.draw_set_transform(center, 0, Vector2(scale_factor * (1.0 + squash * 0.12), scale_factor * (1.0 - squash * 0.08)))
 	canvas.draw_circle(Vector2(0, -12), 44 + opening * 14, Color(0.72, 0.48, 1.0, alpha * (0.10 + opening * 0.18)))
+	if opening>.1:
+		preload("res://bible_runtime_art.gd").draw(canvas,"treasure_burst",Rect2(-58,-105,116,100),opening*alpha*.65)
 	# Preserve the complete painted silhouette; a genuine hinged-open frame is
 	# a production-art requirement, not two arbitrary slices of the closed art.
 	canvas.draw_texture_rect(texture, Rect2(-80, -76 - sin(opening * PI) * 5, 160, 140), false, color)

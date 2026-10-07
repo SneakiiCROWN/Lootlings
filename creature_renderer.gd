@@ -94,6 +94,9 @@ func draw_cast_connection(g, pose: Dictionary) -> void:
 	var impact: float=float(pose.action.impact)
 	var energy: float=maxf(charge,impact)
 	if energy<=.02: return
+	if pose.weapon_type=="orb":
+		var socket_pos: Vector2=Vector2(pose.weapon_rect.position)+Vector2(pose.geometry.socket)*Vector2(pose.weapon_rect.size)
+		preload("res://bible_runtime_art.gd").draw(g,"shadow_orb" if preload("res://projectile_presentation.gd").identity(g)=="Corruption" else "crystal_ward",Rect2(socket_pos-Vector2(16,16),Vector2(32,32)),energy*.65)
 	var rect: Rect2=pose.weapon_rect
 	var socket: Vector2=rect.position+Vector2(pose.geometry.socket)*rect.size
 	var color: Color=preload("res://projectile_presentation.gd").COLORS.get(preload("res://projectile_presentation.gd").identity(g),Color("#a8acff"))

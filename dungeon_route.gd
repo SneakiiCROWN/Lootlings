@@ -8,11 +8,11 @@ const LAYERS := [
 const ROOMS := {
 	"Combat":{"icon":"res://art/ui/icons/upgrades/damage.png", "desc":"Three foes. Choose targets; clear the patrol.", "title":"PATROL CHAMBER"},
 	"Elite":{"icon":"variant_armoured", "desc":"One tough guardian. Guaranteed equipment.", "title":"RELIC GUARDIAN"},
-	"Treasure":{"icon":"gear_charm", "desc":"Open a Relic Chest. One guaranteed item.", "title":"SEALED TREASURY"},
-	"Merchant":{"icon":"currency_run_scrip", "desc":"Spend your Run Scrip. Existing shop tradeoffs.", "title":"PACK PEDDLER"},
-	"Shrine":{"icon":"core_neutral", "desc":"Choose one free run upgrade. No permanent stats.", "title":"RELIC SHRINE"},
+	"Treasure":{"icon":"res://art/production/phase4e/items/treasure_key.png", "desc":"Open a Relic Chest. One guaranteed item.", "title":"SEALED TREASURY"},
+	"Merchant":{"icon":"res://art/production/phase4e/props/merchant_cart.png", "desc":"Spend your Run Scrip. Existing shop tradeoffs.", "title":"PACK PEDDLER"},
+	"Shrine":{"icon":"res://art/production/phase4e/props/home_shrine.png", "desc":"Choose one free run upgrade. No permanent stats.", "title":"RELIC SHRINE"},
 	"Risk":{"icon":"variant_cursed", "desc":"A stronger three-foe patrol. Ordinary drop rules.", "title":"CURSED CROSSING"},
-	"Rest":{"icon":"res://art/ui/icons/upgrades/regen.png", "desc":"Recover 22% of maximum HP. No currency cost.", "title":"QUIET CAMP"},
+	"Rest":{"icon":"res://art/production/phase4e/vfx/nature_vines.png", "desc":"Recover 22% of maximum HP. No currency cost.", "title":"QUIET CAMP"},
 	"Boss":{"icon":"rarity_legendary", "desc":"Defeat the guardian. Open its three-choice Hoard.", "title":"THE FINAL VAULT"},
 }
 var active := false
