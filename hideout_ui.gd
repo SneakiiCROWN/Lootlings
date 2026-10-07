@@ -988,7 +988,7 @@ func refresh_memories() -> void:
 		if unlocked:
 			var art_path: String = str(entry.actor) if not str(entry.actor).is_empty() else str(entry.background)
 			if str(id).begins_with("character/"): art_path=FieldNotes.portrait(str(id).get_slice("/",1))
-			if str(id).begins_with("resident/"): art_path="res://art/sprites/npcs/beta/%s_portrait.png" % str(id).get_slice("/",1)
+			if str(id).begins_with("resident/"): art_path=preload("res://resident_art_catalog.gd").portrait_path(str(id).get_slice("/",1))
 			var thumbnail:=LootlingsUI.add_icon(button,Rect2(10,8,124,96) if illustrated else Rect2(10,8,64,64),art_path)
 			if illustrated and str(art_path).contains("/backgrounds/"):
 				thumbnail.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED;thumbnail.clip_contents=true
@@ -1915,7 +1915,7 @@ func build_home_settings() -> void:
 	for id in preload("res://companion_catalog.gd").known_ids():
 		var entry: Dictionary=preload("res://companion_catalog.gd").ENTRIES[id]
 		var row:=Control.new();row.custom_minimum_size=Vector2(380,126);list.add_child(row)
-		var face:=TextureRect.new();face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;face.texture=preload("res://companion_catalog.gd").preview(id);face.position=Vector2(4,12);face.size=Vector2(64,64);face.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(face)
+		var face:=TextureRect.new();face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;face.texture=preload("res://companion_catalog.gd").idle_preview(id);face.texture=face.texture if face.texture!=null else preload("res://companion_catalog.gd").preview(id);face.position=Vector2(0,4);face.size=Vector2(76,94);face.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(face)
 		make_label(row,entry.name,20,Rect2(82,2,232,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe3ac"))
 		make_label(row,entry.unlock_name,14,Rect2(82,36,232,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#dce6ff"))
 		var token:=TextureRect.new();token.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;token.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;token.texture=preload("res://companion_catalog.gd").preview(id,true);token.position=Vector2(322,4);token.size=Vector2(50,58);token.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(token)

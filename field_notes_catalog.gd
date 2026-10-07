@@ -28,7 +28,8 @@ static func pages(profile: Dictionary, campaign, inventory) -> Array[Dictionary]
 		result.append({"id":"wanderer/"+actor, "category":"CAST", "name":entry.display_name, "body":"Wanderer • "+str(entry.body_frame).capitalize()+" build\n\n"+str(entry.outfit_cosmetic_id).replace("_"," ").capitalize()+"\n\nYour past does not choose your weapon.", "art":entry.runtime_sprite, "texture":face})
 	for resident in Memories.RESIDENTS:
 		var entry: Dictionary = Memories.RESIDENTS[resident]
-		result.append({"id":"resident/"+resident, "category":"CAST", "name":entry.name, "body":Story.NPC_NOTES[entry.name], "art":"res://art/sprites/npcs/beta/%s_portrait.png" % resident})
+		var art: String=preload("res://resident_art_catalog.gd").portrait_path(resident)
+		result.append({"id":"resident/"+resident, "category":"CAST", "name":entry.name, "body":Story.NPC_NOTES[entry.name], "art":art})
 	for region in Story.REGIONS:
 		if campaign != null and campaign.available(region):
 			result.append({"id":"region/"+region, "category":"TRAILS", "name":preload("res://campaign_system.gd").title(region), "body":Story.region_line(region,0)+"\n\n"+Story.region_line(region,1), "art":Memories.region_background(region)})

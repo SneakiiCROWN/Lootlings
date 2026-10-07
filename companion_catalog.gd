@@ -24,6 +24,19 @@ static func preview(id: String, unlock: bool=false) -> Texture2D:
 	if id not in ENTRIES:return null
 	return load("res://art/production/companions/previews/"+id+("_unlock.png" if unlock else "_portrait.png"))
 
+static func idle_preview(id: String) -> Texture2D:
+	# Partial validated neutral art is a collection preview, never an equip gate.
+	if id not in ENTRIES or not FileAccess.file_exists(RUNTIME_MANIFEST):return null
+	var manifest=JSON.parse_string(FileAccess.get_file_as_string(RUNTIME_MANIFEST))
+	if not manifest is Dictionary or not manifest.get("entries",null) is Array:return null
+	var path:=runtime_path(id,"idle","right")
+	for row in manifest.entries:
+		if row is Dictionary and row.get("actor","")==id and row.get("state","")=="idle" and row.get("facing","")=="right" and row.get("asset_path","")==path and row.get("owner_approved",false)==true and row.get("native_validated",false)==true:
+			if ResourceLoader.exists(path):
+				var result=load(path)
+				return result if result is Texture2D and result.get_size()==Vector2(256,256) else null
+	return null
+
 static func available_ids() -> Array[String]:
 	var result: Array[String] = []
 	# Merely dropping PNGs into the folder does not approve body-state anatomy.

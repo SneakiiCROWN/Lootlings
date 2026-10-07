@@ -19,6 +19,10 @@ func _initialize():
  assert(catalog.entry("boss/drowned_engine").lines.size()==3)
  assert(catalog.boss_entries().size()==11)
  var notes=load("res://.godot_test_data/apk-canon-proof/field_notes_catalog.gdc")
+ for id in ["patch","ilex"]:
+  assert(catalog.entry("resident/"+id).actor.ends_with(id+"_canonical_station_panel.png"))
+  var pages=notes.pages({},null,null).filter(func(page):return page.id=="resident/"+id)
+  assert(pages.size()==1 and pages[0].texture.resource_path.ends_with(id+"_canonical_station_panel.png"))
  assert(notes.CATEGORIES==["ALL","CAST","TRAILS","BOSSES","GEAR"])
  var faces=0
  for page in notes.pages({},null,null):

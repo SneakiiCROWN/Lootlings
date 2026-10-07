@@ -178,6 +178,15 @@ def main():
             imported_residents[resident] = {'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                                            'imported_sha256': hashlib.sha256(exported_bytes).hexdigest(),
                                            'matches_local_import': True, 'authored_state': 'canonical_station_panel' if scoped else 'idle'}
+        imported_companions = {}
+        companion_manifest=ROOT/'art/production/companions/runtime_manifest.json'
+        if companion_manifest.exists():
+            assert json.loads(apk.read('assets/art/production/companions/runtime_manifest.json'))==json.loads(companion_manifest.read_text())
+            for row in json.loads(companion_manifest.read_text())['entries']:
+                source=ROOT/row['asset_path'].removeprefix('res://')
+                relative=re.search(r'^path="res://([^"]+)"',source.with_suffix('.png.import').read_text(),re.MULTILINE).group(1)
+                assert apk.read('assets/'+relative)==(ROOT/relative).read_bytes(), 'Stale neutral companion export'
+                imported_companions[row['actor']]={'state':row['state'],'facing':row['facing'],'matches_local_import':True,'equippable':False}
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
         for source in list((ROOT/'art/sprites/combat_rigs').glob('*.svg')) + [ROOT/'art/sprites/enemies/beta'/(name+'.svg') for name in ['mossmaw','glasswing','bell_bat','rime_pup','coal_pup','null_hound','lantern_toad','sluice_crab','brassback','forge_beetle','inkling','pagewyrm','pressure_sprite','crown_shard','hookwing','lantern_jackal','belljaw']]:
             config=source.with_suffix('.svg.import').read_text(encoding='utf-8')
@@ -205,6 +214,7 @@ def main():
               'audio_license_manifest_exported': True, 'version_code': int(exported_version.group(1)), 'version_name': exported_version.group(2), 'splash_theme_patch': splash_patch,
               'final_imported_bow': final_bow,
               'final_imported_residents': imported_residents,
+              'final_imported_companion_previews': imported_companions,
               'current_extracted_canonical_assets': extracted_imports,
               'extracted_canonical_count': len(extracted_imports),
               'reused_canonical_bodies': reuse_imports,

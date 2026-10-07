@@ -6,6 +6,8 @@ const BODIES={
 	"patch":preload("res://art/production/phase4e/npcs/patch_canonical_station_panel.png"),
 	"sera":preload("res://art/sprites/npcs/beta/sera_idle.png"),
 	"ilex":preload("res://art/production/phase4e/npcs/ilex_canonical_station_panel.png")}
+static func portrait_path(id: String) -> String:
+	return BODIES[id].resource_path if id in ["patch","ilex"] else "res://art/sprites/npcs/beta/%s_portrait.png" % id
 static func presentation(speaker: String, bounds: Rect2) -> Dictionary:
 	if not IDS.has(speaker):return {}
 	var texture: Texture2D=BODIES[IDS[speaker]]
