@@ -4609,6 +4609,283 @@
       "restrictions": "Original RGB, alpha-only disconnected-fragment removal, 4px transparent gutter. Static utility/effect motif only; not a new actor, pose, consumable or gameplay system."
     },
     {
+      "id": "gold_pillar",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        600,
+        270,
+        895,
+        563
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          12,
+          293
+        ],
+        [
+          267,
+          0,
+          295,
+          190
+        ],
+        [
+          282,
+          190,
+          295,
+          293
+        ],
+        [
+          0,
+          273,
+          295,
+          293
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/gold_pillar.png",
+      "canvas": [
+        303,
+        301
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "dc585509dda462f88a3648ce4536f96c5038e713f297f821ddfbc5549f8487f3",
+      "restrictions": "Original RGB; alpha-only neighbouring fragment exclusion; 4px gutter; bounded Legendary payout motif, no new rune/reward/odds."
+    },
+    {
+      "id": "moonkip_impact_right",
+      "actor": "moonkip",
+      "kind": "body",
+      "runtime_phase": "IMPACT",
+      "source": "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png",
+      "source_sha256": "875ffda8e9c7469ca21063d68678fdab7a010bcf6abffbe92f3bdde607826a9a",
+      "crop": [
+        1145,
+        529,
+        1325,
+        708
+      ],
+      "alpha_outline": [
+        [
+          9,
+          117
+        ],
+        [
+          14,
+          102
+        ],
+        [
+          26,
+          100
+        ],
+        [
+          36,
+          100
+        ],
+        [
+          31,
+          92
+        ],
+        [
+          35,
+          86
+        ],
+        [
+          26,
+          77
+        ],
+        [
+          14,
+          75
+        ],
+        [
+          6,
+          68
+        ],
+        [
+          6,
+          60
+        ],
+        [
+          14,
+          51
+        ],
+        [
+          17,
+          49
+        ],
+        [
+          16,
+          61
+        ],
+        [
+          27,
+          61
+        ],
+        [
+          35,
+          58
+        ],
+        [
+          33,
+          45
+        ],
+        [
+          30,
+          22
+        ],
+        [
+          32,
+          7
+        ],
+        [
+          39,
+          8
+        ],
+        [
+          59,
+          14
+        ],
+        [
+          79,
+          34
+        ],
+        [
+          83,
+          45
+        ],
+        [
+          91,
+          42
+        ],
+        [
+          93,
+          31
+        ],
+        [
+          100,
+          34
+        ],
+        [
+          111,
+          47
+        ],
+        [
+          115,
+          63
+        ],
+        [
+          122,
+          55
+        ],
+        [
+          119,
+          75
+        ],
+        [
+          114,
+          85
+        ],
+        [
+          111,
+          89
+        ],
+        [
+          104,
+          93
+        ],
+        [
+          107,
+          103
+        ],
+        [
+          118,
+          98
+        ],
+        [
+          127,
+          90
+        ],
+        [
+          125,
+          100
+        ],
+        [
+          115,
+          112
+        ],
+        [
+          100,
+          119
+        ],
+        [
+          89,
+          118
+        ],
+        [
+          84,
+          112
+        ],
+        [
+          81,
+          121
+        ],
+        [
+          75,
+          132
+        ],
+        [
+          66,
+          139
+        ],
+        [
+          56,
+          133
+        ],
+        [
+          56,
+          125
+        ],
+        [
+          46,
+          126
+        ],
+        [
+          40,
+          120
+        ],
+        [
+          27,
+          123
+        ],
+        [
+          15,
+          122
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_impact_right.png",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "integrated": true,
+      "restrictions": "Actual right-facing source strike/release IMPACT only; no mirror or recovery/hurt substitution. Original hands and source markings retained. Alpha masking only, uniform resample, no invented anatomy. Original airborne dual-dagger release retains both baked blades; not weaponless.",
+      "primary_anchor": [
+        0.7436784351145038,
+        0.7397423664122137
+      ],
+      "secondary_anchor": [
+        0.2928196564885496,
+        0.4534828244274809
+      ],
+      "uniform_scale": 3.66412213740458,
+      "asset_sha256": "ecfcdec98b0e7942f212556e0d19f7ca6f37a35fc012652ddbc840b7893f6100"
+    },
+    {
       "id": "emberhorn_impact_right",
       "actor": "emberhorn",
       "kind": "body",
@@ -5313,53 +5590,6 @@
       ],
       "uniform_scale": 3.2653061224489797,
       "asset_sha256": "dba573569b795d3c23712b3a8e20251d41cb1b0ac1e2e42a47a39ade195b0f5e"
-    },
-    {
-      "id": "gold_pillar",
-      "kind": "vfx",
-      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
-      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
-      "crop": [
-        600,
-        270,
-        895,
-        563
-      ],
-      "alpha_exclusions": [
-        [
-          0,
-          0,
-          12,
-          293
-        ],
-        [
-          267,
-          0,
-          295,
-          190
-        ],
-        [
-          282,
-          190,
-          295,
-          293
-        ],
-        [
-          0,
-          273,
-          295,
-          293
-        ]
-      ],
-      "asset_path": "res://art/production/phase4e/vfx/gold_pillar.png",
-      "canvas": [
-        303,
-        301
-      ],
-      "transparent": true,
-      "integrated": true,
-      "asset_sha256": "dc585509dda462f88a3648ce4536f96c5038e713f297f821ddfbc5549f8487f3",
-      "restrictions": "Original RGB; alpha-only neighbouring fragment exclusion; 4px gutter; bounded Legendary payout motif, no new rune/reward/odds."
     }
   ]
 }

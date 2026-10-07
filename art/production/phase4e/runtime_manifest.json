@@ -647,6 +647,41 @@
       "restrictions": "Actual source attack-sequence ATTACK; right only, no mirror, no fabricated recovery/hurt. Source VFX retained; no new damage/timing. Original source paws retained."
     },
     {
+      "actor": "moonkip",
+      "phase": "IMPACT",
+      "facing": "right_only",
+      "weapon_types": [
+        "daggers"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_impact_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.7436784351145038,
+        0.7397423664122137
+      ],
+      "secondary_anchor": [
+        0.2928196564885496,
+        0.4534828244274809
+      ],
+      "core_anchor": [
+        0.55,
+        0.63
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "daggers",
+      "restrictions": "Actual right-facing source strike/release IMPACT only; no mirror or recovery/hurt substitution. Original hands and source markings retained. Alpha masking only, uniform resample, no invented anatomy. Original airborne dual-dagger release retains both baked blades; not weaponless."
+    },
+    {
       "actor": "emberhorn",
       "phase": "IMPACT",
       "facing": "right_only",

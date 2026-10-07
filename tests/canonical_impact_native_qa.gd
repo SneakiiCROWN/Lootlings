@@ -2,7 +2,7 @@ extends "res://tests/phase4b_native_qa.gd"
 # extends SceneTree through the isolated native capture helper.
 const Fit=preload("res://weapon_fit_catalog.gd")
 const Authored=preload("res://authored_pose_manifest.gd")
-const CASES=[["emberhorn","claws"],["gloomlet","claws"],["glimmerfin","wand"],["glimmerfin","orb"]]
+const CASES=[["moonkip","daggers"],["emberhorn","claws"],["gloomlet","claws"],["glimmerfin","wand"],["glimmerfin","orb"]]
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self):return
 	assert(DisplayServer.get_name()!="headless");call_deferred("review_impact")
@@ -13,7 +13,7 @@ func review_impact() -> void:
 	var baseline=OS.get_environment("LOOTLINGS_IMPACT_BASELINE")=="1"
 	if baseline:
 		Authored.extracted_phase("", "", "", 1)
-		Authored.extracted_rows=Authored.extracted_rows.filter(func(row):return not str(row.asset_path).get_file() in ["emberhorn_impact_right.png","gloomlet_impact_right.png","glimmerfin_impact_right.png"])
+		Authored.extracted_rows=Authored.extracted_rows.filter(func(row):return not str(row.asset_path).get_file() in ["moonkip_impact_right.png","emberhorn_impact_right.png","gloomlet_impact_right.png","glimmerfin_impact_right.png"])
 		Authored.extracted_resolved.clear()
 	for layout in [Vector2i(1080,2340),Vector2i(1200,1920)]:
 		root.size=layout;folder="res://.godot_test_data/source-impact/%s/%dx%d/" % ["baseline" if baseline else "native",layout.x,layout.y];DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
@@ -53,4 +53,4 @@ func review_impact() -> void:
 		game.perform_enemy_attack();assert(game.survived_hits==4 and is_equal_approx(before_hp-game.enemy_hp,expected))
 		assert(game.element_flash_identity=="Nature");await capture("rooted_revenge_actual_fourth_hit")
 	helper.free();game.free();await process_frame;await process_frame
-	print("CANONICAL IMPACT PASS: four real source routes; live clocks; no fake opposite/recovery/hurt; gameplay unchanged");quit()
+	print("CANONICAL IMPACT PASS: five real source routes; live clocks; no fake opposite/recovery/hurt; gameplay unchanged");quit()
