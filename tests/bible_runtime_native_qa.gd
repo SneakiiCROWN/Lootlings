@@ -24,7 +24,9 @@ func review_bible() -> void:
 		game.hideout_ui.hide();game.dungeon.setup(4917,"moonfen");game.campaign_id="moonfen";game.start_run();game.set_process(false);game.dungeon.depth=2;game.show_route_choices();await capture("dungeon_destinations")
 		for button in game.route_buttons:
 			assert(button.position.x+button.size.x<=game.route_panel.size.x,"Dungeon destination exceeds panel")
-		game.dungeon.active=false
+		# Each following visual fixture is a fresh combat staging, not a route overlay.
+		game.dungeon.active=false;game.route_panel.visible=false
+		game.presentation_director.set_process(false);game.presentation_director.toast_queue.clear();game.presentation_director.toast_panel.visible=false
 		for identity in ["Fire","Frost","Arcane","Corruption"]:
 			helper.prepare("relic_beast","orb");game.forced_facing_test=0;game.enemy_entry_anim=0;game.wave_banner_timer=0;game.projectile_impacts=[{"pos":Vector2(game.target_combat_visual_position()),"life":.21,"element":identity,"weapon_type":"orb","direction":Vector2.RIGHT}]
 			game.attack_projectiles.clear();game.attack_projectiles.append({"pos":Vector2(240,game.target_combat_visual_position().y-29),"start":Vector2(150,game.target_combat_visual_position().y-29),"target":game.target_combat_visual_position(),"family":"MAGE","weapon_type":"orb","element":identity})
