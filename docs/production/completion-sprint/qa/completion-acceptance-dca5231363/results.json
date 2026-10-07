@@ -1,0 +1,89 @@
+[
+  {
+    "name": "completion_economy_qa",
+    "exit": 0,
+    "seconds": 1.84,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "completion_profile_qa",
+    "exit": 0,
+    "seconds": 1.65,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "contract_qa",
+    "exit": 0,
+    "seconds": 1.74,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "mobile_gesture_qa",
+    "exit": 0,
+    "seconds": 9.61,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4_qa",
+    "exit": 0,
+    "seconds": 3.69,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4b_qa",
+    "exit": 0,
+    "seconds": 3.23,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_reward_restart_qa",
+    "exit": 0,
+    "seconds": 0.27,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase4e_visible_qa",
+    "exit": 0,
+    "seconds": 2.04,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "rc_save_qa",
+    "exit": 0,
+    "seconds": 0.26,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 1.84,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  },
+  {
+    "name": "wardrobe_qa",
+    "exit": 0,
+    "seconds": 8.42,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "weapon_fit_qa",
+    "exit": 0,
+    "seconds": 5.0,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

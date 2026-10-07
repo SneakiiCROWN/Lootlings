@@ -19,6 +19,13 @@ func run_qa() -> void:
 	assert(not repaired.account_link.linked and repaired.account_link.cloud_save_revision==0 and repaired.homestead.display=="weapon" and repaired.companion.equipped_id=="")
 	var original:=ConfigFile.new();assert(original.load("user://malformed_profile.cfg")==OK and original.get_value("profile","display_name") is Dictionary)
 	assert(preload("res://companion_catalog.gd").available_ids().is_empty())
+	assert(preload("res://companion_catalog.gd").known_ids().size()==6)
+	for id in preload("res://companion_catalog.gd").known_ids():
+		var item_id: String=preload("res://companion_catalog.gd").ENTRIES[id].unlock_id
+		assert(Profiles.grant_companion_unlock("user://completion_profile.cfg",restored,item_id)==OK)
+		assert(Profiles.grant_companion_unlock("user://completion_profile.cfg",restored,item_id)==OK)
+	assert(restored.companion.owned_ids.size()==6 and Profiles.load_profile("user://completion_profile.cfg").companion.owned_ids.size()==6 and restored.companion.equipped_id=="")
+	assert(Profiles.grant_companion_unlock("user://completion_profile.cfg",restored,"enemy_proxy")==ERR_INVALID_PARAMETER)
 	var follower:=preload("res://companion_presentation.gd").new();follower.update(.1,Vector2(240,491));assert(follower.position==Vector2(168,536));follower.react("talk");follower.update(.1,Vector2(340,491));assert(follower.state=="reaction" and follower.position.x>168)
 	var settings=preload("res://settings_store.gd");var audio_cfg:=ConfigFile.new();audio_cfg.set_value("audio","master",NAN);audio_cfg.set_value("audio","music",{});audio_cfg.set_value("audio","sfx",.42);audio_cfg.set_value("audio","music_muted",{"invalid":true});assert(audio_cfg.save("user://malformed_audio.cfg")==OK)
 	var audio: Dictionary=settings.load_settings("user://malformed_audio.cfg");assert(audio.master==settings.defaults().master and audio.music==settings.defaults().music and audio.sfx==.42 and not audio.music_muted)

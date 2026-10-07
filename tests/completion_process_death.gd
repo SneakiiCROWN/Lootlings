@@ -18,7 +18,7 @@ func exercise() -> void:
 		game.gold=321;game.meta_shards=17;game.inventory.scrap=333;game.contracts.counts.kill=12;game.contracts.claim(0);game.inventory.keep(preload("res://item_catalog.gd").create_item("bonebow","EPIC",8888));game.hideout_shop.stock[0]={}
 		if "--baseline" in args:
 			assert(game.inventory.save(game.INVENTORY_SAVE_PATH)==OK) # Original sequential helper boundary; shop write not reached.
-		else:assert(preload("res://economy_transaction.gd").commit(game,2 if after else 1 if "--mid" in args else 0)==ERR_BUSY)
+		else:assert(preload("res://economy_transaction.gd").commit(game,3 if "--last" in args else 2 if after else 1 if "--mid" in args else 0)==ERR_BUSY)
 		print("PROCESS_DEATH_READY economy");await create_timer(600).timeout;quit(3);return
 	if not writer and kind=="economy" and "--baseline" in args:
 		assert(game.inventory.stash.filter(func(item):return item.get("serial",0)==8888).size()==1 and not game.hideout_shop.stock[0].is_empty())

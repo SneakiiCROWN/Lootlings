@@ -16,7 +16,7 @@ func review() -> void:
 	game.buy_hideout_offer(0);assert(game.inventory.stash.size()==count+1)
 	var inventory=preload("res://inventory_system.gd").new();inventory.load(game.INVENTORY_SAVE_PATH)
 	var shop=preload("res://hideout_shop_system.gd").new();shop.load(game.HIDEOUT_SHOP_SAVE_PATH)
-	assert(inventory.scrap==game.inventory.scrap and shop.stock[0].is_empty() and inventory.stash==game.inventory.stash)
+	assert(inventory.scrap==game.inventory.scrap and shop.stock[0].is_empty() and same_saved_value(inventory.stash,game.inventory.stash))
 	var before: int=game.gold;game.use_gold_cache();assert(game.gold==before-game.hideout_shop.GOLD_CACHE_COST and not game.hideout_shop.pending_cache_item.is_empty())
 	var reserved: Dictionary=game.hideout_shop.pending_cache_item.duplicate(true);shop.load(game.HIDEOUT_SHOP_SAVE_PATH);assert(shop.pending_cache_item==reserved)
 	game.use_gold_cache();assert(game.gold==before-game.hideout_shop.GOLD_CACHE_COST and game.inventory.stash.any(func(item):return item.serial==reserved.serial))
@@ -26,7 +26,7 @@ func review() -> void:
 	var restored=preload("res://contract_system.gd").new();restored.load_progress("user://contracts.cfg");assert(restored.offer(0).event=="boss" and restored.claim(0)==0)
 	var old_gold: int=game.gold;var old_scrap: int=game.inventory.scrap;var old_stash: Array=game.inventory.stash.duplicate(true);var old_offer: Dictionary=game.hideout_shop.stock[1].duplicate(true)
 	game.inventory=FailingInventory.new();game.inventory.load(game.INVENTORY_SAVE_PATH);game.buy_hideout_offer(1)
-	assert(game.gold==old_gold and game.inventory.scrap==old_scrap and game.inventory.stash==old_stash and game.hideout_shop.stock[1]==old_offer)
+	assert(game.gold==old_gold and game.inventory.scrap==old_scrap and same_saved_value(game.inventory.stash,old_stash) and same_saved_value(game.hideout_shop.stock[1],old_offer))
 	game.contracts.counts.boss=1;game.contracts.save("user://contracts.cfg");var old_contracts: Array=game.contracts.active.duplicate(true);game.claim_contract(0)
 	assert(game.gold==old_gold and game.contracts.active==old_contracts and game.contracts.offer(0).progress==1)
 	# A corrupted journal cannot redirect or partially apply writes.
@@ -38,3 +38,19 @@ func review() -> void:
 	assert(preload("res://economy_transaction.gd").recover()==ERR_FILE_CORRUPT and FileAccess.get_sha256(game.SAVE_PATH)==source_hash)
 	assert(DirAccess.remove_absolute(preload("res://economy_transaction.gd").PATH)==OK)
 	game.free();await process_frame;print("COMPLETION ECONOMY PASS: unchanged offer/cache/contract prices, no duplicates, same debit/delivery generation, corrupt journal fail-closed");quit()
+
+func same_saved_value(actual: Variant, expected: Variant) -> bool:
+	# ConfigFile writes decimal floats; a rare affix's binary roundoff must not
+	# masquerade as a lost item. IDs, serials, counts and non-float fields stay exact.
+	if actual is float and expected is float:return absf(actual-expected)<1e-12
+	if actual is Dictionary and expected is Dictionary:
+		if actual.size()!=expected.size():return false
+		for key in expected:
+			if not actual.has(key) or not same_saved_value(actual[key],expected[key]):return false
+		return true
+	if actual is Array and expected is Array:
+		if actual.size()!=expected.size():return false
+		for i in actual.size():
+			if not same_saved_value(actual[i],expected[i]):return false
+		return true
+	return actual==expected

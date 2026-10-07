@@ -2258,14 +2258,57 @@
   },
   "companion_catalog.gd": {
     "constants": {
-      "ENTRIES": {}
+      "ENTRIES": {
+        "auricub": {
+          "name": "Auricub",
+          "unlock_id": "sunfeather_relic",
+          "unlock_name": "Sunfeather Relic",
+          "voice": "Curious hearts find the brightest things."
+        },
+        "breezewyn": {
+          "name": "Breezewyn",
+          "unlock_id": "skybell_orbit",
+          "unlock_name": "Skybell Orbit",
+          "voice": "Playful winds. Brighter days."
+        },
+        "lunarwisp": {
+          "name": "Lunarwisp",
+          "unlock_id": "moonlantern_shard",
+          "unlock_name": "Moonlantern Shard",
+          "voice": "Guided by moonlight, adorned by starlight."
+        },
+        "pixrask": {
+          "name": "Pixrask",
+          "unlock_id": "shadowflame_ember",
+          "unlock_name": "Shadowflame Ember",
+          "voice": "Chaos finds the cutest form."
+        },
+        "puffnest": {
+          "name": "Puffnest",
+          "unlock_id": "bloomnest_seed",
+          "unlock_name": "Bloomnest Seed",
+          "voice": "Small homes make the coziest adventures."
+        },
+        "stonekith": {
+          "name": "Stonekith",
+          "unlock_id": "terrastone_core",
+          "unlock_name": "Terrastone Core",
+          "voice": "Small protector. Serious loyalty."
+        }
+      },
+      "REFERENCE_ROOT": "res://art/reference/canonical/companions/",
+      "RUNTIME_MANIFEST": "res://art/production/companions/runtime_manifest.json"
     },
     "methods": [
+      "known_ids",
+      "id_for_unlock",
+      "preview",
       "available_ids",
       "sanitize",
-      "texture"
+      "texture",
+      "runtime_path"
     ],
-    "source_sha256": "b3f81f903b88ed4eea0707d4555685e54065f23f2c8372b9f0a3fcdf26defefd"
+    "source_sha256": "edc6d1105065906f4d5b9e678d6630ac4f56972d18e846face595afbd1cf62cc"
   },
   "companion_presentation.gd": {
     "constants": {},
@@ -4853,12 +4896,13 @@
       "apply_button_style",
       "safe_action",
       "build_home_settings",
+      "show_companion_collection",
       "show_home_settings",
       "refresh_home_settings",
       "choose_home_display",
       "choose_companion"
     ],
-    "source_sha256": "d211b54b831d25c491375063d6d279a073f95f8ae50a3a25d4a0b78734461081"
+    "source_sha256": "eedb617fcad72198476809c8065619d013f6d16999eba628874e095cc7a6af62"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6498,9 +6542,12 @@
       "draw_hoard_chest",
       "draw_loot_drop",
       "draw_moment_overlay",
-      "save_home_preferences"
+      "save_home_preferences",
+      "show_personal_home",
+      "show_profile_from_personal_home",
+      "show_personal_stash"
     ],
-    "source_sha256": "5026bd3688a92e29e38f8162daecd3fd517faec7f1ac15983948dbfdbf1c11e8"
+    "source_sha256": "ecede0d5d7118cbc56a11884ecaab8c74609f42814a10c6ebb8e60734d9af373"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -6765,6 +6812,25 @@
       "show_report"
     ],
     "source_sha256": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8"
+  },
+  "personal_home.gd": {
+    "constants": {
+      "BACKGROUND": {
+        "resource_path": "res://art/backgrounds/stash_vault.png"
+      },
+      "UI": {
+        "resource_path": "res://lootlings_ui.gd"
+      }
+    },
+    "methods": [
+      "configure",
+      "button",
+      "open",
+      "go_back",
+      "_process",
+      "_draw"
+    ],
+    "source_sha256": "c304a735d38edb818b0626bc4b1b92f01b7b6c6e72039a94edd09473ad22c125"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -7534,9 +7600,10 @@
       "sanitize_memories",
       "sanitize_name",
       "create_uuid",
-      "grant_companion"
+      "grant_companion",
+      "grant_companion_unlock"
     ],
-    "source_sha256": "a822d7b7143c3d9a167716f5a36cfb1ec0ce7e661bc2da09550ec5ec7f2cdd04"
+    "source_sha256": "54af3ec02361bd9e673c1dd98c938b6145e87297e8d2b2c783de5ff18d653787"
   },
   "projectile_presentation.gd": {
     "constants": {
@@ -8043,7 +8110,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "bc90143b2687f5ebbbd82964b1a3d93fff65fc4e71eb2dbc15eee83718704c80"
+    "source_sha256": "5055b1adc0316f80aad91eedb1aedad7a174035bf152de8fc23d5ff77c9e8d13"
   },
   "retention_runtime.gd": {
     "constants": {

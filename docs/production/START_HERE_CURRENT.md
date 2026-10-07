@@ -4,11 +4,13 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — owner-authorized completion sprint — active
+## CURRENT — owner-authorized completion sprint — v40 checkpoint
 
 The [owner completion authorization](completion-sprint/OWNER_AUTHORIZATION.md) supersedes Phase4E-only / no-Phase4F sequencing. Finish existing Phase4E, then proceed into required completion scope without waiting for another broad prompt. Canon lock, valid checkpoints and external-art limits remain unchanged. The v38 approval/extraction batch below is preserved history.
 
-Current new work: free persisted Home shelf choices using accepted art; one-slot cosmetic companion system shell with approved-asset availability gate (catalog empty pending authored pet art); additive schema-v4 profile semantics; malformed reward reservation quarantine; write-ahead Home currency/inventory/shop/contract recovery. Desktop process-death and native phone/tablet validation are being completed. Art debt remains 3,050 existing actor delivery cells / 106 bundles / 165 support packages, plus the supplemental companion art requirement in NEEDS_NEW_CANON_EXPORT.json. No final art or device acceptance claimed. Continue from this working checkpoint, not from an older Phase4E-only instruction.
+Current new work: a separate personal Home PackedScene reached from Main Hub, with clean Leave/Back, private character/style and Stash access, free persisted display choices using accepted art; one-slot cosmetic companion system shell with six approved companion identities, twelve collection/unlock previews, saved unlock ownership and authored-state availability gates (all equip gates still closed); additive schema-v4 profile semantics; malformed reward reservation quarantine; write-ahead Home currency/inventory/shop/contract recovery. Desktop save/transaction process-death and native phone/tablet checks pass within the recorded scope; physical S23 acceptance remains open. Android v40 `0.4.31-completion-home` is built at `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-completion-home-debug.apk`. See the completion-sprint report and native gallery for exact scope and remaining gates. Art debt remains 3,050 existing actor delivery cells / 106 bundles / 165 support packages, plus the supplemental companion art requirement in NEEDS_NEW_CANON_EXPORT.json. No final art or device acceptance claimed. Continue from this working checkpoint, not from an older Phase4E-only instruction.
+
+[Completion report](completion-sprint/REPORT.md) · [Native gallery](completion-sprint/GALLERY.md)
 
 ## Historical checkpoint — Phase4E approved missing-source canon / v38
 

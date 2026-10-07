@@ -1236,9 +1236,10 @@
       "subject": "homestead decorations",
       "status": "BOUNDED_RUNTIME_IMPLEMENTED",
       "source": "LOOTLINGS_WORLD_BIBLE.md",
-      "reason": "Owner authorizes Home customization. Free persisted shelf choices reuse current weapon icon / accepted recipe-scroll art / clear display. No station removal, tint identity changes, currency or paid decoration mechanics.",
+      "reason": "Owner authorizes separate personal Home reached from Main Hub. Free persisted display choices reuse current weapon icon / accepted recipe-scroll and trophy art / clear display. Hub NPCs and public stations remain in Hub; no tint identity changes, currency or paid decoration mechanics.",
       "runtime_system": [
-        "hideout_ui.gd",
+        "personal_home.gd",
+        "personal_home.tscn",
         "profile_store.gd"
       ]
     },

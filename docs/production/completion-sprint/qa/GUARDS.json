@@ -1,0 +1,37 @@
+[
+  {
+    "name": "validate_canonical_art",
+    "exit": 0,
+    "output": "{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\n  \"frozen_sources\": 11,\n  \"rejected_boards\": 5,\n  \"preserved_pose_rows\": 246,\n  \"approved_boss_frames\": 0,\n  \"art_accepted\": false\n}\n"
+  },
+  {
+    "name": "validate_master_integration",
+    "exit": 0,
+    "output": "{\"slots\": 7028, \"launch_slots\": 6223, \"missing_delivery_cells\": 3050, \"shared_body_view_bundles\": 106, \"support_packages\": 165, \"fresh_sources\": 130}\n"
+  },
+  {
+    "name": "validate_canon_registry",
+    "exit": 0,
+    "output": "{\"identities\": 845, \"catalog_screen_routes\": 824, \"rejected_board_paths\": 5, \"authority_boundaries\": 2, \"frozen_hash_guard\": \"validate_canonical_art.py\", \"matrix_guard\": \"validate_master_integration.py\"}\n"
+  },
+  {
+    "name": "validate_approved_missing_canon",
+    "exit": 0,
+    "output": "{\"approved_missing_references\": 35, \"exact_runtime_exports\": 1, \"established_identity_changes\": 0}\n"
+  },
+  {
+    "name": "validate_companion_art",
+    "exit": 0,
+    "output": "{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n"
+  },
+  {
+    "name": "test_canonical_art_guard",
+    "exit": 0,
+    "output": "{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n{\"approved_companion_identities\": 6, \"original_pixel_UI_previews\": 12, \"body_state_closures\": 0}\n.........\n----------------------------------------------------------------------\nRan 9 tests in 11.064s\n\nOK\n"
+  },
+  {
+    "name": "test_canon_registry_guard",
+    "exit": 0,
+    "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.520s\n\nOK\n"
+  }
+]

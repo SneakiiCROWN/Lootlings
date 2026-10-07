@@ -65,5 +65,5 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | asset:art/backgrounds/relic_shrine.png | relic_shrine / relic_shrine | LIVE_BETA | ['hideout_ui.gd'] |
 | asset:art/backgrounds/salvage_warrens_arena.png | salvage_warrens_arena / salvage_warrens_arena | LIVE_BETA | ['vignette_catalog.gd', 'zone_catalog.gd'] |
 | asset:art/backgrounds/salvager_shop.png | salvager_shop / salvager_shop | LIVE_BETA | ['hideout_ui.gd'] |
-| asset:art/backgrounds/stash_vault.png | stash_vault / stash_vault | LIVE_BETA | ['hideout_ui.gd'] |
+| asset:art/backgrounds/stash_vault.png | stash_vault / stash_vault | LIVE_BETA | ['hideout_ui.gd', 'personal_home.gd'] |
 | asset:art/backgrounds/treasure_ruins_arena.png | treasure_ruins_arena / treasure_ruins_arena | LIVE_BETA | ['hideout_ui.gd', 'startup_ui.gd', 'vignette_catalog.gd', 'zone_catalog.gd'] |

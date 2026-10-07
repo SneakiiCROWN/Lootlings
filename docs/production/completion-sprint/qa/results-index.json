@@ -1,0 +1,58 @@
+{
+  "runs": [
+    {
+      "run": "completion-acceptance-dca5231363",
+      "results": "completion-acceptance-dca5231363\\results.json",
+      "log_count": 12
+    },
+    {
+      "run": "completion-brand-fixed-55ac6576e0",
+      "results": "completion-brand-fixed-55ac6576e0\\results.json",
+      "log_count": 1
+    },
+    {
+      "run": "completion-companion-final-3a162ddb23",
+      "results": "completion-companion-final-3a162ddb23\\results.json",
+      "log_count": 3
+    },
+    {
+      "run": "completion-delivery-native-4c11fbfe6e",
+      "results": "completion-delivery-native-4c11fbfe6e\\results.json",
+      "log_count": 2
+    },
+    {
+      "run": "completion-final-companion-regression-631a5579ff",
+      "results": "completion-final-companion-regression-631a5579ff\\results.json",
+      "log_count": 6
+    },
+    {
+      "run": "completion-final-source-e13e0f5671",
+      "results": "completion-final-source-e13e0f5671\\results.json",
+      "log_count": 2
+    },
+    {
+      "run": "completion-home-contracts-da3e86f9f0",
+      "results": "completion-home-contracts-da3e86f9f0\\results.json",
+      "log_count": 4
+    },
+    {
+      "run": "completion-native-final-c6f9613190",
+      "results": "completion-native-final-c6f9613190\\results.json",
+      "log_count": 2
+    },
+    {
+      "run": "completion-process-death-a45341619f",
+      "results": "completion-process-death-a45341619f\\results.json",
+      "log_count": 39
+    },
+    {
+      "run": "completion-save-failure-e6de03e586",
+      "results": "completion-save-failure-e6de03e586\\results.json",
+      "log_count": 1
+    }
+  ],
+  "guards": "GUARDS.json",
+  "build": "APK_RECEIPT.json",
+  "branding": "ANDROID_BRANDING.json",
+  "native_images": "NATIVE_IMAGE_INDEX.json"
+}
