@@ -1,0 +1,26 @@
+[
+  {
+    "check": "validate_canonical_art.py",
+    "exit": 0,
+    "stdout": "{\n  \"frozen_sources\": 11,\n  \"rejected_boards\": 5,\n  \"preserved_pose_rows\": 246,\n  \"approved_boss_frames\": 0,\n  \"art_accepted\": false\n}\n",
+    "stderr": ""
+  },
+  {
+    "check": "validate_approved_missing_canon.py",
+    "exit": 0,
+    "stdout": "{\"approved_missing_references\": 35, \"exact_runtime_exports\": 1, \"established_identity_changes\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "check": "validate_master_integration.py",
+    "exit": 0,
+    "stdout": "{\"slots\": 6919, \"launch_slots\": 6171, \"missing_delivery_cells\": 3050, \"shared_body_view_bundles\": 106, \"support_packages\": 165, \"fresh_sources\": 126}\n",
+    "stderr": ""
+  },
+  {
+    "check": "validate_canon_registry.py",
+    "exit": 0,
+    "stdout": "{\"identities\": 834, \"catalog_screen_routes\": 814, \"rejected_board_paths\": 5, \"authority_boundaries\": 2, \"frozen_hash_guard\": \"validate_canonical_art.py\", \"matrix_guard\": \"validate_master_integration.py\"}\n",
+    "stderr": ""
+  }
+]
