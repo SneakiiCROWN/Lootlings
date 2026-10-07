@@ -1,0 +1,34 @@
+{
+  "status": "OWNER_APPROVED_FINAL_COMPANION_REFERENCE",
+  "scope": "companions/pets only",
+  "does_not_override": [
+    "playable Lootlings",
+    "Wanderers",
+    "existing NPCs",
+    "existing bosses",
+    "regional enemies",
+    "runtime combat actor identities"
+  ],
+  "canonical_companions": [
+    "Auricub",
+    "Stonekith",
+    "Pixrask",
+    "Lunarwisp",
+    "Puffnest",
+    "Breezewyn"
+  ],
+  "reference_files": [
+    {
+      "path": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+      "role": "primary visual identity authority for the six companions",
+      "sha256": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794"
+    },
+    {
+      "path": "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png",
+      "role": "UI/home/unlock/scale/behavior implementation reference",
+      "sha256": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+    }
+  ],
+  "runtime_rule": "These are final canon/reference boards, not finished runtime sprite exports. Codex may extract/reuse only when exact runtime requirements are met; otherwise create/retain an exact runtime-art queue without substituting or redesigning.",
+  "identity_lock": "Do not redesign, rename, recolor, species-swap, or merge these companions with playable Lootlings or enemies."
+}

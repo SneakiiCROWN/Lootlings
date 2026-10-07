@@ -317,6 +317,8 @@ var pause_panel: Panel
 var abandon_panel: Panel
 var hideout_ui
 var startup_ui
+var personal_home
+var personal_profile_return := false
 var audio_manager
 var presentation_director
 var story_run_presentations := false
@@ -610,6 +612,8 @@ func request_enter_hideout() -> void:
 		inventory.equipped.Weapon = ItemCatalog.create_item(str(starting.starter),"COMMON",-1)
 		inventory.save(INVENTORY_SAVE_PATH)
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "title_enter")
+	if personal_profile_return:
+		personal_profile_return=false;show_personal_home();return
 	if presentation_director == null:
 		show_hideout()
 		return
@@ -946,6 +950,7 @@ func choose_expedition_event(index: int) -> void:
 func build_hideout() -> void:
 	hideout_ui = HideoutUI.new()
 	add_child(hideout_ui)
+	personal_home=preload("res://personal_home.tscn").instantiate();add_child(personal_home);personal_home.configure(self)
 	campaign.load_progress("user://campaign.cfg")
 	contracts.load_progress("user://contracts.cfg")
 	hideout_ui.contracts = contracts
@@ -1004,6 +1009,8 @@ func start_presented_run() -> void:
 	story_run_presentations = true
 
 func show_hideout() -> void:
+	if personal_home!=null:personal_home.visible=false
+	hideout_ui.private_return=false
 	retention.progress.recover(self)
 	retention.reset()
 	if presentation_director != null: presentation_director.vignette.cancel()
@@ -3394,6 +3401,8 @@ func load_meta() -> void:
 	gold_upgrades = progress.get("gold_upgrades", {"bedroll":0, "whetstone":0, "pouch":0}).duplicate(true)
 
 func navigate_back() -> void:
+	if state=="personal_home":personal_home.go_back();return
+	if personal_profile_return and startup_ui.visible:personal_profile_return=false;show_personal_home();return
 	if touch_ux != null and is_instance_valid(touch_ux.dialog):
 		touch_ux.close_dialog()
 		return
@@ -3413,6 +3422,7 @@ func navigate_back() -> void:
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":
+		if hideout_ui.current_screen=="companion_collection":hideout_ui.show_home_settings();return
 		if hideout_ui.speech_panel.visible: hideout_ui.dismiss_dialogue(); return
 		if hideout_ui.region_sheet.visible: hideout_ui.region_sheet.visible=false; return
 		if hideout_ui.stash_detail_panel.visible and hideout_ui.current_screen=="stash": hideout_ui.close_stash_detail(); return
@@ -3422,6 +3432,8 @@ func navigate_back() -> void:
 		startup_ui.show_title()
 
 func input_surface() -> Control:
+	if state=="personal_home":return personal_home
+	if personal_profile_return and startup_ui.visible:return startup_ui
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
 	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:
 		return retention.pool_panel if retention.pool_panel.visible else retention.panel
@@ -3690,6 +3702,7 @@ func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
 func _draw() -> void:
 	if startup_ui != null and startup_ui.visible: return
 	if hideout_ui != null and hideout_ui.visible: return
+	if personal_home != null and personal_home.visible: return
 	var sx := size.x / DESIGN_SIZE.x
 	var sy := size.y / DESIGN_SIZE.y
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(sx, sy))
@@ -3991,7 +4004,19 @@ func draw_moment_overlay() -> void:
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
 
 func save_home_preferences(home: Dictionary, companion: Dictionary) -> void:
-	if state!="hideout" or hideout_ui.current_screen!="home_settings":return
+	if state!="personal_home" or personal_home.view not in ["preferences","companions"]:return
 	var next:=profile.duplicate(true);next.homestead=home;next.companion=companion;next=ProfileStore.sanitize(next)
 	if ProfileStore.save_profile(PROFILE_SAVE_PATH,next)!=OK:return
 	profile=next;hideout_ui.profile=profile.duplicate(true);hideout_ui.refresh_home_settings();hideout_ui.refresh_home();hideout_ui.queue_redraw()
+	personal_home.queue_redraw()
+
+func show_personal_home(view: String="room") -> void:
+	hideout_ui.private_return=false;personal_home.open(view)
+
+func show_profile_from_personal_home() -> void:
+	personal_profile_return=true;personal_home.visible=false
+	show_profile_from_hideout()
+	state="personal_profile"
+
+func show_personal_stash() -> void:
+	personal_home.visible=false;state="hideout";hideout_ui.visible=true;hideout_ui.private_return=true;hideout_ui.show_stash()

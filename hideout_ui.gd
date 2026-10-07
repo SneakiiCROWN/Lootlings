@@ -104,6 +104,8 @@ var stash_filter := "ALL"
 var filter_buttons := {}
 
 var home_settings_content: Control
+var private_return := false
+var companion_collection_content: Control
 var home_settings_summary: Label
 var home_display_buttons: Dictionary = {}
 var companion_buttons: Dictionary = {}
@@ -253,6 +255,8 @@ func configure(inventory, shop, shard_count: int, power_level: int, compare: Cal
 	refresh_current_screen()
 
 func show_home() -> void:
+	if private_return:
+		private_return=false;get_parent().show_personal_home();return
 	current_screen = "home"
 	set_screen(home_content)
 	refresh_home()
@@ -264,6 +268,8 @@ func show_home() -> void:
 
 func show_stash() -> void:
 	dismiss_dialogue()
+	for child in stash_content.get_children():
+		if child is Button and child.text.begins_with("‹"):child.text="‹ HOME" if private_return else "‹ HUB"
 	current_screen = "stash"
 	set_screen(stash_content)
 	refresh_stash()
@@ -324,7 +330,7 @@ func set_screen(active: Control) -> void:
 	if region_sheet!=null:region_sheet.visible=false
 	if stash_detail_panel!=null:stash_detail_panel.visible=false
 	if presentation != null: presentation.cancel_chest_showcase()
-	var screens := [home_settings_content,phase4_content,home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
+	var screens := [companion_collection_content,home_settings_content,phase4_content,home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -334,7 +340,7 @@ func build_home() -> void:
 	engine_button=make_button(home_content,"RELIC ENGINE",Rect2(270,710,190,48),Color("#192936"),Color("#dcb973"),14)
 	engine_button.pressed.connect(func():engine_requested.emit())
 	make_button(home_content,"EXPEDITIONS",Rect2(20,710,232,48),Color("#192936"),Color("#dcb973"),14).pressed.connect(show_campaign)
-	make_label(home_content,"HOME",18,Rect2(84,14,312,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	make_label(home_content,"MAIN HUB",18,Rect2(84,14,312,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	make_button(home_content,"YOU",Rect2(14,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): profile_requested.emit())
 	make_button(home_content,"TITLE",Rect2(402,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): title_requested.emit())
 	resource_label=LootlingsUI.rich_label(home_content,Rect2(86,40,310,27),12,Color("#d9e5ff"))
@@ -355,7 +361,7 @@ func build_home() -> void:
 		if child is Button and not child.flat:
 			for state in ["normal","hover","pressed","focus"]:
 				var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99") if state=="normal" else Color("#29404cdd"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); child.add_theme_stylebox_override(state,style)
-	make_button(home_content,"YOUR HOME",Rect2(172,662,136,40),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(show_home_settings)
+	make_button(home_content,"HOME",Rect2(172,662,136,40),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func():get_parent().show_personal_home())
 	make_label(home_content,"Your fire. Your people. Your way back.",12,Rect2(60,780,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
 	loadout_panel=make_panel(home_content,Rect2(34,665,412,70),Color("#0c1430e9"),Color("#7087ae")); loadout_panel.visible=false
 	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
@@ -441,7 +447,7 @@ func build_forge() -> void:
 	forge_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	forge_content.visible = false
 	add_child(forge_content)
-	make_button(forge_content, "‹ HOME", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
+	make_button(forge_content, "‹ HUB", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(show_home)
 	make_label(forge_content, "WEAPON FORGE", 25, Rect2(150, 23, 310, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	make_button(forge_content,"BLUEPRINT FORGE",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("blueprints"))
 	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 14, Rect2(28, 126, 424, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
@@ -585,7 +591,7 @@ func refresh_phase4() -> void:
 
 func build_campaign() -> void:
 	campaign_content=Control.new(); campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); campaign_content.visible=false; add_child(campaign_content)
-	make_button(campaign_content,"‹ HOME",Rect2(20,20,122,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(show_home)
+	make_button(campaign_content,"‹ HUB",Rect2(20,20,122,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(show_home)
 	make_label(campaign_content,"EXPEDITIONS",24,Rect2(150,23,310,42),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	make_button(campaign_content,"REGIONS",Rect2(20,85,140,48),Color("#293a46"),Color("#e2b563"),14).pressed.connect(show_campaign)
 	dungeon_start_button=make_button(campaign_content,"RELIC SIEGE",Rect2(170,85,140,48),Color("#172442"),Color("#7087ae"),13); dungeon_start_button.pressed.connect(func(): dungeon_requested.emit())
@@ -1122,12 +1128,10 @@ func refresh_home() -> void:
 		display_name = "TREASURE SEEKER"
 	if endgame_progress!=null:engine_button.text="FREE SPINS: %d" % int(endgame_progress.data.get("free_spins",0)) if int(endgame_progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
 	resource_label.text="[center]%s %s   %s %s   %s %s[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
-	var home_display: String=profile.get("homestead",{}).get("display","weapon")
-	home_weapon.visible=home_display=="weapon"
-	home_weapon_name.visible=home_display!="none"
+	# Public Hub equipment marker remains independent of private Home decor.
+	home_weapon.visible=true
+	home_weapon_name.visible=true
 	home_weapon.configure(current_inventory.equipped_item("Weapon")); home_weapon_name.text=str(current_inventory.equipped_item("Weapon").get("name","No weapon"))
-	if home_display=="scroll": home_weapon_name.text="Recovered plans"
-	if home_display=="trophy": home_weapon_name.text="Trophy stand"
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
@@ -1637,8 +1641,6 @@ func draw_home_scene() -> void:
 	for rune in range(5):
 		var point:=Vector2(240,182)+Vector2.RIGHT.rotated(PI+rune*PI/4)*63
 		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(scene_time*2-rune))*.16))
-	if profile.get("homestead",{}).get("display","weapon")=="scroll": LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/items/recipe_scroll.png"),Rect2(179,519,48,48))
-	if profile.get("homestead",{}).get("display","weapon")=="trophy": LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/props/trophy_dais.png"),Rect2(179,519,48,48))
 	draw_home_board()
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.26))
 	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
@@ -1675,7 +1677,6 @@ func draw_home_scene() -> void:
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
 	draw_resident("Archivist", RESIDENT_RECTS.Archivist, "ILEX", 2.0)
 	draw_home_workstations()
-	companion_presenter.draw_home(self,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
 
 func draw_home_board() -> void:
 	# Accepted painted contract banner replaces the flat board/paper prototype.
@@ -1886,7 +1887,7 @@ func safe_action(button: Button, consequence: String, action: Callable) -> void:
 
 func build_home_settings() -> void:
 	home_settings_content=Control.new();home_settings_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);home_settings_content.visible=false;add_child(home_settings_content)
-	make_button(home_settings_content,"‹ HIDEOUT",Rect2(20,20,122,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(show_home)
+	make_button(home_settings_content,"‹ HOME",Rect2(20,20,122,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(func():get_parent().show_personal_home())
 	make_label(home_settings_content,"YOUR HOME",24,Rect2(30,92,420,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	var panel:=make_panel(home_settings_content,Rect2(20,148,440,630),Color("#10162ff2"),Color("#8ea2c8"))
 	make_label(panel,"Shelf display • free to change",18,Rect2(18,18,404,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
@@ -1897,15 +1898,30 @@ func build_home_settings() -> void:
 	make_label(panel,"Companion",20,Rect2(18,324,404,36),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	home_settings_summary=make_label(panel,"",16,Rect2(24,370,392,94),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"));home_settings_summary.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	var unequip:=make_button(panel,"NO COMPANION",Rect2(20,476,400,52),Color("#202d4d"),Color("#7f94bc"),16);unequip.pressed.connect(func():choose_companion(""))
-	# Approved catalog entries can be selected through this bounded scroll list;
-	# an empty catalog never invents a pet identity or substitutes an enemy body.
-	var scroll:=ScrollContainer.new();scroll.position=Vector2(20,532);scroll.size=Vector2(400,78);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;panel.add_child(scroll)
+	var collection:=make_button(panel,"COMPANION COLLECTION",Rect2(20,548,400,52),Color("#202d4d"),Color("#d7b46d"),16)
+	collection.name="CompanionCollection";collection.pressed.connect(show_companion_collection)
+	companion_collection_content=Control.new();companion_collection_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);companion_collection_content.visible=false;add_child(companion_collection_content)
+	make_button(companion_collection_content,"‹ YOUR HOME",Rect2(20,20,148,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(show_home_settings)
+	make_label(companion_collection_content,"COMPANION COLLECTION",23,Rect2(20,100,440,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	make_label(companion_collection_content,"Meet the collection • not available yet",15,Rect2(20,154,440,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"))
+	var collection_panel:=make_panel(companion_collection_content,Rect2(20,204,440,568),Color("#10162ff2"),Color("#8ea2c8"))
+	var scroll:=ScrollContainer.new();scroll.position=Vector2(18,18);scroll.size=Vector2(404,532);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;collection_panel.add_child(scroll)
 	var list:=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)
-	for id in preload("res://companion_catalog.gd").available_ids():
-		var b:=Button.new();b.text=str(preload("res://companion_catalog.gd").ENTRIES[id].get("name",id));b.custom_minimum_size=Vector2(380,52);list.add_child(b);companion_buttons[id]=b;b.pressed.connect(func():choose_companion(id))
+	list.add_theme_constant_override("separation",10)
+	for id in preload("res://companion_catalog.gd").known_ids():
+		var entry: Dictionary=preload("res://companion_catalog.gd").ENTRIES[id]
+		var row:=Control.new();row.custom_minimum_size=Vector2(380,126);list.add_child(row)
+		var face:=TextureRect.new();face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;face.texture=preload("res://companion_catalog.gd").preview(id);face.position=Vector2(4,12);face.size=Vector2(64,64);face.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(face)
+		make_label(row,entry.name,20,Rect2(82,2,232,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe3ac"))
+		make_label(row,entry.unlock_name,14,Rect2(82,36,232,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#dce6ff"))
+		var token:=TextureRect.new();token.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;token.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;token.texture=preload("res://companion_catalog.gd").preview(id,true);token.position=Vector2(322,4);token.size=Vector2(50,58);token.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(token)
+		var b:=Button.new();b.text="NOT YET AVAILABLE";b.position=Vector2(82,72);b.size=Vector2(290,44);b.add_theme_font_size_override("font_size",14);row.add_child(b);companion_buttons[id]=b;b.pressed.connect(func():choose_companion(id))
+
+func show_companion_collection() -> void:
+	get_parent().show_personal_home("companions")
 
 func show_home_settings() -> void:
-	current_screen="home_settings";set_screen(home_settings_content);refresh_home_settings();queue_redraw()
+	get_parent().show_personal_home("preferences")
 
 func refresh_home_settings() -> void:
 	var display: String=profile.get("homestead",{}).get("display","weapon")
@@ -1915,14 +1931,17 @@ func refresh_home_settings() -> void:
 	home_settings_summary.text="No companion equipped. Companions are cosmetic; they give no combat advantage."
 	if preload("res://companion_catalog.gd").available_ids().is_empty():home_settings_summary.text="No companions are available yet. Your slot is ready. Companions never change combat stats."
 	elif not companion.equipped_id.is_empty():home_settings_summary.text="Equipped: "+str(preload("res://companion_catalog.gd").ENTRIES[companion.equipped_id].get("name",companion.equipped_id))+" • cosmetic only"
-	for id in companion_buttons:companion_buttons[id].disabled=id not in companion.owned_ids
+	for id in companion_buttons:
+		var ready: bool=id in preload("res://companion_catalog.gd").available_ids()
+		companion_buttons[id].disabled=not ready or id not in companion.owned_ids
+		companion_buttons[id].text="EQUIPPED" if companion.equipped_id==id else "EQUIP" if ready and id in companion.owned_ids else "LOCKED" if ready else "NOT YET AVAILABLE"
 
 func choose_home_display(id: String) -> void:
 	if current_screen!="home_settings" or id not in ["weapon","scroll","trophy","none"]:return
 	home_preferences_requested.emit({"display":id},preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
 
 func choose_companion(id: String) -> void:
-	if current_screen!="home_settings":return
+	if current_screen not in ["home_settings","companion_collection"]:return
 	var companion:=preload("res://companion_catalog.gd").sanitize(profile.get("companion",{}))
-	if not id.is_empty() and id not in companion.owned_ids:return
+	if not id.is_empty() and (id not in companion.owned_ids or id not in preload("res://companion_catalog.gd").available_ids()):return
 	companion.equipped_id=id;home_preferences_requested.emit(profile.get("homestead",{"display":"weapon"}),companion)

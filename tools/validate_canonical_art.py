@@ -12,6 +12,8 @@ def resource(path):
     return target
 
 def validate():
+    from validate_companion_art import validate as validate_companions
+    validate_companions()
     from validate_approved_missing_canon import validate as validate_missing
     validate_missing()
     registry=json.loads((ROOT/'art/reference/phase4e_handoff/REFERENCE_STATUS.json').read_text(encoding='utf-8'))

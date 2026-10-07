@@ -61,7 +61,7 @@ def main():
       'expedition_event_catalog.gd':('event',['EVENTS']), 'chest_catalog.gd':('chest',['CHESTS']), 'vignette_catalog.gd':('story',['RESIDENTS','BOSS_ENTRIES','REGIONAL_BOSS_IDS']), 'field_notes_catalog.gd':('story',['CATEGORIES']),
       'world_story.gd':('story',['ORIGINS','NPC_NOTES','LOOTLINGS','REGIONS','RESIDENT_REACTIONS']), 'contextual_dialogue.gd':('dialogue',['LINES','PERSONALITY','GREETINGS']),
       'relic_spin_catalog.gd':('reward',['POOL','TIERS']), 'reward_reveal_catalog.gd':('reward',['RARITY_PROFILES','CHEST_PROFILES'])}
-    specs.update({'regional_enemy_presentation.gd':('enemy',['ENTRIES']), 'achievement_manager.gd':('achievement',['DEFINITIONS']), 'audio_manager.gd':('audio_hook',['BASE_EVENT_SPECS','MUSIC_PATHS','VARIANT_EVENTS']), 'voice_identity.gd':('audio_hook',['PLAYER_PROFILES']), 'projectile_presentation.gd':('projectile',['COLORS'])})
+    specs.update({'companion_catalog.gd':('companion',['ENTRIES']), 'regional_enemy_presentation.gd':('enemy',['ENTRIES']), 'achievement_manager.gd':('achievement',['DEFINITIONS']), 'audio_manager.gd':('audio_hook',['BASE_EVENT_SPECS','MUSIC_PATHS','VARIANT_EVENTS']), 'voice_identity.gd':('audio_hook',['PLAYER_PROFILES']), 'projectile_presentation.gd':('projectile',['COLORS'])})
     def strings(obj):
         if isinstance(obj,str):yield obj
         elif isinstance(obj,dict):

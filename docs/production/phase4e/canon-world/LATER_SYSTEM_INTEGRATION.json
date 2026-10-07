@@ -54,8 +54,8 @@
       "slot_id": "planned:authored_pets",
       "subject": "authored pets",
       "status": "SYSTEM_SHELL_IMPLEMENTED_ART_OPEN",
-      "source": "LOOTLINGS_WORLD_BIBLE.md",
-      "reason": "Owner authorizes launch companion scope. Saved one-slot selection, no stats/cost, Home follow/reaction and approved-asset gate are implemented. No approved pet identity/exports exist; catalog remains empty.",
+      "source": "art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json",
+      "reason": "Six companion-only identities now owner-approved in the supplied canonical package. Catalog/UI portraits/unlock-item previews and idempotent persisted unlock hooks are installed. No complete authored transparent idle/move/reaction views exist; all six equip gates stay closed.",
       "runtime_system": [
         "companion_catalog.gd",
         "companion_presentation.gd",
@@ -63,8 +63,8 @@
         "hideout_ui.gd"
       ],
       "external_art_requirement": {
-        "entity": "One owner-approved cosmetic companion; identity not yet provided",
-        "identity_status": "NEEDS_OWNER_APPROVED_IDENTITY_AND_AUTHORED_EXPORTS",
+        "entity": "Six approved cosmetic companions",
+        "identity_status": "OWNER_APPROVED_FINAL_COMPANION_REFERENCE",
         "states": [
           "idle",
           "move",
@@ -99,9 +99,1136 @@
         "runtime_destination": "art/production/companions/{approved_id}/",
         "layers": "No equipment or combat sockets; ground shadow/VFX separate; actual body baseline metadata required",
         "mirror": "No implicit mirroring. Explicit authored opposite view required unless owner-approved symmetry contract permits an export.",
-        "identity_source": "LOOTLINGS_WORLD_BIBLE.md provides world direction only; new specific pet identity requires owner-approved source",
+        "identity_source": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
         "scale": "Uniform only; readable at 56x56 design pixels; complete silhouette.",
-        "power": "Cosmetic only; never a stat or combat unlock requirement."
+        "power": "Cosmetic only; never a stat or combat unlock requirement.",
+        "entities": [
+          "auricub",
+          "stonekith",
+          "pixrask",
+          "lunarwisp",
+          "puffnest",
+          "breezewyn"
+        ],
+        "delivery_cells": 36,
+        "exact_delivery_cells": [
+          {
+            "entity": "auricub",
+            "state": "idle",
+            "facing": "right",
+            "filename": "auricub_idle_right.png",
+            "source_destination": "art/source/companions/auricub/auricub_idle_right.png",
+            "runtime_destination": "art/production/companions/auricub/auricub_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "auricub",
+            "state": "idle",
+            "facing": "left",
+            "filename": "auricub_idle_left.png",
+            "source_destination": "art/source/companions/auricub/auricub_idle_left.png",
+            "runtime_destination": "art/production/companions/auricub/auricub_idle_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "auricub",
+            "state": "move",
+            "facing": "right",
+            "filename": "auricub_move_right.png",
+            "source_destination": "art/source/companions/auricub/auricub_move_right.png",
+            "runtime_destination": "art/production/companions/auricub/auricub_move_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "auricub",
+            "state": "move",
+            "facing": "left",
+            "filename": "auricub_move_left.png",
+            "source_destination": "art/source/companions/auricub/auricub_move_left.png",
+            "runtime_destination": "art/production/companions/auricub/auricub_move_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "auricub",
+            "state": "reaction",
+            "facing": "right",
+            "filename": "auricub_reaction_right.png",
+            "source_destination": "art/source/companions/auricub/auricub_reaction_right.png",
+            "runtime_destination": "art/production/companions/auricub/auricub_reaction_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "auricub",
+            "state": "reaction",
+            "facing": "left",
+            "filename": "auricub_reaction_left.png",
+            "source_destination": "art/source/companions/auricub/auricub_reaction_left.png",
+            "runtime_destination": "art/production/companions/auricub/auricub_reaction_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "stonekith",
+            "state": "idle",
+            "facing": "right",
+            "filename": "stonekith_idle_right.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_idle_right.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "stonekith",
+            "state": "idle",
+            "facing": "left",
+            "filename": "stonekith_idle_left.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_idle_left.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_idle_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "stonekith",
+            "state": "move",
+            "facing": "right",
+            "filename": "stonekith_move_right.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_move_right.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_move_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "stonekith",
+            "state": "move",
+            "facing": "left",
+            "filename": "stonekith_move_left.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_move_left.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_move_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "stonekith",
+            "state": "reaction",
+            "facing": "right",
+            "filename": "stonekith_reaction_right.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_reaction_right.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_reaction_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "stonekith",
+            "state": "reaction",
+            "facing": "left",
+            "filename": "stonekith_reaction_left.png",
+            "source_destination": "art/source/companions/stonekith/stonekith_reaction_left.png",
+            "runtime_destination": "art/production/companions/stonekith/stonekith_reaction_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "pixrask",
+            "state": "idle",
+            "facing": "right",
+            "filename": "pixrask_idle_right.png",
+            "source_destination": "art/source/companions/pixrask/pixrask_idle_right.png",
+            "runtime_destination": "art/production/companions/pixrask/pixrask_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "pixrask",
+            "state": "idle",
+            "facing": "left",
+            "filename": "pixrask_idle_left.png",
+            "source_destination": "art/source/companions/pixrask/pixrask_idle_left.png",
+            "runtime_destination": "art/production/companions/pixrask/pixrask_idle_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "pixrask",
+            "state": "move",
+            "facing": "right",
+            "filename": "pixrask_move_right.png",
+            "source_destination": "art/source/companions/pixrask/pixrask_move_right.png",
+            "runtime_destination": "art/production/companions/pixrask/pixrask_move_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "pixrask",
+            "state": "move",
+            "facing": "left",
+            "filename": "pixrask_move_left.png",
+            "source_destination": "art/source/companions/pixrask/pixrask_move_left.png",
+            "runtime_destination": "art/production/companions/pixrask/pixrask_move_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "pixrask",
+            "state": "reaction",
+            "facing": "right",
+            "filename": "pixrask_reaction_right.png",
+            "source_destination": "art/source/companions/pixrask/pixrask_reaction_right.png",
+            "runtime_destination": "art/production/companions/pixrask/pixrask_reaction_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "pixrask",
+            "state": "reaction",
+            "facing": "left",
+            "filename": "pixrask_reaction_left.png",
+            "source_destination": "art/source/companions/pixrask/pixrask_reaction_left.png",
+            "runtime_destination": "art/production/companions/pixrask/pixrask_reaction_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "lunarwisp",
+            "state": "idle",
+            "facing": "right",
+            "filename": "lunarwisp_idle_right.png",
+            "source_destination": "art/source/companions/lunarwisp/lunarwisp_idle_right.png",
+            "runtime_destination": "art/production/companions/lunarwisp/lunarwisp_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "lunarwisp",
+            "state": "idle",
+            "facing": "left",
+            "filename": "lunarwisp_idle_left.png",
+            "source_destination": "art/source/companions/lunarwisp/lunarwisp_idle_left.png",
+            "runtime_destination": "art/production/companions/lunarwisp/lunarwisp_idle_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "lunarwisp",
+            "state": "move",
+            "facing": "right",
+            "filename": "lunarwisp_move_right.png",
+            "source_destination": "art/source/companions/lunarwisp/lunarwisp_move_right.png",
+            "runtime_destination": "art/production/companions/lunarwisp/lunarwisp_move_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "lunarwisp",
+            "state": "move",
+            "facing": "left",
+            "filename": "lunarwisp_move_left.png",
+            "source_destination": "art/source/companions/lunarwisp/lunarwisp_move_left.png",
+            "runtime_destination": "art/production/companions/lunarwisp/lunarwisp_move_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "lunarwisp",
+            "state": "reaction",
+            "facing": "right",
+            "filename": "lunarwisp_reaction_right.png",
+            "source_destination": "art/source/companions/lunarwisp/lunarwisp_reaction_right.png",
+            "runtime_destination": "art/production/companions/lunarwisp/lunarwisp_reaction_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "lunarwisp",
+            "state": "reaction",
+            "facing": "left",
+            "filename": "lunarwisp_reaction_left.png",
+            "source_destination": "art/source/companions/lunarwisp/lunarwisp_reaction_left.png",
+            "runtime_destination": "art/production/companions/lunarwisp/lunarwisp_reaction_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "idle",
+            "facing": "right",
+            "filename": "puffnest_idle_right.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_idle_right.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "idle",
+            "facing": "left",
+            "filename": "puffnest_idle_left.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_idle_left.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_idle_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "move",
+            "facing": "right",
+            "filename": "puffnest_move_right.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_move_right.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_move_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "move",
+            "facing": "left",
+            "filename": "puffnest_move_left.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_move_left.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_move_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "reaction",
+            "facing": "right",
+            "filename": "puffnest_reaction_right.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_reaction_right.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_reaction_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "puffnest",
+            "state": "reaction",
+            "facing": "left",
+            "filename": "puffnest_reaction_left.png",
+            "source_destination": "art/source/companions/puffnest/puffnest_reaction_left.png",
+            "runtime_destination": "art/production/companions/puffnest/puffnest_reaction_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "breezewyn",
+            "state": "idle",
+            "facing": "right",
+            "filename": "breezewyn_idle_right.png",
+            "source_destination": "art/source/companions/breezewyn/breezewyn_idle_right.png",
+            "runtime_destination": "art/production/companions/breezewyn/breezewyn_idle_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "breezewyn",
+            "state": "idle",
+            "facing": "left",
+            "filename": "breezewyn_idle_left.png",
+            "source_destination": "art/source/companions/breezewyn/breezewyn_idle_left.png",
+            "runtime_destination": "art/production/companions/breezewyn/breezewyn_idle_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "breezewyn",
+            "state": "move",
+            "facing": "right",
+            "filename": "breezewyn_move_right.png",
+            "source_destination": "art/source/companions/breezewyn/breezewyn_move_right.png",
+            "runtime_destination": "art/production/companions/breezewyn/breezewyn_move_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "breezewyn",
+            "state": "move",
+            "facing": "left",
+            "filename": "breezewyn_move_left.png",
+            "source_destination": "art/source/companions/breezewyn/breezewyn_move_left.png",
+            "runtime_destination": "art/production/companions/breezewyn/breezewyn_move_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "breezewyn",
+            "state": "reaction",
+            "facing": "right",
+            "filename": "breezewyn_reaction_right.png",
+            "source_destination": "art/source/companions/breezewyn/breezewyn_reaction_right.png",
+            "runtime_destination": "art/production/companions/breezewyn/breezewyn_reaction_right.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          },
+          {
+            "entity": "breezewyn",
+            "state": "reaction",
+            "facing": "left",
+            "filename": "breezewyn_reaction_left.png",
+            "source_destination": "art/source/companions/breezewyn/breezewyn_reaction_left.png",
+            "runtime_destination": "art/production/companions/breezewyn/breezewyn_reaction_left.png",
+            "canvas": [
+              256,
+              256
+            ],
+            "occupied_bounds": [
+              32,
+              24,
+              224,
+              224
+            ],
+            "baseline": 224,
+            "pivot": [
+              128,
+              224
+            ],
+            "transparent_background": true,
+            "canonical_reference": "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+            "scale": "Uniform 56x56 runtime; complete silhouette; no background/text/labels",
+            "hand_socket": "None; cosmetic follower has no equipment/collision/stats",
+            "layers": "Body transparent; ground shadow and temporal VFX separate",
+            "mirror": false,
+            "status": "NEEDS_NEW_CANON_EXPORT",
+            "priority": "P1"
+          }
+        ]
       }
     },
     {

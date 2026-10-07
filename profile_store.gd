@@ -111,9 +111,13 @@ static func create_uuid() -> String:
 	return "%s-%s-%s-%s-%s" % [hex.substr(0, 8), hex.substr(8, 4), hex.substr(12, 4), hex.substr(16, 4), hex.substr(20, 12)]
 
 static func grant_companion(path: String, profile: Dictionary, id: String) -> Error:
-	if id not in preload("res://companion_catalog.gd").available_ids():return ERR_INVALID_PARAMETER
+	if id not in preload("res://companion_catalog.gd").known_ids():return ERR_INVALID_PARAMETER
 	var next:=sanitize(profile)
 	if not id in next.companion.owned_ids:next.companion.owned_ids.append(id)
 	var error:=save_profile(path,next)
 	if error==OK:profile.companion=next.companion
 	return error
+
+static func grant_companion_unlock(path: String, profile: Dictionary, item_id: String) -> Error:
+	var id:=preload("res://companion_catalog.gd").id_for_unlock(item_id)
+	return ERR_INVALID_PARAMETER if id.is_empty() else grant_companion(path,profile,id)
