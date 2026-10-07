@@ -1,4 +1,10 @@
-## CURRENT exact subcell coverage — 2026-10-07 / v34
+## CURRENT exact coverage � 2026-10-07 / v37
+
+Dedicated canonical sheets control playable identity. Owner-confirmed Glimmerfin and Gloomlet bodies remain accepted; conflicting broad-board designs remain rejected. Four later source impact frames improve five existing family routes without closing additional TEMP states. Correct exact debt **3,051 = 2,313 playable + 738 other actor cells**, **106 body/view bundles**, **165 support packages (82 right / 83 left)**. The reduction from 3,056 is five existing early-strike coverage corrections, not five new bodies. Accepted extraction exports **125**, all LIVE_BETA. [Current report](../source-integration/REPORT.md) and [consolidated runtime-ready requests](../../NEEDS_NEW_CANON_EXPORT.json).
+
+Relic Beast unsupported actions remain TEMP. Moonkip baked daggers are not weaponless paws. Original wingless/coiled Dragon tail remains REPLACE. Missing anatomy, opposite views, recovery and support contracts are not filled with idle art. The named queue below remains active; older counts are historical.
+
+## Historical exact subcell coverage — 2026-10-07 / v34
 
 Eight true canonical attack-sequence exports resolve nine right-facing cells: Emberhorn claws windup/strike (2), Moonkip baked Twin Daggers windup/strike (2), Pebblewyrm claws windup (1), Glimmerfin baked staff windup and Wand/Orb cast (3), Gloomlet claws strike (1). Current exact debt **3,056 = 2,318 playable + 738 other actor cells**; **106 body/view bundles and 165 complete support packages (82 right / 83 left)** remain open. No whole package, Dragon tail, enemy/boss/NPC/Wanderer action set or opposite/recovery view is closed. New frames are LIVE_BETA, not final owner approval. [Report/provenance/evidence](../canonical-actions/REPORT.md); [regenerated exact requests](../../NEEDS_NEW_CANON_EXPORT.json). The unchanged named register below remains the queue; historical counts do not override this current section.
 

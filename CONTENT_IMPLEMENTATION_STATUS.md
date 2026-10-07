@@ -2,7 +2,15 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E / v31
+## CURRENT — Phase4E / v37 source integration
+
+Implementation `a3b349f660b38884ca57e515184aeb09d6259068` plus Moonkip checkpoint `0ef8636`; separate QA/report checkpoint is the commit adding `docs/production/phase4e/source-integration/REPORT.md`. Four dedicated-sheet impact frames, five family routes, approved gold payout flare and existing Nature contact art integrated. Dedicated Glimmerfin/Gloomlet identities are owner-confirmed; conflicting broad-board bodies remain rejected. No balance, odds, save format or attack timing change. No Phase4F.
+
+Android **v37 / 0.4.28-phase4e-source-integration**: `C:\Users\Snkii\Documents\lootlings\builds\android\Lootlings-phase4e-source-integration-debug.apk`. GO for scoped S23 review; **HOLD for Phase4E/release acceptance**. [Report](docs/production/phase4e/source-integration/REPORT.md) / [native gallery](docs/production/phase4e/source-integration/GALLERY.md).
+
+**125 accepted extraction exports; 6,900 inventory records / 6,170 launch slots / 3,119 LIVE_BETA / zero LIVE_FINAL. Exact debt 3,051 = 2,313 playable + 738 other actor cells; 106 shared body/view bundles; separately 165 support packages (82 right / 83 left).** This batch removes zero TEMP cells: the five-cell count reduction corrects previously uncounted accepted ATTACK-at-IMPACT coverage. New later frames improve those already-covered sequences. Missing recovery/hurt/opposite states, Moonkip weaponless paws, Relic Beast non-supported action bodies, Dragon continuous-tail art and distinct regional/boss/NPC states remain open. The consolidated `docs/production/NEEDS_NEW_CANON_EXPORT.json` records exact runtime-ready requests. Physical S23, save lifecycle, perceptual audio and owner visual gates remain separate.
+
+## Historical / superseded — Phase4E / v31
 
 Runtime implementation `844b0ad2c7c4d696db0826f90863e07d4c2fbf39`; QA/report `85bbbdf2faf12d6f70470399cc5d5cd4568b9904`. Android v31 `0.4.22-phase4e-approved-mass`: `builds/android/Lootlings-phase4e-approved-mass-debug.apk`. GO for scoped S23 owner review; HOLD for full Phase4E/release. No Phase4F.
 

@@ -8,6 +8,7 @@ func _initialize() -> void:
 	assert(DisplayServer.get_name()!="headless");call_deferred("review_impact")
 func review_impact() -> void:
 	game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame
+	game.set_process(false) # Capture an exact sampled state; live sequences advance explicitly below.
 	game.app_lifecycle.platform_notifications_enabled=false;game.audio_settings.cinematic_first_time=false
 	var helper=preload("res://tests/weapon_fit_qa.gd").new();helper.game=game
 	var baseline=OS.get_environment("LOOTLINGS_IMPACT_BASELINE")=="1"
@@ -19,6 +20,7 @@ func review_impact() -> void:
 		root.size=layout;folder="res://.godot_test_data/source-impact/%s/%dx%d/" % ["baseline" if baseline else "native",layout.x,layout.y];DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		for entry in CASES:
 			helper.prepare(entry[0],entry[1]);game.forced_facing_test=0;game.enemy_entry_anim=0;game.wave_banner_timer=0
+			game.player_flash=0 # The prior layout's real thorn retaliation must not leak a hurt pose into this sample.
 			game.presentation_director.set_process(false);game.presentation_director.toast_queue.clear();game.presentation_director.toast_panel.hide()
 			game.attack_anim=.11;game.attack_clock=.01
 			var rng=game.rng.state;var loot_rng=game.loot_system.rng.state;var damage=game.base_damage;var interval=game.current_attack_interval()
@@ -35,6 +37,7 @@ func review_impact() -> void:
 		if baseline:continue
 		for entry in CASES:
 			helper.prepare(entry[0],entry[1]);game.forced_facing_test=0;game.enemy_entry_anim=0;game.attack_clock=.22
+			game.player_flash=0
 			game.presentation_director.set_process(false);game.presentation_director.toast_queue.clear();game.presentation_director.toast_panel.hide()
 			var seen=false;var sequence=game.attack_sequence
 			for step in range(45):
