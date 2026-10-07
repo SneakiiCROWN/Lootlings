@@ -347,6 +347,9 @@ var achievements = AchievementManager.new()
 var last_lantern_spent := false
 
 func _ready() -> void:
+	if preload("res://economy_transaction.gd").recover()!=OK:
+		set_process(false)
+		var notice:=Label.new();notice.text="Your saved purchase could not be recovered.\nYour files have been retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
 	rng.randomize()
 	visual_rng.randomize()
 	title_font = ThemeDB.fallback_font
@@ -973,6 +976,7 @@ func build_hideout() -> void:
 	hideout_ui.forge_requested.connect(evolve_owned_weapon)
 	hideout_ui.forge_craft_requested.connect(craft_weapon)
 	hideout_ui.contract_claim_requested.connect(claim_contract)
+	hideout_ui.home_preferences_requested.connect(save_home_preferences)
 	hideout_ui.profile_requested.connect(show_profile_from_hideout)
 	hideout_ui.title_requested.connect(show_title_from_hideout)
 	hideout_ui.destination_visited.connect(func(destination_id): award_unique_achievement("hideout_social", str(destination_id)))
@@ -1111,6 +1115,8 @@ func scrap_stash_item(index: int) -> void:
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "scrap_earned", {"source":"stash"})
 
 func buy_hideout_offer(index: int) -> void:
+	if hideout_shop.requires_review():
+		hideout_ui.show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.");return
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
 		return
 	if index < 0 or index >= hideout_shop.stock.size():
@@ -1131,7 +1137,7 @@ func buy_hideout_offer(index: int) -> void:
 		inventory.scrap += price
 		hideout_ui.show_shop_message("STASH FULL\nNo Scrap was spent.", "#ff9b8f")
 		return
-	save_hideout_economy()
+	if not save_hideout_economy():return
 	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
 	hideout_ui.play_shop_purchase(index, ItemCatalog.rarity_color(purchased.get("rarity", "COMMON")))
 	hideout_ui.request_dialogue("shop_purchase", "Salvager")
@@ -1139,6 +1145,8 @@ func buy_hideout_offer(index: int) -> void:
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"scrap", "price":price, "item_id":purchased.get("id", "")})
 
 func use_mystery_cache() -> void:
+	if hideout_shop.requires_review():
+		hideout_ui.show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.");return
 	if state != "hideout":
 		return
 	if not hideout_shop.pending_cache_item.is_empty():
@@ -1149,7 +1157,7 @@ func use_mystery_cache() -> void:
 			return
 		var claimed := hideout_shop.claim_cache()
 		if inventory.keep(claimed):
-			save_hideout_economy()
+			if not save_hideout_economy():return
 			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
 			hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(claimed.get("rarity", "COMMON")), RewardRevealCatalog.for_rewards("scavenged_cache", [claimed]), claimed)
 			play_rarity_audio(claimed.get("rarity", "COMMON"))
@@ -1165,11 +1173,11 @@ func use_mystery_cache() -> void:
 		return
 	inventory.scrap -= hideout_shop.CACHE_COST
 	hideout_shop.reveal_cache()
-	record_contract_chest()
+	record_contract_chest(false)
+	if not save_hideout_economy():return
 	award_achievement("ten_chests")
 	award_achievement("chest_50")
 	award_item_discovery(hideout_shop.pending_cache_item)
-	save_hideout_economy()
 	hideout_ui.refresh_shop()
 	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")), RewardRevealCatalog.for_rewards("scavenged_cache", [hideout_shop.pending_cache_item]))
 	hideout_ui.request_dialogue("cache_opened", "Salvager")
@@ -1177,6 +1185,8 @@ func use_mystery_cache() -> void:
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"scrap"})
 
 func use_gold_cache() -> void:
+	if hideout_shop.requires_review():
+		hideout_ui.show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.");return
 	if state != "hideout":
 		return
 	if not hideout_shop.pending_cache_item.is_empty():
@@ -1187,7 +1197,7 @@ func use_gold_cache() -> void:
 			return
 		var claimed := hideout_shop.claim_cache()
 		if inventory.keep(claimed):
-			save_hideout_economy()
+			if not save_hideout_economy():return
 			hideout_ui.show_shop_message("CLAIMED\n%s is now in your Stash." % claimed.get("name", "Equipment"), "#69e6b0")
 			play_rarity_audio(claimed.get("rarity", "COMMON"))
 		return
@@ -1202,12 +1212,11 @@ func use_gold_cache() -> void:
 		return
 	gold -= hideout_shop.GOLD_CACHE_COST
 	hideout_shop.reveal_gold_cache()
-	record_contract_chest()
+	record_contract_chest(false)
+	if not save_hideout_economy():return
 	award_achievement("ten_chests")
 	award_achievement("chest_50")
 	award_item_discovery(hideout_shop.pending_cache_item)
-	save_meta()
-	save_hideout_economy()
 	hideout_ui.play_cache_reveal(ItemCatalog.rarity_color(hideout_shop.pending_cache_item.get("rarity", "COMMON")), RewardRevealCatalog.for_rewards("scavenged_cache", [hideout_shop.pending_cache_item]))
 	hideout_ui.request_dialogue("cache_opened", "Salvager")
 	play_audio_event("chest_land")
@@ -1245,8 +1254,7 @@ func evolve_owned_weapon(stash_index: int) -> void:
 	if not result.ok:
 		return
 	gold = result.gold
-	save_meta()
-	save_hideout_economy()
+	if not save_hideout_economy():return
 	play_audio_event("shop_purchase")
 
 	hideout_ui.queue_dialogue_context("forge_evolved")
@@ -1267,8 +1275,7 @@ func craft_weapon(weapon_type: String) -> void:
 	if not result.ok:
 		return
 	gold = result.gold
-	save_meta()
-	save_hideout_economy()
+	if not save_hideout_economy():return
 	play_audio_event("shop_purchase")
 
 	hideout_ui.queue_dialogue_context("new_weapon")
@@ -1277,24 +1284,25 @@ func claim_contract(slot: int) -> void:
 	if state != "hideout": return
 	var reward := contracts.claim(slot)
 	if reward <= 0: return
-	contracts.save("user://contracts.cfg")
 	gold += reward
-	save_meta()
+	if not save_hideout_economy():return
 	refresh_hideout()
 	hideout_ui.refresh_contracts()
 	play_audio_event("shop_purchase")
 	hideout_ui.queue_dialogue_context("contract_complete")
 
-func record_contract_chest() -> void:
+func record_contract_chest(persist: bool=true) -> void:
 	contracts.record("chest")
 	if hideout_ui != null:
 		hideout_ui.queue_dialogue_context("cache_opened")
-	contracts.save("user://contracts.cfg")
+	if persist:contracts.save("user://contracts.cfg")
 
 func run_zone_for_wave(value: int) -> Dictionary:
 	return CampaignSystem.zone_for(campaign_id, value)
 
 func buy_stash_expansion() -> void:
+	if hideout_shop.requires_review():
+		hideout_ui.show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.");return
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
 		return
 	var price := hideout_shop.expansion_cost(inventory.stash_capacity)
@@ -1304,10 +1312,12 @@ func buy_stash_expansion() -> void:
 	if not inventory.expand_stash():
 		inventory.scrap += price
 		return
-	save_hideout_economy()
+	if not save_hideout_economy():return
 	hideout_ui.show_shop_message("STASH EXPANDED\nCapacity increased to %d slots." % inventory.stash_capacity, "#72c8ff")
 
 func reroll_hideout_shop() -> void:
+	if hideout_shop.requires_review():
+		hideout_ui.show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.");return
 	if state != "hideout" or hideout_shop.rerolled_this_cycle or not hideout_shop.pending_cache_item.is_empty():
 		return
 	if inventory.scrap < hideout_shop.REROLL_COST:
@@ -1316,13 +1326,22 @@ func reroll_hideout_shop() -> void:
 	if not hideout_shop.reroll():
 		inventory.scrap += hideout_shop.REROLL_COST
 		return
-	save_hideout_economy()
+	if not save_hideout_economy():return
 	hideout_ui.show_shop_message("Offers replaced. Inspect before buying.", "#ffe178")
 
-func save_hideout_economy() -> void:
-	inventory.save(INVENTORY_SAVE_PATH)
-	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
-	hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
+func save_hideout_economy() -> bool:
+	var error:=preload("res://economy_transaction.gd").commit(self)
+	if error!=OK:
+		if FileAccess.file_exists(preload("res://economy_transaction.gd").PATH):
+			state="save_recovery";hideout_ui.show_shop_message("Purchase reserved. Restart after checking storage; your record is retained.")
+		else:
+			load_meta();inventory.load(INVENTORY_SAVE_PATH);hideout_shop.load(HIDEOUT_SHOP_SAVE_PATH)
+			contracts=ContractSystem.new();contracts.load_progress("user://contracts.cfg");hideout_ui.contracts=contracts
+			hideout_ui.configure(inventory,hideout_shop,meta_shards,meta_power,Callable(self,"build_item_comparison"),gold,profile,gold_upgrades,achievements)
+			hideout_ui.show_shop_message("Could not save. Your previous equipment and currency are retained.")
+		return false
+	hideout_ui.configure(inventory,hideout_shop,meta_shards,meta_power,Callable(self,"build_item_comparison"),gold,profile,gold_upgrades,achievements)
+	return true
 
 func build_item_ui() -> void:
 	item_panel = make_panel(Rect2(24, 122, 432, 630), Color("#0b1229fc"))
@@ -3970,3 +3989,9 @@ func draw_moment_overlay() -> void:
 			draw_rect(Rect2(100, 264, 280, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
 			draw_rect(Rect2(100, 264, 280, 2), banner_color, true)
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
+
+func save_home_preferences(home: Dictionary, companion: Dictionary) -> void:
+	if state!="hideout" or hideout_ui.current_screen!="home_settings":return
+	var next:=profile.duplicate(true);next.homestead=home;next.companion=companion;next=ProfileStore.sanitize(next)
+	if ProfileStore.save_profile(PROFILE_SAVE_PATH,next)!=OK:return
+	profile=next;hideout_ui.profile=profile.duplicate(true);hideout_ui.refresh_home_settings();hideout_ui.refresh_home();hideout_ui.queue_redraw()

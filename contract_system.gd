@@ -53,12 +53,12 @@ func load_progress(path: String) -> void:
 	if preload("res://safe_config.gd").load_config(config, path, "contracts") != OK: return
 	var saved_counts = config.get_value("contracts", "counts", {})
 	if saved_counts is Dictionary:
-		for event in counts: counts[event] = clampi(int(saved_counts.get(event, 0)), 0, 999999999)
-	next_template = clampi(int(config.get_value("contracts", "next", 3)), 3, 999999999)
+		for event in counts: counts[event] = clampi(preload("res://safe_config.gd").int_value(saved_counts.get(event, 0)), 0, 999999999)
+	next_template = clampi(preload("res://safe_config.gd").int_value(config.get_value("contracts", "next", 3),3), 3, 999999999)
 	var saved_active = config.get_value("contracts", "active", [])
 	if saved_active is Array and saved_active.size() == 3:
 		for slot in range(3):
 			var entry = saved_active[slot]
 			if entry is Dictionary:
-				var index := clampi(int(entry.get("template", slot)), 0, TEMPLATES.size() - 1)
-				active[slot] = {"template":index, "start":clampi(int(entry.get("start", 0)), 0, int(counts[TEMPLATES[index].event]))}
+				var index := clampi(preload("res://safe_config.gd").int_value(entry.get("template", slot),slot), 0, TEMPLATES.size() - 1)
+				active[slot] = {"template":index, "start":clampi(preload("res://safe_config.gd").int_value(entry.get("start", 0)), 0, int(counts[TEMPLATES[index].event]))}

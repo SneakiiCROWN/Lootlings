@@ -43,6 +43,7 @@ func restore_focus() -> void:
 	# Combat stays on the existing Pause screen until the player resumes.
 
 func persist() -> void:
+	if preload("res://economy_transaction.gd").recover()!=OK:return # Never overwrite a reserved interrupted purchase.
 	game.retention.progress.save()
 	game.expedition_progress.save()
 	game.save_meta()

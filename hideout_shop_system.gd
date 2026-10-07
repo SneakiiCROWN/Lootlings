@@ -20,6 +20,7 @@ var cache_bought_this_cycle := false
 var gold_cache_bought_this_cycle := false
 var pending_cache_currency := ""
 var pending_cache_item: Dictionary = {}
+var blocked_cache: Variant = null
 var rng := RandomNumberGenerator.new()
 
 func _init(seed_value: int = 0) -> void:
@@ -110,7 +111,7 @@ func save(path: String) -> Error:
 	config.set_value("shop", "gold_cache_bought", gold_cache_bought_this_cycle)
 	config.set_value("shop", "pending_cache_currency", pending_cache_currency)
 	config.set_value("shop", "stock", stock)
-	config.set_value("shop", "pending_cache", pending_cache_item)
+	config.set_value("shop", "pending_cache", pending_cache_item if blocked_cache==null else blocked_cache)
 	return preload("res://safe_config.gd").save_config(config, path)
 
 func load(path: String) -> void:
@@ -118,13 +119,15 @@ func load(path: String) -> void:
 	if preload("res://safe_config.gd").load_config(config, path, "shop") != OK:
 		ensure_stock()
 		return
-	cycle = maxi(0, int(config.get_value("shop", "cycle", 0)))
-	rerolled_this_cycle = bool(config.get_value("shop", "rerolled", false))
-	cache_bought_this_cycle = bool(config.get_value("shop", "cache_bought", false))
-	gold_cache_bought_this_cycle = bool(config.get_value("shop", "gold_cache_bought", false))
-	pending_cache_currency = str(config.get_value("shop", "pending_cache_currency", "scrap" if bool(config.get_value("shop", "cache_bought", false)) else ""))
+	cycle = clampi(preload("res://safe_config.gd").int_value(config.get_value("shop", "cycle", 0)),0,999999)
+	rerolled_this_cycle = config.get_value("shop", "rerolled", false)==true
+	cache_bought_this_cycle = config.get_value("shop", "cache_bought", false)==true
+	gold_cache_bought_this_cycle = config.get_value("shop", "gold_cache_bought", false)==true
+	pending_cache_currency = str(config.get_value("shop", "pending_cache_currency", "scrap" if config.get_value("shop", "cache_bought", false)==true else ""))
 	stock = validated_items(config.get_value("shop", "stock", []), true)
-	var pending := validated_items([config.get_value("shop", "pending_cache", {})], false)
+	var raw_pending=config.get_value("shop", "pending_cache", {})
+	var pending := validated_items([raw_pending], false)
+	blocked_cache={"malformed_original":null} if raw_pending==null else raw_pending if pending.is_empty() and raw_pending!={} else null
 	pending_cache_item = pending[0] if not pending.is_empty() else {}
 	if pending_cache_item.is_empty():
 		pending_cache_currency = ""
@@ -161,11 +164,12 @@ func validated_items(raw_items, include_price: bool) -> Array:
 			if include_price:
 				result.append({})
 			continue
+		if not raw_item.get("id",null) is String or not raw_item.get("rarity","COMMON") is String:continue
 		var definition := ItemCatalog.definition(raw_item.get("id", ""))
 		var rarity: String = raw_item.get("rarity", "COMMON")
 		if definition.is_empty() or rarity == "LEGENDARY" or not rarity in ItemCatalog.RARITIES:
 			continue
-		var item := ItemCatalog.create_item(definition.id, rarity, int(raw_item.get("serial", 0)))
+		var item := ItemCatalog.create_item(definition.id, rarity, preload("res://safe_config.gd").int_value(raw_item.get("serial", 0)))
 		if include_price:
 			item.price = equipment_price(item)
 		result.append(item)
@@ -177,3 +181,6 @@ func validated_items(raw_items, include_price: bool) -> Array:
 
 func serial_for(offset: int) -> int:
 	return 100000 + cycle * 20 + offset
+
+func requires_review() -> bool:
+	return blocked_cache!=null

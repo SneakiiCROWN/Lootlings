@@ -2,7 +2,13 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Phase4E approved missing-source canon / v38
+## CURRENT — owner-authorized completion sprint — active
+
+The [owner completion authorization](docs/production/completion-sprint/OWNER_AUTHORIZATION.md) supersedes Phase4E-only / no-Phase4F sequencing. Finish existing Phase4E, then proceed into required completion scope without waiting for another broad prompt. Canon lock, valid checkpoints and external-art limits remain unchanged. The v38 approval/extraction batch below is preserved history.
+
+Current new work: free persisted Home shelf choices using accepted art; one-slot cosmetic companion system shell with approved-asset availability gate (catalog empty pending authored pet art); additive schema-v4 profile semantics; malformed reward reservation quarantine; write-ahead Home currency/inventory/shop/contract recovery. Desktop process-death and native phone/tablet validation are being completed. Art debt remains 3,050 existing actor delivery cells / 106 bundles / 165 support packages, plus the supplemental companion art requirement in NEEDS_NEW_CANON_EXPORT.json. No final art or device acceptance claimed. Continue from this working checkpoint, not from an older Phase4E-only instruction.
+
+## Historical checkpoint — Phase4E approved missing-source canon / v38
 
 Owner-approved generated references now control only the previously source-less **27 regional enemies, seven bosses and Pack Peddler/Merrow role**. `art/approved_missing_canon_references.json` records exact named panels, hashes and limits. Existing dedicated Lootling sheets, five Wanderers, Patch/Ilex/Sera, Hoard Dragon, Verdant Mirror and Furnace Regent remain unchanged. Board region labels/marketing/support bodies cannot override written IDs or established canon.
 

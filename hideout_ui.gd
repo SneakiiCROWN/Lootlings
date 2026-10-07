@@ -39,6 +39,7 @@ signal shop_gold_cache_requested
 signal shop_expansion_requested
 signal shop_reroll_requested
 signal gold_upgrade_requested(upgrade_id: String)
+signal home_preferences_requested(home: Dictionary, companion: Dictionary)
 signal profile_requested
 signal title_requested
 signal ui_event(event_name: String)
@@ -102,6 +103,11 @@ var entries: Array = []
 var stash_filter := "ALL"
 var filter_buttons := {}
 
+var home_settings_content: Control
+var home_settings_summary: Label
+var home_display_buttons: Dictionary = {}
+var companion_buttons: Dictionary = {}
+var companion_presenter := preload("res://companion_presentation.gd").new()
 var home_content: Control
 var stash_content: Control
 var forge_content: Control
@@ -217,6 +223,7 @@ func _ready() -> void:
 	dialogue = DialogueDirector.new()
 	life_rng.randomize()
 	build_home()
+	build_home_settings()
 	build_stash()
 	build_forge()
 	build_phase4()
@@ -250,6 +257,7 @@ func show_home() -> void:
 	set_screen(home_content)
 	refresh_home()
 	loadout_panel.visible = false
+	companion_presenter.react("return")
 	hideout_visits += 1
 	visit_destination("home")
 	queue_redraw()
@@ -306,6 +314,7 @@ func refresh_current_screen() -> void:
 		"shop": refresh_shop()
 		"achievements": refresh_achievements()
 		"contracts": refresh_contracts()
+		"home_settings": refresh_home_settings()
 		"workshop": refresh_phase4()
 		_: refresh_home()
 
@@ -315,7 +324,7 @@ func set_screen(active: Control) -> void:
 	if region_sheet!=null:region_sheet.visible=false
 	if stash_detail_panel!=null:stash_detail_panel.visible=false
 	if presentation != null: presentation.cancel_chest_showcase()
-	var screens := [phase4_content,home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
+	var screens := [home_settings_content,phase4_content,home_content, stash_content, forge_content, campaign_content, contracts_content, upgrade_content, shop_content, achievement_content, lore_content, memory_content, coming_content]
 	presentation.switch_screen(screens, active, 0.24)
 	ui_event.emit("menu_transition")
 
@@ -346,6 +355,7 @@ func build_home() -> void:
 		if child is Button and not child.flat:
 			for state in ["normal","hover","pressed","focus"]:
 				var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99") if state=="normal" else Color("#29404cdd"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); child.add_theme_stylebox_override(state,style)
+	make_button(home_content,"YOUR HOME",Rect2(172,662,136,40),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(show_home_settings)
 	make_label(home_content,"Your fire. Your people. Your way back.",12,Rect2(60,780,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
 	loadout_panel=make_panel(home_content,Rect2(34,665,412,70),Color("#0c1430e9"),Color("#7087ae")); loadout_panel.visible=false
 	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
@@ -1112,7 +1122,12 @@ func refresh_home() -> void:
 		display_name = "TREASURE SEEKER"
 	if endgame_progress!=null:engine_button.text="FREE SPINS: %d" % int(endgame_progress.data.get("free_spins",0)) if int(endgame_progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
 	resource_label.text="[center]%s %s   %s %s   %s %s[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
+	var home_display: String=profile.get("homestead",{}).get("display","weapon")
+	home_weapon.visible=home_display=="weapon"
+	home_weapon_name.visible=home_display!="none"
 	home_weapon.configure(current_inventory.equipped_item("Weapon")); home_weapon_name.text=str(current_inventory.equipped_item("Weapon").get("name","No weapon"))
+	if home_display=="scroll": home_weapon_name.text="Recovered plans"
+	if home_display=="trophy": home_weapon_name.text="Trophy stand"
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
 	var weapon: Dictionary = current_inventory.equipped_item("Weapon")
@@ -1291,6 +1306,9 @@ func refresh_shop() -> void:
 			shop_status.text = "[center][color=#ff9b8f]STASH FULL[/color]\nScrap or equip stored gear to make room.\nNothing will be overwritten.[/center]"
 		elif shop_status.text.is_empty() or shop_status.text.contains("MYSTERY CACHE REVEAL") or shop_status.text.contains("SCAVENGED CACHE REVEAL") or shop_status.text.contains("STASH FULL"):
 			shop_status.text = "[center][color=#ffe39a]Persistent gear • paid with Scrap[/color]\nStock refreshes after a completed run.[/center]"
+	if current_shop.requires_review():
+		for button in shop_offer_buttons+[shop_cache_button,shop_gold_cache_button,shop_expansion_button,shop_reroll_button]:button.disabled=true
+		show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.")
 
 func refresh_shop_detail(reveal_pending: bool) -> void:
 	if selected_shop_offer < 0 or selected_shop_offer >= current_shop.stock.size() or current_shop.stock[selected_shop_offer].is_empty():
@@ -1535,6 +1553,7 @@ func _process(delta: float) -> void:
 	if not visible:
 		return
 	if current_screen == "home":
+		companion_presenter.update(delta,Vector2(240,491))
 		var cycle:=int(scene_time/28.0)
 		if cycle!=station_cycle:
 			station_cycle=cycle
@@ -1618,6 +1637,8 @@ func draw_home_scene() -> void:
 	for rune in range(5):
 		var point:=Vector2(240,182)+Vector2.RIGHT.rotated(PI+rune*PI/4)*63
 		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(scene_time*2-rune))*.16))
+	if profile.get("homestead",{}).get("display","weapon")=="scroll": LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/items/recipe_scroll.png"),Rect2(179,519,48,48))
+	if profile.get("homestead",{}).get("display","weapon")=="trophy": LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/props/trophy_dais.png"),Rect2(179,519,48,48))
 	draw_home_board()
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.26))
 	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
@@ -1654,15 +1675,11 @@ func draw_home_scene() -> void:
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
 	draw_resident("Archivist", RESIDENT_RECTS.Archivist, "ILEX", 2.0)
 	draw_home_workstations()
+	companion_presenter.draw_home(self,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
 
 func draw_home_board() -> void:
-	# Original small sign nailed to the market side, with three pinned jobs.
-	draw_colored_polygon(PackedVector2Array([Vector2(335,236),Vector2(386,233),Vector2(389,269),Vector2(333,271)]),Color("#382a24"))
-	for page in range(3):
-		var x:=339+page*15
-		draw_colored_polygon(PackedVector2Array([Vector2(x,241),Vector2(x+12,240),Vector2(x+12,261),Vector2(x,263)]),Color("#c6ab79"))
-		draw_circle(Vector2(x+6,243),1.5,Color("#967344"))
-		for line in range(3): draw_line(Vector2(x+2,249+line*3),Vector2(x+9,249+line*3),Color("#655747"),.8,true)
+	# Accepted painted contract banner replaces the flat board/paper prototype.
+	LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/props/contract_banner.png"),Rect2(330,224,64,78))
 
 func draw_home_workstations() -> void:
 	# Foreground furniture grounds the residents. The canonical painting remains
@@ -1866,3 +1883,46 @@ func apply_button_style(button: Button, fill: Color, border: Color) -> void:
 
 func safe_action(button: Button, consequence: String, action: Callable) -> void:
 	get_parent().touch_ux.request(button.text.get_slice("\n",0),button.text+"\n\n"+consequence,action)
+
+func build_home_settings() -> void:
+	home_settings_content=Control.new();home_settings_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);home_settings_content.visible=false;add_child(home_settings_content)
+	make_button(home_settings_content,"‹ HIDEOUT",Rect2(20,20,122,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(show_home)
+	make_label(home_settings_content,"YOUR HOME",24,Rect2(30,92,420,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	var panel:=make_panel(home_settings_content,Rect2(20,148,440,630),Color("#10162ff2"),Color("#8ea2c8"))
+	make_label(panel,"Shelf display • free to change",18,Rect2(18,18,404,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	for index in range(4):
+		var id: String=["weapon","scroll","trophy","none"][index]
+		var button:=make_button(panel,"",Rect2(20,66+index*60,400,52),Color("#202d4d"),Color("#7f94bc"),16)
+		home_display_buttons[id]=button;button.pressed.connect(func():choose_home_display(id))
+	make_label(panel,"Companion",20,Rect2(18,324,404,36),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	home_settings_summary=make_label(panel,"",16,Rect2(24,370,392,94),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"));home_settings_summary.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	var unequip:=make_button(panel,"NO COMPANION",Rect2(20,476,400,52),Color("#202d4d"),Color("#7f94bc"),16);unequip.pressed.connect(func():choose_companion(""))
+	# Approved catalog entries can be selected through this bounded scroll list;
+	# an empty catalog never invents a pet identity or substitutes an enemy body.
+	var scroll:=ScrollContainer.new();scroll.position=Vector2(20,532);scroll.size=Vector2(400,78);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;panel.add_child(scroll)
+	var list:=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)
+	for id in preload("res://companion_catalog.gd").available_ids():
+		var b:=Button.new();b.text=str(preload("res://companion_catalog.gd").ENTRIES[id].get("name",id));b.custom_minimum_size=Vector2(380,52);list.add_child(b);companion_buttons[id]=b;b.pressed.connect(func():choose_companion(id))
+
+func show_home_settings() -> void:
+	current_screen="home_settings";set_screen(home_settings_content);refresh_home_settings();queue_redraw()
+
+func refresh_home_settings() -> void:
+	var display: String=profile.get("homestead",{}).get("display","weapon")
+	for id in home_display_buttons:
+		home_display_buttons[id].text=("CURRENT • " if id==display else "USE • ")+{"weapon":"Equipped weapon","scroll":"Recovered plans","trophy":"Trophy stand","none":"Clear shelf"}[id]
+	var companion:=preload("res://companion_catalog.gd").sanitize(profile.get("companion",{}))
+	home_settings_summary.text="No companion equipped. Companions are cosmetic; they give no combat advantage."
+	if preload("res://companion_catalog.gd").available_ids().is_empty():home_settings_summary.text="No companions are available yet. Your slot is ready. Companions never change combat stats."
+	elif not companion.equipped_id.is_empty():home_settings_summary.text="Equipped: "+str(preload("res://companion_catalog.gd").ENTRIES[companion.equipped_id].get("name",companion.equipped_id))+" • cosmetic only"
+	for id in companion_buttons:companion_buttons[id].disabled=id not in companion.owned_ids
+
+func choose_home_display(id: String) -> void:
+	if current_screen!="home_settings" or id not in ["weapon","scroll","trophy","none"]:return
+	home_preferences_requested.emit({"display":id},preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
+
+func choose_companion(id: String) -> void:
+	if current_screen!="home_settings":return
+	var companion:=preload("res://companion_catalog.gd").sanitize(profile.get("companion",{}))
+	if not id.is_empty() and id not in companion.owned_ids:return
+	companion.equipped_id=id;home_preferences_requested.emit(profile.get("homestead",{"display":"weapon"}),companion)

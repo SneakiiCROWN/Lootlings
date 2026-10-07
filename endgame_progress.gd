@@ -3,7 +3,7 @@ const Catalog=preload("res://phase4b_catalog.gd")
 const Items=preload("res://item_catalog.gd")
 const Safe=preload("res://safe_config.gd")
 var provider=preload("res://local_save_provider.gd").new()
-var data: Dictionary={"version":1,"highest":0,"best_score":0,"delivery_serial":0,"tracked":"","red_fragments":0,"spin_sparks":0,"dungeon_clears":0,"pending":[],"spin_wallet":0,"spins":0,"session":"","region":"act_i"}
+var data: Dictionary={"version":1,"highest":0,"best_score":0,"delivery_serial":0,"tracked":"","red_fragments":0,"spin_sparks":0,"dungeon_clears":0,"pending":[],"quarantined_rewards":[],"spin_wallet":0,"spins":0,"session":"","region":"act_i"}
 const PATH="user://endgame.cfg"
 const FREE_BANK_CAP:=12
 const FREE_RUN_CAP:=3
@@ -16,6 +16,9 @@ func load_progress() -> void:
 	data.spins=mini(3,data.spins)
 	data.spin_sparks=clampi(Safe.int_value(data.spin_sparks),0,preload("res://relic_spin_catalog.gd").SPARK_TARGET-1)
 	if not data.region in preload("res://phase4_catalog.gd").FARMS: data.region="act_i"
+	# Preserve malformed reservations for support review; never erase spent value.
+	for reward in data.pending:
+		if not valid_reward(reward) and not reward in data.quarantined_rewards:data.quarantined_rewards.append(reward)
 	data.pending=data.pending.filter(valid_reward)
 	data.free_spins=clampi(Safe.int_value(data.free_spins),0,FREE_BANK_CAP)
 	data.free_run_grants=clampi(Safe.int_value(data.free_run_grants),0,FREE_RUN_CAP)
@@ -26,7 +29,7 @@ static func valid_reward(value) -> bool:
 	if kind=="item": return value.get("item",null) is Dictionary and not preload("res://inventory_system.gd").sanitize_saved_item(value.item).is_empty()
 	if kind not in ["material","mastery","blueprint"] or not value.get("region","") in preload("res://phase4_catalog.gd").FARMS: return false
 	if not value.get("amount",null) is int or value.amount<1 or value.amount>12: return false
-	return kind!="mastery" or (value.get("actor",null) is String and value.get("family",null) is String)
+	return kind!="mastery" or (value.get("actor",null) is String and value.get("actor") in preload("res://lootling_catalog.gd").ENTRIES.keys()+preload("res://wanderer_catalog.gd").PRESETS.keys() and value.get("family",null) is String and value.get("family") in preload("res://weapon_catalog.gd").FAMILIES)
 func save() -> Error: return provider.save_snapshot(PATH,"endgame",data)
 func begin(region: String) -> void:
 	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
@@ -46,7 +49,7 @@ func earn_spin(reason: String) -> bool:
 
 func free_spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
 	if int(data.get("free_spins",0))<=0:return "No earned spins stored."
-	if not data.pending.is_empty():return "Recover the reserved reward first."
+	if not data.pending.is_empty() or not data.quarantined_rewards.is_empty():return "Recover the reserved reward first."
 	var before:=data.duplicate(true);var rng_before: int=rng.state
 	var reward:=Catalog.spin_reward(rng)
 	data.delivery_serial+=1
@@ -77,14 +80,14 @@ func secure_red(units: int, rng: RandomNumberGenerator) -> void:
 	data.red_fragments=mini(999999,int(data.red_fragments)+units)
 	if rng.randf()<.01: queue_item("gravebloom_staff","RED")
 func forge_red() -> bool:
-	if data.red_fragments<Catalog.RED_TARGET or not data.pending.is_empty(): return false
+	if data.red_fragments<Catalog.RED_TARGET or not data.pending.is_empty() or not data.quarantined_rewards.is_empty(): return false
 	var before:=data.duplicate(true); data.red_fragments-=Catalog.RED_TARGET; queue_item("gravebloom_staff","RED")
 	if save()!=OK: data=before; return false
 	return true
 func settle(wallet: int, kills: int) -> void:
 	data.spin_wallet=wallet if kills>=10 else 0; data.spins=0; save()
 func spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
-	if not data.pending.is_empty(): return "Recover the reserved reward first."
+	if not data.pending.is_empty() or not data.quarantined_rewards.is_empty(): return "Recover the reserved reward first."
 	if data.spins>=3: return "Three spins complete."
 	var cost: int=Catalog.SPIN_COSTS[data.spins]
 	if data.spin_wallet<cost: return "Needs %d leftover currency." % cost
@@ -98,6 +101,7 @@ func spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
 	if save()!=OK: data=before; return "Could not save; no currency spent."
 	return "Found %d %s. Remaining %d." % [reward.amount,reward.kind,data.spin_wallet]
 func recover(game) -> String:
+	if not data.quarantined_rewards.is_empty():return "A reserved reward needs support review. Its record is retained."
 	if not data.pending.is_empty() and save()!=OK: return "Reward reserved until saving returns."
 	while not data.pending.is_empty():
 		var reward: Dictionary=data.pending[0]

@@ -779,7 +779,7 @@
       "restore_focus",
       "persist"
     ],
-    "source_sha256": "c9b74f189d6e87bc46456ae047e2e30997fccc346802288c2ae46090124fe4f2"
+    "source_sha256": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474"
   },
   "approved_missing_runtime_art.gd": {
     "constants": {},
@@ -2256,6 +2256,26 @@
     ],
     "source_sha256": "1df4da3fb4ac3b65f74f79eaf088fc31772a8fb0006ba8971696c7e91ba3f9cc"
   },
+  "companion_catalog.gd": {
+    "constants": {
+      "ENTRIES": {}
+    },
+    "methods": [
+      "available_ids",
+      "sanitize",
+      "texture"
+    ],
+    "source_sha256": "d7e4e851a6ea3a0c457bbd08e474010cfb8a9147982446045cf2f7a07a53f6dd"
+  },
+  "companion_presentation.gd": {
+    "constants": {},
+    "methods": [
+      "react",
+      "update",
+      "draw_home"
+    ],
+    "source_sha256": "f64a2b4df47bc986205590fcdbb930ab61282e2e45de5a153fb694610b788ff6"
+  },
   "contextual_dialogue.gd": {
     "constants": {
       "GREETINGS": {
@@ -3151,7 +3171,7 @@
       "save",
       "load_progress"
     ],
-    "source_sha256": "719b2b114ba43b3f11fe95330db8b1fad46e9f21203c7fcd82b361495cd64ed4"
+    "source_sha256": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49"
   },
   "creature_renderer.gd": {
     "constants": {
@@ -3744,6 +3764,25 @@
     ],
     "source_sha256": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2"
   },
+  "economy_transaction.gd": {
+    "constants": {
+      "PATH": "user://home_economy_transaction.cfg",
+      "STORES": {
+        "user://contracts.cfg": "contracts",
+        "user://lootlings_hideout_shop.cfg": "shop",
+        "user://lootlings_inventory.cfg": "inventory",
+        "user://lootlings_save.cfg": "progress"
+      },
+      "Safe": {
+        "resource_path": "res://safe_config.gd"
+      }
+    },
+    "methods": [
+      "commit",
+      "recover"
+    ],
+    "source_sha256": "1f0be462e167a5ff1897eea4f91654f5013b9ce12615885b621378e3ebca04e4"
+  },
   "endgame_progress.gd": {
     "constants": {
       "Catalog": {
@@ -3775,7 +3814,7 @@
       "spin",
       "recover"
     ],
-    "source_sha256": "4e1741fef68d166a4ed3ff9305867c6ac92765f2212c877f5694a0c6f95cff20"
+    "source_sha256": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8"
   },
   "enemy_encounter.gd": {
     "constants": {
@@ -4592,9 +4631,10 @@
       "public_items",
       "weighted_rarity",
       "validated_items",
-      "serial_for"
+      "serial_for",
+      "requires_review"
     ],
-    "source_sha256": "65ace499cca3caacce5ace37b61b3308345af33b1e1915c9948027d2b69d58db"
+    "source_sha256": "85c65c12965d28b6ead3d706c70f10aa5020533841c79791060b9e2c6986db8b"
   },
   "hideout_ui.gd": {
     "constants": {
@@ -4811,9 +4851,14 @@
       "spawn_ui_burst",
       "draw_ui_sparks",
       "apply_button_style",
-      "safe_action"
+      "safe_action",
+      "build_home_settings",
+      "show_home_settings",
+      "refresh_home_settings",
+      "choose_home_display",
+      "choose_companion"
     ],
-    "source_sha256": "ed6a41cb2e53b97ab3340ec42210e2eeec8edbc0ed110767ef7fa474b8a63fae"
+    "source_sha256": "d211b54b831d25c491375063d6d279a073f95f8ae50a3a25d4a0b78734461081"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6452,9 +6497,10 @@
       "draw_attack_projectiles",
       "draw_hoard_chest",
       "draw_loot_drop",
-      "draw_moment_overlay"
+      "draw_moment_overlay",
+      "save_home_preferences"
     ],
-    "source_sha256": "73aa701a888356d8b95a58dcd092ea782e6bfe55fe024dbcbef4e6d5af16815d"
+    "source_sha256": "5026bd3688a92e29e38f8162daecd3fd517faec7f1ac15983948dbfdbf1c11e8"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7474,7 +7520,7 @@
   },
   "profile_store.gd": {
     "constants": {
-      "SCHEMA_VERSION": 3,
+      "SCHEMA_VERSION": 4,
       "WandererCatalog": {
         "resource_path": "res://wanderer_catalog.gd"
       }
@@ -7483,12 +7529,14 @@
       "create_default",
       "load_profile",
       "save_profile",
+      "sanitize",
       "is_created",
       "sanitize_memories",
       "sanitize_name",
-      "create_uuid"
+      "create_uuid",
+      "grant_companion"
     ],
-    "source_sha256": "c9a1162c8ebfd743a267a64f082a1c9fded59512182c0e3e92b809e0e4a6cf82"
+    "source_sha256": "a822d7b7143c3d9a167716f5a36cfb1ec0ce7e661bc2da09550ec5ec7f2cdd04"
   },
   "projectile_presentation.gd": {
     "constants": {
@@ -8160,9 +8208,10 @@
     "methods": [
       "defaults",
       "load_settings",
-      "save_settings"
+      "save_settings",
+      "sanitize"
     ],
-    "source_sha256": "7eb05034466beae1384323f9052330487fccf28a888f1eb6c8bc40a45ec51c8a"
+    "source_sha256": "71afdca7aa57ef3a48a7014b0c271f557b222a21466443fe9c80003f0cce95eb"
   },
   "shop_system.gd": {
     "constants": {

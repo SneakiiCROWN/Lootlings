@@ -54,6 +54,9 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:hideout_ui.gd:draw_hideout_light | draw_hideout_light / draw_hideout_light | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:draw_archive_scene | draw_archive_scene / draw_archive_scene | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:draw_ui_sparks | draw_ui_sparks / draw_ui_sparks | LIVE_BETA | hideout_ui.gd |
+| screen:hideout_ui.gd:build_home_settings | build_home_settings / build_home_settings | LIVE_BETA | hideout_ui.gd |
+| screen:hideout_ui.gd:show_home_settings | show_home_settings / show_home_settings | LIVE_BETA | hideout_ui.gd |
+| screen:hideout_ui.gd:refresh_home_settings | refresh_home_settings / refresh_home_settings | LIVE_BETA | hideout_ui.gd |
 | screen:lootlings_ui.gd:draw_icon | draw_icon / draw_icon | LIVE_BETA | lootlings_ui.gd |
 | screen:lootlings_ui.gd:draw_meter | draw_meter / draw_meter | LIVE_BETA | lootlings_ui.gd |
 | screen:retention_runtime.gd:show_modes | show_modes / show_modes | LIVE_BETA | retention_runtime.gd |

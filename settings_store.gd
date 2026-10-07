@@ -20,23 +20,23 @@ static func load_settings(path: String) -> Dictionary:
 		return result
 	for key in result:
 		result[key] = config.get_value("audio", key, result[key])
-	for channel in CHANNELS:
-		result[channel] = clampf(float(result[channel]), 0.0, 1.0)
-		result[channel + "_muted"] = bool(result[channel + "_muted"])
-	for key in result:
-		if str(key).begins_with("cinematic_"): result[key] = bool(result[key])
-	return result
+	return sanitize(result)
 
 static func save_settings(path: String, settings: Dictionary) -> Error:
 	var config := ConfigFile.new()
 	var safe := defaults()
 	for key in safe:
 		safe[key] = settings.get(key, safe[key])
-	for channel in CHANNELS:
-		safe[channel] = clampf(float(safe[channel]), 0.0, 1.0)
-		safe[channel + "_muted"] = bool(safe[channel + "_muted"])
-	for key in safe:
-		if str(key).begins_with("cinematic_"): safe[key] = bool(safe[key])
+	safe=sanitize(safe)
 	for key in safe:
 		config.set_value("audio", key, safe[key])
 	return preload("res://safe_config.gd").save_config(config, path)
+
+static func sanitize(value: Dictionary) -> Dictionary:
+	var result:=defaults()
+	for key in result:
+		var candidate=value.get(key,result[key])
+		if key in CHANNELS:
+			if (candidate is float or candidate is int) and is_finite(float(candidate)):result[key]=clampf(float(candidate),0,1)
+		elif typeof(candidate)==typeof(result[key]):result[key]=candidate
+	return result

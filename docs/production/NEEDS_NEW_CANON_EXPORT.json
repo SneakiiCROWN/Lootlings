@@ -1,4 +1,47 @@
 {
+  "supplemental_runtime_art_requirements": [
+    {
+      "entity": "One owner-approved cosmetic companion; identity not yet provided",
+      "identity_status": "NEEDS_OWNER_APPROVED_IDENTITY_AND_AUTHORED_EXPORTS",
+      "states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "facings": [
+        "right",
+        "left"
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "occupied_bounds": [
+        32,
+        24,
+        224,
+        224
+      ],
+      "baseline": 224,
+      "pivot": [
+        128,
+        224
+      ],
+      "runtime_size": [
+        56,
+        56
+      ],
+      "filename_template": "{approved_id}_{state}_{facing}.png",
+      "source_destination": "art/source/companions/{approved_id}/",
+      "runtime_destination": "art/production/companions/{approved_id}/",
+      "layers": "No equipment or combat sockets; ground shadow/VFX separate; actual body baseline metadata required",
+      "mirror": "No implicit mirroring. Explicit authored opposite view required unless owner-approved symmetry contract permits an export.",
+      "identity_source": "LOOTLINGS_WORLD_BIBLE.md provides world direction only; new specific pet identity requires owner-approved source",
+      "scale": "Uniform only; readable at 56x56 design pixels; complete silhouette.",
+      "power": "Cosmetic only; never a stat or combat unlock requirement."
+    }
+  ],
   "authority": "Existing locked identity; final production art cannot be inferred from rejected boards",
   "count_unit": "body/view bundles, each containing reusable pose states plus exact family/socket restrictions; not unique files per delivery cell",
   "body_view_packages": 106,

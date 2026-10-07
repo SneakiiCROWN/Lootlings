@@ -1,5 +1,5 @@
 {
-  "scope": "Preserved pre-existing planned records, not an authorization to add new NPCs/regions/systems",
+  "scope": "Owner completion authorization supersedes Phase4E-only sequencing. Established future NPC labels remain FUTURE; only bounded pets and Home customization promoted here.",
   "items": [
     {
       "slot_id": "content:chest_catalog.gd:CHESTS:cursed_coffer",
@@ -53,16 +53,67 @@
     {
       "slot_id": "planned:authored_pets",
       "subject": "authored pets",
-      "status": "LATER_SYSTEM_INTEGRATION",
+      "status": "SYSTEM_SHELL_IMPLEMENTED_ART_OPEN",
       "source": "LOOTLINGS_WORLD_BIBLE.md",
-      "reason": "Historical/planned scope; needs explicit gameplay/station/encounter or marketing implementation. Not promoted to implemented canon by this art/content integration pass."
+      "reason": "Owner authorizes launch companion scope. Saved one-slot selection, no stats/cost, Home follow/reaction and approved-asset gate are implemented. No approved pet identity/exports exist; catalog remains empty.",
+      "runtime_system": [
+        "companion_catalog.gd",
+        "companion_presentation.gd",
+        "profile_store.gd",
+        "hideout_ui.gd"
+      ],
+      "external_art_requirement": {
+        "entity": "One owner-approved cosmetic companion; identity not yet provided",
+        "identity_status": "NEEDS_OWNER_APPROVED_IDENTITY_AND_AUTHORED_EXPORTS",
+        "states": [
+          "idle",
+          "move",
+          "reaction"
+        ],
+        "facings": [
+          "right",
+          "left"
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "background": "transparent RGBA",
+        "occupied_bounds": [
+          32,
+          24,
+          224,
+          224
+        ],
+        "baseline": 224,
+        "pivot": [
+          128,
+          224
+        ],
+        "runtime_size": [
+          56,
+          56
+        ],
+        "filename_template": "{approved_id}_{state}_{facing}.png",
+        "source_destination": "art/source/companions/{approved_id}/",
+        "runtime_destination": "art/production/companions/{approved_id}/",
+        "layers": "No equipment or combat sockets; ground shadow/VFX separate; actual body baseline metadata required",
+        "mirror": "No implicit mirroring. Explicit authored opposite view required unless owner-approved symmetry contract permits an export.",
+        "identity_source": "LOOTLINGS_WORLD_BIBLE.md provides world direction only; new specific pet identity requires owner-approved source",
+        "scale": "Uniform only; readable at 56x56 design pixels; complete silhouette.",
+        "power": "Cosmetic only; never a stat or combat unlock requirement."
+      }
     },
     {
       "slot_id": "planned:homestead_decorations",
       "subject": "homestead decorations",
-      "status": "LATER_SYSTEM_INTEGRATION",
+      "status": "BOUNDED_RUNTIME_IMPLEMENTED",
       "source": "LOOTLINGS_WORLD_BIBLE.md",
-      "reason": "Historical/planned scope; needs explicit gameplay/station/encounter or marketing implementation. Not promoted to implemented canon by this art/content integration pass."
+      "reason": "Owner authorizes Home customization. Free persisted shelf choices reuse current weapon icon / accepted recipe-scroll art / clear display. No station removal, tint identity changes, currency or paid decoration mechanics.",
+      "runtime_system": [
+        "hideout_ui.gd",
+        "profile_store.gd"
+      ]
     },
     {
       "slot_id": "planned:store_screenshots",
