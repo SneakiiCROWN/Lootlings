@@ -59,6 +59,13 @@ static func draw_projectile(g, p: Dictionary) -> void:
 	else:
 		draw_trail(g,pos-d*7,d,element)
 		var radius := 6.0 if p.get("weapon_type","") == "wand" else 10.0
+		if element=="Frost":
+			# Source crystal spell points up/right. Rotate only this effect layer;
+			# actor facing and projectile origin/trajectory stay untouched.
+			g.draw_set_transform(pos,d.angle()+PI/4,Vector2.ONE)
+			preload("res://bible_runtime_art.gd").draw(g,"frost_projectile",Rect2(-radius*1.8,-radius*1.1,radius*3.6,radius*2.2))
+			g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+			return
 		if element in ["Arcane","Corruption"]:
 			preload("res://bible_runtime_art.gd").draw(g,"shadow_orb" if element=="Corruption" else "crystal_ward",Rect2(pos-Vector2.ONE*radius*1.4,Vector2.ONE*radius*2.8))
 			return

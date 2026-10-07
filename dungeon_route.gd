@@ -11,9 +11,9 @@ const ROOMS := {
 	"Treasure":{"icon":"res://art/production/phase4e/items/treasure_key.png", "desc":"Open a Relic Chest. One guaranteed item.", "title":"SEALED TREASURY"},
 	"Merchant":{"icon":"res://art/production/phase4e/props/merchant_cart.png", "desc":"Spend your Run Scrip. Existing shop tradeoffs.", "title":"PACK PEDDLER"},
 	"Shrine":{"icon":"res://art/production/phase4e/props/home_shrine.png", "desc":"Choose one free run upgrade. No permanent stats.", "title":"RELIC SHRINE"},
-	"Risk":{"icon":"variant_cursed", "desc":"A stronger three-foe patrol. Ordinary drop rules.", "title":"CURSED CROSSING"},
-	"Rest":{"icon":"res://art/production/phase4e/vfx/nature_vines.png", "desc":"Recover 22% of maximum HP. No currency cost.", "title":"QUIET CAMP"},
-	"Boss":{"icon":"rarity_legendary", "desc":"Defeat the guardian. Open its three-choice Hoard.", "title":"THE FINAL VAULT"},
+	"Risk":{"icon":"res://art/production/phase4e/props/brass_torch.png", "desc":"A stronger three-foe patrol. Ordinary drop rules.", "title":"CURSED CROSSING"},
+	"Rest":{"icon":"res://art/production/phase4e/props/quiet_camp.png", "desc":"Recover 22% of maximum HP. No currency cost.", "title":"QUIET CAMP"},
+	"Boss":{"icon":"res://art/production/phase4e/props/vault_portal.png", "desc":"Defeat the guardian. Open its three-choice Hoard.", "title":"THE FINAL VAULT"},
 }
 var active := false
 var seed_value := 4917

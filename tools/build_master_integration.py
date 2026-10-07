@@ -180,6 +180,16 @@ def main():
         state['requirements'].append(dict(slot_id=row['slot_id'],weapon_family=row['weapon_family'],primary_socket=row['weapon_socket'],support_socket=row['support_hand_socket'],target_path=row['target_production_path']))
         state['requirements'][-1]['why_existing_source_cannot_close']=row['blocker']
         state['requirements'][-1]['existing_source_search']=row['evidence']
+        delivery=state['requirements'][-1]
+        delivery['purpose']=row['state']+' / '+str(row['facing'])+' / '+str(row['weapon_family'] or row['category'])
+        delivery['weapon_contract']='Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.' if row['weapon_family'] else 'Preserve established authored equipment/props for this entity; no interchangeable proxy.'
+        delivery['source_scale']='Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.'
+        delivery['allowed_baked_vfx']='Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.'
+        delivery['separate_vfx']='Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.'
+        delivery['expected_filename']=Path(row['target_production_path']).name
+        delivery['runtime_destination']=row['target_production_path']
+        delivery['current_temp_replacement']=row['slot_id']+'; existing unapproved/missing authored-state presentation is not final art.'
+        delivery['priority']='P1 playable state/support' if row['category']=='playable' else 'P2 Dragon source repair' if row['game_id'] in ['hoard_dragon','act_i'] else 'P3 exact encounter/resident state'
     debt=json.loads(read(ROOT/'.godot_test_data/weapon_fit_report.json'))['support_art_pending']
     sources_by_actor={r.get('actor'):r['source'] for r in extraction['entries'] if r.get('actor') and r['kind']=='body'}
     wanderers=runtime['wanderer_catalog.gd']['constants']['PRESETS']

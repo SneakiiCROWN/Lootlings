@@ -3981,6 +3981,402 @@
       ],
       "uniform_scale": 2.5668449197860963,
       "asset_sha256": "40785e23726beaee1ac76ff86f6e0c7081d90b7a12a824954a0c1c2963e1657e"
+    },
+    {
+      "id": "azure_ring",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        0,
+        0,
+        249,
+        274
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/items/azure_ring.png",
+      "canvas": [
+        257,
+        282
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "9e8591465acfa9d49c0d423695a9969658a422219ca8d2a61269522ee6f58a0f",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "obsidian_ring",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        951,
+        0,
+        1210,
+        275
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          15,
+          275
+        ],
+        [
+          237,
+          0,
+          259,
+          275
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/items/obsidian_ring.png",
+      "canvas": [
+        267,
+        283
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "533398ed1e7d9c4f37afa007551d59c3c272b40a66685aa7729141567a8b0aca",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "verdant_amulet",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        482,
+        0,
+        736,
+        275
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          12,
+          275
+        ],
+        [
+          242,
+          0,
+          254,
+          275
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/items/verdant_amulet.png",
+      "canvas": [
+        262,
+        283
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "0c98e297facf84d490eedb409b752063fb19046033d1ce6a7c5f790402bfa39d",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "ward_orbit",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        942,
+        277,
+        1204,
+        549
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/items/ward_orbit.png",
+      "canvas": [
+        270,
+        280
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "34e24ec4cf79e34feee49215f4d02b58b2fca3555038465e9d3b377edf09d1a8",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "gold_hoard",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        281,
+        806,
+        550,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          5,
+          280
+        ],
+        [
+          266,
+          0,
+          269,
+          280
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/items/gold_hoard.png",
+      "canvas": [
+        277,
+        288
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "8438c9009730868490b83b5351f7aa5efdaca537435fc373807c05aed6b74e4f",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "star_shards",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        546,
+        806,
+        743,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          185,
+          18,
+          247
+        ],
+        [
+          0,
+          0,
+          197,
+          6
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/items/star_shards.png",
+      "canvas": [
+        205,
+        288
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "478ff4518d4a860716289245a64fe0c974b1042587907a93d9266db6d77b493b",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "trail_map",
+      "kind": "items",
+      "source": "art/reference/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_sha256": "fac7c56ef129c18dd29335847baa428a8205b3ba28114dd28d4b72f0d2050775",
+      "crop": [
+        1181,
+        548,
+        1448,
+        800
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          100,
+          35,
+          210
+        ],
+        [
+          0,
+          0,
+          267,
+          5
+        ],
+        [
+          0,
+          247,
+          267,
+          252
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/items/trail_map.png",
+      "canvas": [
+        275,
+        260
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "bb7aaa886259953f6806a0d8616b4e81a6ac0a2f50341d0f88655ed0be029519",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "quiet_camp",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        466,
+        731,
+        806,
+        1086
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          0,
+          10,
+          355
+        ],
+        [
+          326,
+          0,
+          340,
+          355
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/props/quiet_camp.png",
+      "canvas": [
+        348,
+        363
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "66b53aeca9fcd3c9b22c6c07132ebc87a43b1edca14563eef35a6e1058293881",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "vault_portal",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        933,
+        366,
+        1280,
+        720
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/props/vault_portal.png",
+      "canvas": [
+        355,
+        362
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "a84c30a4f48ae05bc0ab01a78e0c492989e859e02c7b4af69de371d0ab210b68",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "brass_torch",
+      "kind": "props",
+      "source": "art/reference/phase2_master/lootlings_chests_shrine_merchant_props_reference.png",
+      "source_sha256": "3855ff1ad8381c7c2da6a465c1bb5d3770c613a6c5ff68d24529d5cd4b6bbf46",
+      "crop": [
+        1281,
+        362,
+        1448,
+        724
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/props/brass_torch.png",
+      "canvas": [
+        175,
+        370
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "07508063c23cca75ad31dffcdce322475d7a7d40b30b0413d07dd8a558affef0",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "lightning_contact",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        287,
+        274,
+        600,
+        553
+      ],
+      "alpha_exclusions": [
+        [
+          0,
+          110,
+          12,
+          279
+        ],
+        [
+          290,
+          245,
+          313,
+          279
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/lightning_contact.png",
+      "canvas": [
+        321,
+        287
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "34ea554a193babda9c46f83b06837a4e0e2d111fc9aa6919f083772b5b54b897",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "poison_contact",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        1179,
+        0,
+        1448,
+        271
+      ],
+      "alpha_exclusions": [],
+      "asset_path": "res://art/production/phase4e/vfx/poison_contact.png",
+      "canvas": [
+        277,
+        279
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "0df176b0262b7ff97539eec1b1fdc0a9469060b9356641f2a8fae6021db83af9",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
+    },
+    {
+      "id": "frost_projectile",
+      "kind": "vfx",
+      "source": "art/reference/phase2_master/lootlings_spell_reward_vfx_reference.png",
+      "source_sha256": "68f23e805561166bb9b661a4947b7e7c5333194dd69862a04dbe4b684bba842b",
+      "crop": [
+        903,
+        0,
+        1180,
+        270
+      ],
+      "alpha_exclusions": [
+        [
+          244,
+          80,
+          277,
+          270
+        ],
+        [
+          0,
+          264,
+          277,
+          270
+        ]
+      ],
+      "asset_path": "res://art/production/phase4e/vfx/frost_projectile.png",
+      "canvas": [
+        285,
+        278
+      ],
+      "transparent": true,
+      "integrated": true,
+      "asset_sha256": "8f6caf749b791503f06f33bc5a7d46676aeafabd46a128c462809909a2edae73",
+      "restrictions": "Original RGB; alpha-only disconnected fragment exclusion; four-pixel transparent gutter; static item/prop/VFX motif, not a character state or new game identity"
     }
   ]
 }

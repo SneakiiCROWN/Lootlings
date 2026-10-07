@@ -1333,7 +1333,7 @@
       "draw",
       "impact"
     ],
-    "source_sha256": "437127752f784ebc1ba20a1a6949b76a9c114c9c07658761af5ef33b708610f9"
+    "source_sha256": "82b6929419b42d6a9461d86bb869b68233b0bafe0eee949d74c18f8066b02c01"
   },
   "boss_art_manifest.gd": {
     "constants": {
@@ -3680,7 +3680,7 @@
       "ROOMS": {
         "Boss": {
           "desc": "Defeat the guardian. Open its three-choice Hoard.",
-          "icon": "rarity_legendary",
+          "icon": "res://art/production/phase4e/props/vault_portal.png",
           "title": "THE FINAL VAULT"
         },
         "Combat": {
@@ -3700,12 +3700,12 @@
         },
         "Rest": {
           "desc": "Recover 22% of maximum HP. No currency cost.",
-          "icon": "res://art/production/phase4e/vfx/nature_vines.png",
+          "icon": "res://art/production/phase4e/props/quiet_camp.png",
           "title": "QUIET CAMP"
         },
         "Risk": {
           "desc": "A stronger three-foe patrol. Ordinary drop rules.",
-          "icon": "variant_cursed",
+          "icon": "res://art/production/phase4e/props/brass_torch.png",
           "title": "CURSED CROSSING"
         },
         "Shrine": {
@@ -3726,7 +3726,7 @@
       "choose",
       "reward_caps"
     ],
-    "source_sha256": "e35a8a6b6d1067a15b4b3831920339b96490cba3d954a942d80b3b0d7e51ab21"
+    "source_sha256": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2"
   },
   "endgame_progress.gd": {
     "constants": {
@@ -4797,7 +4797,7 @@
       "apply_button_style",
       "safe_action"
     ],
-    "source_sha256": "0241d1075b554a6201148199bbf54af4ee31acc1e94cb63d391633ce26ad2e82"
+    "source_sha256": "f4426965d6eb341b393c6c5fab406408a9ae0e446af5f7250f44f5d30f5c689c"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6592,6 +6592,16 @@
   },
   "lootlings_ui.gd": {
     "constants": {
+      "CANON_RELIC_ART": {
+        "coffer_key": "treasure_key",
+        "courier_appetite": "treasure_key",
+        "gilded_debt": "azure_ring",
+        "marsh_promise": "verdant_amulet",
+        "promise_bubble": "ward_orbit",
+        "receipt_ring": "obsidian_ring",
+        "safe_aperture": "ward_orbit",
+        "siege_receipt": "recipe_scroll"
+      },
       "GOLD": {
         "rgba": "d1a85aff"
       },
@@ -6665,7 +6675,7 @@
       "add_wordmark",
       "add_divider"
     ],
-    "source_sha256": "18a1f5b0dcbf74013ca10aa7c600ce07a4a9f49ad130e64a882d54a62671fb34"
+    "source_sha256": "e43e34c3de1870c432653eb2afeb341e53bdbb972da03f43960745649632d90b"
   },
   "meta_store.gd": {
     "constants": {},
@@ -7494,7 +7504,7 @@
       "n",
       "draw_impact"
     ],
-    "source_sha256": "c0292e64e5c87d77f156b922489d615c22a56b998cbd7043b7b8c6eea562dfba"
+    "source_sha256": "9192563fc7e8ecfc9a8973456d58d47d8481f21306a5d7a4a0e0b3e37b44d6de"
   },
   "regional_enemy_presentation.gd": {
     "constants": {

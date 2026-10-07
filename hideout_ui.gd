@@ -887,6 +887,7 @@ func build_lore() -> void:
 	add_child(lore_content)
 	make_button(lore_content, "‹ TROPHIES", Rect2(20, 20, 124, 48), Color("#202d4d"), Color("#7f94bc"), 15).pressed.connect(show_achievements)
 	make_label(lore_content, "FIELD NOTES", 27, Rect2(148, 23, 312, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	LootlingsUI.add_icon(lore_content,Rect2(159,29,34,34),"res://art/production/phase4e/items/trail_map.png")
 	for index in range(FieldNotes.CATEGORIES.size()):
 		var category: String = FieldNotes.CATEGORIES[index]
 		var button := make_button(lore_content, category, Rect2(20+index*89,90,85,48), Color("#202d4d"), Color("#b5a0de"), 13)

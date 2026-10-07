@@ -16,6 +16,13 @@ const RUNE_GLYPHS := {
 	"toxic_burst":"rune_poison", "mire_rune":"rune_poison", "shelter_script":"rune_poison",
 	"winter_clause":"rune_frost", "frostbell_seal":"rune_frost",
 }
+const CANON_RELIC_ART := {
+	"promise_bubble":"ward_orbit", "safe_aperture":"ward_orbit",
+	"marsh_promise":"verdant_amulet", "receipt_ring":"obsidian_ring",
+	"gilded_debt":"azure_ring",
+	"coffer_key":"treasure_key", "courier_appetite":"treasure_key",
+	"siege_receipt":"recipe_scroll",
+}
 
 const NAVY := Color("#0b1430")
 const NAVY_DEEP := Color("#071027")
@@ -36,6 +43,7 @@ static func item_texture(item: Dictionary) -> Texture2D:
 		var held := WeaponArt.runtime_texture(type, icon("res://art/sprites/weapons/%s.png" % fallback_path), stage)
 		return WeaponArt.presentation_texture(type,"inventory",held,stage)
 	var id := str(item.get("id", ""))
+	if str(item.get("slot",""))=="Relic" and CANON_RELIC_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RELIC_ART[id])
 	if str(item.get("slot",""))=="Rune" and RUNE_GLYPHS.has(id): return icon(RUNE_GLYPHS[id])
 	if ITEM_ART.has(id):
 		return icon("res://art/sprites/items/beta/%s.png" % ITEM_ART[id])
@@ -45,6 +53,7 @@ static func item_texture(item: Dictionary) -> Texture2D:
 
 static func icon(name: String) -> Texture2D:
 	var path := name if name.begins_with("res://") else "res://art/ui/icons/%s.png" % name
+	if name in ["currency_gold","currency_star_shard"]: path="res://art/production/phase4e/items/%s.png" % ("gold_hoard" if name=="currency_gold" else "star_shards")
 	if name in ["core_fire","core_lightning","gear_rune","rune_fire","rune_frost","rune_poison","rune_lightning","rune_arcane"]: path="res://art/production/phase4e/hud/"+name+".png"
 	if not icon_cache.has(path):
 		icon_cache[path] = load(path)
