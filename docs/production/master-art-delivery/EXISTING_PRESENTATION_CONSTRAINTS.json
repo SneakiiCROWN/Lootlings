@@ -1,0 +1,464 @@
+{
+  "weapon_stances": {
+    "bow": {
+      "group": "bow",
+      "handling": "two_hand",
+      "ready": -0.12,
+      "release": -0.08,
+      "secondary_grip": "(0.35, 0.57)"
+    },
+    "claws": {
+      "group": "dual_wield",
+      "handling": "paired",
+      "ready": -0.16,
+      "release": 0.24,
+      "secondary_grip": "(0.72, 0.55)"
+    },
+    "crossbow": {
+      "group": "crossbow",
+      "handling": "two_hand",
+      "ready": -0.08,
+      "release": -0.08,
+      "secondary_grip": "(0.57, 0.58)"
+    },
+    "daggers": {
+      "group": "dual_wield",
+      "handling": "paired",
+      "ready": -0.22,
+      "release": 0.4,
+      "secondary_grip": "(0.7, 0.7)"
+    },
+    "greataxe": {
+      "group": "heavy_two_hand",
+      "handling": "two_hand",
+      "ready": -0.22,
+      "release": 0.42,
+      "secondary_grip": "(0.41, 0.59)"
+    },
+    "greatsword": {
+      "group": "heavy_two_hand",
+      "handling": "two_hand",
+      "ready": -0.2,
+      "release": 0.42,
+      "secondary_grip": "(0.41, 0.77)"
+    },
+    "maul": {
+      "group": "heavy_two_hand",
+      "handling": "two_hand",
+      "ready": -0.24,
+      "release": 0.42,
+      "secondary_grip": "(0.41, 0.61)"
+    },
+    "orb": {
+      "group": "orb",
+      "handling": "levitated",
+      "ready": 0.0,
+      "release": -0.08,
+      "secondary_grip": "(0.0, 0.0)"
+    },
+    "sling": {
+      "art_pending": false,
+      "group": "one_hand",
+      "handling": "special",
+      "ready": -0.28,
+      "release": 0.42,
+      "secondary_grip": "(0.0, 0.0)"
+    },
+    "spear": {
+      "group": "polearm",
+      "handling": "two_hand",
+      "ready": -0.12,
+      "release": 0.18,
+      "secondary_grip": "(0.47, 0.59)"
+    },
+    "staff": {
+      "group": "staff",
+      "handling": "two_hand",
+      "ready": -0.12,
+      "release": -0.08,
+      "secondary_grip": "(0.36, 0.65)"
+    },
+    "wand": {
+      "group": "wand",
+      "handling": "one_hand",
+      "ready": -0.16,
+      "release": -0.08,
+      "secondary_grip": "(0.0, 0.0)"
+    }
+  },
+  "actor_profiles": {
+    "emberhorn": {
+      "category": "small_biped",
+      "core": "(0.5, 0.63)",
+      "primary": "(0.715, 0.75)",
+      "scale": 0.78,
+      "secondary": "(0.24, 0.765)"
+    },
+    "glimmerfin": {
+      "category": "floating",
+      "core": "(0.5, 0.66)",
+      "primary": "(0.72, 0.77)",
+      "scale": 0.76,
+      "secondary": "(0.3, 0.765)"
+    },
+    "gloomlet": {
+      "category": "small_biped",
+      "core": "(0.51, 0.69)",
+      "primary": "(0.75, 0.75)",
+      "scale": 0.74,
+      "secondary": "(0.27, 0.76)"
+    },
+    "moonkip": {
+      "baked": "daggers",
+      "category": "small_biped",
+      "core": "(0.5, 0.66)",
+      "primary": "(0.7, 0.755)",
+      "scale": 0.74,
+      "secondary": "(0.3, 0.745)"
+    },
+    "mosskin": {
+      "baked": "shield",
+      "category": "shielded_biped",
+      "core": "(0.5, 0.63)",
+      "handling": "shield_side",
+      "primary": "(0.295, 0.735)",
+      "scale": 0.76,
+      "secondary": "(0.76, 0.7)"
+    },
+    "pebblewyrm": {
+      "category": "heavy_brute",
+      "core": "(0.64, 0.735)",
+      "primary": "(0.8, 0.77)",
+      "scale": 0.9,
+      "secondary": "(0.27, 0.77)"
+    },
+    "relic_beast": {
+      "category": "chunky_biped",
+      "core": "(0.63, 0.594)",
+      "primary": "(0.777, 0.731)",
+      "scale": 0.82,
+      "secondary": "(0.515, 0.69)"
+    }
+  },
+  "regional_staging_profiles": {
+    "BELL BAT": [
+      "bat",
+      "glass",
+      "glimmer",
+      {
+        "rgba": "c6e9ffff"
+      }
+    ],
+    "BRASSBACK": [
+      "beetle",
+      "armour",
+      "forge",
+      {
+        "rgba": "ffe5a5ff"
+      }
+    ],
+    "CHAIN GUARD": [
+      "knight",
+      "armour",
+      "human_heavy",
+      {
+        "rgba": "d3e7faff"
+      }
+    ],
+    "COAL PUP": [
+      "hound",
+      "molten",
+      "ember",
+      {
+        "rgba": "ffd19cff"
+      }
+    ],
+    "CROWN SHARD": [
+      "shard",
+      "glass",
+      "glimmer",
+      {
+        "rgba": "ffdd90ff"
+      }
+    ],
+    "DECK HEXER": [
+      "hexer",
+      "ethereal",
+      "hexer",
+      {
+        "rgba": "a8d5e5ff"
+      }
+    ],
+    "DEW HEXER": [
+      "hexer",
+      "ethereal",
+      "hexer",
+      {
+        "rgba": "b1e8caff"
+      }
+    ],
+    "ECHO IMP": [
+      "imp",
+      "ethereal",
+      "imp",
+      {
+        "rgba": "c5c0f4ff"
+      }
+    ],
+    "FEN SNEAK": [
+      "imp",
+      "flesh",
+      "imp",
+      {
+        "rgba": "d1c098ff"
+      }
+    ],
+    "FIRST GUARD": [
+      "knight",
+      "armour",
+      "human_heavy",
+      {
+        "rgba": "ffe6b7ff"
+      }
+    ],
+    "FORGE BEETLE": [
+      "beetle",
+      "molten",
+      "forge",
+      {
+        "rgba": "ffac80ff"
+      }
+    ],
+    "GLASSWING": [
+      "bat",
+      "glass",
+      "glimmer",
+      {
+        "rgba": "a0f2ecff"
+      }
+    ],
+    "HOARD ECHO": [
+      "hexer",
+      "ethereal",
+      "hexer",
+      {
+        "rgba": "ffdab4ff"
+      }
+    ],
+    "HOOKWING": [
+      "bat",
+      "flesh",
+      "moon",
+      {
+        "rgba": "cce7eaff"
+      }
+    ],
+    "ICICLE IMP": [
+      "imp",
+      "glass",
+      "imp",
+      {
+        "rgba": "ace6ffff"
+      }
+    ],
+    "INKLING": [
+      "wyrm",
+      "ethereal",
+      "gloom",
+      {
+        "rgba": "caaffeff"
+      }
+    ],
+    "LANTERN TOAD": [
+      "toad",
+      "flesh",
+      "brute",
+      {
+        "rgba": "ddd29eff"
+      }
+    ],
+    "MARGIN IMP": [
+      "imp",
+      "flesh",
+      "imp",
+      {
+        "rgba": "e7c8ffff"
+      }
+    ],
+    "MIRROR KNIGHT": [
+      "knight",
+      "glass",
+      "human_heavy",
+      {
+        "rgba": "cee7fcff"
+      }
+    ],
+    "MOSSMAW": [
+      "hound",
+      "wood",
+      "moss",
+      {
+        "rgba": "b4d592ff"
+      }
+    ],
+    "MUDCLOAK": [
+      "hexer",
+      "flesh",
+      "hexer",
+      {
+        "rgba": "c9c2a2ff"
+      }
+    ],
+    "NULL HOUND": [
+      "hound",
+      "ethereal",
+      "gloom",
+      {
+        "rgba": "d5baf4ff"
+      }
+    ],
+    "PAGEWYRM": [
+      "wyrm",
+      "ethereal",
+      "gloom",
+      {
+        "rgba": "f9e7c5ff"
+      }
+    ],
+    "PRESSURE SPRITE": [
+      "shard",
+      "ethereal",
+      "glimmer",
+      {
+        "rgba": "a9e5e4ff"
+      }
+    ],
+    "RIME PUP": [
+      "hound",
+      "flesh",
+      "moon",
+      {
+        "rgba": "c4e7ffff"
+      }
+    ],
+    "SLAG KNIGHT": [
+      "knight",
+      "armour",
+      "human_heavy",
+      {
+        "rgba": "ffd5acff"
+      }
+    ],
+    "SLUICE CRAB": [
+      "crab",
+      "armour",
+      "forge",
+      {
+        "rgba": "a4ddd7ff"
+      }
+    ]
+  },
+  "boss_display_profiles": {
+    "cinder_crown": {
+      "accent": {
+        "rgba": "ff985dff"
+      },
+      "attack_distance": 12.0,
+      "display_size": "(258.0, 258.0)",
+      "entrance_scale": 0.92,
+      "flip_h": false,
+      "motif": "furnace",
+      "offset": "(-15.0, 0.0)",
+      "recoil_limit": 0.04,
+      "shadow": 72.0,
+      "status": "Existing Furnace Regent intro identity; articulated combat phases pending",
+      "texture_path": "res://art/sprites/enemies/beta/furnace_regent.png"
+    },
+    "first_hoard": {
+      "accent": {
+        "rgba": "ffe59aff"
+      },
+      "display_size": "(242.0, 229.0)",
+      "motif": "crown",
+      "status": "BETA: Hoard Dragon proxy; authored Hollow Crown needed"
+    },
+    "frostbell_hollows": {
+      "accent": {
+        "rgba": "ade9ffff"
+      },
+      "anchor": "(0.5, 0.885)",
+      "display_size": "(264.0, 264.0)",
+      "motif": "chime",
+      "status": "TEMP: procedural frost/chime rig prototype, not canonical body art",
+      "texture_path": "res://art/sprites/enemies/beta/belljaw.svg"
+    },
+    "moonfen": {
+      "accent": {
+        "rgba": "94dcf0ff"
+      },
+      "anchor": "(0.5, 0.885)",
+      "display_size": "(248.0, 248.0)",
+      "motif": "lantern",
+      "status": "TEMP: procedural lantern-jackal rig prototype, not canonical body art",
+      "texture_path": "res://art/sprites/enemies/beta/lantern_jackal.svg"
+    },
+    "mossglass_wilds": {
+      "attack_distance": 18.0,
+      "display_size": "(228.0, 278.0)",
+      "entrance_scale": 0.88,
+      "flip_h": false,
+      "offset": "(-17.0, 0.0)",
+      "recoil_limit": 0.045,
+      "shadow": 62.0,
+      "status": "BETA: existing intro tree/root guardian reused; authored combat phases pending",
+      "texture_path": "res://art/sprites/enemies/beta/verdant_mirror.png"
+    },
+    "nullglass_expanse": {
+      "accent": {
+        "rgba": "c7a4ffff"
+      },
+      "display_size": "(258.0, 215.0)",
+      "motif": "mirror",
+      "status": "BETA: armoured proxy; authored Unchosen needed",
+      "texture": {
+        "resource_path": "res://art/sprites/enemies/grump_knight.png"
+      }
+    },
+    "skyhook_bastion": {
+      "accent": {
+        "rgba": "a4dfffff"
+      },
+      "display_size": "(250.0, 208.0)",
+      "motif": "chain",
+      "status": "BETA: armoured proxy; authored Chainwarden needed",
+      "texture": {
+        "resource_path": "res://art/sprites/enemies/grump_knight.png"
+      }
+    },
+    "starfall_archive": {
+      "accent": {
+        "rgba": "dfbcffff"
+      },
+      "display_size": "(202.0, 240.0)",
+      "motif": "script",
+      "status": "BETA: caster proxy; authored Redactor needed",
+      "texture": {
+        "resource_path": "res://art/sprites/enemies/lantern_hexer.png"
+      }
+    },
+    "sunken_gearworks": {
+      "accent": {
+        "rgba": "77d6c2ff"
+      },
+      "baseline": 80.0,
+      "display_size": "(266.0, 266.0)",
+      "motif": "engine",
+      "source": "[P: (724.0, 0.0), S: (724.0, 724.0)]",
+      "status": "BETA: armoured golem proxy; authored Drowned Engine needed",
+      "texture": {
+        "resource_path": "res://art/sprites/enemies/hoard_depths_enemies.png"
+      }
+    }
+  },
+  "warning": "These are existing dimensional/handling/impact contexts. Proxy texture/body or accent tint NEVER controls canonical replacement identity; exact identity lock wins. No gameplay/balance values included."
+}

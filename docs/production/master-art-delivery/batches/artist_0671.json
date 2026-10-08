@@ -1,0 +1,936 @@
+{
+  "batch_id": "artist_0671",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "personal_home",
+  "category": "Home",
+  "weapon_family": null,
+  "facing": null,
+  "slot_ids": [
+    "environment:personal_home:interior"
+  ],
+  "items": [
+    {
+      "slot_id": "environment:personal_home:interior",
+      "entity_id": "personal_home",
+      "display_name": "Personal Home",
+      "category": "Home",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "source_delivery_path": "art/source/phase4e/home/personal_home_interior.png",
+      "runtime_destination": "art/production/phase4e/regions/personal_home_interior.png",
+      "expected_filename": "personal_home_interior.png",
+      "metadata_filename": "personal_home_interior.json",
+      "canvas": [
+        1536,
+        2732
+      ],
+      "transparent_background": false,
+      "background_format": "RGB or RGBA opaque furnished room, no characters/pets/UI/text",
+      "maximum_alpha_bounds": [
+        0,
+        0,
+        1536,
+        2732
+      ],
+      "baseline": {
+        "design_ground_y": 570,
+        "source_ground_y": 1823
+      },
+      "pivot": [
+        0,
+        0
+      ],
+      "mirroring_allowed": false,
+      "required_pose": "Same approved Home architectural/material language, but keep all5 named launch prop-mount areas empty so movable decorations can be removed without baked duplicates. No public Hub NPCs/stations, baked actors/pets or UI.",
+      "layers": [
+        "Empty furnished background WITHOUT movable slot props",
+        "Movable wall/display/perch props",
+        "Selected character and pet",
+        "Matching perch front rims",
+        "Runtime shadows/lights",
+        "Touch-safe UI"
+      ],
+      "parallax": "No parallax in the minimum launch set; uniform cover background plus independent props.",
+      "design_canvas": [
+        480,
+        854
+      ],
+      "uniform_cover_scaling": "Phone/tablet cover transform preserves aspect; layout meaningful focal content inside central safe region. Never stretch room to aspect.",
+      "source_ui_exclusions": {
+        "header_y": [
+          0,
+          240
+        ],
+        "footer_y": [
+          1900,
+          2732
+        ]
+      },
+      "design_ui_exclusion_rectangles": [
+        [
+          20,
+          20,
+          160,
+          48
+        ],
+        [
+          24,
+          98,
+          432,
+          46
+        ],
+        [
+          22,
+          622,
+          210,
+          60
+        ],
+        [
+          248,
+          622,
+          210,
+          60
+        ],
+        [
+          22,
+          698,
+          210,
+          60
+        ],
+        [
+          248,
+          698,
+          210,
+          60
+        ]
+      ],
+      "character_area": {
+        "design_rect": [
+          148,
+          394,
+          184,
+          188
+        ],
+        "ground_design": [
+          240,
+          570
+        ],
+        "source_ground_y": 1823,
+        "source_mapping": "sourceX=designX*1536/480; sourceY=designY*2732/854"
+      },
+      "companion_floor": {
+        "target_design": [
+          110,
+          602
+        ],
+        "follower_offset": [
+          -130,
+          32
+        ],
+        "footprint_design": [
+          56,
+          56
+        ],
+        "rule": "Clear floor/follower path outside bottom controls; docking anchors in Home placement contract."
+      },
+      "display_area": {
+        "design_rect": [
+          351,
+          267,
+          70,
+          70
+        ],
+        "purpose": "Existing selectable weapon/scroll/trophy icon; backdrop shelf must not collide with display"
+      },
+      "wardrobe_and_stash": "Current Character & Style / Gear-Stash UI buttons access existing systems; room furniture may suggest them but must not bake labels or public Hub NPCs/stations",
+      "perches": "Two separate removable props: universal floor cushion and ledge for Lunarwisp/Breezewyn only. See HOME_COMPANION_INTERACTIONS.json.",
+      "decorations": "Six-item bounded launch catalogue; four accepted assets reused plus two new perch props. See HOME_LAUNCH_DECOR_CATALOGUE.json.",
+      "responsive_acceptance": [
+        "1080x2340 and1200x1920, native safe area and cover crop inspected",
+        "No high contrast clutter under current buttons/title; owner/companion floor and display remain legible",
+        "MAIN HUB\u2192separate HOME\u2192Leave/Back\u2192MAIN HUB; never merge into Hub",
+        "Selected character/pet/display persists; source images never bake selection"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance",
+        "Baked pets/characters/UI, public Hub NPCs, erased/invented floor copied from obstructed low-resolution board"
+      ],
+      "measurement_values": {
+        "furniture_occlusion_polygons": "MEASURE_FROM_DELIVERED_PIXELS",
+        "perch_visual_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "display_shelf_bounds": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "importer_registration_work_required": [
+        "Register accepted background and uniform cover route without gameplay changes",
+        "Keep character/pet/display/UI separate; introduce layer hook only if separately approved furniture needs occlusion"
+      ],
+      "required_files": [
+        "art/source/phase4e/home/personal_home_interior.png",
+        "art/source/phase4e/home/personal_home_interior.json"
+      ],
+      "launch_home_placements": {
+        "coordinate_space": "480x854 safe-area fitted Home content, origin top-left; +X right/+Y down",
+        "source_canvas": [
+          1536,
+          2732
+        ],
+        "source_mapping": "[design_x*1536/480, design_y*2732/854]",
+        "slots": {
+          "home.floor_perch": {
+            "mount": "floor",
+            "anchor_design": [
+              92,
+              594
+            ],
+            "allowed_decor": [
+              "home_companion_cushion"
+            ],
+            "allowed_companions": [
+              "auricub",
+              "stonekith",
+              "pixrask",
+              "lunarwisp",
+              "puffnest",
+              "breezewyn"
+            ],
+            "sprite_size_design": [
+              96,
+              48
+            ],
+            "companion_pivot_design": [
+              92,
+              594
+            ],
+            "hit_rect_design": [
+              40,
+              530,
+              100,
+              80
+            ],
+            "facing_default": "right"
+          },
+          "home.wall_perch": {
+            "mount": "wall",
+            "anchor_design": [
+              374,
+              412
+            ],
+            "allowed_decor": [
+              "home_companion_ledge"
+            ],
+            "allowed_companions": [
+              "lunarwisp",
+              "breezewyn"
+            ],
+            "sprite_size_design": [
+              96,
+              48
+            ],
+            "companion_pivot_design": [
+              374,
+              412
+            ],
+            "hit_rect_design": [
+              334,
+              356,
+              100,
+              80
+            ],
+            "facing_default": "left"
+          },
+          "home.wall_display": {
+            "mount": "display",
+            "anchor_design": [
+              386,
+              337
+            ],
+            "allowed_decor": [
+              "home_trophy",
+              "home_plans"
+            ],
+            "sprite_size_design": [
+              70,
+              70
+            ],
+            "hit_rect_design": [
+              343,
+              255,
+              86,
+              90
+            ]
+          },
+          "home.wall_banner": {
+            "mount": "wall",
+            "anchor_design": [
+              103,
+              181
+            ],
+            "allowed_decor": [
+              "home_banner"
+            ],
+            "sprite_size_design": [
+              48,
+              96
+            ],
+            "hit_rect_design": [
+              72,
+              181,
+              62,
+              108
+            ]
+          },
+          "home.wall_light": {
+            "mount": "wall",
+            "anchor_design": [
+              388,
+              165
+            ],
+            "allowed_decor": [
+              "home_lantern"
+            ],
+            "sprite_size_design": [
+              42,
+              90
+            ],
+            "hit_rect_design": [
+              353,
+              154,
+              70,
+              92
+            ]
+          }
+        },
+        "character_design_rect": [
+          148,
+          394,
+          184,
+          188
+        ],
+        "character_ground": [
+          240,
+          570
+        ],
+        "follower_anchor_design": [
+          110,
+          602
+        ],
+        "follower_offset_from_owner": [
+          -130,
+          32
+        ],
+        "reserved_ui_rects": [
+          [
+            20,
+            20,
+            160,
+            48
+          ],
+          [
+            24,
+            98,
+            432,
+            46
+          ],
+          [
+            22,
+            622,
+            210,
+            60
+          ],
+          [
+            248,
+            622,
+            210,
+            60
+          ],
+          [
+            22,
+            698,
+            210,
+            60
+          ],
+          [
+            248,
+            698,
+            210,
+            60
+          ]
+        ],
+        "protected_areas": [
+          "Full character silhouette rectangle",
+          "Header/title and lower navigation buttons",
+          "Active companion bound at its occupied slot"
+        ],
+        "render_order": [
+          "Empty furnished room",
+          "Wall banner/light/display props",
+          "Perch body",
+          "Character and selected companion body",
+          "Perch front lip only where it occludes lower contact pixels",
+          "Separate transient effects",
+          "Safe-area UI"
+        ],
+        "rule": "Interactive cushion/ledge/banners/light/display objects must NOT be painted into the furnished background; reserve compatible empty floor/wall mount space. Permanent unrelated room furniture may stay baked. One active pet only."
+      },
+      "companion_interaction_contract": {
+        "authority": "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png",
+        "status": "OWNER_AUTHORISED_MINIMUM_LAUNCH_PRODUCTION_DECISIONS_NOT_YET_RUNTIME_IMPLEMENTED",
+        "interaction_ids": [
+          "home.companion.follow",
+          "home.companion.perch",
+          "home.companion.greet",
+          "home.companion.return",
+          "home.decor.edit",
+          "home.decor.place",
+          "home.decor.remove",
+          "home.decor.reset",
+          "home.decor.apply",
+          "home.decor.cancel"
+        ],
+        "one_active_companion": true,
+        "required_states": [
+          "idle",
+          "move",
+          "reaction",
+          "perch_rest",
+          "perch_interact"
+        ],
+        "facings": [
+          "right",
+          "left"
+        ],
+        "per_companion": {
+          "auricub": {
+            "allowed_slots": [
+              "home.floor_perch"
+            ],
+            "default_slot": "home.floor_perch",
+            "rest_state": "perch_rest",
+            "greet_state": "perch_interact",
+            "follow_states": [
+              "idle",
+              "move",
+              "reaction"
+            ],
+            "interaction_name": "Crystal play",
+            "unchanged_unlock_id": "sunfeather_relic",
+            "prop": "art/production/companions/previews/auricub_unlock.png"
+          },
+          "stonekith": {
+            "allowed_slots": [
+              "home.floor_perch"
+            ],
+            "default_slot": "home.floor_perch",
+            "rest_state": "perch_rest",
+            "greet_state": "perch_interact",
+            "follow_states": [
+              "idle",
+              "move",
+              "reaction"
+            ],
+            "interaction_name": "Polish crystal",
+            "unchanged_unlock_id": "terrastone_core",
+            "prop": "art/production/companions/previews/stonekith_unlock.png"
+          },
+          "pixrask": {
+            "allowed_slots": [
+              "home.floor_perch"
+            ],
+            "default_slot": "home.floor_perch",
+            "rest_state": "perch_rest",
+            "greet_state": "perch_interact",
+            "follow_states": [
+              "idle",
+              "move",
+              "reaction"
+            ],
+            "interaction_name": "Mischief",
+            "unchanged_unlock_id": "shadowflame_ember",
+            "prop": "art/production/companions/previews/pixrask_unlock.png"
+          },
+          "lunarwisp": {
+            "allowed_slots": [
+              "home.floor_perch",
+              "home.wall_perch"
+            ],
+            "default_slot": "home.wall_perch",
+            "rest_state": "perch_rest",
+            "greet_state": "perch_interact",
+            "follow_states": [
+              "idle",
+              "move",
+              "reaction"
+            ],
+            "interaction_name": "Stardust greeting",
+            "unchanged_unlock_id": "moonlantern_shard",
+            "prop": "art/production/companions/previews/lunarwisp_unlock.png"
+          },
+          "puffnest": {
+            "allowed_slots": [
+              "home.floor_perch"
+            ],
+            "default_slot": "home.floor_perch",
+            "rest_state": "perch_rest",
+            "greet_state": "perch_interact",
+            "follow_states": [
+              "idle",
+              "move",
+              "reaction"
+            ],
+            "interaction_name": "Gather seed",
+            "unchanged_unlock_id": "bloomnest_seed",
+            "prop": "art/production/companions/previews/puffnest_unlock.png"
+          },
+          "breezewyn": {
+            "allowed_slots": [
+              "home.floor_perch",
+              "home.wall_perch"
+            ],
+            "default_slot": "home.wall_perch",
+            "rest_state": "perch_rest",
+            "greet_state": "perch_interact",
+            "follow_states": [
+              "idle",
+              "move",
+              "reaction"
+            ],
+            "interaction_name": "Wind play",
+            "unchanged_unlock_id": "skybell_orbit",
+            "prop": "art/production/companions/previews/breezewyn_unlock.png"
+          }
+        },
+        "state_machine": {
+          "follow": "idle/move/reaction using accepted follower frames",
+          "home.companion.perch": "Require selected/equipped owned pet, installed allowed perch, all4 new perch views accepted. Use move toward floor anchor; floating pets may move via[374,602]\u2192[374,412]. Grounded pets never jump/teleport onto wall ledge. On docking enter perch_rest.",
+          "home.companion.greet": "Perched pet enters exact perch_interact for0.9seconds then returns perch_rest; trigger only deliberate released tap/button. Suppress additional triggers until completed; no reward/economy effect.",
+          "home.companion.return": "Leave perch using move state toward[110,602], then existing follow idle; do not cross UI areas or fabricate a jumping pose.",
+          "home.companion.follow": "Switch perch mode to follow; preserve owned/equipped ID.",
+          "missing_state": "Disable unavailable interaction with concise preparing-art status; never relabel idle/reaction as perch art.",
+          "decor_edit": "Companion temporarily settles in accepted rest/follow; no gameplay/combat action allowed. Place/remove is draft until Apply."
+        },
+        "runtime_visual_requirements": "Existing UI skins/buttons and companion unlock images reused; no new UI sheet/VFX artwork. All interactions cosmetic, original canon unchanged.",
+        "placements": "HOME_PLACEMENT_METADATA.json",
+        "persistence": "HOME_PERSISTENCE_CONTRACT.json"
+      },
+      "launch_decoration_catalogue": [
+        {
+          "decoration_id": "home_trophy",
+          "display_name": "Trophy stand",
+          "classification": "REUSE_EXISTING",
+          "asset_path": "art/production/phase4e/props/trophy_dais.png",
+          "filename": "trophy_dais.png",
+          "canvas": [
+            287,
+            366
+          ],
+          "occupied_bounds": [
+            4,
+            4,
+            283,
+            362
+          ],
+          "pivot_pixel": [
+            143.5,
+            362
+          ],
+          "anchor_kind": "bottom_centre",
+          "target_size_design": [
+            70,
+            70
+          ],
+          "default_slot": "home.wall_display",
+          "allowed_slots": [
+            "home.wall_display"
+          ],
+          "rotation_allowed": false,
+          "mirroring_allowed": false,
+          "uniform_scale_only": true,
+          "unlocked_at_launch": true,
+          "price": 0,
+          "inventory_item_consumed": false,
+          "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+          "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+          "new_artist_files": []
+        },
+        {
+          "decoration_id": "home_plans",
+          "display_name": "Recovered plans",
+          "classification": "REUSE_EXISTING",
+          "asset_path": "art/production/phase4e/items/recipe_scroll.png",
+          "filename": "recipe_scroll.png",
+          "canvas": [
+            243,
+            257
+          ],
+          "occupied_bounds": [
+            4,
+            4,
+            239,
+            253
+          ],
+          "pivot_pixel": [
+            121.5,
+            253
+          ],
+          "anchor_kind": "bottom_centre",
+          "target_size_design": [
+            70,
+            70
+          ],
+          "default_slot": "home.wall_display",
+          "allowed_slots": [
+            "home.wall_display"
+          ],
+          "rotation_allowed": false,
+          "mirroring_allowed": false,
+          "uniform_scale_only": true,
+          "unlocked_at_launch": true,
+          "price": 0,
+          "inventory_item_consumed": false,
+          "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+          "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+          "new_artist_files": []
+        },
+        {
+          "decoration_id": "home_banner",
+          "display_name": "Contract banner",
+          "classification": "REUSE_EXISTING",
+          "asset_path": "art/production/phase4e/props/contract_banner.png",
+          "filename": "contract_banner.png",
+          "canvas": [
+            188,
+            378
+          ],
+          "occupied_bounds": [
+            4,
+            4,
+            184,
+            354
+          ],
+          "pivot_pixel": [
+            94.0,
+            4
+          ],
+          "anchor_kind": "top_centre",
+          "target_size_design": [
+            48,
+            96
+          ],
+          "default_slot": "home.wall_banner",
+          "allowed_slots": [
+            "home.wall_banner"
+          ],
+          "rotation_allowed": false,
+          "mirroring_allowed": false,
+          "uniform_scale_only": true,
+          "unlocked_at_launch": true,
+          "price": 0,
+          "inventory_item_consumed": false,
+          "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+          "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+          "new_artist_files": []
+        },
+        {
+          "decoration_id": "home_lantern",
+          "display_name": "Brass lantern",
+          "classification": "REUSE_EXISTING",
+          "asset_path": "art/production/phase4e/props/brass_torch.png",
+          "filename": "brass_torch.png",
+          "canvas": [
+            175,
+            370
+          ],
+          "occupied_bounds": [
+            19,
+            4,
+            171,
+            365
+          ],
+          "pivot_pixel": [
+            95.0,
+            4
+          ],
+          "anchor_kind": "top_centre",
+          "target_size_design": [
+            42,
+            90
+          ],
+          "default_slot": "home.wall_light",
+          "allowed_slots": [
+            "home.wall_light"
+          ],
+          "rotation_allowed": false,
+          "mirroring_allowed": false,
+          "uniform_scale_only": true,
+          "unlocked_at_launch": true,
+          "price": 0,
+          "inventory_item_consumed": false,
+          "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+          "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+          "new_artist_files": []
+        },
+        {
+          "decoration_id": "home_companion_cushion",
+          "display_name": "Companion cushion",
+          "classification": "NEEDS_NEW_AUTHORED_ART",
+          "asset_path": "art/production/phase4e/props/home_companion_cushion.png",
+          "foreground_path": "art/production/phase4e/props/home_companion_cushion_front.png",
+          "metadata_path": "art/production/phase4e/props/home_companion_cushion.json",
+          "filename": "home_companion_cushion.png",
+          "canvas": [
+            512,
+            256
+          ],
+          "pivot_pixel": [
+            256,
+            192
+          ],
+          "occupied_bounds_maximum": [
+            16,
+            16,
+            496,
+            240
+          ],
+          "anchor_kind": "contact_surface",
+          "target_size_design": [
+            96,
+            48
+          ],
+          "default_slot": "home.floor_perch",
+          "allowed_slots": [
+            "home.floor_perch"
+          ],
+          "allowed_companions": [
+            "auricub",
+            "stonekith",
+            "pixrask",
+            "lunarwisp",
+            "puffnest",
+            "breezewyn"
+          ],
+          "rotation_allowed": false,
+          "mirroring_allowed": false,
+          "uniform_scale_only": true,
+          "unlocked_at_launch": true,
+          "price": 0,
+          "inventory_item_consumed": false,
+          "movability": "Bounded slot placement/removal, no unrestricted transform",
+          "new_artist_files": [
+            "art/source/phase4e/home/props/home_companion_cushion.png",
+            "art/source/phase4e/home/props/home_companion_cushion_front.png",
+            "art/source/phase4e/home/props/home_companion_cushion.json"
+          ]
+        },
+        {
+          "decoration_id": "home_companion_ledge",
+          "display_name": "Companion ledge",
+          "classification": "NEEDS_NEW_AUTHORED_ART",
+          "asset_path": "art/production/phase4e/props/home_companion_ledge.png",
+          "foreground_path": "art/production/phase4e/props/home_companion_ledge_front.png",
+          "metadata_path": "art/production/phase4e/props/home_companion_ledge.json",
+          "filename": "home_companion_ledge.png",
+          "canvas": [
+            512,
+            256
+          ],
+          "pivot_pixel": [
+            256,
+            128
+          ],
+          "occupied_bounds_maximum": [
+            16,
+            16,
+            496,
+            240
+          ],
+          "anchor_kind": "contact_surface",
+          "target_size_design": [
+            96,
+            48
+          ],
+          "default_slot": "home.wall_perch",
+          "allowed_slots": [
+            "home.wall_perch"
+          ],
+          "allowed_companions": [
+            "lunarwisp",
+            "breezewyn"
+          ],
+          "rotation_allowed": false,
+          "mirroring_allowed": false,
+          "uniform_scale_only": true,
+          "unlocked_at_launch": true,
+          "price": 0,
+          "inventory_item_consumed": false,
+          "movability": "Bounded slot placement/removal, no unrestricted transform",
+          "new_artist_files": [
+            "art/source/phase4e/home/props/home_companion_ledge.png",
+            "art/source/phase4e/home/props/home_companion_ledge_front.png",
+            "art/source/phase4e/home/props/home_companion_ledge.json"
+          ]
+        }
+      ],
+      "persistence_contract": {
+        "schema_version": 1,
+        "root": "profile.homestead.home_layout",
+        "fields": {
+          "schema_version": 1,
+          "placements": {
+            "home.floor_perch": "home_companion_cushion",
+            "home.wall_perch": "home_companion_ledge",
+            "home.wall_display": null,
+            "home.wall_banner": "home_banner",
+            "home.wall_light": "home_lantern"
+          },
+          "companion_mode": "follow",
+          "companion_perch_slot": "home.floor_perch"
+        },
+        "existing_fields_preserved": [
+          "profile.homestead.display",
+          "profile.companion.equipped_id",
+          "profile.companion.owned_ids",
+          "profile.companion.accompany"
+        ],
+        "companion_mode_enum": [
+          "follow",
+          "perch"
+        ],
+        "policy": [
+          "Retain existing companion selection/unlock IDs; do not add duplicate companion inventory",
+          "Six launch decor IDs are free built-in Home furnishings; no item consumption, new currencies or unlock economy",
+          "Legacy homestead.display weapon/scroll/trophy/none remains preserved; home.wall_display=null means legacy display binding, scroll maps home_plans and trophy maps home_trophy at migration; weapon remains existing equipped-item icon",
+          "Absent home_layout migrates to defaults, preserves companion mode follow and all older fields",
+          "Unknown IDs/slot mismatches discard only bad placement; never delete inventory or valid companion ownership",
+          "Grounded pet saved to incompatible wall slot relocates to floor if cushion exists, otherwise follow",
+          "Unavailable/unaccepted perch art disables perch interaction and retains follow; never idle-as-perch fallback",
+          "Removing occupied perch moves pet to follow, preserves equipped_id, and persists layout atomically",
+          "Save only valid complete layout on Apply, never drag intermediates; Cancel/Back discards draft",
+          "Save semantic validation and current save transaction/checksum discipline must be preserved",
+          "Reload restores selection, mode, slot and decor layout; transient move/reaction timer is not saved",
+          "Current profile_store sanitizer strips new fields; later integration MUST explicitly extend it. This package does not change runtime code."
+        ]
+      },
+      "mobile_tablet_acceptance": {
+        "logical_canvas": [
+          480,
+          854
+        ],
+        "layout_transform": "Use existing safe_area_layout.fit_in and physical\u2192logical safe-area conversion. Room interaction/decor slots stay in480x854 fitted scene; separate cover background never sets touch hitboxes.",
+        "minimum_touch_size_design": [
+          48,
+          48
+        ],
+        "gesture_rule": "Activate on owned release after tap qualification; drag/scroll cancels tap; no activation on touch-down; consume gesture through release.",
+        "edit_flow": "Personal Displays opens Decor mode using existing panel styling. Item row\u2192allowed slot highlight\u2192Place/Remove preview; Apply or Cancel. Simple drag may reposition ghost between allowed slots only, with no commit until Apply. Back cancels pending draft and then returns Home/Hub cleanly.",
+        "action_controls": [
+          "Perch / Follow",
+          "Greet",
+          "Edit decor",
+          "Place / Remove",
+          "Apply / Cancel",
+          "Reset layout"
+        ],
+        "no_new_UI_PNG": "Reuse current canonical buttons/icons, companion portrait/unlock icons and item thumbnails; no text baked into props.",
+        "hit_test_priority": "Modal/editor controls > active pet/perch > noninteractive props. Only occupied active perch hit rect triggers greeting; room background/visual-only props ignore input. No combat attack handlers active in Home.",
+        "source_ui_exclusions": {
+          "header_y": [
+            0,
+            240
+          ],
+          "footer_y": [
+            1900,
+            2732
+          ]
+        },
+        "tablet_rule": "Keep bounded central480x854 scene and same placements, uniform fit; use backdrop for extra space rather than stretching or moving hitboxes relative to art.",
+        "acceptance": [
+          "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+          "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+          "No Home action leaks into ATTACK/shop/reward controls",
+          "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+          "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+          "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+          "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+          "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+          "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+        ]
+      }
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/home/personal_home_interior.png",
+      "owner_slot_id": "environment:personal_home:interior",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/phase4e/home/personal_home_interior.png",
+      "runtime_destination": "art/production/phase4e/regions/personal_home_interior.png",
+      "expected_filename": "personal_home_interior.png",
+      "file_type": "PNG",
+      "canvas": [
+        1536,
+        2732
+      ],
+      "purpose": "Empty furnished separate personal Home",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/home/personal_home_interior.json",
+      "owner_slot_id": "environment:personal_home:interior",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/home/personal_home_interior.json",
+      "runtime_destination": "art/production/phase4e/regions/personal_home_interior.json",
+      "expected_filename": "personal_home_interior.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Home safe zones, display/character/follower floor and furniture bounds",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/environment_support_sidecar.schema.json"
+    }
+  ]
+}

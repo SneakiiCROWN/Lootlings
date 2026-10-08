@@ -1,0 +1,69 @@
+{
+  "entity_id": "act_i",
+  "identity_id": "hoard_dragon",
+  "display_name": "The Hoard Dragon",
+  "category": "bosses",
+  "identity_sources": [
+    "art/sprites/enemies/hoard_dragon.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:act_i:idle:right:None",
+    "pose:act_i:phase transition:right:None",
+    "pose:act_i:hurt:right:None",
+    "pose:act_i:vulnerability:right:None",
+    "pose:act_i:recovery:right:None",
+    "pose:act_i:defeat:right:None",
+    "pose:act_i:CLAWS windup:right:None",
+    "pose:act_i:CLAWS commit:right:None",
+    "pose:act_i:CLAWS recovery:right:None",
+    "pose:act_i:BRACE windup:right:None",
+    "pose:act_i:BRACE commit:right:None",
+    "pose:act_i:BRACE recovery:right:None",
+    "pose:act_i:COIN BREATH windup:right:None",
+    "pose:act_i:COIN BREATH commit:right:None",
+    "pose:act_i:COIN BREATH recovery:right:None",
+    "pose:act_i:RECOVER recovery:right:None",
+    "pose:act_i:TAIL SWEEP windup:right:None",
+    "pose:act_i:TAIL SWEEP commit:right:None",
+    "pose:act_i:TAIL SWEEP recovery:right:None",
+    "pose:act_i:idle:left:None",
+    "pose:act_i:phase transition:left:None",
+    "pose:act_i:hurt:left:None",
+    "pose:act_i:vulnerability:left:None",
+    "pose:act_i:recovery:left:None",
+    "pose:act_i:defeat:left:None",
+    "pose:act_i:CLAWS windup:left:None",
+    "pose:act_i:CLAWS commit:left:None",
+    "pose:act_i:CLAWS recovery:left:None",
+    "pose:act_i:BRACE windup:left:None",
+    "pose:act_i:BRACE commit:left:None",
+    "pose:act_i:BRACE recovery:left:None",
+    "pose:act_i:COIN BREATH windup:left:None",
+    "pose:act_i:COIN BREATH commit:left:None",
+    "pose:act_i:COIN BREATH recovery:left:None",
+    "pose:act_i:RECOVER recovery:left:None",
+    "pose:act_i:TAIL SWEEP windup:left:None",
+    "pose:act_i:TAIL SWEEP commit:left:None",
+    "pose:act_i:TAIL SWEEP recovery:left:None"
+  ],
+  "explicit_lock": "Established wingless/coiled violet-obsidian-gold Hoard Dragon; ONE continuous tail. Existing source tail is defective, not an accepted anatomy template. No winged quadruped redesign."
+}

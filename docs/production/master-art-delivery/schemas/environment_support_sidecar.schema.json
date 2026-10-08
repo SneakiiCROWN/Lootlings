@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "environment_support artist metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "entity_id",
+    "canvas",
+    "pivot",
+    "background_file",
+    "source_sha256",
+    "uniform_cover",
+    "design_canvas",
+    "safe_ui_rectangles",
+    "ground_baseline",
+    "display_rect",
+    "follower_floor_anchor",
+    "layer_order",
+    "furniture_occlusion_polygons",
+    "launch_layout_metadata_path",
+    "movable_mounts_design",
+    "no_baked_movable_props"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string"
+    },
+    "canvas": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "pivot": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "background_file": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "uniform_cover": {
+      "const": true
+    },
+    "design_canvas": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "safe_ui_rectangles": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 4,
+        "maxItems": 4
+      }
+    },
+    "ground_baseline": {
+      "type": "number"
+    },
+    "display_rect": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "follower_floor_anchor": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "layer_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "furniture_occlusion_polygons": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "launch_layout_metadata_path": {
+      "const": "HOME_PLACEMENT_METADATA.json"
+    },
+    "movable_mounts_design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "home.floor_perch",
+        "home.wall_perch",
+        "home.wall_display",
+        "home.wall_banner",
+        "home.wall_light"
+      ],
+      "properties": {
+        "home.floor_perch": {
+          "const": [
+            92,
+            594
+          ]
+        },
+        "home.wall_perch": {
+          "const": [
+            374,
+            412
+          ]
+        },
+        "home.wall_display": {
+          "const": [
+            386,
+            337
+          ]
+        },
+        "home.wall_banner": {
+          "const": [
+            103,
+            181
+          ]
+        },
+        "home.wall_light": {
+          "const": [
+            388,
+            165
+          ]
+        }
+      }
+    },
+    "no_baked_movable_props": {
+      "const": true
+    }
+  },
+  "description": "Use as nested contacts/attack_anchors/tail in the actor sidecar where applicable; companion/environment/support standalone. This is not current engine JSON schema."
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "weapon_socket artist metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "primary_contact",
+    "secondary_contact",
+    "module_file",
+    "module_grip_uv",
+    "module_secondary_uv",
+    "module_size_design",
+    "module_angle_radians",
+    "string_mode",
+    "nocked_arrow",
+    "projectile_origin",
+    "paired_module_file",
+    "hand_roles",
+    "foreground_hand_roles"
+  ],
+  "properties": {
+    "primary_contact": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "secondary_contact": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "module_file": {
+      "type": "string"
+    },
+    "module_grip_uv": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "module_secondary_uv": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "module_size_design": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "module_angle_radians": {
+      "type": "number"
+    },
+    "string_mode": {
+      "enum": [
+        "NONE",
+        "REST",
+        "DRAWN",
+        "RELEASED_OR_REST"
+      ]
+    },
+    "nocked_arrow": {
+      "type": "boolean"
+    },
+    "projectile_origin": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "paired_module_file": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hand_roles": {
+      "type": "object"
+    },
+    "foreground_hand_roles": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "primary",
+          "secondary"
+        ]
+      }
+    }
+  },
+  "description": "Use as nested contacts/attack_anchors/tail in the actor sidecar where applicable; companion/environment/support standalone. This is not current engine JSON schema."
+}

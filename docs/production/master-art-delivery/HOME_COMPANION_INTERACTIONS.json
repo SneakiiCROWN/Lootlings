@@ -1,0 +1,140 @@
+{
+  "authority": "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png",
+  "status": "OWNER_AUTHORISED_MINIMUM_LAUNCH_PRODUCTION_DECISIONS_NOT_YET_RUNTIME_IMPLEMENTED",
+  "interaction_ids": [
+    "home.companion.follow",
+    "home.companion.perch",
+    "home.companion.greet",
+    "home.companion.return",
+    "home.decor.edit",
+    "home.decor.place",
+    "home.decor.remove",
+    "home.decor.reset",
+    "home.decor.apply",
+    "home.decor.cancel"
+  ],
+  "one_active_companion": true,
+  "required_states": [
+    "idle",
+    "move",
+    "reaction",
+    "perch_rest",
+    "perch_interact"
+  ],
+  "facings": [
+    "right",
+    "left"
+  ],
+  "per_companion": {
+    "auricub": {
+      "allowed_slots": [
+        "home.floor_perch"
+      ],
+      "default_slot": "home.floor_perch",
+      "rest_state": "perch_rest",
+      "greet_state": "perch_interact",
+      "follow_states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "interaction_name": "Crystal play",
+      "unchanged_unlock_id": "sunfeather_relic",
+      "prop": "art/production/companions/previews/auricub_unlock.png"
+    },
+    "stonekith": {
+      "allowed_slots": [
+        "home.floor_perch"
+      ],
+      "default_slot": "home.floor_perch",
+      "rest_state": "perch_rest",
+      "greet_state": "perch_interact",
+      "follow_states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "interaction_name": "Polish crystal",
+      "unchanged_unlock_id": "terrastone_core",
+      "prop": "art/production/companions/previews/stonekith_unlock.png"
+    },
+    "pixrask": {
+      "allowed_slots": [
+        "home.floor_perch"
+      ],
+      "default_slot": "home.floor_perch",
+      "rest_state": "perch_rest",
+      "greet_state": "perch_interact",
+      "follow_states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "interaction_name": "Mischief",
+      "unchanged_unlock_id": "shadowflame_ember",
+      "prop": "art/production/companions/previews/pixrask_unlock.png"
+    },
+    "lunarwisp": {
+      "allowed_slots": [
+        "home.floor_perch",
+        "home.wall_perch"
+      ],
+      "default_slot": "home.wall_perch",
+      "rest_state": "perch_rest",
+      "greet_state": "perch_interact",
+      "follow_states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "interaction_name": "Stardust greeting",
+      "unchanged_unlock_id": "moonlantern_shard",
+      "prop": "art/production/companions/previews/lunarwisp_unlock.png"
+    },
+    "puffnest": {
+      "allowed_slots": [
+        "home.floor_perch"
+      ],
+      "default_slot": "home.floor_perch",
+      "rest_state": "perch_rest",
+      "greet_state": "perch_interact",
+      "follow_states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "interaction_name": "Gather seed",
+      "unchanged_unlock_id": "bloomnest_seed",
+      "prop": "art/production/companions/previews/puffnest_unlock.png"
+    },
+    "breezewyn": {
+      "allowed_slots": [
+        "home.floor_perch",
+        "home.wall_perch"
+      ],
+      "default_slot": "home.wall_perch",
+      "rest_state": "perch_rest",
+      "greet_state": "perch_interact",
+      "follow_states": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "interaction_name": "Wind play",
+      "unchanged_unlock_id": "skybell_orbit",
+      "prop": "art/production/companions/previews/breezewyn_unlock.png"
+    }
+  },
+  "state_machine": {
+    "follow": "idle/move/reaction using accepted follower frames",
+    "home.companion.perch": "Require selected/equipped owned pet, installed allowed perch, all4 new perch views accepted. Use move toward floor anchor; floating pets may move via[374,602]→[374,412]. Grounded pets never jump/teleport onto wall ledge. On docking enter perch_rest.",
+    "home.companion.greet": "Perched pet enters exact perch_interact for0.9seconds then returns perch_rest; trigger only deliberate released tap/button. Suppress additional triggers until completed; no reward/economy effect.",
+    "home.companion.return": "Leave perch using move state toward[110,602], then existing follow idle; do not cross UI areas or fabricate a jumping pose.",
+    "home.companion.follow": "Switch perch mode to follow; preserve owned/equipped ID.",
+    "missing_state": "Disable unavailable interaction with concise preparing-art status; never relabel idle/reaction as perch art.",
+    "decor_edit": "Companion temporarily settles in accepted rest/follow; no gameplay/combat action allowed. Place/remove is draft until Apply."
+  },
+  "runtime_visual_requirements": "Existing UI skins/buttons and companion unlock images reused; no new UI sheet/VFX artwork. All interactions cosmetic, original canon unchanged.",
+  "placements": "HOME_PLACEMENT_METADATA.json",
+  "persistence": "HOME_PERSISTENCE_CONTRACT.json"
+}

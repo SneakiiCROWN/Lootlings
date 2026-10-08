@@ -1,0 +1,224 @@
+{
+  "batch_id": "artist_0821",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "vault_runner",
+  "category": "support",
+  "weapon_family": "bow",
+  "facing": "left",
+  "slot_ids": [
+    "support:vault_runner:bow:left"
+  ],
+  "items": [
+    {
+      "slot_id": "support:vault_runner:bow:left",
+      "entity_id": "vault_runner",
+      "category": "support",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "weapon_family": "bow",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Family-wide primary/support/paired contact delivery checklist and validation map; not a new body or equipment image",
+      "source_delivery_path": "art/source/phase4e/delivery/support/vault_runner/vault_runner_bow_left_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/vault_runner/vault_runner_bow_left_support_package.json",
+      "expected_filename": "vault_runner_bow_left_support_package.json",
+      "required_states": {
+        "idle": {
+          "pose_slot_id": "pose:vault_runner:idle:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_idle_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_idle_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_idle_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Visible resting string/nock pinch near grip",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "REST",
+              "nocked_arrow": true,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "movement": {
+          "pose_slot_id": "pose:vault_runner:movement:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_movement_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_movement_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_movement_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Visible resting string/nock pinch near grip",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "REST",
+              "nocked_arrow": true,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "windup": {
+          "pose_slot_id": "pose:vault_runner:windup:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_windup_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_windup_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_windup_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Closed drawing pinch at string/nock near cheek",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "DRAWN",
+              "nocked_arrow": true,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "strike_or_cast": {
+          "pose_slot_id": "pose:vault_runner:strike_or_cast:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_strike_or_cast_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_strike_or_cast_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_strike_or_cast_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "follow_through": {
+          "pose_slot_id": "pose:vault_runner:follow_through:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_follow_through_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_follow_through_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_follow_through_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "recovery": {
+          "pose_slot_id": "pose:vault_runner:recovery:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_recovery_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_recovery_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_recovery_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "hurt": {
+          "pose_slot_id": "pose:vault_runner:hurt:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_hurt_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_hurt_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_hurt_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "defeat": {
+          "pose_slot_id": "pose:vault_runner:defeat:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_defeat_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_defeat_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_defeat_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "victory_return": {
+          "pose_slot_id": "pose:vault_runner:victory_return:left:bow",
+          "body_file": "art/source/phase4e/delivery/vault_runner/vault_runner_victory_return_bow_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/vault_runner/vault_runner_victory_return_bow_left.json",
+          "foreground_file": "art/source/phase4e/delivery/vault_runner/vault_runner_victory_return_bow_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        }
+      },
+      "already_accepted_state_references": [],
+      "dimensions": "Image layers use exact owning pose canvas; packet itself is JSON",
+      "owning_system": "weapon_fit_catalog / authored_pose_manifest; per-state manifest",
+      "acceptance_criteria": [
+        "All listed pose files and measured contacts supplied",
+        "Two-hand/paired/string requirement succeeds on actual module in both specified views",
+        "Already accepted state never reopened to force package count down"
+      ],
+      "registration": "After validation convert packet into per-state existing manifests; packet is artist interchange, not an automatic renderer input",
+      "image_file_count_added": 0,
+      "required_files": [
+        "art/source/phase4e/delivery/support/vault_runner/vault_runner_bow_left_support_package.json"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/delivery/support/vault_runner/vault_runner_bow_left_support_package.json",
+      "owner_slot_id": "support:vault_runner:bow:left",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/support/vault_runner/vault_runner_bow_left_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/vault_runner/vault_runner_bow_left_support_package.json",
+      "expected_filename": "vault_runner_bow_left_support_package.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "All-state family contact/support delivery index; no duplicate images",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/support_package_sidecar.schema.json"
+    }
+  ]
+}

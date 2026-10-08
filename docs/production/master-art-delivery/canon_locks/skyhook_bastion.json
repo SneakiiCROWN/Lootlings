@@ -1,0 +1,68 @@
+{
+  "entity_id": "skyhook_bastion",
+  "identity_id": "chainwarden",
+  "display_name": "The Chainwarden",
+  "category": "bosses",
+  "identity_sources": [
+    "art/reference/phase4e_handoff/chatgpt_generated_candidates/boss_candidates/missing_bosses_canonical_candidate.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:skyhook_bastion:idle:right:None",
+    "pose:skyhook_bastion:phase transition:right:None",
+    "pose:skyhook_bastion:hurt:right:None",
+    "pose:skyhook_bastion:vulnerability:right:None",
+    "pose:skyhook_bastion:recovery:right:None",
+    "pose:skyhook_bastion:defeat:right:None",
+    "pose:skyhook_bastion:CHAIN SWEEP windup:right:None",
+    "pose:skyhook_bastion:CHAIN SWEEP commit:right:None",
+    "pose:skyhook_bastion:CHAIN SWEEP recovery:right:None",
+    "pose:skyhook_bastion:REEL IN windup:right:None",
+    "pose:skyhook_bastion:REEL IN commit:right:None",
+    "pose:skyhook_bastion:REEL IN recovery:right:None",
+    "pose:skyhook_bastion:ANCHOR SLAM windup:right:None",
+    "pose:skyhook_bastion:ANCHOR SLAM commit:right:None",
+    "pose:skyhook_bastion:ANCHOR SLAM recovery:right:None",
+    "pose:skyhook_bastion:RECOVER recovery:right:None",
+    "pose:skyhook_bastion:HOOK windup:right:None",
+    "pose:skyhook_bastion:HOOK commit:right:None",
+    "pose:skyhook_bastion:HOOK recovery:right:None",
+    "pose:skyhook_bastion:idle:left:None",
+    "pose:skyhook_bastion:phase transition:left:None",
+    "pose:skyhook_bastion:hurt:left:None",
+    "pose:skyhook_bastion:vulnerability:left:None",
+    "pose:skyhook_bastion:recovery:left:None",
+    "pose:skyhook_bastion:defeat:left:None",
+    "pose:skyhook_bastion:CHAIN SWEEP windup:left:None",
+    "pose:skyhook_bastion:CHAIN SWEEP commit:left:None",
+    "pose:skyhook_bastion:CHAIN SWEEP recovery:left:None",
+    "pose:skyhook_bastion:REEL IN windup:left:None",
+    "pose:skyhook_bastion:REEL IN commit:left:None",
+    "pose:skyhook_bastion:REEL IN recovery:left:None",
+    "pose:skyhook_bastion:ANCHOR SLAM windup:left:None",
+    "pose:skyhook_bastion:ANCHOR SLAM commit:left:None",
+    "pose:skyhook_bastion:ANCHOR SLAM recovery:left:None",
+    "pose:skyhook_bastion:RECOVER recovery:left:None",
+    "pose:skyhook_bastion:HOOK windup:left:None",
+    "pose:skyhook_bastion:HOOK commit:left:None",
+    "pose:skyhook_bastion:HOOK recovery:left:None"
+  ]
+}

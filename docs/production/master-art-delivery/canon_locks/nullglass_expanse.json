@@ -1,0 +1,68 @@
+{
+  "entity_id": "nullglass_expanse",
+  "identity_id": "the_unchosen",
+  "display_name": "The Unchosen",
+  "category": "bosses",
+  "identity_sources": [
+    "art/reference/phase4e_handoff/chatgpt_generated_candidates/boss_candidates/missing_bosses_canonical_candidate.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:nullglass_expanse:idle:right:None",
+    "pose:nullglass_expanse:phase transition:right:None",
+    "pose:nullglass_expanse:hurt:right:None",
+    "pose:nullglass_expanse:vulnerability:right:None",
+    "pose:nullglass_expanse:recovery:right:None",
+    "pose:nullglass_expanse:defeat:right:None",
+    "pose:nullglass_expanse:ECHO windup:right:None",
+    "pose:nullglass_expanse:ECHO commit:right:None",
+    "pose:nullglass_expanse:ECHO recovery:right:None",
+    "pose:nullglass_expanse:REFRACT windup:right:None",
+    "pose:nullglass_expanse:REFRACT commit:right:None",
+    "pose:nullglass_expanse:REFRACT recovery:right:None",
+    "pose:nullglass_expanse:GLASS CUT windup:right:None",
+    "pose:nullglass_expanse:GLASS CUT commit:right:None",
+    "pose:nullglass_expanse:GLASS CUT recovery:right:None",
+    "pose:nullglass_expanse:RECOVER recovery:right:None",
+    "pose:nullglass_expanse:SHATTER windup:right:None",
+    "pose:nullglass_expanse:SHATTER commit:right:None",
+    "pose:nullglass_expanse:SHATTER recovery:right:None",
+    "pose:nullglass_expanse:idle:left:None",
+    "pose:nullglass_expanse:phase transition:left:None",
+    "pose:nullglass_expanse:hurt:left:None",
+    "pose:nullglass_expanse:vulnerability:left:None",
+    "pose:nullglass_expanse:recovery:left:None",
+    "pose:nullglass_expanse:defeat:left:None",
+    "pose:nullglass_expanse:ECHO windup:left:None",
+    "pose:nullglass_expanse:ECHO commit:left:None",
+    "pose:nullglass_expanse:ECHO recovery:left:None",
+    "pose:nullglass_expanse:REFRACT windup:left:None",
+    "pose:nullglass_expanse:REFRACT commit:left:None",
+    "pose:nullglass_expanse:REFRACT recovery:left:None",
+    "pose:nullglass_expanse:GLASS CUT windup:left:None",
+    "pose:nullglass_expanse:GLASS CUT commit:left:None",
+    "pose:nullglass_expanse:GLASS CUT recovery:left:None",
+    "pose:nullglass_expanse:RECOVER recovery:left:None",
+    "pose:nullglass_expanse:SHATTER windup:left:None",
+    "pose:nullglass_expanse:SHATTER commit:left:None",
+    "pose:nullglass_expanse:SHATTER recovery:left:None"
+  ]
+}

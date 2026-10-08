@@ -1,0 +1,47 @@
+{
+  "entity_id": "pixrask",
+  "display_name": "Pixrask",
+  "category": "companions",
+  "identity_sources": [
+    "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+    "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+  ],
+  "proportions": "Exact named canonical companion panel",
+  "silhouette": "Exact named panel; no species/appendage replacement",
+  "palette": "Canonical source colours unchanged",
+  "equipment": "None; cosmetic companion only",
+  "markings": "Match named source panel",
+  "scale_contract": {
+    "canvas": [
+      256,
+      256
+    ],
+    "runtime": [
+      56,
+      56
+    ],
+    "bounds": [
+      32,
+      24,
+      224,
+      224
+    ]
+  },
+  "forbidden_identity_drift": [
+    "Species/palette/name change",
+    "Playable identity override",
+    "Combat/stat power"
+  ],
+  "missing_cell_ids": [
+    "companion:pixrask:idle:right",
+    "companion:pixrask:idle:left",
+    "companion:pixrask:move:right",
+    "companion:pixrask:move:left",
+    "companion:pixrask:reaction:right",
+    "companion:pixrask:reaction:left",
+    "companion:pixrask:perch_rest:right",
+    "companion:pixrask:perch_rest:left",
+    "companion:pixrask:perch_interact:right",
+    "companion:pixrask:perch_interact:left"
+  ]
+}

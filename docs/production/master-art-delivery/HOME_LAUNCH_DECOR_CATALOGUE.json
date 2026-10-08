@@ -1,0 +1,258 @@
+[
+  {
+    "decoration_id": "home_trophy",
+    "display_name": "Trophy stand",
+    "classification": "REUSE_EXISTING",
+    "asset_path": "art/production/phase4e/props/trophy_dais.png",
+    "filename": "trophy_dais.png",
+    "canvas": [
+      287,
+      366
+    ],
+    "occupied_bounds": [
+      4,
+      4,
+      283,
+      362
+    ],
+    "pivot_pixel": [
+      143.5,
+      362
+    ],
+    "anchor_kind": "bottom_centre",
+    "target_size_design": [
+      70,
+      70
+    ],
+    "default_slot": "home.wall_display",
+    "allowed_slots": [
+      "home.wall_display"
+    ],
+    "rotation_allowed": false,
+    "mirroring_allowed": false,
+    "uniform_scale_only": true,
+    "unlocked_at_launch": true,
+    "price": 0,
+    "inventory_item_consumed": false,
+    "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+    "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+    "new_artist_files": []
+  },
+  {
+    "decoration_id": "home_plans",
+    "display_name": "Recovered plans",
+    "classification": "REUSE_EXISTING",
+    "asset_path": "art/production/phase4e/items/recipe_scroll.png",
+    "filename": "recipe_scroll.png",
+    "canvas": [
+      243,
+      257
+    ],
+    "occupied_bounds": [
+      4,
+      4,
+      239,
+      253
+    ],
+    "pivot_pixel": [
+      121.5,
+      253
+    ],
+    "anchor_kind": "bottom_centre",
+    "target_size_design": [
+      70,
+      70
+    ],
+    "default_slot": "home.wall_display",
+    "allowed_slots": [
+      "home.wall_display"
+    ],
+    "rotation_allowed": false,
+    "mirroring_allowed": false,
+    "uniform_scale_only": true,
+    "unlocked_at_launch": true,
+    "price": 0,
+    "inventory_item_consumed": false,
+    "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+    "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+    "new_artist_files": []
+  },
+  {
+    "decoration_id": "home_banner",
+    "display_name": "Contract banner",
+    "classification": "REUSE_EXISTING",
+    "asset_path": "art/production/phase4e/props/contract_banner.png",
+    "filename": "contract_banner.png",
+    "canvas": [
+      188,
+      378
+    ],
+    "occupied_bounds": [
+      4,
+      4,
+      184,
+      354
+    ],
+    "pivot_pixel": [
+      94.0,
+      4
+    ],
+    "anchor_kind": "top_centre",
+    "target_size_design": [
+      48,
+      96
+    ],
+    "default_slot": "home.wall_banner",
+    "allowed_slots": [
+      "home.wall_banner"
+    ],
+    "rotation_allowed": false,
+    "mirroring_allowed": false,
+    "uniform_scale_only": true,
+    "unlocked_at_launch": true,
+    "price": 0,
+    "inventory_item_consumed": false,
+    "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+    "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+    "new_artist_files": []
+  },
+  {
+    "decoration_id": "home_lantern",
+    "display_name": "Brass lantern",
+    "classification": "REUSE_EXISTING",
+    "asset_path": "art/production/phase4e/props/brass_torch.png",
+    "filename": "brass_torch.png",
+    "canvas": [
+      175,
+      370
+    ],
+    "occupied_bounds": [
+      19,
+      4,
+      171,
+      365
+    ],
+    "pivot_pixel": [
+      95.0,
+      4
+    ],
+    "anchor_kind": "top_centre",
+    "target_size_design": [
+      42,
+      90
+    ],
+    "default_slot": "home.wall_light",
+    "allowed_slots": [
+      "home.wall_light"
+    ],
+    "rotation_allowed": false,
+    "mirroring_allowed": false,
+    "uniform_scale_only": true,
+    "unlocked_at_launch": true,
+    "price": 0,
+    "inventory_item_consumed": false,
+    "movability": "Swap/remove within allowed discrete Home slots; never free drag outside safe placement bounds",
+    "metadata_in": "HOME_LAUNCH_DECOR_CATALOGUE.json",
+    "new_artist_files": []
+  },
+  {
+    "decoration_id": "home_companion_cushion",
+    "display_name": "Companion cushion",
+    "classification": "NEEDS_NEW_AUTHORED_ART",
+    "asset_path": "art/production/phase4e/props/home_companion_cushion.png",
+    "foreground_path": "art/production/phase4e/props/home_companion_cushion_front.png",
+    "metadata_path": "art/production/phase4e/props/home_companion_cushion.json",
+    "filename": "home_companion_cushion.png",
+    "canvas": [
+      512,
+      256
+    ],
+    "pivot_pixel": [
+      256,
+      192
+    ],
+    "occupied_bounds_maximum": [
+      16,
+      16,
+      496,
+      240
+    ],
+    "anchor_kind": "contact_surface",
+    "target_size_design": [
+      96,
+      48
+    ],
+    "default_slot": "home.floor_perch",
+    "allowed_slots": [
+      "home.floor_perch"
+    ],
+    "allowed_companions": [
+      "auricub",
+      "stonekith",
+      "pixrask",
+      "lunarwisp",
+      "puffnest",
+      "breezewyn"
+    ],
+    "rotation_allowed": false,
+    "mirroring_allowed": false,
+    "uniform_scale_only": true,
+    "unlocked_at_launch": true,
+    "price": 0,
+    "inventory_item_consumed": false,
+    "movability": "Bounded slot placement/removal, no unrestricted transform",
+    "new_artist_files": [
+      "art/source/phase4e/home/props/home_companion_cushion.png",
+      "art/source/phase4e/home/props/home_companion_cushion_front.png",
+      "art/source/phase4e/home/props/home_companion_cushion.json"
+    ]
+  },
+  {
+    "decoration_id": "home_companion_ledge",
+    "display_name": "Companion ledge",
+    "classification": "NEEDS_NEW_AUTHORED_ART",
+    "asset_path": "art/production/phase4e/props/home_companion_ledge.png",
+    "foreground_path": "art/production/phase4e/props/home_companion_ledge_front.png",
+    "metadata_path": "art/production/phase4e/props/home_companion_ledge.json",
+    "filename": "home_companion_ledge.png",
+    "canvas": [
+      512,
+      256
+    ],
+    "pivot_pixel": [
+      256,
+      128
+    ],
+    "occupied_bounds_maximum": [
+      16,
+      16,
+      496,
+      240
+    ],
+    "anchor_kind": "contact_surface",
+    "target_size_design": [
+      96,
+      48
+    ],
+    "default_slot": "home.wall_perch",
+    "allowed_slots": [
+      "home.wall_perch"
+    ],
+    "allowed_companions": [
+      "lunarwisp",
+      "breezewyn"
+    ],
+    "rotation_allowed": false,
+    "mirroring_allowed": false,
+    "uniform_scale_only": true,
+    "unlocked_at_launch": true,
+    "price": 0,
+    "inventory_item_consumed": false,
+    "movability": "Bounded slot placement/removal, no unrestricted transform",
+    "new_artist_files": [
+      "art/source/phase4e/home/props/home_companion_ledge.png",
+      "art/source/phase4e/home/props/home_companion_ledge_front.png",
+      "art/source/phase4e/home/props/home_companion_ledge.json"
+    ]
+  }
+]

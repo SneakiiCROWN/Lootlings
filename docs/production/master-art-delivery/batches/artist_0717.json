@@ -1,0 +1,212 @@
+{
+  "batch_id": "artist_0717",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "gloomlet",
+  "category": "support",
+  "weapon_family": "bow",
+  "facing": "right",
+  "slot_ids": [
+    "support:gloomlet:bow:right"
+  ],
+  "items": [
+    {
+      "slot_id": "support:gloomlet:bow:right",
+      "entity_id": "gloomlet",
+      "category": "support",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "weapon_family": "bow",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Family-wide primary/support/paired contact delivery checklist and validation map; not a new body or equipment image",
+      "source_delivery_path": "art/source/phase4e/delivery/support/gloomlet/gloomlet_bow_right_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/gloomlet/gloomlet_bow_right_support_package.json",
+      "expected_filename": "gloomlet_bow_right_support_package.json",
+      "required_states": {
+        "idle": {
+          "pose_slot_id": "pose:gloomlet:idle:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_idle_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_idle_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_idle_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Visible resting string/nock pinch near grip",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "REST",
+              "nocked_arrow": true,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "movement": {
+          "pose_slot_id": "pose:gloomlet:movement:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_movement_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_movement_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_movement_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Visible resting string/nock pinch near grip",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "REST",
+              "nocked_arrow": true,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "strike_or_cast": {
+          "pose_slot_id": "pose:gloomlet:strike_or_cast:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_strike_or_cast_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_strike_or_cast_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "follow_through": {
+          "pose_slot_id": "pose:gloomlet:follow_through:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_follow_through_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_follow_through_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_follow_through_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "recovery": {
+          "pose_slot_id": "pose:gloomlet:recovery:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_recovery_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_recovery_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_recovery_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "hurt": {
+          "pose_slot_id": "pose:gloomlet:hurt:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_hurt_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_hurt_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_hurt_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "defeat": {
+          "pose_slot_id": "pose:gloomlet:defeat:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_defeat_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_defeat_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_defeat_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        },
+        "victory_return": {
+          "pose_slot_id": "pose:gloomlet:victory_return:right:bow",
+          "body_file": "art/source/phase4e/delivery/gloomlet/gloomlet_victory_return_bow_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/gloomlet/gloomlet_victory_return_bow_right.json",
+          "foreground_file": "art/source/phase4e/delivery/gloomlet/gloomlet_victory_return_bow_right_grip_front.png",
+          "contact_contract": {
+            "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+            "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+            "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+            "projectile": {
+              "string_mode": "RELEASED_OR_REST",
+              "nocked_arrow": false,
+              "direction": "active target",
+              "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+            },
+            "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+          }
+        }
+      },
+      "already_accepted_state_references": [
+        {
+          "slot_id": "pose:gloomlet:windup:right:bow",
+          "body": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+          "instruction": "Preserve accepted body/contact; review metadata in native fit, do not request reauthored body"
+        }
+      ],
+      "dimensions": "Image layers use exact owning pose canvas; packet itself is JSON",
+      "owning_system": "weapon_fit_catalog / authored_pose_manifest; per-state manifest",
+      "acceptance_criteria": [
+        "All listed pose files and measured contacts supplied",
+        "Two-hand/paired/string requirement succeeds on actual module in both specified views",
+        "Already accepted state never reopened to force package count down"
+      ],
+      "registration": "After validation convert packet into per-state existing manifests; packet is artist interchange, not an automatic renderer input",
+      "image_file_count_added": 0,
+      "required_files": [
+        "art/source/phase4e/delivery/support/gloomlet/gloomlet_bow_right_support_package.json"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/delivery/support/gloomlet/gloomlet_bow_right_support_package.json",
+      "owner_slot_id": "support:gloomlet:bow:right",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/support/gloomlet/gloomlet_bow_right_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/gloomlet/gloomlet_bow_right_support_package.json",
+      "expected_filename": "gloomlet_bow_right_support_package.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "All-state family contact/support delivery index; no duplicate images",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/support_package_sidecar.schema.json"
+    }
+  ]
+}

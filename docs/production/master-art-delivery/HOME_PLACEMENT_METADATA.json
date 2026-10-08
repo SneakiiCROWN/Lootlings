@@ -1,0 +1,204 @@
+{
+  "coordinate_space": "480x854 safe-area fitted Home content, origin top-left; +X right/+Y down",
+  "source_canvas": [
+    1536,
+    2732
+  ],
+  "source_mapping": "[design_x*1536/480, design_y*2732/854]",
+  "slots": {
+    "home.floor_perch": {
+      "mount": "floor",
+      "anchor_design": [
+        92,
+        594
+      ],
+      "allowed_decor": [
+        "home_companion_cushion"
+      ],
+      "allowed_companions": [
+        "auricub",
+        "stonekith",
+        "pixrask",
+        "lunarwisp",
+        "puffnest",
+        "breezewyn"
+      ],
+      "sprite_size_design": [
+        96,
+        48
+      ],
+      "companion_pivot_design": [
+        92,
+        594
+      ],
+      "hit_rect_design": [
+        40,
+        530,
+        100,
+        80
+      ],
+      "facing_default": "right"
+    },
+    "home.wall_perch": {
+      "mount": "wall",
+      "anchor_design": [
+        374,
+        412
+      ],
+      "allowed_decor": [
+        "home_companion_ledge"
+      ],
+      "allowed_companions": [
+        "lunarwisp",
+        "breezewyn"
+      ],
+      "sprite_size_design": [
+        96,
+        48
+      ],
+      "companion_pivot_design": [
+        374,
+        412
+      ],
+      "hit_rect_design": [
+        334,
+        356,
+        100,
+        80
+      ],
+      "facing_default": "left"
+    },
+    "home.wall_display": {
+      "mount": "display",
+      "anchor_design": [
+        386,
+        337
+      ],
+      "allowed_decor": [
+        "home_trophy",
+        "home_plans"
+      ],
+      "sprite_size_design": [
+        70,
+        70
+      ],
+      "hit_rect_design": [
+        343,
+        255,
+        86,
+        90
+      ]
+    },
+    "home.wall_banner": {
+      "mount": "wall",
+      "anchor_design": [
+        103,
+        181
+      ],
+      "allowed_decor": [
+        "home_banner"
+      ],
+      "sprite_size_design": [
+        48,
+        96
+      ],
+      "hit_rect_design": [
+        72,
+        181,
+        62,
+        108
+      ]
+    },
+    "home.wall_light": {
+      "mount": "wall",
+      "anchor_design": [
+        388,
+        165
+      ],
+      "allowed_decor": [
+        "home_lantern"
+      ],
+      "sprite_size_design": [
+        42,
+        90
+      ],
+      "hit_rect_design": [
+        353,
+        154,
+        70,
+        92
+      ]
+    }
+  },
+  "character_design_rect": [
+    148,
+    394,
+    184,
+    188
+  ],
+  "character_ground": [
+    240,
+    570
+  ],
+  "follower_anchor_design": [
+    110,
+    602
+  ],
+  "follower_offset_from_owner": [
+    -130,
+    32
+  ],
+  "reserved_ui_rects": [
+    [
+      20,
+      20,
+      160,
+      48
+    ],
+    [
+      24,
+      98,
+      432,
+      46
+    ],
+    [
+      22,
+      622,
+      210,
+      60
+    ],
+    [
+      248,
+      622,
+      210,
+      60
+    ],
+    [
+      22,
+      698,
+      210,
+      60
+    ],
+    [
+      248,
+      698,
+      210,
+      60
+    ]
+  ],
+  "protected_areas": [
+    "Full character silhouette rectangle",
+    "Header/title and lower navigation buttons",
+    "Active companion bound at its occupied slot"
+  ],
+  "render_order": [
+    "Empty furnished room",
+    "Wall banner/light/display props",
+    "Perch body",
+    "Character and selected companion body",
+    "Perch front lip only where it occludes lower contact pixels",
+    "Separate transient effects",
+    "Safe-area UI"
+  ],
+  "rule": "Interactive cushion/ledge/banners/light/display objects must NOT be painted into the furnished background; reserve compatible empty floor/wall mount space. Permanent unrelated room furniture may stay baked. One active pet only."
+}

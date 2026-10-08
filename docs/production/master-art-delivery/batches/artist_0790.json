@@ -1,0 +1,179 @@
+{
+  "batch_id": "artist_0790",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "pebblewyrm",
+  "category": "support",
+  "weapon_family": "maul",
+  "facing": "left",
+  "slot_ids": [
+    "support:pebblewyrm:maul:left"
+  ],
+  "items": [
+    {
+      "slot_id": "support:pebblewyrm:maul:left",
+      "entity_id": "pebblewyrm",
+      "category": "support",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "weapon_family": "maul",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Family-wide primary/support/paired contact delivery checklist and validation map; not a new body or equipment image",
+      "source_delivery_path": "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_maul_left_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/pebblewyrm/pebblewyrm_maul_left_support_package.json",
+      "expected_filename": "pebblewyrm_maul_left_support_package.json",
+      "required_states": {
+        "idle": {
+          "pose_slot_id": "pose:pebblewyrm:idle:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_idle_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_idle_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_idle_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "movement": {
+          "pose_slot_id": "pose:pebblewyrm:movement:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_movement_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_movement_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_movement_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "windup": {
+          "pose_slot_id": "pose:pebblewyrm:windup:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_windup_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_windup_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_windup_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "strike_or_cast": {
+          "pose_slot_id": "pose:pebblewyrm:strike_or_cast:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_strike_or_cast_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_strike_or_cast_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_strike_or_cast_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "follow_through": {
+          "pose_slot_id": "pose:pebblewyrm:follow_through:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_follow_through_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_follow_through_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_follow_through_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "recovery": {
+          "pose_slot_id": "pose:pebblewyrm:recovery:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_recovery_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_recovery_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_recovery_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "hurt": {
+          "pose_slot_id": "pose:pebblewyrm:hurt:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_hurt_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_hurt_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_hurt_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "defeat": {
+          "pose_slot_id": "pose:pebblewyrm:defeat:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_defeat_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_defeat_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_defeat_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        },
+        "victory_return": {
+          "pose_slot_id": "pose:pebblewyrm:victory_return:left:maul",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_victory_return_maul_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_victory_return_maul_left.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_victory_return_maul_left_grip_front.png",
+          "contact_contract": {
+            "primary": "Primary palm encloses canonical module handle/shaft/stock",
+            "secondary": "Second palm visibly contacts the SAME shaft/stock at a physically valid offset; measure actual delivered palm",
+            "support": "Two-hand support with clear fingers, no hand through blade/head; state-specific release allowed only explicitly declared",
+            "projectile": null,
+            "foreground": "Combined co-registered primary/support foreground fingers, no equipment baked"
+          }
+        }
+      },
+      "already_accepted_state_references": [],
+      "dimensions": "Image layers use exact owning pose canvas; packet itself is JSON",
+      "owning_system": "weapon_fit_catalog / authored_pose_manifest; per-state manifest",
+      "acceptance_criteria": [
+        "All listed pose files and measured contacts supplied",
+        "Two-hand/paired/string requirement succeeds on actual module in both specified views",
+        "Already accepted state never reopened to force package count down"
+      ],
+      "registration": "After validation convert packet into per-state existing manifests; packet is artist interchange, not an automatic renderer input",
+      "image_file_count_added": 0,
+      "required_files": [
+        "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_maul_left_support_package.json"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_maul_left_support_package.json",
+      "owner_slot_id": "support:pebblewyrm:maul:left",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_maul_left_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/pebblewyrm/pebblewyrm_maul_left_support_package.json",
+      "expected_filename": "pebblewyrm_maul_left_support_package.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "All-state family contact/support delivery index; no duplicate images",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/support_package_sidecar.schema.json"
+    }
+  ]
+}

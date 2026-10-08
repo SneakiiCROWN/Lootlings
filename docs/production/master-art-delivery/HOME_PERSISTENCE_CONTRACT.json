@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "root": "profile.homestead.home_layout",
+  "fields": {
+    "schema_version": 1,
+    "placements": {
+      "home.floor_perch": "home_companion_cushion",
+      "home.wall_perch": "home_companion_ledge",
+      "home.wall_display": null,
+      "home.wall_banner": "home_banner",
+      "home.wall_light": "home_lantern"
+    },
+    "companion_mode": "follow",
+    "companion_perch_slot": "home.floor_perch"
+  },
+  "existing_fields_preserved": [
+    "profile.homestead.display",
+    "profile.companion.equipped_id",
+    "profile.companion.owned_ids",
+    "profile.companion.accompany"
+  ],
+  "companion_mode_enum": [
+    "follow",
+    "perch"
+  ],
+  "policy": [
+    "Retain existing companion selection/unlock IDs; do not add duplicate companion inventory",
+    "Six launch decor IDs are free built-in Home furnishings; no item consumption, new currencies or unlock economy",
+    "Legacy homestead.display weapon/scroll/trophy/none remains preserved; home.wall_display=null means legacy display binding, scroll maps home_plans and trophy maps home_trophy at migration; weapon remains existing equipped-item icon",
+    "Absent home_layout migrates to defaults, preserves companion mode follow and all older fields",
+    "Unknown IDs/slot mismatches discard only bad placement; never delete inventory or valid companion ownership",
+    "Grounded pet saved to incompatible wall slot relocates to floor if cushion exists, otherwise follow",
+    "Unavailable/unaccepted perch art disables perch interaction and retains follow; never idle-as-perch fallback",
+    "Removing occupied perch moves pet to follow, preserves equipped_id, and persists layout atomically",
+    "Save only valid complete layout on Apply, never drag intermediates; Cancel/Back discards draft",
+    "Save semantic validation and current save transaction/checksum discipline must be preserved",
+    "Reload restores selection, mode, slot and decor layout; transient move/reaction timer is not saved",
+    "Current profile_store sanitizer strips new fields; later integration MUST explicitly extend it. This package does not change runtime code."
+  ]
+}

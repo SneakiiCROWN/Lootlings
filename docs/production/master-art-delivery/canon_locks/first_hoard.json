@@ -1,0 +1,68 @@
+{
+  "entity_id": "first_hoard",
+  "identity_id": "hollow_crown",
+  "display_name": "The Hollow Crown",
+  "category": "bosses",
+  "identity_sources": [
+    "art/reference/phase4e_handoff/chatgpt_generated_candidates/boss_candidates/missing_bosses_canonical_candidate.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:first_hoard:idle:right:None",
+    "pose:first_hoard:phase transition:right:None",
+    "pose:first_hoard:hurt:right:None",
+    "pose:first_hoard:vulnerability:right:None",
+    "pose:first_hoard:recovery:right:None",
+    "pose:first_hoard:defeat:right:None",
+    "pose:first_hoard:CROWN STRIKE windup:right:None",
+    "pose:first_hoard:CROWN STRIKE commit:right:None",
+    "pose:first_hoard:CROWN STRIKE recovery:right:None",
+    "pose:first_hoard:CLAIM windup:right:None",
+    "pose:first_hoard:CLAIM commit:right:None",
+    "pose:first_hoard:CLAIM recovery:right:None",
+    "pose:first_hoard:VAULT SEAL windup:right:None",
+    "pose:first_hoard:VAULT SEAL commit:right:None",
+    "pose:first_hoard:VAULT SEAL recovery:right:None",
+    "pose:first_hoard:RECOVER recovery:right:None",
+    "pose:first_hoard:COLLECT windup:right:None",
+    "pose:first_hoard:COLLECT commit:right:None",
+    "pose:first_hoard:COLLECT recovery:right:None",
+    "pose:first_hoard:idle:left:None",
+    "pose:first_hoard:phase transition:left:None",
+    "pose:first_hoard:hurt:left:None",
+    "pose:first_hoard:vulnerability:left:None",
+    "pose:first_hoard:recovery:left:None",
+    "pose:first_hoard:defeat:left:None",
+    "pose:first_hoard:CROWN STRIKE windup:left:None",
+    "pose:first_hoard:CROWN STRIKE commit:left:None",
+    "pose:first_hoard:CROWN STRIKE recovery:left:None",
+    "pose:first_hoard:CLAIM windup:left:None",
+    "pose:first_hoard:CLAIM commit:left:None",
+    "pose:first_hoard:CLAIM recovery:left:None",
+    "pose:first_hoard:VAULT SEAL windup:left:None",
+    "pose:first_hoard:VAULT SEAL commit:left:None",
+    "pose:first_hoard:VAULT SEAL recovery:left:None",
+    "pose:first_hoard:RECOVER recovery:left:None",
+    "pose:first_hoard:COLLECT windup:left:None",
+    "pose:first_hoard:COLLECT commit:left:None",
+    "pose:first_hoard:COLLECT recovery:left:None"
+  ]
+}

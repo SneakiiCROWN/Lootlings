@@ -1,0 +1,179 @@
+{
+  "batch_id": "artist_0758",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "mosskin",
+  "category": "support",
+  "weapon_family": "daggers",
+  "facing": "left",
+  "slot_ids": [
+    "support:mosskin:daggers:left"
+  ],
+  "items": [
+    {
+      "slot_id": "support:mosskin:daggers:left",
+      "entity_id": "mosskin",
+      "category": "support",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "weapon_family": "daggers",
+      "facing": "left",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Family-wide primary/support/paired contact delivery checklist and validation map; not a new body or equipment image",
+      "source_delivery_path": "art/source/phase4e/delivery/support/mosskin/mosskin_daggers_left_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/mosskin/mosskin_daggers_left_support_package.json",
+      "expected_filename": "mosskin_daggers_left_support_package.json",
+      "required_states": {
+        "idle": {
+          "pose_slot_id": "pose:mosskin:idle:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_idle_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_idle_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_idle_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "movement": {
+          "pose_slot_id": "pose:mosskin:movement:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_movement_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_movement_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_movement_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "windup": {
+          "pose_slot_id": "pose:mosskin:windup:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_windup_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_windup_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_windup_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "strike_or_cast": {
+          "pose_slot_id": "pose:mosskin:strike_or_cast:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_strike_or_cast_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_strike_or_cast_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_strike_or_cast_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "follow_through": {
+          "pose_slot_id": "pose:mosskin:follow_through:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_follow_through_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_follow_through_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_follow_through_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "recovery": {
+          "pose_slot_id": "pose:mosskin:recovery:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_recovery_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_recovery_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_recovery_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "hurt": {
+          "pose_slot_id": "pose:mosskin:hurt:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_hurt_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_hurt_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_hurt_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "defeat": {
+          "pose_slot_id": "pose:mosskin:defeat:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_defeat_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_defeat_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_defeat_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "victory_return": {
+          "pose_slot_id": "pose:mosskin:victory_return:left:daggers",
+          "body_file": "art/source/phase4e/delivery/mosskin/mosskin_victory_return_daggers_left.png",
+          "sidecar_file": "art/source/phase4e/delivery/mosskin/mosskin_victory_return_daggers_left.json",
+          "foreground_file": "art/source/phase4e/delivery/mosskin/mosskin_victory_return_daggers_left_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        }
+      },
+      "already_accepted_state_references": [],
+      "dimensions": "Image layers use exact owning pose canvas; packet itself is JSON",
+      "owning_system": "weapon_fit_catalog / authored_pose_manifest; per-state manifest",
+      "acceptance_criteria": [
+        "All listed pose files and measured contacts supplied",
+        "Two-hand/paired/string requirement succeeds on actual module in both specified views",
+        "Already accepted state never reopened to force package count down"
+      ],
+      "registration": "After validation convert packet into per-state existing manifests; packet is artist interchange, not an automatic renderer input",
+      "image_file_count_added": 0,
+      "required_files": [
+        "art/source/phase4e/delivery/support/mosskin/mosskin_daggers_left_support_package.json"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/delivery/support/mosskin/mosskin_daggers_left_support_package.json",
+      "owner_slot_id": "support:mosskin:daggers:left",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/support/mosskin/mosskin_daggers_left_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/mosskin/mosskin_daggers_left_support_package.json",
+      "expected_filename": "mosskin_daggers_left_support_package.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "All-state family contact/support delivery index; no duplicate images",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/support_package_sidecar.schema.json"
+    }
+  ]
+}

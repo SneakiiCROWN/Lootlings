@@ -1,0 +1,869 @@
+{
+  "batch_id": "artist_0008",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "relic_beast",
+  "category": "playable_lootlings",
+  "weapon_family": "bow",
+  "facing": "right",
+  "slot_ids": [
+    "pose:relic_beast:hurt:right:bow",
+    "pose:relic_beast:defeat:right:bow",
+    "pose:relic_beast:victory_return:right:bow"
+  ],
+  "items": [
+    {
+      "slot_id": "pose:relic_beast:hurt:right:bow",
+      "entity_id": "relic_beast",
+      "identity_id": "relic_beast",
+      "display_name": "Relic Beast",
+      "category": "playable_lootlings",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
+      ],
+      "state": "hurt",
+      "facing": "right",
+      "weapon_family": "bow",
+      "role": "hurt / right / bow",
+      "expected_filename": "relic_beast_hurt_bow_right.png",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_hurt_bow_right.png",
+      "metadata_filename": "relic_beast_hurt_bow_right.json",
+      "source_metadata_path": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.json",
+      "runtime_metadata_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_hurt_bow_right.json",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "maximum_alpha_bounds": [
+        16,
+        16,
+        496,
+        496
+      ],
+      "bounds_convention": "exclusive right/bottom",
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "required_body_pose": "Authored recoil with intact head, feet and weapon/contact hands.",
+      "anatomy_requirements": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy. Match this entity's anatomy only; non-humanoids do not gain hands/feet. Floating entities retain their hover treatment.",
+      "hands_paws_requirements": {
+        "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+        "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+        "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+        "projectile": {
+          "string_mode": "RELEASED_OR_REST",
+          "nocked_arrow": false,
+          "direction": "active target",
+          "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+        },
+        "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+      },
+      "feet_tail_requirements": "Complete canonical supporting anatomy and tail visible; lowest ground-bearing anatomy at target baseline. For hovering bodies measure hover reference; do not add feet. No doubled or clipped appendages.",
+      "eye_head_target": "Face active target in normal combat; recoil/hurt/recovery must not reverse target-facing. Noncombat look follows named activity.",
+      "movement_body_weight": "State-specific anticipation/weight transfer/commit/settle; preserve source aspect ratio and shared baseline; only explicit attack root motion crosses lanes. Movement must show actual locomotion, not idle relabelled.",
+      "mirroring_allowed": false,
+      "weapon_contact_rule": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+      "primary_grip": "MEASURE_FROM_DELIVERED_PIXELS",
+      "secondary_grip": "MEASURE_FROM_DELIVERED_PIXELS",
+      "support_hand_requirement": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+      "foreground_fingers_requirement": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth",
+      "string_arrow_projectile_requirement": {
+        "string_mode": "RELEASED_OR_REST",
+        "nocked_arrow": false,
+        "direction": "active target",
+        "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+      },
+      "equipment_layering_order": [
+        "ground shadow (runtime)",
+        "complete canonical body",
+        "string/nocked arrow or casting charge (separate runtime where applicable)",
+        "independent equipment module(s)",
+        "co-registered foreground fingers/support fingers",
+        "temporal VFX/projectiles",
+        "HUD"
+      ],
+      "temporal_vfx_separation_rules": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "allowed_baked_elements": [
+        "Permanent canonical markings, outfit, intrinsic Core colouring; intrinsic entity anatomy/equipment only as declared"
+      ],
+      "forbidden_baked_elements": [
+        "Interchangeable player weapon/shield",
+        "Temporal attack/status/reward VFX",
+        "Floor shadow",
+        "Background/labels/other actors"
+      ],
+      "compatibility_requirements": [
+        "Bow exact family only; no automatic family/state equivalence",
+        "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+        "Preserve all current clocks, save/economy/input semantics"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_point": "MEASURE_FROM_DELIVERED_PIXELS",
+        "core_or_eye": "MEASURE_FROM_DELIVERED_PIXELS",
+        "primary_contact": "MEASURE_FROM_DELIVERED_PIXELS",
+        "secondary_contact": "MEASURE_FROM_DELIVERED_PIXELS",
+        "attack_launch": "MEASURE_FROM_DELIVERED_PIXELS",
+        "effect_anchor": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Validate PNG/layers and sidecar first; delivery is not runtime acceptance",
+        "Convert interchange sidecar to existing manifests; do not expect automatic new-field loading",
+        "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+        "Add explicit movement/defeat/victory/activity/named-boss selectors only where current importer lacks them; never alias idle/strike",
+        "Run exact native state/facing/weapon fit, canonical guard and parser QA before closing this slot"
+      ],
+      "existing_search_evidence": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
+          "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+          "res://art/sprites/poses/relic_beast/greatsword_strike.png"
+        ]
+      },
+      "why_open": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "priority": "P0",
+      "support_layer_policy": "One combined foreground PNG includes primary AND support/paired fingers; split support layer only if combined order cannot work. Split is an alternate delivery, not another required-file count.",
+      "required_files": [
+        "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.png",
+        "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.json",
+        "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right_grip_front.png"
+      ],
+      "pose_blueprint": "Clear recoil/compression away from damage while eyes/head retain active-target orientation, hands/feet/tail intact. No flash/trail painted into body; no attack pose renamed.",
+      "pixel_to_rig_mapping": {
+        "canvas": [
+          512,
+          512
+        ],
+        "pivot_canvas": [
+          256.0,
+          341.3333333333333
+        ],
+        "body_rect": [
+          -96,
+          -128,
+          192,
+          192
+        ],
+        "formula": "local = body_rect.position + canvas_pixel / canvas_dimensions * body_rect.size",
+        "caution": "512-square new playable interchange gives local ground58 at Y496 and pivot341.333333. Older rig targets64 are hints, not palm/ground measurements. Accepted Wanderer heavy frames retain their original150x225 rect/53 baseline; do NOT reinterpret accepted frames."
+      },
+      "equipment_module_reference": {
+        "size": [
+          96.0,
+          128.0
+        ],
+        "grip": [
+          0.49,
+          0.515
+        ],
+        "socket": [
+          0.27,
+          0.42
+        ],
+        "angle_radians": 0.51,
+        "equipment_mirror_flag": true,
+        "meaning": {
+          "size": "design units before actor/equipment scaling",
+          "grip": "normalised module handle contact",
+          "socket": "normalised projectile/attack origin",
+          "angle_radians": "existing base module angle; phase offsets are separate"
+        },
+        "display_name": "Bow"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:defeat:right:bow",
+      "entity_id": "relic_beast",
+      "identity_id": "relic_beast",
+      "display_name": "Relic Beast",
+      "category": "playable_lootlings",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
+      ],
+      "state": "defeat",
+      "facing": "right",
+      "weapon_family": "bow",
+      "role": "defeat / right / bow",
+      "expected_filename": "relic_beast_defeat_bow_right.png",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_defeat_bow_right.png",
+      "metadata_filename": "relic_beast_defeat_bow_right.json",
+      "source_metadata_path": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.json",
+      "runtime_metadata_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_defeat_bow_right.json",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "maximum_alpha_bounds": [
+        16,
+        16,
+        496,
+        496
+      ],
+      "bounds_convention": "exclusive right/bottom",
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "required_body_pose": "Recognizable authored defeated pose; complete anatomy and equipment layers.",
+      "anatomy_requirements": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy. Match this entity's anatomy only; non-humanoids do not gain hands/feet. Floating entities retain their hover treatment.",
+      "hands_paws_requirements": {
+        "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+        "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+        "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+        "projectile": {
+          "string_mode": "RELEASED_OR_REST",
+          "nocked_arrow": false,
+          "direction": "active target",
+          "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+        },
+        "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+      },
+      "feet_tail_requirements": "Complete canonical supporting anatomy and tail visible; lowest ground-bearing anatomy at target baseline. For hovering bodies measure hover reference; do not add feet. No doubled or clipped appendages.",
+      "eye_head_target": "Face active target in normal combat; recoil/hurt/recovery must not reverse target-facing. Noncombat look follows named activity.",
+      "movement_body_weight": "State-specific anticipation/weight transfer/commit/settle; preserve source aspect ratio and shared baseline; only explicit attack root motion crosses lanes. Movement must show actual locomotion, not idle relabelled.",
+      "mirroring_allowed": false,
+      "weapon_contact_rule": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+      "primary_grip": "MEASURE_FROM_DELIVERED_PIXELS",
+      "secondary_grip": "MEASURE_FROM_DELIVERED_PIXELS",
+      "support_hand_requirement": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+      "foreground_fingers_requirement": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth",
+      "string_arrow_projectile_requirement": {
+        "string_mode": "RELEASED_OR_REST",
+        "nocked_arrow": false,
+        "direction": "active target",
+        "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+      },
+      "equipment_layering_order": [
+        "ground shadow (runtime)",
+        "complete canonical body",
+        "string/nocked arrow or casting charge (separate runtime where applicable)",
+        "independent equipment module(s)",
+        "co-registered foreground fingers/support fingers",
+        "temporal VFX/projectiles",
+        "HUD"
+      ],
+      "temporal_vfx_separation_rules": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "allowed_baked_elements": [
+        "Permanent canonical markings, outfit, intrinsic Core colouring; intrinsic entity anatomy/equipment only as declared"
+      ],
+      "forbidden_baked_elements": [
+        "Interchangeable player weapon/shield",
+        "Temporal attack/status/reward VFX",
+        "Floor shadow",
+        "Background/labels/other actors"
+      ],
+      "compatibility_requirements": [
+        "Bow exact family only; no automatic family/state equivalence",
+        "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+        "Preserve all current clocks, save/economy/input semantics"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_point": "MEASURE_FROM_DELIVERED_PIXELS",
+        "core_or_eye": "MEASURE_FROM_DELIVERED_PIXELS",
+        "primary_contact": "MEASURE_FROM_DELIVERED_PIXELS",
+        "secondary_contact": "MEASURE_FROM_DELIVERED_PIXELS",
+        "attack_launch": "MEASURE_FROM_DELIVERED_PIXELS",
+        "effect_anchor": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Validate PNG/layers and sidecar first; delivery is not runtime acceptance",
+        "Convert interchange sidecar to existing manifests; do not expect automatic new-field loading",
+        "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+        "Add explicit movement/defeat/victory/activity/named-boss selectors only where current importer lacks them; never alias idle/strike",
+        "Run exact native state/facing/weapon fit, canonical guard and parser QA before closing this slot"
+      ],
+      "existing_search_evidence": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
+          "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+          "res://art/sprites/poses/relic_beast/greatsword_strike.png"
+        ]
+      },
+      "why_open": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "priority": "P0",
+      "support_layer_policy": "One combined foreground PNG includes primary AND support/paired fingers; split support layer only if combined order cannot work. Split is an alternate delivery, not another required-file count.",
+      "required_files": [
+        "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.png",
+        "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.json",
+        "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right_grip_front.png"
+      ],
+      "pose_blueprint": "Distinct defeated/downed posture with complete canonical silhouette, natural supporting/ground anatomy and retained equipment contact where applicable. No standing idle or body clipping.",
+      "pixel_to_rig_mapping": {
+        "canvas": [
+          512,
+          512
+        ],
+        "pivot_canvas": [
+          256.0,
+          341.3333333333333
+        ],
+        "body_rect": [
+          -96,
+          -128,
+          192,
+          192
+        ],
+        "formula": "local = body_rect.position + canvas_pixel / canvas_dimensions * body_rect.size",
+        "caution": "512-square new playable interchange gives local ground58 at Y496 and pivot341.333333. Older rig targets64 are hints, not palm/ground measurements. Accepted Wanderer heavy frames retain their original150x225 rect/53 baseline; do NOT reinterpret accepted frames."
+      },
+      "equipment_module_reference": {
+        "size": [
+          96.0,
+          128.0
+        ],
+        "grip": [
+          0.49,
+          0.515
+        ],
+        "socket": [
+          0.27,
+          0.42
+        ],
+        "angle_radians": 0.51,
+        "equipment_mirror_flag": true,
+        "meaning": {
+          "size": "design units before actor/equipment scaling",
+          "grip": "normalised module handle contact",
+          "socket": "normalised projectile/attack origin",
+          "angle_radians": "existing base module angle; phase offsets are separate"
+        },
+        "display_name": "Bow"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:victory_return:right:bow",
+      "entity_id": "relic_beast",
+      "identity_id": "relic_beast",
+      "display_name": "Relic Beast",
+      "category": "playable_lootlings",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
+      ],
+      "state": "victory_return",
+      "facing": "right",
+      "weapon_family": "bow",
+      "role": "victory_return / right / bow",
+      "expected_filename": "relic_beast_victory_return_bow_right.png",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_victory_return_bow_right.png",
+      "metadata_filename": "relic_beast_victory_return_bow_right.json",
+      "source_metadata_path": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.json",
+      "runtime_metadata_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_victory_return_bow_right.json",
+      "canvas": [
+        512,
+        512
+      ],
+      "transparent_background": true,
+      "maximum_alpha_bounds": [
+        16,
+        16,
+        496,
+        496
+      ],
+      "bounds_convention": "exclusive right/bottom",
+      "baseline": {
+        "renderer_ground_y": 548,
+        "rig_local_y": 64,
+        "target_canvas_y": 496
+      },
+      "pivot": {
+        "rig_local": [
+          0,
+          0
+        ],
+        "target_canvas": [
+          256.0,
+          341.3333333333333
+        ]
+      },
+      "required_body_pose": "Authored victory-to-ready return matching the same canonical identity.",
+      "anatomy_requirements": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy. Match this entity's anatomy only; non-humanoids do not gain hands/feet. Floating entities retain their hover treatment.",
+      "hands_paws_requirements": {
+        "primary": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+        "secondary": "Open releasing/protective/return hand; NOT a nock anchor",
+        "support": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+        "projectile": {
+          "string_mode": "RELEASED_OR_REST",
+          "nocked_arrow": false,
+          "direction": "active target",
+          "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+        },
+        "foreground": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth"
+      },
+      "feet_tail_requirements": "Complete canonical supporting anatomy and tail visible; lowest ground-bearing anatomy at target baseline. For hovering bodies measure hover reference; do not add feet. No doubled or clipped appendages.",
+      "eye_head_target": "Face active target in normal combat; recoil/hurt/recovery must not reverse target-facing. Noncombat look follows named activity.",
+      "movement_body_weight": "State-specific anticipation/weight transfer/commit/settle; preserve source aspect ratio and shared baseline; only explicit attack root motion crosses lanes. Movement must show actual locomotion, not idle relabelled.",
+      "mirroring_allowed": false,
+      "weapon_contact_rule": "Actual closed grip palm surrounds unchanged modular bow handle; cant documented, no head/torso penetration",
+      "primary_grip": "MEASURE_FROM_DELIVERED_PIXELS",
+      "secondary_grip": "MEASURE_FROM_DELIVERED_PIXELS",
+      "support_hand_requirement": "Rear drawing fingers separate from equipment; secondary contact required only before release",
+      "foreground_fingers_requirement": "Combined primary and secondary foreground finger layer; separate secondary PNG only if combined layer cannot satisfy depth",
+      "string_arrow_projectile_requirement": {
+        "string_mode": "RELEASED_OR_REST",
+        "nocked_arrow": false,
+        "direction": "active target",
+        "ownership": "runtime string/nocked arrow/flying arrow; never baked into body"
+      },
+      "equipment_layering_order": [
+        "ground shadow (runtime)",
+        "complete canonical body",
+        "string/nocked arrow or casting charge (separate runtime where applicable)",
+        "independent equipment module(s)",
+        "co-registered foreground fingers/support fingers",
+        "temporal VFX/projectiles",
+        "HUD"
+      ],
+      "temporal_vfx_separation_rules": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
+      "allowed_baked_elements": [
+        "Permanent canonical markings, outfit, intrinsic Core colouring; intrinsic entity anatomy/equipment only as declared"
+      ],
+      "forbidden_baked_elements": [
+        "Interchangeable player weapon/shield",
+        "Temporal attack/status/reward VFX",
+        "Floor shadow",
+        "Background/labels/other actors"
+      ],
+      "compatibility_requirements": [
+        "Bow exact family only; no automatic family/state equivalence",
+        "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
+        "Preserve all current clocks, save/economy/input semantics"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_point": "MEASURE_FROM_DELIVERED_PIXELS",
+        "core_or_eye": "MEASURE_FROM_DELIVERED_PIXELS",
+        "primary_contact": "MEASURE_FROM_DELIVERED_PIXELS",
+        "secondary_contact": "MEASURE_FROM_DELIVERED_PIXELS",
+        "attack_launch": "MEASURE_FROM_DELIVERED_PIXELS",
+        "effect_anchor": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Validate PNG/layers and sidecar first; delivery is not runtime acceptance",
+        "Convert interchange sidecar to existing manifests; do not expect automatic new-field loading",
+        "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
+        "Add explicit movement/defeat/victory/activity/named-boss selectors only where current importer lacks them; never alias idle/strike",
+        "Run exact native state/facing/weapon fit, canonical guard and parser QA before closing this slot"
+      ],
+      "existing_search_evidence": {
+        "accepted_state_manifest": "art/production_pose_manifest.json",
+        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
+        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
+        "existing_actor_candidates": [
+          "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
+          "res://art/sprites/poses/relic_beast/greatsword_ready.png",
+          "res://art/sprites/poses/relic_beast/greatsword_strike.png"
+        ]
+      },
+      "why_open": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
+      "priority": "P0",
+      "support_layer_policy": "One combined foreground PNG includes primary AND support/paired fingers; split support layer only if combined order cannot work. Split is an alternate delivery, not another required-file count.",
+      "required_files": [
+        "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.png",
+        "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.json",
+        "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right_grip_front.png"
+      ],
+      "pose_blueprint": "Distinct modest confident release-to-ready gesture; canonical personality, relaxed body weight, complete equipment/feet/tail. No new outfit, trophy or celebration FX baked.",
+      "pixel_to_rig_mapping": {
+        "canvas": [
+          512,
+          512
+        ],
+        "pivot_canvas": [
+          256.0,
+          341.3333333333333
+        ],
+        "body_rect": [
+          -96,
+          -128,
+          192,
+          192
+        ],
+        "formula": "local = body_rect.position + canvas_pixel / canvas_dimensions * body_rect.size",
+        "caution": "512-square new playable interchange gives local ground58 at Y496 and pivot341.333333. Older rig targets64 are hints, not palm/ground measurements. Accepted Wanderer heavy frames retain their original150x225 rect/53 baseline; do NOT reinterpret accepted frames."
+      },
+      "equipment_module_reference": {
+        "size": [
+          96.0,
+          128.0
+        ],
+        "grip": [
+          0.49,
+          0.515
+        ],
+        "socket": [
+          0.27,
+          0.42
+        ],
+        "angle_radians": 0.51,
+        "equipment_mirror_flag": true,
+        "meaning": {
+          "size": "design units before actor/equipment scaling",
+          "grip": "normalised module handle contact",
+          "socket": "normalised projectile/attack origin",
+          "angle_radians": "existing base module angle; phase offsets are separate"
+        },
+        "display_name": "Bow"
+      }
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.png",
+      "owner_slot_id": "pose:relic_beast:hurt:right:bow",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_hurt_bow_right.png",
+      "expected_filename": "relic_beast_hurt_bow_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Exact canonical body in named state/view/family",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.json",
+      "owner_slot_id": "pose:relic_beast:hurt:right:bow",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right.json",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_hurt_bow_right.json",
+      "expected_filename": "relic_beast_hurt_bow_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Pose/contact/anchor interchange sidecar",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/actor_pose_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right_grip_front.png",
+      "owner_slot_id": "pose:relic_beast:hurt:right:bow",
+      "classification": "NEEDS_LAYER_FIX",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_hurt_bow_right_grip_front.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_hurt_bow_right_grip_front.png",
+      "expected_filename": "relic_beast_hurt_bow_right_grip_front.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Combined foreground primary/support/paired fingers, co-registered to body; existing equipment occlusion only",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.png",
+      "owner_slot_id": "pose:relic_beast:defeat:right:bow",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_defeat_bow_right.png",
+      "expected_filename": "relic_beast_defeat_bow_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Exact canonical body in named state/view/family",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.json",
+      "owner_slot_id": "pose:relic_beast:defeat:right:bow",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right.json",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_defeat_bow_right.json",
+      "expected_filename": "relic_beast_defeat_bow_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Pose/contact/anchor interchange sidecar",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/actor_pose_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right_grip_front.png",
+      "owner_slot_id": "pose:relic_beast:defeat:right:bow",
+      "classification": "NEEDS_LAYER_FIX",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_defeat_bow_right_grip_front.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_defeat_bow_right_grip_front.png",
+      "expected_filename": "relic_beast_defeat_bow_right_grip_front.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Combined foreground primary/support/paired fingers, co-registered to body; existing equipment occlusion only",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.png",
+      "owner_slot_id": "pose:relic_beast:victory_return:right:bow",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_victory_return_bow_right.png",
+      "expected_filename": "relic_beast_victory_return_bow_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Exact canonical body in named state/view/family",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.json",
+      "owner_slot_id": "pose:relic_beast:victory_return:right:bow",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right.json",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_victory_return_bow_right.json",
+      "expected_filename": "relic_beast_victory_return_bow_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Pose/contact/anchor interchange sidecar",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/actor_pose_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right_grip_front.png",
+      "owner_slot_id": "pose:relic_beast:victory_return:right:bow",
+      "classification": "NEEDS_LAYER_FIX",
+      "source_delivery_path": "art/source/phase4e/delivery/relic_beast/relic_beast_victory_return_bow_right_grip_front.png",
+      "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_victory_return_bow_right_grip_front.png",
+      "expected_filename": "relic_beast_victory_return_bow_right_grip_front.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Combined foreground primary/support/paired fingers, co-registered to body; existing equipment occlusion only",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    }
+  ]
+}

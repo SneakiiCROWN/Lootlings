@@ -1,0 +1,68 @@
+{
+  "entity_id": "cinder_crown",
+  "identity_id": "furnace_regent",
+  "display_name": "The Furnace Regent",
+  "category": "bosses",
+  "identity_sources": [
+    "art/sprites/enemies/beta/furnace_regent.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:cinder_crown:idle:right:None",
+    "pose:cinder_crown:phase transition:right:None",
+    "pose:cinder_crown:hurt:right:None",
+    "pose:cinder_crown:vulnerability:right:None",
+    "pose:cinder_crown:recovery:right:None",
+    "pose:cinder_crown:defeat:right:None",
+    "pose:cinder_crown:HAMMER windup:right:None",
+    "pose:cinder_crown:HAMMER commit:right:None",
+    "pose:cinder_crown:HAMMER recovery:right:None",
+    "pose:cinder_crown:COAL BREATH windup:right:None",
+    "pose:cinder_crown:COAL BREATH commit:right:None",
+    "pose:cinder_crown:COAL BREATH recovery:right:None",
+    "pose:cinder_crown:TRIBUTE FLARE windup:right:None",
+    "pose:cinder_crown:TRIBUTE FLARE commit:right:None",
+    "pose:cinder_crown:TRIBUTE FLARE recovery:right:None",
+    "pose:cinder_crown:RECOVER recovery:right:None",
+    "pose:cinder_crown:CINDER SWEEP windup:right:None",
+    "pose:cinder_crown:CINDER SWEEP commit:right:None",
+    "pose:cinder_crown:CINDER SWEEP recovery:right:None",
+    "pose:cinder_crown:idle:left:None",
+    "pose:cinder_crown:phase transition:left:None",
+    "pose:cinder_crown:hurt:left:None",
+    "pose:cinder_crown:vulnerability:left:None",
+    "pose:cinder_crown:recovery:left:None",
+    "pose:cinder_crown:defeat:left:None",
+    "pose:cinder_crown:HAMMER windup:left:None",
+    "pose:cinder_crown:HAMMER commit:left:None",
+    "pose:cinder_crown:HAMMER recovery:left:None",
+    "pose:cinder_crown:COAL BREATH windup:left:None",
+    "pose:cinder_crown:COAL BREATH commit:left:None",
+    "pose:cinder_crown:COAL BREATH recovery:left:None",
+    "pose:cinder_crown:TRIBUTE FLARE windup:left:None",
+    "pose:cinder_crown:TRIBUTE FLARE commit:left:None",
+    "pose:cinder_crown:TRIBUTE FLARE recovery:left:None",
+    "pose:cinder_crown:RECOVER recovery:left:None",
+    "pose:cinder_crown:CINDER SWEEP windup:left:None",
+    "pose:cinder_crown:CINDER SWEEP commit:left:None",
+    "pose:cinder_crown:CINDER SWEEP recovery:left:None"
+  ]
+}

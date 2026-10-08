@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "companion_state artist metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "entity_id",
+    "state",
+    "facing",
+    "canvas",
+    "baseline_y",
+    "pivot",
+    "runtime_size",
+    "cosmetic_only",
+    "ground_or_hover_point",
+    "body_filename",
+    "source_sha256"
+  ],
+  "properties": {
+    "entity_id": {
+      "enum": [
+        "auricub",
+        "stonekith",
+        "pixrask",
+        "lunarwisp",
+        "puffnest",
+        "breezewyn"
+      ]
+    },
+    "state": {
+      "enum": [
+        "idle",
+        "move",
+        "reaction"
+      ]
+    },
+    "facing": {
+      "enum": [
+        "right",
+        "left"
+      ]
+    },
+    "canvas": {
+      "const": [
+        256,
+        256
+      ]
+    },
+    "baseline_y": {
+      "const": 224
+    },
+    "pivot": {
+      "const": [
+        128,
+        224
+      ]
+    },
+    "runtime_size": {
+      "const": [
+        56,
+        56
+      ]
+    },
+    "cosmetic_only": {
+      "const": true
+    },
+    "ground_or_hover_point": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "body_filename": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "description": "Use as nested contacts/attack_anchors/tail in the actor sidecar where applicable; companion/environment/support standalone. This is not current engine JSON schema."
+}

@@ -1,0 +1,422 @@
+{
+  "batch_id": "artist_0837",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "personal_home",
+  "category": "Home",
+  "weapon_family": null,
+  "facing": "environment",
+  "slot_ids": [
+    "home_decor:home_companion_cushion",
+    "home_decor:home_companion_ledge"
+  ],
+  "items": [
+    {
+      "slot_id": "home_decor:home_companion_cushion",
+      "entity_id": "personal_home",
+      "display_name": "Companion cushion",
+      "category": "Home",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "state": "removable complete perch plus aligned foreground lip",
+      "facing": "environment",
+      "expected_filename": "home_companion_cushion.png",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_cushion.png",
+      "runtime_destination": "art/production/phase4e/props/home_companion_cushion.png",
+      "metadata_filename": "home_companion_cushion.json",
+      "canvas": [
+        512,
+        256
+      ],
+      "maximum_alpha_bounds": [
+        16,
+        16,
+        496,
+        240
+      ],
+      "transparent_background": true,
+      "pivot": [
+        256,
+        192
+      ],
+      "baseline": "Contact-surface line at pivot Y; art extends below surface naturally",
+      "mirroring_allowed": false,
+      "required_body_pose": "Round low dark-blue cushion with canonical brass edging; stable flat contact surface for all six companion silhouettes. No baked pet, crystal, glow or labels.",
+      "required_files": [
+        "art/source/phase4e/home/props/home_companion_cushion.png",
+        "art/source/phase4e/home/props/home_companion_cushion_front.png",
+        "art/source/phase4e/home/props/home_companion_cushion.json"
+      ],
+      "surface_anchor_pixel": [
+        256,
+        192
+      ],
+      "surface_extent_pixels": [
+        112,
+        192,
+        400,
+        192
+      ],
+      "interaction_metadata": {
+        "slot_id": "home.floor_perch",
+        "perch_contact_anchor": [
+          256,
+          192
+        ],
+        "support_normal": [
+          0,
+          -1
+        ],
+        "allowed_companions": [
+          "auricub",
+          "stonekith",
+          "pixrask",
+          "lunarwisp",
+          "puffnest",
+          "breezewyn"
+        ],
+        "occlusion_polygon": "MEASURE_FROM_DELIVERED_PIXELS",
+        "measurement_method": "Trace only actual front rim visible pixels on final matching front PNG. It may cover lower contact toes/underside only, never face/Core; anchor line passes through the actual flat cushion/shelf contact surface."
+      },
+      "Home_placement_metadata": {
+        "mount": "floor",
+        "anchor_design": [
+          92,
+          594
+        ],
+        "allowed_decor": [
+          "home_companion_cushion"
+        ],
+        "allowed_companions": [
+          "auricub",
+          "stonekith",
+          "pixrask",
+          "lunarwisp",
+          "puffnest",
+          "breezewyn"
+        ],
+        "sprite_size_design": [
+          96,
+          48
+        ],
+        "companion_pivot_design": [
+          92,
+          594
+        ],
+        "hit_rect_design": [
+          40,
+          530,
+          100,
+          80
+        ],
+        "facing_default": "right"
+      },
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Cushion/ledge reads as approved Home furnishing, no new character identity",
+        "Contact anchor meets actual visible upper surface; front layer pixel-identical/aligned with body front rim",
+        "96x48 design presentation complete and readable; no duplicate baked background prop",
+        "Removing/switching pet does not reveal missing background pixels"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "importer_registration_work_required": [
+        "Add reusable prop/lip layering and catalogue registration only after accepted export",
+        "Consume safe-area Home slots and persistence contract below; current code does not support these yet"
+      ]
+    },
+    {
+      "slot_id": "home_decor:home_companion_ledge",
+      "entity_id": "personal_home",
+      "display_name": "Companion ledge",
+      "category": "Home",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "state": "removable complete perch plus aligned foreground lip",
+      "facing": "environment",
+      "expected_filename": "home_companion_ledge.png",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_ledge.png",
+      "runtime_destination": "art/production/phase4e/props/home_companion_ledge.png",
+      "metadata_filename": "home_companion_ledge.json",
+      "canvas": [
+        512,
+        256
+      ],
+      "maximum_alpha_bounds": [
+        16,
+        16,
+        496,
+        240
+      ],
+      "transparent_background": true,
+      "pivot": [
+        256,
+        128
+      ],
+      "baseline": "Contact-surface line at pivot Y; art extends below surface naturally",
+      "mirroring_allowed": false,
+      "required_body_pose": "Canonical warm wooden shelf with restrained brass trim, broad readable upper surface and natural wall brackets. Complete separate silhouette, no baked pets, books, items or labels.",
+      "required_files": [
+        "art/source/phase4e/home/props/home_companion_ledge.png",
+        "art/source/phase4e/home/props/home_companion_ledge_front.png",
+        "art/source/phase4e/home/props/home_companion_ledge.json"
+      ],
+      "surface_anchor_pixel": [
+        256,
+        128
+      ],
+      "surface_extent_pixels": [
+        112,
+        128,
+        400,
+        128
+      ],
+      "interaction_metadata": {
+        "slot_id": "home.wall_perch",
+        "perch_contact_anchor": [
+          256,
+          128
+        ],
+        "support_normal": [
+          0,
+          -1
+        ],
+        "allowed_companions": [
+          "lunarwisp",
+          "breezewyn"
+        ],
+        "occlusion_polygon": "MEASURE_FROM_DELIVERED_PIXELS",
+        "measurement_method": "Trace only actual front rim visible pixels on final matching front PNG. It may cover lower contact toes/underside only, never face/Core; anchor line passes through the actual flat cushion/shelf contact surface."
+      },
+      "Home_placement_metadata": {
+        "mount": "wall",
+        "anchor_design": [
+          374,
+          412
+        ],
+        "allowed_decor": [
+          "home_companion_ledge"
+        ],
+        "allowed_companions": [
+          "lunarwisp",
+          "breezewyn"
+        ],
+        "sprite_size_design": [
+          96,
+          48
+        ],
+        "companion_pivot_design": [
+          374,
+          412
+        ],
+        "hit_rect_design": [
+          334,
+          356,
+          100,
+          80
+        ],
+        "facing_default": "left"
+      },
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Cushion/ledge reads as approved Home furnishing, no new character identity",
+        "Contact anchor meets actual visible upper surface; front layer pixel-identical/aligned with body front rim",
+        "96x48 design presentation complete and readable; no duplicate baked background prop",
+        "Removing/switching pet does not reveal missing background pixels"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "importer_registration_work_required": [
+        "Add reusable prop/lip layering and catalogue registration only after accepted export",
+        "Consume safe-area Home slots and persistence contract below; current code does not support these yet"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/home/props/home_companion_cushion.png",
+      "owner_slot_id": "home_decor:home_companion_cushion",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_cushion.png",
+      "runtime_destination": "art/production/phase4e/props/home_companion_cushion.png",
+      "expected_filename": "home_companion_cushion.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        256
+      ],
+      "purpose": "Complete removable perch body",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/home/props/home_companion_cushion_front.png",
+      "owner_slot_id": "home_decor:home_companion_cushion",
+      "classification": "NEEDS_LAYER_FIX",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_cushion_front.png",
+      "runtime_destination": "art/production/phase4e/props/home_companion_cushion_front.png",
+      "expected_filename": "home_companion_cushion_front.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        256
+      ],
+      "purpose": "Matching foreground front rim/lip; same canvas/pivot, no new geometry",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/home/props/home_companion_cushion.json",
+      "owner_slot_id": "home_decor:home_companion_cushion",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_cushion.json",
+      "runtime_destination": "art/production/phase4e/props/home_companion_cushion.json",
+      "expected_filename": "home_companion_cushion.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Measured surface/support and front-occlusion polygon sidecar",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/home_decoration_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/phase4e/home/props/home_companion_ledge.png",
+      "owner_slot_id": "home_decor:home_companion_ledge",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_ledge.png",
+      "runtime_destination": "art/production/phase4e/props/home_companion_ledge.png",
+      "expected_filename": "home_companion_ledge.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        256
+      ],
+      "purpose": "Complete removable perch body",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/home/props/home_companion_ledge_front.png",
+      "owner_slot_id": "home_decor:home_companion_ledge",
+      "classification": "NEEDS_LAYER_FIX",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_ledge_front.png",
+      "runtime_destination": "art/production/phase4e/props/home_companion_ledge_front.png",
+      "expected_filename": "home_companion_ledge_front.png",
+      "file_type": "PNG",
+      "canvas": [
+        512,
+        256
+      ],
+      "purpose": "Matching foreground front rim/lip; same canvas/pivot, no new geometry",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/phase4e/home/props/home_companion_ledge.json",
+      "owner_slot_id": "home_decor:home_companion_ledge",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/home/props/home_companion_ledge.json",
+      "runtime_destination": "art/production/phase4e/props/home_companion_ledge.json",
+      "expected_filename": "home_companion_ledge.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Measured surface/support and front-occlusion polygon sidecar",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/home_decoration_sidecar.schema.json"
+    }
+  ]
+}

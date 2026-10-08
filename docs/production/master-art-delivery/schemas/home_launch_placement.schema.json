@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "placements",
+    "companion_mode",
+    "companion_perch_slot"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "placements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "home.floor_perch",
+        "home.wall_perch",
+        "home.wall_display",
+        "home.wall_banner",
+        "home.wall_light"
+      ],
+      "properties": {
+        "home.floor_perch": {
+          "anyOf": [
+            {
+              "enum": [
+                "home_companion_cushion"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "home.wall_perch": {
+          "anyOf": [
+            {
+              "enum": [
+                "home_companion_ledge"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "home.wall_display": {
+          "anyOf": [
+            {
+              "enum": [
+                "home_trophy",
+                "home_plans"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "home.wall_banner": {
+          "anyOf": [
+            {
+              "enum": [
+                "home_banner"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "home.wall_light": {
+          "anyOf": [
+            {
+              "enum": [
+                "home_lantern"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "companion_mode": {
+      "enum": [
+        "follow",
+        "perch"
+      ]
+    },
+    "companion_perch_slot": {
+      "enum": [
+        "home.floor_perch",
+        "home.wall_perch"
+      ]
+    }
+  }
+}

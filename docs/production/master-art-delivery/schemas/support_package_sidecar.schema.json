@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "support_package artist metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "entity_id",
+    "weapon_family",
+    "facing",
+    "states"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string"
+    },
+    "weapon_family": {
+      "enum": [
+        "greatsword",
+        "greataxe",
+        "maul",
+        "spear",
+        "daggers",
+        "claws",
+        "bow",
+        "crossbow",
+        "sling",
+        "staff",
+        "wand",
+        "orb"
+      ]
+    },
+    "facing": {
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slot_id",
+          "body_file",
+          "sidecar_file",
+          "foreground_file",
+          "validation_status"
+        ],
+        "properties": {
+          "slot_id": {
+            "type": "string"
+          },
+          "body_file": {
+            "type": "string"
+          },
+          "sidecar_file": {
+            "type": "string"
+          },
+          "foreground_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "validation_status": {
+            "enum": [
+              "ARTIST_DELIVERED",
+              "ACCEPTED_EXISTING"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "description": "Use as nested contacts/attack_anchors/tail in the actor sidecar where applicable; companion/environment/support standalone. This is not current engine JSON schema."
+}

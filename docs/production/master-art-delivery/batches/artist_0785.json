@@ -1,0 +1,172 @@
+{
+  "batch_id": "artist_0785",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "pebblewyrm",
+  "category": "support",
+  "weapon_family": "daggers",
+  "facing": "right",
+  "slot_ids": [
+    "support:pebblewyrm:daggers:right"
+  ],
+  "items": [
+    {
+      "slot_id": "support:pebblewyrm:daggers:right",
+      "entity_id": "pebblewyrm",
+      "category": "support",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "weapon_family": "daggers",
+      "facing": "right",
+      "canvas": [
+        512,
+        512
+      ],
+      "purpose": "Family-wide primary/support/paired contact delivery checklist and validation map; not a new body or equipment image",
+      "source_delivery_path": "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_daggers_right_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/pebblewyrm/pebblewyrm_daggers_right_support_package.json",
+      "expected_filename": "pebblewyrm_daggers_right_support_package.json",
+      "required_states": {
+        "movement": {
+          "pose_slot_id": "pose:pebblewyrm:movement:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_movement_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_movement_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_movement_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "windup": {
+          "pose_slot_id": "pose:pebblewyrm:windup:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_windup_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_windup_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_windup_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "strike_or_cast": {
+          "pose_slot_id": "pose:pebblewyrm:strike_or_cast:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_strike_or_cast_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_strike_or_cast_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_strike_or_cast_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "follow_through": {
+          "pose_slot_id": "pose:pebblewyrm:follow_through:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_follow_through_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_follow_through_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_follow_through_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "recovery": {
+          "pose_slot_id": "pose:pebblewyrm:recovery:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_recovery_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_recovery_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_recovery_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "hurt": {
+          "pose_slot_id": "pose:pebblewyrm:hurt:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_hurt_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_hurt_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_hurt_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "defeat": {
+          "pose_slot_id": "pose:pebblewyrm:defeat:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_defeat_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_defeat_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_defeat_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        },
+        "victory_return": {
+          "pose_slot_id": "pose:pebblewyrm:victory_return:right:daggers",
+          "body_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_victory_return_daggers_right.png",
+          "sidecar_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_victory_return_daggers_right.json",
+          "foreground_file": "art/source/phase4e/delivery/pebblewyrm/pebblewyrm_victory_return_daggers_right_grip_front.png",
+          "contact_contract": {
+            "primary": "First independently mounted dagger/claw fits measured primary palm",
+            "secondary": "Second independently mounted dagger/claw fits measured secondary palm; one per hand",
+            "support": "Paired contacts, separated blade silhouettes and independently authored hand orientation; alternating strike/follow-through",
+            "projectile": null,
+            "foreground": "Combined matching foreground fingers for both hands, no equipment baked"
+          }
+        }
+      },
+      "already_accepted_state_references": [
+        {
+          "slot_id": "pose:pebblewyrm:idle:right:daggers",
+          "body": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_idle_right.png",
+          "instruction": "Preserve accepted body/contact; review metadata in native fit, do not request reauthored body"
+        }
+      ],
+      "dimensions": "Image layers use exact owning pose canvas; packet itself is JSON",
+      "owning_system": "weapon_fit_catalog / authored_pose_manifest; per-state manifest",
+      "acceptance_criteria": [
+        "All listed pose files and measured contacts supplied",
+        "Two-hand/paired/string requirement succeeds on actual module in both specified views",
+        "Already accepted state never reopened to force package count down"
+      ],
+      "registration": "After validation convert packet into per-state existing manifests; packet is artist interchange, not an automatic renderer input",
+      "image_file_count_added": 0,
+      "required_files": [
+        "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_daggers_right_support_package.json"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_daggers_right_support_package.json",
+      "owner_slot_id": "support:pebblewyrm:daggers:right",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/phase4e/delivery/support/pebblewyrm/pebblewyrm_daggers_right_support_package.json",
+      "runtime_destination": "art/production/phase4e/support/pebblewyrm/pebblewyrm_daggers_right_support_package.json",
+      "expected_filename": "pebblewyrm_daggers_right_support_package.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "All-state family contact/support delivery index; no duplicate images",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/support_package_sidecar.schema.json"
+    }
+  ]
+}

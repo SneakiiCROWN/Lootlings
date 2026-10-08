@@ -1,0 +1,68 @@
+{
+  "entity_id": "sunken_gearworks",
+  "identity_id": "drowned_engine",
+  "display_name": "The Drowned Engine",
+  "category": "bosses",
+  "identity_sources": [
+    "art/reference/phase4e_handoff/chatgpt_generated_candidates/boss_candidates/missing_bosses_canonical_candidate.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:sunken_gearworks:idle:right:None",
+    "pose:sunken_gearworks:phase transition:right:None",
+    "pose:sunken_gearworks:hurt:right:None",
+    "pose:sunken_gearworks:vulnerability:right:None",
+    "pose:sunken_gearworks:recovery:right:None",
+    "pose:sunken_gearworks:defeat:right:None",
+    "pose:sunken_gearworks:PISTON windup:right:None",
+    "pose:sunken_gearworks:PISTON commit:right:None",
+    "pose:sunken_gearworks:PISTON recovery:right:None",
+    "pose:sunken_gearworks:PRESSURE RISE windup:right:None",
+    "pose:sunken_gearworks:PRESSURE RISE commit:right:None",
+    "pose:sunken_gearworks:PRESSURE RISE recovery:right:None",
+    "pose:sunken_gearworks:STEAM VENT windup:right:None",
+    "pose:sunken_gearworks:STEAM VENT commit:right:None",
+    "pose:sunken_gearworks:STEAM VENT recovery:right:None",
+    "pose:sunken_gearworks:COOLING recovery:right:None",
+    "pose:sunken_gearworks:GEAR SWEEP windup:right:None",
+    "pose:sunken_gearworks:GEAR SWEEP commit:right:None",
+    "pose:sunken_gearworks:GEAR SWEEP recovery:right:None",
+    "pose:sunken_gearworks:idle:left:None",
+    "pose:sunken_gearworks:phase transition:left:None",
+    "pose:sunken_gearworks:hurt:left:None",
+    "pose:sunken_gearworks:vulnerability:left:None",
+    "pose:sunken_gearworks:recovery:left:None",
+    "pose:sunken_gearworks:defeat:left:None",
+    "pose:sunken_gearworks:PISTON windup:left:None",
+    "pose:sunken_gearworks:PISTON commit:left:None",
+    "pose:sunken_gearworks:PISTON recovery:left:None",
+    "pose:sunken_gearworks:PRESSURE RISE windup:left:None",
+    "pose:sunken_gearworks:PRESSURE RISE commit:left:None",
+    "pose:sunken_gearworks:PRESSURE RISE recovery:left:None",
+    "pose:sunken_gearworks:STEAM VENT windup:left:None",
+    "pose:sunken_gearworks:STEAM VENT commit:left:None",
+    "pose:sunken_gearworks:STEAM VENT recovery:left:None",
+    "pose:sunken_gearworks:COOLING recovery:left:None",
+    "pose:sunken_gearworks:GEAR SWEEP windup:left:None",
+    "pose:sunken_gearworks:GEAR SWEEP commit:left:None",
+    "pose:sunken_gearworks:GEAR SWEEP recovery:left:None"
+  ]
+}

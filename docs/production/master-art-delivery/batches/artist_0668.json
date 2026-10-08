@@ -1,0 +1,654 @@
+{
+  "batch_id": "artist_0668",
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "entity_id": "puffnest",
+  "category": "companions",
+  "weapon_family": null,
+  "facing": "right",
+  "slot_ids": [
+    "companion:puffnest:move:right",
+    "companion:puffnest:reaction:right",
+    "companion:puffnest:perch_rest:right",
+    "companion:puffnest:perch_interact:right"
+  ],
+  "items": [
+    {
+      "slot_id": "companion:puffnest:move:right",
+      "entity_id": "puffnest",
+      "display_name": "Puffnest",
+      "category": "companions",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "state": "move",
+      "facing": "right",
+      "weapon_family": null,
+      "expected_filename": "puffnest_move_right.png",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_move_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_move_right.png",
+      "metadata_filename": "puffnest_move_right.json",
+      "source_metadata_path": "art/source/companions/puffnest/puffnest_move_right.json",
+      "runtime_metadata_path": "art/production/companions/puffnest/puffnest_move_right.json",
+      "canvas": [
+        256,
+        256
+      ],
+      "maximum_alpha_bounds": [
+        32,
+        24,
+        224,
+        224
+      ],
+      "baseline": 224,
+      "pivot": [
+        128,
+        224
+      ],
+      "transparent_background": true,
+      "mirroring_allowed": false,
+      "required_body_pose": "Actual locomotion/hover stride following owner; visibly distinct from idle",
+      "anatomy_requirements": "Complete named companion anatomy from source; do not invent biped hands/feet on another species",
+      "hands_paws_requirements": "Canonical anatomy only; no equipment sockets",
+      "feet_tail_requirements": "Full silhouette, ground-bearing anatomy boundary224 or measured hover anchor; tail/ears/wings complete",
+      "eye_head_target": "Follow/attend owner, independently authored facing",
+      "movement_body_weight": "Cosmetic follower movement only, consistent baseline and scale",
+      "weapon_contact_rule": "Not applicable; companions have no equipment or combat",
+      "primary_grip": null,
+      "secondary_grip": null,
+      "support_hand_requirement": null,
+      "foreground_fingers_requirement": null,
+      "string_arrow_projectile_requirement": null,
+      "equipment_layering_order": [
+        "Runtime shadow",
+        "Companion body",
+        "Separate transient response VFX"
+      ],
+      "temporal_vfx_separation_rules": "No baked shadow/status/reward burst",
+      "allowed_baked_elements": [
+        "Canonical permanent markings/intrinsic glow"
+      ],
+      "forbidden_baked_elements": [
+        "Labels/background",
+        "Combat equipment",
+        "Temporal effects"
+      ],
+      "compatibility_requirements": [
+        "Equip gate requires idle/move/reaction in BOTH facings; do not enable with portrait alone",
+        "Interaction/return uses current reaction state, not a seventh invented state"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Readable at56x56 design size; no mandatory power"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_or_hover": "MEASURE_FROM_DELIVERED_PIXELS",
+        "pivot": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Add exact state/view to companion runtime manifest after PNG/sidecar acceptance",
+        "Preserve saved selection and complete six-state equipment gate"
+      ],
+      "required_files": [
+        "art/source/companions/puffnest/puffnest_move_right.png",
+        "art/source/companions/puffnest/puffnest_move_right.json"
+      ]
+    },
+    {
+      "slot_id": "companion:puffnest:reaction:right",
+      "entity_id": "puffnest",
+      "display_name": "Puffnest",
+      "category": "companions",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "state": "reaction",
+      "facing": "right",
+      "weapon_family": null,
+      "expected_filename": "puffnest_reaction_right.png",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_reaction_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_reaction_right.png",
+      "metadata_filename": "puffnest_reaction_right.json",
+      "source_metadata_path": "art/source/companions/puffnest/puffnest_reaction_right.json",
+      "runtime_metadata_path": "art/production/companions/puffnest/puffnest_reaction_right.json",
+      "canvas": [
+        256,
+        256
+      ],
+      "maximum_alpha_bounds": [
+        32,
+        24,
+        224,
+        224
+      ],
+      "baseline": 224,
+      "pivot": [
+        128,
+        224
+      ],
+      "transparent_background": true,
+      "mirroring_allowed": false,
+      "required_body_pose": "Distinct small return/attention/reaction pose; not idle renamed",
+      "anatomy_requirements": "Complete named companion anatomy from source; do not invent biped hands/feet on another species",
+      "hands_paws_requirements": "Canonical anatomy only; no equipment sockets",
+      "feet_tail_requirements": "Full silhouette, ground-bearing anatomy boundary224 or measured hover anchor; tail/ears/wings complete",
+      "eye_head_target": "Follow/attend owner, independently authored facing",
+      "movement_body_weight": "Cosmetic follower movement only, consistent baseline and scale",
+      "weapon_contact_rule": "Not applicable; companions have no equipment or combat",
+      "primary_grip": null,
+      "secondary_grip": null,
+      "support_hand_requirement": null,
+      "foreground_fingers_requirement": null,
+      "string_arrow_projectile_requirement": null,
+      "equipment_layering_order": [
+        "Runtime shadow",
+        "Companion body",
+        "Separate transient response VFX"
+      ],
+      "temporal_vfx_separation_rules": "No baked shadow/status/reward burst",
+      "allowed_baked_elements": [
+        "Canonical permanent markings/intrinsic glow"
+      ],
+      "forbidden_baked_elements": [
+        "Labels/background",
+        "Combat equipment",
+        "Temporal effects"
+      ],
+      "compatibility_requirements": [
+        "Equip gate requires idle/move/reaction in BOTH facings; do not enable with portrait alone",
+        "Interaction/return uses current reaction state, not a seventh invented state"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Readable at56x56 design size; no mandatory power"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_or_hover": "MEASURE_FROM_DELIVERED_PIXELS",
+        "pivot": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Add exact state/view to companion runtime manifest after PNG/sidecar acceptance",
+        "Preserve saved selection and complete six-state equipment gate"
+      ],
+      "required_files": [
+        "art/source/companions/puffnest/puffnest_reaction_right.png",
+        "art/source/companions/puffnest/puffnest_reaction_right.json"
+      ]
+    },
+    {
+      "slot_id": "companion:puffnest:perch_rest:right",
+      "entity_id": "puffnest",
+      "display_name": "Puffnest",
+      "category": "companions",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "state": "perch_rest",
+      "facing": "right",
+      "weapon_family": null,
+      "expected_filename": "puffnest_perch_rest_right.png",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_perch_rest_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_perch_rest_right.png",
+      "metadata_filename": "puffnest_perch_rest_right.json",
+      "source_metadata_path": "art/source/companions/puffnest/puffnest_perch_rest_right.json",
+      "runtime_metadata_path": "art/production/companions/puffnest/puffnest_perch_rest_right.json",
+      "canvas": [
+        256,
+        256
+      ],
+      "maximum_alpha_bounds": [
+        32,
+        24,
+        224,
+        224
+      ],
+      "baseline": 224,
+      "pivot": [
+        128,
+        224
+      ],
+      "transparent_background": true,
+      "mirroring_allowed": false,
+      "required_body_pose": "Distinct calm curled/seated/resting pose with full silhouette and natural support anatomy; NOT standing idle renamed. Hovering Lunarwisp/Breezewyn rest in a compact attentive hovering pose above the contact reference; never add feet.",
+      "anatomy_requirements": "Complete named companion anatomy from source; do not invent biped hands/feet on another species",
+      "hands_paws_requirements": "Canonical anatomy only; no equipment sockets",
+      "feet_tail_requirements": "Full silhouette, ground-bearing anatomy boundary224 or measured hover anchor; tail/ears/wings complete",
+      "eye_head_target": "Rest toward room/player; interaction toward adjacent named canonical unlock prop; match explicit facing.",
+      "movement_body_weight": "Grounded body supported by cushion; hover body balanced at ledge/cushion reference; natural reaction gesture, no pose stretching.",
+      "weapon_contact_rule": "Not applicable; companions have no equipment or combat",
+      "primary_grip": null,
+      "secondary_grip": null,
+      "support_hand_requirement": "No extra grip PNG required: interaction uses open-paw/nose gesture, separate prop behind body; do not bake prop or make fingers grasp around unseen geometry.",
+      "foreground_fingers_requirement": null,
+      "string_arrow_projectile_requirement": null,
+      "equipment_layering_order": [
+        "Perch body",
+        "Separate unlock prop behind open/nudging gesture if interaction active",
+        "Companion full body",
+        "Perch front rim only at contact",
+        "Transient sparkle/glow using accepted effects",
+        "UI"
+      ],
+      "temporal_vfx_separation_rules": "No baked shadow/status/reward burst",
+      "allowed_baked_elements": [
+        "Canonical permanent markings/intrinsic glow"
+      ],
+      "forbidden_baked_elements": [
+        "Labels/background",
+        "Combat equipment",
+        "Temporal effects"
+      ],
+      "compatibility_requirements": [
+        "Follower equip remains gated by existing idle/move/reaction in both views",
+        "Perch feature additionally gated by new perch_rest/perch_interact in both views",
+        "No combat power/rewards or ownership changes; existing companion identities and unlock IDs unchanged"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Distinct new perch-rest or named interaction state, not existing idle/reaction renamed",
+        "Ground/hover reference aligns at perch surface; no floating feet or tail clipping",
+        "Only equipped owned pet shown; each required facing authored independently",
+        "Clear at56x56 design pixels on1080x2340 phone and1200x1920 tablet"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_or_hover": "MEASURE_FROM_DELIVERED_PIXELS",
+        "pivot": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS",
+        "interaction_contact_anchor": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Add exact state/view to companion runtime manifest after PNG/sidecar acceptance",
+        "Preserve saved selection and complete six-state equipment gate"
+      ],
+      "required_files": [
+        "art/source/companions/puffnest/puffnest_perch_rest_right.png",
+        "art/source/companions/puffnest/puffnest_perch_rest_right.json"
+      ],
+      "perch_contact_anchor_pixel": [
+        128,
+        224
+      ],
+      "perch_anchor_type": "actual_supporting_anatomy_boundary",
+      "allowed_perch_slots": [
+        "home.floor_perch"
+      ],
+      "interaction_id": "home.companion.perch",
+      "interaction_prop": null
+    },
+    {
+      "slot_id": "companion:puffnest:perch_interact:right",
+      "entity_id": "puffnest",
+      "display_name": "Puffnest",
+      "category": "companions",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "canonical_authority_files": [
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+      ],
+      "state": "perch_interact",
+      "facing": "right",
+      "weapon_family": null,
+      "expected_filename": "puffnest_perch_interact_right.png",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_perch_interact_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_perch_interact_right.png",
+      "metadata_filename": "puffnest_perch_interact_right.json",
+      "source_metadata_path": "art/source/companions/puffnest/puffnest_perch_interact_right.json",
+      "runtime_metadata_path": "art/production/companions/puffnest/puffnest_perch_interact_right.json",
+      "canvas": [
+        256,
+        256
+      ],
+      "maximum_alpha_bounds": [
+        32,
+        24,
+        224,
+        224
+      ],
+      "baseline": 224,
+      "pivot": [
+        128,
+        224
+      ],
+      "transparent_background": true,
+      "mirroring_allowed": false,
+      "required_body_pose": "Soft grounded nuzzle/open-paw gathering gesture toward existing Bloomnest Seed; preserve nest/foliage silhouette, no new leaves hiding missing body.",
+      "anatomy_requirements": "Complete named companion anatomy from source; do not invent biped hands/feet on another species",
+      "hands_paws_requirements": "Canonical anatomy only; no equipment sockets",
+      "feet_tail_requirements": "Full silhouette, ground-bearing anatomy boundary224 or measured hover anchor; tail/ears/wings complete",
+      "eye_head_target": "Rest toward room/player; interaction toward adjacent named canonical unlock prop; match explicit facing.",
+      "movement_body_weight": "Grounded body supported by cushion; hover body balanced at ledge/cushion reference; natural reaction gesture, no pose stretching.",
+      "weapon_contact_rule": "Not applicable; companions have no equipment or combat",
+      "primary_grip": null,
+      "secondary_grip": null,
+      "support_hand_requirement": "No extra grip PNG required: interaction uses open-paw/nose gesture, separate prop behind body; do not bake prop or make fingers grasp around unseen geometry.",
+      "foreground_fingers_requirement": null,
+      "string_arrow_projectile_requirement": null,
+      "equipment_layering_order": [
+        "Perch body",
+        "Separate unlock prop behind open/nudging gesture if interaction active",
+        "Companion full body",
+        "Perch front rim only at contact",
+        "Transient sparkle/glow using accepted effects",
+        "UI"
+      ],
+      "temporal_vfx_separation_rules": "No baked shadow/status/reward burst",
+      "allowed_baked_elements": [
+        "Canonical permanent markings/intrinsic glow"
+      ],
+      "forbidden_baked_elements": [
+        "Labels/background",
+        "Combat equipment",
+        "Temporal effects"
+      ],
+      "compatibility_requirements": [
+        "Follower equip remains gated by existing idle/move/reaction in both views",
+        "Perch feature additionally gated by new perch_rest/perch_interact in both views",
+        "No combat power/rewards or ownership changes; existing companion identities and unlock IDs unchanged"
+      ],
+      "acceptance_criteria": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Distinct new perch-rest or named interaction state, not existing idle/reaction renamed",
+        "Ground/hover reference aligns at perch surface; no floating feet or tail clipping",
+        "Only equipped owned pet shown; each required facing authored independently",
+        "Clear at56x56 design pixels on1080x2340 phone and1200x1920 tablet"
+      ],
+      "rejection_criteria": [
+        "Identity drift or use of rejected boards",
+        "Missing/doubled/warped anatomy, clipped silhouette, hidden or floating contact",
+        "Unsafe mirroring or nonuniform scaling",
+        "Baked interchangeable equipment, labels, shadows or temporal FX",
+        "Wrong canvas/path/sidecar, inferred contact pixels or placeholder/reference card",
+        "Native staging, fit or face-target failure; technically valid PNG is not visual acceptance"
+      ],
+      "measurement_method": "On the final exported canvas with origin top-left, +X right/+Y down, measure palm contact centres (not wrists), Core/eye centre if present, actual supporting anatomy ground boundary, pivot, alpha bounding box, and launch/contact anchors. Ground Y is the boundary below the last occupied supporting pixel. Exclude shadow, lifted feet, FX and speckles. Record final pixel coordinates to 0.01px where available; record uniform source-to-canvas transform and SHA256 after export. Never copy another pose's coordinates.",
+      "measurement_values": {
+        "ground_or_hover": "MEASURE_FROM_DELIVERED_PIXELS",
+        "pivot": "MEASURE_FROM_DELIVERED_PIXELS",
+        "occupied_bounds": "MEASURE_FROM_DELIVERED_PIXELS",
+        "source_sha256": "MEASURE_FROM_DELIVERED_PIXELS",
+        "interaction_contact_anchor": "MEASURE_FROM_DELIVERED_PIXELS"
+      },
+      "importer_registration_work_required": [
+        "Add exact state/view to companion runtime manifest after PNG/sidecar acceptance",
+        "Preserve saved selection and complete six-state equipment gate"
+      ],
+      "required_files": [
+        "art/source/companions/puffnest/puffnest_perch_interact_right.png",
+        "art/source/companions/puffnest/puffnest_perch_interact_right.json"
+      ],
+      "perch_contact_anchor_pixel": [
+        128,
+        224
+      ],
+      "perch_anchor_type": "actual_supporting_anatomy_boundary",
+      "allowed_perch_slots": [
+        "home.floor_perch"
+      ],
+      "interaction_id": "home.companion.greet",
+      "interaction_prop": {
+        "asset_path": "art/production/companions/previews/puffnest_unlock.png",
+        "canvas": [
+          106,
+          114
+        ],
+        "target_maximum_design_size": [
+          20,
+          20
+        ],
+        "anchor_rule": "Canonical unlock icon separate, beside contact gesture toward facing (+22px right/-22px left), 16px above perch surface; artist may document small contact adjustment within \u00b18px using measured anatomy, never overlap face/Core.",
+        "new_export_required": false
+      }
+    }
+  ],
+  "files": [
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_move_right.png",
+      "owner_slot_id": "companion:puffnest:move:right",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_move_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_move_right.png",
+      "expected_filename": "puffnest_move_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        256,
+        256
+      ],
+      "purpose": "Exact cosmetic companion state/view",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_move_right.json",
+      "owner_slot_id": "companion:puffnest:move:right",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_move_right.json",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_move_right.json",
+      "expected_filename": "puffnest_move_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Companion baseline/hover and state metadata",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/companion_state_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_reaction_right.png",
+      "owner_slot_id": "companion:puffnest:reaction:right",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_reaction_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_reaction_right.png",
+      "expected_filename": "puffnest_reaction_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        256,
+        256
+      ],
+      "purpose": "Exact cosmetic companion state/view",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_reaction_right.json",
+      "owner_slot_id": "companion:puffnest:reaction:right",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_reaction_right.json",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_reaction_right.json",
+      "expected_filename": "puffnest_reaction_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Companion baseline/hover and state metadata",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/companion_state_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_perch_rest_right.png",
+      "owner_slot_id": "companion:puffnest:perch_rest:right",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_perch_rest_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_perch_rest_right.png",
+      "expected_filename": "puffnest_perch_rest_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        256,
+        256
+      ],
+      "purpose": "Exact new companion perch rest/interaction state",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_perch_rest_right.json",
+      "owner_slot_id": "companion:puffnest:perch_rest:right",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_perch_rest_right.json",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_perch_rest_right.json",
+      "expected_filename": "puffnest_perch_rest_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Perch state support/hover and optional gesture contact metadata",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/companion_perch_state_sidecar.schema.json"
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_perch_interact_right.png",
+      "owner_slot_id": "companion:puffnest:perch_interact:right",
+      "classification": "NEEDS_NEW_AUTHORED_ART",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_perch_interact_right.png",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_perch_interact_right.png",
+      "expected_filename": "puffnest_perch_interact_right.png",
+      "file_type": "PNG",
+      "canvas": [
+        256,
+        256
+      ],
+      "purpose": "Exact new companion perch rest/interaction state",
+      "acceptance": [
+        "Matches the exact dedicated identity/registered entity panel; no species, silhouette, colour, marking, outfit or proportion redesign",
+        "Exact independently authored state and facing; not an idle/strike renamed to fill another cell",
+        "Required canvas, full silhouette, clean straight-alpha RGBA, no text/background; uniform scaling only",
+        "Measured anchor sidecar and matching co-registered layers; no guessed palms or reconstructed occluded anatomy",
+        "Native phone 1080x2340 and tablet 1200x1920 review at actual presentation scale; hands, feet, tails and equipment remain readable",
+        "Register only exact approved state/facing/family after parser/canonical guard/weapon-fit review; preserve existing gameplay clocks, balance, saves and touch behaviour",
+        "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+        "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+        "No Home action leaks into ATTACK/shop/reward controls",
+        "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+        "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+        "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+        "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+        "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+        "Main Hub\u2192separate Home\u2192Leave/Back\u2192Main Hub remains valid; Hub NPCs/stations stay in Hub"
+      ],
+      "schema": null
+    },
+    {
+      "deliverable_id": "art/source/companions/puffnest/puffnest_perch_interact_right.json",
+      "owner_slot_id": "companion:puffnest:perch_interact:right",
+      "classification": "NEEDS_SOCKET_METADATA",
+      "source_delivery_path": "art/source/companions/puffnest/puffnest_perch_interact_right.json",
+      "runtime_destination": "art/production/companions/puffnest/puffnest_perch_interact_right.json",
+      "expected_filename": "puffnest_perch_interact_right.json",
+      "file_type": "JSON",
+      "canvas": null,
+      "purpose": "Perch state support/hover and optional gesture contact metadata",
+      "acceptance": [
+        "Valid schema, all required fields measured/filled",
+        "References final PNG SHA256 and exact slot/state/view; no automatic fallback"
+      ],
+      "schema": "schemas/companion_perch_state_sidecar.schema.json"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Master actor pose artist interchange",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "slot_id",
+    "entity_id",
+    "state",
+    "facing",
+    "weapon_family",
+    "identity_authority",
+    "body_filename",
+    "source_sha256",
+    "canvas",
+    "occupied_bounds",
+    "baseline_y",
+    "pivot",
+    "ground_or_hover_point",
+    "primary_palm",
+    "secondary_palm",
+    "core_or_eye",
+    "mirroring_allowed",
+    "uniform_source_transform",
+    "layers",
+    "baked_equipment",
+    "baked_equipment_restrictions",
+    "contacts",
+    "attack_anchors",
+    "tail",
+    "non_applicable_reasons"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "master_artist_delivery_v1"
+    },
+    "slot_id": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "facing": {
+      "enum": [
+        "left",
+        "right",
+        "environment"
+      ]
+    },
+    "weapon_family": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "identity_authority": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "body_filename": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "canvas": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "occupied_bounds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "baseline_y": {
+      "type": "number"
+    },
+    "pivot": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "ground_or_hover_point": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "primary_palm": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "secondary_palm": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "core_or_eye": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mirroring_allowed": {
+      "const": false
+    },
+    "uniform_source_transform": {
+      "type": "object",
+      "required": [
+        "scale",
+        "crop",
+        "offset"
+      ],
+      "properties": {
+        "scale": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "crop": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "offset": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "layers": {
+      "type": "object",
+      "required": [
+        "body",
+        "foreground",
+        "support",
+        "vfx"
+      ],
+      "properties": {
+        "body": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "foreground": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "support": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vfx": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "baked_equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "baked_equipment_restrictions": {
+      "type": "string"
+    },
+    "contacts": {
+      "type": "object"
+    },
+    "attack_anchors": {
+      "type": "object"
+    },
+    "tail": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "non_applicable_reasons": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "description": "Pixel coordinates on final canvas. Null only where anatomy/function is genuinely absent and non_applicable_reasons explains it. MEASURE_FROM_DELIVERED_PIXELS is a template marker, invalid in completed delivery. Cross-field checks in VALIDATION_RULES.md mandatory."
+}

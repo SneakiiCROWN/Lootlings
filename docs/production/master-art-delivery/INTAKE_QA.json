@@ -1,0 +1,13 @@
+{
+  "tests": "7 intake regressions passed",
+  "canonical_guard": "PASS; existing source/pose/NPC/companion guards unchanged",
+  "batch_count": 837,
+  "artist_files_covered_once": 8495,
+  "first_batch_characters": 7,
+  "first_batch_runtime_cells": 27,
+  "first_batch_required_files": 81,
+  "runtime_exports_installed": 0,
+  "APK_exported": false,
+  "master_spec_sha256": "deecbbb7bea666a2f048aa16be416480577dec5358d1da351a57b197eca5014d",
+  "limitations": "Hash-bound human/perceptual/native approval mandatory. Unsupported selector/guard adapters listed in INTAKE_GUIDE.md."
+}

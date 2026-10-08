@@ -1,0 +1,62 @@
+{
+  "entity_id": "mossglass_wilds",
+  "identity_id": "verdant_mirror",
+  "display_name": "The Verdant Mirror",
+  "category": "bosses",
+  "identity_sources": [
+    "art/sprites/enemies/beta/verdant_mirror.png"
+  ],
+  "proportions": "Match head/body/limb ratios in the exact named canonical source panel; pose changes never change anatomy",
+  "silhouette": "Preserve full named entity silhouette and distinguishing ears/horns/tail/wings/clothing exactly as its locked source",
+  "palette": "Sample existing source colours; preserve intrinsic Core/markings; no palette swaps",
+  "equipment": "Permanent outfit/armour/props match canonical source. Interchangeable player equipment remains modular; locked 12 families only",
+  "markings": "Keep source-specific markings/materials/face/eye treatment in the correct anatomical locations",
+  "scale_contract": {
+    "canvas": [
+      2048,
+      2048
+    ],
+    "bounds": "Per exact cell; uniform scale only; native actor bounds preserved; do not enlarge TEMP art"
+  },
+  "forbidden_identity_drift": [
+    "Rejected broad-board bodies",
+    "Different species/anatomy/outfit/palette",
+    "Generic fox/cat/mushroom replacement",
+    "Realistic redesign of accepted Wanderers",
+    "New NPC/boss/region labels from boards"
+  ],
+  "missing_cell_ids": [
+    "pose:mossglass_wilds:idle:right:None",
+    "pose:mossglass_wilds:phase transition:right:None",
+    "pose:mossglass_wilds:hurt:right:None",
+    "pose:mossglass_wilds:vulnerability:right:None",
+    "pose:mossglass_wilds:recovery:right:None",
+    "pose:mossglass_wilds:defeat:right:None",
+    "pose:mossglass_wilds:ROOT SWEEP windup:right:None",
+    "pose:mossglass_wilds:ROOT SWEEP commit:right:None",
+    "pose:mossglass_wilds:ROOT SWEEP recovery:right:None",
+    "pose:mossglass_wilds:MIRROR CHARGE windup:right:None",
+    "pose:mossglass_wilds:MIRROR CHARGE commit:right:None",
+    "pose:mossglass_wilds:MIRROR CHARGE recovery:right:None",
+    "pose:mossglass_wilds:THORN CAST windup:right:None",
+    "pose:mossglass_wilds:THORN CAST commit:right:None",
+    "pose:mossglass_wilds:THORN CAST recovery:right:None",
+    "pose:mossglass_wilds:RECOVER recovery:right:None",
+    "pose:mossglass_wilds:idle:left:None",
+    "pose:mossglass_wilds:phase transition:left:None",
+    "pose:mossglass_wilds:hurt:left:None",
+    "pose:mossglass_wilds:vulnerability:left:None",
+    "pose:mossglass_wilds:recovery:left:None",
+    "pose:mossglass_wilds:defeat:left:None",
+    "pose:mossglass_wilds:ROOT SWEEP windup:left:None",
+    "pose:mossglass_wilds:ROOT SWEEP commit:left:None",
+    "pose:mossglass_wilds:ROOT SWEEP recovery:left:None",
+    "pose:mossglass_wilds:MIRROR CHARGE windup:left:None",
+    "pose:mossglass_wilds:MIRROR CHARGE commit:left:None",
+    "pose:mossglass_wilds:MIRROR CHARGE recovery:left:None",
+    "pose:mossglass_wilds:THORN CAST windup:left:None",
+    "pose:mossglass_wilds:THORN CAST commit:left:None",
+    "pose:mossglass_wilds:THORN CAST recovery:left:None",
+    "pose:mossglass_wilds:RECOVER recovery:left:None"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "logical_canvas": [
+    480,
+    854
+  ],
+  "layout_transform": "Use existing safe_area_layout.fit_in and physical→logical safe-area conversion. Room interaction/decor slots stay in480x854 fitted scene; separate cover background never sets touch hitboxes.",
+  "minimum_touch_size_design": [
+    48,
+    48
+  ],
+  "gesture_rule": "Activate on owned release after tap qualification; drag/scroll cancels tap; no activation on touch-down; consume gesture through release.",
+  "edit_flow": "Personal Displays opens Decor mode using existing panel styling. Item row→allowed slot highlight→Place/Remove preview; Apply or Cancel. Simple drag may reposition ghost between allowed slots only, with no commit until Apply. Back cancels pending draft and then returns Home/Hub cleanly.",
+  "action_controls": [
+    "Perch / Follow",
+    "Greet",
+    "Edit decor",
+    "Place / Remove",
+    "Apply / Cancel",
+    "Reset layout"
+  ],
+  "no_new_UI_PNG": "Reuse current canonical buttons/icons, companion portrait/unlock icons and item thumbnails; no text baked into props.",
+  "hit_test_priority": "Modal/editor controls > active pet/perch > noninteractive props. Only occupied active perch hit rect triggers greeting; room background/visual-only props ignore input. No combat attack handlers active in Home.",
+  "source_ui_exclusions": {
+    "header_y": [
+      0,
+      240
+    ],
+    "footer_y": [
+      1900,
+      2732
+    ]
+  },
+  "tablet_rule": "Keep bounded central480x854 scene and same placements, uniform fit; use backdrop for extra space rather than stretching or moving hitboxes relative to art.",
+  "acceptance": [
+    "Phone1080x2340/tablet1200x1920 safe-area and letterbox cases: full pet/props visible, no UI overlap",
+    "Tap pet greets once; dragging/scrolling never greets, equips, places or purchases",
+    "No Home action leaks into ATTACK/shop/reward controls",
+    "All6 companions rest/greet in both facings with correct prop/contact and no identity drift",
+    "Grounded4 use cushion; hovering2 may use ledge; no invalid pet/slot placement",
+    "Remove occupied perch cleanly returns pet to follow; hide pet/clear slot leaves complete background",
+    "Place/swap/remove/reset Apply persists across save/reload, Cancel restores prior layout",
+    "Unknown save IDs/older saves migrate safely; no item/reward duplication",
+    "Main Hub→separate Home→Leave/Back→Main Hub remains valid; Hub NPCs/stations stay in Hub"
+  ]
+}

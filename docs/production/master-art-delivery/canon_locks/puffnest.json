@@ -1,0 +1,46 @@
+{
+  "entity_id": "puffnest",
+  "display_name": "Puffnest",
+  "category": "companions",
+  "identity_sources": [
+    "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+    "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+  ],
+  "proportions": "Exact named canonical companion panel",
+  "silhouette": "Exact named panel; no species/appendage replacement",
+  "palette": "Canonical source colours unchanged",
+  "equipment": "None; cosmetic companion only",
+  "markings": "Match named source panel",
+  "scale_contract": {
+    "canvas": [
+      256,
+      256
+    ],
+    "runtime": [
+      56,
+      56
+    ],
+    "bounds": [
+      32,
+      24,
+      224,
+      224
+    ]
+  },
+  "forbidden_identity_drift": [
+    "Species/palette/name change",
+    "Playable identity override",
+    "Combat/stat power"
+  ],
+  "missing_cell_ids": [
+    "companion:puffnest:idle:left",
+    "companion:puffnest:move:right",
+    "companion:puffnest:move:left",
+    "companion:puffnest:reaction:right",
+    "companion:puffnest:reaction:left",
+    "companion:puffnest:perch_rest:right",
+    "companion:puffnest:perch_rest:left",
+    "companion:puffnest:perch_interact:right",
+    "companion:puffnest:perch_interact:left"
+  ]
+}

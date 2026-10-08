@@ -1,0 +1,46 @@
+{
+  "entity_id": "stonekith",
+  "display_name": "Stonekith",
+  "category": "companions",
+  "identity_sources": [
+    "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+    "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+  ],
+  "proportions": "Exact named canonical companion panel",
+  "silhouette": "Exact named panel; no species/appendage replacement",
+  "palette": "Canonical source colours unchanged",
+  "equipment": "None; cosmetic companion only",
+  "markings": "Match named source panel",
+  "scale_contract": {
+    "canvas": [
+      256,
+      256
+    ],
+    "runtime": [
+      56,
+      56
+    ],
+    "bounds": [
+      32,
+      24,
+      224,
+      224
+    ]
+  },
+  "forbidden_identity_drift": [
+    "Species/palette/name change",
+    "Playable identity override",
+    "Combat/stat power"
+  ],
+  "missing_cell_ids": [
+    "companion:stonekith:idle:left",
+    "companion:stonekith:move:right",
+    "companion:stonekith:move:left",
+    "companion:stonekith:reaction:right",
+    "companion:stonekith:reaction:left",
+    "companion:stonekith:perch_rest:right",
+    "companion:stonekith:perch_rest:left",
+    "companion:stonekith:perch_interact:right",
+    "companion:stonekith:perch_interact:left"
+  ]
+}

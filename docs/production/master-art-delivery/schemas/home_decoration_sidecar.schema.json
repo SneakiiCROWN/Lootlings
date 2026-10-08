@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "home_decoration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decoration_id",
+    "canvas",
+    "pivot",
+    "surface_anchor",
+    "surface_extent",
+    "body_filename",
+    "foreground_filename",
+    "body_sha256",
+    "foreground_sha256",
+    "occupied_bounds",
+    "front_occlusion_polygon",
+    "runtime_size",
+    "slot_id",
+    "mirror_allowed"
+  ],
+  "properties": {
+    "decoration_id": {
+      "enum": [
+        "home_companion_cushion",
+        "home_companion_ledge"
+      ]
+    },
+    "canvas": {
+      "const": [
+        512,
+        256
+      ]
+    },
+    "pivot": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "surface_anchor": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "surface_extent": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "body_filename": {
+      "type": "string"
+    },
+    "foreground_filename": {
+      "type": "string"
+    },
+    "body_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "foreground_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "occupied_bounds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "front_occlusion_polygon": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "runtime_size": {
+      "const": [
+        96,
+        48
+      ]
+    },
+    "slot_id": {
+      "enum": [
+        "home.floor_perch",
+        "home.wall_perch"
+      ]
+    },
+    "mirror_allowed": {
+      "const": false
+    }
+  },
+  "description": "New artist interchange; final numeric anchors measured from delivered pixels, no unresolved template markers."
+}

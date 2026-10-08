@@ -1,0 +1,47 @@
+{
+  "entity_id": "auricub",
+  "display_name": "Auricub",
+  "category": "companions",
+  "identity_sources": [
+    "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png",
+    "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png"
+  ],
+  "proportions": "Exact named canonical companion panel",
+  "silhouette": "Exact named panel; no species/appendage replacement",
+  "palette": "Canonical source colours unchanged",
+  "equipment": "None; cosmetic companion only",
+  "markings": "Match named source panel",
+  "scale_contract": {
+    "canvas": [
+      256,
+      256
+    ],
+    "runtime": [
+      56,
+      56
+    ],
+    "bounds": [
+      32,
+      24,
+      224,
+      224
+    ]
+  },
+  "forbidden_identity_drift": [
+    "Species/palette/name change",
+    "Playable identity override",
+    "Combat/stat power"
+  ],
+  "missing_cell_ids": [
+    "companion:auricub:idle:right",
+    "companion:auricub:idle:left",
+    "companion:auricub:move:right",
+    "companion:auricub:move:left",
+    "companion:auricub:reaction:right",
+    "companion:auricub:reaction:left",
+    "companion:auricub:perch_rest:right",
+    "companion:auricub:perch_rest:left",
+    "companion:auricub:perch_interact:right",
+    "companion:auricub:perch_interact:left"
+  ]
+}
