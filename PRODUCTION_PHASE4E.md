@@ -2,9 +2,9 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — full-completion execution / UI route checkpoint — APK HOLD
+## CURRENT — full-completion bulk polish / saved Home furnishings — APK HOLD
 
-2026-10-08. Full 3,274-contract programme executed against the delivery inbox; no runtime delivery files are present. Independent approved-cell transactions implemented, all exact missing items consolidated, 283 accepted cells preserved. Phone/tablet route and gesture fixes implemented and natively validated. Zero art closures; no new APK. [Implementation, remaining gates and native evidence](docs/production/full-completion/EXECUTION_REPORT.md). Phase 4E remains incomplete.
+2026-10-08. Full 3,274-contract programme executed against the delivery inbox; no runtime delivery files are present. Independent approved-cell transactions implemented, all exact missing items consolidated, 283 accepted cells preserved. Phone/tablet route and gesture fixes implemented and natively validated. Latest continuation adds four canon-preserving reused furnishings, saved Home layout editing, preparation/collection/nook access, consistent Patch/Ilex station fallbacks and selected-filter fixes; fourteen runtime improvements, zero art closures. Zero art closures; no new APK. [Implementation, remaining gates and native evidence](docs/production/full-completion/EXECUTION_REPORT.md). Phase 4E remains incomplete.
 
 ## Historical — Gloomlet Bow handoff / HUD-control checkpoint — APK HOLD
 

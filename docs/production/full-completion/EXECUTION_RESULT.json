@@ -1,5 +1,5 @@
 {
-  "implementation_sha": "bd03934b11ebf3d7ca715f425ae99d9e7066d45f",
+  "implementation_sha": "9257cd6f7b8024cee544cb1911287b6d79ebb5b8",
   "installed_PASS_count": 0,
   "correction_count": 3274,
   "remaining_exact_slots": 3274,
@@ -168,5 +168,140 @@
       "canvas": "1200x1920"
     }
   ],
-  "runtime_adapter_limitations": "Non-playable/Bow and additional state selectors still require guarded adapter work when usable delivered art is present; these are not claimed complete."
+  "runtime_adapter_limitations": "Non-playable/Bow and additional state selectors still require guarded adapter work when usable delivered art is present; these are not claimed complete.",
+  "prior_implementation_sha": "bd03934b11ebf3d7ca715f425ae99d9e7066d45f",
+  "bulk_polish": {
+    "enhancements": [
+      "Saved versioned Home layout using the approved placement IDs and anchors",
+      "Draft furnishing selection with explicit Apply, Cancel and Back semantics",
+      "Four existing canonical furnishings mounted with source proportions and pivots",
+      "Legacy display preferences migrate and retain their shelf binding",
+      "Readable equipped-weapon, Stash and memory preparation summary",
+      "Personal Memory Archive access returns directly to Home",
+      "Companion nook opens the canonical collection with Home as Back parent",
+      "Home follower uses the approved owner-relative offset",
+      "Patch and Ilex share an intentional service-plaque treatment",
+      "Resident artwork preserves its source aspect ratio",
+      "Hub resident touch targets gain a separate focus outline",
+      "Stash selected filters remain operable with truthful selected styling",
+      "Achievement selected filters remain operable with truthful selected styling",
+      "Retained Home prop textures and bounded text eliminate native white-prop and overflow defects"
+    ],
+    "enhancement_count": 14,
+    "existing_furnishings_reused": 4,
+    "new_runtime_PNGs_installed": 0,
+    "TEMP_cells_closed": 0,
+    "source_images_modified": 0,
+    "native_evidence": [
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/companion_collection.png",
+        "sha256": "f75358a20f4b49309ad5ab02f9a1ad55e555a2f8fe35cf4f753e977cd5460c71"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/decor_trophy_preview.png",
+        "sha256": "db5ff3bcef6e93df2150eb51948b0d430429370020cc2ec5e6792516a27b13ba"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/home.png",
+        "sha256": "187655547400698b7654e464d881edef1790cdb335c5d864845a5ec5df446239"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/home_plans_saved.png",
+        "sha256": "54e8a500caa1f994b8771e80302d94761a04f5508d02eae289a2fd890b7a986b"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/home_trophy_saved.png",
+        "sha256": "da780850e785569cfa90b7bbf5568d6c02e89f07f6d457793c9e7c4d0a36e28b"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/hub.png",
+        "sha256": "65932643f8315b6b5923bfb52580deb45b393a24bcb02112f1657e27a09d1695"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/personal_memories.png",
+        "sha256": "7e4f135053d31c995dda562da3962cda22dbca15010349a9753b7c206d7bad76"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1080x2340/stash_filter.png",
+        "sha256": "aa5ebe99eb6aeb7630b60150f32186bc1c55ac4397c6e197d0312d1f1f37bfd0"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/companion_collection.png",
+        "sha256": "78f85c1110867b9087a24a5c5344f348d43bd2c154e22ea1c4b0ac1d907aa099"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/decor_trophy_preview.png",
+        "sha256": "9b6fa3d787d6c0684e7f3cef958bb1d7d19a38093e73fe1fb26bb996c331da07"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/home.png",
+        "sha256": "716c87e9f6e472d24ed3bf1279e8af2977ea0edb4d8e8e07d08c22f3a522e98f"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/home_plans_saved.png",
+        "sha256": "25087cadd70562ebd8a603312de7e5a2e6f7e607fae2134e1044584055028fcc"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/home_trophy_saved.png",
+        "sha256": "e94cca8fafa8925a21f0096f34670d756f671e2c94483a512ea7281495f89dc6"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/hub.png",
+        "sha256": "e24e086ab95dbc45ebe74950aef058108d380ab256fbbc3970eec04e8a037cd1"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/personal_memories.png",
+        "sha256": "769ff15fa61dfc95291855188b86239ae195cad02651f162213446a12461ed53"
+      },
+      {
+        "path": "docs/production/full-completion/evidence/bulk-polish/1200x1920/stash_filter.png",
+        "sha256": "008ba1c590ef206f8d6e13abfe0f581e8375119dcbb118c9d7ab151435a2bb75"
+      }
+    ],
+    "QA": [
+      {
+        "name": "bulk_polish_native_qa",
+        "exit": 0,
+        "seconds": 21.59,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "full_completion_ui_native_qa",
+        "exit": 0,
+        "seconds": 47.67,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "mobile_gesture_qa",
+        "exit": 0,
+        "seconds": 10.87,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "home_layout_qa",
+        "exit": 0,
+        "seconds": 0.29,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "phase4e_reward_restart_qa",
+        "exit": 0,
+        "seconds": 0.28,
+        "errors": [],
+        "expected_diagnostics": []
+      },
+      {
+        "name": "rc_save_qa",
+        "exit": 0,
+        "seconds": 0.28,
+        "errors": [],
+        "expected_diagnostics": []
+      }
+    ],
+    "owner_device_acceptance": false
+  }
 }

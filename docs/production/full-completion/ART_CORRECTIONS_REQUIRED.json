@@ -28144,5 +28144,65 @@
         "Missing mandatory file: art/source/companions/breezewyn/breezewyn_perch_interact_left.json"
       ]
     }
-  ]
+  ],
+  "grouped_remaining_work": {
+    "missing_authored_art": {
+      "exact_contract_records": 3274,
+      "artist_files": 8495,
+      "exact_requirements": "entries[].required_corrections; mandatory filenames and per-cell contracts remain unchanged",
+      "inbox": "art/source/master_artist_delivery/ contains only README_IMPORT_ART.txt"
+    },
+    "rejected_or_conflicting_art": {
+      "status": "quarantined, not runtime authority",
+      "frozen_rejected_boards": 5,
+      "rule": "Dedicated character sheets and scoped NPC authorities prevail; never substitute bodies from rejected boards"
+    },
+    "missing_runtime_adapters": {
+      "status": "OPEN engineering work",
+      "items": [
+        "Exact Bow/body/support sidecar importer adapters beyond current supported non-Bow playable phases",
+        "Enemy, boss, NPC, companion/perch and Home delivery adapters with hash-bound native state/contact acceptance",
+        "Full support-package runtime wiring after valid foreground layers are delivered"
+      ]
+    },
+    "Home_and_companions": {
+      "missing_companion_contracts": 58,
+      "follower_states": 34,
+      "perch_states": 24,
+      "missing_perch_props": 2,
+      "missing_personal_Home_interior": 1,
+      "equip_ready_companions": 0,
+      "currently_reused_furnishings": 4,
+      "rule": "No fabricated rest/perch poses; disabled slots do not grant equip or close art debt"
+    },
+    "boss_enemy_NPC_art": {
+      "enemy_cells": 323,
+      "boss_cells": 368,
+      "NPC_and_merchant_cells": 46,
+      "items": [
+        "Transparent Patch/Ilex resident activity bodies; current station plaques are intentional fallbacks",
+        "Hoard Dragon coherent single-tail canonical states remain unclosed",
+        "Remaining exact regional/boss/NPC phase/facing cells as listed in entries"
+      ]
+    },
+    "player_combat_art": {
+      "playable_cells": 2311,
+      "Lootling_cells": 1456,
+      "Wanderer_cells": 855,
+      "body_view_bundles": 106,
+      "support_packages": 165,
+      "Gloomlet_Bow_open_required_states": 16,
+      "rule": "Missing states remain explicit; no idle-to-attack alias or unsafe asymmetric mirror"
+    },
+    "unresolved_UI_or_runtime_and_acceptance": {
+      "new_reproduced_UI_bugs_left_unfixed": 0,
+      "limited_to_tested_routes": true,
+      "items": [
+        "Physical S23 lifecycle/process death/cross-store save/input/performance acceptance remains open",
+        "Final visual and perceptual audio acceptance remains open",
+        "Home still uses the approved temporary stash interior until the exact empty personal interior exists",
+        "No new owner-facing APK while ordinary Gloomlet Bow reaches POSE ART PENDING"
+      ]
+    }
+  }
 }

@@ -85,3 +85,71 @@ Unmodified native captures: phone 1080×2340 and tablet 1200×1920. Combat captu
 ### Combat
 
 ![combat](evidence/1200x1920/combat.png)
+
+## Bulk polish continuation
+
+Unmodified native phone/tablet captures after correction of the white torch and text overflow. Station plaques and private interior remain explicit art fallbacks.
+
+### 1080x2340 — companion collection
+
+![companion_collection](evidence/bulk-polish/1080x2340/companion_collection.png)
+
+### 1080x2340 — decor trophy preview
+
+![decor_trophy_preview](evidence/bulk-polish/1080x2340/decor_trophy_preview.png)
+
+### 1080x2340 — home
+
+![home](evidence/bulk-polish/1080x2340/home.png)
+
+### 1080x2340 — home plans saved
+
+![home_plans_saved](evidence/bulk-polish/1080x2340/home_plans_saved.png)
+
+### 1080x2340 — home trophy saved
+
+![home_trophy_saved](evidence/bulk-polish/1080x2340/home_trophy_saved.png)
+
+### 1080x2340 — hub
+
+![hub](evidence/bulk-polish/1080x2340/hub.png)
+
+### 1080x2340 — personal memories
+
+![personal_memories](evidence/bulk-polish/1080x2340/personal_memories.png)
+
+### 1080x2340 — stash filter
+
+![stash_filter](evidence/bulk-polish/1080x2340/stash_filter.png)
+
+### 1200x1920 — companion collection
+
+![companion_collection](evidence/bulk-polish/1200x1920/companion_collection.png)
+
+### 1200x1920 — decor trophy preview
+
+![decor_trophy_preview](evidence/bulk-polish/1200x1920/decor_trophy_preview.png)
+
+### 1200x1920 — home
+
+![home](evidence/bulk-polish/1200x1920/home.png)
+
+### 1200x1920 — home plans saved
+
+![home_plans_saved](evidence/bulk-polish/1200x1920/home_plans_saved.png)
+
+### 1200x1920 — home trophy saved
+
+![home_trophy_saved](evidence/bulk-polish/1200x1920/home_trophy_saved.png)
+
+### 1200x1920 — hub
+
+![hub](evidence/bulk-polish/1200x1920/hub.png)
+
+### 1200x1920 — personal memories
+
+![personal_memories](evidence/bulk-polish/1200x1920/personal_memories.png)
+
+### 1200x1920 — stash filter
+
+![stash_filter](evidence/bulk-polish/1200x1920/stash_filter.png)
