@@ -1,3 +1,5 @@
+> **Owner canon correction — 2026-10-09:** Hoard Dragon is the original winged four-legged obsidian/purple/gold design with one continuous tail. `art/hoard_dragon_identity_authority.json` and its dedicated original sheet supersede older wingless/coiled statements below. The old body is preserved for recovery and other explicitly unchanged routes; it is not Hoard Dragon identity authority. New state/facing acceptance requires native review.
+
 # Current scoped NPC identity correction — 2026-10-07
 
 Patch and Ilex use dedicated references in `art/reference/canonical/npcs/`, derived only from their owner-approved KEY NPCS panels. `art/npc_identity_authorities.json` is the exact authority/provenance record. Old beta portrait/body identities are superseded, preserved historically and absent from active Hub/dialogue/memory routes. Transparent full-body/action states remain open; workstation panels do not close them. Sera and all other actors retain their higher-priority existing authority. No global approval of board 04.

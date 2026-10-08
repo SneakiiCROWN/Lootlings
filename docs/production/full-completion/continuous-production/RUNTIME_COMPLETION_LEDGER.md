@@ -9,13 +9,13 @@ This is a factual summary of existing delivery contracts and tested routes. “W
 | Companions | Six exact identities; 60 runtime states including retained idles; 58 closed master contracts / 116 artist files; follow/perch routes tested | Wider supporting interaction art is counted under support contracts; no blanket full-game completion |
 | Playable Lootlings | Existing accepted art retained; 35 newly installed wand casting cells / 105 artist files across six actors | 1,421 remaining contracts across weapon/state/facing families; held Moonkip left windup; Glimmerfin casting family remains missing |
 | Wanderers | Existing selectable characters, equipped weapon composition and gameplay routes retained | 855 remaining authored contracts; existing runtime fallbacks do not close them |
-| Enemies / bosses | Existing combat, targeting, attack cues, accepted bodies, damage, defeat and rewards work | 323 enemy / 368 boss authored contracts remain; pose and variant coverage unfinished |
+| Enemies / bosses | Original winged Hoard Dragon: twelve native-tested frames (six states × both facings); shared contact/Ward/grounding feedback across twelve weapons; existing combat and rewards preserved | 323 enemy / 356 boss authored contracts remain; pose and variant coverage unfinished |
 | NPCs / services | Shop, Shrine upgrades, Forge, jobs and Archive routes usable; canonical dialogue portraits preserved | 46 NPC delivery contracts remain; a portrait is not a completed world body |
 | HUD / rewards / inventory | HP, XP, Ward, finds, comparison, result payout, stash and return routes implemented; current shared presentation pass detailed below | All twelve live Armour inventory icons now have dedicated art; other equipment variants and worn body layers remain unfinished |
 | Relic / progression / customization | Existing Engine, permanent upgrades, equipment and save systems preserved | Remaining art belongs to exact support/playable contracts; no new mechanical completion claimed |
 | Audio / environments | Seven licensed full score cues installed; layered approved environments retained | Remaining region/combat/reward/creature/weapon audio remains outstanding; no new audio added in this pass |
 
-Exact frozen-master remainder: **3,178 contracts / 8,266 required artist files**. Installed: **96 contracts / 229 artist files**. These counts exclude retained older assets, menu art and soundtrack. Breakdown: playable 1,421; Wanderers 855; enemies 323; bosses 368; NPCs 46; support 165. Exact item list: EXACT_REMAINING_CONTRACTS.json. Reference sheets and staged candidates are never counted as runtime deliveries.
+Exact frozen-master remainder: **3,166 contracts / 8,242 required artist files**. Installed: **108 contracts / 253 artist files**. These counts exclude retained older assets, menu art and soundtrack. Breakdown: playable 1,421; Wanderers 855; enemies 323; bosses 356; NPCs 46; support 165. Exact item list: EXACT_REMAINING_CONTRACTS.json. Reference sheets and staged candidates are never counted as runtime deliveries.
 
 ## Shared gameplay presentation batch
 

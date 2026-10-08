@@ -1,5 +1,22 @@
 extends RefCounted
 # Bounded original draw effects. Reads existing clocks; no damage or RNG.
+static var feet_cache: Dictionary = {}
+static func feet_anchor(texture: Texture2D, source: Rect2, rect: Rect2) -> Vector2:
+	var resource_key: String=texture.resource_path
+	if texture is AtlasTexture:resource_key="%s:%s" % [texture.atlas.resource_path,str(texture.region)]
+	var key: String="%s:%s" % [resource_key,str(source)]
+	if not feet_cache.has(key):
+		var image:=texture.get_image()
+		if source.has_area():image=image.get_region(Rect2i(source))
+		var used:=image.get_used_rect()
+		feet_cache[key]=float(used.end.y)/maxf(1,image.get_height())
+	return Vector2(0,rect.position.y+rect.size.y*float(feet_cache[key]))
+
+static func grounded_transform(pos: Vector2, rotation: float, scale: Vector2, feet: Vector2, baseline: float) -> Transform2D:
+	var result:=Transform2D(rotation,scale,0,pos)
+	result.origin+=Vector2(0,baseline)-result.basis_xform(feet)
+	return result
+
 static func glasswing(g) -> bool:
 	return not g.enemy_is_boss and "GLASSWING" in str(g.enemy_name).to_upper()
 

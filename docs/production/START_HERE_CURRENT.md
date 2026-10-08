@@ -1,3 +1,5 @@
+Current continuation: [0.4.36 winged-canon combat family pass](full-completion/continuous-production/COMBAT_FAMILY_PASS.md). Twelve native-reviewed boss cells are installed; exact remaining counts stay explicit.
+
 IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES, THE CURRENT AUTHORITIES WIN.
 
 # Current Lootlings production

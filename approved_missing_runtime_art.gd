@@ -15,5 +15,11 @@ static func frame(actor: String, state: String, facing: String) -> Dictionary:
 			return {"texture":textures[path],"path":path,"source_facing":facing,"status":"Canonical source export / LIVE_BETA; this exact state/view only"}
 	return {}
 static func enemy_neutral(g, x: float) -> Dictionary:
-	if not g.enemy_alive or g.enemy_flash>0 or g.enemy_death_anim>0 or g.enemy_attack_anim>0 or g.enemy_attack_clock<.30 or g.enemy_entry_anim>0:return {}
-	return frame(g.enemy_name.to_lower().replace(" ","_"),"idle","right" if g.enemy_facing_at(x)>0 else "left")
+	# A missing authored action never licenses an alternate identity. Keep the
+	# accepted facing's neutral body through the visual clocks, explicitly as
+	# reused idle art, not a completed authored attack/hurt/defeat delivery.
+	var actor: String=g.enemy_name.to_lower().replace(" ","_")
+	var facing: String="right" if g.enemy_facing_at(x)>0 else "left"
+	var result:=frame(actor,"idle",facing)
+	if not result.is_empty():result["reused_idle_for_missing_action"]=true
+	return result

@@ -5,6 +5,9 @@ var health_trails := {}
 var boss_action := ""
 var boss_action_time := 0.0
 var player_prepared:=false
+var contacts: Array[Dictionary] = []
+var incoming_contacts: Array[Dictionary] = []
+const CONTACT_LIMIT := 12
 
 static func name_lines(font: Font, text: String, width: float, font_size: int) -> Array[String]:
 	var lines: Array[String]=[]
@@ -25,6 +28,8 @@ static func name_lines(font: Font, text: String, width: float, font_size: int) -
 
 func reset() -> void:
 	health_trails.clear()
+	contacts.clear()
+	incoming_contacts.clear()
 	boss_action=""; boss_action_time=0
 	player_prepared=false
 
@@ -48,7 +53,24 @@ func update_health(key: int, hp: float, maximum: float, delta: float) -> void:
 	elif float(trail.hold) <= 0.0:
 		trail.ratio = move_toward(float(trail.ratio), ratio, delta * 0.8)
 
+func record_contact(g, critical: bool, heavy: bool) -> void:
+	# Capture this actor before a kill/projectile/pack callback changes selection.
+	var pos: Vector2=g.target_combat_visual_position()+Vector2(0,-29)
+	var weapon: String=g.inventory.equipped_item("Weapon").get("weapon_type","")
+	var event := {"serial":g.enemy_serial,"pos":pos,"origin":preload("res://weapon_fit_catalog.gd").projectile_origin(g),"material":preload("res://regional_enemy_presentation.gd").material(g),"facing":g.enemy_facing_at(pos.x),"critical":critical,"heavy":heavy or weapon in ["greatsword","greataxe","maul"],"weapon":weapon,"life":.18,"duration":.18}
+	contacts.append(event)
+	while contacts.size()>CONTACT_LIMIT: contacts.pop_front()
+
+func record_incoming(g, absorbed: float, damage: float) -> void:
+	var pos: Vector2=preload("res://weapon_fit_catalog.gd").world_position(g)+Vector2(0,-24)
+	incoming_contacts.append({"pos":pos,"origin":g.target_combat_visual_position()+Vector2(25*g.enemy_facing_at(g.target_combat_visual_position().x),-24),"ward":absorbed>0,"damage":damage>0,"life":.18})
+	while incoming_contacts.size()>6:incoming_contacts.pop_front()
+
 func step(g, delta: float) -> void:
+	for event in incoming_contacts:event.life=maxf(0,float(event.life)-delta)
+	incoming_contacts=incoming_contacts.filter(func(event):return event.life>0)
+	for event in contacts: event.life=maxf(0,float(event.life)-delta)
+	contacts=contacts.filter(func(event):return event.life>0)
 	boss_action_time=maxf(0,boss_action_time-delta)
 	if g.attack_clock>.22 or g.attack_anim>0: player_prepared=false
 	if g.state=="playing" and g.enemy_alive and g.attack_clock<=.18 and g.attack_anim<=0 and not player_prepared:

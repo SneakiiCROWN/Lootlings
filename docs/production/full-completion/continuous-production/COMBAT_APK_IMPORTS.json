@@ -1,0 +1,83 @@
+{
+  "apk": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.36-winged-combat-debug.apk",
+  "apk_sha256": "6a1030d03d11cc39aded5658f572f7cd73e114acb1febe2c93eb07c1375c75d2",
+  "version": "0.4.36-winged-combat",
+  "version_code": 45,
+  "boss_checks": [
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+      "sha256": "872bca13631feab82ed96922ab43bf33421d91fdb2bd989e37aef8e4f73094df",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
+      "sha256": "bf2068c03e3867033db48e1f40953297bcdc936aedaec3775b1cee8fa712acab",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
+      "sha256": "0a45645ca671fecbe513b43fceaf1716977bffcb2e6ce927dde25af34405b171",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
+      "sha256": "d667c0be8cb21e1f84d9b1edc7bbb51aeaff72b3c1f81b1602088178f2af073b",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
+      "sha256": "8ab37525b9b569756cc42aee6e032f8b996eaede4bf5d63891795109bd814de2",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
+      "sha256": "84369a7e24cc5028b1c0255f2637f4d5455b6c3e8cf2586ecf35e52ad689d847",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
+      "sha256": "be8b5e94dac85dd00ce7cec7c9854933b39edb0821fd4412ce10ed2e2bda596b",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
+      "sha256": "da618725f957f189f7e118b9ba6833e8917d0f2e13e4270b74fb7e5c4d9d54b6",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
+      "sha256": "57c7be07cb13824dcf875981d1f466a3a872374272f6294a322841c61fe4792e",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
+      "sha256": "c26fd045cc6b477112b35fe495015f2ef64294f7b4dcd50dd84b81c0accc109d",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
+      "sha256": "830c156a697d3d97773080ace8baa6837d0456e2a9f8aa6c598d19ff8858b7b2",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    },
+    {
+      "asset": "art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png",
+      "sha256": "e467928d60567bf904d766eb942c15adff2c675a1b5e8c2ef763fd3d4e023dc6",
+      "imported_payloads_match": true,
+      "sidecar_match": true
+    }
+  ],
+  "title_exact_file_preserved": true,
+  "title_imported_payload_matches": true,
+  "physical_device_validated": false
+}

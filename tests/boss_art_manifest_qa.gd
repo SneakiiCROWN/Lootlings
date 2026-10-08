@@ -5,7 +5,8 @@ func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	call_deferred("review")
 func review() -> void:
-	assert(Art.rows().is_empty(),"No new production bodies are currently approved")
+	assert(Art.rows().size()==12,"Twelve native validated winged frames")
+	for row in Art.rows():assert(Art.valid(row) and row.native_validated)
 	assert(not Art.valid({"region":"act_i","asset_path":"res://art/reference/phase4e_handoff/approved_references/01_Hoard_Dragon_Canonical_Reference.png"}))
 	var helper=preload("res://tests/weapon_fit_qa.gd").new()
 	helper.game=load("res://main.tscn").instantiate(); root.add_child(helper.game); await process_frame
@@ -22,12 +23,12 @@ func review() -> void:
 			g.combat_presentation.boss_action_time=.3 if state=="commit" else 0
 			g.combat_presentation.boss_action="CLAWS"
 			assert(Art.state_for(g).state==state,"Authored frame must follow existing state: "+state)
-			assert(Art.select_frame("act_i",state,"CLAWS",facing).is_empty())
+			assert(not Art.select_frame("act_i",state,"CLAWS" if state in ["windup","commit"] else "",facing).is_empty())
 			var profile:=Boss.profile_for(g)
-			assert(not profile.has("authored_state"))
-			assert(Boss.texture_for(profile)==Boss.DRAGON,"Missing approved frames must preserve the current source")
+			assert(profile.has("authored_state"))
+			assert(Boss.texture_for(profile)!=Boss.DRAGON,"Act I must route the original winged identity")
 			assert(g.enemy_facing_at(g.enemy_stage_x)==facing)
 	assert(g.rng.state==rng and g.loot_system.rng.state==loot_rng)
 	g.free(); helper.free()
-	print("BOSS ART MANIFEST QA: six existing states, both real target facings, rejected reference guard, unchanged fallback and RNG; no new art approved")
+	print("BOSS ART MANIFEST QA: twelve native validated winged frames, both real target facings, reference-body guard and unchanged RNG")
 	quit()

@@ -1,0 +1,39 @@
+{
+  "authority": "art/hoard_dragon_identity_authority.json",
+  "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
+  "canonical_sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
+  "accepted_sources": [
+    {
+      "path": "art/source/continuous_combat/hoard_dragon/winged_left_v2.png",
+      "sha256": "7646ed072d3b7ff67acea4cdc41ba568fe636ed1d1bd3d7f605ec5ff12dfd42f"
+    },
+    {
+      "path": "art/source/continuous_combat/hoard_dragon/winged_right_v1.png",
+      "sha256": "c8c8a4255c2fe37ba929a757871788a2f04556a712dc59b8b34896d31be04ece"
+    }
+  ],
+  "retained_sources": [
+    {
+      "path": "art/source/continuous_combat/hoard_dragon/winged_initial_left.png",
+      "sha256": "cda9e59926204f3fbe1003b913832c56ba4ddbcf174f301046d0d84e2defe667",
+      "status": "superseded candidate, retained only"
+    }
+  ],
+  "quarantine": [
+    {
+      "path": "art/source/continuous_combat/hoard_dragon/wingless_rejected.png",
+      "sha256": "99b93072d4a2998f37b7d1bb95c35e315793c550be30df17a9e3eee6896a3f71",
+      "rejected_frames": 6,
+      "reason": "Wingless reinterpretation conflicts with explicit restored owner winged quadruped canon. Never routed."
+    }
+  ],
+  "corrections": [
+    "Owner restored original winged canon; prior winged rejection superseded.",
+    "Export bounds corrected to exact connected alpha body extents to exclude neighbouring frame pixels.",
+    "Right-facing poses independently authored; no runtime mirroring."
+  ],
+  "runtime_frames": 12,
+  "artist_files": 24,
+  "native_qa": "winged-dragon-accepted-pixels-050331b3a7",
+  "canvas_note": "2048 transparent padding preserves original character pixels; painted detail is the measured content rectangle, not 2048."
+}

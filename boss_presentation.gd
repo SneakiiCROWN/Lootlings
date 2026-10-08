@@ -38,11 +38,20 @@ static func profile_for(g) -> Dictionary:
 	var state: Dictionary=preload("res://boss_art_manifest.gd").state_for(g)
 	var facing: int=g.enemy_facing_at(g.enemy_stage_x)
 	var frame: Dictionary=preload("res://boss_art_manifest.gd").select_frame(g.campaign_id,state.state,state.action,facing)
+	if frame.is_empty() and g.campaign_id=="act_i":
+		# Keep the owner-corrected identity for missing named actions. This is
+		# visibly reused idle, not an authored windup/commit contract closure.
+		frame=preload("res://boss_art_manifest.gd").select_frame("act_i","idle","",facing)
+		if not frame.is_empty():result["reused_idle_for_missing_action"]=true
 	if frame.is_empty(): return result
 	# Existing renderer mirrors a left source. Cancel that mirror for explicit
 	# right exports; keep left anatomy unmirrored and preserve the current clocks.
 	result.texture_path=frame.asset_path
 	result.source=Rect2()
+	if frame.has("content_rect"):
+		var content:Array=frame.content_rect
+		result.source=Rect2(content[0],content[1],content[2],content[3])
+		result.display_size=Vector2(content[2],content[3])*float(frame.get("native_pixel_scale",.42))
 	result.anchor=Vector2(frame.anchor[0],frame.anchor[1])
 	result.flip_h=facing>0
 	result.preserve_aspect=true

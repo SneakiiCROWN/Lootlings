@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7363,
-    "total_launch_scope_slots": 6324,
+    "total_records": 7379,
+    "total_launch_scope_slots": 6336,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3277,
+      "LIVE_BETA": 3301,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3048,
-      "REFERENCE_ONLY": 811,
-      "REJECTED_IDENTITY_DRIFT": 6,
+      "NEEDS_NEW_CANON_EXPORT": 3036,
+      "REFERENCE_ONLY": 817,
+      "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3276,
+      "LIVE_BETA": 3300,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3048,
+      "NEEDS_NEW_CANON_EXPORT": 3036,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 3048,
+    "exact_missing_art_cells": 3036,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -51,15 +51,15 @@
     "LOOTLINGS_WORLD_BIBLE.md": "b469f5bf0d85ccf2f2a0caf0bb4d4e2b1a9da2fa05f10051369a7663ef0690e8",
     "MASTER_ROADMAP.md": "710bfa4301aee9cad14b82edd601b3334349105cd326639729c0e6e1d50a5471",
     "CONTENT_IMPLEMENTATION_STATUS.md": "56a64320f759549a58462c01de735c3b7c38b00ac25f83007a29340564b920f0",
-    "ART_REFERENCE_INDEX.md": "d087e978b43a4a83c89d75ce8dde635629f8d0a345b5d5f0f4c0173ab6b2b402",
+    "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "849b9fa167ba7b35d89abb4edb12d9adba9dfe0e2c2a89d2e1eed73102f21661",
+    "export_presets.cfg": "fe937e1fee2b3d6d13a5f0491e2b6b53e99ce9580144d622b71e77db3861a1c7",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
-    "art/production_boss_manifest.json": "8fdbf946ed0b040ab666660993e992462167ee6da1241e14f8088996ed832d9a",
+    "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
     "art/production/phase4e/extraction_manifest.json": "91286e5df854c40223b95690bc764e0ab7699e8f57ff79b59845fd0a68ba5370",
-    "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "aa95b8b87b24c8cf5cde3d7b0a4b20d2fcca05fe2721c0406ce8e2ac596403c8",
+    "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "4b1d1dbbf4a95a0cca706ec7f18091068c74e206e38f0a4ab49e426f2e90fbce",
     "docs/production/phase4e/extraction/MISSING_ART_MANIFEST.json": "07fa9e3a9cf114348448bd3776a66681a8b98c78868195b3ed69d65be84150d0",
     "art/audio/production/sources.json": "d2bac5b6e1a43f441143d7bfec99d015b6b60c8510d19169a64279d4c67a9eda",
     "art/reference/docs/00_READ_ME_FIRST.txt": "8db2762668e096772f81fda1aa24428b96f76607f5c31242288556cd9a47b07d",
@@ -83,23 +83,23 @@
     "actor_identity_corrections.gd": "a097a88735df133fa0451b69d770135ec978479f685f0f8d81976b71772b6be4",
     "affix_catalog.gd": "51c79ebce9a0881b93c59bbd2c9f83c7727084b551d1377453261d64381a8e39",
     "analytics_logger.gd": "1816129efa90fa7f5e06229b6a079a638724a18e905b9dcf99cc4d7d9fc11c60",
-    "approved_missing_runtime_art.gd": "377f3fd05384ca5ca6b5ed8bf91707881722ee28ec3ee9910ccf83127a5ed0e1",
+    "approved_missing_runtime_art.gd": "6ce76c1e4db3662c3928a754ba20c37694a87b7cb45da4cec15e1a25171b6b59",
     "app_lifecycle.gd": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474",
     "audio_manager.gd": "80700b52ab1993fef406138cc89015c267d6a6bbdacb08c951dae16f7a26ec0e",
     "authored_pose_manifest.gd": "d7d5d532a332eb0da8fc19cfa4dece3ba61e55d8ef1ba5d5132be148e5cb38cb",
     "avatar_presentation.gd": "293aeef0f5c1fc9ced87b5953de03c4627374f2b7ac1d4d828b11896abe214b6",
     "beta_art_catalog.gd": "edccebe83e308529b811040b4a299a9427b96a2b50febff9dc9f893857f77a0c",
     "bible_runtime_art.gd": "60e3c70c4ac04b9515c1a39be536cce87218b00c7a6be1df11fdb3e30a535cf0",
-    "boss_art_manifest.gd": "8edbbc04907506e8e2ac98db56b5931b7a7aa63e5c8c6bc4b8bd3f631f843507",
+    "boss_art_manifest.gd": "a2c602bbedea566ed9bd52d30ad80b60f95567ec22175d1fcbe7374ad0716ff7",
     "boss_audio_identity.gd": "e403917a0685fd7129ab50c4434e081fce01b48febf73ae1964fe18e679d8f72",
     "boss_patterns.gd": "60ead63e918b879940cea08f110c60c213f40cf3a5f799d305f03d6b6298797c",
-    "boss_presentation.gd": "bd455636dad2b3ca782bffa41994ad39a4a93fd61e209f7b3a9f89f0890bf296",
+    "boss_presentation.gd": "352143e8ed76c21548e4048edcf608db380351574b021896c5095229623cfc4c",
     "build_system.gd": "8e15cb5f043291a44caf3bda6156dc788de6e9fea950e1ad2bcb36d2f4d791d7",
     "campaign_system.gd": "04d4894b580ea6a8d9458b6548f85b835603151e46a75360ab59d5eb5faabd7b",
     "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
     "chest_catalog.gd": "4bf50445f8512c96ad0d645b5425cd04ade3afe4831bb1ea7eef07fe580834bb",
     "combat_controls.gd": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68",
-    "combat_presentation.gd": "076ec1401486dc5d4a0466cc74500d1a178a6b2a51869bc75314bcbd7f9214d3",
+    "combat_presentation.gd": "5c7271501229a79b760f8931f6153efed928b5015e3ff3595263f4cbae6f426b",
     "combat_sprite_rig.gd": "a6124fcd68d18c68336581695f821b5a9c62e1b3dd27e339805235b20150b821",
     "combat_stage.gd": "0c604eeb8edeadc4d8c8341be036f6df75c5d1895a76a87e0f199c439a42d23e",
     "combat_tap_meter.gd": "1df4da3fb4ac3b65f74f79eaf088fc31772a8fb0006ba8971696c7e91ba3f9cc",
@@ -107,7 +107,7 @@
     "companion_presentation.gd": "b53c1956aedf8ac276087e3c659e10a3d05bbfe970552ff8080c974fc86bbb00",
     "contextual_dialogue.gd": "3de3ac6394b611264e0e65855a5360fbc52e4c8920e6a862359acaf4c9cda4ed",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
-    "creature_renderer.gd": "2e076f40853737da65c0c7b6a7eaf78f3f0feafdd8c9995f48cde839020de197",
+    "creature_renderer.gd": "c695f9902ba6445ffc756678d1bc617cde9f96c1bdf8b59296eb3c9e0b0bfe67",
     "debug_panel.gd": "4cb84da52147317c138dc7add8d95ff955be4d5b7ef6a4032509da9a28248497",
     "dialogue_director.gd": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f",
     "display_numbers.gd": "0f928175102bf7d5638caa52ed55a63a418d6e3e04b27ed5121c1e402ee312ef",
@@ -115,7 +115,7 @@
     "economy_transaction.gd": "1f0be462e167a5ff1897eea4f91654f5013b9ce12615885b621378e3ebca04e4",
     "endgame_progress.gd": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8",
     "enemy_encounter.gd": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7",
-    "enemy_motion.gd": "05ec8454aebbb3630a25722edea5fd2346e7937255485276b18cb07dff4b4490",
+    "enemy_motion.gd": "8e76aab8a63a08de78431f82f7b9030d3342325387fbc3629d7a668faeb88542",
     "enemy_variant_catalog.gd": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25",
     "expedition_event_catalog.gd": "08602a2c8221b1eb2c31b4277e083b5cd6ea9b04fa6035dab454701274e1816f",
     "expedition_progress.gd": "37b46bedd83b99640b7348b6f11be3944e36ae30b5bf931ab300ba6f2dedc935",
@@ -127,12 +127,12 @@
     "home_catalog.gd": "f9d7e86d825de2fa877bd16c1da39818367f541517786c6f326d065eb75ff609",
     "home_runtime_art.gd": "bdc814c8a86d2f6b780788e53a11b894906ca8f4d8ea9e466b8be46078048cb7",
     "hub_navigation.gd": "a7f6d33717e6585499e92d222b67c8bcd1961d0d4ee91ea0363431659e820e2a",
-    "impact_presentation.gd": "1ed3c7973f87a66c477fc99dc555b9a165079e51229ed10387b847994502e8e4",
+    "impact_presentation.gd": "c81b6e198930b1b2368d3b2913f9bb7ef0129a46bac192ea3e5aa24a7d0ee08c",
     "inventory_system.gd": "6bebfa96c22f25a931fdb691f481af0989bcee700b433918fd52baa03af50fc1",
     "item_catalog.gd": "0fa1e563f4f640e584f46d9d2031abca70b7489482e11f97e1824db62cad8504",
     "item_icon.gd": "3afc76c43750f880535bbc095bb37efda52b67bda79896f2fde53c56a4ae75f9",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "a5d041b2aabadfb4a761d3c23a9f756c223d39ba29ebf9aedcef483ddcd27081",
+    "lootling.gd": "d101e3d1a2f887c4beedd03075972872b21fee9c64f43b8cf90222a23256309a",
     "lootlings_ui.gd": "634fe133b753998139b76ac5cc4afe6738a631ef9e87ea1a8f0302a6950eae76",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
     "loot_system.gd": "b7da5111482b7c16427b86f1cc4c9b4d3696bf91d10f4b3a20f7980e0a7e624d",
@@ -183755,55 +183755,41 @@
       "state": "idle",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_idle_right.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:idle:left:None",
@@ -183813,55 +183799,41 @@
       "state": "idle",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_idle_left.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:phase transition:right:None",
@@ -183987,55 +183959,41 @@
       "state": "hurt",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_hurt_right.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:hurt:left:None",
@@ -184045,55 +184003,41 @@
       "state": "hurt",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_hurt_left.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:vulnerability:right:None",
@@ -184219,55 +184163,41 @@
       "state": "recovery",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_recovery_right.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:recovery:left:None",
@@ -184277,55 +184207,41 @@
       "state": "recovery",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_recovery_left.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:defeat:right:None",
@@ -184335,55 +184251,41 @@
       "state": "defeat",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_defeat_right.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:defeat:left:None",
@@ -184393,55 +184295,41 @@
       "state": "defeat",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_defeat_left.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:CLAWS windup:right:None",
@@ -184451,55 +184339,41 @@
       "state": "CLAWS windup",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_claws_windup_right.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:CLAWS windup:left:None",
@@ -184509,55 +184383,41 @@
       "state": "CLAWS windup",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_claws_windup_left.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:CLAWS commit:right:None",
@@ -184567,55 +184427,41 @@
       "state": "CLAWS commit",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_claws_commit_right.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:CLAWS commit:left:None",
@@ -184625,55 +184471,41 @@
       "state": "CLAWS commit",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_source": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/bosses/act_i/act_i_claws_commit_left.png",
+      "current_production_asset": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
+      "target_production_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
       "dimensions": [
         2048,
         2048
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 2016,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          1024.0,
-          2016
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body/hip pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor",
-        "tail root/tip for dragon"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "boss_presentation",
       "implementation_file": "boss_presentation.gd",
       "dependency": [
         "act_i__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P0",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:act_i:CLAWS recovery:right:None",
@@ -295737,7 +295569,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:2406:0:14cc9e57",
+      "slot_id": "label:lootling.gd:2407:0:14cc9e57",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295764,13 +295596,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2406,
+        "line": 2407,
         "text": "MIRROR CHARGE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2408:0:60d92e6f",
+      "slot_id": "label:lootling.gd:2409:0:60d92e6f",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295797,13 +295629,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2408,
+        "line": 2409,
         "text": "FEINT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2410:0:b636872a",
+      "slot_id": "label:lootling.gd:2411:0:b636872a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295830,13 +295662,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2410,
+        "line": 2411,
         "text": "CHIME",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2412:0:d896b990",
+      "slot_id": "label:lootling.gd:2413:0:d896b990",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295863,13 +295695,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2412,
+        "line": 2413,
         "text": "PRESSURE RISE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2414:0:479c9dc5",
+      "slot_id": "label:lootling.gd:2415:0:479c9dc5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295896,13 +295728,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2414,
+        "line": 2415,
         "text": "TRIBUTE FLARE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2418:0:491cd481",
+      "slot_id": "label:lootling.gd:2419:0:491cd481",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295929,13 +295761,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2418,
+        "line": 2419,
         "text": "ERASE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2420:0:1e88206f",
+      "slot_id": "label:lootling.gd:2421:0:1e88206f",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295962,13 +295794,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2420,
+        "line": 2421,
         "text": "REFRACT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2422:0:338d68f0",
+      "slot_id": "label:lootling.gd:2423:0:338d68f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -295995,13 +295827,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2422,
+        "line": 2423,
         "text": "REEL IN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2424:0:084904bf",
+      "slot_id": "label:lootling.gd:2425:0:084904bf",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296028,13 +295860,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2424,
+        "line": 2425,
         "text": "CLAIM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2426:0:be8f4941",
+      "slot_id": "label:lootling.gd:2427:0:be8f4941",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296061,13 +295893,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2426,
+        "line": 2427,
         "text": "TAIL SWEEP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2765:0:6a9fef6e",
+      "slot_id": "label:lootling.gd:2768:0:6a9fef6e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296094,13 +295926,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2765,
+        "line": 2768,
         "text": "WAVE FINDS — PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2765:1:6e688269",
+      "slot_id": "label:lootling.gd:2768:1:6e688269",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296127,13 +295959,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2765,
+        "line": 2768,
         "text": "BOSS HOARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2767:0:c497c9c1",
+      "slot_id": "label:lootling.gd:2770:0:c497c9c1",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296160,13 +295992,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2767,
+        "line": 2770,
         "text": "One find from this wave. The rest stay in the ruins.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2767:1:4dc26b13",
+      "slot_id": "label:lootling.gd:2770:1:4dc26b13",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296193,13 +296025,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2767,
+        "line": 2770,
         "text": "Choose one reward to carry home.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2779:0:3b8d5b98",
+      "slot_id": "label:lootling.gd:2782:0:3b8d5b98",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296226,13 +296058,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2779,
+        "line": 2782,
         "text": "%s  •  %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2779:1:462854f9",
+      "slot_id": "label:lootling.gd:2782:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296259,13 +296091,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2779,
+        "line": 2782,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2779:2:6867e600",
+      "slot_id": "label:lootling.gd:2782:2:6867e600",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296292,13 +296124,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2779,
+        "line": 2782,
         "text": "Relic",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2785:0:ef7e6794",
+      "slot_id": "label:lootling.gd:2788:0:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296325,13 +296157,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2785,
+        "line": 2788,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2785:1:ef7e6794",
+      "slot_id": "label:lootling.gd:2788:1:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296358,13 +296190,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2785,
+        "line": 2788,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2815:0:e3bab90b",
+      "slot_id": "label:lootling.gd:2818:0:e3bab90b",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296391,13 +296223,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2815,
+        "line": 2818,
         "text": "[b]NEW ITEM: %s[/b]\\n%d RUN SCRIP / equip only if you choose\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2815:1:462854f9",
+      "slot_id": "label:lootling.gd:2818:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296424,13 +296256,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2815,
+        "line": 2818,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2815:2:ead53368",
+      "slot_id": "label:lootling.gd:2818:2:ead53368",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296457,13 +296289,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2815,
+        "line": 2818,
         "text": "Weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2816:0:148be80c",
+      "slot_id": "label:lootling.gd:2819:0:148be80c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296490,13 +296322,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2816,
+        "line": 2819,
         "text": "BUY %d — ENDS THIS STOP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2829:0:0d2cee9c",
+      "slot_id": "label:lootling.gd:2832:0:0d2cee9c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296523,13 +296355,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2829,
+        "line": 2832,
         "text": "TAKE PERK / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2833:0:3d0a6ba5",
+      "slot_id": "label:lootling.gd:2836:0:3d0a6ba5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296556,13 +296388,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2833,
+        "line": 2836,
         "text": "CURRENT: %d stacks / %s\\nNEW PERK: %s / stacks %d to %d\\nCOST: FREE / %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2869:0:b23e7e58",
+      "slot_id": "label:lootling.gd:2872:0:b23e7e58",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296589,13 +296421,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2869,
+        "line": 2872,
         "text": "%s\\n%s\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2869:1:deb80331",
+      "slot_id": "label:lootling.gd:2872:1:deb80331",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296622,13 +296454,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2869,
+        "line": 2872,
         "text": "desc",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2873:0:5c18f8eb",
+      "slot_id": "label:lootling.gd:2876:0:5c18f8eb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296655,13 +296487,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2873,
+        "line": 2876,
         "text": "KEEP IN STASH\\n%d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2874:0:5fde04be",
+      "slot_id": "label:lootling.gd:2877:0:5fde04be",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296688,13 +296520,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2874,
+        "line": 2877,
         "text": "SCRAP  +%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3040:0:ed059f21",
+      "slot_id": "label:lootling.gd:3043:0:ed059f21",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296721,13 +296553,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3040,
+        "line": 3043,
         "text": "RELIC ROUTE • MERCHANT ROOM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3040:1:520d7b36",
+      "slot_id": "label:lootling.gd:3043:1:520d7b36",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296754,112 +296586,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3040,
+        "line": 3043,
         "text": "ROADSIDE STOP  •  BETWEEN WAVES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3054:0:9f888007",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3054,
-        "text": "SELECT AN OFFER",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3055:0:119bed34",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3055,
-        "text": "Inspect an offer. One purchase ends this stop.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3056:0:e5d5cd32",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3056,
-        "text": "PACK PEDDLER",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3057:0:a7e24318",
+      "slot_id": "label:lootling.gd:3057:0:9f888007",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296887,12 +296620,111 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 3057,
+        "text": "SELECT AN OFFER",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3058:0:119bed34",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3058,
+        "text": "Inspect an offer. One purchase ends this stop.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3059:0:e5d5cd32",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3059,
+        "text": "PACK PEDDLER",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3060:0:a7e24318",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3060,
         "text": " • PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3059:0:9a1dca47",
+      "slot_id": "label:lootling.gd:3062:0:9a1dca47",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296919,13 +296751,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3059,
+        "line": 3062,
         "text": "[center]%s  %s RUN SCRIP[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3059:1:2c2ef4d6",
+      "slot_id": "label:lootling.gd:3062:1:2c2ef4d6",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296952,13 +296784,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3059,
+        "line": 3062,
         "text": "currency_run_scrip",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3064:0:b6e2fa32",
+      "slot_id": "label:lootling.gd:3067:0:b6e2fa32",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -296985,13 +296817,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3064,
+        "line": 3067,
         "text": "SOLD • IN GOOD PAWS\\nPatch is already counting the coins.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3068:0:a276cade",
+      "slot_id": "label:lootling.gd:3071:0:a276cade",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297018,13 +296850,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3068,
+        "line": 3071,
         "text": "SOLD • IN GOOD PAWS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3069:0:1fc287f0",
+      "slot_id": "label:lootling.gd:3072:0:1fc287f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297051,13 +296883,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3069,
+        "line": 3072,
         "text": "Nothing left but the receipt.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3083:0:526d5d47",
+      "slot_id": "label:lootling.gd:3086:0:526d5d47",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297084,13 +296916,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3083,
+        "line": 3086,
         "text": "%s%s  •  %d SCRIP\\n%s%s  [%s]\\n%s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3083:1:462854f9",
+      "slot_id": "label:lootling.gd:3086:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297117,13 +296949,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3083,
+        "line": 3086,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3083:2:ecdda59a",
+      "slot_id": "label:lootling.gd:3086:2:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297150,13 +296982,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3083,
+        "line": 3086,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3091:0:eb995721",
+      "slot_id": "label:lootling.gd:3094:0:eb995721",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297183,13 +297015,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3091,
+        "line": 3094,
         "text": "%s  •  %s  •  %d SCRIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3091:1:71c77258",
+      "slot_id": "label:lootling.gd:3094:1:71c77258",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297216,13 +297048,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3091,
+        "line": 3094,
         "text": "PREMIUM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3091:2:5c0a4fc7",
+      "slot_id": "label:lootling.gd:3094:2:5c0a4fc7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297249,13 +297081,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3091,
+        "line": 3094,
         "text": "premium",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3091:3:462854f9",
+      "slot_id": "label:lootling.gd:3094:3:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297282,13 +297114,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3091,
+        "line": 3094,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3091:4:ecdda59a",
+      "slot_id": "label:lootling.gd:3094:4:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297315,13 +297147,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3091,
+        "line": 3094,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3097:0:a74032f4",
+      "slot_id": "label:lootling.gd:3100:0:a74032f4",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297348,46 +297180,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3097,
+        "line": 3100,
         "text": "REROLL  %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3161:0:9afc3c93",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3161,
-        "text": "CURRENT: %s\\nChoose a new perk to compare. FREE, or keep your current build.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3164:0:86597834",
+      "slot_id": "label:lootling.gd:3164:0:9afc3c93",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297415,12 +297214,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 3164,
+        "text": "CURRENT: %s\\nChoose a new perk to compare. FREE, or keep your current build.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3167:0:86597834",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3167,
         "text": "SELECT A CARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3183:0:408ab24d",
+      "slot_id": "label:lootling.gd:3186:0:408ab24d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297447,13 +297279,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3183,
+        "line": 3186,
         "text": "%s  /  %s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3183:1:caa4ad3d",
+      "slot_id": "label:lootling.gd:3186:1:caa4ad3d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297480,13 +297312,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3183,
+        "line": 3186,
         "text": "UTILITY",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3183:2:cd7cff17",
+      "slot_id": "label:lootling.gd:3186:2:cd7cff17",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297513,13 +297345,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3183,
+        "line": 3186,
         "text": "  /  STACK ×%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3192:0:e8634078",
+      "slot_id": "label:lootling.gd:3195:0:e8634078",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297546,13 +297378,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3192,
+        "line": 3195,
         "text": "LEVEL %d - PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3309:0:80e69ea0",
+      "slot_id": "label:lootling.gd:3312:0:80e69ea0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297579,13 +297411,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3309,
+        "line": 3312,
         "text": "HOARD CONQUERED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3309:1:628283b0",
+      "slot_id": "label:lootling.gd:3312:1:628283b0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297612,13 +297444,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3309,
+        "line": 3312,
         "text": "EXPEDITION ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3325:0:aa11de5a",
+      "slot_id": "label:lootling.gd:3328:0:aa11de5a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297645,13 +297477,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3325,
+        "line": 3328,
         "text": "SIEGE EXTRACTED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3325:1:106840bc",
+      "slot_id": "label:lootling.gd:3328:1:106840bc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297678,13 +297510,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3325,
+        "line": 3328,
         "text": "SIEGE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3326:0:4943fd98",
+      "slot_id": "label:lootling.gd:3329:0:4943fd98",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297711,13 +297543,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3326,
+        "line": 3329,
         "text": "RUN SCRIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3326:1:eb10c001",
+      "slot_id": "label:lootling.gd:3329:1:eb10c001",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297744,13 +297576,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3326,
+        "line": 3329,
         "text": "SIEGE EMBERS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3326:2:c6f00561",
+      "slot_id": "label:lootling.gd:3329:2:c6f00561",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297777,13 +297609,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3326,
+        "line": 3329,
         "text": "Wave reached  %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3326:3:7ac2a5ca",
+      "slot_id": "label:lootling.gd:3329:3:7ac2a5ca",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297810,13 +297642,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3326,
+        "line": 3329,
         "text": "Round reached  %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3329:0:d3c6e300",
+      "slot_id": "label:lootling.gd:3332:0:d3c6e300",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297843,13 +297675,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3329,
+        "line": 3332,
         "text": "ROOTGLASS VAULT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3329:1:84089e35",
+      "slot_id": "label:lootling.gd:3332:1:84089e35",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297876,13 +297708,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3329,
+        "line": 3332,
         "text": "RELIC ROUTE CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3329:2:7f403abb",
+      "slot_id": "label:lootling.gd:3332:2:7f403abb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297909,13 +297741,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3329,
+        "line": 3332,
         "text": "ROUTE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3330:0:c6f00561",
+      "slot_id": "label:lootling.gd:3333:0:c6f00561",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297942,13 +297774,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3330,
+        "line": 3333,
         "text": "Wave reached  %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3330:1:49e79ce8",
+      "slot_id": "label:lootling.gd:3333:1:49e79ce8",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -297975,13 +297807,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3330,
+        "line": 3333,
         "text": "Rooms entered  %d / 8 • Seed %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3398:0:6ae99955",
+      "slot_id": "label:lootling.gd:3401:0:6ae99955",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298008,13 +297840,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3398,
+        "line": 3401,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3398:1:e8fef4b9",
+      "slot_id": "label:lootling.gd:3401:1:e8fef4b9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298041,13 +297873,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3398,
+        "line": 3401,
         "text": "Loot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3796:0:d5954590",
+      "slot_id": "label:lootling.gd:3799:0:d5954590",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298074,13 +297906,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3796,
+        "line": 3799,
         "text": "EMBERS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3796:1:5c83506e",
+      "slot_id": "label:lootling.gd:3799:1:5c83506e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298107,13 +297939,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3796,
+        "line": 3799,
         "text": "SCRIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3805:0:e4fbbd8b",
+      "slot_id": "label:lootling.gd:3808:0:e4fbbd8b",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298140,13 +297972,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3805,
+        "line": 3808,
         "text": "WARD %.0f",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3890:0:089331a2",
+      "slot_id": "label:lootling.gd:3894:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298173,13 +298005,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3890,
+        "line": 3894,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3891:0:e29764e7",
+      "slot_id": "label:lootling.gd:3895:0:e29764e7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298206,13 +298038,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3891,
+        "line": 3895,
         "text": "DETAILS: PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4023:0:56d441fc",
+      "slot_id": "label:lootling.gd:4021:0:56d441fc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -298239,7 +298071,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4023,
+        "line": 4021,
         "text": "COMBO ×%d",
         "dynamic_template": true
       }
@@ -332162,7 +331994,7 @@
       "state": null,
       "facing": null,
       "weapon_family": null,
-      "status": "REJECTED_IDENTITY_DRIFT",
+      "status": "REFERENCE_ONLY",
       "launch_scope": false,
       "canonical_source": "art/reference/phase4e_handoff/approved_references/01_Hoard_Dragon_Canonical_Reference.png",
       "source_crop": null,
@@ -332183,13 +332015,7 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
-        "rejection": {
-          "path": "art/reference/phase4e_handoff/approved_references/01_Hoard_Dragon_Canonical_Reference.png",
-          "sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
-          "status": "REFERENCE_REJECTED_IDENTITY_DRIFT",
-          "reason": "Winged quadruped body changes established wingless/coiled dragon. Only compatible single-tail anatomy/state/VFX guidance permitted.",
-          "runtime_allowed": false
-        }
+        "rejection": null
       }
     },
     {
@@ -332314,7 +332140,7 @@
       "state": null,
       "facing": null,
       "weapon_family": null,
-      "status": "REJECTED_IDENTITY_DRIFT",
+      "status": "REFERENCE_ONLY",
       "launch_scope": false,
       "canonical_source": "art/reference/phase4e_handoff/approved_references/05_Hoard_Dragon_User_Reference.png",
       "source_crop": null,
@@ -332335,13 +332161,7 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "1e3437256674f7a2983717184f8f00ee4d814cf7633af44176502e25056eaebf",
-        "rejection": {
-          "path": "art/reference/phase4e_handoff/approved_references/05_Hoard_Dragon_User_Reference.png",
-          "sha256": "1e3437256674f7a2983717184f8f00ee4d814cf7633af44176502e25056eaebf",
-          "status": "REFERENCE_REJECTED_IDENTITY_DRIFT",
-          "reason": "Same winged reinterpretation. Compatible continuous-tail guidance only; not production body approval.",
-          "runtime_allowed": false
-        }
+        "rejection": null
       }
     },
     {
@@ -334709,6 +334529,134 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "f931ca85202109c0e9df8b38fae91b59e0de2ff985b2719aa567677dd7b46eb4",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/continuous_combat/hoard_dragon/winged_initial_left.png",
+      "game_id": "winged_initial_left",
+      "category": "reference",
+      "subject": "winged_initial_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/continuous_combat/hoard_dragon/winged_initial_left.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "cda9e59926204f3fbe1003b913832c56ba4ddbcf174f301046d0d84e2defe667",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/continuous_combat/hoard_dragon/winged_left_v2.png",
+      "game_id": "winged_left_v2",
+      "category": "reference",
+      "subject": "winged_left_v2",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/continuous_combat/hoard_dragon/winged_left_v2.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "7646ed072d3b7ff67acea4cdc41ba568fe636ed1d1bd3d7f605ec5ff12dfd42f",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/continuous_combat/hoard_dragon/winged_right_v1.png",
+      "game_id": "winged_right_v1",
+      "category": "reference",
+      "subject": "winged_right_v1",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/continuous_combat/hoard_dragon/winged_right_v1.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "c8c8a4255c2fe37ba929a757871788a2f04556a712dc59b8b34896d31be04ece",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/continuous_combat/hoard_dragon/wingless_rejected.png",
+      "game_id": "wingless_rejected",
+      "category": "reference",
+      "subject": "wingless_rejected",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/continuous_combat/hoard_dragon/wingless_rejected.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "99b93072d4a2998f37b7d1bb95c35e315793c550be30df17a9e3eee6896a3f71",
         "rejection": null
       }
     },
@@ -339830,6 +339778,474 @@
       "evidence": {
         "sha256": "56be6c2c61c5695b29eb5480f4cfc87944e31a41b5f12221176a2164bb6046a6",
         "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
+      "game_id": "act_i_claws_commit_left",
+      "category": "combat_art",
+      "subject": "act_i_CLAWS_commit_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "0a45645ca671fecbe513b43fceaf1716977bffcb2e6ce927dde25af34405b171",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
+      "game_id": "act_i_claws_commit_right",
+      "category": "combat_art",
+      "subject": "act_i_CLAWS_commit_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "57c7be07cb13824dcf875981d1f466a3a872374272f6294a322841c61fe4792e",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
+      "game_id": "act_i_claws_windup_left",
+      "category": "combat_art",
+      "subject": "act_i_CLAWS_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "bf2068c03e3867033db48e1f40953297bcdc936aedaec3775b1cee8fa712acab",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
+      "game_id": "act_i_claws_windup_right",
+      "category": "combat_art",
+      "subject": "act_i_CLAWS_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "da618725f957f189f7e118b9ba6833e8917d0f2e13e4270b74fb7e5c4d9d54b6",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
+      "game_id": "act_i_defeat_left",
+      "category": "combat_art",
+      "subject": "act_i_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "84369a7e24cc5028b1c0255f2637f4d5455b6c3e8cf2586ecf35e52ad689d847",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png",
+      "game_id": "act_i_defeat_right",
+      "category": "combat_art",
+      "subject": "act_i_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "e467928d60567bf904d766eb942c15adff2c675a1b5e8c2ef763fd3d4e023dc6",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
+      "game_id": "act_i_hurt_left",
+      "category": "combat_art",
+      "subject": "act_i_hurt_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "d667c0be8cb21e1f84d9b1edc7bbb51aeaff72b3c1f81b1602088178f2af073b",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
+      "game_id": "act_i_hurt_right",
+      "category": "combat_art",
+      "subject": "act_i_hurt_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "c26fd045cc6b477112b35fe495015f2ef64294f7b4dcd50dd84b81c0accc109d",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+      "game_id": "act_i_idle_left",
+      "category": "combat_art",
+      "subject": "act_i_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "872bca13631feab82ed96922ab43bf33421d91fdb2bd989e37aef8e4f73094df",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
+      "game_id": "act_i_idle_right",
+      "category": "combat_art",
+      "subject": "act_i_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "be8b5e94dac85dd00ce7cec7c9854933b39edb0821fd4412ce10ed2e2bda596b",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
+      "game_id": "act_i_recovery_left",
+      "category": "combat_art",
+      "subject": "act_i_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "8ab37525b9b569756cc42aee6e032f8b996eaede4bf5d63891795109bd814de2",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
+      "game_id": "act_i_recovery_right",
+      "category": "combat_art",
+      "subject": "act_i_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
+      "target_production_path": "art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "boss_presentation.gd"
+      ],
+      "implementation_file": [
+        "boss_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "830c156a697d3d97773080ace8baa6837d0456e2a9f8aa6c598d19ff8858b7b2",
+        "usage": "static resource or documented dynamic loader"
       }
     },
     {
@@ -367042,6 +367458,8 @@
           "reset",
           "register_enemy",
           "update_health",
+          "record_contact",
+          "record_incoming",
           "step",
           "health_ratio",
           "attack_cue",
@@ -367665,6 +368083,8 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "methods": [
+          "feet_anchor",
+          "grounded_transform",
           "glasswing",
           "draw_wings",
           "verdant"
@@ -368234,6 +368654,7 @@
       "evidence": {
         "methods": [
           "contact",
+          "draw_contact",
           "element"
         ]
       }

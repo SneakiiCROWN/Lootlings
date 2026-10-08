@@ -1,0 +1,62 @@
+{
+  "base_checkpoint": "db2a0f7",
+  "canon_authority": "art/hoard_dragon_identity_authority.json",
+  "installed_runtime_art_cells": 12,
+  "installed_artist_files": 24,
+  "by_category": {
+    "playable_lootlings": 0,
+    "wanderers": 0,
+    "enemies": 0,
+    "bosses": 12,
+    "npcs": 0,
+    "companions": 0,
+    "Home": 0
+  },
+  "assets": [
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_left.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_left.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_hurt_left.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_recovery_left.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_defeat_left.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_right.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_windup_right.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_CLAWS_commit_right.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_hurt_right.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_recovery_right.png",
+    "res://art/sprites/enemies/approved/hoard_dragon/act_i_defeat_right.png"
+  ],
+  "contract_slot_ids": [
+    "pose:act_i:idle:left:None",
+    "pose:act_i:CLAWS windup:left:None",
+    "pose:act_i:CLAWS commit:left:None",
+    "pose:act_i:hurt:left:None",
+    "pose:act_i:recovery:left:None",
+    "pose:act_i:defeat:left:None",
+    "pose:act_i:idle:right:None",
+    "pose:act_i:CLAWS windup:right:None",
+    "pose:act_i:CLAWS commit:right:None",
+    "pose:act_i:hurt:right:None",
+    "pose:act_i:recovery:right:None",
+    "pose:act_i:defeat:right:None"
+  ],
+  "quarantined_frames": 6,
+  "quarantined_source": "art/source/continuous_combat/hoard_dragon/wingless_rejected.png",
+  "superseded_source_retained": "art/sprites/enemies/hoard_dragon.png",
+  "shared_gameplay_presentation": [
+    "12 weapon families: real socket-to-target material/critical contacts pinned to actual actor",
+    "Ward absorption avoids zero-damage flash/number",
+    "alpha-foot grounded hit/recoil and subdued defeat settling",
+    "Fen Sneak exact approved neutral retained through missing states without claiming missing pose completion"
+  ],
+  "remaining_contracts": 3166,
+  "remaining_artist_files": 8242,
+  "missing_named_hoard_actions": [
+    "BRACE",
+    "COIN BREATH",
+    "TAIL SWEEP",
+    "phase transition",
+    "vulnerability"
+  ],
+  "physical_device_validated": false
+}

@@ -1,18 +1,42 @@
 extends RefCounted
 # Original compact material contacts and elemental shapes, capped at 9 strokes.
-static func contact(g, pos: Vector2) -> void:
-	if g.enemy_flash<=0: return
-	var life: float=clampf(g.enemy_flash/.13,0,1)
-	var material:=preload("res://regional_enemy_presentation.gd").material(g)
-	var heavy: bool=g.inventory.equipped_item("Weapon").get("weapon_type","") in ["greatsword","greataxe","maul"]
-	var critical: bool=g.crit_flash>0
-	var count: int=9 if critical or heavy else 5
+static func contact(g, _pos: Vector2 = Vector2.ZERO) -> void:
+	for event in g.combat_presentation.contacts:
+		draw_contact(g,event)
+	for event in g.combat_presentation.incoming_contacts:
+		var pos: Vector2=event.pos
+		var life: float=clampf(float(event.life)/.18,0,1)
+		var tint:=Color("#a6eaff") if event.ward else Color("#ffb197")
+		g.draw_arc(pos,21,-PI*.8,PI*.8,18,Color(tint,life*.65),2,true)
+		if event.damage:g.draw_line(pos+Vector2(-8,-5),pos+Vector2(10,7),Color("#ffe0bf",life),2,true)
+		if not g.audio_settings.get("cinematic_reduced_motion",false):
+			var origin: Vector2=event.origin
+			g.draw_line(origin.lerp(pos,.72),pos,Color(tint,life*.26),1.4,true)
+
+static func draw_contact(g, event: Dictionary) -> void:
+	var pos: Vector2=event.pos
+	var life: float=clampf(float(event.life)/float(event.duration),0,1)
+	var material: String=event.material
+	var heavy: bool=event.heavy
+	var critical: bool=event.critical
+	var reduced: bool=g.audio_settings.get("cinematic_reduced_motion",false)
+	var count: int=3 if reduced else 9 if critical or heavy else 5
 	var tint: Color={"armour":Color("#fff0ad"),"glass":Color("#b5f5ff"),"stone":Color("#bbb7bb"),"wood":Color("#b5d28c"),"flesh":Color("#ecc39c"),"molten":Color("#ffbb62"),"ethereal":Color("#cab6ff")}[material]
-	if heavy:
-		g.draw_arc(pos,10+(1-life)*30,-2.5,-.6,18,Color(tint,life*.35),2,true)
+	# A short contact stroke bridges the real module socket and struck surface;
+	# it never changes the held art, grip, hit timing or projectile simulation.
+	if event.weapon in ["greatsword","greataxe","maul","spear","daggers","claws"]:
+		var origin: Vector2=event.origin
+		var distance: float=origin.distance_to(pos)
+		if distance>3 and distance<240:
+			var tangent: Vector2=(pos-origin).orthogonal().normalized()*(-8 if event.facing<0 else 8)
+			g.draw_polyline(PackedVector2Array([origin,origin.lerp(pos,.55)+tangent,pos]),Color(tint,life*.42),3 if heavy else 1.7,true)
+	if critical:
+		g.draw_arc(pos,12 if reduced else 12+(1-life)*16,0,TAU,20,Color("#ffe494",life*.7),2,true)
+	if heavy and not reduced:
+		g.draw_arc(pos,10+(1-life)*22,-2.5,-.6,18,Color(tint,life*.35),2,true)
 	for i in range(count):
-		var direction:=Vector2.RIGHT.rotated(-2.85+i*1.35/float(count))*Vector2(-g.enemy_facing_at(pos.x),1)
-		var travel: float=(1-life)*(26+(i%3)*10)*(1.15 if heavy else 1)
+		var direction:=Vector2.RIGHT.rotated(-2.85+i*1.35/float(count))*Vector2(-int(event.facing),1)
+		var travel: float=0 if reduced else (1-life)*(26+(i%3)*10)*(1.15 if heavy else 1)
 		var start:=pos+direction*(8+travel)
 		var end:=start+direction*(8+(i%2)*5)*life
 		if material=="glass":
@@ -24,7 +48,7 @@ static func contact(g, pos: Vector2) -> void:
 			g.draw_line(start,end,Color(tint,life),1,true)
 		elif material in ["armour","molten"]:
 			g.draw_line(start,end,Color(tint,life),2.4 if i<3 else 1.2,true)
-			if i<3: g.draw_circle(end,1.4,Color("#fff6d4",life))
+			if i<3:g.draw_circle(end,1.4,Color("#fff6d4",life))
 		else:
 			g.draw_colored_polygon(PackedVector2Array([start,start+Vector2(4,1),start+Vector2(1,5)]),Color(tint,life*.85))
 

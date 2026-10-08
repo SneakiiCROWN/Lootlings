@@ -289,7 +289,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
 		tint = Color("#fff2ca")
 	tint.a = color.a
-	var hit_scale := (Vector2(1.025,.98) if g.enemy_is_boss else Vector2(1.13,.82)) if g.enemy_squash>0.0 and g.enemy_alive else Vector2.ONE
+	var hit_scale := (Vector2(1.025,.98) if g.enemy_is_boss else Vector2(1.045,.965)) if g.enemy_squash>0.0 and g.enemy_alive else Vector2.ONE
 	var recoil_tilt := clampf(float(g.enemy_recoil) / 24.0, -1.0, 1.0) * 0.08
 	if g.enemy_is_boss: recoil_tilt=clampf(recoil_tilt,-boss_data.recoil_limit,boss_data.recoil_limit)
 	var personality_scale := Vector2.ONE
@@ -330,13 +330,16 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	g.draw_circle(Vector2.ZERO, shadow_radius, Color(0.015, 0.025, 0.06, 0.52 * color.a))
 	var cast_charge := clampf(1.0 - float(g.enemy_attack_clock) / 0.30, 0.0, 1.0) if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else 0.0
 	if cast_charge > 0.0:
-		g.draw_circle(Vector2(pos.x - 25, pos.y - 24), 8.0 + cast_charge * 9.0, Color(0.72, 0.38, 1.0, cast_charge * 0.24))
+		g.draw_circle(Vector2(pos.x + 25*g.enemy_facing_at(pos.x), pos.y - 24), 8.0 + cast_charge * 9.0, Color(0.72, 0.38, 1.0, cast_charge * 0.24))
 	# Existing enemy sprites face left; flip only for a player on their right.
 	var facing_scale:=Vector2(-g.enemy_facing_at(pos.x),1)
 	if not exact_neutral.is_empty(): facing_scale.x=1 # This export already faces the actual target; never mirror it.
 	if g.enemy_is_boss and boss_data.flip_h: facing_scale.x*=-1
 	var entry_scale: float=lerpf(float(boss_data.entrance_scale),1.0,1.0-clampf(float(g.enemy_entry_anim)/.55,0,1)) if g.enemy_is_boss else 1.0
-	g.draw_set_transform(pos,recoil_tilt+personality_tilt+(float(boss_data.rotation) if g.enemy_is_boss else 0.0),hit_scale*personality_scale*extra_scale*facing_scale*entry_scale)
+	if g.audio_settings.get("cinematic_reduced_motion",false):
+		personality_tilt=0; recoil_tilt=0; personality_scale=Vector2.ONE; hit_scale=Vector2.ONE
+	var feet: Vector2=preload("res://enemy_motion.gd").feet_anchor(texture,atlas_region,sprite_rect)
+	g.draw_set_transform_matrix(preload("res://enemy_motion.gd").grounded_transform(pos,recoil_tilt+personality_tilt+(float(boss_data.rotation) if g.enemy_is_boss else 0.0),hit_scale*personality_scale*extra_scale*facing_scale*entry_scale,feet,66*extra_scale))
 	var edge_strength := 3.0 if g.enemy_is_boss else 2.5 if g.enemy_is_miniboss else 1.75
 	var outline_color := Color("#0c1024df")
 	if not str(g.enemy_variant_id).is_empty():

@@ -25,6 +25,10 @@ def main():
     missing=json.loads(read(OUT/'phase4e/extraction/MISSING_ART_MANIFEST.json'))
     extraction=json.loads(read(ROOT/'art/production/phase4e/extraction_manifest.json'))
     pose_sources={r['asset_path']:r for r in json.loads(read(ROOT/'art/production_pose_manifest.json'))['entries']+json.loads(read(ROOT/'art/production/phase4e/runtime_manifest.json'))['entries'] if r.get('asset_path')}
+    boss_rows=[r for r in json.loads(read(ROOT/'art/production_boss_manifest.json'))['entries'] if r.get('native_validated')]
+    boss_sources={(r['region'],(r['action']+' '+r['state']).strip(),r['facing']):r for r in boss_rows}
+    missing['total_missing_cells']-=sum(1 for c in missing['missing'] if (c['game_id'],c['state'],c['facing']) in boss_sources)
+    pose_sources.update({r['asset_path']:r for r in boss_rows})
     crop_sources={r['asset_path']:r for r in extraction['entries']}
     pose_sources.update({r['asset_path']:r for r in json.loads(read(ROOT/'art/production/phase4e/reuse_manifest.json'))['entries']})
     pose_sources.update({r['asset_path']:r for r in json.loads(read(ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json'))['entries']})
@@ -41,6 +45,8 @@ def main():
     for cell in missing['missing']+missing['coverage']:
         absent='asset_path' not in cell;actor=cell['game_id'];state=cell['state'];face=cell['facing'];weapon=cell.get('weapon_family')
         category=cell.get('category','playable')
+        boss=boss_sources.get((actor,state,face))
+        if boss:cell={**cell,'asset_path':boss['asset_path'],'source_canonical_sheet':boss['source_reference']};absent=False
         source=cell.get('source_canonical_sheet'); asset=cell.get('asset_path')
         if actor in npc_authorities:source=npc_authorities[actor]['canonical_source']
         if not absent:
@@ -117,6 +123,7 @@ def main():
         for entry in json.loads(read(new_runtime))['entries']:
             if entry.get('native_validated'):used.setdefault(entry['asset_path'][6:],[]).append('approved_missing_runtime_art.gd')
     for p in missing['coverage']:used.setdefault(p['asset_path'][6:],[]).append('authored_pose_manifest.gd')
+    for p in boss_rows:used.setdefault(p['asset_path'][6:],[]).append('boss_presentation.gd')
     audio_manifest=ROOT/'art/audio/production/sources.json'
     if audio_manifest.exists():
         for record in json.loads(read(audio_manifest)).get('assets',[]):used.setdefault(str(record['asset']).replace('\\','/'),[]).append('audio_system.gd')
@@ -125,7 +132,7 @@ def main():
         rel=p.relative_to(ROOT).as_posix()
         if '/source_pack_final/' in rel:continue # Packaging copies are not new runtime/canon sources.
         if '/reference/' in rel or '/source/' in rel:
-            rejected=next((r for r in references['references'] if r['path'].removeprefix('res://')==rel and not r['runtime_allowed']),None)
+            rejected=next((r for r in references['references'] if r['path'].removeprefix('res://')==rel and not r['runtime_allowed'] and not r.get('identity_authority_allowed')),None)
             add('source:'+rel,'reference',p.stem,'REJECTED_IDENTITY_DRIFT' if rejected else 'REFERENCE_ONLY',canonical_source=rel,launch_scope=False,evidence={'sha256':digest(p),'rejection':rejected},blocker='Reference is not a production state; no new canon approval inferred')
             continue
         category='audio' if '/audio/' in rel else 'world_art' if '/backgrounds/' in rel else 'brand' if '/brand/' in rel or '/app/' in rel else 'ui_art' if '/ui/' in rel else 'combat_art'
@@ -232,7 +239,7 @@ def main():
         elif actor in wanderers:
             images=[p.relative_to(ROOT).as_posix() for p in (ROOT/'art/sprites/wanderers').rglob(actor+'_idle.png')]
         elif actor in ['patch','ilex','sera']:images=['art/sprites/npcs/beta/'+actor+'_idle.png','art/sprites/npcs/beta/'+actor+'_portrait.png']
-        elif actor=='act_i':images=['art/sprites/enemies/hoard_dragon.png']
+        elif actor=='act_i':images=[json.loads((ROOT/'art/hoard_dragon_identity_authority.json').read_text(encoding='utf-8'))['canonical_source']] if (ROOT/'art/hoard_dragon_identity_authority.json').exists() else ['art/sprites/enemies/hoard_dragon.png']
         elif actor in ['mossglass_wilds','cinder_crown']:images=['art/sprites/enemies/beta/'+('verdant_mirror' if actor=='mossglass_wilds' else 'furnace_regent')+'.png']
         if actor in npc_authorities:
             images=[npc_authorities[actor]['canonical_source']];pkg['canonical_sources']=['res://'+images[0]]
@@ -248,7 +255,7 @@ def main():
         pkg['scale_rules']='Uniform scale only, retain complete silhouette and original anatomy. No automatic opposite-view mirror of asymmetric gear/paws.'
         pkg['source_metadata_delivery']='PNG plus JSON: actual per-state primary/secondary palm pixels, Core, ground baseline/pivot, support/nock and foreground layers. Existing rig target coordinates are in state requirements; actual source coordinates remain unknown until a real frame exists.'
     supplemental=[x['external_art_requirement'] for x in json.loads(read(OUT/'phase4e/canon-world/LATER_SYSTEM_INTEGRATION.json'))['items'] if 'external_art_requirement' in x]
-    dump(OUT/'NEEDS_NEW_CANON_EXPORT.json',dict(supplemental_runtime_art_requirements=supplemental,authority='Existing locked identity; final production art cannot be inferred from rejected boards',count_unit='body/view bundles, each containing reusable pose states plus exact family/socket restrictions; not unique files per delivery cell',body_view_packages=len(packages),delivery_cells=missing['total_missing_cells'],support_packages_recalculated=debt,packages=list(packages.values()),notes=['One body pose can support multiple families only after actual socket/occlusion validation. Heavy READY/RELEASE exports already share three families.','Paired/support packages are additive hand/weapon/layer delivery, not thousands of copied complete bodies. Existing 165 count remains after exact matrix rerun.','Moonkip weaponless 512x512 original hooded anatomy is mandatory. Dragon must remain coiled/wingless; correct single actual tail in every boss state.','Request actual source-pixel hand/pivot metadata from authored art; rig coordinates are delivery targets, not fabricated source anatomy.']))
+    dump(OUT/'NEEDS_NEW_CANON_EXPORT.json',dict(supplemental_runtime_art_requirements=supplemental,authority='Existing locked identity; final production art cannot be inferred from rejected boards',count_unit='body/view bundles, each containing reusable pose states plus exact family/socket restrictions; not unique files per delivery cell',body_view_packages=len(packages),delivery_cells=missing['total_missing_cells'],support_packages_recalculated=debt,packages=list(packages.values()),notes=['One body pose can support multiple families only after actual socket/occlusion validation. Heavy READY/RELEASE exports already share three families.','Paired/support packages are additive hand/weapon/layer delivery, not thousands of copied complete bodies. Existing 165 count remains after exact matrix rerun.','Moonkip weaponless 512x512 original hooded anatomy is mandatory. Dragon follows art/hoard_dragon_identity_authority.json: owner-restored winged quadruped with one continuous tail; old coiled runtime is superseded.','Request actual source-pixel hand/pivot metadata from authored art; rig coordinates are delivery targets, not fabricated source anatomy.']))
     summary=['# Permanent master integration manifest','','Current launch/runtime inventory; established canon and stable IDs override all board labels. All current visuals remain LIVE_BETA until explicit final owner acceptance; zero LIVE_FINAL is intentional. This is an inventory of slots, not a claim that every slot is a unique illustration.','','| Status | All records | Current launch slots |','|---|---:|---:|']
     summary += [f'| {s} | {statuses[s]} | {launch[s]} |' for s in STATUSES]
     summary += ['',f'Total records: **{len(rows)}**. Current launch-scope slots: **{sum(launch.values())}**.',f'Exact missing art delivery cells: **{missing["total_missing_cells"]}** grouped into **{len(packages)} body/view bundles**. Whole support packages: **{sum(debt.values())}** ({debt["right"]} right / {debt["left"]} left), from authoritative full-state acceptance; partial windup samples do not close a family.','', f'The {missing["total_missing_cells"]} cells keep their individual state/view/family contracts. Shared body poses and weapon modules group into body/view bundles; the separate support-package count must not be added as unique images. No repeated neutral art, tint substitute or fake movement/attack export closes a slot.','', 'Refresh: isolated Godot reflection → existing exact art recalc → tools/build_master_integration.py. The reflection uses the official [Script constant/method API](https://docs.godotengine.org/en/stable/classes/class_script.html). CSV and JSON are generated together. Do not edit generated rows by hand; update the underlying catalogs or extraction/approval contracts, regenerate and validate.','', 'Historical 2026-09/Phase2 broad scope is retained as NOT_REQUIRED_FOR_CURRENT_LAUNCH spec records. Edda is a board-only unimplemented label, not a promoted Home NPC. Existing Patch/Ilex/Sera and Pack Peddler remain current. The owner now authorizes a bounded companion shell and Home shelf customization; authored pet identity/frames remain open. Future NPC and store art records remain separate.','', 'Runtime assembly opportunities: shared UI icon resource resolution, item-ID→elemental glyph mapping, cached source portraits and compatible heavy pose modules. Accepted canonical extraction, five compatible rune glyphs and resolved inline UI icons are preserved. See START_HERE_CURRENT for the latest checkpoint and next work. Exact art gaps and separate save/audio/owner/device gates remain HOLD.','', '[One consolidated art production package](NEEDS_NEW_CANON_EXPORT.json) · [current status and evidence](START_HERE_CURRENT.md)']

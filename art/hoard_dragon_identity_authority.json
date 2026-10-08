@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "identity_id": "hoard_dragon",
+  "region_id": "act_i",
+  "status": "OWNER_EXPLICIT_CANON_CORRECTION",
+  "owner_direction_date": "2026-10-09",
+  "canonical_source": "art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
+  "canonical_source_sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
+  "identity_lock": "Original winged four-legged dragon; obsidian scales, purple crystal spine and membranes, gold accents, original face/proportions, one continuous tail. No wingless serpent/upright coiled body.",
+  "owner_authorization": "Owner explicitly restored original winged four-legged canon and requested reuse of valid candidates, correction of defects, native testing before runtime replacement.",
+  "superseded_runtime_assets": [
+    "art/sprites/enemies/hoard_dragon.png"
+  ],
+  "preservation_policy": "Keep superseded source files recoverable; retire only the act_i live route after canonical replacement native passes. Do not change Hollow Crown or other bosses.",
+  "runtime_asset_approval": "Canon authority correction is not automatic approval of new animation frames; require visual/native validation per state/facing."
+}

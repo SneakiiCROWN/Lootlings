@@ -4,9 +4,11 @@
     {
       "path": "art/reference/phase4e_handoff/approved_references/01_Hoard_Dragon_Canonical_Reference.png",
       "sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
-      "status": "REFERENCE_REJECTED_IDENTITY_DRIFT",
-      "reason": "Winged quadruped body changes established wingless/coiled dragon. Only compatible single-tail anatomy/state/VFX guidance permitted.",
-      "runtime_allowed": false
+      "status": "OWNER_RESTORED_CANON_REFERENCE",
+      "reason": "Explicit owner correction 2026-10-09: original winged quadruped is canonical; sheet is identity authority, not a runtime body.",
+      "runtime_allowed": false,
+      "identity_authority_allowed": true,
+      "owner_override": "art/hoard_dragon_identity_authority.json"
     },
     {
       "path": "art/reference/phase4e_handoff/approved_references/02_Moonkip_Weaponless_Canonical_Reference.png",
@@ -32,9 +34,11 @@
     {
       "path": "art/reference/phase4e_handoff/approved_references/05_Hoard_Dragon_User_Reference.png",
       "sha256": "1e3437256674f7a2983717184f8f00ee4d814cf7633af44176502e25056eaebf",
-      "status": "REFERENCE_REJECTED_IDENTITY_DRIFT",
-      "reason": "Same winged reinterpretation. Compatible continuous-tail guidance only; not production body approval.",
-      "runtime_allowed": false
+      "status": "OWNER_RESTORED_CANON_REFERENCE",
+      "reason": "Explicit owner correction 2026-10-09: original winged quadruped is canonical; sheet is identity authority, not a runtime body.",
+      "runtime_allowed": false,
+      "identity_authority_allowed": true,
+      "owner_override": "art/hoard_dragon_identity_authority.json"
     }
   ],
   "frozen_sources": [

@@ -1,0 +1,43 @@
+{
+  "region": "act_i",
+  "identity_id": "hoard_dragon",
+  "state": "idle",
+  "action": "",
+  "facing": "left",
+  "asset_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+  "canvas": [
+    2048,
+    2048
+  ],
+  "anchor": [
+    0.5,
+    1.0
+  ],
+  "content_rect": [
+    781,
+    1662,
+    485,
+    354
+  ],
+  "native_pixel_scale": 0.42,
+  "source_reference": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
+  "source_sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
+  "asset_sha256": "872bca13631feab82ed96922ab43bf33421d91fdb2bd989e37aef8e4f73094df",
+  "authored_source": "art/source/continuous_combat/hoard_dragon/winged_left_v2.png",
+  "authored_source_sha256": "7646ed072d3b7ff67acea4cdc41ba568fe636ed1d1bd3d7f605ec5ff12dfd42f",
+  "authored_source_bounds": [
+    38,
+    110,
+    523,
+    464
+  ],
+  "production_status": "canon_validated_runtime",
+  "owner_approval": "Owner explicitly restored original winged four-legged canon on 2026-10-09 and authorized validated production; individual frame runtime acceptance requires native review.",
+  "native_validated": true,
+  "contract_slot_id": "pose:act_i:idle:left:None",
+  "missing_states_remain_open": true,
+  "temporal_vfx": "separate runtime; no baked weapon, background, charge or impacts",
+  "source_quality": "Original generated character pixels retained without flip/recolour/resampling; 2048 canvas is padding, not a claim of 2048 detail.",
+  "native_qa": "winged-dragon-accepted-pixels-050331b3a7",
+  "visual_acceptance": "Compared against dedicated original winged quadruped reference; reviewed live phone/tablet/desktop, both facings, six states, actual claw-to-settle transition. No mirroring or reference-board bodies."
+}

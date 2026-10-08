@@ -1,3 +1,5 @@
+> **Owner canon correction — 2026-10-09:** Hoard Dragon is the original winged four-legged obsidian/purple/gold design with one continuous tail. `art/hoard_dragon_identity_authority.json` and its dedicated original sheet supersede older wingless/coiled statements below. The old body is preserved for recovery and other explicitly unchanged routes; it is not Hoard Dragon identity authority. New state/facing acceptance requires native review.
+
 ## Phase4E canon/world integration checkpoint — 2026-10-06
 
 Implementation **2d3a8028594f714a7b9b1889233db5d4967c9451** (main batch 34939d5 plus the native-reviewed caption correction) preserves the accepted 79fecef source-sync checkpoint. Android **v29 / 0.4.20-phase4e-canon-world** is the next owner-test delivery (`builds/android/Lootlings-phase4e-canon-world-debug.apk`); receipt and scoped acceptance are in [the canon/world report](docs/production/phase4e/canon-world/REPORT.md).

@@ -787,7 +787,7 @@
       "frame",
       "enemy_neutral"
     ],
-    "source_sha256": "377f3fd05384ca5ca6b5ed8bf91707881722ee28ec3ee9910ccf83127a5ed0e1"
+    "source_sha256": "6ce76c1e4db3662c3928a754ba20c37694a87b7cb45da4cec15e1a25171b6b59"
   },
   "audio_manager.gd": {
     "constants": {
@@ -1365,7 +1365,7 @@
       "valid",
       "state_for"
     ],
-    "source_sha256": "8edbbc04907506e8e2ac98db56b5931b7a7aa63e5c8c6bc4b8bd3f631f843507"
+    "source_sha256": "a2c602bbedea566ed9bd52d30ad80b60f95567ec22175d1fcbe7374ad0716ff7"
   },
   "boss_audio_identity.gd": {
     "constants": {},
@@ -1699,7 +1699,7 @@
       "motion",
       "draw_identity"
     ],
-    "source_sha256": "bd455636dad2b3ca782bffa41994ad39a4a93fd61e209f7b3a9f89f0890bf296"
+    "source_sha256": "352143e8ed76c21548e4048edcf608db380351574b021896c5095229623cfc4c"
   },
   "build_system.gd": {
     "constants": {
@@ -2146,18 +2146,22 @@
     "source_sha256": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68"
   },
   "combat_presentation.gd": {
-    "constants": {},
+    "constants": {
+      "CONTACT_LIMIT": 12
+    },
     "methods": [
       "name_lines",
       "reset",
       "register_enemy",
       "update_health",
+      "record_contact",
+      "record_incoming",
       "step",
       "health_ratio",
       "attack_cue",
       "draw_cue"
     ],
-    "source_sha256": "076ec1401486dc5d4a0466cc74500d1a178a6b2a51869bc75314bcbd7f9214d3"
+    "source_sha256": "5c7271501229a79b760f8931f6153efed928b5015e3ff3595263f4cbae6f426b"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -3304,7 +3308,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "2e076f40853737da65c0c7b6a7eaf78f3f0feafdd8c9995f48cde839020de197"
+    "source_sha256": "c695f9902ba6445ffc756678d1bc617cde9f96c1bdf8b59296eb3c9e0b0bfe67"
   },
   "debug_panel.gd": {
     "constants": {},
@@ -3959,11 +3963,13 @@
   "enemy_motion.gd": {
     "constants": {},
     "methods": [
+      "feet_anchor",
+      "grounded_transform",
       "glasswing",
       "draw_wings",
       "verdant"
     ],
-    "source_sha256": "05ec8454aebbb3630a25722edea5fd2346e7937255485276b18cb07dff4b4490"
+    "source_sha256": "8e76aab8a63a08de78431f82f7b9030d3342325387fbc3629d7a668faeb88542"
   },
   "enemy_variant_catalog.gd": {
     "constants": {
@@ -5243,9 +5249,10 @@
     "constants": {},
     "methods": [
       "contact",
+      "draw_contact",
       "element"
     ],
-    "source_sha256": "1ed3c7973f87a66c477fc99dc555b9a165079e51229ed10387b847994502e8e4"
+    "source_sha256": "c81b6e198930b1b2368d3b2913f9bb7ef0129a46bac192ea3e5aa24a7d0ee08c"
   },
   "inventory_system.gd": {
     "constants": {
@@ -6882,7 +6889,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "a5d041b2aabadfb4a761d3c23a9f756c223d39ba29ebf9aedcef483ddcd27081"
+    "source_sha256": "d101e3d1a2f887c4beedd03075972872b21fee9c64f43b8cf90222a23256309a"
   },
   "lootling_catalog.gd": {
     "constants": {

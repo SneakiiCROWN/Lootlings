@@ -21,7 +21,11 @@ static func select_frame(region: String, state: String, action: String, facing: 
 	return {}
 
 static func valid(row: Dictionary) -> bool:
-	if row.get("production_status","")!="owner_approved_beta" or str(row.get("owner_approval","")).is_empty(): return false
+	var status: String=row.get("production_status","")
+	var preview: bool=status=="staged_canon_candidate" and OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_QA_DRAGON_PREVIEW")=="1"
+	if status not in ["owner_approved_beta","canon_validated_runtime"] and not preview:return false
+	if str(row.get("owner_approval","")).is_empty():return false
+	if status=="canon_validated_runtime" and not row.get("native_validated",false):return false
 	if not Patterns.PATTERNS.has(row.get("region","")): return false
 	if row.get("state","") not in ["idle","windup","commit","hurt","recovery","defeat"]: return false
 	if row.get("facing","") not in ["left","right"]: return false
@@ -42,6 +46,7 @@ static func state_for(g) -> Dictionary:
 	if g.enemy_flash>0: return {"state":"hurt","action":""}
 	if g.boss_recovery>0: return {"state":"recovery","action":""}
 	if g.combat_presentation.boss_action_time>0:
+		if g.combat_presentation.boss_action_time<=.18:return {"state":"recovery","action":""}
 		var action: String=g.combat_presentation.boss_action
 		if action in ["RECOVER","COOLING"]: return {"state":"recovery","action":""}
 		return {"state":"commit","action":action}

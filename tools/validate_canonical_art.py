@@ -29,6 +29,7 @@ def validate():
             errors.append('Frozen source changed/missing; owner review required: '+row['path'])
     poses=json.loads((ROOT/'art/production_pose_manifest.json').read_text(encoding='utf-8'))['entries']
     bosses=json.loads((ROOT/'art/production_boss_manifest.json').read_text(encoding='utf-8'))['entries']
+    authority=json.loads((ROOT/'art/hoard_dragon_identity_authority.json').read_text(encoding='utf-8'))
     keys=set()
     preserved=set(registry['preserved_pose_keys'])
     checksums={}
@@ -57,7 +58,9 @@ def validate():
             if key in keys: errors.append('Duplicate boss state/view: '+str(key))
             keys.add(key)
             source=row.get('source_reference','')
-            if row.get('production_status')!='owner_approved_beta' or not row.get('owner_approval'):
+            if row.get('region')=='act_i' and (source.removeprefix('res://')!=authority['canonical_source'] or row.get('source_sha256')!=authority['canonical_source_sha256']):
+                errors.append('Hoard Dragon must obey explicit owner original winged authority: '+path)
+            if row.get('production_status') not in ['owner_approved_beta','canon_validated_runtime'] or not row.get('owner_approval') or (row.get('production_status')=='canon_validated_runtime' and not row.get('native_validated',False)):
                 errors.append('Boss export lacks explicit owner approval: '+path)
             if not path.startswith('res://art/sprites/enemies/approved/'):
                 errors.append('Boss export outside approved frame directory: '+path)
@@ -133,7 +136,7 @@ def validate():
         if re.search(r'res://art/(?:reference/phase4e_handoff|sprites/enemies/handoff)/',p.read_text(encoding='utf-8-sig')):
             errors.append('Runtime references rejected handoff art: '+p.name)
     if errors: raise ValueError('\n'.join(errors))
-    return {'frozen_sources':len(registry['frozen_sources']),'rejected_boards':len(registry['references']),
+    return {'frozen_sources':len(registry['frozen_sources']),'rejected_boards':sum(r['status']=='REFERENCE_REJECTED_IDENTITY_DRIFT' for r in registry['references']),
             'preserved_pose_rows':len(poses),'approved_boss_frames':len(bosses),'art_accepted':False}
 
 def sha_file(path):

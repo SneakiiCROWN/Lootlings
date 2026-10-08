@@ -2317,6 +2317,7 @@ func apply_weapon_evolution(subtype: String, origin_serial: int, opening: bool) 
 		enemy_encounter.splash(self, extra, identity, origin_serial)
 
 func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = false) -> void:
+	combat_presentation.record_contact(self,is_crit,is_heavy)
 	var chime_was_primed := enemy_chime_primed
 	amount *= enemy_hit_multiplier
 	var health_removed := minf(amount,maxf(0.0,enemy_hp))
@@ -2464,6 +2465,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	play_character_voice("attack",false)
 	var absorbed := minf(player_ward,damage)
 	player_ward -= absorbed; damage -= absorbed
+	combat_presentation.record_incoming(self,absorbed,damage)
 	player_hp -= damage
 	if enemy_variant_id == "leeching" and damage > 0:
 		enemy_hp = minf(enemy_max_hp,enemy_hp+minf(6,damage*.35))
@@ -2472,8 +2474,9 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	play_character_voice("hurt",true)
 	run_damage_taken += damage
 	player_flash = 0.13
-	screen_shake = 0.08
-	add_float("-%.0f" % damage, Vector2(150, 432), Color("#ff7a84"), 19)
+	screen_shake = 0.02 if damage<=0 else 0.08
+	if absorbed>0: add_float("WARD −%.0f" % absorbed,Vector2(150,402),Color("#9eeaff"),17)
+	if damage>0: add_float("-%.0f" % damage, Vector2(150, 432), Color("#ff7a84"), 19)
 	add_particles(Vector2(170, 478), Color("#ff768c"), 5)
 	if player_hp <= 0.0 and inventory.has_signature("last_lantern") and not last_lantern_spent:
 		last_lantern_spent = true
@@ -3666,14 +3669,14 @@ func record_projectile_impact(projectile: Dictionary) -> void:
 func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) -> void:
 	pos.y+=40
 	var proc_name := text_value.get_slice(" ",0)
-	if proc_name in ["ARC","QUAKE","WILDFIRE","GEAR","RELIC","WARD"] or size_value <= 15:
+	if proc_name in ["ARC","QUAKE","WILDFIRE","GEAR","RELIC"] or (proc_name == "WARD" and not text_value.begins_with("WARD −")) or size_value <= 15:
 		var element := "lightning" if proc_name == "ARC" else "fire" if proc_name in ["WILDFIRE","BURN"] else "poison" if proc_name in ["POISON","VENOM"] else "neutral"
 		proc_texture = LootlingsUI.icon("core_"+element); proc_timer = .7
 		return
 	var is_dot := size_value <= 15
 	var prefix := text_value.get_slice(" ", 0)
 	var lane := "damage"
-	if text_value.begins_with("-"):
+	if text_value.begins_with("-") or text_value.begins_with("WARD −"):
 		lane = "player"
 	elif text_value.contains("SCRIP") or text_value.contains("LOOT") or text_value.contains("HOARD"):
 		lane = "reward"
@@ -3857,6 +3860,7 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_attack_ratio := clampf(enemy_attack_anim / 0.18, 0.0, 1.0)
 		var enemy_lunge: float = preload("res://boss_presentation.gd").profile(campaign_id).attack_distance if enemy_is_boss else 10.0 if enemy_is_miniboss or enemy_archetype == "tank" else 15.0
 		behavior_offset.x -= enemy_attack_ratio * enemy_lunge
+		behavior_offset.y=0 # Grounded bodies breathe about their feet, not by floating.
 		behavior_offset.x*=-enemy_facing_at(enemy_stage_x)
 		var enemy_pos := preload("res://combat_stage.gd").enemy_position(self,enemy_stage_x) + Vector2((enemy_recoil + entry_offset)*-enemy_facing_at(enemy_stage_x),0) + behavior_offset + shake
 		draw_enemy(enemy_pos, enemy_color)
@@ -3866,7 +3870,7 @@ func draw_arena(shake: Vector2) -> void:
 		var death_progress := 1.0 - enemy_death_anim / death_duration
 		var death_color := enemy_color
 		death_color.a = 1.0 - death_progress
-		draw_enemy(preload("res://combat_stage.gd").enemy_position(self,enemy_stage_x)+Vector2(death_progress * 35.0*-enemy_facing_at(enemy_stage_x),-death_progress * 38.0) + shake, death_color, 1.0 + death_progress * 0.28)
+		draw_enemy(preload("res://combat_stage.gd").enemy_position(self,enemy_stage_x)+Vector2(death_progress * 12.0*-enemy_facing_at(enemy_stage_x),0) + shake, death_color, 1.0)
 	if status_clock > 0.0 and show_combat_context:
 		draw_rect(Rect2(67, 662, 346, 36), Color("#091127d6"), true)
 		draw_rect(Rect2(67, 662, 346, 36), Color("#b98b477a"), false, 1)
@@ -3922,12 +3926,6 @@ func draw_effects() -> void:
 		color.a = alpha
 		draw_circle(particle.pos, 3.0 + 3.0 * alpha, color)
 	var impact_center := target_combat_visual_position()+Vector2(enemy_recoil*-enemy_facing_at(target_combat_position().x),-29)
-	if crit_flash > 0.0:
-		var crit_ratio := clampf(crit_flash / 0.18, 0.0, 1.0)
-		for ray in range(8):
-			var direction := Vector2.RIGHT.rotated(TAU * ray / 8.0)
-			draw_line(impact_center + direction * (32.0 - crit_ratio * 8.0), impact_center + direction * (54.0 + (1.0 - crit_ratio) * 16.0), Color(1.0, 0.88, 0.32, crit_ratio), 3.0)
-		draw_arc(impact_center, 28.0 + (1.0 - crit_ratio) * 24.0, 0.0, TAU, 24, Color(1.0, 0.95, 0.64, crit_ratio), 3.0)
 	preload("res://impact_presentation.gd").contact(self,impact_center)
 	if element_flash > 0.0:
 		preload("res://impact_presentation.gd").element(self,impact_center,element_flash_identity,clampf(element_flash/.24,0,1))
