@@ -1,0 +1,26 @@
+{
+  "run": "shared-gameplay-regression-e58b4964ed",
+  "results": [
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 9.61,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "name": "rc_reward_qa",
+      "exit": 0,
+      "seconds": 1.85,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "name": "rc_save_qa",
+      "exit": 0,
+      "seconds": 0.27,
+      "errors": [],
+      "expected_diagnostics": []
+    }
+  ]
+}

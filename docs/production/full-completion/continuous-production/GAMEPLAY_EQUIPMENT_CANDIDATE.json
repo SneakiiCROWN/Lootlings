@@ -1,0 +1,60 @@
+{
+  "version": "0.4.35-gameplay-equipment",
+  "android_version_code": 44,
+  "build_type": "signed arm64 Android debug and Windows desktop candidate",
+  "files": [
+    {
+      "path": "builds\\android\\Lootlings-0.4.35-gameplay-equipment-debug.apk",
+      "bytes": 188749206,
+      "sha256": "15eaf2ad5b1bc466e40093a58b9b8146424268a72f88278fbccc21c46bbcbc46"
+    },
+    {
+      "path": "builds\\windows\\Lootlings-0.4.35-gameplay-equipment.exe",
+      "bytes": 103136768,
+      "sha256": "0d80300967c3dac73243a70db63cdedeb200173d77bbc5a8205dc75db88c2d1d"
+    },
+    {
+      "path": "builds\\windows\\Lootlings-0.4.35-gameplay-equipment.pck",
+      "bytes": 163902796,
+      "sha256": "f2a7d3c0494f05675615c40d103370ef74534bb4ed8473ff55fc1e22042800e7"
+    }
+  ],
+  "compiled_native_results": [
+    {
+      "name": "compiled-pck-gameplay-owner-route",
+      "exit": 0,
+      "errors": [],
+      "seconds": 28.92
+    },
+    {
+      "name": "compiled-pck-world-owner-route",
+      "exit": 0,
+      "errors": [],
+      "seconds": 18.61
+    },
+    {
+      "name": "windows-normal-startup",
+      "exit": 0,
+      "errors": [],
+      "seconds": 4.58
+    }
+  ],
+  "native_viewports": [
+    "1080x2340",
+    "1200x1920",
+    "1920x1080"
+  ],
+  "fixture_runner": "Godot 4.7.2 loading the actual exported Windows PCK; the shipping executable disallows scripted path overrides. Shipping executable separately launched normally with --quit-after 120.",
+  "physical_android_tested": false,
+  "android_device_connected": false,
+  "apk_12_armour_imports": "PASS; actual payload hashes and sidecars match installed files",
+  "branding": "PASS; actual APK launcher/adaptive/monochrome/splash and Windows PE icon compared to original approved artwork",
+  "approved_title_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "new_inventory_icons": 12,
+  "new_runtime_pose_cells": 0,
+  "new_frozen_master_contracts_closed": 0,
+  "rejected_initial_icons_corrected": 2,
+  "live_scene": "main.tscn (scene file unchanged); runtime scripts updated",
+  "previous_checkpoint": "323ffbc",
+  "save_safety": "Disposable isolated QA data; existing save schema, IDs, mechanics and economy preserved."
+}

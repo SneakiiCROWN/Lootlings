@@ -1,0 +1,31 @@
+{
+  "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+  "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+  "bounds": [
+    751.0,
+    377.0,
+    1067.0,
+    700.0
+  ],
+  "height": 323.0,
+  "id": "thorn_receipt",
+  "output": "art/production/phase4e/items/armour_inventory_v1/thorn_receipt.png",
+  "rejected": false,
+  "role": "static inventory icon only; not a worn body/outfit layer",
+  "runtime_sha256": "61a82826d69d33b3b9d5e82d44d5642d02e831dafd18cb52175360ffd83f4695",
+  "source": "art/source/continuous_armour/armour_batch_v1.png",
+  "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+  "visual_identity_review": "approved gear family material language and current item description match",
+  "width": 316.0,
+  "native_review": {
+    "status": "PASS",
+    "viewports": [
+      "1080x2340",
+      "1200x1920",
+      "1920x1080"
+    ],
+    "large_and_40_unit_icons": true,
+    "actual_item_selector": true,
+    "scope": "inventory only; no outfit/body/pose contract closed"
+  }
+}

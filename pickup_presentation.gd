@@ -20,7 +20,7 @@ static func draw_item(g, drop: Dictionary) -> void:
 	var color: Color = drop.color
 	var rarity: String = drop.get("rarity",drop.item.get("rarity","COMMON"))
 	var rank: int = preload("res://item_catalog.gd").rarity_rank(rarity)
-	var pulse := 1+sin(g.run_time*3+pos.x)*.035
+	var pulse := 1.0 if g.audio_settings.get("cinematic_reduced_motion",false) else 1+sin(g.run_time*3+pos.x)*.035
 	# Real item cutout dominates; low ellipse and rarity seal replace debug badges.
 	g.draw_set_transform(pos+Vector2(0,18),0,Vector2(1,.24))
 	g.draw_circle(Vector2.ZERO,24,Color("#07122588"))
@@ -43,8 +43,9 @@ static func draw_item(g, drop: Dictionary) -> void:
 		# A compact ink backing keeps labels readable over bright floors/enemies.
 		g.draw_rect(Rect2(name_x-3,pos.y+28,226,34),Color("#071027dd"))
 		var name: String = str(drop.item.get("name","Treasure"))
-		g.draw_string_outline(g.body_font,name_pos,name,HORIZONTAL_ALIGNMENT_CENTER,220,13,3,Color("#071027"))
-		g.draw_string(g.body_font,name_pos,name,HORIZONTAL_ALIGNMENT_CENTER,220,13,color.lightened(.3))
+		var name_size := UI.fitted_font_size(g.body_font,name,220,13,10)
+		g.draw_string_outline(g.body_font,name_pos,name,HORIZONTAL_ALIGNMENT_CENTER,220,name_size,3,Color("#071027"))
+		g.draw_string(g.body_font,name_pos,name,HORIZONTAL_ALIGNMENT_CENTER,220,name_size,color.lightened(.3))
 		var type_text: String = rarity.capitalize()+" · "+g.ItemCatalog.display_slot(drop.item.get("slot","Relic"))
 		g.draw_string_outline(g.body_font,Vector2(name_x,pos.y+57),type_text,HORIZONTAL_ALIGNMENT_CENTER,220,12,3,Color("#071027"))
 		g.draw_string(g.body_font,Vector2(name_x,pos.y+57),type_text,HORIZONTAL_ALIGNMENT_CENTER,220,12,Color("#e6edff"))

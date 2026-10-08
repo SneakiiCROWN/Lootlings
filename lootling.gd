@@ -2774,6 +2774,7 @@ func show_boss_reward() -> void:
 		boss_reward_buttons[i].text = boss_reward_card_text(item)
 		boss_reward_buttons[i].add_theme_font_size_override("font_size", 13)
 		apply_button_style(boss_reward_buttons[i], Color("#24264f"), ItemCatalog.rarity_color(item.rarity))
+		LootlingsUI.apply_rarity_card(boss_reward_buttons[i], ItemCatalog.rarity_color(item.rarity))
 		var visuals: Dictionary = boss_reward_visuals[i]
 		visuals.kicker.text = "%s  •  %s" % [str(item.rarity), ItemCatalog.display_slot(item.get("slot", "Relic")).to_upper()]
 		visuals.kicker.add_theme_color_override("font_color", ItemCatalog.rarity_color(item.rarity).lightened(0.25))
@@ -3083,6 +3084,7 @@ func refresh_merchant_ui() -> void:
 		button.tooltip_text = "%s\n%s" % [item.name, ItemCatalog.describe_headline_effects(item, 2)]
 		button.disabled = shop.purchase_taken
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
+		LootlingsUI.apply_rarity_card(button, ItemCatalog.rarity_color(item.rarity))
 		# Keep the semantic button text, but render its information in an icon-safe lane.
 		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
 			button.add_theme_color_override(state_name, Color.TRANSPARENT)
@@ -3172,6 +3174,7 @@ func show_upgrade_choices() -> void:
 		LootlingsUI.apply_selection(upgrade_buttons[i],false)
 		upgrade_buttons[i].text = format_upgrade_card(up, stacks)
 		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
+		LootlingsUI.apply_rarity_card(upgrade_buttons[i], GameCatalog.rarity_color(up.rarity))
 		# Keep the Button's complete semantic text for accessibility/tests; its
 		# visible layers give rarity, name and effect distinct hierarchy.
 		for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
@@ -3791,11 +3794,19 @@ func draw_hud() -> void:
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
 	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
 	draw_string(body_font, Vector2(334, 51), "EMBERS" if retention.siege else "SCRIP", HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
-	draw_bar(Rect2(18, 80, 444, 4), xp / xp_needed, Color("#1d2948"), Color("#55caef"), "", 10)
-	if xp_counter_flash > 0.0:
-		var xp_pulse := xp_counter_flash / 0.24
-		draw_rect(Rect2(18, 80, 444, 4), Color(0.45, 0.90, 1.0, xp_pulse * 0.22), true)
-	draw_bar(Rect2(60, 57, 402, 19), player_hp / player_max_hp, Color("#38263d"), Color("#5ed78a"), ("LV %d • HP %.0f / %.0f • WARD %.0f" % [level,player_hp,player_max_hp,player_ward]) if player_ward > 0 else "LV %d • HP %.0f / %.0f" % [level,player_hp, player_max_hp], 12, combat_presentation.health_ratio(-1))
+	# A readable, named progression track; Ward has its own blue protection lane.
+	var xp_width := 294.0 if player_ward > 0 else 444.0
+	var xp_caption := "XP %d / %d  ·  NEXT LV %d" % [int(xp), int(xp_needed), level+1]
+	draw_string(body_font,Vector2(18,94),xp_caption,HORIZONTAL_ALIGNMENT_LEFT,xp_width,11,Color("#b8dded"))
+	draw_bar(Rect2(18,99,xp_width,8),xp/maxf(1,xp_needed),Color.BLACK,Color.WHITE,"",10)
+	if xp_counter_flash > 0:
+		draw_rect(Rect2(18,99,xp_width,8),Color(.45,.90,1,clampf(xp_counter_flash/.24,0,1)*.22))
+	if player_ward > 0:
+		draw_string(body_font,Vector2(332,94),"WARD %.0f" % player_ward,HORIZONTAL_ALIGNMENT_CENTER,130,11,Color("#b6ecff"))
+		LootlingsUI.draw_meter(get_canvas_item(),Rect2(332,99,130,8),player_ward/maxf(1,player_max_hp),"xp")
+	draw_bar(Rect2(60,57,402,19),player_hp/maxf(1,player_max_hp),Color.BLACK,Color.WHITE,"LV %d · HP %.0f / %.0f" % [level,maxf(0,player_hp),player_max_hp],12,combat_presentation.health_ratio(-1))
+	if player_hp > 0 and player_hp/player_max_hp <= .25:
+		draw_rect(Rect2(60,57,402,19),Color("#ffa278"),false,1.5)
 
 func draw_arena(shake: Vector2) -> void:
 	var show_combat_context := state == "playing"
@@ -3893,7 +3904,10 @@ func build_summary() -> String:
 func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value: String, font_size: int, trail_ratio: float = -1.0) -> void:
 	var kind := ("xp" if rect.size.y<=12 else "health") if rect.position.y<140 else "enemy"
 	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind, trail_ratio)
-	if not text_value.is_empty(): draw_string(body_font, Vector2(rect.position.x + 4, rect.position.y + rect.size.y - 5), text_value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, font_size, Color.WHITE)
+	if not text_value.is_empty():
+		var baseline := rect.position + Vector2(4,rect.size.y-5)
+		draw_string_outline(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,font_size,2,Color("#071225"))
+		draw_string(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,font_size,Color.WHITE)
 
 func draw_effects() -> void:
 	if state == "hoard_chest":

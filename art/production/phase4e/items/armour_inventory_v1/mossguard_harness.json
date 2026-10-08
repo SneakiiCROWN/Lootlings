@@ -1,0 +1,31 @@
+{
+  "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+  "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+  "bounds": [
+    41.0,
+    41.0,
+    354.0,
+    351.0
+  ],
+  "height": 310.0,
+  "id": "mossguard_harness",
+  "output": "art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png",
+  "rejected": false,
+  "role": "static inventory icon only; not a worn body/outfit layer",
+  "runtime_sha256": "5e2cc55c19ea55f8930987803ab1aa5b15f69f0e0d7f19f43d3f9b5e44ee9c88",
+  "source": "art/source/continuous_armour/armour_batch_v1.png",
+  "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+  "visual_identity_review": "approved gear family material language and current item description match",
+  "width": 313.0,
+  "native_review": {
+    "status": "PASS",
+    "viewports": [
+      "1080x2340",
+      "1200x1920",
+      "1920x1080"
+    ],
+    "large_and_40_unit_icons": true,
+    "actual_item_selector": true,
+    "scope": "inventory only; no outfit/body/pose contract closed"
+  }
+}

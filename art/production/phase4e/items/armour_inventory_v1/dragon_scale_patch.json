@@ -1,0 +1,31 @@
+{
+  "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+  "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+  "bounds": [
+    221.0,
+    144.0,
+    820.0,
+    732.0
+  ],
+  "height": 588.0,
+  "id": "dragon_scale_patch",
+  "output": "art/production/phase4e/items/armour_inventory_v1/dragon_scale_patch.png",
+  "rejected": false,
+  "role": "static inventory icon only; not a worn body/outfit layer",
+  "runtime_sha256": "54d9656a8eddc6e5138252cb0e9a43760a543a01f3da24b72eb87164a362fb76",
+  "source": "art/source/continuous_armour/armour_corrections_v1.png",
+  "source_sha256": "f931ca85202109c0e9df8b38fae91b59e0de2ff985b2719aa567677dd7b46eb4",
+  "visual_identity_review": "correction accepted: leather-bound guardian scale patch; flat unisex leather vest; approved gear material palette",
+  "width": 599.0,
+  "native_review": {
+    "status": "PASS",
+    "viewports": [
+      "1080x2340",
+      "1200x1920",
+      "1920x1080"
+    ],
+    "large_and_40_unit_icons": true,
+    "actual_item_selector": true,
+    "scope": "inventory only; no outfit/body/pose contract closed"
+  }
+}

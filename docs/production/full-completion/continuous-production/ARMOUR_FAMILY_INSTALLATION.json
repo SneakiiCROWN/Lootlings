@@ -1,0 +1,390 @@
+{
+  "runtime_icons_installed": 12,
+  "runtime_artist_files": 24,
+  "source_sheets": 2,
+  "frozen_master_contracts_closed": 0,
+  "rejected_initial_cells": [
+    "dragon_scale_patch",
+    "second_skin"
+  ],
+  "corrected_and_installed": [
+    "dragon_scale_patch",
+    "second_skin"
+  ],
+  "remaining_armour_inventory_ids": [],
+  "body_outfit_pose_coverage": "unchanged; outstanding",
+  "deliveries": [
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        402.0,
+        365.0,
+        719.0,
+        705.0
+      ],
+      "height": 340.0,
+      "id": "coin_stitch_coat",
+      "output": "art/production/phase4e/items/armour_inventory_v1/coin_stitch_coat.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "36169d31f1257589f2ffb8a5b2b85515301e0b36740398167524c8b7d9120ff7",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 317.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        221.0,
+        144.0,
+        820.0,
+        732.0
+      ],
+      "height": 588.0,
+      "id": "dragon_scale_patch",
+      "output": "art/production/phase4e/items/armour_inventory_v1/dragon_scale_patch.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "54d9656a8eddc6e5138252cb0e9a43760a543a01f3da24b72eb87164a362fb76",
+      "source": "art/source/continuous_armour/armour_corrections_v1.png",
+      "source_sha256": "f931ca85202109c0e9df8b38fae91b59e0de2ff985b2719aa567677dd7b46eb4",
+      "visual_identity_review": "correction accepted: leather-bound guardian scale patch; flat unisex leather vest; approved gear material palette",
+      "width": 599.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        402.0,
+        34.0,
+        712.0,
+        341.0
+      ],
+      "height": 307.0,
+      "id": "ironpaw_plate",
+      "output": "art/production/phase4e/items/armour_inventory_v1/ironpaw_plate.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "7b4d39e35792a4c231eaced2eab964e6834c6f4d3519d02722eb2da8434b90bb",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 310.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        1122.0,
+        701.0,
+        1406.0,
+        1062.0
+      ],
+      "height": 361.0,
+      "id": "keeper_coat",
+      "output": "art/production/phase4e/items/armour_inventory_v1/keeper_coat.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "0f4a94562b8be166223fdf4ee0fb8a94394d09540a6ade674733be0d0bde08b9",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 284.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        1124.0,
+        369.0,
+        1413.0,
+        701.0
+      ],
+      "height": 332.0,
+      "id": "last_page",
+      "output": "art/production/phase4e/items/armour_inventory_v1/last_page.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "82199024f62862dff24e31b6bf0ea4004e999d80da94b3b15eb18f4d8ac1695e",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 289.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        41.0,
+        41.0,
+        354.0,
+        351.0
+      ],
+      "height": 310.0,
+      "id": "mossguard_harness",
+      "output": "art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "5e2cc55c19ea55f8930987803ab1aa5b15f69f0e0d7f19f43d3f9b5e44ee9c88",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 313.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        39.0,
+        372.0,
+        351.0,
+        687.0
+      ],
+      "height": 315.0,
+      "id": "patchplate_vest",
+      "output": "art/production/phase4e/items/armour_inventory_v1/patchplate_vest.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "3a30b726c557a0781c44edf859e9d7a77c5a6b23c0207a22c3325e8e5a038669",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 312.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        760.0,
+        16.0,
+        1049.0,
+        360.0
+      ],
+      "height": 344.0,
+      "id": "ruinweave_coat",
+      "output": "art/production/phase4e/items/armour_inventory_v1/ruinweave_coat.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "1956b180ce664e466d30b3f98dd2719c952e65c5e44207df007db1c928dc6794",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 289.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        753.0,
+        704.0,
+        1073.0,
+        1051.0
+      ],
+      "height": 347.0,
+      "id": "scarlet_margin",
+      "output": "art/production/phase4e/items/armour_inventory_v1/scarlet_margin.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "de420990bb9dd6b3e7568323b026b20613508d0370102939694f48bc5de36829",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 320.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        1152.0,
+        75.0,
+        1721.0,
+        751.0
+      ],
+      "height": 676.0,
+      "id": "second_skin",
+      "output": "art/production/phase4e/items/armour_inventory_v1/second_skin.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "6f9db61704df6ba53b0cbf0a2477ff25f01aea69cef9c0d2f203c30e10507c43",
+      "source": "art/source/continuous_armour/armour_corrections_v1.png",
+      "source_sha256": "f931ca85202109c0e9df8b38fae91b59e0de2ff985b2719aa567677dd7b46eb4",
+      "visual_identity_review": "correction accepted: leather-bound guardian scale patch; flat unisex leather vest; approved gear material palette",
+      "width": 569.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        751.0,
+        377.0,
+        1067.0,
+        700.0
+      ],
+      "height": 323.0,
+      "id": "thorn_receipt",
+      "output": "art/production/phase4e/items/armour_inventory_v1/thorn_receipt.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "61a82826d69d33b3b9d5e82d44d5642d02e831dafd18cb52175360ffd83f4695",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 316.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    },
+    {
+      "authority": "art/reference/canonical/phase2_master/lootlings_fantasy_gear_compendium.png",
+      "authority_sha256": "e7c51bd490d1b175fd34d013c825da9dd35e49d59928e0997967b57ab8d83a65",
+      "bounds": [
+        382.0,
+        720.0,
+        716.0,
+        1055.0
+      ],
+      "height": 335.0,
+      "id": "warden_warranty",
+      "output": "art/production/phase4e/items/armour_inventory_v1/warden_warranty.png",
+      "rejected": false,
+      "role": "static inventory icon only; not a worn body/outfit layer",
+      "runtime_sha256": "34fea7aa80f53bb98cf650a1168aa5179256cd1eea3be8a62769919d0a1d883b",
+      "source": "art/source/continuous_armour/armour_batch_v1.png",
+      "source_sha256": "ff679173c45b4f877ca276d66ccfde488b4c8f6437c2db769c273078f8b7f48b",
+      "visual_identity_review": "approved gear family material language and current item description match",
+      "width": 334.0,
+      "native_review": {
+        "status": "PASS",
+        "viewports": [
+          "1080x2340",
+          "1200x1920",
+          "1920x1080"
+        ],
+        "large_and_40_unit_icons": true,
+        "actual_item_selector": true,
+        "scope": "inventory only; no outfit/body/pose contract closed"
+      }
+    }
+  ]
+}

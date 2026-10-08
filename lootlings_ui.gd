@@ -10,6 +10,7 @@ const ITEM_ART := {
 	"ground_slam":"ember_stone", "bossbane_sigil":"ember_stone",
 	"echo_rune":"storm_crystal",
 }
+const ARMOUR_IDS := ["mossguard_harness", "ironpaw_plate", "ruinweave_coat", "dragon_scale_patch", "patchplate_vest", "coin_stitch_coat", "thorn_receipt", "last_page", "second_skin", "warden_warranty", "scarlet_margin", "keeper_coat"]
 const RUNE_GLYPHS := {
 	"ember_pop":"rune_fire",
 	"stormspark":"rune_lightning", "storm_ledger":"rune_lightning", "threefold_ink":"rune_lightning", "critical_script":"rune_lightning",
@@ -44,6 +45,9 @@ static func item_texture(item: Dictionary) -> Texture2D:
 		var held := WeaponArt.runtime_texture(type, icon("res://art/sprites/weapons/%s.png" % fallback_path), stage)
 		return WeaponArt.presentation_texture(type,"inventory",held,stage)
 	var id := str(item.get("id", ""))
+	if item.get("slot", "") == "Armour" and id in ARMOUR_IDS:
+		var path := "res://art/production/phase4e/items/armour_inventory_v1/%s.png" % id
+		if ResourceLoader.exists(path): return icon(path)
 	if str(item.get("slot",""))=="Relic" and CANON_RELIC_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RELIC_ART[id])
 	if str(item.get("slot",""))=="Rune" and CANON_RUNE_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RUNE_ART[id])
 	if str(item.get("slot",""))=="Rune" and RUNE_GLYPHS.has(id): return icon(RUNE_GLYPHS[id])
@@ -193,7 +197,7 @@ static func draw_meter(canvas: RID, rect: Rect2, ratio: float, kind: String, tra
 	var width := inner.size.x * clampf(ratio, 0.0, 1.0)
 	var trail_width := inner.size.x * clampf(trail_ratio, 0.0, 1.0)
 	if trail_width > width:
-		RenderingServer.canvas_item_add_rect(canvas, Rect2(inner.position + Vector2(width, inner.size.y*.30), Vector2(trail_width - width, inner.size.y*.40)), Color("#ff784766"))
+		RenderingServer.canvas_item_add_rect(canvas, Rect2(inner.position + Vector2(width, 0), Vector2(trail_width - width, inner.size.y)), Color("#f0ba6880"))
 	if width > 0.0:
 		fill.draw(canvas, Rect2(inner.position, Vector2(width, inner.size.y)))
 
@@ -227,12 +231,38 @@ static func add_divider(parent: Control, rect: Rect2, material: String) -> Textu
 	parent.add_child(image)
 	return image
 
+static func apply_rarity_card(button: Button, accent: Color) -> void:
+	button.set_meta("rarity_accent", accent)
+	apply_selection(button, bool(button.get_meta("ui_selected", false)))
+
+static func rarity_card_style(accent: Color, state_name: String) -> StyleBox:
+	var box := button_style(Color.WHITE, accent, state_name, "secondary") as StyleBoxFlat
+	if state_name == "focus":
+		box.bg_color = Color.TRANSPARENT
+		box.border_color = Color("#e0efff")
+	elif state_name != "disabled":
+		box.border_color = Color(accent, .62 if state_name == "normal" else .95)
+		box.bg_color = Color("#192944").lerp(accent, .04 if state_name == "normal" else .12)
+	return box
+
 static func apply_selection(button: Button, selected: bool) -> void:
 	# Preserve card typography/transparent semantic text; change skins only.
 	button.set_meta("ui_selected",selected)
 	button.set_meta("ui_intent","primary" if selected else "secondary")
 	for state_name in ["normal","hover","pressed","disabled"]:
-		button.add_theme_stylebox_override(state_name,button_style(Color.WHITE,Color.WHITE,state_name,"primary" if selected else "secondary"))
+		var style := button_style(Color.WHITE,Color.WHITE,state_name,"primary" if selected else "secondary")
+		if not selected and button.has_meta("rarity_accent"):
+			style = rarity_card_style(button.get_meta("rarity_accent"), state_name)
+		if button.has_meta("card_text_inset"):
+			var original := style
+			style = original.duplicate()
+			# Custom nine-patch fields are not exported Resource properties.
+			# Preserve them when reserving a per-card text lane.
+			if original is TextureSkin:
+				for property in ["texture","protected_margin","ornament","compact_texture","source_scale","tint"]:
+					style.set(property,original.get(property))
+			style.content_margin_left = float(button.get_meta("card_text_inset"))
+		button.add_theme_stylebox_override(state_name, style)
 	var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6")
 	focus.set_border_width_all(2);focus.set_corner_radius_all(10)
 	button.add_theme_stylebox_override("focus",focus)

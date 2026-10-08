@@ -70,6 +70,14 @@ const Vignettes = preload("res://vignette_catalog.gd")
 const ForgeSystem = preload("res://forge_system.gd")
 const CampaignSystem = preload("res://campaign_system.gd")
 
+var actor_ground_bounds := {}
+func service_body_rect(texture: Texture2D) -> Rect2:
+	var key := texture.resource_path
+	if not actor_ground_bounds.has(key):
+		var image := texture.get_image()
+		actor_ground_bounds[key] = float(image.get_used_rect().end.y)/image.get_height() if image != null else 1.0
+	return Avatar.fit_rect(profile,Rect2(-75,-150*float(actor_ground_bounds[key]),150,150))
+
 func actor_texture() -> Texture2D:
 	if not Avatar.is_wanderer(profile):
 		var neutral := preload("res://phase4e_extracted_art.gd").neutral_body(str(profile.get("current_lootling_id","relic_beast")))
@@ -413,6 +421,10 @@ func build_stash() -> void:
 func close_stash_detail() -> void:
 	stash_detail_panel.visible=false; stash_equip_button.visible=false; stash_scrap_button.visible=false
 	if stash_scroll!=null: stash_scroll.size.y=569
+	selected_entry = -1
+	if stash_list != null:
+		for child in stash_list.get_children():
+			if child is Button: LootlingsUI.apply_selection(child,false)
 
 func build_forge() -> void:
 	forge_content = Control.new()
@@ -783,7 +795,7 @@ func build_shop() -> void:
 	back.pressed.connect(show_home)
 	make_label(shop_content, "PATCH’S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
-	LootlingsUI.add_icon(shop_content,Rect2(20,97,105,88),"res://art/production/phase4e/props/merchant_cart.png")
+	# The merchant cart is a world station in Hub; keep the selected shop view clear.
 	for index in range(3):
 		var offer_button := make_button(shop_content, "", Rect2(20 + index * 147, 196, 137, 120), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
@@ -1168,6 +1180,7 @@ func refresh_stash() -> void:
 		var marker := "EQUIPPED" if entry.equipped else "STORED"
 		var family := "  •  %s" % item.get("family", "") if item.has("family") else ""
 		var button := make_button(stash_list, "%s  •  %s%s\n%s  [%s]" % [marker, slot_icon(item.get("slot", "")), family, item.get("name", "Unknown"), item.get("rarity", "COMMON")], Rect2(0, 0, 402, 68), Color("#172442"), ItemCatalog.rarity_color(item.get("rarity", "COMMON")), 13)
+		LootlingsUI.apply_rarity_card(button,ItemCatalog.rarity_color(item.get("rarity","COMMON")))
 		button.custom_minimum_size = Vector2(402, 68)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.clip_text = true
@@ -1189,6 +1202,9 @@ func select_entry(entry_index: int) -> void:
 	if entry_index < 0 or entry_index >= entries.size():
 		return
 	selected_entry = entry_index
+	for index in range(entries.size()):
+		var row := stash_list.get_child(index) as Button
+		if row != null: LootlingsUI.apply_selection(row,index==entry_index)
 	stash_opened_at=Time.get_ticks_msec()
 	stash_detail_panel.visible=true; stash_equip_button.visible=true; stash_scrap_button.visible=true
 	stash_scroll.size.y=211
@@ -1426,7 +1442,14 @@ func apply_item_thumbnail(button: Button, item: Dictionary, card_layout: bool = 
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.add_theme_constant_override("icon_max_width", 46)
 	else:
-		button.alignment = HORIZONTAL_ALIGNMENT_CENTER if card_layout else HORIZONTAL_ALIGNMENT_RIGHT
+		button.alignment = HORIZONTAL_ALIGNMENT_CENTER if card_layout else HORIZONTAL_ALIGNMENT_LEFT
+		if not card_layout:
+			# Every equipment category shares the weapon's icon-safe text lane.
+			button.set_meta("card_text_inset",58.0)
+			for state_name in ["normal","hover","pressed","disabled"]:
+				var style := button.get_theme_stylebox(state_name).duplicate() as StyleBox
+				style.content_margin_left = 58
+				button.add_theme_stylebox_override(state_name,style)
 		var weapon_texture := weapon_texture_for_item(item)
 		if card_layout and weapon_texture != null:
 			var weapon_icon := TextureRect.new()
@@ -1727,12 +1750,11 @@ func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
 	draw_hideout_light(Vector2(39, 160), 18.0, 0.035, 0.4)
 	draw_hideout_light(Vector2(443, 145), 20.0, 0.035, 2.2)
-	var visitor_bob := sin(scene_time * 2.0) * 2.0
-	var visitor_breath := 1.0 + sin(scene_time * 1.7) * 0.009
-	draw_set_transform(Vector2(73, 153 + visitor_bob), sin(scene_time * 1.2) * 0.005, Vector2(visitor_breath, 1.0 / visitor_breath))
-	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-48, -48, 96, 96)), false, actor_tint())
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	LootlingsUI.draw_icon(get_canvas_item(),RESIDENT_PORTRAITS.Salvager,Rect2(330,100,84,118))
+	# Approved identity art is deliberately framed, never passed off as a body.
+	var plaque := Rect2(330,90,112,102)
+	draw_style_box(LootlingsUI.material_style("leather"),plaque)
+	LootlingsUI.draw_icon(get_canvas_item(),RESIDENT_PORTRAITS.Salvager,Rect2(340,96,92,72))
+	draw_string(ThemeDB.fallback_font,Vector2(338,182),"PATCH · SHOP",HORIZONTAL_ALIGNMENT_CENTER,96,11,Color("#ffe3ac"))
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
 			if current_shop.stock[index].is_empty():
@@ -1753,12 +1775,14 @@ func draw_stash_scene() -> void:
 	draw_line(Vector2(244, 175), Vector2(244, 187), Color(0.55, 0.84, 1.0, glint_alpha), 1.5)
 
 func draw_shrine_scene() -> void:
-	var bob := sin(scene_time * 2.0) * 2.5
 	draw_hideout_light(Vector2(74, 320), 16.0, 0.028, 0.0)
 	draw_hideout_light(Vector2(406, 320), 16.0, 0.028, 1.7)
-	var breathe := 1.0 + sin(scene_time * 1.7) * 0.009
-	draw_set_transform(Vector2(109, 217 + bob), sin(scene_time * 1.1) * 0.005, Vector2(breathe, 1.0 / breathe))
-	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-75, -75, 150, 150)), false, actor_tint())
+	var breathe := 1.0 if get_parent().audio_settings.get("cinematic_reduced_motion",false) else 1.0 + sin(scene_time * 1.7) * 0.003
+	draw_set_transform(Vector2(109,337),0,Vector2(1,.18))
+	draw_circle(Vector2.ZERO,40,Color("#03061288"))
+	# Pin the feet to the existing stone terrace; breathing grows upward.
+	draw_set_transform(Vector2(109,337),0,Vector2(breathe,breathe))
+	draw_texture_rect(actor_texture(), service_body_rect(actor_texture()), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_circle(Vector2(240, 234), 12 + sin(scene_time * 2.4) * 2.0, Color(0.68, 0.42, 1.0, 0.12))
 	if shrine_pulse > 0.0:
@@ -1833,9 +1857,11 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	return button
 
 func apply_display_button_style(button: Button, border: Color, selected: bool = false) -> void:
+	button.set_meta("rarity_accent",border)
 	button.set_meta("ui_selected",selected)
 	button.set_meta("ui_intent","primary" if selected else "secondary")
 	apply_button_style(button, Color("#172442"), border)
+	LootlingsUI.apply_rarity_card(button,border)
 	if selected:
 		button.add_theme_stylebox_override("normal", LootlingsUI.button_style(Color.WHITE, border, "normal","primary"))
 	# Focus is an outline only; it must not impersonate a persistent selection.
