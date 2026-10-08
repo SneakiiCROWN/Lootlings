@@ -1,0 +1,60 @@
+{
+  "entity_id": "personal_home",
+  "canvas": [
+    1536,
+    2732
+  ],
+  "design_canvas": [
+    480,
+    854
+  ],
+  "background_file": "personal_home_lived_in_v2.png",
+  "source_sha256": "e6a00552617b02d65848870ca77a24c0027a31de413685d6f49e507c08817a45",
+  "revision_of": "personal_home_interior.png",
+  "fixed_furnishings": [
+    "bed",
+    "hearth",
+    "chest",
+    "reading desk"
+  ],
+  "separate_runtime_objects": [
+    "character",
+    "companions",
+    "floor cushion and front rim",
+    "wall perch and front rim",
+    "display item",
+    "wall banner",
+    "wall torch",
+    "light and ember effects"
+  ],
+  "movable_mounts_design": {
+    "home.floor_perch": [
+      92,
+      746
+    ],
+    "home.wall_perch": [
+      374,
+      412
+    ],
+    "home.wall_display": [
+      386,
+      337
+    ]
+  },
+  "native_evidence": "home-world-final-alignment-d14e81abf0",
+  "native_sizes": [
+    [
+      1080,
+      2340
+    ],
+    [
+      1200,
+      1920
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "native_validated": true
+}

@@ -128,7 +128,7 @@ const SLOTS := {
     "mount": "floor",
     "anchor_design": [
       92,
-      594
+      746
     ],
     "allowed_decor": [
       "home_companion_cushion"
@@ -147,11 +147,11 @@ const SLOTS := {
     ],
     "companion_pivot_design": [
       92,
-      594
+      746
     ],
     "hit_rect_design": [
       40,
-      530,
+      682,
       100,
       80
     ],

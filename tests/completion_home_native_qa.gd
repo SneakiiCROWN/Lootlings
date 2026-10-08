@@ -21,7 +21,7 @@ func review() -> void:
 		var attacks: int=game.attack_sequence
 		var home_entry: Button
 		for child in game.hideout_ui.home_content.get_children():
-			if child is Button and child.text=="HOME":home_entry=child
+			if child is Button and child.text.to_upper()=="HOME":home_entry=child
 		assert(home_entry!=null);await tap(home_entry)
 		assert(game.state=="personal_home" and game.personal_home.visible and not game.hideout_ui.visible and game.personal_home.scene_file_path=="res://personal_home.tscn")
 		assert(game.hideout_ui.home_settings_content.get_parent()==game.personal_home)

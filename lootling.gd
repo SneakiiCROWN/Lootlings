@@ -3428,6 +3428,11 @@ func navigate_back() -> void:
 	elif state == "playing": pause_run()
 	elif state == "paused": resume_run()
 	elif state == "hideout":
+		if startup_ui.visible and not hideout_ui.visible:
+			if startup_ui.identity_panel.visible:startup_ui.identity_panel.hide()
+			elif startup_ui.current_screen in ["lootling_select","wanderer_select"]:startup_ui.show_profile(false)
+			else:startup_ui.hide();show_hideout()
+			return
 		if hideout_ui.current_screen=="companion_collection":hideout_ui.show_home_settings();return
 		if hideout_ui.speech_panel.visible: hideout_ui.dismiss_dialogue(); return
 		if hideout_ui.loadout_panel.is_visible_in_tree():hideout_ui.loadout_panel.visible=false;return
@@ -3447,6 +3452,7 @@ func input_surface() -> Control:
 	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:
 		return retention.pool_panel if retention.pool_panel.visible else retention.panel
 	if state=="hideout":
+		if startup_ui.visible and not hideout_ui.visible:return startup_ui
 		if hideout_ui.region_sheet.is_visible_in_tree():return hideout_ui.region_sheet
 		if hideout_ui.speech_panel.is_visible_in_tree():return hideout_ui.speech_panel
 		if hideout_ui.stash_detail_panel.is_visible_in_tree():return hideout_ui.stash_detail_panel

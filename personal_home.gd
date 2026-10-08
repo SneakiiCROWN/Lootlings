@@ -9,6 +9,8 @@ var companion_parent := "room"
 var room: Control
 var title: Label
 var time := 0.0
+var warmth := 0.0
+var home_reaction:Label
 var companion_mode_buttons := {}
 var follower:=preload("res://companion_presentation.gd").new()
 var buttons := {}
@@ -28,23 +30,16 @@ func background() -> Texture2D:
 func configure(target) -> void:
 	game=target;visible=false;mouse_filter=Control.MOUSE_FILTER_STOP
 	room=Control.new();room.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(room)
-	button("leave","‹ MAIN HUB",Rect2(20,20,160,48),func():game.show_hideout())
-	title=Label.new();title.position=Vector2(24,98);title.size=Vector2(432,46);title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;title.add_theme_font_size_override("font_size",27);title.add_theme_color_override("font_color",Color("#ffe3ac"));room.add_child(title)
-	button("character","CHARACTER & STYLE",Rect2(22,622,210,60),func():game.show_profile_from_personal_home())
-	button("gear","GEAR / STASH",Rect2(248,622,210,60),func():game.show_personal_stash())
-	button("display","PERSONAL DISPLAYS",Rect2(22,698,210,60),func():open("decor"))
-	button("companions","COMPANIONS",Rect2(248,698,210,60),func():open("companions"))
-	# Reuse existing safe menu components, but physically move them into this
-	# PackedScene. They cannot remain active beneath the Hub.
+	var nav=game.hideout_ui.hub_navigation
+	buttons.leave=nav.shortcut(room,"‹ Hub",Rect2(16,16,96,52),func():game.show_hideout(),"Return to the public Main Hub")
+	buttons.display=nav.shortcut(room,"Decorate",Rect2(360,16,104,52),func():open("decor"),"Arrange your saved furnishings; Apply saves, Cancel discards")
+	title=nav.text(room,"YOUR HOME",Rect2(116,22,236,32),19)
 	game.hideout_ui.home_settings_content.reparent(self)
 	game.hideout_ui.companion_collection_content.reparent(self)
-	home_summary=UI.rich_label(room,Rect2(32,151,416,22),12,Color("#ffe3ac"))
-	button("archive","PERSONAL COLLECTION / MEMORIES",Rect2(22,774,436,48),open_collection)
-	var nook: Button=game.hideout_ui.make_button(room,"COMPANION
-NOOK",Rect2(30,532,116,70),Color("#192936ef"),Color("#dcb973"),12)
-	nook.pressed.connect(func():greet_or_collection("home.floor_perch"));buttons.nook=nook
+	home_summary=UI.rich_label(room,Rect2(124,54,232,18),11,Color("#d9c9aa"))
 	build_decor_editor()
 	build_room_hotspots()
+	home_reaction=nav.text(room,"",Rect2(160,650,184,54),12);home_reaction.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;home_reaction.hide()
 
 func button(id: String,text: String,rect: Rect2,action: Callable) -> void:
 	var b: Button=game.hideout_ui.make_button(room,text,rect,Color("#192936ef"),Color("#dcb973"),15)
@@ -67,7 +62,8 @@ func open(next: String="room") -> void:
 	game.hideout_ui.profile=game.profile.duplicate(true);game.hideout_ui.refresh_home_settings()
 	var who: String=str(game.profile.get("display_name",""))
 	title.text="YOUR HOME" if who.is_empty() else who+"'s Home"
-	home_summary.text="%s  •  Stash %d / %d  •  Memories %d" % [str(game.inventory.equipped_item("Weapon").get("name","No weapon equipped")),game.inventory.stash.size(),game.inventory.stash_capacity,game.profile.get("memories",[]).size()]
+	title.add_theme_font_size_override("font_size",UI.fitted_font_size(game.body_font,title.text,236,19,13))
+	home_summary.text="[center]%d / %d stash   •   %d memories[/center]" % [game.inventory.stash.size(),game.inventory.stash_capacity,game.profile.get("memories",[]).size()]
 	follower.react("return");queue_redraw();game.queue_redraw()
 
 func go_back() -> void:
@@ -79,6 +75,8 @@ func go_back() -> void:
 func _process(delta: float) -> void:
 	if not visible:return
 	time+=delta
+	warmth=maxf(0,warmth-delta)
+	if home_reaction!=null:home_reaction.visible=warmth>0
 	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
 	var layout: Dictionary=draft if view in ["decor","decor_preview"] else home.home_layout
 	follower.update_home(delta,game.profile.get("companion",{}),layout);queue_redraw()
@@ -91,7 +89,7 @@ func _draw() -> void:
 	var factor:=maxf(480.0/backdrop.get_width(),854.0/backdrop.get_height())
 	var extent:=backdrop.get_size()*factor
 	if game.responsive_backdrop==null:draw_texture_rect(backdrop,Rect2((Vector2(480,854)-extent)*.5,extent),false)
-	draw_rect(Rect2(0,0,480,80),Color("#091124d0"))
+	draw_rect(Rect2(0,0,480,78),Color("#09112466"))
 	if view not in ["room","decor","decor_preview"]:return
 	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
 	var layout: Dictionary=draft if view in ["decor","decor_preview"] else home.home_layout
@@ -100,8 +98,20 @@ func _draw() -> void:
 	if layout.placements.get("home.wall_light","")=="home_lantern":
 		for radius in [36,24,12]:draw_circle(Vector2(388,208),radius,Color(1,.7,.3,.025))
 	draw_set_transform(Vector2(240,570),0,Vector2(1,.18));draw_circle(Vector2.ZERO,50,Color("#03071166"));draw_set_transform(Vector2.ZERO)
-	UI.draw_icon(get_canvas_item(),game.hideout_ui.actor_texture(),Rect2(148,394,184,188))
-	if view=="room":draw_style_box(summary_style,Rect2(22,146,436,30))
+	var motion:bool=not game.audio_settings.get("cinematic_reduced_motion",false)
+	var breath:float=1.0+sin(time*1.7)*.006 if motion else 1.0
+	draw_set_transform(Vector2(240,570),sin(time*.9)*.002 if motion else 0.0,Vector2(breath,1.0/breath))
+	UI.draw_icon(get_canvas_item(),game.hideout_ui.actor_texture(),Rect2(-92,-176,184,188))
+	draw_set_transform(Vector2.ZERO)
+	if motion:
+		# Light and rising embers originate in the actual fireplace opening.
+		for radius in [34,22,12]:draw_circle(Vector2(442,469),radius,Color(1,.55,.18,.012+maxf(0,sin(time*3.7))*.005))
+		for spark in range(4):
+			var rise:=fmod(time*(6+spark)+spark*9,25.0)
+			draw_circle(Vector2(440+sin(time*1.1+spark)*8,471-rise),.8,Color(1,.65,.25,(1-rise/25.0)*.35))
+		for i in range(6):
+			var pos:=Vector2(34+i*77+sin(time*.45+i)*7,655-fmod(time*(4+i*.3)+i*83,450))
+			draw_circle(pos,1.2,Color(1,.77,.35,.12+maxf(0,sin(time*.8+i))*.14))
 	var display: String=home.display if layout.placements.get("home.wall_display",null)==null else "none"
 	var art: Texture2D=null
 	if display=="weapon":art=UI.item_texture(game.inventory.equipped_item("Weapon"))
@@ -116,13 +126,20 @@ func input_surface() -> Control:
 	return decor_panel if view=="decor" else self
 
 func build_room_hotspots() -> void:
-	# Clear hit areas keep the furnishing visible; all release ownership is UI-only.
-	buttons.nook.text="";buttons.nook.position=Vector2(30,526);buttons.nook.size=Vector2(124,84)
-	room_hotspot_skin(buttons.nook)
-	var label: Label=game.hideout_ui.make_label(room,"COMPANION NOOK",11,Rect2(24,543,136,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"));label.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	room_hotspot("chest", "STASH",Rect2(30,378,108,62),func():game.show_personal_stash())
-	room_hotspot("shelf", "",Rect2(343,255,86,96),func():selected_slot="home.wall_display";open("decor"))
-	room_hotspot("ledge", "",Rect2(324,358,100,82),func():greet_or_collection("home.wall_perch"))
+	var nav=game.hideout_ui.hub_navigation
+	buttons.bed=nav.feature(room,"HomeBed",Rect2(12,452,140,122),"Rest","",func():warmth=3.5;home_reaction.text="A quiet moment before the next adventure.",12)
+	buttons.hearth=nav.feature(room,"HomeHearth",Rect2(352,452,112,106),"Hearth","",func():warmth=3.5;home_reaction.text="Warm embers, good company.",12)
+	buttons.chest=nav.feature(room,"HomeChest",Rect2(98,298,112,120),"Stash","Prepare your gear",func():game.show_personal_stash())
+	buttons.gear=buttons.chest
+	buttons.archive=nav.feature(room,"HomeArchive",Rect2(8,318,84,116),"Memories","Your Archive",open_collection,12)
+	buttons.shelf=nav.feature(room,"HomeDisplay",Rect2(338,246,108,112),"Display","Make it yours",func():selected_slot="home.wall_display";open("decor"))
+	buttons.ledge=nav.feature(room,"HomeWallPerch",Rect2(326,364,110,86),"Perch","",func():greet_or_collection("home.wall_perch"),12)
+	buttons.character=nav.feature(room,"HomeCharacter",Rect2(156,398,168,236),"Character","Your Lootling",func():game.show_profile_from_personal_home())
+	buttons.nook=nav.feature(room,"HomeCompanionNook",Rect2(30,682,124,112),"Companions  ›","Rest & play",func():greet_or_collection("home.floor_perch"))
+	# The companion itself reacts to a greeting; its unobtrusive name opens the
+	# existing collection directly, even when an owned companion is resting.
+	var collection:Button=game.hideout_ui.make_button(buttons.nook,"",Rect2(0,66,124,48),Color.TRANSPARENT,Color.TRANSPARENT,13)
+	nav.skin(collection);collection.tooltip_text="Choose your companions";collection.pressed.connect(func():open("companions"));buttons.companions=collection
 	preview_actions=Control.new();preview_actions.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);preview_actions.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(preview_actions);preview_actions.visible=false
 	game.hideout_ui.make_button(preview_actions,"‹ EDIT",Rect2(20,20,122,48),Color("#192936ef"),Color("#dcb973"),15).pressed.connect(func():open("decor"))
 	game.hideout_ui.make_label(preview_actions,"DECOR PREVIEW",27,Rect2(24,98,432,46),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))

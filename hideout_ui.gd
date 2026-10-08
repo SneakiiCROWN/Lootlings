@@ -112,6 +112,7 @@ var home_settings_summary: Label
 var home_display_buttons: Dictionary = {}
 var companion_buttons: Dictionary = {}
 var companion_presenter := preload("res://companion_presentation.gd").new()
+var hub_navigation := preload("res://hub_navigation.gd").new()
 var home_content: Control
 var stash_content: Control
 var forge_content: Control
@@ -242,6 +243,7 @@ func _ready() -> void:
 	build_coming_soon()
 	build_dialogue_overlay()
 	build_transition_overlay()
+	hub_navigation.finish_details()
 	presentation.bind_buttons(self)
 	set_process(true)
 
@@ -339,42 +341,8 @@ func set_screen(active: Control) -> void:
 	ui_event.emit("menu_transition")
 
 func build_home() -> void:
-	home_content = Control.new(); home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); add_child(home_content)
-	var empty:=Button.new(); empty.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); empty.flat=true; empty.focus_mode=Control.FOCUS_NONE; empty.set_meta("gesture_release_owned",true); home_content.add_child(empty); empty.pressed.connect(dismiss_dialogue)
-	engine_button=make_button(home_content,"RELIC ENGINE",Rect2(270,710,190,48),Color("#192936"),Color("#dcb973"),14)
-	engine_button.pressed.connect(func():engine_requested.emit())
-	make_button(home_content,"EXPEDITIONS",Rect2(20,710,232,48),Color("#192936"),Color("#dcb973"),14).pressed.connect(show_campaign)
-	make_label(home_content,"MAIN HUB",18,Rect2(84,14,312,25),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
-	make_button(home_content,"YOU",Rect2(14,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): profile_requested.emit())
-	make_button(home_content,"TITLE",Rect2(402,12,64,48),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func(): title_requested.emit())
-	resource_label=LootlingsUI.rich_label(home_content,Rect2(86,40,310,27),12,Color("#d9e5ff"))
-	var gate:=make_button(home_content,"",Rect2(156,104,168,198),Color.TRANSPARENT,Color.TRANSPARENT,14); gate.flat=true; gate.pressed.connect(func(): play_requested.emit())
-	gate.name="GateEntrance"
-	for state in ["normal","hover","pressed","focus"]: gate.add_theme_stylebox_override(state,StyleBoxEmpty.new())
-	make_label(home_content,"ENTER THE GATE  ›",14,Rect2(150,270,180,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe6ad")).mouse_filter=Control.MOUSE_FILTER_IGNORE
-	for speaker in RESIDENT_RECTS: make_npc_hotspot(home_content,RESIDENT_RECTS[speaker],speaker)
-	make_npc_hotspot(home_content,Rect2(166,355,148,146),"Mascot")
-	make_object_hotspot(home_content,"ShopEntrance",Rect2(398,238,66,82),show_shop,"Visit the Salvager shop")
-
-	make_object_hotspot(home_content,"StorageChest",Rect2(18,488,126,156),show_stash,"Open Gear")
-	make_object_hotspot(home_content,"ForgeStation",Rect2(2,644,108,60),show_forge,"Visit the weapon Forge")
-	make_object_hotspot(home_content,"ShrineProp",Rect2(4,204,88,126),show_upgrades,"Visit the shrine")
-	make_object_hotspot(home_content,"ArchiveDesk",Rect2(326,628,120,54),func(): show_phase4("archive"),"Open Ilex's Archive")
-	make_object_hotspot(home_content,"ContractBoard",Rect2(330,232,62,48),show_contracts,"Read the pinned jobs")
-	for child in home_content.get_children():
-		if child is Button and not child.flat:
-			for state in ["normal","hover","pressed","focus"]:
-				var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99") if state=="normal" else Color("#29404cdd"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); child.add_theme_stylebox_override(state,style)
-	make_button(home_content,"HOME",Rect2(172,662,136,40),Color("#172442b0"),Color("#7087ae"),12).pressed.connect(func():get_parent().show_personal_home())
-	make_label(home_content,"Your fire. Your people. Your way back.",12,Rect2(60,780,360,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9ccad"))
-	loadout_panel=make_panel(home_content,Rect2(34,665,412,70),Color("#0c1430e9"),Color("#7087ae")); loadout_panel.visible=false
-	loadout_label=LootlingsUI.rich_label(loadout_panel,Rect2(14,10,384,50),14,Color("#e6edff"))
-	home_weapon=ItemIcon.new(); home_weapon.position=Vector2(179,519); home_weapon.size=Vector2(48,48); home_weapon.mouse_filter=Control.MOUSE_FILTER_IGNORE; home_content.add_child(home_weapon)
-	home_weapon_name=make_label(home_content,"",13,Rect2(233,521,206,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6ad")); home_weapon_name.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	var loadout:=make_button(home_content,"YOUR GEAR",Rect2(172,609,136,48),Color("#172442b0"),Color("#7087ae"),12)
-	for state in ["normal","hover","pressed","focus"]:
-		var style:=StyleBoxFlat.new(); style.bg_color=Color("#10182b99"); style.border_color=Color("#d8bd7b99"); style.set_border_width_all(1); style.set_corner_radius_all(18); loadout.add_theme_stylebox_override(state,style)
-	loadout.pressed.connect(func(): loadout_panel.visible=not loadout_panel.visible)
+	home_content=Control.new();home_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(home_content)
+	hub_navigation.build(self)
 
 func build_stash() -> void:
 	stash_content = Control.new()
@@ -518,7 +486,8 @@ func build_phase4() -> void:
 func show_phase4(mode: String) -> void:
 	dismiss_dialogue(); current_screen = "workshop"; phase4_mode = mode
 	set_screen(phase4_content)
-	phase4_heading.text={"blueprints":"BLUEPRINT FORGE","contracts":"CONTRACT BOARD","archive":"COLLECTION"}.get(mode,"ARCHIVE")
+	hub_navigation.archive_talk.visible=mode=="archive"
+	phase4_heading.text={"blueprints":"BLUEPRINT FORGE","contracts":"CONTRACT BOARD","archive":"ILEX’S ARCHIVE"}.get(mode,"ARCHIVE")
 	phase4_nav[0].text={"blueprints":"WEAPON EVOLUTION","contracts":"LOCAL CONTRACTS","archive":"TROPHIES"}.get(mode,"")
 	phase4_nav[1].text={"blueprints":"BLUEPRINTS","contracts":"REGIONAL BOUNTIES","archive":"FIELD NOTES"}.get(mode,"")
 	refresh_phase4()
@@ -812,7 +781,7 @@ func build_shop() -> void:
 	add_child(shop_content)
 	var back := make_button(shop_content, "‹ HIDEOUT", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
-	make_label(shop_content, "SALVAGER'S STALL", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(shop_content, "PATCH’S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
 	LootlingsUI.add_icon(shop_content,Rect2(20,97,105,88),"res://art/production/phase4e/props/merchant_cart.png")
 	for index in range(3):
@@ -1151,11 +1120,11 @@ func refresh_home() -> void:
 	var display_name := str(profile.get("display_name", "TREASURE SEEKER")).to_upper()
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
-	if endgame_progress!=null:engine_button.text="FREE SPINS: %d" % int(endgame_progress.data.get("free_spins",0)) if int(endgame_progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
+	hub_navigation.refresh()
 	resource_label.text="[center]%s %s   %s %s   %s %s[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
 	# Public Hub equipment marker remains independent of private Home decor.
-	home_weapon.visible=true
-	home_weapon_name.visible=true
+	home_weapon.visible=false
+	home_weapon_name.visible=false
 	home_weapon.configure(current_inventory.equipped_item("Weapon")); home_weapon_name.text=str(current_inventory.equipped_item("Weapon").get("name","No weapon"))
 	if scrap_changed and current_screen == "home":
 		pulse_control(resource_label, Color("#9fddff"))
@@ -1502,7 +1471,7 @@ func build_dialogue_overlay() -> void:
 		match speech_speaker:
 			"Salvager": show_forge()
 			"Relic Keeper": show_upgrades()
-			"Archivist": show_achievements()
+			"Archivist": show_phase4("archive")
 			_: profile_requested.emit(); dismiss_dialogue()
 	)
 
@@ -1560,7 +1529,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	speech_label.text=voice_name+"
 "+line
 	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile,"curious"))
-	speech_role.text={"Salvager":"FORGE  ›","Relic Keeper":"SHRINE  ›","Archivist":"ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
+	speech_role.text={"Salvager":"OPEN FORGE  ›","Relic Keeper":"OPEN SHRINE  ›","Archivist":"OPEN ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
 	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE
 	speech_visible_timer=0.0
 
@@ -1664,8 +1633,11 @@ func draw_home_scene() -> void:
 	# identity, touch node, station system or generated replacement silhouette.
 	LootlingsUI.draw_icon(get_canvas_item(),HOME_GATE_ART,Rect2(153,106,174,158))
 	LootlingsUI.draw_icon(get_canvas_item(),HOME_SHRINE_ART,Rect2(8,210,80,112))
-	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("merchant_cart","props"),Rect2(388,235,80,87))
-	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("forge_station","props"),Rect2(10,646,88,58))
+	# Contact shadows sit on the station floor, not around the image rectangle.
+	for station in [[Vector2(405,444),46.0],[Vector2(71,707),52.0],[Vector2(403,721),29.0]]:
+		draw_set_transform(station[0],0,Vector2(1,.18));draw_circle(Vector2.ZERO,station[1],Color("#03061280"));draw_set_transform(Vector2.ZERO)
+	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("merchant_cart","props"),Rect2(350,338,110,116))
+	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("forge_station","props"),Rect2(10,642,126,76))
 	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(scene_time*1.7)*.025
 	draw_arc(Vector2(240,179),63,-PI,0,32,gate_light,4,true)
 	for rune in range(5):
@@ -1703,14 +1675,17 @@ func draw_home_scene() -> void:
 				for mote_index in range(5):
 					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
 					draw_circle(mote_pos, 2.0, Color(0.78, 0.55, 1.0, 0.48))
-	draw_resident("Salvager", RESIDENT_RECTS.Salvager, "PATCH", 0.0)
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
-	draw_resident("Archivist", RESIDENT_RECTS.Archivist, "ILEX", 2.0)
+	# Patch and Ilex remain present through their named world stations and exact
+	# portraits/dialogue in selected service panels. Portraits never fake bodies.
+	var engine_art:=preload("res://art/production/phase4e/props/trophy_dais.png")
+	LootlingsUI.draw_icon(get_canvas_item(),engine_art,Rect2(372,665,62,65))
+	draw_hideout_light(Vector2(403,689),15,.055,1.7)
 	draw_home_workstations()
 
 func draw_home_board() -> void:
 	# Accepted painted contract banner replaces the flat board/paper prototype.
-	LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/props/contract_banner.png"),Rect2(330,224,64,78))
+	LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/production/phase4e/props/contract_banner.png"),Rect2(374,174,50,96))
 
 func draw_home_workstations() -> void:
 	# Foreground furniture grounds the residents. The canonical painting remains
@@ -1719,6 +1694,12 @@ func draw_home_workstations() -> void:
 	# tools/page blocks cannot be attached to a different full-body idle export.
 	# Work/contact animation awaits the exact canonical activity layers.
 	draw_hideout_light(Vector2(404,631),13,.04,1.1)
+	# Bounded forge embers and merchant lantern flicker belong to their stations.
+	if not get_parent().audio_settings.get("cinematic_reduced_motion",false):
+		for spark in range(4):
+			var rise:=fmod(scene_time*(8+spark)+spark*11,32.0)
+			draw_circle(Vector2(65+sin(scene_time+spark)*9,671-rise),.8,Color(1,.55,.15,(1-rise/32.0)*.4))
+	draw_hideout_light(Vector2(384,376),12,.025,2.4)
 	var shrine_pulse:=.08+maxf(0,sin(scene_time*1.6))*.06
 	draw_circle(Vector2(66,372),16,Color(.64,.51,1,shrine_pulse))
 
