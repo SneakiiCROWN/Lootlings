@@ -1,0 +1,14 @@
+LOOTLINGS — EXECUTE FULL COMPLETION PROGRAM
+
+Treat this extracted package as the completion scope. Read README_FIRST.txt, FULL_GAME_COMPLETION_PROGRAM.json and CODEX_CONTINUOUS_COMPLETION_DIRECTIVE.md.
+
+Do not create another starter batch, master audit, discovery manifest, or setup phase.
+Do not reduce scope to 27 cells.
+
+Continuously validate the master artist-delivery inbox and install every independent PASS. A missing/rejected asset blocks only its own slot and goes to one ART_CORRECTIONS_REQUIRED.json queue; continue with everything else. Preserve all accepted canon and existing good UI/environment/VFX.
+
+In parallel, execute the player-facing runtime polish rules in CODEX_CONTINUOUS_COMPLETION_DIRECTIVE.md, especially stale selection/highlight state, focus-vs-selected state, z-order/panel overlap, touch leakage, safe-area clipping, natural scrolling, Back navigation and save/reload state refresh.
+
+Do not ask the owner to choose filenames, poses, paths, pivots, weapon families, facings, or canon authorities: they are already specified. Ask only if a genuinely new design decision exists outside the master contract.
+
+At each checkpoint report only: installed PASS count, correction count, remaining exact slots, UI regressions fixed, and whether the owner-facing route is materially more complete.

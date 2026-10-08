@@ -2,7 +2,11 @@
 
 [START HERE — current production truth](docs/production/START_HERE_CURRENT.md) · [Canon registry](docs/production/CANON_REGISTRY.json)
 
-## CURRENT — Gloomlet Bow handoff / HUD-control checkpoint — APK HOLD
+## CURRENT — full-completion execution / UI route checkpoint — APK HOLD
+
+2026-10-08. Full 3,274-contract programme executed against the delivery inbox; no runtime delivery files are present. Independent approved-cell transactions implemented, all exact missing items consolidated, 283 accepted cells preserved. Phone/tablet route and gesture fixes implemented and natively validated. Zero art closures; no new APK. [Implementation, remaining gates and native evidence](docs/production/full-completion/EXECUTION_REPORT.md). Phase 4E remains incomplete.
+
+## Historical — Gloomlet Bow handoff / HUD-control checkpoint — APK HOLD
 
 2026-10-08. Two exact independently authored Gloomlet/Bow windups validated with Moonbranch/Gilded Shortbow in native phone/tablet. Sixteen required bow cells remain OPEN; normal route still reaches POSE ART PENDING, so no new APK. Wrapped multi-enemy cards and canonical ATTACK control validated with mobile gesture/input regressions. Existing v41 APK and all gameplay/save/economy work preserved. Main delivery debt3050→3048; bundles106 and complete-family support165 unchanged. [Candidate decisions, exact requests and native evidence](docs/production/phase4e/gloomlet-bow/REPORT.md). No full Phase4E acceptance or Phase4F.
 

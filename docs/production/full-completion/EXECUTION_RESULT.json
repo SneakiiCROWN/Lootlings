@@ -1,0 +1,172 @@
+{
+  "implementation_sha": "bd03934b11ebf3d7ca715f425ae99d9e7066d45f",
+  "installed_PASS_count": 0,
+  "correction_count": 3274,
+  "remaining_exact_slots": 3274,
+  "accepted_exact_cells_preserved": 283,
+  "artist_files_remaining": 8495,
+  "inbox_runtime_art_files": 0,
+  "ui_regressions_fixed": [
+    "Home companion Back follows room or displays entry parent",
+    "Personal identity overlay/selector Back returns to immediate parent",
+    "Mode-menu Back restores Regions when entered from Regions",
+    "Confirmation takes input priority over Home/profile",
+    "Stash details and identity modal own touch surface",
+    "Hub gear preview Back closes preview before leaving Hub",
+    "Lootling and Wanderer strips have one persistent selected card",
+    "Difficulty redraw reflects active expedition tier",
+    "Region selection clears old highlight immediately",
+    "Blueprint/bounty/Field Notes selection survives refresh and is separate per screen",
+    "Focus outline remains distinct from persistent selected skin",
+    "Companion controls use canonical button skin and release ownership with 48-unit targets",
+    "Home display and no-companion styling reflects saved selection",
+    "Memory Archive and Field Notes filter selection stays visible",
+    "Merchant/perk selections update all interaction skins and reset on new offers",
+    "Field Notes retains readable parchment contrast after selecting a record"
+  ],
+  "owner_route_materially_more_complete": true,
+  "art_completion": false,
+  "APK_exported": false,
+  "APK_gate": "Gloomlet Bow ordinary route still has 16 open states; no owner-facing APK exported",
+  "QA": [
+    {
+      "name": "full_completion_ui_native_qa",
+      "exit": 0,
+      "seconds": 48.44,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "name": "mobile_gesture_qa",
+      "exit": 0,
+      "seconds": 11.14,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "name": "weapon_fit_qa",
+      "exit": 0,
+      "seconds": 6.2,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "name": "rc_save_qa",
+      "exit": 0,
+      "seconds": 0.38,
+      "errors": [],
+      "expected_diagnostics": []
+    },
+    {
+      "name": "phase4e_reward_restart_qa",
+      "exit": 0,
+      "seconds": 0.3,
+      "errors": [],
+      "expected_diagnostics": []
+    }
+  ],
+  "intake_adversarial_tests_passed": 11,
+  "evidence": [
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/lootling_selection.png",
+      "sha256": "e7490ea1db5c91c7739cdeff335a95e7e246217f4f117d303ec6d144eac9fd77",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/dungeons.png",
+      "sha256": "5b995bd0691a259d53e72ff70c5e3c6e8366b0c167978a77c36e034ef2e80b64",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/region_selection.png",
+      "sha256": "6d50dde76e115f879bfdc9bd7981de4dbaad8070f6b0f9d5c5ddbc4fb92e30b4",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/field_notes.png",
+      "sha256": "2b1f0c64954c867e51d5c65f1ee468a70d39b7ea0343cd1f4d8e7da062eca16e",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/home_preferences.png",
+      "sha256": "952f664380b97fe0345a3fe9c4838a6588344ea76366b29bbb417cc95d2a7fc4",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/companions.png",
+      "sha256": "7d94ff37ce83f3031026b466e992d6002fa566ce37b64b5c7e0d1e8a7d012569",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/merchant_comparison.png",
+      "sha256": "5d9226140f8f6fcc02aa2709687ab26cc9a03566f88f32a7938ba182d6f3a71f",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/perk_comparison.png",
+      "sha256": "6f3ab7f045021a3f5e5ebb2e0acc1792345b94f301b703b8d621ef6ed8705c4c",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/reward_keep_skip.png",
+      "sha256": "c04ef606777944fb40152921a206f3d9d0671512eead7d8fb8b0dd28746be9c8",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1080x2340/combat.png",
+      "sha256": "2ab996aa9ee54b553c36405c593a5d81feff0c0c96fda7206797cdd3dff76ee4",
+      "canvas": "1080x2340"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/lootling_selection.png",
+      "sha256": "8d4b2622bf6f7a6e7f8aff39e4179a30b58d1a0501427b417493e1427fdeae42",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/dungeons.png",
+      "sha256": "26bbd4a7b808751bea4e08061f9b68de2e61a37bc3b3b7ff0fa1e97a2880b2b0",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/region_selection.png",
+      "sha256": "e04a11e9ebb2e3850409b5761a2f2a8d0007d91a555f1b8a5593613e73d38abc",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/field_notes.png",
+      "sha256": "75685f1767ebf2aec56b556fcaa8177f6ca3a1be3a8e3295c8b18ad808f93af7",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/home_preferences.png",
+      "sha256": "d9f9fb197c8756786de89fcd1e6f813b00e2bdc59aa570dff5d6af1e718541fa",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/companions.png",
+      "sha256": "4ccd7c04768dd0696433e21565a299d5e407acedc0bb5b77531130629ab4200e",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/merchant_comparison.png",
+      "sha256": "ccf8bedde34dec776788c0e667e41eac8bb085def7fe7022a34776591c346b2d",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/perk_comparison.png",
+      "sha256": "f6bbb5ed559b080067568427d4ca87330cfc9c6d31666140d4717a6903596274",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/reward_keep_skip.png",
+      "sha256": "55a44bcdc22ee2a24abb992e7e589217becb3d646591205db169469513e49656",
+      "canvas": "1200x1920"
+    },
+    {
+      "path": "docs/production/full-completion/evidence/1200x1920/combat.png",
+      "sha256": "1b88524c662ca703e3ed11cd65cc694a0368ea08dafda5abc44aa4bf87caf6ab",
+      "canvas": "1200x1920"
+    }
+  ],
+  "runtime_adapter_limitations": "Non-playable/Bow and additional state selectors still require guarded adapter work when usable delivered art is present; these are not claimed complete."
+}
