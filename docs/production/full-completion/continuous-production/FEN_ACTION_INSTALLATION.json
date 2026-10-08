@@ -1,0 +1,39 @@
+{
+  "base_checkpoint": "928940c",
+  "installed_runtime_art_cells": 6,
+  "installed_artist_files": 12,
+  "by_category": {
+    "playable_lootlings": 0,
+    "wanderers": 0,
+    "enemies": 6,
+    "bosses": 0,
+    "npcs": 0,
+    "companions": 0,
+    "Home": 0
+  },
+  "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "canonical_source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+  "generated_source": "art/source/continuous_combat/fen_sneak/left_action_family_v1.png",
+  "source_sha256": "42db1ea0a09ba064d9cc3bc815042ce18b0ca1f0bf818eb461d6ca5044051d2e",
+  "retained_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_right.png",
+  "native_pixel_scale": 0.2,
+  "source_detail_note": "1024 transparent canvas is padding. Generated alpha and original pixels preserved, no board crop, resample or mirror.",
+  "slot_ids": [
+    "pose:fen_sneak:idle:left:None",
+    "pose:fen_sneak:role windup:left:None",
+    "pose:fen_sneak:role commit:left:None",
+    "pose:fen_sneak:hurt:left:None",
+    "pose:fen_sneak:recovery:left:None",
+    "pose:fen_sneak:defeat:left:None"
+  ],
+  "remaining_Fen_Sneak": [
+    "role windup right",
+    "role commit right",
+    "hurt right",
+    "recovery right",
+    "defeat right"
+  ],
+  "remaining_contracts": 3160,
+  "remaining_artist_files": 8230,
+  "physical_device_validated": false
+}

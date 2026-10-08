@@ -242,7 +242,9 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 	if not regional.is_empty():
 		texture=regional.texture; sprite_rect=Rect2(Vector2(-regional.size.x*.5,66-regional.size.y*.89),regional.size); atlas_region=Rect2(); shadow_radius=regional.size.x*.28
 	var exact_neutral: Dictionary=preload("res://approved_missing_runtime_art.gd").enemy_neutral(g,pos.x) if not regional.is_empty() else {}
-	if not exact_neutral.is_empty(): texture=exact_neutral.texture
+	if not exact_neutral.is_empty():
+		texture=exact_neutral.texture
+		if exact_neutral.has("display_size"):sprite_rect=Rect2(-Vector2(exact_neutral.display_size)*Vector2(.5,1)+Vector2(0,66),exact_neutral.display_size)
 	if not regional.is_empty() and regional.hover:
 		pos.y-=17+sin(g.run_time*4)*5
 	if glasswing and regional.get("body","") != "bat":
@@ -285,7 +287,7 @@ func draw_enemy_sprite(g, pos: Vector2, color: Color, extra_scale: float = 1.0) 
 					g.draw_circle(seal_pos,9,Color(stage_color, .12))
 		g.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if g.enemy_is_boss and not boss_data.has("authored_state"): BossPresentation.draw_identity(g,pos,extra_scale)
-	var tint: Color=regional.get("tint",Color.WHITE)
+	var tint: Color=Color.WHITE if not exact_neutral.is_empty() else regional.get("tint",Color.WHITE)
 	if color.r > 0.95 and color.g > 0.95 and color.b > 0.95:
 		tint = Color("#fff2ca")
 	tint.a = color.a

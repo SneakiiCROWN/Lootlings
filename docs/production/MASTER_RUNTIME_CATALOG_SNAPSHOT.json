@@ -787,7 +787,7 @@
       "frame",
       "enemy_neutral"
     ],
-    "source_sha256": "6ce76c1e4db3662c3928a754ba20c37694a87b7cb45da4cec15e1a25171b6b59"
+    "source_sha256": "1e95140294adacdc6bfdfb0e077060bff85815b98206a5ddee52e35242865a51"
   },
   "audio_manager.gd": {
     "constants": {
@@ -3308,7 +3308,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "c695f9902ba6445ffc756678d1bc617cde9f96c1bdf8b59296eb3c9e0b0bfe67"
+    "source_sha256": "fb6f09138dff2bdf0819dd966674082fc4ec2a1b2d44247fe98b78a96d467b84"
   },
   "debug_panel.gd": {
     "constants": {},
@@ -3881,6 +3881,14 @@
       "recover"
     ],
     "source_sha256": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8"
+  },
+  "enemy_art_manifest.gd": {
+    "constants": {},
+    "methods": [
+      "state_for",
+      "frame"
+    ],
+    "source_sha256": "0e7ee40a8286855f55d5932e5adb176ce203ca1bb3e77a25f675a5c09f05f814"
   },
   "enemy_encounter.gd": {
     "constants": {

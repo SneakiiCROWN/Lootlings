@@ -120,6 +120,8 @@ def build():
         approved=read(approved_file)['entries']; assert len(approved)==35
         runtime_file='art/production/phase4e/approved_missing_runtime_manifest.json'
         deliveries=read(runtime_file)['entries'] if (ROOT/runtime_file).exists() else []
+        deliveries+=read('art/production_enemy_manifest.json')['entries']
+        inputs.append('art/production_enemy_manifest.json')
         for ref in approved:
             category={'regional enemy':'enemy','boss':'boss_identity','current merchant role':'merchant'}[ref['category']]
             key=category+':'+ref['entity_id']; assert key in entries and ref['runtime_asset'] is False

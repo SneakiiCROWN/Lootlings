@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7379,
-    "total_launch_scope_slots": 6336,
+    "total_records": 7387,
+    "total_launch_scope_slots": 6343,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3301,
+      "LIVE_BETA": 3314,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3036,
-      "REFERENCE_ONLY": 817,
+      "NEEDS_NEW_CANON_EXPORT": 3030,
+      "REFERENCE_ONLY": 818,
       "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3300,
+      "LIVE_BETA": 3313,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3036,
+      "NEEDS_NEW_CANON_EXPORT": 3030,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 3036,
+    "exact_missing_art_cells": 3030,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "fe937e1fee2b3d6d13a5f0491e2b6b53e99ce9580144d622b71e77db3861a1c7",
+    "export_presets.cfg": "4540483426ff0681e78fb33cbb27978ce96c5c6d539714ba4127093366e08a59",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -83,7 +83,7 @@
     "actor_identity_corrections.gd": "a097a88735df133fa0451b69d770135ec978479f685f0f8d81976b71772b6be4",
     "affix_catalog.gd": "51c79ebce9a0881b93c59bbd2c9f83c7727084b551d1377453261d64381a8e39",
     "analytics_logger.gd": "1816129efa90fa7f5e06229b6a079a638724a18e905b9dcf99cc4d7d9fc11c60",
-    "approved_missing_runtime_art.gd": "6ce76c1e4db3662c3928a754ba20c37694a87b7cb45da4cec15e1a25171b6b59",
+    "approved_missing_runtime_art.gd": "1e95140294adacdc6bfdfb0e077060bff85815b98206a5ddee52e35242865a51",
     "app_lifecycle.gd": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474",
     "audio_manager.gd": "80700b52ab1993fef406138cc89015c267d6a6bbdacb08c951dae16f7a26ec0e",
     "authored_pose_manifest.gd": "d7d5d532a332eb0da8fc19cfa4dece3ba61e55d8ef1ba5d5132be148e5cb38cb",
@@ -107,13 +107,14 @@
     "companion_presentation.gd": "b53c1956aedf8ac276087e3c659e10a3d05bbfe970552ff8080c974fc86bbb00",
     "contextual_dialogue.gd": "3de3ac6394b611264e0e65855a5360fbc52e4c8920e6a862359acaf4c9cda4ed",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
-    "creature_renderer.gd": "c695f9902ba6445ffc756678d1bc617cde9f96c1bdf8b59296eb3c9e0b0bfe67",
+    "creature_renderer.gd": "fb6f09138dff2bdf0819dd966674082fc4ec2a1b2d44247fe98b78a96d467b84",
     "debug_panel.gd": "4cb84da52147317c138dc7add8d95ff955be4d5b7ef6a4032509da9a28248497",
     "dialogue_director.gd": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f",
     "display_numbers.gd": "0f928175102bf7d5638caa52ed55a63a418d6e3e04b27ed5121c1e402ee312ef",
     "dungeon_route.gd": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2",
     "economy_transaction.gd": "1f0be462e167a5ff1897eea4f91654f5013b9ce12615885b621378e3ebca04e4",
     "endgame_progress.gd": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8",
+    "enemy_art_manifest.gd": "0e7ee40a8286855f55d5932e5adb176ce203ca1bb3e77a25f675a5c09f05f814",
     "enemy_encounter.gd": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7",
     "enemy_motion.gd": "8e76aab8a63a08de78431f82f7b9030d3342325387fbc3629d7a668faeb88542",
     "enemy_variant_catalog.gd": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25",
@@ -166822,56 +166823,41 @@
       "state": "idle",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:role windup:right:None",
@@ -166940,56 +166926,41 @@
       "state": "role windup",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:role commit:right:None",
@@ -167058,56 +167029,41 @@
       "state": "role commit",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:hurt:right:None",
@@ -167176,56 +167132,41 @@
       "state": "hurt",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:recovery:right:None",
@@ -167294,56 +167235,41 @@
       "state": "recovery",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:defeat:right:None",
@@ -167412,56 +167338,41 @@
       "state": "defeat",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:lantern_toad:idle:right:None",
@@ -321111,6 +321022,123 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_left.png",
+      "game_id": "fen_sneak_defeat_left",
+      "category": "combat_art",
+      "subject": "fen_sneak_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_left.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "0364cfe94fece76871c680ebba131d223f702bbebea3376caf9bafa97d54df72",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
+      "game_id": "fen_sneak_hurt_left",
+      "category": "combat_art",
+      "subject": "fen_sneak_hurt_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "0e40e8d820cecc7cea365c5c64b5f2b3999c74cf86d3cd7726c962acd83684c7",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
+      "game_id": "fen_sneak_idle_left",
+      "category": "combat_art",
+      "subject": "fen_sneak_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "ca75b587dc5a6b7c5d8e23c888cce4b9a36b5a4ffe742d96497038fba7306d52",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_right.png",
       "game_id": "fen_sneak_idle_right",
       "category": "combat_art",
@@ -321146,6 +321174,123 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "e095cf02cce5813dee966c86d4698d46fe510b707a165b9987687d05a5e69f38",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_left.png",
+      "game_id": "fen_sneak_recovery_left",
+      "category": "combat_art",
+      "subject": "fen_sneak_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_left.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "e31d2b96812418316a73d934ed6fc566cd398634c7905e498dd97475ec4dadcf",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
+      "game_id": "fen_sneak_role_commit_left",
+      "category": "combat_art",
+      "subject": "fen_sneak_role_commit_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "4df1828d3800db4d915fe26af0f6e13c59126abdc760017ca112d68c06d73088",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
+      "game_id": "fen_sneak_role_windup_left",
+      "category": "combat_art",
+      "subject": "fen_sneak_role_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "9665e3305972686c104c6ad54f198b5ff34d7148d7f8baeb7bbd6a558d02c74b",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -334529,6 +334674,38 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "f931ca85202109c0e9df8b38fae91b59e0de2ff985b2719aa567677dd7b46eb4",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/continuous_combat/fen_sneak/left_action_family_v1.png",
+      "game_id": "left_action_family_v1",
+      "category": "reference",
+      "subject": "left_action_family_v1",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/continuous_combat/fen_sneak/left_action_family_v1.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "42db1ea0a09ba064d9cc3bc815042ce18b0ca1f0bf818eb461d6ca5044051d2e",
         "rejection": null
       }
     },
@@ -368000,6 +368177,40 @@
           "settle",
           "spin",
           "recover"
+        ]
+      }
+    },
+    {
+      "slot_id": "system:enemy_art_manifest.gd",
+      "game_id": "enemy_art_manifest_gd",
+      "category": "runtime_system",
+      "subject": "enemy_art_manifest.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "enemy_art_manifest.gd",
+      "implementation_file": "enemy_art_manifest.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "state_for",
+          "frame"
         ]
       }
     },

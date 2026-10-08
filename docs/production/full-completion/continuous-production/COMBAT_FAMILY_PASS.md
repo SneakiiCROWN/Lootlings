@@ -33,3 +33,5 @@ Exact master totals are now **108 installed contracts / 253 artist files**, with
 Version `0.4.36-winged-combat`, Android code 45. Desktop: `builds/windows/Lootlings-0.4.36-winged-combat.exe` with its adjacent `.pck`. Android: `builds/android/Lootlings-0.4.36-winged-combat-debug.apk`. This is a tested desktop/native and inspected debug APK candidate; physical S23 launcher, touch, audio and device performance validation remain pending. No full game or store-ready completion claim.
 
 Next broad family pass: missing normal-enemy/boss action families and remaining real weapon pose/contact coverage, preserving the same exact authority and independent acceptance process.
+
+Authoring used built-in ImageGen. Final prompt set and retained source sheets: `art/source/continuous_combat/hoard_dragon/`; exact changed files: `COMBAT_CHANGED_FILES.txt`.

@@ -1,0 +1,45 @@
+{
+  "actor": "fen_sneak",
+  "state": "idle",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_idle_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    161,
+    693,
+    701,
+    299
+  ],
+  "native_pixel_scale": 0.2,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+  "authored_source": "art/source/continuous_combat/fen_sneak/left_action_family_v1.png",
+  "authored_source_sha256": "42db1ea0a09ba064d9cc3bc815042ce18b0ca1f0bf818eb461d6ca5044051d2e",
+  "authored_source_bounds": [
+    77,
+    45,
+    778,
+    344
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:fen_sneak:idle:left:None",
+  "fixed_enemy_blade": "Existing canonical enemy intrinsic blade retained; not a playable modular weapon body.",
+  "source_quality": "Original generated RGBA pixels; uniform .20 display scale; 1024 canvas is transparent padding.",
+  "asset_sha256": "ca75b587dc5a6b7c5d8e23c888cce4b9a36b5a4ffe742d96497038fba7306d52",
+  "native_qa": "fen-scale-contact-final-00714c1daf",
+  "visual_acceptance": "Exact named Fen Sneak panel compared; source/native three viewports, all six left poses and actual slash-to-settle reviewed; accepted right preserved.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "fixed_blade_grip_normalized": [
+    0.360352,
+    0.863281
+  ],
+  "blade_contact_review": "Fixed enemy blade held by authored paw; exact source pixel grip location, temporal slash kept separate. Native scale matched to retained neutral height."
+}

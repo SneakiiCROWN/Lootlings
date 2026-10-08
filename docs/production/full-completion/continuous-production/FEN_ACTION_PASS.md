@@ -1,0 +1,17 @@
+# Fen Sneak action family continuation — 0.4.37
+
+Continues the pushed winged-dragon/combat checkpoint 928940c. The existing owner-approved named **Fen Sneak** panel in `art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png` is authority (SHA-256 01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78). The accepted right neutral remains unchanged. No other character from this board is promoted or reinterpreted.
+
+Six new exact LEFT states are installed: idle, role windup, role commit, hurt, recovery, defeat. Six PNGs plus six JSON sidecars close six missing contracts. They preserve leaf hood/cloak, brown and cream fur, violet eyes, ears, leaf-trimmed tail and intrinsic fixed enemy blade. This enemy weapon belongs to its approved identity; it is not interchangeable playable equipment. Authored paw/blade-grip coordinates and feet baseline are recorded. Temporal slash and damage effects remain separate. Full RGBA pixels are preserved with transparent 1024 padding; no board bodies, mirror or matte synthesis.
+
+The normal-enemy selector now follows real anticipation, strike, hurt, brief settle and defeat clocks. Missing states retain exact-facing accepted neutral openly; no false idle-as-action closure. Exact canonical exports bypass the old proxy palette tint. New left body scale was matched to the retained right neutral during native review. Geometry, weapon damage, rewards, stats and saves remain unchanged.
+
+Native source checks exercise all six actual states, real enemy attack damage and transition at 1080×2340, 1200×1920 and 1920×1080, including unchanged pose-selection RNG and the retained right-body route. Source and compiled evidence accompanies this report. The full compiled gameplay route also checks real attacks, rewards, selection, stash, Shop, Forge and Hub return. Hash/alpha/sidecar/canonical validators guard every installation. Approved winged Dragon, title music, branding, Home/Hub and companion work remain preserved.
+
+The right-facing windup, commit, hurt, recovery and defeat contracts remain genuinely missing. Other enemies, bosses and weapon/character families remain in the exact consolidated queue. This is a six-key-pose family, not a claim of high-frame-count articulation or complete regional enemy coverage.
+
+Combined continuation since db2a0f7: **18 runtime cells / 36 artist files**, comprising twelve boss and six normal-enemy cells. No new playable, Wanderer, weapon-module, NPC, companion or Home art closures. Total installed frozen-master contracts: **114 / 265 artist files**. Remaining: **3,160 / 8,230 artist files** (playable 1,421; Wanderers 855; enemies 317; bosses 356; NPCs 46; support 165). Six wingless Dragon candidates remain quarantined; accepted old runtime files remain recoverable.
+
+Candidate: `builds/windows/Lootlings-0.4.37-enemy-combat.exe` + adjacent `.pck`, and `builds/android/Lootlings-0.4.37-enemy-combat-debug.apk`, Android code 46. Physical S23 audio, launcher, touch and performance review remains pending. Existing 0.4.36 candidate is retained. Next coherent queue: remaining exact normal-enemy/boss action facings and weapon pose/contact families.
+
+Authoring used built-in ImageGen. Final saved prompt: `art/source/continuous_combat/fen_sneak/left_action_family_prompt.txt`; source sheet and accepted pixel bounds are retained alongside the runtime sidecars. Exact changed files: `FEN_CHANGED_FILES.txt`; preceding Dragon/combat pass: `COMBAT_CHANGED_FILES.txt`.

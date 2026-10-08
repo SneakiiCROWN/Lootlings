@@ -1,3 +1,5 @@
+Latest continuation: [Fen Sneak action family / 0.4.37](full-completion/continuous-production/FEN_ACTION_PASS.md). Six normal-enemy cells follow the twelve-cell winged Dragon checkpoint; exact counts updated.
+
 Current continuation: [0.4.36 winged-canon combat family pass](full-completion/continuous-production/COMBAT_FAMILY_PASS.md). Twelve native-reviewed boss cells are installed; exact remaining counts stay explicit.
 
 IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES, THE CURRENT AUTHORITIES WIN.

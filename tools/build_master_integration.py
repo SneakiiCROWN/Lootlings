@@ -25,6 +25,10 @@ def main():
     missing=json.loads(read(OUT/'phase4e/extraction/MISSING_ART_MANIFEST.json'))
     extraction=json.loads(read(ROOT/'art/production/phase4e/extraction_manifest.json'))
     pose_sources={r['asset_path']:r for r in json.loads(read(ROOT/'art/production_pose_manifest.json'))['entries']+json.loads(read(ROOT/'art/production/phase4e/runtime_manifest.json'))['entries'] if r.get('asset_path')}
+    enemy_rows=[r for r in json.loads(read(ROOT/'art/production_enemy_manifest.json'))['entries'] if r.get('native_validated')]
+    enemy_sources={(r['actor'],r['state'],r['facing']):r for r in enemy_rows}
+    pose_sources.update({r['asset_path']:r for r in enemy_rows})
+    missing['total_missing_cells']-=sum(1 for c in missing['missing'] if (c['game_id'],c['state'],c['facing']) in enemy_sources)
     boss_rows=[r for r in json.loads(read(ROOT/'art/production_boss_manifest.json'))['entries'] if r.get('native_validated')]
     boss_sources={(r['region'],(r['action']+' '+r['state']).strip(),r['facing']):r for r in boss_rows}
     missing['total_missing_cells']-=sum(1 for c in missing['missing'] if (c['game_id'],c['state'],c['facing']) in boss_sources)
@@ -45,7 +49,7 @@ def main():
     for cell in missing['missing']+missing['coverage']:
         absent='asset_path' not in cell;actor=cell['game_id'];state=cell['state'];face=cell['facing'];weapon=cell.get('weapon_family')
         category=cell.get('category','playable')
-        boss=boss_sources.get((actor,state,face))
+        boss=boss_sources.get((actor,state,face)) or enemy_sources.get((actor,state,face))
         if boss:cell={**cell,'asset_path':boss['asset_path'],'source_canonical_sheet':boss['source_reference']};absent=False
         source=cell.get('source_canonical_sheet'); asset=cell.get('asset_path')
         if actor in npc_authorities:source=npc_authorities[actor]['canonical_source']
@@ -123,6 +127,7 @@ def main():
         for entry in json.loads(read(new_runtime))['entries']:
             if entry.get('native_validated'):used.setdefault(entry['asset_path'][6:],[]).append('approved_missing_runtime_art.gd')
     for p in missing['coverage']:used.setdefault(p['asset_path'][6:],[]).append('authored_pose_manifest.gd')
+    for p in enemy_rows:used.setdefault(p["asset_path"][6:],[]).append("enemy_art_manifest.gd")
     for p in boss_rows:used.setdefault(p['asset_path'][6:],[]).append('boss_presentation.gd')
     audio_manifest=ROOT/'art/audio/production/sources.json'
     if audio_manifest.exists():
