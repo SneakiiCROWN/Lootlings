@@ -1,0 +1,365 @@
+{
+  "apk": "builds\\android\\Lootlings-0.4.34-world-navigation-final-debug.apk",
+  "new_casting_cells": 35,
+  "new_body_and_foreground_textures": 70,
+  "sidecars_packaged": 35,
+  "furnished_home_revision_packaged": true,
+  "import_checks": [
+    {
+      "source": "art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_right.png",
+      "packaged_import": ".godot/imported/emberhorn_windup_wand_right.png-e725b0f7ccf8835e8388d6c97eca167e.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\emberhorn\\emberhorn_windup_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/emberhorn_windup_wand_right_grip_front.png-c9857603b978a12f6caebd52f960347a.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_left.png",
+      "packaged_import": ".godot/imported/emberhorn_windup_wand_left.png-66ce6ceaab75809e3b14503cb6bd45e9.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\emberhorn\\emberhorn_windup_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/emberhorn_windup_wand_left_grip_front.png-2cc1779b05a557ad105036ab0eefb224.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_right.png",
+      "packaged_import": ".godot/imported/emberhorn_strike_or_cast_wand_right.png-7796ebf3ad4834d6854b3590c5e8a769.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\emberhorn\\emberhorn_strike_or_cast_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/emberhorn_strike_or_cast_wand_right_grip_front.png-f589e8306eb43adf7b81e730c551eae7.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_left.png",
+      "packaged_import": ".godot/imported/emberhorn_strike_or_cast_wand_left.png-418a5bf0814a6fd13851ddcd7c5878ea.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\emberhorn\\emberhorn_strike_or_cast_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/emberhorn_strike_or_cast_wand_left_grip_front.png-66d8c9caeeaab5766e29ff1947bbe68d.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_left.png",
+      "packaged_import": ".godot/imported/emberhorn_recovery_wand_left.png-96d785eb76c6d66aa4d75ac08ea8c848.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\emberhorn\\emberhorn_recovery_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/emberhorn_recovery_wand_left_grip_front.png-b8b2182fd4285f398b9e61ba05552916.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_right.png",
+      "packaged_import": ".godot/imported/emberhorn_recovery_wand_right.png-b50f50bb653037f4c3206a962c09a063.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\emberhorn\\emberhorn_recovery_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/emberhorn_recovery_wand_right_grip_front.png-d7df9a95182cd39e0d9ea798bd4ee466.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_right.png",
+      "packaged_import": ".godot/imported/gloomlet_windup_wand_right.png-2882f90e493c1cb14e5b2f0649a1034f.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\gloomlet\\gloomlet_windup_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/gloomlet_windup_wand_right_grip_front.png-ad4d9febb178ab3993b82c286536bdf9.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_left.png",
+      "packaged_import": ".godot/imported/gloomlet_windup_wand_left.png-f44e8694076d86b87f3e322bfdedbdf5.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\gloomlet\\gloomlet_windup_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/gloomlet_windup_wand_left_grip_front.png-2705d00893e055f1f06690e3063df9ba.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_right.png",
+      "packaged_import": ".godot/imported/gloomlet_strike_or_cast_wand_right.png-5544f1ef245a2f2fef2beca211eb888b.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\gloomlet\\gloomlet_strike_or_cast_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/gloomlet_strike_or_cast_wand_right_grip_front.png-d893c29762b9909cae2b1ceddddda3b4.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_left.png",
+      "packaged_import": ".godot/imported/gloomlet_strike_or_cast_wand_left.png-73aebc37e4942dd5db9597f5e5d417b2.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\gloomlet\\gloomlet_strike_or_cast_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/gloomlet_strike_or_cast_wand_left_grip_front.png-db2fb2116969b8f5588dd6c09a6dd41d.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_right.png",
+      "packaged_import": ".godot/imported/gloomlet_recovery_wand_right.png-79fb1bf3f6b64845be1832dfbbb778e1.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\gloomlet\\gloomlet_recovery_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/gloomlet_recovery_wand_right_grip_front.png-cf54620396da6e066e23db73a5627a51.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_left.png",
+      "packaged_import": ".godot/imported/gloomlet_recovery_wand_left.png-85773ac0bbd6e747e0f993dc82d6e58e.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\gloomlet\\gloomlet_recovery_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/gloomlet_recovery_wand_left_grip_front.png-079d8f73f1484870cdeb5638050202ea.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+      "packaged_import": ".godot/imported/moonkip_windup_wand_right.png-c45e286afaf1dd7785503c28bc82353d.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\moonkip\\moonkip_windup_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/moonkip_windup_wand_right_grip_front.png-dfe0941701c3131e2c0fab85d637163b.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+      "packaged_import": ".godot/imported/moonkip_strike_or_cast_wand_left.png-1f074c917ff6f33f13150c4b344c0b06.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\moonkip\\moonkip_strike_or_cast_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/moonkip_strike_or_cast_wand_left_grip_front.png-506d161965e4383b75defee4ab2e9f56.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+      "packaged_import": ".godot/imported/moonkip_strike_or_cast_wand_right.png-1f120cc100648e60a4d41f449dc8fd85.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\moonkip\\moonkip_strike_or_cast_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/moonkip_strike_or_cast_wand_right_grip_front.png-09a0774aae0adce04970d282159dae3b.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+      "packaged_import": ".godot/imported/moonkip_recovery_wand_right.png-4119d4097b442a0d2e6dcdaaaf833a9a.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\moonkip\\moonkip_recovery_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/moonkip_recovery_wand_right_grip_front.png-0244a9b056fb4511e2aeee95283307bc.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+      "packaged_import": ".godot/imported/moonkip_recovery_wand_left.png-03511d3e35b9daa2a7d16faf1a816095.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\moonkip\\moonkip_recovery_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/moonkip_recovery_wand_left_grip_front.png-01eb5412f40b132e213f2a6f0b40b225.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_right.png",
+      "packaged_import": ".godot/imported/mosskin_windup_wand_right.png-f462033425c6a234fd99db7148ad5339.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\mosskin\\mosskin_windup_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/mosskin_windup_wand_right_grip_front.png-bf0b86156335dabc9bbeebe328f55692.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_left.png",
+      "packaged_import": ".godot/imported/mosskin_windup_wand_left.png-93fe7099666588cf82abf957bfeacab8.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\mosskin\\mosskin_windup_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/mosskin_windup_wand_left_grip_front.png-59ffbed7e031c869133aea0ddde6d1d5.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_right.png",
+      "packaged_import": ".godot/imported/mosskin_strike_or_cast_wand_right.png-fc23bf6e21b38d5fdc4127b5b22a4f22.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\mosskin\\mosskin_strike_or_cast_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/mosskin_strike_or_cast_wand_right_grip_front.png-9d87cd94ed767ac90fee4363a8b5f33f.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_left.png",
+      "packaged_import": ".godot/imported/mosskin_strike_or_cast_wand_left.png-4dc09760765d96fdccd23da4606d1bc5.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\mosskin\\mosskin_strike_or_cast_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/mosskin_strike_or_cast_wand_left_grip_front.png-c31a8e4471ebce4490d91067b2a68e5e.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_right.png",
+      "packaged_import": ".godot/imported/mosskin_recovery_wand_right.png-76e34dc0b6b0a31c463e0c00fbe6ef55.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\mosskin\\mosskin_recovery_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/mosskin_recovery_wand_right_grip_front.png-c9b4914967bc103be2ef68e4a88a65ae.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_left.png",
+      "packaged_import": ".godot/imported/mosskin_recovery_wand_left.png-a7dde56769ca1a0ddd3156a3d9fa1771.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\mosskin\\mosskin_recovery_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/mosskin_recovery_wand_left_grip_front.png-42cf7330585230813ac1ee370e3f27be.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_right.png",
+      "packaged_import": ".godot/imported/pebblewyrm_windup_wand_right.png-9be5082200c2272cad47c020b905f084.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\pebblewyrm\\pebblewyrm_windup_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/pebblewyrm_windup_wand_right_grip_front.png-909af9026258e635de6957186964d3c6.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_left.png",
+      "packaged_import": ".godot/imported/pebblewyrm_windup_wand_left.png-ea14c9e1eaf36f9c344a66b7ea978d39.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\pebblewyrm\\pebblewyrm_windup_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/pebblewyrm_windup_wand_left_grip_front.png-208bbd9a71443f2643f2b6866162ee17.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_right.png",
+      "packaged_import": ".godot/imported/pebblewyrm_strike_or_cast_wand_right.png-dcc011612d171cbb15e4e2534cfd8112.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\pebblewyrm\\pebblewyrm_strike_or_cast_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/pebblewyrm_strike_or_cast_wand_right_grip_front.png-954818f04de098269f0740ae408aa8b9.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_left.png",
+      "packaged_import": ".godot/imported/pebblewyrm_strike_or_cast_wand_left.png-b7232b0910998ed626e5cdbbe1d042a6.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\pebblewyrm\\pebblewyrm_strike_or_cast_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/pebblewyrm_strike_or_cast_wand_left_grip_front.png-8dc160dcdd06828d9e814ea4db268ac9.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_left.png",
+      "packaged_import": ".godot/imported/pebblewyrm_recovery_wand_left.png-424d97614e9f0d498f2551d813e8148f.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\pebblewyrm\\pebblewyrm_recovery_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/pebblewyrm_recovery_wand_left_grip_front.png-4989ed4c375741a8ee77be73e9fd43d3.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_right.png",
+      "packaged_import": ".godot/imported/pebblewyrm_recovery_wand_right.png-d53766f15cf03bb1feebe28f81168110.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\pebblewyrm\\pebblewyrm_recovery_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/pebblewyrm_recovery_wand_right_grip_front.png-ab1886273444fba2ea61ec5325384f14.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
+      "packaged_import": ".godot/imported/relic_beast_windup_wand_left.png-3b85120ff6548c6366ee4e620df18c55.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\relic_beast\\relic_beast_windup_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/relic_beast_windup_wand_left_grip_front.png-28fe86a994ff62731cdbdd2fb498341c.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
+      "packaged_import": ".godot/imported/relic_beast_windup_wand_right.png-7fc1d05ac23d01ddfd2fed105a44f4d3.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\relic_beast\\relic_beast_windup_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/relic_beast_windup_wand_right_grip_front.png-d0f823a97a983f50341793e326bcb91b.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
+      "packaged_import": ".godot/imported/relic_beast_strike_or_cast_wand_left.png-1ebc3809542292fede445cd58d1b6a8b.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\relic_beast\\relic_beast_strike_or_cast_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/relic_beast_strike_or_cast_wand_left_grip_front.png-cc9b74b859ad207329e24506da7c8b4f.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
+      "packaged_import": ".godot/imported/relic_beast_strike_or_cast_wand_right.png-d8b2f56be7708f13ccace0cad38c2991.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\relic_beast\\relic_beast_strike_or_cast_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/relic_beast_strike_or_cast_wand_right_grip_front.png-2f82795f6f1cca48371e44c4da4af347.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
+      "packaged_import": ".godot/imported/relic_beast_recovery_wand_right.png-49691be7c80ad651019ab4e30fbe20d6.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\relic_beast\\relic_beast_recovery_wand_right_grip_front.png",
+      "packaged_import": ".godot/imported/relic_beast_recovery_wand_right_grip_front.png-aebd98e82d0e40294be55634662dea4f.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
+      "packaged_import": ".godot/imported/relic_beast_recovery_wand_left.png-9d516143a0136615ac49299ccc08290a.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art\\production\\phase4e\\lootlings\\relic_beast\\relic_beast_recovery_wand_left_grip_front.png",
+      "packaged_import": ".godot/imported/relic_beast_recovery_wand_left_grip_front.png-8f13a5815447ccae561b9cff7c9a813b.ctex",
+      "matches_local_import": true
+    },
+    {
+      "source": "art/production/phase4e/regions/personal_home_lived_in_v2.png",
+      "packaged_import": ".godot/imported/personal_home_lived_in_v2.png-a6fd99583c7419bd29964deb28b62562.ctex",
+      "matches_local_import": true
+    }
+  ],
+  "physical_device_tested": false
+}

@@ -786,6 +786,1231 @@
       "wardrobe_requires": {},
       "baked_weapon": "",
       "restrictions": "Actual right-facing source strike/release IMPACT only; no mirror or recovery/hurt substitution. Original hands and source markings retained. Alpha masking only, uniform resample, no invented anatomy."
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.46283984375,
+        0.70928515625
+      ],
+      "secondary_anchor": [
+        0.7895625,
+        0.842498046875
+      ],
+      "core_anchor": [
+        0.650740234375,
+        0.773787109375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:relic_beast:windup:right:wand"
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.89458203125,
+        0.78290234375
+      ],
+      "secondary_anchor": [
+        0.5075625,
+        0.761869140625
+      ],
+      "core_anchor": [
+        0.66741796875,
+        0.79131640625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:relic_beast:strike_or_cast:right:wand"
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.82917578125,
+        0.784505859375
+      ],
+      "secondary_anchor": [
+        0.540314453125,
+        0.783103515625
+      ],
+      "core_anchor": [
+        0.677734375,
+        0.771884765625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:relic_beast:recovery:right:wand"
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "ANTICIPATE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.517126953125,
+        0.7104375
+      ],
+      "secondary_anchor": [
+        0.207232421875,
+        0.839443359375
+      ],
+      "core_anchor": [
+        0.371294921875,
+        0.774939453125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:relic_beast:windup:left:wand"
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.11298046875,
+        0.771134765625
+      ],
+      "secondary_anchor": [
+        0.49298828125,
+        0.759916015625
+      ],
+      "core_anchor": [
+        0.32612109375,
+        0.790765625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:relic_beast:strike_or_cast:left:wand"
+    },
+    {
+      "actor": "relic_beast",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.167017578125,
+        0.788412109375
+      ],
+      "secondary_anchor": [
+        0.481119140625,
+        0.777193359375
+      ],
+      "core_anchor": [
+        0.329677734375,
+        0.772986328125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:relic_beast:recovery:left:wand"
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.44798046875,
+        0.757146484375
+      ],
+      "secondary_anchor": [
+        0.69640234375,
+        0.870318359375
+      ],
+      "core_anchor": [
+        0.65637890625,
+        0.7198828125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:emberhorn:windup:right:wand"
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.87734765625,
+        0.834384765625
+      ],
+      "secondary_anchor": [
+        0.450888671875,
+        0.726734375
+      ],
+      "core_anchor": [
+        0.7144921875,
+        0.750197265625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:emberhorn:strike_or_cast:right:wand"
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.717208984375,
+        0.80534765625
+      ],
+      "secondary_anchor": [
+        0.454986328125,
+        0.79292578125
+      ],
+      "core_anchor": [
+        0.631642578125,
+        0.69217578125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:emberhorn:recovery:right:wand"
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "ANTICIPATE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.545734375,
+        0.75001171875
+      ],
+      "secondary_anchor": [
+        0.294552734375,
+        0.860421875
+      ],
+      "core_anchor": [
+        0.340095703125,
+        0.71826953125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:emberhorn:windup:left:wand"
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.12460546875,
+        0.81540234375
+      ],
+      "secondary_anchor": [
+        0.546923828125,
+        0.7132734375
+      ],
+      "core_anchor": [
+        0.284701171875,
+        0.747775390625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:emberhorn:strike_or_cast:left:wand"
+    },
+    {
+      "actor": "emberhorn",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.2451015625,
+        0.816048828125
+      ],
+      "secondary_anchor": [
+        0.552869140625,
+        0.79534765625
+      ],
+      "core_anchor": [
+        0.354130859375,
+        0.687697265625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:emberhorn:recovery:left:wand"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.407603515625,
+        0.681025390625
+      ],
+      "secondary_anchor": [
+        0.7616875,
+        0.801890625
+      ],
+      "core_anchor": [
+        0.567623046875,
+        0.740607421875
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:mosskin:windup:right:wand"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.884765625,
+        0.74609375
+      ],
+      "secondary_anchor": [
+        0.34168359375,
+        0.7271484375
+      ],
+      "core_anchor": [
+        0.6004375,
+        0.80034765625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:mosskin:strike_or_cast:right:wand"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.763337890625,
+        0.801890625
+      ],
+      "secondary_anchor": [
+        0.446703125,
+        0.771248046875
+      ],
+      "core_anchor": [
+        0.577783203125,
+        0.740607421875
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:mosskin:recovery:right:wand"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "ANTICIPATE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.594859375,
+        0.66375
+      ],
+      "secondary_anchor": [
+        0.225453125,
+        0.798234375
+      ],
+      "core_anchor": [
+        0.426328125,
+        0.736951171875
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:mosskin:windup:left:wand"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.09484375,
+        0.73490625
+      ],
+      "secondary_anchor": [
+        0.654912109375,
+        0.731501953125
+      ],
+      "core_anchor": [
+        0.3995625,
+        0.792787109375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:mosskin:strike_or_cast:left:wand"
+    },
+    {
+      "actor": "mosskin",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.252689453125,
+        0.796783203125
+      ],
+      "secondary_anchor": [
+        0.55230078125,
+        0.772951171875
+      ],
+      "core_anchor": [
+        0.414412109375,
+        0.737201171875
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:mosskin:recovery:left:wand"
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.36328125,
+        0.69022265625
+      ],
+      "secondary_anchor": [
+        0.657294921875,
+        0.794095703125
+      ],
+      "core_anchor": [
+        0.604478515625,
+        0.695505859375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:windup:right:wand"
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.9022890625,
+        0.769091796875
+      ],
+      "secondary_anchor": [
+        0.391724609375,
+        0.76380859375
+      ],
+      "core_anchor": [
+        0.6875,
+        0.67578125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:strike_or_cast:right:wand"
+    },
+    {
+      "actor": "moonkip",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.745267578125,
+        0.845291015625
+      ],
+      "secondary_anchor": [
+        0.512875,
+        0.7748671875
+      ],
+      "core_anchor": [
+        0.629072265625,
+        0.623458984375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:recovery:right:wand"
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.1113828125,
+        0.760892578125
+      ],
+      "secondary_anchor": [
+        0.486328125,
+        0.779296875
+      ],
+      "core_anchor": [
+        0.280396484375,
+        0.665822265625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:strike_or_cast:left:wand"
+    },
+    {
+      "actor": "moonkip",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.25390625,
+        0.8203125
+      ],
+      "secondary_anchor": [
+        0.48046875,
+        0.884765625
+      ],
+      "core_anchor": [
+        0.370267578125,
+        0.62618359375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:recovery:left:wand"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.391453125,
+        0.675251953125
+      ],
+      "secondary_anchor": [
+        0.78317578125,
+        0.846349609375
+      ],
+      "core_anchor": [
+        0.61808203125,
+        0.83434375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:pebblewyrm:windup:right:wand"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.87746484375,
+        0.76145703125
+      ],
+      "secondary_anchor": [
+        0.358169921875,
+        0.78096875
+      ],
+      "core_anchor": [
+        0.586298828125,
+        0.85601171875
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:pebblewyrm:strike_or_cast:right:wand"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "ANTICIPATE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.5970703125,
+        0.673751953125
+      ],
+      "secondary_anchor": [
+        0.20684765625,
+        0.847849609375
+      ],
+      "core_anchor": [
+        0.3794453125,
+        0.83434375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:pebblewyrm:windup:left:wand"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.12553515625,
+        0.7694140625
+      ],
+      "secondary_anchor": [
+        0.6088125,
+        0.77541796875
+      ],
+      "core_anchor": [
+        0.41219921875,
+        0.856462890625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:pebblewyrm:strike_or_cast:left:wand"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.248150390625,
+        0.801775390625
+      ],
+      "secondary_anchor": [
+        0.51230078125,
+        0.783765625
+      ],
+      "core_anchor": [
+        0.38923046875,
+        0.81828515625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:pebblewyrm:recovery:left:wand"
+    },
+    {
+      "actor": "pebblewyrm",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.744935546875,
+        0.77580859375
+      ],
+      "secondary_anchor": [
+        0.474779296875,
+        0.783314453125
+      ],
+      "core_anchor": [
+        0.608357421875,
+        0.81633203125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:pebblewyrm:recovery:right:wand"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.5320546875,
+        0.707375
+      ],
+      "secondary_anchor": [
+        0.8054921875,
+        0.8601796875
+      ],
+      "core_anchor": [
+        0.654296875,
+        0.81675
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:gloomlet:windup:right:wand"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.906939453125,
+        0.807673828125
+      ],
+      "secondary_anchor": [
+        0.524126953125,
+        0.77711328125
+      ],
+      "core_anchor": [
+        0.6785390625,
+        0.8269765625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:gloomlet:strike_or_cast:right:wand"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.790671875,
+        0.863166015625
+      ],
+      "secondary_anchor": [
+        0.546185546875,
+        0.85190625
+      ],
+      "core_anchor": [
+        0.65877734375,
+        0.835822265625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:gloomlet:recovery:right:wand"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ANTICIPATE",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.488970703125,
+        0.70255078125
+      ],
+      "secondary_anchor": [
+        0.215533203125,
+        0.86500390625
+      ],
+      "core_anchor": [
+        0.350642578125,
+        0.81675
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:gloomlet:windup:left:wand"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.113396484375,
+        0.794462890625
+      ],
+      "secondary_anchor": [
+        0.5203359375,
+        0.79124609375
+      ],
+      "core_anchor": [
+        0.330537109375,
+        0.8250234375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:gloomlet:strike_or_cast:left:wand"
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.19898828125,
+        0.853515625
+      ],
+      "secondary_anchor": [
+        0.453125,
+        0.85994921875
+      ],
+      "core_anchor": [
+        0.3308828125,
+        0.835822265625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:gloomlet:recovery:left:wand"
     }
   ],
   "authority": "Owner extraction directive, locked sheet identity; idle-only integration, no final art acceptance"

@@ -1,14 +1,15 @@
 {
-  "installed_contracts": 61,
-  "installed_artist_files": 124,
+  "installed_contracts": 96,
+  "installed_artist_files": 229,
   "installed_by_category": {
+    "playable_lootlings": 35,
     "companions": 58,
     "Home": 3
   },
-  "remaining_contracts": 3213,
-  "remaining_artist_files": 8371,
+  "remaining_contracts": 3178,
+  "remaining_artist_files": 8266,
   "remaining_by_category": {
-    "playable_lootlings": 1456,
+    "playable_lootlings": 1421,
     "wanderers": 855,
     "enemies": 323,
     "bosses": 368,
@@ -18,6 +19,7 @@
   "scope": "Counts only exact missing contracts from frozen master specification; menu art, retained accepted poses and soundtrack are not counted as pose closures",
   "menu": "One integrated seven-character canon-checked scene, live native buttons, unchanged approved wordmark and mascot icon",
   "music": "Seven licensed full stereo score cues installed; title now owner-approved exact-file lock",
-  "phone_native_qa": "premium-menu-final-fade-7d7daf6284",
-  "physical_device_validated": false
+  "phone_native_qa": "crash-recovery-world-companion-title-eda9fd3376",
+  "physical_device_validated": false,
+  "home_revision": "One separately reviewed versioned background and sidecar; same existing environment contract, not an additional missing-art closure"
 }

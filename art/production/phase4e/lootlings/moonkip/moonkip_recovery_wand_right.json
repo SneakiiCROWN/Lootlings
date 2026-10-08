@@ -1,0 +1,108 @@
+{
+  "schema_version": "master_artist_delivery_v1",
+  "slot_id": "pose:moonkip:recovery:right:wand",
+  "entity_id": "moonkip",
+  "state": "recovery",
+  "facing": "right",
+  "weapon_family": "wand",
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "body_filename": "moonkip_recovery_wand_right.png",
+  "source_sha256": "d78ea1a06fbf8c2dd1df6e58e666ac376f2ee1678052fb4a2e0de3f2f7d7a492",
+  "canvas": [
+    512,
+    512
+  ],
+  "occupied_bounds": [
+    76,
+    184,
+    436,
+    496
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "ground_or_hover_point": [
+    256,
+    496
+  ],
+  "primary_palm": [
+    381.577,
+    432.789
+  ],
+  "secondary_palm": [
+    262.592,
+    396.732
+  ],
+  "core_or_eye": [
+    322.085,
+    319.211
+  ],
+  "mirroring_allowed": false,
+  "uniform_source_transform": {
+    "scale": 0.9014084507042254,
+    "crop": [
+      303,
+      659,
+      702,
+      1005
+    ],
+    "offset": [
+      76,
+      184
+    ]
+  },
+  "layers": {
+    "body": "moonkip_recovery_wand_right.png",
+    "foreground": "moonkip_recovery_wand_right_grip_front.png",
+    "support": null,
+    "vfx": null
+  },
+  "baked_equipment": [],
+  "baked_equipment_restrictions": "Weaponless body. Existing interchangeable runtime wand only; no baked wand, projectile, trail or magic effects.",
+  "contacts": {
+    "primary_contact": [
+      381.577,
+      432.789
+    ],
+    "secondary_contact": null,
+    "module_file": "res://art/sprites/weapons/wand_held.png",
+    "module_grip_uv": [
+      0.42,
+      0.72
+    ],
+    "module_secondary_uv": null,
+    "module_size_design": [
+      75,
+      93
+    ],
+    "module_angle_radians": 0.16,
+    "string_mode": "NONE",
+    "nocked_arrow": false,
+    "projectile_origin": [
+      424.229766845703,
+      323.991607666016
+    ],
+    "paired_module_file": null,
+    "hand_roles": {
+      "primary": "grips existing modular wand; source-pixel finger layer in foreground",
+      "secondary": "free casting hand, not a second wand grip"
+    },
+    "foreground_hand_roles": [
+      "primary"
+    ]
+  },
+  "attack_anchors": {},
+  "tail": null,
+  "non_applicable_reasons": {
+    "secondary_contact": "One-handed wand; free secondary casting hand is measured separately.",
+    "string_and_arrow": "Wand, not bow.",
+    "support": "Source-pixel primary finger foreground is the required combined layer; no separate alternate support body.",
+    "vfx": "Existing runtime temporal effects remain separate.",
+    "attack_anchors_and_tail": "Not a boss anchor packet. Visible character tail remains part of body anatomy where canonical.",
+    "module_geometry": "Base contract [75,93] and angle .16 retained. Existing actor/equipment and phase transforms apply at runtime; actual final size, angle and projectile origin verified in CONTACT_CHECKS.json at phone/tablet."
+  }
+}

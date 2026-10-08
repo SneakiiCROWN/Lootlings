@@ -1,0 +1,108 @@
+{
+  "schema_version": "master_artist_delivery_v1",
+  "slot_id": "pose:gloomlet:windup:left:wand",
+  "entity_id": "gloomlet",
+  "state": "windup",
+  "facing": "left",
+  "weapon_family": "wand",
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "body_filename": "gloomlet_windup_wand_left.png",
+  "source_sha256": "1f089ffa0337ee3127532396d22638e4559fae8bebec03c2607156935b942fa1",
+  "canvas": [
+    512,
+    512
+  ],
+  "occupied_bounds": [
+    85,
+    196,
+    427,
+    496
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "ground_or_hover_point": [
+    256,
+    496
+  ],
+  "primary_palm": [
+    250.353,
+    359.706
+  ],
+  "secondary_palm": [
+    110.353,
+    442.882
+  ],
+  "core_or_eye": [
+    179.529,
+    418.176
+  ],
+  "mirroring_allowed": false,
+  "uniform_source_transform": {
+    "scale": 0.8235294117647058,
+    "crop": [
+      887,
+      3,
+      1303,
+      369
+    ],
+    "offset": [
+      84,
+      195
+    ]
+  },
+  "layers": {
+    "body": "gloomlet_windup_wand_left.png",
+    "foreground": "gloomlet_windup_wand_left_grip_front.png",
+    "support": null,
+    "vfx": null
+  },
+  "baked_equipment": [],
+  "baked_equipment_restrictions": "Weaponless body. Existing interchangeable runtime wand only; no baked wand, projectile, trail or magic effects.",
+  "contacts": {
+    "primary_contact": [
+      250.353,
+      359.706
+    ],
+    "secondary_contact": null,
+    "module_file": "res://art/sprites/weapons/wand_held.png",
+    "module_grip_uv": [
+      0.42,
+      0.72
+    ],
+    "module_secondary_uv": null,
+    "module_size_design": [
+      75,
+      93
+    ],
+    "module_angle_radians": 0.16,
+    "string_mode": "NONE",
+    "nocked_arrow": false,
+    "projectile_origin": [
+      221.648727416992,
+      246.426696777344
+    ],
+    "paired_module_file": null,
+    "hand_roles": {
+      "primary": "grips existing modular wand; source-pixel finger layer in foreground",
+      "secondary": "free casting hand, not a second wand grip"
+    },
+    "foreground_hand_roles": [
+      "primary"
+    ]
+  },
+  "attack_anchors": {},
+  "tail": null,
+  "non_applicable_reasons": {
+    "secondary_contact": "One-handed wand; free secondary casting hand is measured separately.",
+    "string_and_arrow": "Wand, not bow.",
+    "support": "Source-pixel primary finger foreground is the required combined layer; no separate alternate support body.",
+    "vfx": "Existing runtime temporal effects remain separate.",
+    "attack_anchors_and_tail": "Not a boss anchor packet. Visible character tail remains part of body anatomy where canonical.",
+    "module_geometry": "Base contract [75,93] and angle .16 retained. Existing actor/equipment and phase transforms apply at runtime; actual final size, angle and projectile origin verified in CONTACT_CHECKS.json at phone/tablet."
+  }
+}

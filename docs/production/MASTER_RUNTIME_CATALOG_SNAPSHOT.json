@@ -4926,7 +4926,7 @@
       "refresh_selection_styles",
       "restore_phase4_selection"
     ],
-    "source_sha256": "4c8916f3308e3beea9b6c765799581f4c6049b371c9fad1ee8f312d9a5111de1"
+    "source_sha256": "be5873a475729ffd216e290b30446965a104da9617fa6e5a52f3304dc5f40fef"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5067,16 +5067,16 @@
           ],
           "anchor_design": [
             92,
-            594
+            746
           ],
           "companion_pivot_design": [
             92,
-            594
+            746
           ],
           "facing_default": "right",
           "hit_rect_design": [
             40,
-            530,
+            682,
             100,
             80
           ],
@@ -5208,16 +5208,35 @@
       "draw_display_shelf",
       "draw_foreground"
     ],
-    "source_sha256": "f82a32b84c3fd11fb93ddfce913dd10283ccac4baf440425f2f3de4c3ed29023"
+    "source_sha256": "f9d7e86d825de2fa877bd16c1da39818367f541517786c6f326d065eb75ff609"
   },
   "home_runtime_art.gd": {
     "constants": {
-      "MANIFEST": "res://art/production/phase4e/home_runtime_manifest.json"
+      "MANIFEST": "res://art/production/phase4e/home_runtime_manifest.json",
+      "REVISIONS": "res://art/production/phase4e/home_world_revisions.json"
     },
     "methods": [
       "texture"
     ],
-    "source_sha256": "63a5c3ab6205df04475daa96d5bd4e041d038fcad163400b0168e4437f8789a8"
+    "source_sha256": "bdc814c8a86d2f6b780788e53a11b894906ca8f4d8ea9e466b8be46078048cb7"
+  },
+  "hub_navigation.gd": {
+    "constants": {
+      "UI": {
+        "resource_path": "res://lootlings_ui.gd"
+      }
+    },
+    "methods": [
+      "build",
+      "text",
+      "feature",
+      "skin",
+      "shortcut",
+      "talk_badge",
+      "finish_details",
+      "refresh"
+    ],
+    "source_sha256": "a7f6d33717e6585499e92d222b67c8bcd1961d0d4ee91ea0363431659e820e2a"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6862,7 +6881,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "00c636161546d0e8a665dd40beb35132d8ad1a388d74b9a07163377e0557c366"
+    "source_sha256": "46e965c4fca429b924ed97f209be519986a6cd40b3b4ab7b29f682d34d9f4258"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7159,7 +7178,7 @@
       "greet_or_collection",
       "open_collection"
     ],
-    "source_sha256": "3d289e38471ddda4813967b40cfd640d92213c6ffad751a3a5f6b4f720fcf5cb"
+    "source_sha256": "016c88d1261b22f762d34aba345194fdf215744828cfe1b03463a470aaa88c39"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -8440,7 +8459,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "590f271725526f915647d5b6f1fcca332c25b60c2c5ab2e39854e3b4f7306931"
+    "source_sha256": "da2a4a7e005445b87e8f8b986216c6429400563dad8bea390b79e3b7ec94e52b"
   },
   "retention_runtime.gd": {
     "constants": {

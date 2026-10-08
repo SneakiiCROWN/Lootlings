@@ -56,6 +56,8 @@ func review() -> void:
   await tap(nav.buttons.home);assert(game.state=="personal_home" and not hub.visible);await capture("home_world_overview")
   await tap(home.buttons.bed);assert(home.warmth>0 and home.home_reaction.visible);assert(home.view=="room");await capture("home_rest_interaction")
   await tap(home.buttons.hearth);assert(home.warmth>0 and home.home_reaction.text.contains("embers"));assert(home.view=="room")
+  assert(home.background().resource_path.ends_with("personal_home_lived_in_v2.png"),"Reviewed Home revision did not load")
+  assert(preload("res://home_runtime_art.gd").registered_paths.has("environment:personal_home:interior"),"Home redraw loader is not cached")
   assert(home.buttons.gear==home.buttons.chest) # One chest, no duplicate Gear button.
   var layout:String=JSON.stringify(game.profile.homestead)
   await tap(home.buttons.chest);assert(hub.current_screen=="stash" and hub.private_return);game.navigate_back();await process_frame;assert(game.state=="personal_home")

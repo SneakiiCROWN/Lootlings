@@ -1,0 +1,1334 @@
+[
+  {
+    "actor": "emberhorn",
+    "state": "windup",
+    "facing": "right",
+    "filename": "emberhorn_windup_wand_right.png",
+    "source_crop": [
+      218,
+      12,
+      644,
+      341
+    ],
+    "source_core_bounds": [
+      218,
+      12,
+      644,
+      341
+    ],
+    "scale": 0.7066246056782335,
+    "uniform_actor_scale": true,
+    "offset": [
+      105,
+      264
+    ],
+    "canvas_alpha_bounds": [
+      105,
+      264,
+      406,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "emberhorn",
+    "state": "windup",
+    "facing": "left",
+    "filename": "emberhorn_windup_wand_left.png",
+    "source_crop": [
+      896,
+      16,
+      1316,
+      341
+    ],
+    "source_core_bounds": [
+      896,
+      16,
+      1316,
+      341
+    ],
+    "scale": 0.7066246056782335,
+    "uniform_actor_scale": true,
+    "offset": [
+      107,
+      266
+    ],
+    "canvas_alpha_bounds": [
+      107,
+      266,
+      404,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "emberhorn",
+    "state": "strike_or_cast",
+    "facing": "right",
+    "filename": "emberhorn_strike_or_cast_wand_right.png",
+    "source_crop": [
+      79,
+      357,
+      710,
+      652
+    ],
+    "source_core_bounds": [
+      79,
+      357,
+      709,
+      651
+    ],
+    "scale": 0.7066246056782335,
+    "uniform_actor_scale": true,
+    "offset": [
+      33,
+      288
+    ],
+    "canvas_alpha_bounds": [
+      33,
+      288,
+      479,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "emberhorn",
+    "state": "strike_or_cast",
+    "facing": "left",
+    "filename": "emberhorn_strike_or_cast_wand_left.png",
+    "source_crop": [
+      830,
+      363,
+      1464,
+      653
+    ],
+    "source_core_bounds": [
+      830,
+      363,
+      1464,
+      651
+    ],
+    "scale": 0.7066246056782335,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      291
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      291,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "emberhorn",
+    "state": "recovery",
+    "facing": "left",
+    "filename": "emberhorn_recovery_wand_left.png",
+    "source_crop": [
+      919,
+      661,
+      1346,
+      1000
+    ],
+    "source_core_bounds": [
+      919,
+      661,
+      1345,
+      999
+    ],
+    "scale": 0.7066246056782335,
+    "uniform_actor_scale": true,
+    "offset": [
+      105,
+      256
+    ],
+    "canvas_alpha_bounds": [
+      105,
+      256,
+      407,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "emberhorn",
+    "state": "recovery",
+    "facing": "right",
+    "filename": "emberhorn_recovery_wand_right.png",
+    "source_crop": [
+      208,
+      662,
+      621,
+      998
+    ],
+    "source_core_bounds": [
+      208,
+      662,
+      620,
+      998
+    ],
+    "scale": 0.7066246056782335,
+    "uniform_actor_scale": true,
+    "offset": [
+      110,
+      259
+    ],
+    "canvas_alpha_bounds": [
+      110,
+      259,
+      402,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "gloomlet",
+    "state": "windup",
+    "facing": "right",
+    "filename": "gloomlet_windup_wand_right.png",
+    "source_crop": [
+      227,
+      3,
+      646,
+      369
+    ],
+    "source_core_bounds": [
+      229,
+      5,
+      646,
+      368
+    ],
+    "scale": 0.8235294117647058,
+    "uniform_actor_scale": true,
+    "offset": [
+      83,
+      195
+    ],
+    "canvas_alpha_bounds": [
+      83,
+      196,
+      428,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "gloomlet",
+    "state": "windup",
+    "facing": "left",
+    "filename": "gloomlet_windup_wand_left.png",
+    "source_crop": [
+      887,
+      3,
+      1303,
+      369
+    ],
+    "source_core_bounds": [
+      888,
+      5,
+      1303,
+      367
+    ],
+    "scale": 0.8235294117647058,
+    "uniform_actor_scale": true,
+    "offset": [
+      84,
+      195
+    ],
+    "canvas_alpha_bounds": [
+      85,
+      196,
+      427,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "gloomlet",
+    "state": "strike_or_cast",
+    "facing": "right",
+    "filename": "gloomlet_strike_or_cast_wand_right.png",
+    "source_crop": [
+      179,
+      369,
+      723,
+      688
+    ],
+    "source_core_bounds": [
+      179,
+      371,
+      723,
+      686
+    ],
+    "scale": 0.8235294117647058,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      234
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      234,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "gloomlet",
+    "state": "strike_or_cast",
+    "facing": "left",
+    "filename": "gloomlet_strike_or_cast_wand_left.png",
+    "source_crop": [
+      811,
+      369,
+      1348,
+      688
+    ],
+    "source_core_bounds": [
+      813,
+      371,
+      1348,
+      686
+    ],
+    "scale": 0.8235294117647058,
+    "uniform_actor_scale": true,
+    "offset": [
+      35,
+      233
+    ],
+    "canvas_alpha_bounds": [
+      35,
+      233,
+      477,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "gloomlet",
+    "state": "recovery",
+    "facing": "right",
+    "filename": "gloomlet_recovery_wand_right.png",
+    "source_crop": [
+      250,
+      689,
+      671,
+      1016
+    ],
+    "source_core_bounds": [
+      250,
+      691,
+      670,
+      1014
+    ],
+    "scale": 0.8235294117647058,
+    "uniform_actor_scale": true,
+    "offset": [
+      82,
+      227
+    ],
+    "canvas_alpha_bounds": [
+      82,
+      227,
+      429,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "gloomlet",
+    "state": "recovery",
+    "facing": "left",
+    "filename": "gloomlet_recovery_wand_left.png",
+    "source_crop": [
+      865,
+      689,
+      1296,
+      1016
+    ],
+    "source_core_bounds": [
+      866,
+      691,
+      1296,
+      1014
+    ],
+    "scale": 0.8235294117647058,
+    "uniform_actor_scale": true,
+    "offset": [
+      78,
+      227
+    ],
+    "canvas_alpha_bounds": [
+      78,
+      227,
+      433,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "moonkip",
+    "state": "windup",
+    "facing": "left",
+    "filename": "moonkip_windup_wand_left.png",
+    "source_crop": [
+      859,
+      0,
+      1296,
+      367
+    ],
+    "source_core_bounds": [
+      859,
+      0,
+      1295,
+      366
+    ],
+    "scale": 0.9014084507042254,
+    "uniform_actor_scale": true,
+    "offset": [
+      59,
+      165
+    ],
+    "canvas_alpha_bounds": [
+      59,
+      165,
+      453,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "REJECTED_CLIPPED_SOURCE_BOUNDARY",
+    "runtime_installed": false
+  },
+  {
+    "actor": "moonkip",
+    "state": "windup",
+    "facing": "right",
+    "filename": "moonkip_windup_wand_right.png",
+    "source_crop": [
+      240,
+      0,
+      678,
+      367
+    ],
+    "source_core_bounds": [
+      241,
+      1,
+      678,
+      367
+    ],
+    "scale": 0.9014084507042254,
+    "uniform_actor_scale": true,
+    "offset": [
+      58,
+      165
+    ],
+    "canvas_alpha_bounds": [
+      58,
+      165,
+      453,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "moonkip",
+    "state": "strike_or_cast",
+    "facing": "left",
+    "filename": "moonkip_strike_or_cast_wand_left.png",
+    "source_crop": [
+      845,
+      357,
+      1326,
+      672
+    ],
+    "source_core_bounds": [
+      845,
+      358,
+      1326,
+      672
+    ],
+    "scale": 0.9014084507042254,
+    "uniform_actor_scale": true,
+    "offset": [
+      39,
+      212
+    ],
+    "canvas_alpha_bounds": [
+      39,
+      213,
+      473,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "moonkip",
+    "state": "strike_or_cast",
+    "facing": "right",
+    "filename": "moonkip_strike_or_cast_wand_right.png",
+    "source_crop": [
+      220,
+      358,
+      717,
+      666
+    ],
+    "source_core_bounds": [
+      220,
+      359,
+      716,
+      665
+    ],
+    "scale": 0.9014084507042254,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      218
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      218,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "moonkip",
+    "state": "recovery",
+    "facing": "right",
+    "filename": "moonkip_recovery_wand_right.png",
+    "source_crop": [
+      303,
+      659,
+      702,
+      1005
+    ],
+    "source_core_bounds": [
+      303,
+      659,
+      702,
+      1005
+    ],
+    "scale": 0.9014084507042254,
+    "uniform_actor_scale": true,
+    "offset": [
+      76,
+      184
+    ],
+    "canvas_alpha_bounds": [
+      76,
+      184,
+      436,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "moonkip",
+    "state": "recovery",
+    "facing": "left",
+    "filename": "moonkip_recovery_wand_left.png",
+    "source_crop": [
+      834,
+      663,
+      1233,
+      1004
+    ],
+    "source_core_bounds": [
+      834,
+      664,
+      1233,
+      1004
+    ],
+    "scale": 0.9014084507042254,
+    "uniform_actor_scale": true,
+    "offset": [
+      76,
+      189
+    ],
+    "canvas_alpha_bounds": [
+      76,
+      189,
+      436,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "mosskin",
+    "state": "windup",
+    "facing": "right",
+    "filename": "mosskin_windup_wand_right.png",
+    "source_crop": [
+      219,
+      9,
+      582,
+      344
+    ],
+    "source_core_bounds": [
+      219,
+      9,
+      581,
+      344
+    ],
+    "scale": 0.8715953307392996,
+    "uniform_actor_scale": true,
+    "offset": [
+      98,
+      204
+    ],
+    "canvas_alpha_bounds": [
+      98,
+      204,
+      414,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "mosskin",
+    "state": "windup",
+    "facing": "left",
+    "filename": "mosskin_windup_wand_left.png",
+    "source_crop": [
+      958,
+      10,
+      1319,
+      346
+    ],
+    "source_core_bounds": [
+      958,
+      10,
+      1319,
+      346
+    ],
+    "scale": 0.8715953307392996,
+    "uniform_actor_scale": true,
+    "offset": [
+      98,
+      203
+    ],
+    "canvas_alpha_bounds": [
+      98,
+      203,
+      413,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "mosskin",
+    "state": "strike_or_cast",
+    "facing": "right",
+    "filename": "mosskin_strike_or_cast_wand_right.png",
+    "source_crop": [
+      175,
+      354,
+      689,
+      665
+    ],
+    "source_core_bounds": [
+      175,
+      354,
+      689,
+      665
+    ],
+    "scale": 0.8715953307392996,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      225
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      225,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "mosskin",
+    "state": "strike_or_cast",
+    "facing": "left",
+    "filename": "mosskin_strike_or_cast_wand_left.png",
+    "source_crop": [
+      847,
+      355,
+      1361,
+      669
+    ],
+    "source_core_bounds": [
+      847,
+      355,
+      1361,
+      669
+    ],
+    "scale": 0.8715953307392996,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      222
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      222,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "mosskin",
+    "state": "recovery",
+    "facing": "right",
+    "filename": "mosskin_recovery_wand_right.png",
+    "source_crop": [
+      216,
+      673,
+      595,
+      1008
+    ],
+    "source_core_bounds": [
+      216,
+      674,
+      595,
+      1008
+    ],
+    "scale": 0.8715953307392996,
+    "uniform_actor_scale": true,
+    "offset": [
+      91,
+      204
+    ],
+    "canvas_alpha_bounds": [
+      91,
+      204,
+      421,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "mosskin",
+    "state": "recovery",
+    "facing": "left",
+    "filename": "mosskin_recovery_wand_left.png",
+    "source_crop": [
+      954,
+      675,
+      1316,
+      1010
+    ],
+    "source_core_bounds": [
+      954,
+      676,
+      1316,
+      1009
+    ],
+    "scale": 0.8715953307392996,
+    "uniform_actor_scale": true,
+    "offset": [
+      98,
+      204
+    ],
+    "canvas_alpha_bounds": [
+      98,
+      204,
+      414,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "pebblewyrm",
+    "state": "windup",
+    "facing": "right",
+    "filename": "pebblewyrm_windup_wand_right.png",
+    "source_crop": [
+      133,
+      6,
+      567,
+      349
+    ],
+    "source_core_bounds": [
+      134,
+      6,
+      566,
+      348
+    ],
+    "scale": 0.7684391080617495,
+    "uniform_actor_scale": true,
+    "offset": [
+      89,
+      232
+    ],
+    "canvas_alpha_bounds": [
+      89,
+      232,
+      422,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "pebblewyrm",
+    "state": "windup",
+    "facing": "left",
+    "filename": "pebblewyrm_windup_wand_left.png",
+    "source_crop": [
+      970,
+      6,
+      1404,
+      349
+    ],
+    "source_core_bounds": [
+      970,
+      6,
+      1403,
+      348
+    ],
+    "scale": 0.7684391080617495,
+    "uniform_actor_scale": true,
+    "offset": [
+      89,
+      232
+    ],
+    "canvas_alpha_bounds": [
+      89,
+      232,
+      422,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "pebblewyrm",
+    "state": "strike_or_cast",
+    "facing": "right",
+    "filename": "pebblewyrm_strike_or_cast_wand_right.png",
+    "source_crop": [
+      81,
+      353,
+      664,
+      660
+    ],
+    "source_core_bounds": [
+      81,
+      355,
+      664,
+      660
+    ],
+    "scale": 0.7684391080617495,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      260
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      260,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "pebblewyrm",
+    "state": "strike_or_cast",
+    "facing": "left",
+    "filename": "pebblewyrm_strike_or_cast_wand_left.png",
+    "source_crop": [
+      873,
+      354,
+      1456,
+      660
+    ],
+    "source_core_bounds": [
+      873,
+      355,
+      1455,
+      660
+    ],
+    "scale": 0.7684391080617495,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      261
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      261,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "pebblewyrm",
+    "state": "recovery",
+    "facing": "left",
+    "filename": "pebblewyrm_recovery_wand_left.png",
+    "source_crop": [
+      970,
+      660,
+      1364,
+      1004
+    ],
+    "source_core_bounds": [
+      970,
+      660,
+      1364,
+      1003
+    ],
+    "scale": 0.7684391080617495,
+    "uniform_actor_scale": true,
+    "offset": [
+      104,
+      233
+    ],
+    "canvas_alpha_bounds": [
+      104,
+      233,
+      407,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "pebblewyrm",
+    "state": "recovery",
+    "facing": "right",
+    "filename": "pebblewyrm_recovery_wand_right.png",
+    "source_crop": [
+      172,
+      660,
+      566,
+      1003
+    ],
+    "source_core_bounds": [
+      172,
+      661,
+      566,
+      1003
+    ],
+    "scale": 0.7684391080617495,
+    "uniform_actor_scale": true,
+    "offset": [
+      104,
+      232
+    ],
+    "canvas_alpha_bounds": [
+      104,
+      232,
+      407,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "relic_beast",
+    "state": "windup",
+    "facing": "left",
+    "filename": "relic_beast_windup_wand_left.png",
+    "source_crop": [
+      910,
+      1,
+      1382,
+      349
+    ],
+    "source_core_bounds": [
+      910,
+      2,
+      1381,
+      349
+    ],
+    "scale": 0.717948717948718,
+    "uniform_actor_scale": true,
+    "offset": [
+      86,
+      246
+    ],
+    "canvas_alpha_bounds": [
+      86,
+      246,
+      425,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "relic_beast",
+    "state": "windup",
+    "facing": "right",
+    "filename": "relic_beast_windup_wand_right.png",
+    "source_crop": [
+      153,
+      6,
+      659,
+      350
+    ],
+    "source_core_bounds": [
+      153,
+      6,
+      659,
+      349
+    ],
+    "scale": 0.717948717948718,
+    "uniform_actor_scale": true,
+    "offset": [
+      74,
+      249
+    ],
+    "canvas_alpha_bounds": [
+      74,
+      249,
+      437,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "relic_beast",
+    "state": "strike_or_cast",
+    "facing": "left",
+    "filename": "relic_beast_strike_or_cast_wand_left.png",
+    "source_crop": [
+      834,
+      341,
+      1458,
+      667
+    ],
+    "source_core_bounds": [
+      834,
+      341,
+      1458,
+      666
+    ],
+    "scale": 0.717948717948718,
+    "uniform_actor_scale": true,
+    "offset": [
+      32,
+      262
+    ],
+    "canvas_alpha_bounds": [
+      32,
+      262,
+      480,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "relic_beast",
+    "state": "strike_or_cast",
+    "facing": "right",
+    "filename": "relic_beast_strike_or_cast_wand_right.png",
+    "source_crop": [
+      91,
+      342,
+      711,
+      666
+    ],
+    "source_core_bounds": [
+      91,
+      343,
+      711,
+      666
+    ],
+    "scale": 0.717948717948718,
+    "uniform_actor_scale": true,
+    "offset": [
+      33,
+      263
+    ],
+    "canvas_alpha_bounds": [
+      33,
+      263,
+      478,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "relic_beast",
+    "state": "recovery",
+    "facing": "right",
+    "filename": "relic_beast_recovery_wand_right.png",
+    "source_crop": [
+      123,
+      659,
+      650,
+      1011
+    ],
+    "source_core_bounds": [
+      123,
+      660,
+      649,
+      1010
+    ],
+    "scale": 0.717948717948718,
+    "uniform_actor_scale": true,
+    "offset": [
+      67,
+      243
+    ],
+    "canvas_alpha_bounds": [
+      67,
+      243,
+      444,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  },
+  {
+    "actor": "relic_beast",
+    "state": "recovery",
+    "facing": "left",
+    "filename": "relic_beast_recovery_wand_left.png",
+    "source_crop": [
+      886,
+      661,
+      1407,
+      1011
+    ],
+    "source_core_bounds": [
+      886,
+      662,
+      1407,
+      1011
+    ],
+    "scale": 0.717948717948718,
+    "uniform_actor_scale": true,
+    "offset": [
+      69,
+      245
+    ],
+    "canvas_alpha_bounds": [
+      69,
+      245,
+      443,
+      496
+    ],
+    "baseline_y": 496,
+    "pivot": [
+      256,
+      341.3333333333333
+    ],
+    "status": "PENDING_MEASURED_CONTACT_AND_NATIVE_REVIEW",
+    "runtime_installed": false
+  }
+]

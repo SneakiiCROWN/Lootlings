@@ -1,0 +1,1752 @@
+[
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			259.621856689453,
+			268.256561279297
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			249.160140991211,
+			264.603546142578
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			486.776611328125,
+			309.899780273438
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			26.22340965271,
+			300.180786132813
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			80.5336074829102,
+			303.138702392578
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			412.169342041016,
+			297.659729003906
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			301.116241455078,
+			248.896713256836
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			221.648727416992,
+			246.426696777344
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			500.000640869141,
+			302.239410400391
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			22.4112949371338,
+			295.475433349609
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			447.476806640625,
+			333.143646240234
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			59.2291870117188,
+			328.202667236328
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			214.70426940918,
+			240.114700317383
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			21.3803100585938,
+			278.287384033203
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			497.619720458984,
+			282.485382080078
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			424.229766845703,
+			323.991607666016
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			87.3471908569336,
+			311.202667236328
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -1.04181818181818,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			121.614372253418,
+			266.092071533203
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 1.04181818181818,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			391.646606445313,
+			257.247100830078
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.98,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			371.190185546875,
+			294.185272216797
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.98,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			130.36979675293,
+			288.457275390625
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.916363636363636,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			314.769256591797,
+			317.728454589844
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.916363636363636,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			205.436767578125,
+			315.113433837891
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			235.334579467773,
+			207.956909179688
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			270.789428710938,
+			207.188919067383
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			492.617309570313,
+			254.51383972168
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			20.91872215271,
+			258.587829589844
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			75.177978515625,
+			278.187896728516
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			433.282073974609,
+			264.892913818359
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			232.96159362793,
+			238.218307495117
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			268.781402587891,
+			237.628295898438
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			18.3445224761963,
+			271.500122070313
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			497.527465820313,
+			277.525146484375
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			471.801910400391,
+			281.107757568359
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			38.2490844726563,
+			283.107757568359
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1080, 2340)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			259.621856689453,
+			268.256561279297
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			249.160140991211,
+			264.603546142578
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			486.776611328125,
+			309.899780273438
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			26.22340965271,
+			300.180786132813
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			80.5336074829102,
+			303.138702392578
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/emberhorn/emberhorn_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			58.4999961853027,
+			72.5400009155273
+		],
+		"projectile_origin": [
+			412.169342041016,
+			297.659729003906
+		],
+		"selector": true,
+		"slot_id": "pose:emberhorn:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			301.116241455078,
+			248.896713256836
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			221.648727416992,
+			246.426696777344
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			500.000640869141,
+			302.239410400391
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			22.4112949371338,
+			295.475433349609
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			447.476806640625,
+			333.143646240234
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			59.2291870117188,
+			328.202667236328
+		],
+		"selector": true,
+		"slot_id": "pose:gloomlet:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			214.70426940918,
+			240.114700317383
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			21.3803100585938,
+			278.287384033203
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			497.619720458984,
+			282.485382080078
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			424.229766845703,
+			323.991607666016
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			55.5,
+			68.8199996948242
+		],
+		"projectile_origin": [
+			87.3471908569336,
+			311.202667236328
+		],
+		"selector": true,
+		"slot_id": "pose:moonkip:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -1.04181818181818,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			121.614372253418,
+			266.092071533203
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 1.04181818181818,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			391.646606445313,
+			257.247100830078
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.98,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			371.190185546875,
+			294.185272216797
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.98,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			130.36979675293,
+			288.457275390625
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.916363636363636,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			314.769256591797,
+			317.728454589844
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/mosskin/mosskin_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.916363636363636,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			57.0,
+			70.6800003051758
+		],
+		"projectile_origin": [
+			205.436767578125,
+			315.113433837891
+		],
+		"selector": true,
+		"slot_id": "pose:mosskin:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			235.334579467773,
+			207.956909179688
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			270.789428710938,
+			207.188919067383
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			492.617309570313,
+			254.51383972168
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			20.91872215271,
+			258.587829589844
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			75.177978515625,
+			278.187896728516
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/pebblewyrm/pebblewyrm_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			67.5,
+			83.6999969482422
+		],
+		"projectile_origin": [
+			433.282073974609,
+			264.892913818359
+		],
+		"selector": true,
+		"slot_id": "pose:pebblewyrm:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			232.96159362793,
+			238.218307495117
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:windup:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.0181818181818182,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			268.781402587891,
+			237.628295898438
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:windup:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			18.3445224761963,
+			271.500122070313
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:strike_or_cast:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.08,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			497.527465820313,
+			277.525146484375
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:strike_or_cast:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": 0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			471.801910400391,
+			281.107757568359
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:recovery:right:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	},
+	{
+		"body_path": "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
+		"foreground": true,
+		"gameplay_unchanged": true,
+		"grip_error": 0.0,
+		"installed": true,
+		"module_angle": -0.143636363636364,
+		"module_file": "res://art/sprites/weapons/wand_held.png",
+		"module_grip_uv": [
+			0.419999986886978,
+			0.720000028610229
+		],
+		"module_size": [
+			61.5,
+			76.2600021362305
+		],
+		"projectile_origin": [
+			38.2490844726563,
+			283.107757568359
+		],
+		"selector": true,
+		"slot_id": "pose:relic_beast:recovery:left:wand",
+		"sprite_rig": false,
+		"viewport": "(1200, 1920)"
+	}
+]

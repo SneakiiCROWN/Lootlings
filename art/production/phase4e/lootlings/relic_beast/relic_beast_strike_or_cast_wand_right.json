@@ -1,0 +1,108 @@
+{
+  "schema_version": "master_artist_delivery_v1",
+  "slot_id": "pose:relic_beast:strike_or_cast:right:wand",
+  "entity_id": "relic_beast",
+  "state": "strike_or_cast",
+  "facing": "right",
+  "weapon_family": "wand",
+  "identity_authority": [
+    "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
+  ],
+  "body_filename": "relic_beast_strike_or_cast_wand_right.png",
+  "source_sha256": "074f4f09e9faafefafef651a4797f3769d9a12cba876945df830337106b525fe",
+  "canvas": [
+    512,
+    512
+  ],
+  "occupied_bounds": [
+    33,
+    263,
+    478,
+    496
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "ground_or_hover_point": [
+    256,
+    496
+  ],
+  "primary_palm": [
+    458.026,
+    400.846
+  ],
+  "secondary_palm": [
+    259.872,
+    390.077
+  ],
+  "core_or_eye": [
+    341.718,
+    405.154
+  ],
+  "mirroring_allowed": false,
+  "uniform_source_transform": {
+    "scale": 0.717948717948718,
+    "crop": [
+      91,
+      342,
+      711,
+      666
+    ],
+    "offset": [
+      33,
+      263
+    ]
+  },
+  "layers": {
+    "body": "relic_beast_strike_or_cast_wand_right.png",
+    "foreground": "relic_beast_strike_or_cast_wand_right_grip_front.png",
+    "support": null,
+    "vfx": null
+  },
+  "baked_equipment": [],
+  "baked_equipment_restrictions": "Weaponless body. Existing interchangeable runtime wand only; no baked wand, projectile, trail or magic effects.",
+  "contacts": {
+    "primary_contact": [
+      458.026,
+      400.846
+    ],
+    "secondary_contact": null,
+    "module_file": "res://art/sprites/weapons/wand_held.png",
+    "module_grip_uv": [
+      0.42,
+      0.72
+    ],
+    "module_secondary_uv": null,
+    "module_size_design": [
+      75,
+      93
+    ],
+    "module_angle_radians": 0.16,
+    "string_mode": "NONE",
+    "nocked_arrow": false,
+    "projectile_origin": [
+      497.527465820313,
+      277.525146484375
+    ],
+    "paired_module_file": null,
+    "hand_roles": {
+      "primary": "grips existing modular wand; source-pixel finger layer in foreground",
+      "secondary": "free casting hand, not a second wand grip"
+    },
+    "foreground_hand_roles": [
+      "primary"
+    ]
+  },
+  "attack_anchors": {},
+  "tail": null,
+  "non_applicable_reasons": {
+    "secondary_contact": "One-handed wand; free secondary casting hand is measured separately.",
+    "string_and_arrow": "Wand, not bow.",
+    "support": "Source-pixel primary finger foreground is the required combined layer; no separate alternate support body.",
+    "vfx": "Existing runtime temporal effects remain separate.",
+    "attack_anchors_and_tail": "Not a boss anchor packet. Visible character tail remains part of body anatomy where canonical.",
+    "module_geometry": "Base contract [75,93] and angle .16 retained. Existing actor/equipment and phase transforms apply at runtime; actual final size, angle and projectile origin verified in CONTACT_CHECKS.json at phone/tablet."
+  }
+}

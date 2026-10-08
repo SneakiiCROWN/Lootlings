@@ -33,12 +33,12 @@ func _draw() -> void:
 	# moves furniture away from its hotspots on tall phones and wide desktops.
 	if game.state in ["hideout","personal_home"] and (game.state=="personal_home" or game.hideout_ui.current_screen=="home"):
 		var world_frame:=Rect2(game.position,game.size*game.scale)
-		# Extend the outermost painted pixels beyond the safe area. This keeps
-		# the room continuous without duplicating its ceiling/floor at the seam.
+		# Quiet navy margins preserve the aligned scene without stretching a
+		# single pixel row into visible stripes on tall exported phone screens.
 		if world_frame.position.y>0:
-			draw_texture_rect_region(texture,Rect2(world_frame.position.x,0,world_frame.size.x,world_frame.position.y),Rect2(0,0,extent.x,1))
+			draw_rect(Rect2(world_frame.position.x,0,world_frame.size.x,world_frame.position.y),Color("#081127ef"))
 		if world_frame.end.y<size.y:
-			draw_texture_rect_region(texture,Rect2(world_frame.position.x,world_frame.end.y,world_frame.size.x,size.y-world_frame.end.y),Rect2(0,extent.y-1,extent.x,1))
+			draw_rect(Rect2(world_frame.position.x,world_frame.end.y,world_frame.size.x,size.y-world_frame.end.y),Color("#081127ef"))
 		if world_frame.position.x>0:
 			draw_rect(Rect2(0,0,world_frame.position.x,size.y),Color("#081127bb"))
 		if world_frame.end.x<size.x:

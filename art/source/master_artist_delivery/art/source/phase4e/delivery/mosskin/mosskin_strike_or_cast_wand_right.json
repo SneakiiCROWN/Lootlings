@@ -1,0 +1,108 @@
+{
+  "schema_version": "master_artist_delivery_v1",
+  "slot_id": "pose:mosskin:strike_or_cast:right:wand",
+  "entity_id": "mosskin",
+  "state": "strike_or_cast",
+  "facing": "right",
+  "weapon_family": "wand",
+  "identity_authority": [
+    "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+  ],
+  "body_filename": "mosskin_strike_or_cast_wand_right.png",
+  "source_sha256": "b74f3324c3ebd308bde0a0cdd7c306c471470929a48adbb4ed62b4e4976d5cfa",
+  "canvas": [
+    512,
+    512
+  ],
+  "occupied_bounds": [
+    32,
+    225,
+    480,
+    496
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "ground_or_hover_point": [
+    256,
+    496
+  ],
+  "primary_palm": [
+    453,
+    382
+  ],
+  "secondary_palm": [
+    174.942,
+    372.3
+  ],
+  "core_or_eye": [
+    307.424,
+    409.778
+  ],
+  "mirroring_allowed": false,
+  "uniform_source_transform": {
+    "scale": 0.8715953307392996,
+    "crop": [
+      175,
+      354,
+      689,
+      665
+    ],
+    "offset": [
+      32,
+      225
+    ]
+  },
+  "layers": {
+    "body": "mosskin_strike_or_cast_wand_right.png",
+    "foreground": "mosskin_strike_or_cast_wand_right_grip_front.png",
+    "support": null,
+    "vfx": null
+  },
+  "baked_equipment": [],
+  "baked_equipment_restrictions": "Weaponless body. Existing interchangeable runtime wand only; no baked wand, projectile, trail or magic effects.",
+  "contacts": {
+    "primary_contact": [
+      453,
+      382
+    ],
+    "secondary_contact": null,
+    "module_file": "res://art/sprites/weapons/wand_held.png",
+    "module_grip_uv": [
+      0.42,
+      0.72
+    ],
+    "module_secondary_uv": null,
+    "module_size_design": [
+      75,
+      93
+    ],
+    "module_angle_radians": 0.16,
+    "string_mode": "NONE",
+    "nocked_arrow": false,
+    "projectile_origin": [
+      371.190185546875,
+      294.185272216797
+    ],
+    "paired_module_file": null,
+    "hand_roles": {
+      "primary": "grips existing modular wand; source-pixel finger layer in foreground",
+      "secondary": "free casting hand, not a second wand grip"
+    },
+    "foreground_hand_roles": [
+      "primary"
+    ]
+  },
+  "attack_anchors": {},
+  "tail": null,
+  "non_applicable_reasons": {
+    "secondary_contact": "One-handed wand; free secondary casting hand is measured separately.",
+    "string_and_arrow": "Wand, not bow.",
+    "support": "Source-pixel primary finger foreground is the required combined layer; no separate alternate support body.",
+    "vfx": "Existing runtime temporal effects remain separate.",
+    "attack_anchors_and_tail": "Not a boss anchor packet. Visible character tail remains part of body anatomy where canonical.",
+    "module_geometry": "Base contract [75,93] and angle .16 retained. Existing actor/equipment and phase transforms apply at runtime; actual final size, angle and projectile origin verified in CONTACT_CHECKS.json at phone/tablet."
+  }
+}

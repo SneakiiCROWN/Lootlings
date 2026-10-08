@@ -1,0 +1,12 @@
+{
+  "rejected": [
+    {
+      "slot_id": "pose:moonkip:windup:left:wand",
+      "reason": "Source ear touches top border; rejected before install",
+      "original": "moonkip_wand_cast_candidate.png",
+      "replacement": "moonkip_windup_left_correction_candidate.png",
+      "replacement_status": "PENDING_PROPORTION_AND_NATIVE_CONTACT_REVIEW"
+    }
+  ],
+  "installed": false
+}
