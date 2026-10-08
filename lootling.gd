@@ -3441,7 +3441,7 @@ func navigate_back() -> void:
 func input_surface() -> Control:
 	# The topmost confirmation owns input, including inside personal Home.
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
-	if state=="personal_home":return personal_home
+	if state=="personal_home":return personal_home.input_surface()
 	if startup_ui.visible and startup_ui.identity_panel.is_visible_in_tree():return startup_ui.identity_panel
 	if personal_profile_return and startup_ui.visible:return startup_ui
 	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:
@@ -4016,12 +4016,13 @@ func draw_moment_overlay() -> void:
 			draw_rect(Rect2(100, 264, 280, 2), banner_color, true)
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
 
-func save_home_preferences(home: Dictionary, companion: Dictionary) -> void:
-	if state!="personal_home" or personal_home.view not in ["preferences","companions"]:return
+func save_home_preferences(home: Dictionary, companion: Dictionary) -> bool:
+	if state!="personal_home" or personal_home.view not in ["preferences","companions","decor"]:return false
 	var next:=profile.duplicate(true);next.homestead=home;next.companion=companion;next=ProfileStore.sanitize(next)
-	if ProfileStore.save_profile(PROFILE_SAVE_PATH,next)!=OK:return
+	if ProfileStore.save_profile(PROFILE_SAVE_PATH,next)!=OK:return false
 	profile=next;hideout_ui.profile=profile.duplicate(true);hideout_ui.refresh_home_settings();hideout_ui.refresh_home();hideout_ui.queue_redraw()
 	personal_home.queue_redraw()
+	return true
 
 func show_personal_home(view: String="room") -> void:
 	hideout_ui.private_return=false;personal_home.open(view)

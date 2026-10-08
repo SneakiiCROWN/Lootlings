@@ -10,8 +10,8 @@ func react(context: String) -> void:
 	if context in ["return", "reward", "talk"]:
 		state="reaction"; reaction_timer=.75
 
-func update(delta: float, owner_position: Vector2) -> void:
-	var target:=owner_position+Vector2(-72,45)
+func update(delta: float, owner_position: Vector2, offset: Vector2=Vector2(-72,45)) -> void:
+	var target:=owner_position+offset
 	if not initialized: position=target; initialized=true
 	var distance:=target-position
 	if absf(distance.x)>3: facing="right" if distance.x>0 else "left"

@@ -17,7 +17,7 @@ static func create_default() -> Dictionary:
 		"wanderer":WandererCatalog.create_default(),
 		"memories":[],
 		"companion":{"equipped_id":"", "owned_ids":[], "accompany":false},
-		"homestead":{"display":"weapon"},
+		"homestead":preload("res://home_catalog.gd").sanitize({"display":"weapon"}),
 		"cosmetic_ids":[],
 		"customisation":{"skin_id":"", "head_id":"", "core_effect_id":"", "weapon_skin_id":"", "trail_id":"", "victory_pose_id":"", "emote_id":""},
 		"favourite_weapon_id":"scrapfang_blade",
@@ -80,7 +80,7 @@ static func sanitize(value: Dictionary) -> Dictionary:
 				cleaned[key]=candidate.left(128) if candidate is String else maxi(0,candidate) if candidate is int else candidate
 		result[section]=cleaned
 	result.companion=preload("res://companion_catalog.gd").sanitize(result.companion)
-	result.homestead={"display":result.homestead.get("display","weapon") if result.homestead.get("display","weapon") in ["weapon","scroll","trophy","none"] else "weapon"}
+	result.homestead=preload("res://home_catalog.gd").sanitize(result.homestead)
 	return result
 
 static func is_created(profile: Dictionary) -> bool:

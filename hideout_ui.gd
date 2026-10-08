@@ -354,7 +354,7 @@ func build_home() -> void:
 	for speaker in RESIDENT_RECTS: make_npc_hotspot(home_content,RESIDENT_RECTS[speaker],speaker)
 	make_npc_hotspot(home_content,Rect2(166,355,148,146),"Mascot")
 	make_object_hotspot(home_content,"ShopEntrance",Rect2(398,238,66,82),show_shop,"Visit the Salvager shop")
-	
+
 	make_object_hotspot(home_content,"StorageChest",Rect2(18,488,126,156),show_stash,"Open Gear")
 	make_object_hotspot(home_content,"ForgeStation",Rect2(2,644,108,60),show_forge,"Visit the weapon Forge")
 	make_object_hotspot(home_content,"ShrineProp",Rect2(4,204,88,126),show_upgrades,"Visit the shrine")
@@ -1069,7 +1069,8 @@ func refresh_achievements() -> void:
 	var unlocked_count: int = int(achievement_manager.unlocked.size()) if achievement_manager != null else 0
 	achievement_summary.text = "%d / %d RECOVERED  •  TAP A BADGE FOR DETAILS" % [unlocked_count, AchievementManager.DEFINITIONS.size()]
 	for index in range(achievement_filter_buttons.size()):
-		achievement_filter_buttons[index].disabled = achievement_filter_buttons[index].text == achievement_filter
+		achievement_filter_buttons[index].disabled=false
+		apply_display_button_style(achievement_filter_buttons[index],Color("#bba0de"),achievement_filter_buttons[index].text==achievement_filter)
 	var visible_entries: Array = []
 	for entry in AchievementManager.DEFINITIONS:
 		if not achievement_matches_filter(entry):
@@ -1177,7 +1178,8 @@ func refresh_stash() -> void:
 	stash_title.text = "STASH  •  %d / %d STORED" % [current_inventory.stash.size(), current_inventory.stash_capacity]
 	for filter_name in filter_buttons:
 		var filter_button: Button = filter_buttons[filter_name]
-		filter_button.disabled = filter_name == stash_filter
+		filter_button.disabled=false
+		apply_display_button_style(filter_button,Color("#7194c4"),filter_name==stash_filter)
 	for child in stash_list.get_children():
 		stash_list.remove_child(child)
 		child.queue_free()
@@ -1509,7 +1511,9 @@ func make_npc_hotspot(parent: Control, rect: Rect2, speaker: String) -> void:
 	hotspot.size = rect.size
 	hotspot.flat = true
 	hotspot.set_meta("gesture_release_owned",true)
-	hotspot.focus_mode = Control.FOCUS_NONE
+	hotspot.focus_mode = Control.FOCUS_ALL
+	var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6");focus.set_border_width_all(2);focus.set_corner_radius_all(8)
+	hotspot.add_theme_stylebox_override("focus",focus)
 	hotspot.tooltip_text = "Talk to %s" % WorldStory.SPEAKERS.get(speaker, speaker)
 	hotspot.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	hotspot.pressed.connect(func():
@@ -1731,7 +1735,7 @@ func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> 
 	if speaker not in ["Salvager","Archivist"]:rect.position.x+=walk
 	# Until authored seated/work layers arrive, show the established idle body.
 	# Activity routes and dialogue remain live; no fake body deformation.
-	if speaker=="Archivist": rect=Rect2(rect.position+Vector2(6,10),rect.size*Vector2(.88,.92))
+
 	if speaker not in ["Salvager","Archivist"]:
 		draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
 		draw_circle(Vector2.ZERO,31,Color("#03061280"))
@@ -1976,6 +1980,8 @@ func choose_home_display(id: String) -> void:
 	if current_screen!="home_settings" or id not in ["weapon","scroll","trophy","none"]:return
 	var home: Dictionary=profile.get("homestead",{}).duplicate(true)
 	home.display=id
+	home=preload("res://home_catalog.gd").sanitize(home)
+	home.home_layout.placements["home.wall_display"]=null
 	home_preferences_requested.emit(home,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
 
 func choose_companion(id: String) -> void:
