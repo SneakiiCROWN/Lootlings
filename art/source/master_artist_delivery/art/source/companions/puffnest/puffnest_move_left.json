@@ -1,0 +1,25 @@
+{
+  "entity_id": "puffnest",
+  "state": "move",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    90.5,
+    224
+  ],
+  "body_filename": "puffnest_move_left.png",
+  "source_sha256": "64eb8c4c9af72868398b09d40828663113a57b2a5e7842a573f8ba5133dcf3e0"
+}

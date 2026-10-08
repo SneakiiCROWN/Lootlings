@@ -13,7 +13,7 @@ func review() -> void:
 		var gear: String=JSON.stringify(game.inventory.equipped)
 		var gold: int=game.gold;var attacks: int=game.attack_sequence
 		await tap(game.personal_home.buttons.display);assert(game.personal_home.view=="decor" and game.input_surface()==game.personal_home.decor_panel)
-		assert(game.personal_home.decor_tabs["home.floor_perch"].disabled and game.personal_home.decor_tabs["home.wall_perch"].disabled)
+		assert(game.personal_home.decor_tabs["home.floor_perch"].disabled==not preload("res://home_catalog.gd").available("home_companion_cushion") and game.personal_home.decor_tabs["home.wall_perch"].disabled==not preload("res://home_catalog.gd").available("home_companion_ledge"))
 		await tap(game.personal_home.decor_list.get_child(1));await capture("decor_trophy_preview")
 		assert(JSON.stringify(game.profile.homestead)==saved);game.navigate_back();assert(game.personal_home.view=="room" and JSON.stringify(game.profile.homestead)==saved)
 		await tap(game.personal_home.buttons.display);await tap(game.personal_home.decor_list.get_child(1));await tap(game.personal_home.decor_panel.get_node("ApplyDecor"))

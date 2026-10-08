@@ -1,0 +1,38 @@
+{
+  "entity_id": "pixrask",
+  "state": "perch_interact",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    152.0,
+    224
+  ],
+  "body_filename": "pixrask_perch_interact_left.png",
+  "source_sha256": "3e417bffc0ee3b48dcf40cbb8236c002cd58344154646f44c94fe6082f70a84a",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "actual_supporting_anatomy_boundary",
+  "allowed_slots": [
+    "home.floor_perch"
+  ],
+  "interaction_prop_path": "art/production/companions/previews/pixrask_unlock.png",
+  "interaction_contact_anchor": [
+    43.49,
+    152.51
+  ]
+}

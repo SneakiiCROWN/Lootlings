@@ -1,0 +1,39 @@
+{
+  "entity_id": "lunarwisp",
+  "state": "perch_interact",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    126.5,
+    224
+  ],
+  "body_filename": "lunarwisp_perch_interact_left.png",
+  "source_sha256": "8505ffaf714d790b6e8141e649943f93c0bd9ccc0c1625f5989ac7e70a54d7d8",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "hover_reference",
+  "allowed_slots": [
+    "home.floor_perch",
+    "home.wall_perch"
+  ],
+  "interaction_prop_path": "art/production/companions/previews/lunarwisp_unlock.png",
+  "interaction_contact_anchor": [
+    35.9,
+    151.11
+  ]
+}

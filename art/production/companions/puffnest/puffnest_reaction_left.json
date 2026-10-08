@@ -1,0 +1,25 @@
+{
+  "entity_id": "puffnest",
+  "state": "reaction",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    99.0,
+    224
+  ],
+  "body_filename": "puffnest_reaction_left.png",
+  "source_sha256": "fd52d009d9070331c4a6ede2c101da153fb60becfd5c8301a277abe34494ae2a"
+}

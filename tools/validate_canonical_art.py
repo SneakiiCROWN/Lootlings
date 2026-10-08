@@ -102,6 +102,8 @@ def validate():
         runtime=json.loads((ROOT/'art/production/phase4e/runtime_manifest.json').read_text(encoding='utf-8'))['entries']
         from master_artist_intake import validate_installed_registrations
         validate_installed_registrations(runtime)
+        from master_artist_intake import installed_rows
+        validate_installed_registrations(installed_rows())
         for row in runtime:
             if row.get('master_artist_slot_id'):continue # Validated above against exact delivery + reviewed hashes.
             source_record=next((e for e in extracted if e['asset_path']==row['asset_path']),{})

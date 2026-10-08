@@ -1,4 +1,1044 @@
 {
   "scope": "Trusted reviewer log. Approvals must bind every mandatory file hash; filenames alone never approve identity or a pose. Do not fill from artist declarations automatically.",
-  "entries": []
+  "entries": [
+    {
+      "slot_id": "environment:personal_home:interior",
+      "reviewer": "Codex canonical visual/native production review 2026-10-08",
+      "review_note": "Compared Home material/architecture and furnishing style directly with canonical companion implementation panel03. Rejected two environment mount-zone passes; final bare mounts contain no baked removable furnishings. Uniform exports, measured surface pivots, byte-identical front layer pixels, clean alpha on room/phone/tablet, native preview remove/cancel/apply/reload and chest/shelf/Hub navigation reviewed. No companion identity or state closed by this Home prop acceptance. Native evidence continuous-home-final-staged; physical device acceptance remains separate.",
+      "file_sha256": {
+        "art/source/phase4e/home/personal_home_interior.png": "7d7aaa10fb9ace558b7837990b018e56dee1c3e8b25610bc48ba76a7a5b63802",
+        "art/source/phase4e/home/personal_home_interior.json": "1155397881c9b6f9a80e8558ab51dc00d664a2127e4c7039782e113dce127d7e"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "home_decor:home_companion_cushion",
+      "reviewer": "Codex canonical visual/native production review 2026-10-08",
+      "review_note": "Compared Home material/architecture and furnishing style directly with canonical companion implementation panel03. Rejected two environment mount-zone passes; final bare mounts contain no baked removable furnishings. Uniform exports, measured surface pivots, byte-identical front layer pixels, clean alpha on room/phone/tablet, native preview remove/cancel/apply/reload and chest/shelf/Hub navigation reviewed. No companion identity or state closed by this Home prop acceptance. Native evidence continuous-home-final-staged; physical device acceptance remains separate.",
+      "file_sha256": {
+        "art/source/phase4e/home/props/home_companion_cushion.png": "a5dfd24f188552e7249938fbb47d13c9236fd830e5cb065e69914ff3a745465d",
+        "art/source/phase4e/home/props/home_companion_cushion_front.png": "72fd1927f8098543e1efd8347e22d446998560dc1cce5bfc3eef06ad200fad5d",
+        "art/source/phase4e/home/props/home_companion_cushion.json": "1198010b4c6b8b2acf731653555abc2511d6d87791f597535ccb8ff9ba6647e2"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "home_decor:home_companion_ledge",
+      "reviewer": "Codex canonical visual/native production review 2026-10-08",
+      "review_note": "Compared Home material/architecture and furnishing style directly with canonical companion implementation panel03. Rejected two environment mount-zone passes; final bare mounts contain no baked removable furnishings. Uniform exports, measured surface pivots, byte-identical front layer pixels, clean alpha on room/phone/tablet, native preview remove/cancel/apply/reload and chest/shelf/Hub navigation reviewed. No companion identity or state closed by this Home prop acceptance. Native evidence continuous-home-final-staged; physical device acceptance remains separate.",
+      "file_sha256": {
+        "art/source/phase4e/home/props/home_companion_ledge.png": "d7298567e7daa4963ce462a57e2ee7e4043c3ed2d6136140a049f6db898866b2",
+        "art/source/phase4e/home/props/home_companion_ledge_front.png": "701dc619999025c1752c242aa6aa316d05ef015e3d26dfa5c3e40b32ef02e356",
+        "art/source/phase4e/home/props/home_companion_ledge.json": "9116fcb41bdaf3e0f1efcf8a85ba9d01f9c5bcf134c329939b42a54a3a537d3e"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:auricub:idle:right",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_idle_right.png": "2901bc0442fc88ccf34e83d49a0d31f99a494313472ed6fd5af83bf4046c4d4b",
+        "art/source/companions/auricub/auricub_idle_right.json": "24e4a51b3731a47a602bb7f9b13069c6f9f38f041c51050d3c98888e05eea514"
+      }
+    },
+    {
+      "slot_id": "companion:auricub:idle:left",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_idle_left.png": "b38855f2a306d6a1c936f371058e37dfbc72c538dd6173baf37702d3f8009ff2",
+        "art/source/companions/auricub/auricub_idle_left.json": "6eea3d1ba3e224e5f06bd91a4d4e3d6c75e40a4522a2c9ecca7b8d4cc96df775"
+      }
+    },
+    {
+      "slot_id": "companion:auricub:move:right",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_move_right.png": "a1cc72da447ec20c9b8b77bf16ebdac3cbaf3ca60350a02c49fa396ef6c77693",
+        "art/source/companions/auricub/auricub_move_right.json": "edec1888e76d77251c3dc2b44daf6db48cea8a4b3a3a0fec62471043c3857c22"
+      }
+    },
+    {
+      "slot_id": "companion:auricub:move:left",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_move_left.png": "655225e1c152faa94ed38c8e4cb3a8585cbe7daad13c8902f7cfc8b0711696af",
+        "art/source/companions/auricub/auricub_move_left.json": "d1a5daf7a5604294ae85278f177997d64070b2bd89c802cff0c383368708a558"
+      }
+    },
+    {
+      "slot_id": "companion:auricub:reaction:right",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_reaction_right.png": "f9bbe8027dbf70f9733d4f9cd741823a19d52d22d4a445b64160916797c1ad7e",
+        "art/source/companions/auricub/auricub_reaction_right.json": "68c42348159e800c0cd9dd9347da0a9c0103f7836a64c759394762e538d15601"
+      }
+    },
+    {
+      "slot_id": "companion:auricub:reaction:left",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_reaction_left.png": "8747234138900a4b948a9159269177596310db5604dde209176ff8cc08d6e856",
+        "art/source/companions/auricub/auricub_reaction_left.json": "56980f5e45b6d446a9c3d3501a541de4962aa5c8b0d7b9909f4b32cfbdb566d8"
+      }
+    },
+    {
+      "slot_id": "companion:stonekith:idle:left",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_idle_left.png": "ae71942c1935b2d1880281331a8e7fd498bced09deb7ee5cd810b0588456dac7",
+        "art/source/companions/stonekith/stonekith_idle_left.json": "40aafb44c971efeb0167aa5d7205f3e6b692dcf32cf585fbc9feed56d5f48723"
+      }
+    },
+    {
+      "slot_id": "companion:stonekith:move:right",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_move_right.png": "43dc7154f9d4cce34ecc58024ec31ebae0a096242b7b8448452533e5af5dd0c3",
+        "art/source/companions/stonekith/stonekith_move_right.json": "883f1a14df34c982c48ef1cae0e71779bd839824324fa34039ae9f8372375552"
+      }
+    },
+    {
+      "slot_id": "companion:stonekith:move:left",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_move_left.png": "7f76e8c191030f3095e6570c7a6a2fcc3379b82b2592c0971aa85e9a71911976",
+        "art/source/companions/stonekith/stonekith_move_left.json": "89c160e419696daff65d744097d304db998e213c55d322340b14bdaed4bdbb3e"
+      }
+    },
+    {
+      "slot_id": "companion:stonekith:reaction:right",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_reaction_right.png": "6b6b0297f375a77d200ad4efc868a65e10c008d82989a16494cc13a3137d3fff",
+        "art/source/companions/stonekith/stonekith_reaction_right.json": "5e8ac5b6b9a92c9b6cf7f19fd2f233091d6dabd4f86b3f3246d001b785227ef2"
+      }
+    },
+    {
+      "slot_id": "companion:stonekith:reaction:left",
+      "reviewer": "Codex delegated production review; owner-approved companion collection + implementation canon",
+      "review_note": "Compared dedicated canonical panel and all six follower frames at136px and56px native phone1080x2340/tablet1200x1920; exact named identity, complete independent facings and supporting paws, clean alpha/ears/crystals/tail, distinct movement/reaction. QA companion-follower-sheet-native-corrected-2592c37f89 PASS. Legacy Stonekith right idle preserved. Perch row candidates rejected, no perch completion claim. Player saves untouched.",
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true,
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_reaction_left.png": "5a023ef37332fa5c700be869a7ecbb498eaa89a8c5e4dff14863e0d27514cd31",
+        "art/source/companions/stonekith/stonekith_reaction_left.json": "7f54c68492346da6188bfa506e0374c83ba8c8f0ebefb2bc07e2c4d18b13d6c7"
+      }
+    },
+    {
+      "slot_id": "companion:pixrask:idle:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_idle_right.png": "b81fb7fbc096cdd36e87a225333e56270e8eb77fd97e5842193f6b47710679fd",
+        "art/source/companions/pixrask/pixrask_idle_right.json": "add933237855de15f762f90b8245ed93289d30a61265ec94a38601a8eb9d4174"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:idle:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_idle_left.png": "3ad520a716d8cc3edf0f2ce7381614ac73fb9a73ffc417e286140597ef3734d0",
+        "art/source/companions/pixrask/pixrask_idle_left.json": "62af643d2db31db03f2281f9dee34ef5ae39c114678cd147ff37b1db95ff4af7"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:move:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_move_right.png": "b54ea28d94bc9eded57689419bb57eeec36c845d221b0fd5f787f8934a5c59b7",
+        "art/source/companions/pixrask/pixrask_move_right.json": "e33ad6bb85248ddc3434a4f9312a26e786ab1d818636f1603de20c406629c4ca"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:move:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_move_left.png": "14a8e039a4dc7d48466315c2623dbf6827a1f9bc445e0de60c13aebe7991b144",
+        "art/source/companions/pixrask/pixrask_move_left.json": "7fcd984b3ca20c5bfc25c6a519aa9de1635bbc01fb2af8b931a60bf97d0ac8a0"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:reaction:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_reaction_right.png": "fc062de2a8d4566ee0c65a73c5170f59e9cfeee25e8beaff3e0eaeb48767b154",
+        "art/source/companions/pixrask/pixrask_reaction_right.json": "a40972d81fd408fcdf118ca7dac5846f69100ae49d4f36f3d9d651993057454f"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:reaction:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_reaction_left.png": "fc6ac43513d9083e52a29d6759f0aac43e39de37691dee0b13ebfafcb46f559d",
+        "art/source/companions/pixrask/pixrask_reaction_left.json": "cf34cc8c01dae848f6e600a6faeb12d26bc91814e2fc74b3b0197853dd4eccfe"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:idle:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_idle_right.png": "354673f54a2ea8a6ec424c986619e2e3bc25b36b9e61ac3f6ed7f638c78a8182",
+        "art/source/companions/lunarwisp/lunarwisp_idle_right.json": "bf215bcc8360ecbd0afe6e56a3e98ec03c16f41bb49709635069391a5b75056a"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:idle:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_idle_left.png": "33297051f5a5bd324f494849bcf4cd4883b392fb7daf0c6fab939c9e74c96f81",
+        "art/source/companions/lunarwisp/lunarwisp_idle_left.json": "f8d56429be1f6c559d07f761b166d78b29e3ccb430db7c640c5e7f5ba9aa42f3"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:move:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_move_right.png": "8edac6ecfaff9df5684d82805ce6b38c5cdd72b54957e91a1fe0e179033e2847",
+        "art/source/companions/lunarwisp/lunarwisp_move_right.json": "d495adf50f397083e4509ded938630be2b34abfb9145374687618424950062a8"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:move:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_move_left.png": "d6f08c0fe8bb8889a20f07ee1d75a8bb32112bdec95f5d1695572814dfc86d92",
+        "art/source/companions/lunarwisp/lunarwisp_move_left.json": "96afb066ec77b2594ff4ed6866b3a29b2132f07e8e905dd2c93a734759de4d73"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:reaction:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_reaction_right.png": "4f069b7d789023b5dcad02f8fa0a08d4f71f72ac79dff829b894c324c98d442c",
+        "art/source/companions/lunarwisp/lunarwisp_reaction_right.json": "3c52c4865bb3f503f105cf1b1bd301a84f71f3e46f64bf4674a3bc3e4f96e53e"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:reaction:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_reaction_left.png": "6216e466a7b5a6a4b3854e783a411ee55fdb4d43e654d1d84b1430c751372a41",
+        "art/source/companions/lunarwisp/lunarwisp_reaction_left.json": "f6a841d9059d754db303f5bb29bcbb5d5e846e477b53a565e73e03278da1a955"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:idle:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_idle_right.png": "bd057beaf0f3b0761a2a2d15aaba5a9bbcd702be21e77190e177afcc0b459b0c",
+        "art/source/companions/breezewyn/breezewyn_idle_right.json": "05bebb453e5ff8ebe03ea35b9cf5fc8cce347a75ad165931aa9009293f494290"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:idle:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_idle_left.png": "0e048afb5300aa277fc6aebacf125f9113e9467efb0ca59de15ff7fb728b0fc9",
+        "art/source/companions/breezewyn/breezewyn_idle_left.json": "2d1951ad6934a3a48c5651900d80d54d4d271d7cde1d07bb9cb4f5ddcf578a91"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:move:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_move_right.png": "c34b876b143d936870b3a3c4d50e684b2924b6221d5056f46f8ff1243fbcf041",
+        "art/source/companions/breezewyn/breezewyn_move_right.json": "a7b3fbfd2cc2bf9eada290f5321836a0abbfd455caca21462692497428d6fa20"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:move:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_move_left.png": "d3de5f400502645556a6da6e44dae264abf2f52edb4e8dbdca338510d8cdad6a",
+        "art/source/companions/breezewyn/breezewyn_move_left.json": "25c4fb9930e975ca127244a637ad73d414b4962d449bd98845da3eea2fbe2493"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:reaction:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_reaction_right.png": "d4c4299a26aecf0ceff8d777c4dbbdaa9fc9e299af75e23b1ea22d3db4d5eb43",
+        "art/source/companions/breezewyn/breezewyn_reaction_right.json": "b71d30b16426c7011264b4c060100f106de7ce0fd5bcb00d054e520031b07553"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:reaction:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact collection and implementation sheet comparison; native companion-all-six-followers-scrolled-3d00ba5913 PASS on phone1080x2340/tablet1200x1920, enlarged136px and runtime56px. Pixrask retains upright biped imp anatomy; Lunarwisp and Breezewyn retain separate palettes and silhouettes. Complete ears, tails, feet; clean composited alpha and independent facings. Actual selection, Home follower and save/reload reviewed.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_reaction_left.png": "8a15fccd00e1fda24438b5d8a84c1b21603f0c4d4f3cf3b00002966e6949a8ca",
+        "art/source/companions/breezewyn/breezewyn_reaction_left.json": "f918b1e6ea9f317261901068274dcda559673cc2d00491daef719494b6814004"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:idle:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact owl/bird Puffnest identity, facial structure, palette, leaves/flowers/pack and gems checked against dedicated collection; corrected uniform scale .63. Native companion-puffnest-scale-corrected-e1cb49a768 PASS and visually reviewed both phone and tablet six-frame galleries136px/56px. Accepted original right idle untouched; anatomy, full wings/feet and distinct independent facings clean.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_idle_left.png": "2cc32c8d701689ccb35cb7801d5b4bbc2499ca63683d0c477a4bef209a7bd08d",
+        "art/source/companions/puffnest/puffnest_idle_left.json": "dc5c23671f9a4770d17e2c0682fce3c340ea32b3bfe802cb779d03f5f661c71a"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:move:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact owl/bird Puffnest identity, facial structure, palette, leaves/flowers/pack and gems checked against dedicated collection; corrected uniform scale .63. Native companion-puffnest-scale-corrected-e1cb49a768 PASS and visually reviewed both phone and tablet six-frame galleries136px/56px. Accepted original right idle untouched; anatomy, full wings/feet and distinct independent facings clean.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_move_right.png": "7a168660b7b911b4423995640eb25bda428909a8d558f59a5a6709e3fc97523f",
+        "art/source/companions/puffnest/puffnest_move_right.json": "fcc23ca5876a962362eb3ba0ceaac30b1ff82fba90a0b6a9f58df92d232f4687"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:move:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact owl/bird Puffnest identity, facial structure, palette, leaves/flowers/pack and gems checked against dedicated collection; corrected uniform scale .63. Native companion-puffnest-scale-corrected-e1cb49a768 PASS and visually reviewed both phone and tablet six-frame galleries136px/56px. Accepted original right idle untouched; anatomy, full wings/feet and distinct independent facings clean.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_move_left.png": "64eb8c4c9af72868398b09d40828663113a57b2a5e7842a573f8ba5133dcf3e0",
+        "art/source/companions/puffnest/puffnest_move_left.json": "1840f756f447e083808c04528a79b62767a27ce63690126da38164ce6d8d96f8"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:reaction:right",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact owl/bird Puffnest identity, facial structure, palette, leaves/flowers/pack and gems checked against dedicated collection; corrected uniform scale .63. Native companion-puffnest-scale-corrected-e1cb49a768 PASS and visually reviewed both phone and tablet six-frame galleries136px/56px. Accepted original right idle untouched; anatomy, full wings/feet and distinct independent facings clean.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_reaction_right.png": "55bfbb41fb2c129b3406f4ab08e3b8b927071c843cb894edf7e6d30a41aa1ed3",
+        "art/source/companions/puffnest/puffnest_reaction_right.json": "5d0eddc4c81a40304adbeec1c05c4ab28da16c2caf3a594f34dddf4f1f666efd"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:reaction:left",
+      "reviewer": "Codex production review against owner-approved companion canon",
+      "review_note": "Exact owl/bird Puffnest identity, facial structure, palette, leaves/flowers/pack and gems checked against dedicated collection; corrected uniform scale .63. Native companion-puffnest-scale-corrected-e1cb49a768 PASS and visually reviewed both phone and tablet six-frame galleries136px/56px. Accepted original right idle untouched; anatomy, full wings/feet and distinct independent facings clean.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_reaction_left.png": "fd52d009d9070331c4a6ede2c101da153fb60becfd5c8301a277abe34494ae2a",
+        "art/source/companions/puffnest/puffnest_reaction_left.json": "9d868409b4efb9ffad7fc2b8c9d48d78b9a523feb36da502715b2540278cdd00"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:auricub:perch_rest:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_perch_rest_right.png": "45c7c21a7aaaa7b2fadd99b3890c5a6588c3fb8de3dafff7a2771ffdc3245a00",
+        "art/source/companions/auricub/auricub_perch_rest_right.json": "39abc1d718aec7b52c3650b482676898f9dc2717bbb444f49f45d469a7e6161a"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:auricub:perch_rest:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_perch_rest_left.png": "854a66c9fe10f4e93e2781d6ee38ecc26fb214a3911bf0247b24067843548390",
+        "art/source/companions/auricub/auricub_perch_rest_left.json": "3942ad6fee13db33c2f5bee392bd902512ca219570127fec9612b25a76115e76"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:auricub:perch_interact:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_perch_interact_right.png": "20e229774478792d120a960aca4e3f3926239f4e67b4fe994b4caf2342769908",
+        "art/source/companions/auricub/auricub_perch_interact_right.json": "e7972858779d5e613811e911e21e0b0acab678b7267c245147e30169c84e4649"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:auricub:perch_interact:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/auricub/auricub_perch_interact_left.png": "e1a02c5420cbfcb20003edd5ccaf99c724b5b8ee600e9c5307914da41c707de8",
+        "art/source/companions/auricub/auricub_perch_interact_left.json": "6bb5639894eab55fe212b67089bf7883160b51e93ee01b79f9678218e36af7e4"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:stonekith:perch_rest:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_perch_rest_right.png": "77717e0ccf909743398da65cc71b47afc42ca236f99801b84865210dd578ad79",
+        "art/source/companions/stonekith/stonekith_perch_rest_right.json": "41a563cfce5313f4fd140d2d103433a6e933a22574d5445962a1f54176e1c376"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:stonekith:perch_rest:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_perch_rest_left.png": "a4129969028be5ae7e8fc976eb5779fed3e1b8e165f2ba642fe2adf865d6cb8c",
+        "art/source/companions/stonekith/stonekith_perch_rest_left.json": "6c0b1bdd7d8b861c9097c73a87c5ee7cdf584af0bf5945acdf40d9dc03e24f72"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:stonekith:perch_interact:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_perch_interact_right.png": "73cb5438dc1aa33c9ce8c69475e26b96ec5aac05496fc6e2eff9fcacb868d257",
+        "art/source/companions/stonekith/stonekith_perch_interact_right.json": "13bdf15935ba1110cf1e6fb3c7fe5d148fcef510700da905ec478b6434adec6d"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:stonekith:perch_interact:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/stonekith/stonekith_perch_interact_left.png": "6b39d46c68af000c9c828b94a1033ea545d54db8c600cfb6ef3b3fdfc118669b",
+        "art/source/companions/stonekith/stonekith_perch_interact_left.json": "1b402fb1e6547d2ada9546a65ec7d472a1f4ff4ebb6679ed31e86d7720cb2e0b"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:perch_rest:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_perch_rest_right.png": "b0cdd566f5a8ed7946b179687885f18b727a1515e80a2bd00c437237f157c3db",
+        "art/source/companions/pixrask/pixrask_perch_rest_right.json": "9e1fc1c30ae647d45d2cd53aa3bbec79e033d6e4b9581786fa0a16b69f255657"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:perch_rest:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_perch_rest_left.png": "f9d56cef9ff7ce5140ce141c97ea772bfe2445a0fee0914ee9dd9df0eecbfdce",
+        "art/source/companions/pixrask/pixrask_perch_rest_left.json": "13860f6a5580e1a81266eb4e6273b7ebc034860a48b9cee3cf9a6fb829e6b35a"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:perch_interact:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_perch_interact_right.png": "8fa7c5ddfe9f08a6a87b6be79e52a81e39597e409656f9391df3568d71551f51",
+        "art/source/companions/pixrask/pixrask_perch_interact_right.json": "fe08a6b32880a39377f647ee7381a22d6cf26fc4e6a7e53e0a2a9d287a834ee7"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:pixrask:perch_interact:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/pixrask/pixrask_perch_interact_left.png": "3e417bffc0ee3b48dcf40cbb8236c002cd58344154646f44c94fe6082f70a84a",
+        "art/source/companions/pixrask/pixrask_perch_interact_left.json": "8f5e7942a73313638aa5ea58c51a18af72305b654299f573aeef2defb815c575"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:perch_rest:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_perch_rest_right.png": "407401ba52a1bf4b853b9ad39c39c940e89f03bf599de2f0af11337780d7e8e4",
+        "art/source/companions/lunarwisp/lunarwisp_perch_rest_right.json": "a64e2fef36c2bde77dc2a95a4bc1834f6ceb00a23b1247557d28e01346ef9f0f"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:perch_rest:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_perch_rest_left.png": "a4183bd4133a4080603266d50c8c75af9afdc41b5e91f8d4b084e91164ec2e46",
+        "art/source/companions/lunarwisp/lunarwisp_perch_rest_left.json": "58c0eacde20fc485aff5691ef50f10afbd02766262043de7c9cf893dda7e53d0"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:perch_interact:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_perch_interact_right.png": "ed7c574e7d945d1874a450f09a0dfc4f5c2f525a9304dfe4e57c90dde1e114c4",
+        "art/source/companions/lunarwisp/lunarwisp_perch_interact_right.json": "84a38929f131d2d7a339c75529d73e09bd059aa6d59214de9d9599c4b5e98613"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:lunarwisp:perch_interact:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/lunarwisp/lunarwisp_perch_interact_left.png": "8505ffaf714d790b6e8141e649943f93c0bd9ccc0c1625f5989ac7e70a54d7d8",
+        "art/source/companions/lunarwisp/lunarwisp_perch_interact_left.json": "0222a4f63564fe6c265ec305b3866629bce5d85f798129dd9f0935d591c22285"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:perch_rest:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_perch_rest_right.png": "931664ae9bec4035e68b82891bb7ac84f9959f67a7acf78e7a11d115e671c49d",
+        "art/source/companions/puffnest/puffnest_perch_rest_right.json": "da63e0ebeeeb6de3da5654a1a914087d28707e2ea3d6b5cacac8077e8870baa5"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:perch_rest:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_perch_rest_left.png": "9600e826beb5ae26eac68a00b19fe3531de41158dbbf9d6a07f21bd2ac384e07",
+        "art/source/companions/puffnest/puffnest_perch_rest_left.json": "f45926a5513cf71a2e37206008a17749d9bd043c90264e0e67a8a0a9a068f7ab"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:perch_interact:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_perch_interact_right.png": "16e14e253649511105b9ce79ddd4dc9da111ed5a60d7d5d97fa431481f3d8d9d",
+        "art/source/companions/puffnest/puffnest_perch_interact_right.json": "4c14f698b95e3f9b9a018b274e23b05bd3d7a799a38fe9c5450c8194a1fe7cb0"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:puffnest:perch_interact:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/puffnest/puffnest_perch_interact_left.png": "dfd1b5bbc609fc02235a40f4b62bb8ae4f07ec0a284412ed28c512240bf18022",
+        "art/source/companions/puffnest/puffnest_perch_interact_left.json": "75b17ef01e9fe0e62a113353ca681b35f12eee92622d62ec6d04b5251162ba5d"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:perch_rest:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_perch_rest_right.png": "4ed546f546b29257bff2225245ac4d8f898d33ef99242820033cc2a16ed35743",
+        "art/source/companions/breezewyn/breezewyn_perch_rest_right.json": "026b2f4ad37fcac324dd8184f1c25bd5e2fbe2c4341b1174b2d2dbc6ed6b4e24"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:perch_rest:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_perch_rest_left.png": "dcdd99e28b68648294f654fd80d7ba91632f491e325ca01efa2e7a67ec608207",
+        "art/source/companions/breezewyn/breezewyn_perch_rest_left.json": "8e5502138d781d88a07e6fead2eca62559c842bf3dce4967d872aedf38b08759"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:perch_interact:right",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_perch_interact_right.png": "5d9879f293dfe2d8a7fe12e26a70e0bcd01ff7ea0a1e8061fd45aadb2692dc18",
+        "art/source/companions/breezewyn/breezewyn_perch_interact_right.json": "166c49cd24d55a524009fdce78998e94445ab54f88c40b730a733b146167b379"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    },
+    {
+      "slot_id": "companion:breezewyn:perch_interact:left",
+      "reviewer": "Codex production review against exact owner-approved collection and implementation sheets",
+      "review_note": "Collection identity and implementation Home behavior comparison; four newly authored poses reviewed composited on navy and native phone/tablet at136px+56px. Native continuous-perch-and-score-native-f00b7e83e1 companion_perch_native_qa PASS: floor support/rim occlusion, six greetings with separate approved unlock icons, two compatible wall hover actors, complete independently authored facings, Apply/reload/Cancel. Grounded wall disabled. No combat/economy/ownership changes.",
+      "file_sha256": {
+        "art/source/companions/breezewyn/breezewyn_perch_interact_left.png": "3ae35745abffd2604700a8818b13fb872adc772067e491dae568262c7f2c7ca9",
+        "art/source/companions/breezewyn/breezewyn_perch_interact_left.json": "8813a2171c68dd23f3f624b740af2cc6404b0deeb286ba997f29023b7650fa0e"
+      },
+      "canonical_identity": true,
+      "anatomy": true,
+      "pose_facing": true,
+      "contact_fit": true,
+      "baked_modular_equipment_absent": true,
+      "temporal_vfx_absent": true,
+      "native_phone": true,
+      "native_tablet": true
+    }
+  ]
 }

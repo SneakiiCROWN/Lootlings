@@ -260,6 +260,7 @@ func configure(inventory, shop, shard_count: int, power_level: int, compare: Cal
 func show_home() -> void:
 	if private_return:
 		private_return=false;get_parent().show_personal_home();return
+	if get_parent().audio_manager != null: get_parent().audio_manager.set_music("HIDEOUT")
 	current_screen = "home"
 	set_screen(home_content)
 	refresh_home()
@@ -1939,7 +1940,7 @@ func build_home_settings() -> void:
 	companion_collection_content=Control.new();companion_collection_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);companion_collection_content.visible=false;add_child(companion_collection_content)
 	make_button(companion_collection_content,"‹ YOUR HOME",Rect2(20,20,148,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(func():get_parent().personal_home.go_back())
 	make_label(companion_collection_content,"COMPANION COLLECTION",23,Rect2(20,100,440,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
-	make_label(companion_collection_content,"Meet the collection • not available yet",15,Rect2(20,154,440,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"))
+	var collection_status:= make_label(companion_collection_content,"Meet the collection • not available yet",15,Rect2(20,154,440,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"));collection_status.name="CollectionStatus"
 	var collection_panel:=make_panel(companion_collection_content,Rect2(20,204,440,568),Color("#10162ff2"),Color("#8ea2c8"))
 	var scroll:=ScrollContainer.new();scroll.position=Vector2(18,18);scroll.size=Vector2(404,532);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;collection_panel.add_child(scroll)
 	var list:=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)
@@ -1970,9 +1971,12 @@ func refresh_home_settings() -> void:
 	home_settings_summary.text="No companion equipped. Companions are cosmetic; they give no combat advantage."
 	if preload("res://companion_catalog.gd").available_ids().is_empty():home_settings_summary.text="No companions are available yet. Your slot is ready. Companions never change combat stats."
 	elif not companion.equipped_id.is_empty():home_settings_summary.text="Equipped: "+str(preload("res://companion_catalog.gd").ENTRIES[companion.equipped_id].get("name",companion.equipped_id))+" • cosmetic only"
+	var ready_ids:=preload("res://companion_catalog.gd").available_ids()
+	var collection_status: Label=companion_collection_content.get_node("CollectionStatus")
+	collection_status.text="Meet the collection • not available yet" if ready_ids.is_empty() else "%d companions ready • unlock with relics" % ready_ids.size()
 	for id in companion_buttons:
 		apply_display_button_style(companion_buttons[id],Color("#d7b46d"),companion.equipped_id==id)
-		var ready: bool=id in preload("res://companion_catalog.gd").available_ids()
+		var ready: bool=id in ready_ids
 		companion_buttons[id].disabled=not ready or id not in companion.owned_ids
 		companion_buttons[id].text="EQUIPPED" if companion.equipped_id==id else "EQUIP" if ready and id in companion.owned_ids else "LOCKED" if ready else "NOT YET AVAILABLE"
 
@@ -1980,7 +1984,7 @@ func choose_home_display(id: String) -> void:
 	if current_screen!="home_settings" or id not in ["weapon","scroll","trophy","none"]:return
 	var home: Dictionary=profile.get("homestead",{}).duplicate(true)
 	home.display=id
-	home=preload("res://home_catalog.gd").sanitize(home)
+	home=preload("res://home_catalog.gd").sanitize(home,str(profile.get("companion",{}).get("equipped_id","")))
 	home.home_layout.placements["home.wall_display"]=null
 	home_preferences_requested.emit(home,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
 

@@ -1,0 +1,25 @@
+{
+  "entity_id": "lunarwisp",
+  "state": "move",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    121.5,
+    224
+  ],
+  "body_filename": "lunarwisp_move_left.png",
+  "source_sha256": "d6f08c0fe8bb8889a20f07ee1d75a8bb32112bdec95f5d1695572814dfc86d92"
+}

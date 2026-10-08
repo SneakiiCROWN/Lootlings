@@ -1,0 +1,26 @@
+{
+  "status": "OWNER_APPROVED_LOCKED",
+  "owner_instruction": "Keep exact current title theme; no replacement, regeneration or remix; preserve source, licence, audio settings and implementation. Use energy as wider soundtrack reference.",
+  "track": {
+    "cue": "title",
+    "author": "Vitalezzz",
+    "title": "the-ancient-legend",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_page": "https://opengameart.org/content/the-ancient-legend",
+    "download_url": "https://opengameart.org/sites/default/files/the_ancient_legend_2.mp3",
+    "source_file": "art\\source\\audio\\continuous_score\\title.mp3",
+    "source_sha256": "b4c3e932f43483b09f2a14accc46a2bdeb5b7d2f4beafc0ad1644fcf092e7298",
+    "verified_date": "2026-10-08",
+    "asset": "art\\audio\\production\\music\\title.ogg",
+    "asset_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+    "seconds": 181.755,
+    "channels": 2,
+    "mix_rate": 44100,
+    "peak_dbfs": -9.37,
+    "rms_dbfs": -26.48,
+    "processing": "full composition; trim digital silence; 1.5s seam overlap; DC removal; matched RMS and peak ceiling; stereo Vorbis"
+  },
+  "settings_and_implementation": "audio_manager.gd current TITLE cue, gain, crossfade and saved audio settings preserved",
+  "approved_date": "2026-10-08"
+}

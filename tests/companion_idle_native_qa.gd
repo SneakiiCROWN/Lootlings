@@ -6,7 +6,8 @@ func review() -> void:
 		game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame
 		game.set_process(false);game.app_lifecycle.platform_notifications_enabled=false;game.show_hideout();game.show_personal_home("companions");await process_frame
 		var catalog=preload("res://companion_catalog.gd")
-		assert(catalog.available_ids().is_empty(),"Partial neutral art must not enable equip/follower")
+		var partial: Array=catalog.manifest_entries().filter(func(row):return row.get("actor","")=="puffnest" and row.get("state","")=="idle" and row.get("facing","")=="right")
+		assert(not catalog.complete_states("puffnest",catalog.FOLLOWER_STATES,partial),"One neutral frame must not enable equip/follower")
 		var before=game.profile.duplicate(true);var attacks=game.attack_sequence
 		var scroll=game.hideout_ui.companion_collection_content.get_child(3).get_child(0)
 		var list=scroll.get_child(0)
@@ -22,7 +23,7 @@ func review() -> void:
 		scroll.scroll_vertical=400;await capture("collection_neutral_puffnest_preview")
 		game.navigate_back();game.navigate_back();await capture("personal_home_no_unequipped_pet")
 		assert(game.profile==before and game.attack_sequence==attacks)
-		assert(catalog.texture("stonekith","idle","right")==null and catalog.texture("puffnest","idle","right")==null)
+		assert(game.profile.companion.equipped_id.is_empty())
 		game.free();await process_frame
-	print("COMPANION NEUTRAL NATIVE PASS: exact right-idle exports, phone/tablet collection previews, all six equip gates closed, no profile/input changes")
+	print("COMPANION NEUTRAL NATIVE PASS: exact right-idle exports, phone/tablet collection previews, incomplete follower sets gated and unowned pets disabled, no profile/input changes")
 	quit()

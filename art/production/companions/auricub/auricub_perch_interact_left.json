@@ -1,0 +1,38 @@
+{
+  "entity_id": "auricub",
+  "state": "perch_interact",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    116.5,
+    224
+  ],
+  "body_filename": "auricub_perch_interact_left.png",
+  "source_sha256": "e1a02c5420cbfcb20003edd5ccaf99c724b5b8ee600e9c5307914da41c707de8",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "actual_supporting_anatomy_boundary",
+  "allowed_slots": [
+    "home.floor_perch"
+  ],
+  "interaction_prop_path": "art/production/companions/previews/auricub_unlock.png",
+  "interaction_contact_anchor": [
+    36.06,
+    160.26
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "original_sources": [
+    {
+      "original_file": "art/ui/brand/lootlings_wordmark.png",
+      "sha256": "e0b26aa146e9786cc13f6db9ab14fac494bb7011f2cfe725b7b03f3a1fa428dd",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/ui/brand/lootlings_icon.png",
+      "sha256": "c55635d29b052845468bd9f0336178291dd2eec9d6321eed746b027181f826f6",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/ui/brand/android_foreground.png",
+      "sha256": "54e0cdbb6e66e015b793f7e7d8d23b4a8c93706c1747e37427a295aa1e59671c",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/ui/brand/android_background.png",
+      "sha256": "339d251094c7d08f0fb8fbf86c6636a0d538ff8da9120b41a650bc77d82f29e4",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/ui/brand/android_monochrome.png",
+      "sha256": "ac0c67f65ec3a25b0fa34153d58553da9cecba7d1cf8f8d1afc1acfe9b081f86",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/ui/brand/boot_brand.png",
+      "sha256": "1bee534ff81ac109155bc35e4c6dcc74fa29f3a06966cfe8bc232a8ca0fc7464",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/sprites/relic_beast_base.png",
+      "sha256": "0a44b6ebbd856bb26c873b8d1be042d73dc7602ef1844fb12876c0aedeb1ee1e",
+      "byte_identical_to_original_checkpoint": true
+    },
+    {
+      "original_file": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+      "sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+      "byte_identical_to_original_checkpoint": true
+    }
+  ],
+  "original_mascot_icon_recipe": "tools/refine_branding.py exact original canonical runtime crop (350,0,1220,760), no new design",
+  "approved_icon_source_pixels_match": true,
+  "approved_logo_used_unchanged": true,
+  "actual_android_resources": "qa/android-branding_results.json",
+  "actual_windows_PE_icon": "qa/windows_icon-verification.json",
+  "menu_native_exported_pack": "qa/windows_compiled-pack-native.log",
+  "native_phone_and_tablet": true,
+  "physical_android_device": false,
+  "store": "art/store references these exact originals; live native screenshots, no alternate logo",
+  "design_review": "Mascot cream/tawny fur, amber eyes/crystal, huge brown-tipped ears, small fractured horns, red scarf, explorer harness and curled fluffy tail match dedicated source. Main ensemble keeps six other dedicated identities; full wordmark comes only from original PNG."
+}

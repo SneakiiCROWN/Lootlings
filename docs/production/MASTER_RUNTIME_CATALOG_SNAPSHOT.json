@@ -1185,6 +1185,7 @@
         "DEFEAT": "res://art/audio/music/defeat.wav",
         "HIDEOUT": "res://art/audio/music/hideout.wav",
         "HOARD_DEPTHS": "res://art/audio/music/hoard_depths.wav",
+        "HOME": "res://art/audio/music/hideout.wav",
         "OUTER_RUINS": "res://art/audio/music/outer_ruins.wav",
         "SALVAGE_WARRENS": "res://art/audio/music/salvage_warrens.wav",
         "TITLE": "res://art/audio/music/title.wav",
@@ -1253,7 +1254,7 @@
       "make_ambient_loop",
       "_exit_tree"
     ],
-    "source_sha256": "a4ee1176d3a5f4610ba1bd6de4c14dbeb3aaed4279801490ebb1da73006aa7ea"
+    "source_sha256": "80700b52ab1993fef406138cc89015c267d6a6bbdacb08c951dae16f7a26ec0e"
   },
   "authored_pose_manifest.gd": {
     "constants": {
@@ -1298,7 +1299,7 @@
       "display_name",
       "identity_line"
     ],
-    "source_sha256": "3d81b51609664dab8c89ea5e0e3462cb17010ef968f25b1b067a2a9fa4eff4bd"
+    "source_sha256": "293aeef0f5c1fc9ced87b5953de03c4627374f2b7ac1d4d828b11896abe214b6"
   },
   "beta_art_catalog.gd": {
     "constants": {
@@ -2297,6 +2298,15 @@
           "voice": "Small protector. Serious loyalty."
         }
       },
+      "FOLLOWER_STATES": [
+        "idle",
+        "move",
+        "reaction"
+      ],
+      "PERCH_STATES": [
+        "perch_rest",
+        "perch_interact"
+      ],
       "REFERENCE_ROOT": "res://art/reference/canonical/companions/",
       "RUNTIME_MANIFEST": "res://art/production/companions/runtime_manifest.json"
     },
@@ -2304,22 +2314,27 @@
       "known_ids",
       "id_for_unlock",
       "preview",
+      "manifest_entries",
+      "accepted_frame",
       "idle_preview",
+      "complete_states",
       "available_ids",
+      "can_perch",
       "sanitize",
       "texture",
       "runtime_path"
     ],
-    "source_sha256": "913109ecd0dee3811fb3a5ac06faf75945aea08bb1d4f39241c4b5e2913cb4d4"
+    "source_sha256": "302ffabaff57384045dae133800012a60c5f5da22d0160c95528aa0efffe8a6b"
   },
   "companion_presentation.gd": {
     "constants": {},
     "methods": [
       "react",
       "update",
+      "update_home",
       "draw_home"
     ],
-    "source_sha256": "fd5d1310b6adb40649bfe7d51a0175b4b648079be5eb87b3dd8c17f4f3934b34"
+    "source_sha256": "b53c1956aedf8ac276087e3c659e10a3d05bbfe970552ff8080c974fc86bbb00"
   },
   "contextual_dialogue.gd": {
     "constants": {
@@ -4907,9 +4922,302 @@
       "show_home_settings",
       "refresh_home_settings",
       "choose_home_display",
-      "choose_companion"
+      "choose_companion",
+      "refresh_selection_styles",
+      "restore_phase4_selection"
     ],
-    "source_sha256": "f6a1d9379b025b1201c17db5b93e669a9aa2b0c66c38c172b401f49cdb142d7e"
+    "source_sha256": "4c8916f3308e3beea9b6c765799581f4c6049b371c9fad1ee8f312d9a5111de1"
+  },
+  "home_catalog.gd": {
+    "constants": {
+      "ITEMS": {
+        "home_banner": {
+          "allowed_slots": [
+            "home.wall_banner"
+          ],
+          "asset_path": "art/production/phase4e/props/contract_banner.png",
+          "canvas": [
+            188,
+            378
+          ],
+          "classification": "REUSE_EXISTING",
+          "display_name": "Contract banner",
+          "pivot_pixel": [
+            94.0,
+            4
+          ],
+          "target_size_design": [
+            48,
+            96
+          ]
+        },
+        "home_companion_cushion": {
+          "allowed_slots": [
+            "home.floor_perch"
+          ],
+          "asset_path": "art/production/phase4e/props/home_companion_cushion.png",
+          "canvas": [
+            512,
+            256
+          ],
+          "classification": "NEEDS_NEW_AUTHORED_ART",
+          "display_name": "Companion cushion",
+          "pivot_pixel": [
+            256,
+            192
+          ],
+          "target_size_design": [
+            96,
+            48
+          ]
+        },
+        "home_companion_ledge": {
+          "allowed_slots": [
+            "home.wall_perch"
+          ],
+          "asset_path": "art/production/phase4e/props/home_companion_ledge.png",
+          "canvas": [
+            512,
+            256
+          ],
+          "classification": "NEEDS_NEW_AUTHORED_ART",
+          "display_name": "Companion ledge",
+          "pivot_pixel": [
+            256,
+            128
+          ],
+          "target_size_design": [
+            96,
+            48
+          ]
+        },
+        "home_lantern": {
+          "allowed_slots": [
+            "home.wall_light"
+          ],
+          "asset_path": "art/production/phase4e/props/brass_torch.png",
+          "canvas": [
+            175,
+            370
+          ],
+          "classification": "REUSE_EXISTING",
+          "display_name": "Brass lantern",
+          "pivot_pixel": [
+            95.0,
+            4
+          ],
+          "target_size_design": [
+            42,
+            90
+          ]
+        },
+        "home_plans": {
+          "allowed_slots": [
+            "home.wall_display"
+          ],
+          "asset_path": "art/production/phase4e/items/recipe_scroll.png",
+          "canvas": [
+            243,
+            257
+          ],
+          "classification": "REUSE_EXISTING",
+          "display_name": "Recovered plans",
+          "pivot_pixel": [
+            121.5,
+            253
+          ],
+          "target_size_design": [
+            70,
+            70
+          ]
+        },
+        "home_trophy": {
+          "allowed_slots": [
+            "home.wall_display"
+          ],
+          "asset_path": "art/production/phase4e/props/trophy_dais.png",
+          "canvas": [
+            287,
+            366
+          ],
+          "classification": "REUSE_EXISTING",
+          "display_name": "Trophy stand",
+          "pivot_pixel": [
+            143.5,
+            362
+          ],
+          "target_size_design": [
+            70,
+            70
+          ]
+        }
+      },
+      "SLOTS": {
+        "home.floor_perch": {
+          "allowed_companions": [
+            "auricub",
+            "stonekith",
+            "pixrask",
+            "lunarwisp",
+            "puffnest",
+            "breezewyn"
+          ],
+          "allowed_decor": [
+            "home_companion_cushion"
+          ],
+          "anchor_design": [
+            92,
+            594
+          ],
+          "companion_pivot_design": [
+            92,
+            594
+          ],
+          "facing_default": "right",
+          "hit_rect_design": [
+            40,
+            530,
+            100,
+            80
+          ],
+          "mount": "floor",
+          "sprite_size_design": [
+            96,
+            48
+          ]
+        },
+        "home.wall_banner": {
+          "allowed_decor": [
+            "home_banner"
+          ],
+          "anchor_design": [
+            103,
+            181
+          ],
+          "hit_rect_design": [
+            72,
+            181,
+            62,
+            108
+          ],
+          "mount": "wall",
+          "sprite_size_design": [
+            48,
+            96
+          ]
+        },
+        "home.wall_display": {
+          "allowed_decor": [
+            "home_trophy",
+            "home_plans"
+          ],
+          "anchor_design": [
+            386,
+            337
+          ],
+          "hit_rect_design": [
+            343,
+            255,
+            86,
+            90
+          ],
+          "mount": "display",
+          "sprite_size_design": [
+            70,
+            70
+          ]
+        },
+        "home.wall_light": {
+          "allowed_decor": [
+            "home_lantern"
+          ],
+          "anchor_design": [
+            388,
+            165
+          ],
+          "hit_rect_design": [
+            353,
+            154,
+            70,
+            92
+          ],
+          "mount": "wall",
+          "sprite_size_design": [
+            42,
+            90
+          ]
+        },
+        "home.wall_perch": {
+          "allowed_companions": [
+            "lunarwisp",
+            "breezewyn"
+          ],
+          "allowed_decor": [
+            "home_companion_ledge"
+          ],
+          "anchor_design": [
+            374,
+            412
+          ],
+          "companion_pivot_design": [
+            374,
+            412
+          ],
+          "facing_default": "left",
+          "hit_rect_design": [
+            334,
+            356,
+            100,
+            80
+          ],
+          "mount": "wall",
+          "sprite_size_design": [
+            96,
+            48
+          ]
+        }
+      },
+      "SLOT_NAMES": {
+        "home.floor_perch": "Floor perch",
+        "home.wall_banner": "Wall banner",
+        "home.wall_display": "Display shelf",
+        "home.wall_light": "Lantern",
+        "home.wall_perch": "Wall perch"
+      },
+      "TEXTURES": {
+        "home_banner": {
+          "resource_path": "res://art/production/phase4e/props/contract_banner.png"
+        },
+        "home_lantern": {
+          "resource_path": "res://art/production/phase4e/props/brass_torch.png"
+        },
+        "home_plans": {
+          "resource_path": "res://art/production/phase4e/items/recipe_scroll.png"
+        },
+        "home_trophy": {
+          "resource_path": "res://art/production/phase4e/props/trophy_dais.png"
+        }
+      }
+    },
+    "methods": [
+      "defaults",
+      "available",
+      "sanitize",
+      "texture",
+      "draw",
+      "draw_display_shelf",
+      "draw_foreground"
+    ],
+    "source_sha256": "f82a32b84c3fd11fb93ddfce913dd10283ccac4baf440425f2f3de4c3ed29023"
+  },
+  "home_runtime_art.gd": {
+    "constants": {
+      "MANIFEST": "res://art/production/phase4e/home_runtime_manifest.json"
+    },
+    "methods": [
+      "texture"
+    ],
+    "source_sha256": "63a5c3ab6205df04475daa96d5bd4e041d038fcad163400b0168e4437f8789a8"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6554,7 +6862,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "5d17fe2a86dc7860e09415f235bea7e04a3994afb8e1f79485f7b2865a3cc0d0"
+    "source_sha256": "00c636161546d0e8a665dd40beb35132d8ad1a388d74b9a07163377e0557c366"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -6793,9 +7101,10 @@
       "draw_meter",
       "apply_input",
       "add_wordmark",
-      "add_divider"
+      "add_divider",
+      "apply_selection"
     ],
-    "source_sha256": "bf5b58e67cc7b654269cd415f993c75fa61cfd1ad36648830198e299e0f54306"
+    "source_sha256": "a4aa7c6081ac8f5c227086d00ec7060d84e339beeaf76adab4e5447d3342fd86"
   },
   "meta_store.gd": {
     "constants": {},
@@ -6825,19 +7134,32 @@
       "BACKGROUND": {
         "resource_path": "res://art/backgrounds/stash_vault.png"
       },
+      "Decor": {
+        "resource_path": "res://home_catalog.gd"
+      },
       "UI": {
         "resource_path": "res://lootlings_ui.gd"
       }
     },
     "methods": [
+      "background",
       "configure",
       "button",
       "open",
       "go_back",
       "_process",
-      "_draw"
+      "_draw",
+      "input_surface",
+      "build_room_hotspots",
+      "room_hotspot",
+      "room_hotspot_skin",
+      "build_decor_editor",
+      "refresh_decor_editor",
+      "apply_decor",
+      "greet_or_collection",
+      "open_collection"
     ],
-    "source_sha256": "c304a735d38edb818b0626bc4b1b92f01b7b6c6e72039a94edd09473ad22c125"
+    "source_sha256": "3d289e38471ddda4813967b40cfd640d92213c6ffad751a3a5f6b4f720fcf5cb"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -7610,7 +7932,7 @@
       "grant_companion",
       "grant_companion_unlock"
     ],
-    "source_sha256": "54af3ec02361bd9e673c1dd98c938b6145e87297e8d2b2c783de5ff18d653787"
+    "source_sha256": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1"
   },
   "projectile_presentation.gd": {
     "constants": {
@@ -8079,7 +8401,7 @@
       "presentation",
       "draw"
     ],
-    "source_sha256": "2bf966a49fda2a9521dd74b0326864a81a540a28661420b3613d1aa7544850bb"
+    "source_sha256": "58129ddff743c9c5940767b70f105de10020ef6efd1b9d04769f9428c421b1ab"
   },
   "resident_sprite_rig.gd": {
     "constants": {
@@ -8118,7 +8440,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "5055b1adc0316f80aad91eedb1aedad7a174035bf152de8fc23d5ff77c9e8d13"
+    "source_sha256": "590f271725526f915647d5b6f1fcca332c25b60c2c5ab2e39854e3b4f7306931"
   },
   "retention_runtime.gd": {
     "constants": {
@@ -8151,9 +8473,10 @@
       "wallet_text",
       "show_earned_spinner",
       "reset",
-      "setup_targeted"
+      "setup_targeted",
+      "close_modes"
     ],
-    "source_sha256": "eba2ec2a4e9b13c1c30c7fd6833fcfba18498fc0f8a8e6706038a2d29a598846"
+    "source_sha256": "ef1a0cdc199c220e1c5c1b7396b2cef35b63b32a82dbaaafcb14f532ab5460c2"
   },
   "reward_reveal_catalog.gd": {
     "constants": {
@@ -8330,6 +8653,9 @@
       "SettingsStore": {
         "resource_path": "res://settings_store.gd"
       },
+      "TITLE_ART": {
+        "resource_path": "res://art/ui/brand/lootlings_title_ensemble_v2.png"
+      },
       "WandererCatalog": {
         "resource_path": "res://wanderer_catalog.gd"
       }
@@ -8372,9 +8698,11 @@
       "make_panel",
       "style_hero_stage",
       "make_label",
-      "make_button"
+      "make_button",
+      "refresh_roster_selection",
+      "style_title_button"
     ],
-    "source_sha256": "650e5f6173acfb1fcbb957e7ab7773ce0882409b0d95acb3e63838c0555fe892"
+    "source_sha256": "553b32f8171f990b7a0ba60b5e5417a8294bf0d35294dd3345cc2df8123f5a45"
   },
   "station_presentation.gd": {
     "constants": {},

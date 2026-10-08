@@ -72,10 +72,22 @@ def review_ready(row,inbox,files,approvals):
     return approval.get('file_sha256')=={p:sha(safe(inbox,p)) for p in row['required_files']}
 def adapter(row):
     if row['category'] in ['playable_lootlings','wanderers'] and row['state'] in PHASES and row['weapon_family']!='bow':return 'playable_extracted_phase'
+    if row['category']=='Home':return 'home_environment' if row['slot_id'].startswith('environment:') else 'home_decoration'
+    if row['category']=='companions' and row['state'] in ['idle','move','reaction','perch_rest','perch_interact']:return 'companion_state'
     return None
+def registry_target(row):
+    if row['category']=='Home':return ROOT/'art/production/phase4e/home_runtime_manifest.json'
+    if row['category']=='companions':return ROOT/'art/production/companions/runtime_manifest.json'
+    return ROOT/'art/production/phase4e/runtime_manifest.json'
+def installed_rows():
+    entries=[]
+    for path in [ROOT/'art/production/phase4e/runtime_manifest.json',ROOT/'art/production/phase4e/home_runtime_manifest.json',ROOT/'art/production/companions/runtime_manifest.json']:
+        if path.exists():entries.extend(read(path)['entries'])
+    return entries
 def metadata_checks(row,meta,body,inbox):
     errors=[]
     for key in ['slot_id','entity_id','state','facing','weapon_family']:
+        if key=='slot_id' and row['category']=='Home':continue # decoration metadata names its placement slot
         if key in meta and meta[key]!=row.get(key):errors.append(key+': differs from exact cell')
     if 'body_filename' in meta and meta['body_filename']!=row['expected_filename']:errors.append('body_filename mismatch')
     if 'background_file' in meta and meta['background_file']!=row['expected_filename']:errors.append('background_file mismatch')
@@ -89,6 +101,13 @@ def metadata_checks(row,meta,body,inbox):
         if meta.get('foreground_filename')!=Path(fg).name:errors.append('Perch front-layer filename mismatch')
         if safe(inbox,fg).is_file() and meta.get('foreground_sha256')!=sha(safe(inbox,fg)):errors.append('Perch front-layer hash mismatch')
         if meta.get('pivot')!=row['pivot'] or meta.get('surface_anchor')!=row['surface_anchor_pixel']:errors.append('Perch surface/pivot mismatch')
+    if row['category']=='companions' and row['state'] in ['perch_rest','perch_interact']:
+        if meta.get('allowed_slots')!=row['allowed_perch_slots']:errors.append('Canonical grounded/hover perch compatibility mismatch')
+        if meta.get('perch_anchor_type')!=row['perch_anchor_type']:errors.append('Canonical perch contact type mismatch')
+        if meta.get('perch_contact_anchor')!=row['perch_contact_anchor_pixel']:errors.append('Perch contact pivot mismatch')
+        prop=row.get('interaction_prop')
+        expected_prop=prop.get('asset_path') if isinstance(prop,dict) else None
+        if meta.get('interaction_prop_path')!=expected_prop:errors.append('Named canonical interaction prop mismatch')
     if row['category'] in ['playable_lootlings','wanderers','enemies','bosses','npcs','companions']:
         if row['category']!='companions' and meta.get('identity_authority')!=row['canonical_authority_files']:errors.append('Dedicated identity authority mismatch')
         if meta.get('source_sha256')!=sha(body):errors.append('Final body SHA256 mismatch')
@@ -141,7 +160,7 @@ def validate(inbox=INBOX,batch=None,root=ROOT,all_slots=False):
     results=[]
     refs={x['repository_path']:x['sha256'] for x in read(DOC/'SOURCE_INDEX.json')}
     source_hashes={}
-    runtime=read(ROOT/'art/production/phase4e/runtime_manifest.json')['entries']
+    runtime=installed_rows()
     validate_installed_registrations(runtime)
     installed_ids={e['master_artist_slot_id'] for e in runtime if e.get('master_artist_slot_id')}
     for row in rows:
@@ -189,17 +208,29 @@ def validate(inbox=INBOX,batch=None,root=ROOT,all_slots=False):
         ready=status=='PASS' and review_ready(row,inbox,fmap,approvals)
         results.append({'slot_id':row['slot_id'],'status':status,'errors':hard,'artist_corrections':corrections,'visual_review_required':not ready,'automatic_adapter':adapter(row),'runtime_apply_ready':ready and bool(adapter(row)),'file_sha256':{p:sha(safe(inbox,p)) for p in row['required_files'] if safe(inbox,p).is_file()}})
     return {'unknown_files':unknown,'overall':'FAIL' if unknown or any(x['status']=='FAIL' for x in results) else 'NEEDS_ARTIST_CORRECTION' if any(x['status']=='NEEDS_ARTIST_CORRECTION' for x in results) else 'PASS','empty_inbox':not present,'results':results,'counts':dict(__import__('collections').Counter(x['status'] for x in results)),'apply_policy':'No active runtime writes until every selected cell PASS + hash-bound perceptual/native review + supported adapter. A structural PASS is NOT canonical/visual acceptance.'}
+def metadata_source(row):
+    return row.get('source_metadata_path') or next(p for p in row['required_files'] if p.endswith('.json'))
+def metadata_runtime(row):
+    rel=metadata_source(row)
+    return next(f['runtime_destination'] for f in read(DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')['artist_files'] if f['source_delivery_path']==rel)
 def registration_row(row,meta):
+    if row['category']=='Home':
+        return {'master_artist_slot_id':row['slot_id'],'entity_id':row['entity_id'],'asset_path':'res://'+row['runtime_destination'],'metadata_path':'res://'+metadata_runtime(row),'canvas':row['canvas'],'asset_sha256':sha(safe(ROOT,row['runtime_destination'])) if safe(ROOT,row['runtime_destination']).exists() else meta.get('source_sha256',meta.get('body_sha256')),'native_validated':True}
+    if row['category']=='companions':
+        return {'master_artist_slot_id':row['slot_id'],'actor':row['entity_id'],'state':row['state'],'facing':row['facing'],'asset_path':'res://'+row['runtime_destination'],'asset_sha256':meta['source_sha256'],'metadata_path':'res://'+metadata_runtime(row),'owner_approved':True,'native_validated':True,'mirror_allowed':False}
     w,h=row['canvas'];p=meta['primary_palm'];s=meta['secondary_palm'];core=meta['core_or_eye']
     return {'actor':row['entity_id'],'phase':PHASES[row['state']],'facing':row['facing']+'_only','weapon_types':[row['weapon_family']],'asset_path':'res://'+row['runtime_destination'],'body_rect':[-96,-128,192,192],'primary_anchor':[p[0]/w,p[1]/h],'secondary_anchor':[s[0]/w,s[1]/h],'core_anchor':[core[0]/w,core[1]/h],'feet_baseline':-128+meta['baseline_y']/h*192,'supports_two_hand':row['weapon_family'] in ['greatsword','greataxe','maul','spear','crossbow','staff','daggers','claws'],'foreground_layer':'res://'+str(Path(row['runtime_destination']).with_name(meta['layers']['foreground'])).replace('\\','/') if meta['layers']['foreground'] else '', 'draw_depth':'back','weapon_overrides':{},'wardrobe_requires':{},'baked_weapon':'','master_artist_slot_id':row['slot_id']}
 def apply(report,inbox):
     if report['empty_inbox'] or report['overall']!='PASS' or not report['results'] or not all(x['runtime_apply_ready'] for x in report['results']):raise ValueError('Apply blocked: incomplete/unknown files, missing visual approval, or selector/guard adapter not ready. No runtime files changed.')
     spec=read(DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json');lookup={x['slot_id']:x for x in spec['outstanding_deliverables']};fm={x['source_delivery_path']:x for x in spec['artist_files']}
-    target=ROOT/'art/production/phase4e/runtime_manifest.json';original=target.read_bytes();manifest=json.loads(original);ops=[]
+    target=registry_target(lookup[report['results'][0]['slot_id']]);original=target.read_bytes() if target.exists() else None;manifest=json.loads(original) if original else {'entries':[]};ops=[]
     for result in report['results']:
-        row=lookup[result['slot_id']];meta=read(safe(inbox,row['source_metadata_path']));reg=registration_row(row,meta)
-        key=(reg['actor'],reg['phase'],reg['facing'],reg['weapon_types'][0])
-        if any((e['actor'],e['phase'],e['facing'],key[3])==key and key[3] in e['weapon_types'] for e in manifest['entries']):raise ValueError('Existing accepted exact runtime cell preserved: '+row['slot_id'])
+        row=lookup[result['slot_id']];meta=read(safe(inbox,metadata_source(row)));reg=registration_row(row,meta)
+        if registry_target(row)!=target:raise ValueError('Cross-registry batch requires independent transactions')
+        if row['category'] in ['playable_lootlings','wanderers']:
+            key=(reg['actor'],reg['phase'],reg['facing'],reg['weapon_types'][0])
+            if any((e['actor'],e['phase'],e['facing'],key[3])==key and key[3] in e['weapon_types'] for e in manifest['entries']):raise ValueError('Existing accepted exact runtime cell preserved: '+row['slot_id'])
+        elif any(e.get('master_artist_slot_id')==row['slot_id'] for e in manifest['entries']):raise ValueError('Existing accepted exact runtime cell preserved: '+row['slot_id'])
         manifest['entries'].append(reg)
         for path in row['required_files']:
             src=safe(inbox,path);dst=safe(ROOT,fm[path]['runtime_destination'])
@@ -209,12 +240,14 @@ def apply(report,inbox):
     try:
         for src,dst in ops:
             if not dst.exists():dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst);created.append(dst)
+        target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')
         # Existing guards protect scoped source exports and dedicated identities.
         import validate_canonical_art
         validate_canonical_art.validate()
     except BaseException:
-        target.write_bytes(original)
+        if original is None:target.unlink(missing_ok=True)
+        else:target.write_bytes(original)
         for dst in created:dst.unlink()
         raise
 def apply_independent(report,inbox):
@@ -270,7 +303,16 @@ def validate_installed_registrations(entries):
             raise ValueError('Installed master row lacks hash-bound visual approval: '+sid)
         for authority in row['canonical_authority_files']:
             if refs.get(authority)!=sha(safe(ROOT,authority)):raise ValueError('Master identity authority changed: '+authority)
-        meta=read(safe(ROOT,files[row['source_metadata_path']]['runtime_destination']))
+        meta=read(safe(ROOT,files[metadata_source(row)]['runtime_destination']))
+        body=safe(ROOT,row['runtime_destination'])
+        if row['category']=='companions':
+            errors=metadata_checks(row,meta,body,ROOT)
+            if errors:raise ValueError(sid+': '+str(errors))
+        if row['slot_id'].startswith('home_decor:'):
+            foreground=body.with_name(meta['foreground_filename'])
+            with Image.open(body) as b,Image.open(foreground) as f:
+                for bp,fp in zip(b.getdata(),f.getdata()):
+                    if fp[3] and bp!=fp:raise ValueError('Perch front pixels differ from body: '+sid)
         if entry!=registration_row(row,meta):raise ValueError('Runtime socket/phase mapping differs from reviewed exact delivery: '+sid)
 
 def main():

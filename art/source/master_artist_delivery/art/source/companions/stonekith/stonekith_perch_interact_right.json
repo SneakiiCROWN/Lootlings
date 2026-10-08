@@ -1,0 +1,38 @@
+{
+  "entity_id": "stonekith",
+  "state": "perch_interact",
+  "facing": "right",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    143.92,
+    224
+  ],
+  "body_filename": "stonekith_perch_interact_right.png",
+  "source_sha256": "73cb5438dc1aa33c9ce8c69475e26b96ec5aac05496fc6e2eff9fcacb868d257",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "actual_supporting_anatomy_boundary",
+  "allowed_slots": [
+    "home.floor_perch"
+  ],
+  "interaction_prop_path": "art/production/companions/previews/stonekith_unlock.png",
+  "interaction_contact_anchor": [
+    218.89,
+    167.05
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "entity_id": "auricub",
+  "state": "move",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    64.0,
+    224
+  ],
+  "body_filename": "auricub_move_left.png",
+  "source_sha256": "655225e1c152faa94ed38c8e4cb3a8585cbe7daad13c8902f7cfc8b0711696af"
+}

@@ -1,0 +1,25 @@
+{
+  "entity_id": "stonekith",
+  "state": "move",
+  "facing": "right",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    168.0,
+    224
+  ],
+  "body_filename": "stonekith_move_right.png",
+  "source_sha256": "43dc7154f9d4cce34ecc58024ec31ebae0a096242b7b8448452533e5af5dd0c3"
+}

@@ -1,0 +1,36 @@
+{
+  "entity_id": "breezewyn",
+  "state": "perch_rest",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    144.0,
+    224
+  ],
+  "body_filename": "breezewyn_perch_rest_left.png",
+  "source_sha256": "dcdd99e28b68648294f654fd80d7ba91632f491e325ca01efa2e7a67ec608207",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "hover_reference",
+  "allowed_slots": [
+    "home.floor_perch",
+    "home.wall_perch"
+  ],
+  "interaction_prop_path": null,
+  "interaction_contact_anchor": null
+}

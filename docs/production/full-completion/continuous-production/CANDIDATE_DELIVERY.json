@@ -1,0 +1,38 @@
+{
+  "version": "0.4.33-continuous-production",
+  "version_code": 42,
+  "android": {
+    "path": "builds/android/Lootlings-0.4.33-continuous-production-debug.apk",
+    "sha256": "ad4b20c095b0cc68c1693ed301c26165691bd4cf51d2710486e1b78023abeb89",
+    "signed": true,
+    "arm64": true,
+    "physical_device_validated": false,
+    "actual_icon_splash_menu_music_imports_verified": true
+  },
+  "windows": {
+    "path": "builds/windows/Lootlings-0.4.33-continuous-production.exe",
+    "pack": "builds/windows/Lootlings-0.4.33-continuous-production.pck",
+    "exe_sha256": "7c275e207b284dff17f8dea12f6aa395bc329f322e25fa9032e2640e6c09e04b",
+    "pck_sha256": "c7be9e4347d4b850437f015b0e0e6b9a5de9104298ca1b3d8952649a1454013a",
+    "actual_pe_icon_verified_sizes": [
+      16,
+      32,
+      48,
+      64,
+      128,
+      256
+    ],
+    "compiled_pack_owner_route_native_phone_tablet": true
+  },
+  "menu_changed_files": [
+    "startup_ui.gd",
+    "responsive_backdrop.gd",
+    "art/ui/brand/lootlings_title_ensemble_v2.png",
+    "project.godot",
+    "export_presets.cfg",
+    "art/ui/brand/lootlings_windows.ico"
+  ],
+  "scene": "main.tscn instantiates startup_ui.gd; scene graph file itself unchanged",
+  "title_music": "Owner-approved exact current track, source, licence and playback settings preserved",
+  "store_branding": "Approved icon/logo/splash references and actual native screenshots in art/store; not published"
+}

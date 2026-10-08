@@ -257,8 +257,8 @@ const TEXTURES := {
 static func defaults(display: String="weapon") -> Dictionary:
 	return {"schema_version":1,"placements":{"home.floor_perch":"home_companion_cushion","home.wall_perch":"home_companion_ledge","home.wall_display":"home_plans" if display=="scroll" else "home_trophy" if display=="trophy" else null,"home.wall_banner":"home_banner","home.wall_light":"home_lantern"},"companion_mode":"follow","companion_perch_slot":"home.floor_perch"}
 static func available(id: String) -> bool:
-	return ITEMS.has(id) and ITEMS[id].classification=="REUSE_EXISTING" and ResourceLoader.exists("res://"+str(ITEMS[id].asset_path))
-static func sanitize(home: Dictionary) -> Dictionary:
+	return ITEMS.has(id) and (ITEMS[id].classification=="REUSE_EXISTING" and ResourceLoader.exists("res://"+str(ITEMS[id].asset_path)) or preload("res://home_runtime_art.gd").texture("home_decor:"+id)!=null)
+static func sanitize(home: Dictionary, companion_id: String="") -> Dictionary:
 	var display: String=str(home.get("display","weapon"))
 	if display not in ["weapon","scroll","trophy","none"]:display="weapon"
 	var layout: Dictionary=defaults(display)
@@ -274,11 +274,17 @@ static func sanitize(home: Dictionary) -> Dictionary:
 				else:layout.placements[slot]=""
 		var perch=incoming.get("companion_perch_slot","home.floor_perch")
 		if perch in ["home.floor_perch","home.wall_perch"]:layout.companion_perch_slot=perch
-	# Exact follower/perch art remains absent: never persist an invalid docking.
+	# Preserve docking only for a complete, owned/equipped canonical companion.
 	layout.companion_mode="follow"
+	if incoming is Dictionary and incoming.get("companion_mode","")=="perch" and preload("res://companion_catalog.gd").can_perch(companion_id):
+		var slot: String=layout.companion_perch_slot
+		if companion_id not in SLOTS[slot].allowed_companions:slot="home.floor_perch"
+		layout.companion_perch_slot=slot
+		var furnishing: String=str(layout.placements.get(slot,""))
+		if companion_id in SLOTS[slot].allowed_companions and available(furnishing):layout.companion_mode="perch"
 	return {"display":display,"home_layout":layout}
 static func texture(id: String) -> Texture2D:
-	return TEXTURES.get(id,null)
+	return TEXTURES.get(id,preload("res://home_runtime_art.gd").texture("home_decor:"+id))
 static func draw(canvas: Control, layout: Dictionary) -> void:
 	for slot in SLOTS:
 		var id=layout.placements.get(slot,"")
@@ -289,3 +295,24 @@ static func draw(canvas: Control, layout: Dictionary) -> void:
 		var anchor: Array=SLOTS[slot].anchor_design
 		var pivot: Array=item.pivot_pixel
 		canvas.draw_texture_rect(art,Rect2(Vector2(anchor[0],anchor[1])-Vector2(pivot[0],pivot[1])*factor,art.get_size()*factor),false)
+
+static func draw_display_shelf(canvas: Control) -> void:
+	# The fixed display support reuses the accepted ledge; movable perch is separate.
+	var art:=texture("home_companion_ledge")
+	if art==null:return
+	var factor:=96.0/512.0
+	canvas.draw_texture_rect(art,Rect2(Vector2(386,337)-Vector2(256,128)*factor,art.get_size()*factor),false)
+static func draw_foreground(canvas: Control,layout: Dictionary) -> void:
+	if layout.get("companion_mode","follow")!="perch":return
+	for slot in ["home.floor_perch","home.wall_perch"]:
+		var id: String=str(layout.placements.get(slot,""))
+		if not available(id):continue
+		var body:=texture(id)
+		var path: String="res://"+str(ITEMS[id].asset_path).replace(".png","_front.png")
+		# Retain the registered layer texture across canvas redraws.
+		if not ResourceLoader.exists(path):continue
+		if not preload("res://home_runtime_art.gd").textures.has(path):preload("res://home_runtime_art.gd").textures[path]=load(path)
+		var art: Texture2D=preload("res://home_runtime_art.gd").textures[path]
+		var anchor: Array=SLOTS[slot].anchor_design;var pivot: Array=ITEMS[id].pivot_pixel
+		var factor:=96.0/512.0
+		canvas.draw_texture_rect(art,Rect2(Vector2(anchor[0],anchor[1])-Vector2(pivot[0],pivot[1])*factor,body.get_size()*factor),false)

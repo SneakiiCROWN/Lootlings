@@ -1,0 +1,40 @@
+{
+  "entries": [
+    {
+      "master_artist_slot_id": "environment:personal_home:interior",
+      "entity_id": "personal_home",
+      "asset_path": "res://art/production/phase4e/regions/personal_home_interior.png",
+      "metadata_path": "res://art/production/phase4e/regions/personal_home_interior.json",
+      "canvas": [
+        1536,
+        2732
+      ],
+      "asset_sha256": "7d7aaa10fb9ace558b7837990b018e56dee1c3e8b25610bc48ba76a7a5b63802",
+      "native_validated": true
+    },
+    {
+      "master_artist_slot_id": "home_decor:home_companion_cushion",
+      "entity_id": "personal_home",
+      "asset_path": "res://art/production/phase4e/props/home_companion_cushion.png",
+      "metadata_path": "res://art/production/phase4e/props/home_companion_cushion.json",
+      "canvas": [
+        512,
+        256
+      ],
+      "asset_sha256": "a5dfd24f188552e7249938fbb47d13c9236fd830e5cb065e69914ff3a745465d",
+      "native_validated": true
+    },
+    {
+      "master_artist_slot_id": "home_decor:home_companion_ledge",
+      "entity_id": "personal_home",
+      "asset_path": "res://art/production/phase4e/props/home_companion_ledge.png",
+      "metadata_path": "res://art/production/phase4e/props/home_companion_ledge.json",
+      "canvas": [
+        512,
+        256
+      ],
+      "asset_sha256": "d7298567e7daa4963ce462a57e2ee7e4043c3ed2d6136140a049f6db898866b2",
+      "native_validated": true
+    }
+  ]
+}

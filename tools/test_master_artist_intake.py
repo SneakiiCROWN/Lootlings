@@ -6,6 +6,17 @@ from PIL import Image
 import master_artist_intake as intake
 
 class IntakeTests(unittest.TestCase):
+    def test_perch_requires_exact_grounded_compatibility(self):
+        spec=intake.read(intake.DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')
+        row=next(r for r in spec['outstanding_deliverables'] if r['slot_id']=='companion:auricub:perch_rest:right')
+        self.assertEqual(intake.adapter(row),'companion_state')
+        body=intake.ROOT/'art/production/companions/stonekith/stonekith_idle_right.png'
+        meta={'entity_id':'auricub','state':'perch_rest','facing':'right','canvas':[256,256],'baseline_y':224,'pivot':[128,224],'body_filename':row['expected_filename'],'source_sha256':intake.sha(body),'allowed_slots':['home.floor_perch','home.wall_perch'],'perch_anchor_type':'actual_supporting_anatomy_boundary','perch_contact_anchor':[128,224],'interaction_prop_path':None}
+        errors=intake.metadata_checks(row,meta,body,intake.INBOX)
+        self.assertIn('Canonical grounded/hover perch compatibility mismatch',errors)
+        meta['allowed_slots']=row['allowed_perch_slots']
+        self.assertEqual(intake.metadata_checks(row,meta,body,intake.INBOX),[])
+
     def test_schema_measurements(self):
         schema=intake.read(intake.DOC/'schemas/companion_state_sidecar.schema.json')
         self.assertTrue(intake.validate_schema({'entity_id':'fake'},schema))
@@ -72,5 +83,29 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(q['remaining_exact_slots'],0)
         self.assertEqual(q['installed_PASS_count'],1)
         self.assertEqual(q['newly_installed_PASS_count'],0)
+
+class HomeAdapterTests(unittest.TestCase):
+    def test_home_and_companion_exact_adapters(self):
+        rows=intake.read(intake.DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')['outstanding_deliverables']
+        for row in rows:
+            if row['category']=='Home':
+                self.assertIn(intake.adapter(row),['home_decoration','home_environment'])
+                self.assertEqual(intake.registry_target(row),intake.ROOT/'art/production/phase4e/home_runtime_manifest.json')
+                self.assertTrue(intake.metadata_source(row).endswith('.json'))
+                self.assertTrue(intake.metadata_runtime(row).startswith('art/production/phase4e/'))
+            if row['category']=='companions' and row['state'] in ['idle','move','reaction']:
+                self.assertEqual(intake.adapter(row),'companion_state')
+    def test_decoration_slot_is_placement_not_master_identity(self):
+        spec=intake.read(intake.DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')
+        for row in spec['outstanding_deliverables']:
+            if not row['slot_id'].startswith('home_decor:'):continue
+            body=intake.safe(intake.INBOX,row['source_delivery_path'])
+            if not body.exists():continue
+            meta=intake.read(body.with_suffix('.json'))
+            self.assertEqual(intake.metadata_checks(row,meta,body,intake.INBOX),[])
+    def test_companion_missing_frame_never_aliases_to_other_state(self):
+        row=next(r for r in intake.read(intake.DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')['outstanding_deliverables'] if r['slot_id']=='companion:puffnest:move:right')
+        self.assertEqual(intake.adapter(row),'companion_state')
+        self.assertFalse(intake.review_ready(row,intake.INBOX,{},[]))
 
 if __name__=='__main__':unittest.main()

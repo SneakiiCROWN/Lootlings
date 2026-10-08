@@ -1,0 +1,38 @@
+{
+  "entity_id": "puffnest",
+  "state": "perch_interact",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    131.59,
+    224
+  ],
+  "body_filename": "puffnest_perch_interact_left.png",
+  "source_sha256": "dfd1b5bbc609fc02235a40f4b62bb8ae4f07ec0a284412ed28c512240bf18022",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "actual_supporting_anatomy_boundary",
+  "allowed_slots": [
+    "home.floor_perch"
+  ],
+  "interaction_prop_path": "art/production/companions/previews/puffnest_unlock.png",
+  "interaction_contact_anchor": [
+    38.28,
+    156.79
+  ]
+}

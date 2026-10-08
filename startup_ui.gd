@@ -15,6 +15,8 @@ const LootlingCatalog = preload("res://lootling_catalog.gd")
 const WandererCatalog = preload("res://wanderer_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
+static var title_scrim:GradientTexture2D
+const TITLE_ART = preload("res://art/ui/brand/lootlings_title_ensemble_v2.png")
 const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
 var profile := {}
@@ -58,6 +60,11 @@ var wanderer_pronouns: LineEdit
 var wanderer_voice: OptionButton
 var selected_wanderer := "vault_runner"
 var wanderer_confirm: Button
+var title_wordmark:TextureRect
+var title_tagline:Label
+var title_roster_buttons := {}
+var title_identity: Label
+var title_personality: Label
 var identity_panel: Panel
 var wanderer_personality: Label
 var wanderer_weapon: Label
@@ -100,12 +107,16 @@ func build_title() -> void:
 	title_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	title_content.visible = false
 	add_child(title_content)
-	LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
-	make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
+	title_wordmark=LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
+	title_tagline=make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
 	# Franchise ensemble uses the seven accepted canonical portrait sources,
 	# never marketing boards or alternate actor designs.
 	var index:=0
 	for id in LootlingCatalog.selectable_ids():
+		var tile:=make_button(title_content,"",Rect2(44+index*56,528,56,56),Color("#101d32e8"),Color("#6d84a5"),12)
+		tile.tooltip_text="View "+str(LootlingCatalog.definition(id).display_name)
+		title_roster_buttons[id]=tile
+		tile.pressed.connect(func():show_lootling_select();selected_lootling_id=id;refresh_selector())
 		var face:=TextureRect.new()
 		face.name="FranchisePortrait_"+id
 		# Set expansion before assigning a large atlas; otherwise its intrinsic
@@ -113,19 +124,23 @@ func build_title() -> void:
 		face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 		face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		face.texture=Avatar.portrait({"current_lootling_id":id,"avatar_mode":"lootling"},"happy")
-		face.position=Vector2(46+index*56,152)
-		face.size=Vector2(52,52)
+		face.position=Vector2(49+index*56,533)
+		face.size=Vector2(46,46)
 		face.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		face.tooltip_text=LootlingCatalog.definition(id).display_name
 		title_content.add_child(face)
 		index+=1
-	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 596, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
+	title_identity=make_label(title_content,"",16,Rect2(38,589,404,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	title_personality=make_label(title_content,"",12,Rect2(36,805,408,26),HORIZONTAL_ALIGNMENT_CENTER,Color("#d7e5ff"))
+	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 622, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
-	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 692, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
+	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 722, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
 	profile_button.pressed.connect(func(): ui_event.emit("menu_open"); show_profile(false))
-	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 692, 160, 62), Color("#17294be8"), Color("#c99cff"), 17)
+	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 722, 160, 62), Color("#17294be8"), Color("#c99cff"), 17)
 	settings_button.pressed.connect(func(): ui_event.emit("menu_open"); show_settings())
-	make_label(title_content, "THE HOARD IS WAITING", 12, Rect2(80, 776, 320, 26), HORIZONTAL_ALIGNMENT_CENTER, Color("#c9b47c"))
+	style_title_button(play,true)
+	style_title_button(profile_button,false)
+	style_title_button(settings_button,false)
 
 func build_profile() -> void:
 	profile_content = Control.new()
@@ -143,7 +158,7 @@ func build_profile() -> void:
 	name_edit.add_theme_font_size_override("font_size", 19)
 	LootlingsUI.apply_input(name_edit)
 	panel.add_child(name_edit)
-	make_label(panel, "LOOTLING NICKNAME  •  OPTIONAL", 13, Rect2(38, 211, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
+	make_label(panel, "LOOTLING NICKNAME  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  OPTIONAL", 13, Rect2(38, 211, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
 	nickname_edit = LineEdit.new()
 	nickname_edit.position = Vector2(38, 238)
 	nickname_edit.size = Vector2(336, 56)
@@ -154,9 +169,9 @@ func build_profile() -> void:
 	panel.add_child(nickname_edit)
 	LootlingsUI.add_divider(panel, Rect2(38, 304, 336, 10), "gold")
 	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
-	profile_actor_name = make_label(panel, "RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
+	profile_actor_name = make_label(panel, "RELIC BEAST     ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
 	LootlingsUI.add_icon(panel, Rect2(65, 362, 24, 24), "core_neutral")
-	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
+	var identity_card := make_label(panel, "BANNER  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  OUTER RUINS\nCURRENT LOOTLING  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
 	profile_identity = identity_card
 	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var change := make_button(panel, "CHANGE AVATAR", Rect2(45, 482, 322, 54), Color("#17294b"), Color("#72c8ff"), 16)
@@ -215,7 +230,7 @@ func build_settings() -> void:
 	profile_id_label = make_label(support_panel,"",14,Rect2(24,116,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
-	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
+	var support_back := make_button(support_panel,"ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
 	support_back.pressed.connect(func(): support_panel.visible = false)
 	var support := make_button(panel,"SUPPORT",Rect2(270,578,112,48),Color("#17294b"),Color("#72c8ff"),14)
 	support.pressed.connect(func(): support_panel.visible = true)
@@ -288,7 +303,7 @@ func refresh_selector() -> void:
 	selector_name.text = str(entry.display_name).to_upper()
 	selector_lore.text = str(entry.personality)
 	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_lootling_id]
-	selector_note.text = "%s • %s" % [trait_data.name,trait_data.text]
+	selector_note.text = "%s ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ %s" % [trait_data.name,trait_data.text]
 	selector_confirm.disabled = not entry.available
 	selector_confirm.text = "CHOOSE %s" % str(entry.display_name).to_upper()
 
@@ -381,11 +396,11 @@ func refresh_wanderer_selector() -> void:
 func refresh_wanderer_lore() -> void:
 	var id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
 	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_wanderer]
-	wanderer_lore.text = str(trait_data.name) + " • " + str(trait_data.text)
+	wanderer_lore.text = str(trait_data.name) + " ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ " + str(trait_data.text)
 	var cohort: Dictionary = preload("res://phase4_catalog.gd").HUMANS[selected_wanderer]
 	wanderer_portrait.tooltip_text = "%s\n%s\nAffinity: %s. No weapon lock.\nMastery: %s" % [cohort.role,cohort.bio,cohort.affinity,cohort.mastery]
 	wanderer_personality.text=str(preload("res://contextual_dialogue.gd").PERSONALITY[selected_wanderer])
-	wanderer_weapon.text="Affinity: "+str(cohort.affinity)+" • any weapon"
+	wanderer_weapon.text="Affinity: "+str(cohort.affinity)+" ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ any weapon"
 
 func confirm_wanderer() -> void:
 	if WandererCatalog.runtime_texture(selected_wanderer) == null:
@@ -418,6 +433,16 @@ func request_play() -> void:
 		show_profile(true)
 
 func show_title() -> void:
+	var actor_id: String=str(profile.get("current_lootling_id","relic_beast"))
+	for id in title_roster_buttons:
+		var chosen: bool=not Avatar.is_wanderer(profile) and id==actor_id
+		var style:=StyleBoxFlat.new();style.bg_color=Color("#293946ef") if chosen else Color("#101d32e8");style.border_color=Color("#ffda72") if chosen else Color("#6d84a5");style.set_border_width_all(2 if chosen else 1);style.set_corner_radius_all(10)
+		title_roster_buttons[id].add_theme_stylebox_override("normal",style)
+		title_roster_buttons[id].set_meta("ui_selected",chosen)
+	var nickname: String=str(profile.get("lootling_nickname",""))
+	title_identity.text=Avatar.display_name(profile) if nickname.is_empty() else nickname+" ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ "+Avatar.display_name(profile)
+	title_identity.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+	title_personality.text=Avatar.identity_line(profile) if Avatar.is_wanderer(profile) else str(LootlingCatalog.definition(actor_id).personality)
 	current_screen = "title"
 	set_screen(title_content)
 	ui_event.emit("menu_transition")
@@ -471,9 +496,9 @@ func refresh_profile() -> void:
 	name_edit.text = str(profile.get("display_name", ""))
 	nickname_edit.text = str(profile.get("lootling_nickname", ""))
 	var uuid := str(profile.get("player_uuid", ""))
-	profile_id_label.text = "ACCOUNT INFO  •  SUPPORT ID …%s" % uuid.right(8)
-	profile_identity.text = "CURRENT AVATAR • %s" % Avatar.identity_line(profile).to_upper()
-	profile_actor_name.text = Avatar.display_name(profile).to_upper() + " • RUIN ROOKIE"
+	profile_id_label.text = "ACCOUNT INFO  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  SUPPORT ID ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦%s" % uuid.right(8)
+	profile_identity.text = "CURRENT AVATAR ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ %s" % Avatar.identity_line(profile).to_upper()
+	profile_actor_name.text = Avatar.display_name(profile).to_upper() + " ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ RUIN ROOKIE"
 
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
@@ -494,6 +519,13 @@ func set_screen(active: Control) -> void:
 
 func _process(delta: float) -> void:
 	scene_time += delta
+	if current_screen=="title" and title_wordmark!=null:
+		# Keep branding in the upper sky, including above a letterboxed safe frame.
+		var owner=get_parent()
+		var header_y:float=maxf(18.0,36.0/owner.scale.y)-owner.position.y/owner.scale.y
+		title_wordmark.position.y=header_y
+		title_tagline.position.y=header_y+90
+
 	if current_screen == "boot":
 		boot_timer += delta
 		var glyph := boot_content.get_node_or_null("CoreGlyph") as Control
@@ -508,8 +540,19 @@ func _draw() -> void:
 	var texture_size := BACKGROUND.get_size()
 	var crop_height := texture_size.x * 854.0 / 480.0
 	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
-	if get_parent().responsive_backdrop == null: draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
-	draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
+	if current_screen == "title":
+		if get_parent().responsive_backdrop==null:
+			draw_texture_rect(TITLE_ART,Rect2(0,0,480,720),false)
+		if title_scrim==null:
+			title_scrim=GradientTexture2D.new();title_scrim.width=2;title_scrim.height=512
+			title_scrim.fill_from=Vector2(0,0);title_scrim.fill_to=Vector2(0,1)
+			var gradient:=Gradient.new()
+			gradient.set_color(0,Color(.012,.028,.055,0));gradient.set_color(1,Color(.012,.028,.055,1))
+			gradient.add_point(.35,Color(.012,.028,.055,1));title_scrim.gradient=gradient
+		draw_texture_rect(title_scrim,Rect2(0,495,480,359),false)
+	else:
+		if get_parent().responsive_backdrop == null: draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
+		draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
 	if current_screen in ["lootling_select","wanderer_select"]:
 		# Original stage lighting, not a replacement character illustration.
 		for ring in range(4):
@@ -522,33 +565,17 @@ func _draw() -> void:
 			var point:=Vector2(102+mote*55,350-fmod(scene_time*12+mote*31,180))
 			draw_circle(point,1.4,Color("#dfb65a66"))
 	if current_screen == "title":
-		var bob := sin(scene_time * 2.0) * 5.0
-		var breathe := 1.0 + sin(scene_time * 1.7) * 0.012
-		draw_set_transform(Vector2(240, 425 + bob), 0.0, Vector2(1.0, 0.28))
-		draw_circle(Vector2.ZERO, 88, Color("#020615a8"))
-		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-		draw_set_transform(Vector2(240, 370 + bob), sin(scene_time * 1.15) * 0.008, Vector2(breathe, 1.0 / breathe))
-		var actor_texture := Avatar.texture(profile)
-		if actor_texture != null:
-			var actor_size := Vector2(250, 250) if not Avatar.is_wanderer(profile) else Vector2(200, 300)
-			draw_texture_rect(actor_texture, Rect2(-actor_size * 0.5, actor_size), false, Avatar.tint(profile))
-		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-		var core_alpha := 0.14 + maxf(0.0, sin(scene_time * 2.8)) * 0.16
-		draw_circle(Vector2(241, 395 + bob), 13.0 + sin(scene_time * 2.8) * 2.0, Color(0.76, 0.52, 1.0, core_alpha))
-		for index in range(10):
-			var angle := scene_time * (0.18 + index * 0.006) + index * 0.63
-			var radius := 118.0 + (index % 3) * 26.0
-			draw_circle(Vector2(240, 390) + Vector2.RIGHT.rotated(angle) * radius, 1.5 + index % 2, Color(0.95, 0.75, 0.34, 0.30))
-		for glint in range(3):
-			var glint_pos := Vector2(75 + glint * 165, 190 + glint * 82)
-			var glint_alpha := maxf(0.0, sin(scene_time * 1.4 + glint * 2.1)) * 0.45
-			draw_line(glint_pos + Vector2(-5, 0), glint_pos + Vector2(5, 0), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
-			draw_line(glint_pos + Vector2(0, -5), glint_pos + Vector2(0, 5), Color(1.0, 0.84, 0.42, glint_alpha), 1.5)
+		# The seven canonical heroes are integrated into one authored scene.
+		# Restrained motes add life without moving the live controls.
+		if not settings.get("cinematic_reduced_motion",false):
+			for mote in range(9):
+				var point:=Vector2(38+mote*51,490-fmod(scene_time*(3+mote%3)+mote*41,310))
+				draw_circle(point,1.0,Color(1.0,.78,.39,.22))
 	elif current_screen in ["profile", "profile_create", "settings"]:
 		var actor_texture := Avatar.texture(profile)
 		if actor_texture != null:
 			draw_texture_rect(Avatar.portrait(profile,"happy"), Rect2(352, 4, 116, 116), false, Avatar.tint(profile))
-	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
+	if current_screen != "title":draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:
 	var panel := Panel.new()
@@ -593,3 +620,17 @@ func refresh_roster_selection(buttons: Dictionary, selected_id: String) -> void:
 		var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6")
 		focus.set_border_width_all(2);focus.set_corner_radius_all(10)
 		button.add_theme_stylebox_override("focus",focus)
+
+# Uses the accepted relic-metal button artwork; text and input remain native.
+func style_title_button(button: Button, primary: bool) -> void:
+	button.set_meta("ui_intent","primary")
+	LootlingsUI.apply_button(button,Color("#102139"),Color("#d1a85a"))
+	button.add_theme_font_size_override("font_size",20 if primary else 15)
+	button.add_theme_color_override("font_color",Color("#fff0c8") if primary else Color("#dfeafa"))
+	button.add_theme_color_override("font_shadow_color",Color("#030a16"))
+	button.add_theme_constant_override("shadow_offset_x",1)
+	button.add_theme_constant_override("shadow_offset_y",2)
+	var focus:=StyleBoxFlat.new()
+	focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#c3edff")
+	focus.set_border_width_all(2);focus.set_corner_radius_all(8)
+	button.add_theme_stylebox_override("focus",focus)

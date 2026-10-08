@@ -58,6 +58,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:hideout_ui.gd:show_companion_collection | show_companion_collection / show_companion_collection | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:show_home_settings | show_home_settings / show_home_settings | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:refresh_home_settings | refresh_home_settings / refresh_home_settings | LIVE_BETA | hideout_ui.gd |
+| screen:hideout_ui.gd:refresh_selection_styles | refresh_selection_styles / refresh_selection_styles | LIVE_BETA | hideout_ui.gd |
 | screen:lootlings_ui.gd:draw_icon | draw_icon / draw_icon | LIVE_BETA | lootlings_ui.gd |
 | screen:lootlings_ui.gd:draw_meter | draw_meter / draw_meter | LIVE_BETA | lootlings_ui.gd |
 | screen:retention_runtime.gd:show_modes | show_modes / show_modes | LIVE_BETA | retention_runtime.gd |
@@ -80,3 +81,4 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:startup_ui.gd:show_settings | show_settings / show_settings | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:refresh_profile | refresh_profile / refresh_profile | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:refresh_settings | refresh_settings / refresh_settings | LIVE_BETA | startup_ui.gd |
+| screen:startup_ui.gd:refresh_roster_selection | refresh_roster_selection / refresh_roster_selection | LIVE_BETA | startup_ui.gd |

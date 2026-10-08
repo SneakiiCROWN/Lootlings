@@ -13,7 +13,8 @@ func _initialize() -> void:
 	assert(clean.homestead.home_layout.placements["home.wall_light"]=="" and clean.homestead.home_layout.companion_mode=="follow")
 	assert(not clean.homestead.home_layout.placements.has("unknown") and clean.companion.owned_ids==old.companion.owned_ids)
 	assert(Decor.available("home_trophy") and Decor.available("home_plans") and Decor.available("home_banner") and Decor.available("home_lantern"))
-	assert(not Decor.available("home_companion_cushion") and not Decor.available("home_companion_ledge"))
+	for id in ["home_companion_cushion","home_companion_ledge"]:
+		assert(Decor.available(id)==(preload("res://home_runtime_art.gd").texture("home_decor:"+id)!=null))
 	assert(Profiles.save_profile("user://home_layout.cfg",clean)==OK)
 	var restored:=Profiles.load_profile("user://home_layout.cfg")
 	assert(restored.homestead==clean.homestead and restored.companion==clean.companion and restored.player_uuid==clean.player_uuid)

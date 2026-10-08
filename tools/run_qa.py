@@ -25,6 +25,8 @@ def run(name,command,timeout=300):
         output=(folder/(name+'.log')).read_text(encoding='utf-8',errors='replace'); code=124
     (folder/(name+'.log')).write_text(output,encoding='utf-8')
     errors=[line for line in output.splitlines() if 'SCRIPT ERROR' in line or 'ERROR:' in line or 'Parse Error' in line]
+    markers={'continuous_score_native_qa':'CONTINUOUS SCORE NATIVE PASS','companion_perch_native_qa':'COMPANION PERCH NATIVE PASS'}
+    if name in markers and markers[name] not in output: errors.append('Required native completion marker missing')
     expected=[]
     if name=='save_recovery_qa':
         expected=[e for e in errors if e.startswith('ERROR: ConfigFile parse error at user://recovery.cfg:')]

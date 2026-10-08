@@ -4017,7 +4017,7 @@ func draw_moment_overlay() -> void:
 			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
 
 func save_home_preferences(home: Dictionary, companion: Dictionary) -> bool:
-	if state!="personal_home" or personal_home.view not in ["preferences","companions","decor"]:return false
+	if state!="personal_home" or personal_home.view not in ["preferences","companions","decor","decor_preview"]:return false
 	var next:=profile.duplicate(true);next.homestead=home;next.companion=companion;next=ProfileStore.sanitize(next)
 	if ProfileStore.save_profile(PROFILE_SAVE_PATH,next)!=OK:return false
 	profile=next;hideout_ui.profile=profile.duplicate(true);hideout_ui.refresh_home_settings();hideout_ui.refresh_home();hideout_ui.queue_redraw()

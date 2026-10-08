@@ -18,7 +18,10 @@ def validate():
  accepted=0
  if body_manifest.exists():
   from extract_companion_idle import extract,SOURCE,SPECS
-  rows=json.loads(body_manifest.read_text())['entries'];assert len(rows)==2
+  all_rows=json.loads(body_manifest.read_text())['entries']
+  from master_artist_intake import validate_installed_registrations
+  validate_installed_registrations(all_rows)
+  rows=[r for r in all_rows if not r.get('master_artist_slot_id')];assert len(rows)==2
   assert {r['actor'] for r in rows}==set(SPECS)
   for row in rows:
    assert row['state']=='idle' and row['facing']=='right' and row['mirror_allowed'] is False
@@ -30,5 +33,8 @@ def validate():
     assert actual.getpixel((0,0))[3]==0 and actual.getbbox()[0]>=32 and actual.getbbox()[2]<=224
    assert hashlib.sha256(asset.read_bytes()).hexdigest()==row['asset_sha256']
    accepted+=int(row['owner_approved'] is True and row['native_validated'] is True)
- print(json.dumps({'approved_companion_identities':6,'original_pixel_UI_previews':12,'body_state_closures':accepted,'remaining_companion_states':36-accepted,'equip_ready_companions':0}))
+ frames={(r['actor'],r['state'],r['facing']) for r in all_rows if r.get('owner_approved') is True and r.get('native_validated') is True}
+ follower=sum(state in ['idle','move','reaction'] for _,state,_ in frames);perch=len(frames)-follower
+ ready=sum(all((actor,state,facing) in frames for state in ['idle','move','reaction'] for facing in ['right','left']) for actor in [x.lower() for x in m['canonical_companions']])
+ print(json.dumps({'approved_companion_identities':6,'original_pixel_UI_previews':12,'body_state_closures':len(frames),'remaining_follower_states':36-follower,'remaining_perch_states':24-perch,'remaining_companion_states':60-len(frames),'equip_ready_companions':ready}))
 if __name__=='__main__':validate()

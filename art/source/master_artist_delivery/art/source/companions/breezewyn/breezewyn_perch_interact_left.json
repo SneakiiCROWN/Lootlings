@@ -1,0 +1,39 @@
+{
+  "entity_id": "breezewyn",
+  "state": "perch_interact",
+  "facing": "left",
+  "canvas": [
+    256,
+    256
+  ],
+  "baseline_y": 224,
+  "pivot": [
+    128,
+    224
+  ],
+  "runtime_size": [
+    56,
+    56
+  ],
+  "cosmetic_only": true,
+  "ground_or_hover_point": [
+    171.0,
+    224
+  ],
+  "body_filename": "breezewyn_perch_interact_left.png",
+  "source_sha256": "3ae35745abffd2604700a8818b13fb872adc772067e491dae568262c7f2c7ca9",
+  "perch_contact_anchor": [
+    128,
+    224
+  ],
+  "perch_anchor_type": "hover_reference",
+  "allowed_slots": [
+    "home.floor_perch",
+    "home.wall_perch"
+  ],
+  "interaction_prop_path": "art/production/companions/previews/breezewyn_unlock.png",
+  "interaction_contact_anchor": [
+    36.95,
+    157.18
+  ]
+}

@@ -24,39 +24,56 @@ static func preview(id: String, unlock: bool=false) -> Texture2D:
 	if id not in ENTRIES:return null
 	return load("res://art/production/companions/previews/"+id+("_unlock.png" if unlock else "_portrait.png"))
 
-static func idle_preview(id: String) -> Texture2D:
-	# Partial validated neutral art is a collection preview, never an equip gate.
-	if id not in ENTRIES or not FileAccess.file_exists(RUNTIME_MANIFEST):return null
+static var textures := {}
+static var review_assets := {}
+const FOLLOWER_STATES := ["idle","move","reaction"]
+const PERCH_STATES := ["perch_rest","perch_interact"]
+
+static func manifest_entries() -> Array:
+	if not FileAccess.file_exists(RUNTIME_MANIFEST):return []
 	var manifest=JSON.parse_string(FileAccess.get_file_as_string(RUNTIME_MANIFEST))
-	if not manifest is Dictionary or not manifest.get("entries",null) is Array:return null
-	var path:=runtime_path(id,"idle","right")
-	for row in manifest.entries:
-		if row is Dictionary and row.get("actor","")==id and row.get("state","")=="idle" and row.get("facing","")=="right" and row.get("asset_path","")==path and row.get("owner_approved",false)==true and row.get("native_validated",false)==true:
-			if ResourceLoader.exists(path):
-				var result=load(path)
-				return result if result is Texture2D and result.get_size()==Vector2(256,256) else null
-	return null
+	return manifest.entries if manifest is Dictionary and manifest.get("entries",null) is Array else []
+
+static func accepted_frame(id: String, state: String, facing: String, entries: Array) -> Texture2D:
+	var path:=runtime_path(id,state,facing)
+	if path.is_empty():return null
+	var boundary: String=ProjectSettings.globalize_path("res://.godot_test_data/isolated/").replace("\\","/").to_lower()
+	if OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_user_data_dir().replace("\\","/").to_lower().begins_with(boundary):
+		var staged: String=str(review_assets.get(id+":"+state+":"+facing,""))
+		if staged.begins_with("res://art/source/master_artist_delivery/art/source/companions/") and ".." not in staged and FileAccess.file_exists(staged):
+			if not textures.has(staged):
+				var pixels:=Image.load_from_file(staged)
+				if pixels==null or pixels.get_size()!=Vector2i(256,256):return null
+				textures[staged]=ImageTexture.create_from_image(pixels)
+			var candidate=textures[staged]
+			return candidate if candidate is Texture2D and candidate.get_size()==Vector2(256,256) else null
+	var accepted: bool=entries.any(func(row):return row is Dictionary and row.get("actor","")==id and row.get("state","")==state and row.get("facing","")==facing and row.get("asset_path","")==path and row.get("owner_approved",false)==true and row.get("native_validated",false)==true)
+	if not accepted or not ResourceLoader.exists(path):return null
+	if not textures.has(path):textures[path]=load(path)
+	var result=textures[path]
+	return result if result is Texture2D and result.get_size()==Vector2(256,256) else null
+
+static func idle_preview(id: String) -> Texture2D:
+	# Partial neutral art may preview the collection; it cannot enable equipment.
+	return accepted_frame(id,"idle","right",manifest_entries())
+
+static func complete_states(id: String, states: Array, entries: Array) -> bool:
+	if id not in ENTRIES:return false
+	for state in states:
+		for facing in ["right","left"]:
+			if accepted_frame(id,state,facing,entries)==null:return false
+	return true
 
 static func available_ids() -> Array[String]:
-	var result: Array[String] = []
-	# Merely dropping PNGs into the folder does not approve body-state anatomy.
-	if not FileAccess.file_exists(RUNTIME_MANIFEST):return result
-	var manifest=JSON.parse_string(FileAccess.get_file_as_string(RUNTIME_MANIFEST))
-	if not manifest is Dictionary or not manifest.get("entries",null) is Array:return result
+	var result: Array[String]=[]
+	var entries:=manifest_entries()
 	for id in ENTRIES:
-		var entry: Dictionary = ENTRIES[id]
-		# Named reference authority approves identity; the six authored frames are
-		# a separate availability gate. UI board crops never satisfy that gate.
-		var complete: bool=true
-		for state in ["idle","move","reaction"]:
-			for facing in ["right","left"]:
-				var path: String=runtime_path(id,state,facing)
-				var accepted: bool=manifest.entries.any(func(row):return row is Dictionary and row.get("actor","")==id and row.get("state","")==state and row.get("facing","")==facing and row.get("asset_path","")==path and row.get("owner_approved",false)==true and row.get("native_validated",false)==true)
-				complete=complete and accepted
-				if not ResourceLoader.exists(path):complete=false
-				elif not load(path) is Texture2D or load(path).get_size()!=Vector2(256,256):complete=false
-		if complete:result.append(id)
+		if complete_states(id,FOLLOWER_STATES,entries):result.append(id)
 	return result
+
+static func can_perch(id: String) -> bool:
+	var entries:=manifest_entries()
+	return complete_states(id,FOLLOWER_STATES,entries) and complete_states(id,PERCH_STATES,entries)
 
 static func sanitize(value: Variant) -> Dictionary:
 	var result := {"equipped_id":"", "owned_ids":[], "accompany":false}
@@ -69,12 +86,11 @@ static func sanitize(value: Variant) -> Dictionary:
 	return result
 
 static func texture(id: String, state: String, facing: String) -> Texture2D:
-	if id not in available_ids(): return null
-	var path: String=runtime_path(id,state,facing)
-	if path.is_empty() or not ResourceLoader.exists(path):return null
-	var result: Texture2D=load(path)
-	return result if result.get_size()==Vector2(256,256) else null
+	var entries:=manifest_entries()
+	if not complete_states(id,FOLLOWER_STATES,entries):return null
+	if state in PERCH_STATES and not complete_states(id,PERCH_STATES,entries):return null
+	return accepted_frame(id,state,facing,entries)
 
 static func runtime_path(id: String, state: String, facing: String) -> String:
-	if id not in ENTRIES or state not in ["idle","move","reaction"] or facing not in ["right","left"]:return ""
+	if id not in ENTRIES or (state not in FOLLOWER_STATES and state not in PERCH_STATES) or facing not in ["right","left"]:return ""
 	return "res://art/production/companions/"+id+"/"+id+"_"+state+"_"+facing+".png"

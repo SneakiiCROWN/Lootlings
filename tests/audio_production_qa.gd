@@ -4,7 +4,11 @@ const Audio = preload("res://audio_manager.gd")
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
 	for cue in Audio.MUSIC_PATHS:
-		assert(Audio.music_source_path(cue) == Audio.MUSIC_PATHS[cue])
+		var path := Audio.music_source_path(cue)
+		assert(ResourceLoader.exists(path))
+		var score = load(path)
+		assert(score is AudioStreamWAV or score is AudioStreamOggVorbis)
+		assert(score.get_length() >= 8.0 and score.get_length() <= 300.0)
 	assert(Audio.music_source_path("NONEXISTENT") == "")
 	for event in Audio.EVENT_SPECS:
 		var bank := Audio.production_event_streams(event)

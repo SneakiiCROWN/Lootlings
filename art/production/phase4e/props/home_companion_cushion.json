@@ -1,0 +1,55 @@
+{
+  "decoration_id": "home_companion_cushion",
+  "canvas": [
+    512,
+    256
+  ],
+  "pivot": [
+    256,
+    192
+  ],
+  "surface_anchor": [
+    256,
+    192
+  ],
+  "surface_extent": [
+    112,
+    192,
+    400,
+    192
+  ],
+  "body_filename": "home_companion_cushion.png",
+  "foreground_filename": "home_companion_cushion_front.png",
+  "body_sha256": "a5dfd24f188552e7249938fbb47d13c9236fd830e5cb065e69914ff3a745465d",
+  "foreground_sha256": "72fd1927f8098543e1efd8347e22d446998560dc1cce5bfc3eef06ad200fad5d",
+  "occupied_bounds": [
+    34,
+    104,
+    480,
+    237
+  ],
+  "front_occlusion_polygon": [
+    [
+      34,
+      192
+    ],
+    [
+      480,
+      192
+    ],
+    [
+      480,
+      237
+    ],
+    [
+      34,
+      237
+    ]
+  ],
+  "runtime_size": [
+    96,
+    48
+  ],
+  "slot_id": "home.floor_perch",
+  "mirror_allowed": false
+}

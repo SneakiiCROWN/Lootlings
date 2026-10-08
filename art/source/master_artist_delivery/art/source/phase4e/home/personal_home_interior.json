@@ -1,0 +1,100 @@
+{
+  "entity_id": "personal_home",
+  "canvas": [
+    1536,
+    2732
+  ],
+  "pivot": [
+    0,
+    0
+  ],
+  "background_file": "personal_home_interior.png",
+  "source_sha256": "7d7aaa10fb9ace558b7837990b018e56dee1c3e8b25610bc48ba76a7a5b63802",
+  "uniform_cover": true,
+  "design_canvas": [
+    480,
+    854
+  ],
+  "safe_ui_rectangles": [
+    [
+      20,
+      20,
+      160,
+      48
+    ],
+    [
+      24,
+      98,
+      432,
+      46
+    ],
+    [
+      22,
+      622,
+      210,
+      60
+    ],
+    [
+      248,
+      622,
+      210,
+      60
+    ],
+    [
+      22,
+      698,
+      210,
+      60
+    ],
+    [
+      248,
+      698,
+      210,
+      60
+    ]
+  ],
+  "ground_baseline": 1823,
+  "display_rect": [
+    351,
+    267,
+    70,
+    70
+  ],
+  "follower_floor_anchor": [
+    110,
+    602
+  ],
+  "layer_order": [
+    "background",
+    "furnishings",
+    "character",
+    "companion",
+    "foreground_rims",
+    "UI"
+  ],
+  "furniture_occlusion_polygons": [],
+  "launch_layout_metadata_path": "HOME_PLACEMENT_METADATA.json",
+  "movable_mounts_design": {
+    "home.floor_perch": [
+      92,
+      594
+    ],
+    "home.wall_perch": [
+      374,
+      412
+    ],
+    "home.wall_display": [
+      386,
+      337
+    ],
+    "home.wall_banner": [
+      103,
+      181
+    ],
+    "home.wall_light": [
+      388,
+      165
+    ]
+  },
+  "no_baked_movable_props": true
+}

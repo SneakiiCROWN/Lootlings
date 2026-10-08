@@ -80,7 +80,7 @@ static func sanitize(value: Dictionary) -> Dictionary:
 				cleaned[key]=candidate.left(128) if candidate is String else maxi(0,candidate) if candidate is int else candidate
 		result[section]=cleaned
 	result.companion=preload("res://companion_catalog.gd").sanitize(result.companion)
-	result.homestead=preload("res://home_catalog.gd").sanitize(result.homestead)
+	result.homestead=preload("res://home_catalog.gd").sanitize(result.homestead,result.companion.equipped_id)
 	return result
 
 static func is_created(profile: Dictionary) -> bool:

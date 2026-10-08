@@ -1,0 +1,55 @@
+{
+  "decoration_id": "home_companion_ledge",
+  "canvas": [
+    512,
+    256
+  ],
+  "pivot": [
+    256,
+    128
+  ],
+  "surface_anchor": [
+    256,
+    128
+  ],
+  "surface_extent": [
+    112,
+    128,
+    400,
+    128
+  ],
+  "body_filename": "home_companion_ledge.png",
+  "foreground_filename": "home_companion_ledge_front.png",
+  "body_sha256": "d7298567e7daa4963ce462a57e2ee7e4043c3ed2d6136140a049f6db898866b2",
+  "foreground_sha256": "701dc619999025c1752c242aa6aa316d05ef015e3d26dfa5c3e40b32ef02e356",
+  "occupied_bounds": [
+    21,
+    91,
+    492,
+    215
+  ],
+  "front_occlusion_polygon": [
+    [
+      21,
+      128
+    ],
+    [
+      492,
+      128
+    ],
+    [
+      492,
+      215
+    ],
+    [
+      21,
+      215
+    ]
+  ],
+  "runtime_size": [
+    96,
+    48
+  ],
+  "slot_id": "home.wall_perch",
+  "mirror_allowed": false
+}

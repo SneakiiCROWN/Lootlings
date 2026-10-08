@@ -8,10 +8,16 @@ func review() -> void:
 		for child in game.startup_ui.title_content.get_children():
 			if child.name.begins_with("FranchisePortrait_"):
 				assert(child.texture!=null and child.mouse_filter==Control.MOUSE_FILTER_IGNORE)
-				assert(child.size==Vector2(52,52),"Canonical portrait must fit the title strip")
-				assert(child.position.y==152 and child.position.x+child.size.x<=434)
+				assert(child.size==Vector2(46,46),"Canonical portrait must fit the title strip")
+				assert(child.position.y==533 and child.position.x+child.size.x<=434)
 				portraits+=1
-		assert(portraits==7);game.show_hideout()
+		assert(portraits==7 and game.startup_ui.title_roster_buttons.size()==7)
+		var saved_profile: String=JSON.stringify(game.startup_ui.profile)
+		assert(game.startup_ui.title_roster_buttons.relic_beast.get_meta("ui_selected",false))
+		await tap(game.startup_ui.title_roster_buttons.moonkip)
+		assert(game.startup_ui.current_screen=="lootling_select" and game.startup_ui.selected_lootling_id=="moonkip")
+		assert(JSON.stringify(game.startup_ui.profile)==saved_profile,"Title preview must not change saved actor")
+		game.show_hideout()
 		var attacks: int=game.attack_sequence
 		var home_entry: Button
 		for child in game.hideout_ui.home_content.get_children():
@@ -33,4 +39,4 @@ func review() -> void:
 		await tap(game.personal_home.buttons.character);assert(game.personal_profile_return and game.startup_ui.visible);game.navigate_back();assert(game.state=="personal_home" and not game.startup_ui.visible)
 		await tap(game.personal_home.buttons.leave);assert(game.state=="hideout" and game.hideout_ui.current_screen=="home" and not game.personal_home.visible);await capture("completion_return_main_hub")
 		assert(game.attack_sequence==attacks);game.free();await process_frame
-	print("COMPLETION HOME NATIVE PASS: phone/tablet preferences, touch isolation, Back, saved display choices; pet art still missing");quit()
+	print("COMPLETION HOME NATIVE PASS: phone/tablet preferences, touch isolation, Back, saved display choices; companion unlock ownership preserved");quit()

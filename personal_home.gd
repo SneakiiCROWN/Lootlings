@@ -9,6 +9,7 @@ var companion_parent := "room"
 var room: Control
 var title: Label
 var time := 0.0
+var companion_mode_buttons := {}
 var follower:=preload("res://companion_presentation.gd").new()
 var buttons := {}
 var decor_panel: Panel
@@ -18,6 +19,11 @@ var decor_status: RichTextLabel
 var home_summary: RichTextLabel
 var draft := {}
 var selected_slot := "home.wall_display"
+var preview_actions: Control
+var summary_style: StyleBox=preload("res://station_presentation.gd").metal()
+func background() -> Texture2D:
+	var accepted:=preload("res://home_runtime_art.gd").texture("environment:personal_home:interior")
+	return accepted if accepted!=null else BACKGROUND
 
 func configure(target) -> void:
 	game=target;visible=false;mouse_filter=Control.MOUSE_FILTER_STOP
@@ -32,25 +38,28 @@ func configure(target) -> void:
 	# PackedScene. They cannot remain active beneath the Hub.
 	game.hideout_ui.home_settings_content.reparent(self)
 	game.hideout_ui.companion_collection_content.reparent(self)
-	home_summary=UI.rich_label(room,Rect2(32,294,276,76),14,Color("#ffe3ac"))
+	home_summary=UI.rich_label(room,Rect2(32,151,416,22),12,Color("#ffe3ac"))
 	button("archive","PERSONAL COLLECTION / MEMORIES",Rect2(22,774,436,48),open_collection)
 	var nook: Button=game.hideout_ui.make_button(room,"COMPANION
 NOOK",Rect2(30,532,116,70),Color("#192936ef"),Color("#dcb973"),12)
-	nook.pressed.connect(func():open("companions"));buttons.nook=nook
+	nook.pressed.connect(func():greet_or_collection("home.floor_perch"));buttons.nook=nook
 	build_decor_editor()
+	build_room_hotspots()
 
 func button(id: String,text: String,rect: Rect2,action: Callable) -> void:
 	var b: Button=game.hideout_ui.make_button(room,text,rect,Color("#192936ef"),Color("#dcb973"),15)
 	b.set_meta("gesture_release_owned",true);buttons[id]=b;b.pressed.connect(action)
 
 func open(next: String="room") -> void:
-	if next=="decor":draft=Decor.sanitize(game.profile.get("homestead",{})).home_layout.duplicate(true)
+	if get_parent().audio_manager != null: get_parent().audio_manager.set_music("HOME")
+	if next=="decor" and view not in ["decor","decor_preview"]:draft=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id",""))).home_layout.duplicate(true)
 	if next=="companions" and view!="companions":
 		companion_parent=view if visible and view in ["room","preferences"] else "room"
 	game.state="personal_home";game.hideout_ui.visible=false;game.startup_ui.visible=false
 	game.hideout_ui.dismiss_dialogue();game.hideout_ui.loadout_panel.visible=false
 	visible=true;view=next;room.visible=view=="room"
 	decor_panel.visible=view=="decor"
+	preview_actions.visible=view=="decor_preview"
 	if view=="decor":refresh_decor_editor()
 	game.hideout_ui.home_settings_content.visible=view=="preferences"
 	game.hideout_ui.companion_collection_content.visible=view=="companions"
@@ -58,35 +67,41 @@ func open(next: String="room") -> void:
 	game.hideout_ui.profile=game.profile.duplicate(true);game.hideout_ui.refresh_home_settings()
 	var who: String=str(game.profile.get("display_name",""))
 	title.text="YOUR HOME" if who.is_empty() else who+"'s Home"
-	home_summary.text="[b]YOUR PREPARATION CORNER[/b]
-%s
-Stash: %d / %d  •  Memories: %d" % [str(game.inventory.equipped_item("Weapon").get("name","No weapon equipped")),game.inventory.stash.size(),game.inventory.stash_capacity,game.profile.get("memories",[]).size()]
+	home_summary.text="%s  •  Stash %d / %d  •  Memories %d" % [str(game.inventory.equipped_item("Weapon").get("name","No weapon equipped")),game.inventory.stash.size(),game.inventory.stash_capacity,game.profile.get("memories",[]).size()]
 	follower.react("return");queue_redraw();game.queue_redraw()
 
 func go_back() -> void:
-	if view=="companions":open(companion_parent)
+	if view=="decor_preview":open("decor")
+	elif view=="companions":open(companion_parent)
 	elif view in ["preferences","decor"]:draft.clear();open("room")
 	else:game.show_hideout()
 
 func _process(delta: float) -> void:
 	if not visible:return
-	time+=delta;follower.update(delta,Vector2(240,570),Vector2(-130,32));queue_redraw()
+	time+=delta
+	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
+	var layout: Dictionary=draft if view in ["decor","decor_preview"] else home.home_layout
+	follower.update_home(delta,game.profile.get("companion",{}),layout);queue_redraw()
 
 func _draw() -> void:
 	if game==null or not visible:return
 	# Existing accepted private storage interior; full-screen scene backdrop,
 	# not the Hub's painting with a menu over its NPCs.
-	if game.responsive_backdrop==null:draw_texture_rect(BACKGROUND,Rect2(0,0,480,854),false)
+	var backdrop: Texture2D=background()
+	var factor:=maxf(480.0/backdrop.get_width(),854.0/backdrop.get_height())
+	var extent:=backdrop.get_size()*factor
+	if game.responsive_backdrop==null:draw_texture_rect(backdrop,Rect2((Vector2(480,854)-extent)*.5,extent),false)
 	draw_rect(Rect2(0,0,480,80),Color("#091124d0"))
-	if view not in ["room","decor"]:return
-	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}))
-	var layout: Dictionary=draft if view=="decor" else home.home_layout
+	if view not in ["room","decor","decor_preview"]:return
+	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
+	var layout: Dictionary=draft if view in ["decor","decor_preview"] else home.home_layout
+	Decor.draw_display_shelf(self)
 	Decor.draw(self,layout)
 	if layout.placements.get("home.wall_light","")=="home_lantern":
 		for radius in [36,24,12]:draw_circle(Vector2(388,208),radius,Color(1,.7,.3,.025))
 	draw_set_transform(Vector2(240,570),0,Vector2(1,.18));draw_circle(Vector2.ZERO,50,Color("#03071166"));draw_set_transform(Vector2.ZERO)
 	UI.draw_icon(get_canvas_item(),game.hideout_ui.actor_texture(),Rect2(148,394,184,188))
-	if view=="room":draw_style_box(UI.material_style("leather"),Rect2(18,284,304,96))
+	if view=="room":draw_style_box(summary_style,Rect2(22,146,436,30))
 	var display: String=home.display if layout.placements.get("home.wall_display",null)==null else "none"
 	var art: Texture2D=null
 	if display=="weapon":art=UI.item_texture(game.inventory.equipped_item("Weapon"))
@@ -94,29 +109,55 @@ func _draw() -> void:
 	elif display=="trophy":art=preload("res://art/production/phase4e/props/trophy_dais.png")
 	UI.draw_icon(get_canvas_item(),art,Rect2(351,267,70,70))
 	follower.draw_home(self,preload("res://companion_catalog.gd").sanitize(game.profile.get("companion",{})))
+	Decor.draw_foreground(self,layout)
 	if view=="decor":draw_rect(Rect2(0,0,480,854),Color("#050a1788"))
 
 func input_surface() -> Control:
 	return decor_panel if view=="decor" else self
 
+func build_room_hotspots() -> void:
+	# Clear hit areas keep the furnishing visible; all release ownership is UI-only.
+	buttons.nook.text="";buttons.nook.position=Vector2(30,526);buttons.nook.size=Vector2(124,84)
+	room_hotspot_skin(buttons.nook)
+	var label: Label=game.hideout_ui.make_label(room,"COMPANION NOOK",11,Rect2(24,543,136,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"));label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	room_hotspot("chest", "STASH",Rect2(30,378,108,62),func():game.show_personal_stash())
+	room_hotspot("shelf", "",Rect2(343,255,86,96),func():selected_slot="home.wall_display";open("decor"))
+	room_hotspot("ledge", "",Rect2(324,358,100,82),func():greet_or_collection("home.wall_perch"))
+	preview_actions=Control.new();preview_actions.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);preview_actions.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(preview_actions);preview_actions.visible=false
+	game.hideout_ui.make_button(preview_actions,"‹ EDIT",Rect2(20,20,122,48),Color("#192936ef"),Color("#dcb973"),15).pressed.connect(func():open("decor"))
+	game.hideout_ui.make_label(preview_actions,"DECOR PREVIEW",27,Rect2(24,98,432,46),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	game.hideout_ui.make_button(preview_actions,"CANCEL",Rect2(22,698,210,60),Color("#172442"),Color("#7087ae"),16).pressed.connect(func():draft.clear();open("room"))
+	var apply_preview: Button=game.hideout_ui.make_button(preview_actions,"APPLY / FREE",Rect2(248,698,210,60),Color("#172442"),Color("#dcb973"),16);apply_preview.name="ApplyPreview";apply_preview.pressed.connect(apply_decor)
+func room_hotspot(id: String,text: String,rect: Rect2,action: Callable) -> void:
+	var control: Button=game.hideout_ui.make_button(room,text,rect,Color.TRANSPARENT,Color("#dcb973"),13)
+	control.name=id;control.tooltip_text="Personal display" if id=="shelf" else "Open your stash";control.set_meta("gesture_release_owned",true);room_hotspot_skin(control);control.pressed.connect(action);buttons[id]=control
+func room_hotspot_skin(control: Button) -> void:
+	for state_name in ["normal","hover","pressed","focus"]:
+		var skin:=StyleBoxFlat.new();skin.bg_color=Color(1,.8,.4,.08) if state_name=="pressed" else Color.TRANSPARENT;skin.border_color=Color("#e3c17799");skin.set_corner_radius_all(8);skin.set_border_width_all(2 if state_name in ["hover","focus"] else 0);control.add_theme_stylebox_override(state_name,skin)
 func build_decor_editor() -> void:
 	decor_panel=game.hideout_ui.make_panel(self,Rect2(20,180,440,620),Color("#10162ff2"),Color("#dcb973"));decor_panel.z_index=90;decor_panel.visible=false
-	game.hideout_ui.make_label(decor_panel,"MAKE IT YOURS",24,Rect2(18,16,404,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
+	game.hideout_ui.make_label(decor_panel,"MAKE IT YOURS",20,Rect2(18,16,196,40),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe3ac"))
 	var slots: Array=["home.wall_display","home.wall_banner","home.wall_light","home.floor_perch","home.wall_perch"]
 	for index in range(slots.size()):
 		var id: String=slots[index];var second_row: bool=index>=3
 		var rect:=Rect2(14+(index-3)*210 if second_row else 14+index*138,132 if second_row else 74,202 if second_row else 130,48)
 		var tab: Button=game.hideout_ui.make_button(decor_panel,Decor.SLOT_NAMES[id],rect,Color("#192936ef"),Color("#dcb973"),13)
-		tab.disabled=second_row;tab.tooltip_text="Perches unlock when their companion art is ready." if second_row else "Free to rearrange"
+		tab.disabled=second_row and not Decor.available(str(Decor.SLOTS[id].allowed_decor[0]));tab.tooltip_text="Furnishing art is not available yet." if tab.disabled else "Free to rearrange"
 		tab.pressed.connect(func():selected_slot=id;refresh_decor_editor());decor_tabs[id]=tab
 	var scroll:=ScrollContainer.new();scroll.position=Vector2(20,200);scroll.size=Vector2(400,218);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;decor_panel.add_child(scroll)
 	decor_list=VBoxContainer.new();decor_list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;decor_list.add_theme_constant_override("separation",8);scroll.add_child(decor_list)
-	decor_status=UI.rich_label(decor_panel,Rect2(20,430,400,62),14,Color("#dce6ff"))
+	decor_status=UI.rich_label(decor_panel,Rect2(20,484,400,20),11,Color("#dce6ff"))
+	for mode in ["follow","perch"]:
+		var b: Button=game.hideout_ui.make_button(decor_panel,"FOLLOW" if mode=="follow" else "REST HERE",Rect2(20 if mode=="follow" else 230,430,190,48),Color("#172442"),Color("#dcb973"),14)
+		companion_mode_buttons[mode]=b
+		b.pressed.connect(func():draft.companion_mode=mode;draft.companion_perch_slot=selected_slot if mode=="perch" else draft.companion_perch_slot;refresh_decor_editor();queue_redraw())
 	game.hideout_ui.make_button(decor_panel,"CANCEL",Rect2(20,506,190,52),Color("#172442"),Color("#7087ae"),16).pressed.connect(func():go_back())
 	var apply_button: Button=game.hideout_ui.make_button(decor_panel,"APPLY / FREE",Rect2(230,506,190,52),Color("#172442"),Color("#dcb973"),16);apply_button.name="ApplyDecor";apply_button.pressed.connect(apply_decor)
 	game.hideout_ui.make_button(decor_panel,"DISPLAY SETTINGS",Rect2(20,564,190,48),Color("#172442"),Color("#7087ae"),13).pressed.connect(func():draft.clear();open("preferences"))
 
 	game.hideout_ui.make_button(decor_panel,"RESET PREVIEW",Rect2(230,564,190,48),Color("#172442"),Color("#7087ae"),13).pressed.connect(func():draft=Decor.defaults(game.profile.homestead.display);refresh_decor_editor();queue_redraw())
+
+	var preview_button: Button=game.hideout_ui.make_button(decor_panel,"VIEW ROOM",Rect2(230,16,190,40),Color("#172442"),Color("#7087ae"),13);preview_button.name="ViewRoom";preview_button.pressed.connect(func():open("decor_preview"))
 
 func refresh_decor_editor() -> void:
 	for id in decor_tabs:game.hideout_ui.apply_display_button_style(decor_tabs[id],Color("#dcb973"),id==selected_slot)
@@ -132,14 +173,25 @@ func refresh_decor_editor() -> void:
 			b.icon=Decor.texture(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",40)
 		b.set_meta("decor_id",id);game.hideout_ui.apply_display_button_style(b,Color("#dcb973"),draft.placements[selected_slot]==id)
 		b.pressed.connect(func():draft.placements[selected_slot]=id;refresh_decor_editor();queue_redraw())
-	decor_status.text="Free furnishings • no items spent.
-Apply saves. Back / Cancel discards."
+	var companion_id: String=str(game.profile.get("companion",{}).get("equipped_id",""))
+	var perch_ready: bool=preload("res://companion_catalog.gd").can_perch(companion_id)
+	var valid_slot: bool=selected_slot in ["home.floor_perch","home.wall_perch"] and companion_id in Decor.SLOTS[selected_slot].allowed_companions and Decor.available(str(draft.placements.get(selected_slot,"")))
+	companion_mode_buttons.follow.disabled=companion_id.is_empty()
+	companion_mode_buttons.perch.disabled=not perch_ready or not valid_slot
+	companion_mode_buttons.perch.tooltip_text="Choose a compatible furnished perch and an equipped companion with complete perch art."
+	for mode in companion_mode_buttons:game.hideout_ui.apply_display_button_style(companion_mode_buttons[mode],Color("#dcb973"),draft.companion_mode==mode and (mode=="follow" or draft.companion_perch_slot==selected_slot))
+	decor_status.text="Free furnishings • Apply saves • Back / Cancel discards"
 
 func apply_decor() -> void:
-	if view!="decor":return
+	if view not in ["decor","decor_preview"]:return
 	var home: Dictionary=game.profile.get("homestead",{}).duplicate(true);home.home_layout=draft.duplicate(true)
 	if not game.save_home_preferences(home,game.profile.get("companion",{})):return
 	draft.clear();open("room")
+
+func greet_or_collection(slot: String) -> void:
+	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
+	if home.home_layout.companion_mode=="perch" and home.home_layout.companion_perch_slot==slot and follower.state in ["perch_rest","perch_interact"]:follower.react("talk")
+	else:open("companions")
 
 func open_collection() -> void:
 	visible=false;game.state="hideout";game.hideout_ui.visible=true;game.hideout_ui.private_return=true;game.hideout_ui.show_memories()

@@ -3,7 +3,7 @@ extends Node
 const BUS_NAMES := ["Master", "Music", "SFX", "UI", "Ambience"]
 const PRODUCTION_ROOT := "res://art/audio/production/"
 const MUSIC_PATHS := {
-	"TITLE":"res://art/audio/music/title.wav", "HIDEOUT":"res://art/audio/music/hideout.wav",
+	"HOME":"res://art/audio/music/hideout.wav", "TITLE":"res://art/audio/music/title.wav", "HIDEOUT":"res://art/audio/music/hideout.wav",
 	"OUTER_RUINS":"res://art/audio/music/outer_ruins.wav", "SALVAGE_WARRENS":"res://art/audio/music/salvage_warrens.wav",
 	"HOARD_DEPTHS":"res://art/audio/music/hoard_depths.wav", "BOSS":"res://art/audio/music/boss.wav",
 	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav"
@@ -137,6 +137,8 @@ static func production_event_streams(event_name: String) -> Array[AudioStreamWAV
 
 static func music_source_path(cue: String) -> String:
 	if not MUSIC_PATHS.has(cue): return ""
+	var compressed := PRODUCTION_ROOT + "music/" + cue.to_lower() + ".ogg"
+	if ResourceLoader.exists(compressed): return compressed
 	var path := PRODUCTION_ROOT + "music/" + cue.to_lower() + ".wav"
 	return path if ResourceLoader.exists(path) else str(MUSIC_PATHS[cue])
 
@@ -256,11 +258,11 @@ func set_music(cue: String) -> void:
 	if music_player.playing:
 		transition_player.stream=music_player.stream; transition_player.volume_db=music_player.volume_db; transition_player.play(music_player.get_playback_position())
 	current_music = cue
-	cue_gain_db=music_gain_db+({"TITLE":1.0,"HIDEOUT":1.5,"VICTORY":0.0,"DEFEAT":-1.0,"BOSS":-1.1,"HOARD_DEPTHS":-1.1}.get(cue,0.0))
+	cue_gain_db=music_gain_db+({"TITLE":1.0,"HIDEOUT":1.5,"HOME":0.0,"VICTORY":0.0,"DEFEAT":-1.0,"BOSS":-1.1,"HOARD_DEPTHS":-1.1}.get(cue,0.0))
 	if ambience_player != null:
 		ambience_player.stop()
 		ambience_player.stream = null
-		var ambient_key: String = {"OUTER_RUINS":"outer_ruins","SALVAGE_WARRENS":"salvage_warrens","HOARD_DEPTHS":"hoard_depths","HIDEOUT":"hideout"}.get(cue,"")
+		var ambient_key: String = {"OUTER_RUINS":"outer_ruins","SALVAGE_WARRENS":"salvage_warrens","HOARD_DEPTHS":"hoard_depths","HIDEOUT":"hideout","HOME":"hideout"}.get(cue,"")
 		if not ambient_key.is_empty():
 			var ambient: AudioStreamWAV = load(PRODUCTION_ROOT+"ambience/"+ambient_key+".wav")
 			ambient.loop_mode = AudioStreamWAV.LOOP_FORWARD
@@ -280,10 +282,12 @@ func set_music(cue: String) -> void:
 		music_streams.clear()
 		var path := music_source_path(cue)
 		var stream = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
-		if path != MUSIC_PATHS[cue] and (not stream is AudioStreamWAV or stream.get_length() < 8.0 or stream.get_length() > 120.0):
-			push_warning("Production score rejected (8–120s WAV required): " + path)
+		if path != MUSIC_PATHS[cue] and (not (stream is AudioStreamWAV or stream is AudioStreamOggVorbis) or stream.get_length() < 8.0 or stream.get_length() > 300.0):
+			push_warning("Production score rejected (8–300s WAV/Vorbis required): " + path)
 			stream = ResourceLoader.load(MUSIC_PATHS[cue], "", ResourceLoader.CACHE_MODE_IGNORE)
-		if stream is AudioStreamWAV:
+		if stream is AudioStreamOggVorbis:
+			stream.loop = true
+		elif stream is AudioStreamWAV:
 			stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 			stream.loop_begin = 0
 			stream.loop_end = int(stream.get_length() * stream.mix_rate)
@@ -294,8 +298,8 @@ func set_music(cue: String) -> void:
 	music_player.volume_db = cue_gain_db-14.0
 	music_player.play()
 	transition_tween=create_tween().set_parallel(true)
-	transition_tween.tween_property(music_player,"volume_db",cue_gain_db,.28)
-	transition_tween.tween_property(transition_player,"volume_db",-60.0,.28)
+	transition_tween.tween_property(music_player,"volume_db",cue_gain_db,1.2)
+	transition_tween.tween_property(transition_player,"volume_db",-60.0,1.2)
 	transition_tween.chain().tween_callback(func(): transition_player.stop(); transition_player.stream=null)
 
 func duck_music(duration: float = 0.20, depth_db: float = -11.0) -> void:

@@ -21,7 +21,7 @@ static func portrait(profile: Dictionary, expression: String = "determined") -> 
 		if str(profile.get("current_lootling_id","relic_beast"))=="relic_beast":
 			if not portraits.has("relic_beast"):
 				var face:=AtlasTexture.new();face.atlas=preload("res://art/sprites/relic_beast_base.png")
-				face.region=Rect2(350,8,850,700);portraits.relic_beast=face
+				face.region=Rect2(540,285,510,440);portraits.relic_beast=face
 			return portraits.relic_beast
 		var extracted := preload("res://phase4e_extracted_art.gd").portrait(str(profile.get("current_lootling_id","relic_beast")),expression)
 		if extracted != null: return extracted

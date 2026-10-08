@@ -186,7 +186,31 @@ def main():
                 source=ROOT/row['asset_path'].removeprefix('res://')
                 relative=re.search(r'^path="res://([^"]+)"',source.with_suffix('.png.import').read_text(),re.MULTILINE).group(1)
                 assert apk.read('assets/'+relative)==(ROOT/relative).read_bytes(), 'Stale neutral companion export'
-                imported_companions[row['actor']]={'state':row['state'],'facing':row['facing'],'matches_local_import':True,'equippable':False}
+                imported_companions.setdefault(row['actor'],{'cells':[],'matches_local_import':True})['cells'].append(row['state']+':'+row['facing'])
+        for item in imported_companions.values():
+            item['equippable']=all(state+':'+facing in item['cells'] for state in ['idle','move','reaction'] for facing in ['right','left'])
+            item['perch_ready']=item['equippable'] and all(state+':'+facing in item['cells'] for state in ['perch_rest','perch_interact'] for facing in ['right','left'])
+        home_manifest=ROOT/'art/production/phase4e/home_runtime_manifest.json'
+        assert apk.read('assets/art/production/phase4e/home_runtime_manifest.json')==home_manifest.read_bytes()
+        imported_home={}
+        for row in json.loads(home_manifest.read_text(encoding='utf8'))['entries']:
+            source=ROOT/row['asset_path'].removeprefix('res://')
+            paths=[source]
+            if row['master_artist_slot_id'].startswith('home_decor:'):paths.append(source.with_name(source.stem+'_front.png'))
+            for asset in paths:
+                config=asset.with_suffix('.png.import').read_text(encoding='utf8')
+                relative=re.search(r'^path="res://([^"]+)"',config,re.MULTILINE).group(1)
+                assert apk.read('assets/'+relative)==(ROOT/relative).read_bytes(),'Stale accepted Home furnishing'
+                imported_home[asset.relative_to(ROOT).as_posix()]=hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()
+        score_manifest=ROOT/'art/audio/production/score_sources.json'
+        assert apk.read('assets/art/audio/production/score_sources.json')==score_manifest.read_bytes()
+        imported_scores={}
+        for row in json.loads(score_manifest.read_text(encoding='utf8'))['assets']:
+            source=ROOT/row['asset'];assert hashlib.sha256(source.read_bytes()).hexdigest()==row['asset_sha256']
+            config=source.with_suffix('.ogg.import').read_text(encoding='utf8')
+            relative=re.search(r'^path="res://([^"]+)"',config,re.MULTILINE).group(1)
+            assert apk.read('assets/'+relative)==(ROOT/relative).read_bytes(),'Stale licensed score'
+            imported_scores[row['cue']]={'source_sha256':row['source_sha256'],'imported_sha256':hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(),'license':row['license']}
         assert not any(x.startswith(('assets/tests/', 'assets/tools/', 'assets/docs/', 'assets/art/source/', 'assets/art/reference/')) for x in entries)
         for source in list((ROOT/'art/sprites/combat_rigs').glob('*.svg')) + [ROOT/'art/sprites/enemies/beta'/(name+'.svg') for name in ['mossmaw','glasswing','bell_bat','rime_pup','coal_pup','null_hound','lantern_toad','sluice_crab','brassback','forge_beetle','inkling','pagewyrm','pressure_sprite','crown_shard','hookwing','lantern_jackal','belljaw']]:
             config=source.with_suffix('.svg.import').read_text(encoding='utf-8')
@@ -219,7 +243,7 @@ def main():
               'extracted_canonical_count': len(extracted_imports),
               'reused_canonical_bodies': reuse_imports,
               'source_derived_home_props': prop_imports,
-              'device_validated': False, 'debug_only': True}
+              'accepted_home_imports': imported_home, 'licensed_score_imports': imported_scores, 'device_validated': False, 'debug_only': True}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))
 
