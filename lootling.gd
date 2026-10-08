@@ -2815,7 +2815,7 @@ func inspect_merchant_item(index: int) -> void:
 	merchant_buy_button.text = "BUY %d — ENDS THIS STOP" % int(item.price)
 	merchant_buy_button.disabled = coins < int(item.price)
 	for i in range(merchant_buttons.size()):
-		merchant_buttons[i].add_theme_stylebox_override("normal",LootlingsUI.button_style(Color.WHITE,Color.WHITE,"focus" if i == index else "normal","primary" if i == index else "secondary"))
+		LootlingsUI.apply_selection(merchant_buttons[i],i==index)
 
 func buy_selected_merchant() -> void:
 	if Time.get_ticks_msec()-selection_msec < 180 or merchant_selection < 0: return
@@ -2831,7 +2831,7 @@ func inspect_upgrade(index: int) -> void:
 	var up: Dictionary=selected_upgrades[index]
 	upgrade_compare.text="CURRENT: %d stacks / %s\nNEW PERK: %s / stacks %d to %d\nCOST: FREE / %s" % [int(upgrade_counts.get(up.id,0)),build.short_summary(),up.name,int(upgrade_counts.get(up.id,0)),int(upgrade_counts.get(up.id,0))+1,up.desc]
 	for i in range(upgrade_buttons.size()):
-		upgrade_buttons[i].add_theme_stylebox_override("normal",LootlingsUI.button_style(Color.WHITE,Color.WHITE,"focus" if i == index else "normal","primary" if i == index else "secondary"))
+		LootlingsUI.apply_selection(upgrade_buttons[i],i==index)
 
 func take_selected_upgrade() -> void:
 	if Time.get_ticks_msec()-selection_msec < 180 or upgrade_selection < 0: return
@@ -3058,6 +3058,7 @@ func refresh_merchant_ui() -> void:
 	merchant_coin_label.text = "[center]%s  %s RUN SCRIP[/center]" % [LootlingsUI.inline_icon("currency_run_scrip", 20), preload("res://display_numbers.gd").compact(coins)]
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
+		LootlingsUI.apply_selection(button,false)
 		if i >= shop.stock.size():
 			button.text = "SOLD • IN GOOD PAWS\nPatch is already counting the coins."
 			button.disabled = true
@@ -3168,6 +3169,7 @@ func show_upgrade_choices() -> void:
 		selected_upgrades.append(pool[i])
 		var up: Dictionary = pool[i]
 		var stacks := int(upgrade_counts.get(up.id, 0))
+		LootlingsUI.apply_selection(upgrade_buttons[i],false)
 		upgrade_buttons[i].text = format_upgrade_card(up, stacks)
 		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
 		# Keep the Button's complete semantic text for accessibility/tests; its
@@ -3401,14 +3403,18 @@ func load_meta() -> void:
 	gold_upgrades = progress.get("gold_upgrades", {"bedroll":0, "whetstone":0, "pouch":0}).duplicate(true)
 
 func navigate_back() -> void:
-	if state=="personal_home":personal_home.go_back();return
-	if personal_profile_return and startup_ui.visible:personal_profile_return=false;show_personal_home();return
 	if touch_ux != null and is_instance_valid(touch_ux.dialog):
 		touch_ux.close_dialog()
 		return
+	if state=="personal_home":personal_home.go_back();return
+	if personal_profile_return and startup_ui.visible:
+		if startup_ui.identity_panel.visible:startup_ui.identity_panel.visible=false
+		elif startup_ui.current_screen in ["lootling_select","wanderer_select"]:startup_ui.show_profile(false)
+		else:personal_profile_return=false;show_personal_home()
+		return
 	if presentation_director.vignette.active:
 		presentation_director.vignette.finish()
-	elif state == "mode_menu": retention.panel.visible=false; show_hideout()
+	elif state == "mode_menu": retention.close_modes()
 	elif state == "relic_spinner": retention.close_spinner()
 	elif state == "merchant": leave_merchant()
 	elif state == "upgrade": skip_upgrade()
@@ -3424,6 +3430,7 @@ func navigate_back() -> void:
 	elif state == "hideout":
 		if hideout_ui.current_screen=="companion_collection":hideout_ui.show_home_settings();return
 		if hideout_ui.speech_panel.visible: hideout_ui.dismiss_dialogue(); return
+		if hideout_ui.loadout_panel.is_visible_in_tree():hideout_ui.loadout_panel.visible=false;return
 		if hideout_ui.region_sheet.visible: hideout_ui.region_sheet.visible=false; return
 		if hideout_ui.stash_detail_panel.visible and hideout_ui.current_screen=="stash": hideout_ui.close_stash_detail(); return
 		if hideout_ui.current_screen != "home": hideout_ui.show_home()
@@ -3432,13 +3439,17 @@ func navigate_back() -> void:
 		startup_ui.show_title()
 
 func input_surface() -> Control:
-	if state=="personal_home":return personal_home
-	if personal_profile_return and startup_ui.visible:return startup_ui
+	# The topmost confirmation owns input, including inside personal Home.
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
+	if state=="personal_home":return personal_home
+	if startup_ui.visible and startup_ui.identity_panel.is_visible_in_tree():return startup_ui.identity_panel
+	if personal_profile_return and startup_ui.visible:return startup_ui
 	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:
 		return retention.pool_panel if retention.pool_panel.visible else retention.panel
 	if state=="hideout":
-		if hideout_ui.region_sheet.visible:return hideout_ui.region_sheet
+		if hideout_ui.region_sheet.is_visible_in_tree():return hideout_ui.region_sheet
+		if hideout_ui.speech_panel.is_visible_in_tree():return hideout_ui.speech_panel
+		if hideout_ui.stash_detail_panel.is_visible_in_tree():return hideout_ui.stash_detail_panel
 		return hideout_ui
 	return {"merchant":merchant_panel,"item":item_panel,"upgrade":upgrade_panel,"event":event_panel,"boss_reward":boss_reward_panel,"result":result_panel,"route":route_panel,"paused":pause_panel,"abandon_confirm":abandon_panel}.get(state,null)
 

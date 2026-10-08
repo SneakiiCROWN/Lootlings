@@ -39,6 +39,8 @@ var cinematic_preferences: Panel
 var cinematic_toggles := {}
 var presentation
 var selected_lootling_id := "relic_beast"
+var lootling_roster_buttons := {}
+var wanderer_roster_buttons := {}
 var selector_portrait: TextureRect
 var selector_name: Label
 var selector_lore: Label
@@ -264,6 +266,8 @@ func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
 	var ids: Array=WandererCatalog.selectable_ids() if human else LootlingCatalog.selectable_ids()
 	for id in ids:
 		var button:=make_button(row,"",Rect2(0,0,190,82),Color("#17294b"),Color("#7087ae"),12); button.custom_minimum_size=Vector2(190,82)
+		if human:wanderer_roster_buttons[id]=button
+		else:lootling_roster_buttons[id]=button
 		var portrait:=TextureRect.new(); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.texture=WandererCatalog.runtime_texture(id) if human else LootlingCatalog.runtime_texture(id); portrait.position=Vector2(8,5); portrait.size=Vector2(60,70); portrait.custom_minimum_size=Vector2(60,70); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; button.add_child(portrait)
 		var name_label:=make_label(button,str(WandererCatalog.definition(id).display_name) if human else str(LootlingCatalog.definition(id).display_name),12,Rect2(72,14,110,55),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; name_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.pressed.connect(func():
@@ -277,6 +281,7 @@ func cycle_lootling(direction: int) -> void:
 	refresh_selector()
 
 func refresh_selector() -> void:
+	refresh_roster_selection(lootling_roster_buttons,selected_lootling_id)
 	var entry := LootlingCatalog.definition(selected_lootling_id)
 	selector_portrait.texture = LootlingCatalog.runtime_texture(selected_lootling_id)
 	selector_portrait.modulate = LootlingCatalog.presentation_tint(selected_lootling_id)
@@ -366,6 +371,7 @@ func cycle_wanderer(direction: int) -> void:
 	refresh_wanderer_selector()
 
 func refresh_wanderer_selector() -> void:
+	refresh_roster_selection(wanderer_roster_buttons,selected_wanderer)
 	wanderer_portrait.texture = WandererCatalog.runtime_texture(selected_wanderer)
 	var ids := WandererCatalog.selectable_ids()
 	wanderer_name.text = str(WandererCatalog.definition(selected_wanderer).display_name).to_upper()
@@ -577,3 +583,13 @@ func make_button(parent: Node, value: String, rect: Rect2, fill: Color, border: 
 	LootlingsUI.apply_button(button, fill, border)
 	parent.add_child(button)
 	return button
+
+func refresh_roster_selection(buttons: Dictionary, selected_id: String) -> void:
+	for id in buttons:
+		var button: Button=buttons[id]
+		button.set_meta("ui_selected",id==selected_id)
+		button.set_meta("ui_intent","primary" if id==selected_id else "secondary")
+		LootlingsUI.apply_button(button,Color("#17294b"),Color("#d1a85a"))
+		var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6")
+		focus.set_border_width_all(2);focus.set_corner_radius_all(10)
+		button.add_theme_stylebox_override("focus",focus)

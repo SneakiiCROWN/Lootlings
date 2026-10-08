@@ -100,7 +100,10 @@ def validate():
                     if im.mode!='RGBA' or im.size!=tuple(row['canvas']):errors.append('Invalid extracted RGBA canvas: '+row['id'])
                     if row.get('transparent') and any(im.getpixel(point)[3] for point in [(0,0),(im.width-1,0),(0,im.height-1),(im.width-1,im.height-1)]):errors.append('Clipped extracted canvas corners: '+row['id'])
         runtime=json.loads((ROOT/'art/production/phase4e/runtime_manifest.json').read_text(encoding='utf-8'))['entries']
+        from master_artist_intake import validate_installed_registrations
+        validate_installed_registrations(runtime)
         for row in runtime:
+            if row.get('master_artist_slot_id'):continue # Validated above against exact delivery + reviewed hashes.
             source_record=next((e for e in extracted if e['asset_path']==row['asset_path']),{})
             expected=source_record.get('runtime_phase','ANTICIPATE' if row['asset_path'].endswith('gloomlet_windup_right.png') else 'IDLE')
             if expected not in ['IDLE','ANTICIPATE','ATTACK','IMPACT']:errors.append('Unproven source action phase: '+row['asset_path'])

@@ -121,7 +121,7 @@ def metadata_checks(row,meta,body,inbox):
                 errors+=validate_schema(meta.get('tail'),read(DOC/'schemas/boss_anchor_tail_sidecar.schema.json'),'tail')
                 if (meta.get('tail') or {}).get('tail_count')!=1:errors.append('Hoard Dragon requires exactly one tail')
     return errors
-def validate(inbox=INBOX,batch=None,root=ROOT):
+def validate(inbox=INBOX,batch=None,root=ROOT,all_slots=False):
     spec=read(DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json');fmap={x['source_delivery_path']:x for x in spec['artist_files']}
     rows=spec['outstanding_deliverables'];selected=set(batch['slot_ids']) if batch else None
     present=[];unknown=[];unsafe=[]
@@ -136,10 +136,19 @@ def validate(inbox=INBOX,batch=None,root=ROOT):
     if unsafe:return {'unknown_files':unknown,'unsafe_files':unsafe,'overall':'FAIL','empty_inbox':False,'results':[],'counts':{'FAIL':len(unsafe)}}
     touched={fmap[p]['owner_slot_id'] for p in present}
     if selected is not None:touched|=selected
+    if all_slots:touched|={row['slot_id'] for row in rows}
     approvals=read(DOC/'ART_REVIEW_APPROVALS.json')['entries']
     results=[]
+    refs={x['repository_path']:x['sha256'] for x in read(DOC/'SOURCE_INDEX.json')}
+    source_hashes={}
+    runtime=read(ROOT/'art/production/phase4e/runtime_manifest.json')['entries']
+    validate_installed_registrations(runtime)
+    installed_ids={e['master_artist_slot_id'] for e in runtime if e.get('master_artist_slot_id')}
     for row in rows:
         if row['slot_id'] not in touched:continue
+        if row['slot_id'] in installed_ids:
+            results.append({'slot_id':row['slot_id'],'status':'PASS','already_installed':True,'errors':[],'artist_corrections':[],'visual_review_required':False,'automatic_adapter':adapter(row),'runtime_apply_ready':False,'file_sha256':{}})
+            continue
         hard=[];corrections=[]
         missing=[p for p in row['required_files'] if not safe(inbox,p).is_file()]
         if missing:corrections+=['Missing mandatory file: '+p for p in missing]
@@ -170,11 +179,11 @@ def validate(inbox=INBOX,batch=None,root=ROOT):
                 dest=safe(root,file['runtime_destination'])
                 if dest.exists() and sha(dest)!=sha(p):hard.append('Existing destination must not be overwritten: '+file['runtime_destination'])
             except (OSError,ValueError,TypeError,KeyError) as ex:hard.append(path+': '+str(ex))
-        refs={x['repository_path']:x['sha256'] for x in read(DOC/'SOURCE_INDEX.json')}
         for authority in row.get('canonical_authority_files',[]):
             try:
                 a=safe(ROOT,authority)
-                if not a.is_file() or refs.get(authority)!=sha(a):hard.append('Canonical source hash/path changed: '+authority)
+                if authority not in source_hashes:source_hashes[authority]=sha(a) if a.is_file() else None
+                if source_hashes[authority] is None or refs.get(authority)!=source_hashes[authority]:hard.append('Canonical source hash/path changed: '+authority)
             except ValueError as ex:hard.append(str(ex))
         status='FAIL' if hard else 'NEEDS_ARTIST_CORRECTION' if corrections else 'PASS'
         ready=status=='PASS' and review_ready(row,inbox,fmap,approvals)
@@ -208,10 +217,79 @@ def apply(report,inbox):
         target.write_bytes(original)
         for dst in created:dst.unlink()
         raise
+def apply_independent(report,inbox):
+    """One transaction per approved exact cell; failed siblings never block it."""
+    installed=[];failed=[]
+    for result in report['results']:
+        if not result['runtime_apply_ready']:continue
+        isolated={'empty_inbox':False,'overall':'PASS','results':[result]}
+        try:
+            apply(isolated,inbox)
+            installed.append(result['slot_id'])
+        except (OSError,ValueError,KeyError,AssertionError) as ex:
+            failed.append({'slot_id':result['slot_id'],'reason':str(ex)})
+    return {'installed_slot_ids':installed,'installation_failures':failed}
+
+def correction_queue(report,installation):
+    installed=set(installation['installed_slot_ids'])|{r['slot_id'] for r in report['results'] if r.get('already_installed')}
+    failures={x['slot_id']:x['reason'] for x in installation['installation_failures']}
+    entries=[]
+    for result in report['results']:
+        if result['slot_id'] in installed:continue
+        reasons=result['errors']+result['artist_corrections']
+        if not reasons and result['visual_review_required']:reasons=['Hash-bound identity/contact/native visual acceptance required']
+        if not reasons and not result['automatic_adapter']:reasons=['Exact runtime selector/registration adapter required']
+        if result['slot_id'] in failures:reasons.append(failures[result['slot_id']])
+        entries.append({'slot_id':result['slot_id'],'status':result['status'],'required_corrections':reasons})
+    return {'newly_installed_PASS_count':len(installation['installed_slot_ids']),'installed_PASS_count':len(installed),'correction_count':len(entries),'remaining_exact_slots':len(entries),'unknown_delivery_files':report['unknown_files'],'entries':entries}
+
+def validate_installed_registrations(entries):
+    """Guard installed master rows against their reviewed delivery, not sheet crops."""
+    candidates=[e for e in entries if e.get('master_artist_slot_id')]
+    if not candidates:return
+    spec=read(DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')
+    rows={r['slot_id']:r for r in spec['outstanding_deliverables']}
+    files={f['source_delivery_path']:f for f in spec['artist_files']}
+    approvals=read(DOC/'ART_REVIEW_APPROVALS.json')['entries']
+    refs={x['repository_path']:x['sha256'] for x in read(DOC/'SOURCE_INDEX.json')}
+    seen=set()
+    for entry in candidates:
+        sid=entry['master_artist_slot_id']
+        if sid in seen:raise ValueError('Duplicate master runtime cell: '+sid)
+        seen.add(sid);row=rows[sid]
+        if not adapter(row):raise ValueError('Unsupported master selector: '+sid)
+        hashes={}
+        for rel in row['required_files']:
+            f=files[rel];dest=safe(ROOT,f['runtime_destination']);hashes[rel]=sha(dest)
+            if f['file_type']=='PNG':errors=png_errors(dest,f['canvas'],row.get('maximum_alpha_bounds'),row.get('transparent_background',True))
+            else:errors=validate_schema(read(dest),read(DOC/f['schema']))
+            if errors:raise ValueError(sid+': '+str(errors))
+        approval=next((a for a in approvals if a.get('slot_id')==sid),{})
+        flags=['canonical_identity','anatomy','pose_facing','contact_fit','baked_modular_equipment_absent','temporal_vfx_absent','native_phone','native_tablet']
+        if not approval.get('reviewer') or not approval.get('review_note') or not all(approval.get(k) is True for k in flags) or approval.get('file_sha256')!=hashes:
+            raise ValueError('Installed master row lacks hash-bound visual approval: '+sid)
+        for authority in row['canonical_authority_files']:
+            if refs.get(authority)!=sha(safe(ROOT,authority)):raise ValueError('Master identity authority changed: '+authority)
+        meta=read(safe(ROOT,files[row['source_metadata_path']]['runtime_destination']))
+        if entry!=registration_row(row,meta):raise ValueError('Runtime socket/phase mapping differs from reviewed exact delivery: '+sid)
+
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--inbox',type=Path,default=INBOX);p.add_argument('--batch',type=Path);p.add_argument('--report',type=Path,default=DOC/'INTAKE_REPORT.json');p.add_argument('--apply',action='store_true');args=p.parse_args()
-    report=validate(args.inbox,read(args.batch) if args.batch else None)
-    if args.apply:apply(report,args.inbox)
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--inbox',type=Path,default=INBOX);p.add_argument('--batch',type=Path)
+    p.add_argument('--report',type=Path,default=DOC/'INTAKE_REPORT.json');p.add_argument('--apply',action='store_true')
+    p.add_argument('--full-completion',action='store_true',help='Validate every master slot; independently install approved PASS cells')
+    args=p.parse_args()
+    report=validate(args.inbox,read(args.batch) if args.batch else None,all_slots=args.full_completion)
+    installation={'installed_slot_ids':[],'installation_failures':[]}
+    if args.apply:
+        if args.full_completion:installation=apply_independent(report,args.inbox)
+        else:apply(report,args.inbox)
+    report['installation']=installation
+    if args.full_completion:
+        report['apply_policy']='Independent hash-bound approved PASS transactions; missing/failed siblings do not block another cell'
+        queue=correction_queue(report,installation)
+        path=ROOT/'docs/production/full-completion/ART_CORRECTIONS_REQUIRED.json'
+        path.write_text(json.dumps(queue,indent=2)+'\n',encoding='utf8')
     args.report.parent.mkdir(parents=True,exist_ok=True);args.report.write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')
     print(json.dumps({k:v for k,v in report.items() if k!='results'},indent=2))
     return 1 if report['overall']=='FAIL' else 2 if report['overall']=='NEEDS_ARTIST_CORRECTION' else 0

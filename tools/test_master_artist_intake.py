@@ -1,5 +1,6 @@
 """Adversarial intake tests; existing art bytes only, never runtime fixtures."""
 import unittest,tempfile,json,hashlib
+from unittest.mock import patch
 from pathlib import Path
 from PIL import Image
 import master_artist_intake as intake
@@ -44,5 +45,32 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(len(paths),8495);self.assertEqual(len(set(paths)),8495)
         nextbatch=intake.read(intake.DOC/'NEXT_ART_BATCH.json')
         self.assertEqual(len(set(nextbatch['characters'])),7)
+
+    def test_independent_pass_survives_failed_sibling_and_transaction(self):
+        report={'overall':'FAIL','empty_inbox':False,'results':[
+            {'slot_id':'missing','runtime_apply_ready':False},
+            {'slot_id':'bad_install','runtime_apply_ready':True},
+            {'slot_id':'good','runtime_apply_ready':True}]}
+        with patch.object(intake,'apply',side_effect=[ValueError('guard failure'),None]) as install:
+            result=intake.apply_independent(report,intake.INBOX)
+            self.assertEqual(result['installed_slot_ids'],['good'])
+            self.assertEqual(result['installation_failures'],[{'slot_id':'bad_install','reason':'guard failure'}])
+            self.assertEqual(install.call_count,2)
+            self.assertEqual(install.call_args.args[0]['results'][0]['slot_id'],'good')
+    def test_full_program_equals_master_scope(self):
+        spec=intake.read(intake.DOC/'LOOTLINGS_MASTER_ART_DELIVERY_SPEC.json')
+        program=intake.read(intake.ROOT/'docs/production/full-completion/FULL_GAME_COMPLETION_PROGRAM.json')
+        self.assertEqual(program['counts']['outstanding_contract_records'],len(spec['outstanding_deliverables']))
+        self.assertEqual(program['counts']['total_artist_files'],len(spec['artist_files']))
+
+    def test_registered_unknown_master_identity_is_rejected(self):
+        with self.assertRaises(KeyError):
+            intake.validate_installed_registrations([{'master_artist_slot_id':'invented_actor:fake_state'}])
+    def test_already_installed_is_not_requested_again(self):
+        report={'unknown_files':[],'results':[{'slot_id':'accepted','already_installed':True}]}
+        q=intake.correction_queue(report,{'installed_slot_ids':[],'installation_failures':[]})
+        self.assertEqual(q['remaining_exact_slots'],0)
+        self.assertEqual(q['installed_PASS_count'],1)
+        self.assertEqual(q['newly_installed_PASS_count'],0)
 
 if __name__=='__main__':unittest.main()

@@ -226,3 +226,13 @@ static func add_divider(parent: Control, rect: Rect2, material: String) -> Textu
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	parent.add_child(image)
 	return image
+
+static func apply_selection(button: Button, selected: bool) -> void:
+	# Preserve card typography/transparent semantic text; change skins only.
+	button.set_meta("ui_selected",selected)
+	button.set_meta("ui_intent","primary" if selected else "secondary")
+	for state_name in ["normal","hover","pressed","disabled"]:
+		button.add_theme_stylebox_override(state_name,button_style(Color.WHITE,Color.WHITE,state_name,"primary" if selected else "secondary"))
+	var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6")
+	focus.set_border_width_all(2);focus.set_corner_radius_all(10)
+	button.add_theme_stylebox_override("focus",focus)

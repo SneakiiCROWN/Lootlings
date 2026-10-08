@@ -4,6 +4,7 @@ const BACKGROUND=preload("res://art/backgrounds/stash_vault.png")
 const UI=preload("res://lootlings_ui.gd")
 var game
 var view := "room"
+var companion_parent := "room"
 var room: Control
 var title: Label
 var time := 0.0
@@ -29,6 +30,8 @@ func button(id: String,text: String,rect: Rect2,action: Callable) -> void:
 	b.set_meta("gesture_release_owned",true);buttons[id]=b;b.pressed.connect(action)
 
 func open(next: String="room") -> void:
+	if next=="companions" and view!="companions":
+		companion_parent=view if visible and view in ["room","preferences"] else "room"
 	game.state="personal_home";game.hideout_ui.visible=false;game.startup_ui.visible=false
 	game.hideout_ui.dismiss_dialogue();game.hideout_ui.loadout_panel.visible=false
 	visible=true;view=next;room.visible=view=="room"
@@ -39,7 +42,7 @@ func open(next: String="room") -> void:
 	title.text="YOUR HOME";follower.react("return");queue_redraw();game.queue_redraw()
 
 func go_back() -> void:
-	if view=="companions":open("preferences")
+	if view=="companions":open(companion_parent)
 	elif view=="preferences":open("room")
 	else:game.show_hideout()
 

@@ -15,6 +15,7 @@ var detail: RichTextLabel
 var buttons: Array[Button]=[]
 var spinner_button: Button
 var mode_tab:="siege"
+var mode_parent:="home"
 var machine: Control
 var spin_busy:=false
 var spin_message:=""
@@ -92,10 +93,11 @@ func open(state: String, heading: String, line: String, choices: Array) -> void:
 			buttons[index].icon=preload("res://bible_runtime_art.gd").texture(["crystal_ward","fire_arc","healing_wreath"][index])
 			buttons[index].expand_icon=true;buttons[index].add_theme_constant_override("icon_max_width",28)
 func show_modes(tab: String="siege") -> void:
+	if game.state=="hideout":mode_parent=game.hideout_ui.current_screen
 	if game.state not in ["hideout","mode_menu"] or game.presentation_director.travel_active or game.presentation_director.vignette.active: return
 	mode_tab=tab
 	var context: String="Highest Siege round %d • best score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault farms Mossglass.\nRelic Route offers branching encounters."
-	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ HIDEOUT"])
+	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ REGIONS" if mode_parent=="campaign" else "‹ HUB"])
 	buttons[1].disabled=not game.campaign.available("mossglass_wilds")
 	buttons[2].disabled=not "act_i" in game.campaign.completed
 	buttons[3].text="FORGE RED • 24 CROWNROOT FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
@@ -103,7 +105,8 @@ func show_modes(tab: String="siege") -> void:
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
 	mode_art.position.y=126;mode_art.size.y=118
 	detail.position=Vector2(24,258); detail.size=Vector2(376,122)
-	for button in mode_tabs:button.add_theme_stylebox_override("normal",SpinCatalog.flat_style(Color("#334c46") if (button.text=="SIEGE")== (tab=="siege") and button.text!="REGIONS" else Color("#101c30"),Color("#b8a476"),8))
+	for button in mode_tabs:
+		game.hideout_ui.apply_display_button_style(button,Color("#b8a476"),button.text==("SIEGE" if tab=="siege" else "DUNGEONS"))
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
 	detail.text="%s\nCrownroot: %d / %d fragments\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
@@ -119,7 +122,7 @@ func choose(index: int) -> void:
 	if Time.get_ticks_msec()-selected_at<180: return
 	match game.state:
 		"mode_menu":
-			if index==4: panel.visible=false; game.show_hideout(); return
+			if index==4: close_modes(); return
 			if index==3:
 				progress.track("gravebloom_staff")
 				if progress.forge_red():
@@ -339,3 +342,8 @@ func reset() -> void:
 func setup_targeted(seed_value: int) -> void:
 	siege=false; targeted=true; game.expedition_tier=0; game.campaign_id="mossglass_wilds"; game.dungeon.setup(seed_value,"mossglass_wilds")
 	for room in game.dungeon.map[2]: room.kind="Elite"; room.wave=8; room.title="ROOTGLASS SENTINEL"; room.desc="Region miniboss • blueprint and Rootglass."
+
+func close_modes() -> void:
+	var parent_screen:=mode_parent
+	panel.visible=false;game.show_hideout()
+	if parent_screen=="campaign":game.hideout_ui.show_campaign()

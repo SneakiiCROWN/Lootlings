@@ -22,6 +22,8 @@ var phase4_message := ""
 var phase4_selected_msec := 0
 var tier_buttons: Array[Button] = []
 var selected_tier := 0
+var selected_region_id := ""
+var phase4_selections := {}
 const Phase4 = preload("res://phase4_catalog.gd")
 signal group_patrols_changed(enabled: bool)
 signal dungeon_requested
@@ -140,6 +142,7 @@ var lore_heading: Label
 var lore_filter_buttons: Array[Button] = []
 const FieldNotes = preload("res://field_notes_catalog.gd")
 var memory_content: Control
+var memory_filter_buttons := {}
 var memory_list: VBoxContainer
 var memory_filter := "ALL"
 var achievement_grid: GridContainer
@@ -521,7 +524,7 @@ func show_phase4(mode: String) -> void:
 
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
-	phase4_selected = ""; track_button.disabled=true; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
+	phase4_selected = str(phase4_selections.get(phase4_mode,"")); track_button.disabled=true; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
 	phase4_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").paper() if phase4_mode=="archive" else preload("res://station_presentation.gd").metal())
 	phase4_detail.add_theme_color_override("default_color",Color("#382e32") if phase4_mode=="archive" else Color("#e7edff"))
 	for child in phase4_list.get_children(): phase4_list.remove_child(child); child.queue_free()
@@ -531,6 +534,7 @@ func refresh_phase4() -> void:
 		phase4_detail.text = "Select a record to inspect. Unknown finds keep their names until you discover them."
 		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege"]:
 			var button := make_button(phase4_list,"",Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
+			button.set_meta("paper_selection",true)
 			preload("res://station_presentation.gd").paper_button(button)
 			var icon_name: String={"Mastery":"core","Characters":"gear_charm","Named gear":"gear_armour","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune"}[category]
 			# Use verified canonical icons, with all decorative children ignoring touch.
@@ -539,7 +543,10 @@ func refresh_phase4() -> void:
 			LootlingsUI.add_icon(button,Rect2(12,6,44,44),icon_name)
 			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#382e32")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 			button.custom_minimum_size = Vector2(410,56)
+			button.set_meta("selection_id",category)
 			button.pressed.connect(func():
+				phase4_selections[phase4_mode]=category
+				refresh_selection_styles(phase4_list,category)
 				if category=="Field discoveries": last_home_facts.event="archive_discovery"
 				phase4_detail.text = expedition_progress.collection_text()
 				if category == "Relic Siege" and endgame_progress != null:
@@ -558,7 +565,7 @@ func refresh_phase4() -> void:
 						var pieces: int = int(expedition_progress.data.fragments.get(source.id,0))
 						phase4_detail.text += "%s • %s\n" % [str(source.name) if found or pieces > 0 else "???", "collected" if found else "blueprint %d/3" % pieces]
 			)
-		phase4_action.text = "EXPLORE TO DISCOVER"; return
+		phase4_action.text = "EXPLORE TO DISCOVER"; restore_phase4_selection(); return
 	var entries: Array = Phase4.ITEMS if phase4_mode == "blueprints" else CampaignSystem.ORDER
 	for entry in entries:
 		var id: String = str(entry.id) if entry is Dictionary else str(entry)
@@ -577,7 +584,10 @@ func refresh_phase4() -> void:
 			image.name="RegionArt"; image.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; image.clip_contents=true
 		var caption:=make_label(button,text,14,Rect2(90,8,306,72),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff"))
 		caption.name="RecordCaption"; caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		button.set_meta("selection_id",id)
 		button.pressed.connect(func():
+			phase4_selections[phase4_mode]=id
+			refresh_selection_styles(phase4_list,id)
 			phase4_selected = id; track_button.disabled=phase4_mode!="blueprints"; phase4_selected_msec = Time.get_ticks_msec()
 			if phase4_mode == "blueprints":
 				phase4_detail.text = "%s\n%s\n\nSource: %s bosses/minibosses; regional loot also drops directly.\nForge: 12 %s + one boss seal.\nOwned: %d material / %d seals. Recipe fragments %d/3.\nRare gear • keeps its named behaviour." % [entry.name,entry.desc,CampaignSystem.title(region),Phase4.FARMS[region].material,int(expedition_progress.data.materials.get(region,0)),int(expedition_progress.data.boss_parts.get(region,0)),pieces]
@@ -588,6 +598,8 @@ func refresh_phase4() -> void:
 				phase4_detail.text = "%s\n%s • %d / %d\nReturn anytime. No expiry.\nReward: 6 %s + one local blueprint fragment." % [CampaignSystem.title(region),current.name,current.progress,current.target,Phase4.FARMS[region].material]
 				phase4_action.text = "CLAIM BOUNTY"; phase4_action.disabled = current.progress < current.target
 		)
+
+	restore_phase4_selection()
 
 func build_campaign() -> void:
 	campaign_content=Control.new(); campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); campaign_content.visible=false; add_child(campaign_content)
@@ -643,6 +655,8 @@ func refresh_contracts() -> void:
 		contract_buttons[slot].disabled = not ready
 
 func show_campaign() -> void:
+	selected_tier=clampi(int(get_parent().expedition_tier),0,Phase4.TIERS.size()-1)
+	if selected_region_id.is_empty():selected_region_id=get_parent().campaign_id
 	for index in range(tier_buttons.size()):
 		var rank_value: int = expedition_progress.rank() if expedition_progress != null else 1
 		tier_buttons[index].disabled = rank_value < int(Phase4.TIERS[index].rank)
@@ -679,10 +693,14 @@ func show_campaign() -> void:
 		var loot_hint: String=str(preload("res://world_content_catalog.gd").FUTURE_ZONES.get(id,{}).get("loot","steel / relics / regional blueprints"))
 		make_label(button,loot_hint,12,Rect2(88,74,302,23),HORIZONTAL_ALIGNMENT_LEFT,Color("#a6d2c3")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.set_meta("gesture_release_owned",true)
+		button.set_meta("selection_id",id)
+		apply_display_button_style(button,Color("#d4ad65") if available else Color("#697085"),id==selected_region_id)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
 		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
 		button.disabled = not available
 		button.pressed.connect(func():
+			selected_region_id=id
+			refresh_selection_styles(campaign_list,id)
 			region_sheet.visible=true; region_art.texture=CampaignSystem.zone_for(id,1).background; region_detail.text="[font_size=23]%s[/font_size]\n\n%s\n\n%s\n%s" % [CampaignSystem.title(id),WorldStory.region_line(id,0),detail,status]
 			for callback in region_depart.pressed.get_connections(): region_depart.pressed.disconnect(callback.callable)
 			region_depart.pressed.connect(func(): region_sheet.visible=false; campaign_requested.emit(id))
@@ -946,7 +964,9 @@ func build_memories() -> void:
 	LootlingsUI.add_icon(memory_content,Rect2(194,107,92,70),"res://art/production/phase4e/items/memory_hourglass.png")
 	for index in range(4):
 		var filter_name: String = ["ALL","Characters","Regions","Bosses"][index]
-		make_button(memory_content, filter_name.to_upper(), Rect2(20+index*111,186,107,44), Color("#202d4d"),Color("#bba0de"),12).pressed.connect(func(): memory_filter = filter_name; refresh_memories())
+		var button:=make_button(memory_content, filter_name.to_upper(), Rect2(20+index*111,186,107,48), Color("#202d4d"),Color("#bba0de"),12)
+		memory_filter_buttons[filter_name]=button
+		button.pressed.connect(func(): memory_filter = filter_name; refresh_memories())
 	var panel := make_panel(memory_content, Rect2(20,245,440,550),Color("#090f25d9"),Color("#bba0de"))
 	LootlingsUI.apply_material(panel,"relic")
 	var scroll := ScrollContainer.new()
@@ -967,6 +987,7 @@ func show_memories() -> void:
 	refresh_memories()
 
 func refresh_memories() -> void:
+	for id in memory_filter_buttons:apply_display_button_style(memory_filter_buttons[id],Color("#bba0de"),id==memory_filter)
 	for child in memory_list.get_children():
 		memory_list.remove_child(child)
 		child.queue_free()
@@ -1008,7 +1029,9 @@ func refresh_lore() -> void:
 	lore_entries=[]
 	for page in FieldNotes.pages(profile,campaign,current_inventory):
 		if lore_filter=="ALL" or page.category==lore_filter: lore_entries.append(page)
-	for button in lore_filter_buttons: button.disabled=button.text==lore_filter
+	for button in lore_filter_buttons:
+		button.disabled=false
+		apply_display_button_style(button,Color("#bba0de"),button.text==lore_filter)
 	lore_index=clampi(lore_index,0,maxi(0,lore_entries.size()-1))
 	cycle_lore(0)
 
@@ -1824,10 +1847,15 @@ func make_hotspot_button(parent: Node, value: String, rect: Rect2, accent: Color
 	return button
 
 func apply_display_button_style(button: Button, border: Color, selected: bool = false) -> void:
+	button.set_meta("ui_selected",selected)
 	button.set_meta("ui_intent","primary" if selected else "secondary")
 	apply_button_style(button, Color("#172442"), border)
 	if selected:
-		button.add_theme_stylebox_override("normal", LootlingsUI.button_style(Color.WHITE, border, "focus","primary"))
+		button.add_theme_stylebox_override("normal", LootlingsUI.button_style(Color.WHITE, border, "normal","primary"))
+	# Focus is an outline only; it must not impersonate a persistent selection.
+	var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6")
+	focus.set_border_width_all(2);focus.set_corner_radius_all(10)
+	button.add_theme_stylebox_override("focus",focus)
 
 func apply_sold_display_style(button: Button) -> void:
 	apply_button_style(button, Color("#172442"), Color("#716170"))
@@ -1901,11 +1929,11 @@ func build_home_settings() -> void:
 		home_display_buttons[id]=button;button.pressed.connect(func():choose_home_display(id))
 	make_label(panel,"Companion",20,Rect2(18,324,404,36),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	home_settings_summary=make_label(panel,"",16,Rect2(24,370,392,94),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"));home_settings_summary.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	var unequip:=make_button(panel,"NO COMPANION",Rect2(20,476,400,52),Color("#202d4d"),Color("#7f94bc"),16);unequip.pressed.connect(func():choose_companion(""))
+	var unequip:=make_button(panel,"NO COMPANION",Rect2(20,476,400,52),Color("#202d4d"),Color("#7f94bc"),16);unequip.name="NoCompanion";unequip.pressed.connect(func():choose_companion(""))
 	var collection:=make_button(panel,"COMPANION COLLECTION",Rect2(20,548,400,52),Color("#202d4d"),Color("#d7b46d"),16)
 	collection.name="CompanionCollection";collection.pressed.connect(show_companion_collection)
 	companion_collection_content=Control.new();companion_collection_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);companion_collection_content.visible=false;add_child(companion_collection_content)
-	make_button(companion_collection_content,"‹ YOUR HOME",Rect2(20,20,148,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(show_home_settings)
+	make_button(companion_collection_content,"‹ YOUR HOME",Rect2(20,20,148,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(func():get_parent().personal_home.go_back())
 	make_label(companion_collection_content,"COMPANION COLLECTION",23,Rect2(20,100,440,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	make_label(companion_collection_content,"Meet the collection • not available yet",15,Rect2(20,154,440,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"))
 	var collection_panel:=make_panel(companion_collection_content,Rect2(20,204,440,568),Color("#10162ff2"),Color("#8ea2c8"))
@@ -1919,7 +1947,7 @@ func build_home_settings() -> void:
 		make_label(row,entry.name,20,Rect2(82,2,232,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe3ac"))
 		make_label(row,entry.unlock_name,14,Rect2(82,36,232,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#dce6ff"))
 		var token:=TextureRect.new();token.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;token.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;token.texture=preload("res://companion_catalog.gd").preview(id,true);token.position=Vector2(322,4);token.size=Vector2(50,58);token.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(token)
-		var b:=Button.new();b.text="NOT YET AVAILABLE";b.position=Vector2(82,72);b.size=Vector2(290,44);b.add_theme_font_size_override("font_size",14);row.add_child(b);companion_buttons[id]=b;b.pressed.connect(func():choose_companion(id))
+		var b:=make_button(row,"NOT YET AVAILABLE",Rect2(82,72,290,48),Color("#202d4d"),Color("#7f94bc"),14);companion_buttons[id]=b;b.pressed.connect(func():choose_companion(id))
 
 func show_companion_collection() -> void:
 	get_parent().show_personal_home("companions")
@@ -1930,22 +1958,48 @@ func show_home_settings() -> void:
 func refresh_home_settings() -> void:
 	var display: String=profile.get("homestead",{}).get("display","weapon")
 	for id in home_display_buttons:
+		apply_display_button_style(home_display_buttons[id],Color("#d7b46d"),id==display)
 		home_display_buttons[id].text=("CURRENT • " if id==display else "USE • ")+{"weapon":"Equipped weapon","scroll":"Recovered plans","trophy":"Trophy stand","none":"Clear shelf"}[id]
 	var companion:=preload("res://companion_catalog.gd").sanitize(profile.get("companion",{}))
+	var no_companion: Button=home_settings_content.find_child("NoCompanion",true,false)
+	apply_display_button_style(no_companion,Color("#d7b46d"),companion.equipped_id.is_empty())
 	home_settings_summary.text="No companion equipped. Companions are cosmetic; they give no combat advantage."
 	if preload("res://companion_catalog.gd").available_ids().is_empty():home_settings_summary.text="No companions are available yet. Your slot is ready. Companions never change combat stats."
 	elif not companion.equipped_id.is_empty():home_settings_summary.text="Equipped: "+str(preload("res://companion_catalog.gd").ENTRIES[companion.equipped_id].get("name",companion.equipped_id))+" • cosmetic only"
 	for id in companion_buttons:
+		apply_display_button_style(companion_buttons[id],Color("#d7b46d"),companion.equipped_id==id)
 		var ready: bool=id in preload("res://companion_catalog.gd").available_ids()
 		companion_buttons[id].disabled=not ready or id not in companion.owned_ids
 		companion_buttons[id].text="EQUIPPED" if companion.equipped_id==id else "EQUIP" if ready and id in companion.owned_ids else "LOCKED" if ready else "NOT YET AVAILABLE"
 
 func choose_home_display(id: String) -> void:
 	if current_screen!="home_settings" or id not in ["weapon","scroll","trophy","none"]:return
-	home_preferences_requested.emit({"display":id},preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
+	var home: Dictionary=profile.get("homestead",{}).duplicate(true)
+	home.display=id
+	home_preferences_requested.emit(home,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})))
 
 func choose_companion(id: String) -> void:
 	if current_screen not in ["home_settings","companion_collection"]:return
 	var companion:=preload("res://companion_catalog.gd").sanitize(profile.get("companion",{}))
 	if not id.is_empty() and (id not in companion.owned_ids or id not in preload("res://companion_catalog.gd").available_ids()):return
 	companion.equipped_id=id;home_preferences_requested.emit(profile.get("homestead",{"display":"weapon"}),companion)
+
+func refresh_selection_styles(list: Control, selected_id: String) -> void:
+	for child in list.get_children():
+		if child is Button:
+			var selected: bool=str(child.get_meta("selection_id",""))==selected_id
+			if child.get_meta("paper_selection",false):
+				child.set_meta("ui_selected",selected)
+				preload("res://station_presentation.gd").paper_button(child)
+				if selected:
+					var paper: StyleBoxFlat=child.get_theme_stylebox("normal").duplicate()
+					paper.border_color=Color("#ad792e");paper.set_border_width_all(3)
+					child.add_theme_stylebox_override("normal",paper)
+			else:apply_display_button_style(child,Color("#d4ad65"),selected)
+
+func restore_phase4_selection() -> void:
+	var selected_id: String=str(phase4_selections.get(phase4_mode,""))
+	for child in phase4_list.get_children():
+		if child is Button and str(child.get_meta("selection_id",""))==selected_id:
+			child.pressed.emit()
+			return
