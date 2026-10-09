@@ -28,6 +28,10 @@ def main():
     enemy_rows=[r for r in json.loads(read(ROOT/'art/production_enemy_manifest.json'))['entries'] if r.get('native_validated')]
     enemy_sources={(r['actor'],r['state'],r['facing']):r for r in enemy_rows}
     pose_sources.update({r['asset_path']:r for r in enemy_rows})
+    npc_rows=[r for r in json.loads(read(ROOT/'art/production_npc_manifest.json'))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
+    npc_sources={(r['actor'],r['state'],r['facing']):r for r in npc_rows}
+    pose_sources.update({r['asset_path']:r for r in npc_rows})
+    missing['total_missing_cells']-=sum(1 for c in missing['missing'] if (c['game_id'],c['state'],c['facing']) in npc_sources)
     missing['total_missing_cells']-=sum(1 for c in missing['missing'] if (c['game_id'],c['state'],c['facing']) in enemy_sources)
     boss_rows=[r for r in json.loads(read(ROOT/'art/production_boss_manifest.json'))['entries'] if r.get('native_validated')]
     boss_sources={(r['region'],(r['action']+' '+r['state']).strip(),r['facing']):r for r in boss_rows}
@@ -49,7 +53,7 @@ def main():
     for cell in missing['missing']+missing['coverage']:
         absent='asset_path' not in cell;actor=cell['game_id'];state=cell['state'];face=cell['facing'];weapon=cell.get('weapon_family')
         category=cell.get('category','playable')
-        boss=boss_sources.get((actor,state,face)) or enemy_sources.get((actor,state,face))
+        boss=boss_sources.get((actor,state,face)) or enemy_sources.get((actor,state,face)) or npc_sources.get((actor,state,face))
         if boss:cell={**cell,'asset_path':boss['asset_path'],'source_canonical_sheet':boss['source_reference']};absent=False
         source=cell.get('source_canonical_sheet'); asset=cell.get('asset_path')
         if actor in npc_authorities:source=npc_authorities[actor]['canonical_source']
@@ -98,7 +102,7 @@ def main():
     # Each implemented UI entry point, including popups/Back/reward states.
     screens=[]
     for filename,info in runtime.items():
-        if not any(term in filename for term in ['ui','startup','retention','dialogue','result','pause','combat_controls','settings','tutorial','vignette']):continue
+        if filename not in ['lootling.gd','personal_home.gd','hub_navigation.gd'] and not any(term in filename for term in ['ui','startup','retention','dialogue','result','pause','combat_controls','settings','tutorial','vignette']):continue
         for method in info['methods']:
             if not method.startswith(('show_','build_','open_','draw_','refresh_')):continue
             r=add('screen:'+filename+':'+method,'ui',method,runtime_system=filename.removesuffix('.gd'),implementation_file=filename,state=method,layering_requirements='Single active screen/input owner; decorative art ignores input; portrait scroll/release protection',dependency=['touch_ux.gd','safe_area_layout.gd']);screens.append(r)
@@ -128,6 +132,7 @@ def main():
             if entry.get('native_validated'):used.setdefault(entry['asset_path'][6:],[]).append('approved_missing_runtime_art.gd')
     for p in missing['coverage']:used.setdefault(p['asset_path'][6:],[]).append('authored_pose_manifest.gd')
     for p in enemy_rows:used.setdefault(p["asset_path"][6:],[]).append("enemy_art_manifest.gd")
+    for p in npc_rows:used.setdefault(p['asset_path'][6:],[]).append('resident_art_catalog.gd')
     for p in boss_rows:used.setdefault(p['asset_path'][6:],[]).append('boss_presentation.gd')
     audio_manifest=ROOT/'art/audio/production/sources.json'
     if audio_manifest.exists():
@@ -143,7 +148,7 @@ def main():
         category='audio' if '/audio/' in rel else 'world_art' if '/backgrounds/' in rel else 'brand' if '/brand/' in rel or '/app/' in rel else 'ui_art' if '/ui/' in rel else 'combat_art'
         consumers=sorted(set(used.get(rel,[])))
         # Dynamic asset families are documented explicitly by their loader directory.
-        dynamic=next((filename for folder,filename in [('/weapons/','weapon_catalog.gd'),('/items/beta/','lootlings_ui.gd'),('/ui/icons/','lootlings_ui.gd'),('/ui/production/','lootlings_ui.gd'),('/wanderers/','avatar_presentation.gd'),('/lootlings/','lootling_catalog.gd'),('/audio/production/','production_audio.gd')] if folder in '/'+rel),None)
+        dynamic=next((filename for folder,filename in [('/weapons/','weapon_catalog.gd'),('/items/beta/','lootlings_ui.gd'),('/ui/icons/','lootlings_ui.gd'),('/ui/production/','lootlings_ui.gd'),('/wanderers/','avatar_presentation.gd'),('/lootlings/','lootling_catalog.gd'),('/audio/production/','audio_manager.gd')] if folder in '/'+rel),None)
         if dynamic and not consumers:consumers=[dynamic]
         live=bool(consumers);prototype=p.suffix=='.svg' and any(v in rel for v in ['combat_rigs','enemies/beta'])
         dimensions=None; background=None
@@ -185,7 +190,7 @@ def main():
     data['source_inputs']['art/production/phase4e/reuse_manifest.json']=input_digest(ROOT/'art/production/phase4e/reuse_manifest.json')
     data['source_inputs']['art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json']=input_digest(ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')
     data['source_inputs']['art/production/phase4e/props/source_manifest.json']=input_digest(ROOT/'art/production/phase4e/props/source_manifest.json')
-    for new_input in ['art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json','art/npc_identity_authorities.json','art/production/companions/runtime_manifest.json']:
+    for new_input in ['art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json','art/npc_identity_authorities.json','art/production/companions/runtime_manifest.json','art/production_enemy_manifest.json','art/production_npc_manifest.json']:
         if (ROOT/new_input).exists():data['source_inputs'][new_input]=input_digest(ROOT/new_input)
     dump(OUT/'MASTER_INTEGRATION_MANIFEST.json',data)
     def write_csv(name,records):

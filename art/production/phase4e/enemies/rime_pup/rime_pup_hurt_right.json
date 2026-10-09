@@ -1,0 +1,39 @@
+{
+  "actor": "rime_pup",
+  "state": "hurt",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_hurt_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    349,
+    750,
+    326,
+    242
+  ],
+  "native_pixel_scale": 0.35,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+  "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+  "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+  "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+  "authored_source_bounds": [
+    43,
+    994,
+    369,
+    1236
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:rime_pup:hurt:right:None",
+  "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+  "native_qa": "regional-enemies-041-9f95e55ee7",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "asset_sha256": "7ec1a39e062e13ebd8ddbf2136eae3fc9320c2ef7459c0b1e5f77af0436e3109"
+}

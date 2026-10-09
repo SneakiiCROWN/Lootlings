@@ -1,0 +1,43 @@
+{
+  "actor": "patch",
+  "state": "inspect",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/npcs/patch/patch_inspect_left.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "pivot": [
+    512,
+    1504
+  ],
+  "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+  "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+  "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+  "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+  "authored_source_bounds": [
+    1110,
+    10,
+    1403,
+    499
+  ],
+  "source_feet_anchor": [
+    1268,
+    497
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:patch:inspect:left:None",
+  "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+  "native_qa": "regional-residents-041-accepted-ee2865b704",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+  "content_rect": [
+    354,
+    1017,
+    293,
+    489
+  ],
+  "asset_sha256": "0298491ac2d869b4cdfe6e521e5a335cf6c006d221264d114e9dca11c35b0201",
+  "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+}

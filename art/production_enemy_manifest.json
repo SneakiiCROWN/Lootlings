@@ -1432,6 +1432,1411 @@
         0.96875
       ],
       "asset_sha256": "a60589e6265057da2fdddc0c7ad208a96c0082e3aba360a87a7ed718018b33c2"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        337,
+        658,
+        350,
+        334
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        35,
+        32,
+        385,
+        366
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:idle:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "847dac6dcc79da86d8e7e01fe269481cfd12b6d5e18ff284c7e0fc59230dc76a"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        317,
+        704,
+        390,
+        288
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        430,
+        78,
+        820,
+        366
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:role windup:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "c705cc6a6f14910ab70a42fca59dc69eb6eee0ae4b342dc01d410a3bec8c729f"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        342,
+        720,
+        340,
+        272
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        49,
+        394,
+        389,
+        666
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:hurt:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "b7a22745133d9cd38da8000adcd546585db34d99489ea83175ed3dbe94b89044"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        336,
+        726,
+        352,
+        266
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        437,
+        399,
+        789,
+        665
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:recovery:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "20edd5d69e289cd664f54c24920c19163c8a6febfbc52fe0b61135792a4c8b80"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        340,
+        669,
+        344,
+        323
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        31,
+        669,
+        375,
+        992
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:idle:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "c8badcab51ddb41bbb79cd5e061a5081d5e61fbbf8765810a91c3cd7809412a4"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "role windup",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_role_windup_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        326,
+        717,
+        371,
+        275
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        431,
+        715,
+        802,
+        990
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:role windup:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "068830ef89d7599ac94db64eab5a86cb2625f44ad9ba25ede2c35783a868f54d"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        332,
+        690,
+        359,
+        302
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        864,
+        681,
+        1223,
+        983
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:role commit:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "5dcaaf7edf8ed6b118fd0dc6260738235e033f84d16e15d16becb3bcae1f7f50"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        349,
+        750,
+        326,
+        242
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        43,
+        994,
+        369,
+        1236
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:hurt:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "7ec1a39e062e13ebd8ddbf2136eae3fc9320c2ef7459c0b1e5f77af0436e3109"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        343,
+        748,
+        337,
+        244
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        451,
+        995,
+        788,
+        1239
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:recovery:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "1588532c1660f74677331443d6636af09c48ae4de1cba77501653ac25d55917e"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        325,
+        793,
+        373,
+        199
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup_spaced.png",
+      "authored_source_sha256": "0dca530209cf21f5e82b9d7ca609dc601a1f2fdc124f108f98929f1805f9ba6d",
+      "authored_source_bounds": [
+        854,
+        1040,
+        1227,
+        1239
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:defeat:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "4f4e1b582af74b255a1750b1eaaa139f1d64fd35c66ff99922da27a3eee5187c"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        394,
+        757,
+        236,
+        235
+      ],
+      "native_pixel_scale": 0.45,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup.png",
+      "authored_source_sha256": "e8dc0b8c44804aee124e7315bd983de53ebdd657b8f970ab980172c015eb3968",
+      "authored_source_bounds": [
+        533,
+        553,
+        769,
+        788
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:role commit:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "6d37c793a6f602060aa9b152d6007d2f14c407252df68ac7fde79ee15e6cfcec"
+    },
+    {
+      "actor": "rime_pup",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/rime_pup/rime_pup_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        384,
+        851,
+        256,
+        141
+      ],
+      "native_pixel_scale": 0.45,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch03_frostflow_reaches.png",
+      "source_sha256": "a502559e0178bcb49f430c4484e5ff06a778ba9e26ebcdacca8cd37342bd3509",
+      "authored_source": "art/source/regional_runtime_041/rime_pup.png",
+      "authored_source_sha256": "e8dc0b8c44804aee124e7315bd983de53ebdd657b8f970ab980172c015eb3968",
+      "authored_source_bounds": [
+        1275,
+        680,
+        1531,
+        821
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:rime_pup:defeat:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "c2b359b4fce578a9010b3cb645251fd39049b87943f8c800b9dc994fafbc9660"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        345,
+        688,
+        334,
+        304
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        55,
+        18,
+        389,
+        322
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:idle:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "4af37794904cfa8880080c76bd11fc36ec4d25e46cec574bed13ee2f3a367179"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        338,
+        724,
+        348,
+        268
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        443,
+        55,
+        791,
+        323
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:role windup:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "897cfcb31dbdba6e941ae9cd69f0010b2bb448408d56e0c73f236bb04b675f09"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        338,
+        722,
+        348,
+        270
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        47,
+        349,
+        395,
+        619
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:hurt:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "f8338f3d79b761666311047dc2f8c78fa6a29ef8b41bdd1357fe42d94a4bf632"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        332,
+        717,
+        360,
+        275
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        449,
+        351,
+        809,
+        626
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:recovery:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "56882389531e276f498429ce2b1a713f45b038a13b9f94912f4c2c0a2ffa0aaf"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        326,
+        796,
+        372,
+        196
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        858,
+        430,
+        1230,
+        626
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:defeat:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "d50a6648b305a73917ceeb8b308c6ba5238d4b20dc8947b4f7527be5cd80d375"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        347,
+        702,
+        329,
+        290
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        38,
+        643,
+        367,
+        933
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:idle:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "fa834b4b10daebd66a471d820c939c55cffb31ff5ac72adc6002d0311eaa6442"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "role windup",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_windup_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        340,
+        738,
+        343,
+        254
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        446,
+        680,
+        789,
+        934
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:role windup:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "30a3f3a21c54fd44114ff3317520954695851dc610a7158070d4aa504d624333"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        303,
+        703,
+        417,
+        289
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        825,
+        645,
+        1242,
+        934
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:role commit:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "9b78acb37424d727c2f345e593b0d6890f85248dfd55cb61eb7db8cad380d197"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        341,
+        722,
+        342,
+        270
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        43,
+        950,
+        385,
+        1220
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:hurt:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "eb943b585dac4143a71444ec2c6fd953de3d04fc02aba2beb7f2974c94d1c08d"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        341,
+        722,
+        341,
+        270
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        441,
+        951,
+        782,
+        1221
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:recovery:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "f51c4ad5a88acbadb83f4bdc1d0803178ef39e246dc38717bceac13cbdf0319a"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        328,
+        803,
+        368,
+        189
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+      "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+      "authored_source_bounds": [
+        846,
+        1025,
+        1214,
+        1214
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:defeat:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "a71592d779077ec2d2f044c7fdcca0bc233804969da2892c0564ad6733b3c1a4"
+    },
+    {
+      "actor": "coal_pup",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        112,
+        580,
+        800,
+        412
+      ],
+      "native_pixel_scale": 0.18,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+      "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+      "authored_source": "art/source/regional_runtime_041/coal_pup_commit_left_corrected.png",
+      "authored_source_sha256": "02a6d361508ac56dbd1d255fc5139778bd2871e4360c7b432fe4fe8fb3a78a99",
+      "authored_source_bounds": [
+        145,
+        179,
+        1401,
+        826
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:coal_pup:role commit:left:None",
+      "source_quality": "One independently authored correct left view. Uniform Lanczos downsample to fit contract canvas; transparent padding; no mirroring, anatomy reconstruction, alpha mask or matte removal.",
+      "native_qa": "corrected-coal-041-3a27fb0ba1",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "export_resample_scale": 0.6369426751592356,
+      "asset_sha256": "5e1f60bf424e22fa47e60a9a914a04ee89e43a6a6c5300a49477907538b5aa86"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        343,
+        678,
+        337,
+        314
+      ],
+      "native_pixel_scale": 0.31,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+      "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+      "authored_source_bounds": [
+        69,
+        23,
+        406,
+        337
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:idle:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "a5c15bcc4f90f604a6e97bc8e30e68d6f0f2d9746410f62e49fdcc3d76f804c6"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        316,
+        731,
+        391,
+        261
+      ],
+      "native_pixel_scale": 0.31,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+      "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+      "authored_source_bounds": [
+        811,
+        70,
+        1202,
+        331
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:role commit:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "f388cc3387ff444ab0e7e833ba048c9a124140a5a3a579fa31fc97176e4b2730"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        378,
+        703,
+        268,
+        289
+      ],
+      "native_pixel_scale": 0.31,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+      "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+      "authored_source_bounds": [
+        68,
+        337,
+        336,
+        626
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:hurt:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "9a86c8dae76d64e7ce50ff1a61ffa5e2cf79f06e00570ae32e99aa7d06508dc7"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        377,
+        743,
+        269,
+        249
+      ],
+      "native_pixel_scale": 0.31,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+      "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+      "authored_source_bounds": [
+        894,
+        388,
+        1163,
+        637
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:defeat:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "800c41a2189a0934949edacca1d65c6d9ec673bc1238aba691268d5680bf0e79"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        315,
+        725,
+        393,
+        267
+      ],
+      "native_pixel_scale": 0.31,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+      "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+      "authored_source_bounds": [
+        843,
+        677,
+        1236,
+        944
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:role commit:right:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "9f6a406e6867229aa6fd8794b5a508c464c5548a06f69c1b0beac525788fc626"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        383,
+        730,
+        257,
+        262
+      ],
+      "native_pixel_scale": 0.31,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+      "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+      "authored_source_bounds": [
+        917,
+        980,
+        1174,
+        1242
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:defeat:left:None",
+      "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "5ae064cb5395cf576b9ce7d9e7edfe8d5462ed34e4e805f1ca5fff1e22202a3d"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_gaps.png",
+      "authored_source_sha256": "f046f984cd6be437821778f81610da973d962fc3138944223351cf285932f46b",
+      "authored_source_bounds": [
+        96,
+        125,
+        484,
+        457
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:role windup:left:None",
+      "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "content_rect": [
+        318,
+        660,
+        388,
+        332
+      ],
+      "asset_sha256": "dd8a44401c8075d937095f03fbae397d558f5ec64810816f50f3511af460e189"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_gaps.png",
+      "authored_source_sha256": "f046f984cd6be437821778f81610da973d962fc3138944223351cf285932f46b",
+      "authored_source_bounds": [
+        587,
+        121,
+        951,
+        446
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:idle:right:None",
+      "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "content_rect": [
+        330,
+        667,
+        364,
+        325
+      ],
+      "asset_sha256": "8ae54b9198b85b8568cdf1b6db22a8d289138c67d41420618b812f197de87387"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "role windup",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_role_windup_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_gaps.png",
+      "authored_source_sha256": "f046f984cd6be437821778f81610da973d962fc3138944223351cf285932f46b",
+      "authored_source_bounds": [
+        1053,
+        125,
+        1440,
+        452
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:role windup:right:None",
+      "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "content_rect": [
+        318,
+        665,
+        387,
+        327
+      ],
+      "asset_sha256": "a1127fb083f2d4a47f29e9c51b86239305faae90325775557d3a762577aafbaa"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat_gaps.png",
+      "authored_source_sha256": "f046f984cd6be437821778f81610da973d962fc3138944223351cf285932f46b",
+      "authored_source_bounds": [
+        627,
+        632,
+        933,
+        923
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:hurt:left:None",
+      "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "content_rect": [
+        359,
+        701,
+        306,
+        291
+      ],
+      "asset_sha256": "9facd201c3fd1dd8b4fe51f7ab6778adab6a558f260a1a60463d4ad2dbbd255e"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat.png",
+      "authored_source_sha256": "b3afd49126082a639d202babdf077ce14442a6fca93063690e90cf08bd619864",
+      "authored_source_bounds": [
+        1020,
+        180,
+        1312,
+        455
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:recovery:left:None",
+      "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "content_rect": [
+        366,
+        717,
+        292,
+        275
+      ],
+      "asset_sha256": "bb568fa8432575684aa6789a999bb44aaea297991909219c07f11fa3c7d431b1"
+    },
+    {
+      "actor": "bell_bat",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "native_pixel_scale": 0.35,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+      "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+      "authored_source": "art/source/regional_runtime_041/bell_bat.png",
+      "authored_source_sha256": "b3afd49126082a639d202babdf077ce14442a6fca93063690e90cf08bd619864",
+      "authored_source_bounds": [
+        1044,
+        625,
+        1316,
+        896
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:bell_bat:recovery:right:None",
+      "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+      "native_qa": "regional-enemies-041-9f95e55ee7",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "content_rect": [
+        376,
+        721,
+        272,
+        271
+      ],
+      "asset_sha256": "c316d027c0ba6479a42d7f127e7afed2852653eeaa18c27a4ec06c18cff0f57b"
     }
   ]
 }

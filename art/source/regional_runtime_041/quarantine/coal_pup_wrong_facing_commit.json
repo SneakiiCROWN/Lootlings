@@ -1,0 +1,41 @@
+{
+  "reason": "Native visual comparison: nose points right although left contract requested. Never accepted. Metadata selector test cannot validate artwork direction.",
+  "candidate": {
+    "actor": "coal_pup",
+    "state": "role commit",
+    "facing": "left",
+    "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_commit_left.png",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "content_rect": [
+      386,
+      721,
+      251,
+      271
+    ],
+    "native_pixel_scale": 0.45,
+    "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+    "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+    "authored_source": "art/source/regional_runtime_041/coal_pup.png",
+    "authored_source_sha256": "132ea782ddd6f339cee81c07771c19de9e9c6fcc7350f25eccdee2050873fd79",
+    "authored_source_bounds": [
+      521,
+      564,
+      772,
+      835
+    ],
+    "production_status": "staged_native_review",
+    "native_validated": false,
+    "contract_slot_id": "pose:coal_pup:role commit:left:None",
+    "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+    "native_qa": "",
+    "visual_acceptance": "",
+    "feet_baseline_normalized": 0.96875,
+    "anchor": [
+      0.5,
+      0.96875
+    ]
+  }
+}

@@ -835,12 +835,15 @@ func build_shop() -> void:
 	shop_detail_panel = make_panel(shop_content, Rect2(20, 454, 440, 142), Color("#0d1530e6"), Color("#c99a4e"))
 	LootlingsUI.apply_material(shop_detail_panel, "salvage", 16)
 	shop_detail = RichTextLabel.new()
-	shop_detail.position = Vector2(16, 12)
-	shop_detail.size = Vector2(274, 118)
+	shop_detail.position = Vector2(22, 16)
+	shop_detail.size = Vector2(268, 110)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = true
 	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
 	shop_detail.add_theme_font_size_override("normal_font_size", 14)
+	shop_detail.add_theme_font_size_override("bold_font_size", 16)
+	shop_detail.add_theme_font_size_override("italics_font_size", 14)
+	shop_detail.add_theme_font_size_override("bold_italics_font_size", 16)
 	shop_detail_panel.add_child(shop_detail)
 	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(302, 30, 122, 82), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.set_meta("ui_intent", "primary")
@@ -1742,8 +1745,12 @@ func draw_home_scene() -> void:
 					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
 					draw_circle(mote_pos, 2.0, Color(0.78, 0.55, 1.0, 0.48))
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
-	# Patch and Ilex remain present through their named world stations and exact
-	# portraits/dialogue in selected service panels. Portraits never fake bodies.
+	# Exact authored bodies stand beside their established service stations.
+	# Portraits remain the approved dialogue/memory illustrations.
+	if preload("res://resident_art_catalog.gd").has_body("Salvager"):
+		draw_resident("Salvager",Rect2(337,338,74,128),"PATCH",.4)
+	if preload("res://resident_art_catalog.gd").has_body("Archivist"):
+		draw_resident("Archivist",Rect2(340,537,74,112),"ILEX",1.8)
 	var engine_art:=preload("res://art/production/phase4e/props/trophy_dais.png")
 	LootlingsUI.draw_icon(get_canvas_item(),engine_art,Rect2(372,665,62,65))
 	draw_hideout_light(Vector2(403,689),15,.055,1.7)
@@ -1784,10 +1791,10 @@ func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> 
 	# Until authored seated/work layers arrive, show the established idle body.
 	# Activity routes and dialogue remain live; no fake body deformation.
 
-	if speaker not in ["Salvager","Archivist"]:
+	if speaker not in ["Salvager","Archivist"] or preload("res://resident_art_catalog.gd").has_body(speaker):
 		draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
 		draw_circle(Vector2.ZERO,31,Color("#03061280"))
-	preload("res://resident_art_catalog.gd").draw(self,speaker,rect)
+	preload("res://resident_art_catalog.gd").draw(self,speaker,rect,activity)
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

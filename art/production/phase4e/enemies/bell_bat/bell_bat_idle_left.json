@@ -1,0 +1,39 @@
+{
+  "actor": "bell_bat",
+  "state": "idle",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_idle_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    343,
+    678,
+    337,
+    314
+  ],
+  "native_pixel_scale": 0.31,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+  "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+  "authored_source": "art/source/regional_runtime_041/bell_bat_spaced.png",
+  "authored_source_sha256": "41fde653f039cc8a35c223ec537e2b45553779953a6d26063d28722db8c2ad91",
+  "authored_source_bounds": [
+    69,
+    23,
+    406,
+    337
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:bell_bat:idle:left:None",
+  "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+  "native_qa": "regional-enemies-041-9f95e55ee7",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "asset_sha256": "a5c15bcc4f90f604a6e97bc8e30e68d6f0f2d9746410f62e49fdcc3d76f804c6"
+}

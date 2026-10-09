@@ -1,0 +1,40 @@
+{
+  "actor": "coal_pup",
+  "state": "role commit",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_commit_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    112,
+    580,
+    800,
+    412
+  ],
+  "native_pixel_scale": 0.18,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+  "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+  "authored_source": "art/source/regional_runtime_041/coal_pup_commit_left_corrected.png",
+  "authored_source_sha256": "02a6d361508ac56dbd1d255fc5139778bd2871e4360c7b432fe4fe8fb3a78a99",
+  "authored_source_bounds": [
+    145,
+    179,
+    1401,
+    826
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:coal_pup:role commit:left:None",
+  "source_quality": "One independently authored correct left view. Uniform Lanczos downsample to fit contract canvas; transparent padding; no mirroring, anatomy reconstruction, alpha mask or matte removal.",
+  "native_qa": "corrected-coal-041-3a27fb0ba1",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "export_resample_scale": 0.6369426751592356,
+  "asset_sha256": "5e1f60bf424e22fa47e60a9a914a04ee89e43a6a6c5300a49477907538b5aa86"
+}

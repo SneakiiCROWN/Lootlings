@@ -1,0 +1,126 @@
+{
+  "authority": "Coordination only; existing exact contracts and dashboard remain authoritative inventories.",
+  "tasks": [
+    {
+      "id": "regional-residents-041",
+      "owner": "Codex",
+      "status": "VERIFIED_BETA",
+      "priority": "P1",
+      "dependencies": [
+        "1887f7a"
+      ],
+      "acceptance": "48 exact cells integrated and native-reviewed; professional animation-family/device acceptance remains open.",
+      "evidence": "../full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"
+    },
+    {
+      "id": "remaining-playable_lootlings",
+      "owner": "unassigned",
+      "status": "SOURCE_REQUIRED",
+      "priority": "P0",
+      "remaining_contracts": 1421,
+      "dependencies": [
+        "exact dedicated canon",
+        "runtime integration owner"
+      ],
+      "acceptance": "Complete frequently seen modular body/action families; source-authored grips, both views; remove live reference-card fallbacks. All seven quality stages must be evidenced.",
+      "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
+    },
+    {
+      "id": "remaining-wanderers",
+      "owner": "unassigned",
+      "status": "SOURCE_REQUIRED",
+      "priority": "P1",
+      "remaining_contracts": 855,
+      "dependencies": [
+        "exact dedicated canon",
+        "runtime integration owner"
+      ],
+      "acceptance": "Canonical bodies, clothing fitting and action states for all five existing Wanderers. All seven quality stages must be evidenced.",
+      "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
+    },
+    {
+      "id": "remaining-enemies",
+      "owner": "unassigned",
+      "status": "SOURCE_REQUIRED",
+      "priority": "P1",
+      "remaining_contracts": 252,
+      "dependencies": [
+        "exact dedicated canon",
+        "runtime integration owner"
+      ],
+      "acceptance": "Continue existing registered regional families; real windup/commit/hurt/recovery/defeat in gameplay. All seven quality stages must be evidenced.",
+      "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
+    },
+    {
+      "id": "remaining-bosses",
+      "owner": "unassigned",
+      "status": "SOURCE_REQUIRED",
+      "priority": "P1",
+      "remaining_contracts": 356,
+      "dependencies": [
+        "exact dedicated canon",
+        "runtime integration owner"
+      ],
+      "acceptance": "Complete attack-specific families, continuity and effects; winged Hoard Dragon authority remains locked. All seven quality stages must be evidenced.",
+      "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
+    },
+    {
+      "id": "remaining-npcs",
+      "owner": "unassigned",
+      "status": "SOURCE_REQUIRED",
+      "priority": "P1",
+      "remaining_contracts": 34,
+      "dependencies": [
+        "exact dedicated canon",
+        "runtime integration owner"
+      ],
+      "acceptance": "Finish resident route/work/sit and Sera/Merrow bodies; preserve accepted Patch/Ilex exports. All seven quality stages must be evidenced.",
+      "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
+    },
+    {
+      "id": "remaining-support",
+      "owner": "unassigned",
+      "status": "SOURCE_REQUIRED",
+      "priority": "P0",
+      "remaining_contracts": 165,
+      "dependencies": [
+        "exact dedicated canon",
+        "runtime integration owner"
+      ],
+      "acceptance": "Measured foreground grips, support hands, nocks/sockets and equipment layering; no invented palms. All seven quality stages must be evidenced.",
+      "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
+    },
+    {
+      "id": "world-ui-professional-quality",
+      "owner": "Codex",
+      "status": "NEEDS_ART_CORRECTION",
+      "priority": "P1",
+      "dependencies": [
+        "existing working navigation/save systems"
+      ],
+      "acceptance": "Home/Hub props, service cues, item/reward frames and text assessed through actual routes; preserve functions.",
+      "evidence": "../QUALITY_ACCEPTANCE_EVIDENCE.json"
+    },
+    {
+      "id": "audio-perceptual-review",
+      "owner": "unassigned",
+      "status": "QA_PENDING",
+      "priority": "P1",
+      "dependencies": [
+        "licensed current soundtrack/SFX",
+        "approved title lock"
+      ],
+      "acceptance": "Actual listening and transition/mix review; no mastering claim from waveform/tests."
+    },
+    {
+      "id": "physical-android-acceptance",
+      "owner": "owner/device tester",
+      "status": "QA_PENDING",
+      "priority": "P1",
+      "dependencies": [
+        "native tested candidate"
+      ],
+      "acceptance": "S23 Ultra physical controls, frame pacing, heat, sound, saves, launcher/splash and normal player route."
+    }
+  ]
+}

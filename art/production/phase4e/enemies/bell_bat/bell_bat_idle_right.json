@@ -1,0 +1,39 @@
+{
+  "actor": "bell_bat",
+  "state": "idle",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/bell_bat/bell_bat_idle_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "native_pixel_scale": 0.3,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+  "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+  "authored_source": "art/source/regional_runtime_041/bell_bat_gaps.png",
+  "authored_source_sha256": "f046f984cd6be437821778f81610da973d962fc3138944223351cf285932f46b",
+  "authored_source_bounds": [
+    587,
+    121,
+    951,
+    446
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:bell_bat:idle:right:None",
+  "source_quality": "Exact original RGBA rectangle and transparent padding; no mirroring, resampling or alpha edit.",
+  "native_qa": "regional-enemies-041-9f95e55ee7",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "content_rect": [
+    330,
+    667,
+    364,
+    325
+  ],
+  "asset_sha256": "8ae54b9198b85b8568cdf1b6db22a8d289138c67d41420618b812f197de87387"
+}

@@ -22,7 +22,9 @@ func build(hub) -> void:
  world_buttons.ContractBoard=feature(surface,"ContractBoard",Rect2(342,166,122,152),"Quest board","Jobs & bounties",hub.show_contracts)
  world_buttons.StorageChest=feature(surface,"StorageChest",Rect2(12,514,136,122),"Gear & Stash","Equip & compare",hub.show_stash)
  world_buttons.ForgeStation=feature(surface,"ForgeStation",Rect2(12,642,136,106),"Forge","Craft & evolve",hub.show_forge)
- world_buttons.ArchiveDesk=feature(surface,"ArchiveDesk",Rect2(332,528,132,126),"Ilex · Archive","Records & stories",func():hub.show_phase4("archive"))
+ world_buttons.ArchiveDesk=feature(surface,"ArchiveDesk",Rect2(332,528,132,132),"Ilex · Archive","Records & stories",func():hub.show_phase4("archive"))
+ world_buttons.ArchiveDesk.get_node("FeatureName").position.y=125
+ world_buttons.ArchiveDesk.get_node("Purpose").position.y=149
  talk_buttons.ilex=talk_badge(world_buttons.ArchiveDesk,Rect2(80,6,48,48),"Archivist")
  world_buttons.RelicEngine=feature(surface,"RelicEngine",Rect2(332,668,132,98),"Relic Engine","Secured rewards",func():hub.engine_requested.emit())
  hub.engine_button=world_buttons.RelicEngine;engine_hint=world_buttons.RelicEngine.get_node("Purpose")

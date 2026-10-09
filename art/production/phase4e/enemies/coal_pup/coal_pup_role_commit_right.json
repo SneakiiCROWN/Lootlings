@@ -1,0 +1,39 @@
+{
+  "actor": "coal_pup",
+  "state": "role commit",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/coal_pup/coal_pup_role_commit_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    303,
+    703,
+    417,
+    289
+  ],
+  "native_pixel_scale": 0.35,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch04_cinderworks.png",
+  "source_sha256": "3078a24f6eb3e551ebf8dd96c82308c2df8533fb59bb5bf997f8c6482752677b",
+  "authored_source": "art/source/regional_runtime_041/coal_pup_spaced.png",
+  "authored_source_sha256": "b6ccccc9286c01653f8324d68a1c2132f95e095b8f5c83af3b70cd08221e0e51",
+  "authored_source_bounds": [
+    825,
+    645,
+    1242,
+    934
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:coal_pup:role commit:right:None",
+  "source_quality": "Exact source RGBA rectangular extraction with transparent canvas padding. No alpha edit, mirroring or resampling.",
+  "native_qa": "corrected-coal-041-3a27fb0ba1",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "asset_sha256": "9b78acb37424d727c2f345e593b0d6890f85248dfd55cb61eb7db8cad380d197"
+}

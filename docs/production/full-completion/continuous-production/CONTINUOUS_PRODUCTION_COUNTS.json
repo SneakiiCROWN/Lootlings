@@ -1,21 +1,22 @@
 {
-  "installed_contracts": 143,
-  "installed_artist_files": 323,
+  "installed_contracts": 191,
+  "installed_artist_files": 419,
   "installed_by_category": {
     "playable_lootlings": 35,
     "companions": 58,
     "Home": 3,
     "bosses": 12,
-    "enemies": 35
+    "enemies": 71,
+    "npcs": 12
   },
-  "remaining_contracts": 3131,
-  "remaining_artist_files": 8172,
+  "remaining_contracts": 3083,
+  "remaining_artist_files": 8076,
   "remaining_by_category": {
     "playable_lootlings": 1421,
     "wanderers": 855,
-    "enemies": 288,
+    "enemies": 252,
     "bosses": 356,
-    "npcs": 46,
+    "npcs": 34,
     "support": 165
   },
   "scope": "Counts only exact missing contracts from frozen master specification; menu art, retained accepted poses and soundtrack are not counted as pose closures",
@@ -26,5 +27,6 @@
   "home_revision": "One separately reviewed versioned background and sidecar; same existing environment contract, not an additional missing-art closure",
   "combat_revision": "12 Hoard Dragon exact state/facing contracts, original winged owner canon; shared bounded hit/Ward/contact presentation across weapons. Missing named actions remain open.",
   "player_route_revision": "0.4.39 connected Home/Hub/cart Shop/Stash/Shrine/Spinner/combat/rewards; native compiled pack passed three viewports; actual desktop mouse passed; physical Android pending",
-  "latest_enemy_revision": "24 Mossmaw/Glasswing state/facing cells installed and native-tested; 48 PNG/sidecar artist files"
+  "latest_enemy_revision": "36 Bell Bat/Rime Pup/Coal Pup exact combat state/facing cells installed; 72 PNG/sidecar artist files.",
+  "latest_npc_revision": "12 Patch/Ilex rest/inspect/talk cells, both independently authored views; 24 PNG/sidecar artist files; left bodies live beside Hub stations. Route/work/sit still open."
 }

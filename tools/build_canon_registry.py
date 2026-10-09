@@ -75,6 +75,9 @@ def build():
             ['res://'+scoped['runtime_asset']] if scoped else ['res://art/sprites/npcs/beta/'+id+'_idle.png','res://art/sprites/npcs/beta/'+id+'_portrait.png'],
             status='NEEDS_NEW_CANON_EXPORT',missing_required_states=missing[id])
         if scoped:
+            bodies=read('art/production_npc_manifest.json')['entries']
+            entries['npc:'+id]['accepted_runtime_sources']+= [r['asset_path'] for r in bodies if r['actor']==id and r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
+            entries['npc:'+id]['status']='CANON_BODY_KEYFRAMES_INTEGRATED_REMAINING_ANIMATION_OPEN'
             entries['npc:'+id]['rejected_conflicting_sources']=scoped['superseded_runtime_assets']
             entries['npc:'+id]['fallback_policy']=scoped['purpose']
     add('merchant','pack_peddler','Pack Peddler / Merrow','LOOTLINGS_WORLD_BIBLE.md#merchant',
@@ -115,6 +118,7 @@ def build():
         entry['guidance_only_sources']=['art/reference/phase4e_handoff/REFERENCE_STATUS.json']
     inputs=['docs/production/MASTER_INTEGRATION_MANIFEST.json','docs/production/MASTER_RUNTIME_CATALOG_SNAPSHOT.json','art/reference/phase4e_handoff/REFERENCE_STATUS.json','art/actor_identity_corrections.json','art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']
     inputs.append('art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')
+    inputs+=['art/production_npc_manifest.json','art/npc_identity_authorities.json']
     approved_file='art/approved_missing_canon_references.json'
     if (ROOT/approved_file).exists():
         approved=read(approved_file)['entries']; assert len(approved)==35

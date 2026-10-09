@@ -1,0 +1,16 @@
+{
+  "batch": "regional-residents-041",
+  "writer": "Codex",
+  "status": "VERIFIED_BETA",
+  "authoritative_receipt": "../full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json",
+  "runtime_manifests": [
+    "../../../art/production_enemy_manifest.json",
+    "../../../art/production_npc_manifest.json"
+  ],
+  "evidence": "../QUALITY_ACCEPTANCE_EVIDENCE.json",
+  "closed_delivery_contracts": 48,
+  "runtime_png_cells": 48,
+  "sidecars": 48,
+  "completed_multiframe_animation_families": 0,
+  "production_quality_accepted": false
+}

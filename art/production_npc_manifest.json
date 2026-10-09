@@ -1,0 +1,522 @@
+{
+  "version": 1,
+  "authority": "Dedicated Patch Brasswick and Ilex Quill sheets; existing portraits remain unchanged; exact states only",
+  "entries": [
+    {
+      "actor": "patch",
+      "state": "rest",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_rest_right.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        372,
+        1017,
+        269,
+        497
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+      "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+      "authored_source_bounds": [
+        205,
+        6,
+        474,
+        503
+      ],
+      "source_feet_anchor": [
+        345,
+        493
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:patch:rest:right:None",
+      "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+      "asset_sha256": "0e1a988fde3f42d4e5aba0dbb695613c2455fb43b50d05f7029ae2cfa3c779f4",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "patch",
+      "state": "talk",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_talk_right.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        387,
+        1015,
+        339,
+        497
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+      "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+      "authored_source_bounds": [
+        625,
+        6,
+        964,
+        503
+      ],
+      "source_feet_anchor": [
+        750,
+        495
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:patch:talk:right:None",
+      "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+      "asset_sha256": "d8c65cb301cd0ecbc74c293f10bcf22603c9cb00cd4b6e363ebea6b9e10730bf",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "patch",
+      "state": "inspect",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_inspect_right.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        370,
+        1013,
+        270,
+        497
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+      "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+      "authored_source_bounds": [
+        1108,
+        6,
+        1378,
+        503
+      ],
+      "source_feet_anchor": [
+        1250,
+        497
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:patch:inspect:right:None",
+      "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+      "asset_sha256": "cac948a22a3609c5fc68927f2961d821af078a4169221b1296cb2380b31b0d2b",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "ilex",
+      "state": "rest",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_rest_right.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        339,
+        998,
+        277,
+        514
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+      "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+      "authored_source_bounds": [
+        161,
+        507,
+        438,
+        1021
+      ],
+      "source_feet_anchor": [
+        334,
+        1013
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:ilex:rest:right:None",
+      "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+      "asset_sha256": "85c7ee599482c2e0fee0fcf2f67d9a3effc9880e4ccfeb3ad4770737506fabdd",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "ilex",
+      "state": "talk",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_talk_right.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        317,
+        995,
+        378,
+        516
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+      "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+      "authored_source_bounds": [
+        561,
+        505,
+        939,
+        1021
+      ],
+      "source_feet_anchor": [
+        756,
+        1014
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:ilex:talk:right:None",
+      "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+      "asset_sha256": "4a37a1280bd03602418905bf3ad0fa5c5fb1cd18c337d6470de2bf29211a8eb2",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "ilex",
+      "state": "inspect",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_inspect_right.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        330,
+        999,
+        338,
+        511
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+      "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+      "authored_source_bounds": [
+        1075,
+        510,
+        1413,
+        1021
+      ],
+      "source_feet_anchor": [
+        1257,
+        1015
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:ilex:inspect:right:None",
+      "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+      "asset_sha256": "710d9d604e5686d7f439bd0702fcb2856cdce0fb6ca96deaa9b1b1d02153c195",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "patch",
+      "state": "rest",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_rest_left.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+      "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+      "authored_source_bounds": [
+        202,
+        10,
+        457,
+        499
+      ],
+      "source_feet_anchor": [
+        306,
+        496
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:patch:rest:left:None",
+      "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+      "content_rect": [
+        408,
+        1018,
+        255,
+        489
+      ],
+      "asset_sha256": "05d4adf516b01a91246639dcebfd1cf46c805b2a4148f8e3efb7fdd6435c37d3",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "patch",
+      "state": "talk",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_talk_left.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+      "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+      "authored_source_bounds": [
+        586,
+        11,
+        907,
+        499
+      ],
+      "source_feet_anchor": [
+        779,
+        496
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:patch:talk:left:None",
+      "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+      "content_rect": [
+        319,
+        1019,
+        321,
+        488
+      ],
+      "asset_sha256": "d24135ac087a66dd3941decace40ea23b0723abad5ff39b0dc240e3511073f58",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "patch",
+      "state": "inspect",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_inspect_left.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+      "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+      "authored_source_bounds": [
+        1110,
+        10,
+        1403,
+        499
+      ],
+      "source_feet_anchor": [
+        1268,
+        497
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:patch:inspect:left:None",
+      "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+      "content_rect": [
+        354,
+        1017,
+        293,
+        489
+      ],
+      "asset_sha256": "0298491ac2d869b4cdfe6e521e5a335cf6c006d221264d114e9dca11c35b0201",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "ilex",
+      "state": "rest",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_rest_left.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+      "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+      "authored_source_bounds": [
+        210,
+        499,
+        460,
+        1003
+      ],
+      "source_feet_anchor": [
+        303,
+        1000
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:ilex:rest:left:None",
+      "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+      "content_rect": [
+        419,
+        1003,
+        250,
+        504
+      ],
+      "asset_sha256": "7ddff08fd38549020fb6eb40f4bbb407cbaf42dc535038a6bc2047547c1a731a",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "ilex",
+      "state": "talk",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_talk_left.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+      "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+      "authored_source_bounds": [
+        605,
+        501,
+        970,
+        1006
+      ],
+      "source_feet_anchor": [
+        776,
+        1003
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:ilex:talk:left:None",
+      "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+      "content_rect": [
+        341,
+        1002,
+        365,
+        505
+      ],
+      "asset_sha256": "1929485ea528e510ec210289c041f6d14ec56147d70c15d07cb78b83fc48c0ad",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    },
+    {
+      "actor": "ilex",
+      "state": "inspect",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_inspect_left.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/regional_runtime_041/npc_bodies_left.png",
+      "authored_source_sha256": "d698a2975e6478d2a67d5efc1fc6601341ef35e2ca9ce2c372feef314999b0bb",
+      "authored_source_bounds": [
+        1137,
+        503,
+        1448,
+        1006
+      ],
+      "source_feet_anchor": [
+        1269,
+        1006
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:ilex:inspect:left:None",
+      "source_quality": "Independently authored left view; original RGBA rectangle, feet-registered padding; no pixel mirroring/resampling/alpha edit.",
+      "native_qa": "regional-residents-041-accepted-ee2865b704",
+      "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+      "lower_costume": "Same accepted minimal brown boots and clothing as independent right body.",
+      "content_rect": [
+        380,
+        1001,
+        311,
+        503
+      ],
+      "asset_sha256": "0d107ca0ab514e4ac22366d136597877a93cb9772b1802214630dca99329d555",
+      "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+    }
+  ]
+}

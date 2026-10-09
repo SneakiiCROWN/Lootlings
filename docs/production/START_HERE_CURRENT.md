@@ -1,4 +1,4 @@
-Latest continuation: [Fen Sneak action family / 0.4.37](full-completion/continuous-production/FEN_ACTION_PASS.md). Six normal-enemy cells follow the twelve-cell winged Dragon checkpoint; exact counts updated.
+Latest continuation: [live coverage and seven-stage quality dashboard](PRODUCTION_DASHBOARD.html). The dashboard is generated from the current registries, frozen delivery contracts, runtime reflection and explicit native-review evidence. Older completion labels do not grant professional acceptance.
 
 Current continuation: [0.4.36 winged-canon combat family pass](full-completion/continuous-production/COMBAT_FAMILY_PASS.md). Twelve native-reviewed boss cells are installed; exact remaining counts stay explicit.
 
@@ -8,9 +8,11 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — full-completion bulk polish: APK HOLD
+## CURRENT — 0.4.41 regional creatures and Hub residents; professional acceptance open
 
-Four existing approved furnishings now drive saved Home placement/editing, preparation/collection/nook access, with intentional Patch/Ilex station fallbacks and persistent filter selection. Phone/tablet native routes, gestures and save checks pass. No runtime deliveries are present; 3,274 exact contracts remain open. [Current implementation, grouped remaining work and native evidence](full-completion/EXECUTION_REPORT.md). No new APK; Gloomlet Bow gate remains.
+The 0.4.40 gameplay checkpoint is preserved. Bell Bat, Rime Pup and Coal Pup each have six exact combat keyframes in independently authored left/right views. Patch Brasswick and Ilex Quill have six dedicated-canon body keyframes each, integrated at their existing Hub services. Source/alpha/facing checks and native phone/tablet/desktop tests support 48 new delivery closures, not complete locomotion or animation-family acceptance. Incorrect Coal left attack and clipped/overlapping candidates were corrected before installation.
+
+Frozen delivery scope: **191 installed contract closures / 3,083 remaining; 419 installed artist files / 8,076 remaining.** The broad index contains 7,584 requirement records, which are not 7,534 unique assets. All seven quality gates must have current evidence before production-ready acceptance. Historical work requires explicit native visual/UX re-review; missing player poses, grips, resident route/work/sit and physical-device testing remain open. [Installation receipt](full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json), [quality evidence](QUALITY_ACCEPTANCE_EVIDENCE.json). Candidate exports do not approve full-game professional quality.
 
 ## Historical — Gloomlet Bow handoff: APK HOLD
 

@@ -17,11 +17,12 @@
       "runtime_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
       "authority": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
       "purpose": "Station vignette and portrait; original panel with painted setting/counter. Not transparent full-body idle, route, work, talk or sit animation.",
-      "full_body_states_closed": 0,
+      "full_body_states_closed": 6,
       "superseded_runtime_assets": [
         "art/sprites/npcs/beta/patch_idle.png",
         "art/sprites/npcs/beta/patch_portrait.png"
-      ]
+      ],
+      "full_body_manifest": "art/production_npc_manifest.json"
     },
     {
       "id": "ilex",
@@ -39,11 +40,12 @@
       "runtime_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
       "authority": "Scoped owner approval, 2026-10-07: KEY NPCS (CANONICAL), Patch/Ilex only",
       "purpose": "Station vignette and portrait; original panel with painted setting/counter. Not transparent full-body idle, route, work, talk or sit animation.",
-      "full_body_states_closed": 0,
+      "full_body_states_closed": 6,
       "superseded_runtime_assets": [
         "art/sprites/npcs/beta/ilex_idle.png",
         "art/sprites/npcs/beta/ilex_portrait.png"
-      ]
+      ],
+      "full_body_manifest": "art/production_npc_manifest.json"
     }
   ]
 }

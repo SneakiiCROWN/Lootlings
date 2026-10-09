@@ -1,0 +1,43 @@
+{
+  "actor": "ilex",
+  "state": "talk",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_talk_right.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "content_rect": [
+    317,
+    995,
+    378,
+    516
+  ],
+  "pivot": [
+    512,
+    1504
+  ],
+  "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+  "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+  "authored_source": "art/source/regional_runtime_041/npc_bodies.png",
+  "authored_source_sha256": "7d92d0f9113e1e5161f7f2081bdc2a4f8a28a4cf23168df54dd2bdb0cbb41faa",
+  "authored_source_bounds": [
+    561,
+    505,
+    939,
+    1021
+  ],
+  "source_feet_anchor": [
+    756,
+    1014
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:ilex:talk:right:None",
+  "source_quality": "Exact generated full-body RGBA crop, no mirroring, resampling or alpha edit. Feet-registered transparent canvas.",
+  "native_qa": "regional-residents-041-accepted-ee2865b704",
+  "visual_acceptance": "Compared to exact registered named identity / dedicated NPC sheet. Source RGBA and native phone/tablet/desktop anatomy, silhouette, correct direction, state variation, scale, grounding and contact reviewed. Wrong-facing Coal attack replaced before acceptance. No pixel mirrors or reference-board bodies.",
+  "lower_costume": "Minimal brown boots and lower clothing continued from dedicated portrait; no new identity accessories.",
+  "asset_sha256": "4a37a1280bd03602418905bf3ad0fa5c5fb1cd18c337d6470de2bf29211a8eb2",
+  "prop_ownership": "Intrinsic non-interchangeable NPC tool/book only in inspect; source-authored hand contact visually verified; separate combat weapon assets untouched."
+}

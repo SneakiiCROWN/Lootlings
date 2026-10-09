@@ -22,7 +22,10 @@ func run_qa() -> void:
 		var entry := Memories.entry("resident/"+id)
 		if id in ["patch","ilex"]:
 			assert(entry.actor_kind=="portrait" and str(entry.actor).ends_with("_canonical_station_panel.png"))
-			assert(preload("res://resident_art_catalog.gd").presentation(Memories.RESIDENTS[id].role,Home.RESIDENT_RECTS[Memories.RESIDENTS[id].role]).export_state=="canonical_station_panel")
+			for facing in ["left","right"]:
+				for state in ["rest","inspect","talk"]:
+					var body: Dictionary=preload("res://resident_art_catalog.gd").presentation(Memories.RESIDENTS[id].role,Home.RESIDENT_RECTS[Memories.RESIDENTS[id].role],state,facing)
+					assert(body.get("full_body",false) and body.export_state==state and body.facing==facing)
 		else:
 			assert(entry.actor_kind == "adult" and str(entry.actor).ends_with("_idle.png"))
 			var image := Image.load_from_file(ProjectSettings.globalize_path(str(entry.actor)))
@@ -47,7 +50,7 @@ func run_qa() -> void:
 	game.hideout_ui.show_stash()
 	assert(not game.hideout_ui.speech_panel.visible)
 	if native: await capture("resident_stash_no_leak")
-	print("RESIDENT ART QA PASSED: owner-approved Patch/Ilex station panels and preserved Sera body; talk targets, memory/replay, no rewards/RNG or dialogue leaks; two full-body art queues remain open")
+	print("RESIDENT ART QA PASSED: dedicated Patch/Ilex portraits preserved, twelve authored rest/inspect/talk bodies, Sera retained; talk targets, memory/replay, no rewards/RNG or dialogue leaks; route/work/sit queues remain open")
 	game.queue_free()
 	await process_frame
 	quit(0)
