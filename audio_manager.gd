@@ -6,7 +6,11 @@ const MUSIC_PATHS := {
 	"HOME":"res://art/audio/music/hideout.wav", "TITLE":"res://art/audio/music/title.wav", "HIDEOUT":"res://art/audio/music/hideout.wav",
 	"OUTER_RUINS":"res://art/audio/music/outer_ruins.wav", "SALVAGE_WARRENS":"res://art/audio/music/salvage_warrens.wav",
 	"HOARD_DEPTHS":"res://art/audio/music/hoard_depths.wav", "BOSS":"res://art/audio/music/boss.wav",
-	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav"
+	"VICTORY":"res://art/audio/music/victory.wav", "DEFEAT":"res://art/audio/music/defeat.wav",
+	"MOSSGLASS_WILDS":"res://art/audio/production/music/mossglass_wilds.ogg",
+	"FROSTBELL_HOLLOWS":"res://art/audio/production/music/frostbell_hollows.ogg",
+	"SUNKEN_GEARWORKS":"res://art/audio/production/music/sunken_gearworks.ogg",
+	"NULLGLASS_EXPANSE":"res://art/audio/production/music/nullglass_expanse.ogg"
 }
 const BASE_EVENT_SPECS := {
 	"home_bench":["Ambience",0,.12,.15], "home_page":["Ambience",0,.10,.10],
@@ -262,7 +266,7 @@ func set_music(cue: String) -> void:
 	if ambience_player != null:
 		ambience_player.stop()
 		ambience_player.stream = null
-		var ambient_key: String = {"OUTER_RUINS":"outer_ruins","SALVAGE_WARRENS":"salvage_warrens","HOARD_DEPTHS":"hoard_depths","HIDEOUT":"hideout","HOME":"hideout"}.get(cue,"")
+		var ambient_key: String = {"OUTER_RUINS":"outer_ruins","SALVAGE_WARRENS":"salvage_warrens","HOARD_DEPTHS":"hoard_depths","HIDEOUT":"hideout","HOME":"home_hearth","MOSSGLASS_WILDS":"mossglass_water","FROSTBELL_HOLLOWS":"frostbell_wind","SUNKEN_GEARWORKS":"gearworks_water","NULLGLASS_EXPANSE":"nullglass_air"}.get(cue,"")
 		if not ambient_key.is_empty():
 			var ambient: AudioStreamWAV = load(PRODUCTION_ROOT+"ambience/"+ambient_key+".wav")
 			ambient.loop_mode = AudioStreamWAV.LOOP_FORWARD

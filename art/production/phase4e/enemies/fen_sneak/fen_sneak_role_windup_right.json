@@ -1,0 +1,45 @@
+{
+  "actor": "fen_sneak",
+  "state": "role windup",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    171,
+    689,
+    682,
+    303
+  ],
+  "native_pixel_scale": 0.2,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+  "authored_source": "art/source/continuous_combat/fen_sneak/right_action_family_v1.png",
+  "authored_source_sha256": "b95e2a6a19bb0aee25d0f0925473510fc353ccdae68e00a5f10bdc0b03f2feb7",
+  "authored_source_bounds": [
+    33,
+    59,
+    715,
+    362
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:fen_sneak:role windup:right:None",
+  "fixed_enemy_blade": "Existing canonical enemy intrinsic blade retained; not a playable modular weapon body.",
+  "source_quality": "Original generated RGBA pixels; uniform .20 display scale; 1024 canvas is transparent padding.",
+  "native_qa": "fen-right-family-77b2dff4d9",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "asset_sha256": "03a6a9f9a72a6aeae42b323338b9eb314a11b19f451f5bad48b3ee269e4f6ec2",
+  "fixed_blade_grip_normalized": [
+    0.557617,
+    0.724609
+  ],
+  "blade_contact_review": "Authored paw holds fixed canonical curved blade; native slash contact and return to retained neutral passed.",
+  "visual_acceptance": "Named canonical panel and accepted left family compared; five distinct right actions, paw/blade contact, alpha and ground placement reviewed in native phone/tablet/desktop captures. Retained right neutral unchanged."
+}

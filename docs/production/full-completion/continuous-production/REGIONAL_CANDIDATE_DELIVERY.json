@@ -1,0 +1,26 @@
+{
+  "version": "0.4.38-world-combat",
+  "android_code": 47,
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.38-world-combat.exe",
+      "bytes": 103136768,
+      "sha256": "0d80300967c3dac73243a70db63cdedeb200173d77bbc5a8205dc75db88c2d1d"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.38-world-combat.pck",
+      "bytes": 189620268,
+      "sha256": "9538257876a063c7affd9b5b294bfaa425aa21e036e3d4ab4bed8327116c2535"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.38-world-combat-debug.apk",
+      "bytes": 211890759,
+      "sha256": "2234ca3493b33244e5285644bd4b2e37f2d9ddfcf1b6427316e24b8a288cc406"
+    }
+  ],
+  "source_native_pass": true,
+  "compiled_owner_route_pass": true,
+  "branding_pass": true,
+  "physical_device_validated": false,
+  "subjective_audio_listening_review": false
+}

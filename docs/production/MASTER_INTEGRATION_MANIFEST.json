@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7387,
-    "total_launch_scope_slots": 6343,
+    "total_records": 7408,
+    "total_launch_scope_slots": 6362,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3314,
+      "LIVE_BETA": 3338,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3030,
-      "REFERENCE_ONLY": 818,
+      "NEEDS_NEW_CANON_EXPORT": 3025,
+      "REFERENCE_ONLY": 820,
       "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 3313,
+      "LIVE_BETA": 3337,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 3030,
+      "NEEDS_NEW_CANON_EXPORT": 3025,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 3030,
+    "exact_missing_art_cells": 3025,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "4540483426ff0681e78fb33cbb27978ce96c5c6d539714ba4127093366e08a59",
+    "export_presets.cfg": "82dbb5ce8b1cf68f92c1f4ba9e8ab6de8a687a0c50ed4b9fb7f324ebe90d07b5",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -85,7 +85,7 @@
     "analytics_logger.gd": "1816129efa90fa7f5e06229b6a079a638724a18e905b9dcf99cc4d7d9fc11c60",
     "approved_missing_runtime_art.gd": "1e95140294adacdc6bfdfb0e077060bff85815b98206a5ddee52e35242865a51",
     "app_lifecycle.gd": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474",
-    "audio_manager.gd": "80700b52ab1993fef406138cc89015c267d6a6bbdacb08c951dae16f7a26ec0e",
+    "audio_manager.gd": "832f6ac39506180329c8f65358c138b631c0bc81737d0187591c40552569fe00",
     "authored_pose_manifest.gd": "d7d5d532a332eb0da8fc19cfa4dece3ba61e55d8ef1ba5d5132be148e5cb38cb",
     "avatar_presentation.gd": "293aeef0f5c1fc9ced87b5953de03c4627374f2b7ac1d4d828b11896abe214b6",
     "beta_art_catalog.gd": "edccebe83e308529b811040b4a299a9427b96a2b50febff9dc9f893857f77a0c",
@@ -133,7 +133,7 @@
     "item_catalog.gd": "0fa1e563f4f640e584f46d9d2031abca70b7489482e11f97e1824db62cad8504",
     "item_icon.gd": "3afc76c43750f880535bbc095bb37efda52b67bda79896f2fde53c56a4ae75f9",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "d101e3d1a2f887c4beedd03075972872b21fee9c64f43b8cf90222a23256309a",
+    "lootling.gd": "c59f18a5b2563606bc91e30ec91a24395f65774d6964211ddbf1daec3e3a9856",
     "lootlings_ui.gd": "634fe133b753998139b76ac5cc4afe6738a631ef9e87ea1a8f0302a6950eae76",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
     "loot_system.gd": "b7da5111482b7c16427b86f1cc4c9b4d3696bf91d10f4b3a20f7980e0a7e624d",
@@ -149,6 +149,7 @@
     "profile_store.gd": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1",
     "projectile_presentation.gd": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9",
     "regional_enemy_presentation.gd": "5f347a60c38e1be3c24db7d52c1c67a88963008f81a2fe4c68a173bf56e4268a",
+    "region_audio.gd": "1e6b241adc79578698c277fb0c58a56b202b313ab250b21d3fd709d8888a51a9",
     "relic_chase_meter.gd": "7d0551cb1f9817d4321c829d5c4d577b6425c3ca45faf044ab5d7c3ac38e934a",
     "relic_greatsword_motion.gd": "9aa65ee1c96323957d62c96a60fe3c1d67281e2dde492839b7b97842077685af",
     "relic_machine.gd": "19befca3b196d6ad0b5b866cf2e39b23b86e1850bed3015d73a6345944a7b6ca",
@@ -166867,56 +166868,41 @@
       "state": "role windup",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:role windup:left:None",
@@ -166970,56 +166956,41 @@
       "state": "role commit",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:role commit:left:None",
@@ -167073,56 +167044,41 @@
       "state": "hurt",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:hurt:left:None",
@@ -167176,56 +167132,41 @@
       "state": "recovery",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:recovery:left:None",
@@ -167279,56 +167220,41 @@
       "state": "defeat",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "fen_sneak__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:fen_sneak:defeat:left:None",
@@ -284668,6 +284594,41 @@
       }
     },
     {
+      "slot_id": "content:audio_manager.gd:MUSIC_PATHS:FROSTBELL_HOLLOWS",
+      "game_id": "frostbell_hollows",
+      "category": "audio_hook",
+      "subject": "FROSTBELL_HOLLOWS",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "audio_manager",
+      "implementation_file": "audio_manager.gd",
+      "dependency": [
+        "audio_manager.gd"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "constant": "MUSIC_PATHS",
+        "key": "FROSTBELL_HOLLOWS",
+        "actual_definition": "res://art/audio/production/music/frostbell_hollows.ogg"
+      }
+    },
+    {
       "slot_id": "content:audio_manager.gd:MUSIC_PATHS:HIDEOUT",
       "game_id": "hideout",
       "category": "audio_hook",
@@ -284773,6 +284734,76 @@
       }
     },
     {
+      "slot_id": "content:audio_manager.gd:MUSIC_PATHS:MOSSGLASS_WILDS",
+      "game_id": "mossglass_wilds",
+      "category": "audio_hook",
+      "subject": "MOSSGLASS_WILDS",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "audio_manager",
+      "implementation_file": "audio_manager.gd",
+      "dependency": [
+        "audio_manager.gd"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "constant": "MUSIC_PATHS",
+        "key": "MOSSGLASS_WILDS",
+        "actual_definition": "res://art/audio/production/music/mossglass_wilds.ogg"
+      }
+    },
+    {
+      "slot_id": "content:audio_manager.gd:MUSIC_PATHS:NULLGLASS_EXPANSE",
+      "game_id": "nullglass_expanse",
+      "category": "audio_hook",
+      "subject": "NULLGLASS_EXPANSE",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "audio_manager",
+      "implementation_file": "audio_manager.gd",
+      "dependency": [
+        "audio_manager.gd"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "constant": "MUSIC_PATHS",
+        "key": "NULLGLASS_EXPANSE",
+        "actual_definition": "res://art/audio/production/music/nullglass_expanse.ogg"
+      }
+    },
+    {
       "slot_id": "content:audio_manager.gd:MUSIC_PATHS:OUTER_RUINS",
       "game_id": "outer_ruins",
       "category": "audio_hook",
@@ -284840,6 +284871,41 @@
         "constant": "MUSIC_PATHS",
         "key": "SALVAGE_WARRENS",
         "actual_definition": "res://art/audio/music/salvage_warrens.wav"
+      }
+    },
+    {
+      "slot_id": "content:audio_manager.gd:MUSIC_PATHS:SUNKEN_GEARWORKS",
+      "game_id": "sunken_gearworks",
+      "category": "audio_hook",
+      "subject": "SUNKEN_GEARWORKS",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "audio_manager",
+      "implementation_file": "audio_manager.gd",
+      "dependency": [
+        "audio_manager.gd"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "constant": "MUSIC_PATHS",
+        "key": "SUNKEN_GEARWORKS",
+        "actual_definition": "res://art/audio/production/music/sunken_gearworks.ogg"
       }
     },
     {
@@ -301114,6 +301180,78 @@
       }
     },
     {
+      "slot_id": "asset:art/audio/production/ambience/frostbell_wind.wav",
+      "game_id": "frostbell_wind",
+      "category": "audio",
+      "subject": "frostbell_wind",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/ambience/frostbell_wind.wav",
+      "target_production_path": "art/audio/production/ambience/frostbell_wind.wav",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "production_audio.gd"
+      ],
+      "implementation_file": [
+        "production_audio.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "eccf80706c23b6c66b4605f8ea2d7f547147e8f0e70297fbe07ed46944f9b15e",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/audio/production/ambience/gearworks_water.wav",
+      "game_id": "gearworks_water",
+      "category": "audio",
+      "subject": "gearworks_water",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/ambience/gearworks_water.wav",
+      "target_production_path": "art/audio/production/ambience/gearworks_water.wav",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "production_audio.gd"
+      ],
+      "implementation_file": [
+        "production_audio.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "201698c76340c691e8683ffa48485de6f80f51b57c21b31c6d1daa1da86d9a6a",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/audio/production/ambience/hideout.wav",
       "game_id": "hideout",
       "category": "audio",
@@ -301182,6 +301320,114 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "eb9d35c6e41e77cc61740395e19bf75324b64b87cce99f005c8b198c339fb508",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/audio/production/ambience/home_hearth.wav",
+      "game_id": "home_hearth",
+      "category": "audio",
+      "subject": "home_hearth",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/ambience/home_hearth.wav",
+      "target_production_path": "art/audio/production/ambience/home_hearth.wav",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "production_audio.gd"
+      ],
+      "implementation_file": [
+        "production_audio.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "54eb55528e9f35ed9114886800d73e5de7ddf98ad13485d2d8def4755db868ea",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/audio/production/ambience/mossglass_water.wav",
+      "game_id": "mossglass_water",
+      "category": "audio",
+      "subject": "mossglass_water",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/ambience/mossglass_water.wav",
+      "target_production_path": "art/audio/production/ambience/mossglass_water.wav",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "production_audio.gd"
+      ],
+      "implementation_file": [
+        "production_audio.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "1fbd8e0601069adc877615254a7083e017d1c1a103ab9f2902c1067699abac8f",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/audio/production/ambience/nullglass_air.wav",
+      "game_id": "nullglass_air",
+      "category": "audio",
+      "subject": "nullglass_air",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/ambience/nullglass_air.wav",
+      "target_production_path": "art/audio/production/ambience/nullglass_air.wav",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "production_audio.gd"
+      ],
+      "implementation_file": [
+        "production_audio.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "4df08384bcabb06baa15ebc251ab34ea2e35ef3bf7dcd4f063668dc8a069bf7e",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -301294,6 +301540,42 @@
       }
     },
     {
+      "slot_id": "asset:art/audio/production/music/frostbell_hollows.ogg",
+      "game_id": "frostbell_hollows",
+      "category": "audio",
+      "subject": "frostbell_hollows",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/music/frostbell_hollows.ogg",
+      "target_production_path": "art/audio/production/music/frostbell_hollows.ogg",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "audio_manager.gd"
+      ],
+      "implementation_file": [
+        "audio_manager.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "ce1d596e51f2dc03f5c981ca8015bd453c1a8f9eb05566d9cd8410604aad63cd",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/audio/production/music/hideout.ogg",
       "game_id": "hideout",
       "category": "audio",
@@ -301402,6 +301684,78 @@
       }
     },
     {
+      "slot_id": "asset:art/audio/production/music/mossglass_wilds.ogg",
+      "game_id": "mossglass_wilds",
+      "category": "audio",
+      "subject": "mossglass_wilds",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/music/mossglass_wilds.ogg",
+      "target_production_path": "art/audio/production/music/mossglass_wilds.ogg",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "audio_manager.gd"
+      ],
+      "implementation_file": [
+        "audio_manager.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "a0e349427b1a66b0b33ef059a772bc4af24ad87bc1668bf73ea909477dcf0de9",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/audio/production/music/nullglass_expanse.ogg",
+      "game_id": "nullglass_expanse",
+      "category": "audio",
+      "subject": "nullglass_expanse",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/music/nullglass_expanse.ogg",
+      "target_production_path": "art/audio/production/music/nullglass_expanse.ogg",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "audio_manager.gd"
+      ],
+      "implementation_file": [
+        "audio_manager.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "b927343ca1219721f0521e2eb065a5dee36846d007ec6ce7b8df3f701d1f178c",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/audio/production/music/outer_ruins.ogg",
       "game_id": "outer_ruins",
       "category": "audio",
@@ -301470,6 +301824,42 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "ce2dfacb671da90d1f7b79232173cb1e43f927d4cd7b833a6f867e724a37e90e",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/audio/production/music/sunken_gearworks.ogg",
+      "game_id": "sunken_gearworks",
+      "category": "audio",
+      "subject": "sunken_gearworks",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/audio/production/music/sunken_gearworks.ogg",
+      "target_production_path": "art/audio/production/music/sunken_gearworks.ogg",
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "audio_manager.gd"
+      ],
+      "implementation_file": [
+        "audio_manager.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "9a0eb34dca4c12cd8e1873a475255d0e7de361bc91e6bfef1054aac9aa7e069c",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -321061,6 +321451,45 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_right.png",
+      "game_id": "fen_sneak_defeat_right",
+      "category": "combat_art",
+      "subject": "fen_sneak_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_right.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_defeat_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "a9261487236251bba7aa4cdb005ded92015aac801cc73c0145b19f63b3432675",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_left.png",
       "game_id": "fen_sneak_hurt_left",
       "category": "combat_art",
@@ -321096,6 +321525,45 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "0e40e8d820cecc7cea365c5c64b5f2b3999c74cf86d3cd7726c962acd83684c7",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_right.png",
+      "game_id": "fen_sneak_hurt_right",
+      "category": "combat_art",
+      "subject": "fen_sneak_hurt_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_right.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_hurt_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "be17676f37bb9b5b145ed0c64505107834e5cac984c2811c618a56d3aaadbea0",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -321217,6 +321685,45 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_right.png",
+      "game_id": "fen_sneak_recovery_right",
+      "category": "combat_art",
+      "subject": "fen_sneak_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_right.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_recovery_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "56a2f1553196c4ab6d96d12983f3044f33df50f6d05cfc77d4d76a9a5f7e2369",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_left.png",
       "game_id": "fen_sneak_role_commit_left",
       "category": "combat_art",
@@ -321256,6 +321763,45 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_right.png",
+      "game_id": "fen_sneak_role_commit_right",
+      "category": "combat_art",
+      "subject": "fen_sneak_role_commit_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_right.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_commit_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "2bbeebd54afcf0ca2563432aca73b51300641118edc87419edfd19ec3ed780c7",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_left.png",
       "game_id": "fen_sneak_role_windup_left",
       "category": "combat_art",
@@ -321291,6 +321837,45 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "9665e3305972686c104c6ad54f198b5ff34d7148d7f8baeb7bbd6a558d02c74b",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
+      "game_id": "fen_sneak_role_windup_right",
+      "category": "combat_art",
+      "subject": "fen_sneak_role_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
+      "target_production_path": "art/production/phase4e/enemies/fen_sneak/fen_sneak_role_windup_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "03a6a9f9a72a6aeae42b323338b9eb314a11b19f451f5bad48b3ee269e4f6ec2",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -334006,6 +334591,38 @@
       }
     },
     {
+      "slot_id": "source:art/source/audio/region_score/mossglass_wilds.ogg",
+      "game_id": "mossglass_wilds",
+      "category": "reference",
+      "subject": "mossglass_wilds",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/audio/region_score/mossglass_wilds.ogg",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "affee8ea651ac18b5def59388049406c95e271ef2fc223097605a17527175644",
+        "rejection": null
+      }
+    },
+    {
       "slot_id": "source:art/source/audio/superseded_human_reactions/boss_death_01.wav",
       "game_id": "boss_death_01",
       "category": "reference",
@@ -334706,6 +335323,38 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "42db1ea0a09ba064d9cc3bc815042ce18b0ca1f0bf818eb461d6ca5044051d2e",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/continuous_combat/fen_sneak/right_action_family_v1.png",
+      "game_id": "right_action_family_v1",
+      "category": "reference",
+      "subject": "right_action_family_v1",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/continuous_combat/fen_sneak/right_action_family_v1.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "b95e2a6a19bb0aee25d0f0925473510fc353ccdae68e00a5f10bdc0b03f2feb7",
         "rejection": null
       }
     },
@@ -369789,6 +370438,39 @@
           "draw_projectile",
           "n",
           "draw_impact"
+        ]
+      }
+    },
+    {
+      "slot_id": "system:region_audio.gd",
+      "game_id": "region_audio_gd",
+      "category": "runtime_system",
+      "subject": "region_audio.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "region_audio.gd",
+      "implementation_file": "region_audio.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "combat_cue"
         ]
       }
     },

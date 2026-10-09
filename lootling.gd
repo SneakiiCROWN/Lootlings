@@ -1799,7 +1799,7 @@ func spawn_single_enemy() -> void:
 		enemy_is_boss=retention.round_rule.boss; enemy_is_miniboss=retention.round_rule.miniboss
 	if audio_manager!=null:
 		var music_region: String=current_zone.get("future_music","outer_ruins")
-		audio_manager.set_music("BOSS" if enemy_is_boss else "SALVAGE_WARRENS" if music_region=="emberworks" else "HOARD_DEPTHS" if music_region=="hoard_depths" else "OUTER_RUINS")
+		audio_manager.set_music(preload("res://region_audio.gd").combat_cue(campaign_id,music_region,enemy_is_boss))
 	# Steady curve with explicit special-enemy spikes; regular archetypes stay closer together.
 	var progress := pow(1.15, (mini(15,wave) if retention.siege else wave) - 1)
 	var type_bonus := 1.0

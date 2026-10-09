@@ -30,6 +30,11 @@ def main():
             for start in range(0,len(x),4096):stream.write(x[start:start+4096])
         decoded,sr=sf.read(dest,dtype='float32',always_2d=True);assert np.isfinite(decoded).all() and np.max(np.abs(decoded))<.40
         records.append(dict(record,asset=str(dest.relative_to(ROOT)),asset_sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),seconds=round(len(decoded)/sr,3),channels=2,mix_rate=sr,peak_dbfs=round(float(20*np.log10(np.max(np.abs(decoded)))),2),rms_dbfs=round(float(20*np.log10(np.sqrt(np.mean(decoded*decoded)))),2),processing='full composition; trim digital silence; 1.5s seam overlap; DC removal; matched RMS and peak ceiling; stereo Vorbis'))
+    region_records=SOURCE.parent/'region_score/LICENSE_RECORDS.json'
+    if region_records.exists():
+        for record in json.loads(region_records.read_text(encoding='utf8')):
+            assert hashlib.sha256((ROOT/record['asset']).read_bytes()).hexdigest()==record['asset_sha256']
+            records.append(record)
     (OUT.parent/'score_sources.json').write_text(json.dumps(dict(license='CC0-1.0',assets=records),indent=2)+'\n',encoding='utf8')
     print('Installed seven complete licensed stereo scores:',[(x['cue'],x['seconds']) for x in records])
 if __name__=='__main__':

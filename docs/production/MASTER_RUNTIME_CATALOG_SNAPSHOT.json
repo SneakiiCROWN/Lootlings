@@ -1183,11 +1183,15 @@
       "MUSIC_PATHS": {
         "BOSS": "res://art/audio/music/boss.wav",
         "DEFEAT": "res://art/audio/music/defeat.wav",
+        "FROSTBELL_HOLLOWS": "res://art/audio/production/music/frostbell_hollows.ogg",
         "HIDEOUT": "res://art/audio/music/hideout.wav",
         "HOARD_DEPTHS": "res://art/audio/music/hoard_depths.wav",
         "HOME": "res://art/audio/music/hideout.wav",
+        "MOSSGLASS_WILDS": "res://art/audio/production/music/mossglass_wilds.ogg",
+        "NULLGLASS_EXPANSE": "res://art/audio/production/music/nullglass_expanse.ogg",
         "OUTER_RUINS": "res://art/audio/music/outer_ruins.wav",
         "SALVAGE_WARRENS": "res://art/audio/music/salvage_warrens.wav",
+        "SUNKEN_GEARWORKS": "res://art/audio/production/music/sunken_gearworks.ogg",
         "TITLE": "res://art/audio/music/title.wav",
         "VICTORY": "res://art/audio/music/victory.wav"
       },
@@ -1254,7 +1258,7 @@
       "make_ambient_loop",
       "_exit_tree"
     ],
-    "source_sha256": "80700b52ab1993fef406138cc89015c267d6a6bbdacb08c951dae16f7a26ec0e"
+    "source_sha256": "832f6ac39506180329c8f65358c138b631c0bc81737d0187591c40552569fe00"
   },
   "authored_pose_manifest.gd": {
     "constants": {
@@ -6897,7 +6901,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "d101e3d1a2f887c4beedd03075972872b21fee9c64f43b8cf90222a23256309a"
+    "source_sha256": "c59f18a5b2563606bc91e30ec91a24395f65774d6964211ddbf1daec3e3a9856"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8020,6 +8024,20 @@
       "draw_impact"
     ],
     "source_sha256": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9"
+  },
+  "region_audio.gd": {
+    "constants": {
+      "CUES": {
+        "frostbell_hollows": "FROSTBELL_HOLLOWS",
+        "mossglass_wilds": "MOSSGLASS_WILDS",
+        "nullglass_expanse": "NULLGLASS_EXPANSE",
+        "sunken_gearworks": "SUNKEN_GEARWORKS"
+      }
+    },
+    "methods": [
+      "combat_cue"
+    ],
+    "source_sha256": "1e6b241adc79578698c277fb0c58a56b202b313ab250b21d3fd709d8888a51a9"
   },
   "regional_enemy_presentation.gd": {
     "constants": {
