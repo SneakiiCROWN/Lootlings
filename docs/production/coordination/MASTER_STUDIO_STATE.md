@@ -1,7 +1,7 @@
 # Lootlings shared production state
 
 Active writer: Codex, live `C:\Users\Snkii\Documents\lootlings`, branch `codex/phase4e-gamefeel`.
-Verified base: pushed 0.4.40 `1887f7a`. Current candidate: 0.4.41 regional residents. Resolve the saved milestone with `git log`; an exported candidate is not a public release or final acceptance.
+Verified base: pushed 0.4.41 `741ff4a`. Current candidate: 0.4.42 cohesive item cards. Resolve the saved milestone with `git log`; an exported candidate is not a public release or final acceptance.
 
 191 installed exact delivery closures; 3083 remaining. 419 installed artist files; 8076 remaining. These are frozen delivery denominators, not whole-game quality percentages.
 

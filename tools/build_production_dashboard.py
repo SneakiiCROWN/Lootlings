@@ -86,6 +86,7 @@ def build():
             else:
                 fresh=not asset and ev['implementation']==r['implementation_file'] and (ROOT/ev['implementation']).is_file() and sha(ev['implementation'])==ev['implementation_sha256']
             fresh=fresh and all((ROOT/file).is_file() for file in ev['evidence_files'])
+            fresh=fresh and all((ROOT/file).is_file() and sha(file)==expected for file,expected in ev.get('dependencies_sha256',{}).items())
             if not fresh:
                 stale_evidence.append(r['slot_id']);ev=None
         if ev:

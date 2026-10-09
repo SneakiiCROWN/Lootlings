@@ -91,6 +91,17 @@
       "authoritative_queue": "../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json"
     },
     {
+      "id": "cohesive-item-cards-042",
+      "owner": "Codex",
+      "status": "VERIFIED_BETA",
+      "priority": "P1",
+      "dependencies": [
+        "741ff4a"
+      ],
+      "acceptance": "Shared approved item frames, one-selection tick, independent keyboard focus and contained merchant icons; source and compiled three-viewport tests. No new art closures or final quality acceptance.",
+      "evidence": "../quality-evidence/0.4.42/REPORT.md"
+    },
+    {
       "id": "world-ui-professional-quality",
       "owner": "Codex",
       "status": "NEEDS_ART_CORRECTION",

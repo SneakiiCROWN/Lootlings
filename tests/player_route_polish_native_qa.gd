@@ -19,6 +19,7 @@ func review() -> void:
   await capture("shop_no_selection")
   await tap(hub.shop_offer_buttons[0]);assert(hub.shop_buy_button.disabled and hub.shop_buy_button.text.contains("NEED"));await capture("shop_compare_unaffordable")
   await tap(hub.shop_offer_buttons[1]);assert(not hub.shop_offer_buttons[0].get_meta("ui_selected") and hub.shop_offer_buttons[1].get_meta("ui_selected"))
+  assert(not hub.shop_offer_buttons[0].get_node("SelectionMark").visible and hub.shop_offer_buttons[1].get_node("SelectionMark").visible)
   game.inventory.scrap=300;hub.refresh_shop();hub.refresh_shop();
   for offer in hub.shop_offer_buttons:
    var icons:int=0

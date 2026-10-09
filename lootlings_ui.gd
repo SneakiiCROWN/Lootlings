@@ -236,18 +236,32 @@ static func apply_rarity_card(button: Button, accent: Color) -> void:
 	apply_selection(button, bool(button.get_meta("ui_selected", false)))
 
 static func rarity_card_style(accent: Color, state_name: String) -> StyleBox:
-	var box := button_style(Color.WHITE, accent, state_name, "secondary") as StyleBoxFlat
-	if state_name == "focus":
-		box.bg_color = Color.TRANSPARENT
-		box.border_color = Color("#e0efff")
-	elif state_name != "disabled":
-		box.border_color = Color(accent, .62 if state_name == "normal" else .95)
-		box.bg_color = Color("#192944").lerp(accent, .04 if state_name == "normal" else .12)
+	# Approved cool crystal frame for all unselected gear/reward cards;
+	# warm primary frame remains the persistent selected state.
+	# Duplicate script fields so rarity tint never contaminates the shared cache.
+	var source := skin_style("button_secondary_"+state_name,24)
+	var box := inset_style(source,source.content_margin_left) as TextureSkin
+	var rarity_tint := Color.WHITE.lerp(accent,.08)
+	box.tint *= rarity_tint
+	if state_name == "normal": box.tint *= Color(.88,.92,.98)
 	return box
 
 static func apply_selection(button: Button, selected: bool) -> void:
 	# Preserve card typography/transparent semantic text; change skins only.
 	button.set_meta("ui_selected",selected)
+	if button.size.x >= 180 and button.size.y >= 56:
+		var mark := button.get_node_or_null("SelectionMark") as Label
+		if mark == null:
+			mark=Label.new();mark.name="SelectionMark";mark.text="✓"
+			mark.mouse_filter=Control.MOUSE_FILTER_IGNORE
+			mark.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+			mark.add_theme_font_size_override("font_size",18)
+			mark.add_theme_color_override("font_color",GOLD_BRIGHT)
+			mark.add_theme_color_override("font_outline_color",NAVY_DEEP)
+			mark.add_theme_constant_override("outline_size",3)
+			button.add_child(mark)
+		mark.position=Vector2(button.size.x-46,6);mark.size=Vector2(24,24)
+		mark.visible=selected
 	button.set_meta("ui_intent","primary" if selected else "secondary")
 	for state_name in ["normal","hover","pressed","disabled"]:
 		var style := button_style(Color.WHITE,Color.WHITE,state_name,"primary" if selected else "secondary")

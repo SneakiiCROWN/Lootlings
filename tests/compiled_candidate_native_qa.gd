@@ -27,6 +27,8 @@ func review() -> void:
   await tap(hub.hub_navigation.world_buttons.ShopEntrance);await tap(hub.shop_offer_buttons[1])
   assert(hub.shop_detail.position==Vector2(22,16) and hub.shop_detail.size==Vector2(268,110))
   assert(hub.shop_detail.get_theme_font_size("bold_font_size")==16)
+  assert(hub.shop_offer_buttons[0].get_theme_stylebox("normal").texture.resource_path.ends_with("button_secondary.png"))
+  assert(hub.shop_offer_buttons[1].get_node("SelectionMark").visible)
   await capture("shop_final")
   var before:int=game.inventory.stash.size();var funds:int=game.inventory.scrap;var price:int=game.hideout_shop.stock[1].price
   await tap(hub.shop_buy_button);assert(game.inventory.stash.size()==before+1 and game.inventory.scrap==funds-price)

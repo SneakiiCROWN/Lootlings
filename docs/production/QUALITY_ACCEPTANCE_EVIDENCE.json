@@ -1061,7 +1061,7 @@
       "slot_id": "screen:lootling.gd:show_personal_home",
       "asset": null,
       "implementation": "lootling.gd",
-      "implementation_sha256": "cd6748e8f359a3f3a2fee2339af946327a196d6b9ee7fd0904c62431c61e3015",
+      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
       "stages": {
         "canon_reference_approved": false,
         "created": true,
@@ -1072,13 +1072,16 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.41/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.41/1080x2340_home.png",
-        "docs/production/quality-evidence/0.4.41/1200x1920_home.png",
-        "docs/production/quality-evidence/0.4.41/1920x1080_home.png"
+        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_home.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_home.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_home.png"
       ],
       "limitations": "Home furnishing overlays and display props need stronger perspective/material cohesion.",
-      "defects": []
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      }
     },
     {
       "slot_id": "screen:hideout_ui.gd:show_home",
@@ -1095,13 +1098,16 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.41/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.41/1080x2340_hub.png",
-        "docs/production/quality-evidence/0.4.41/1200x1920_hub.png",
-        "docs/production/quality-evidence/0.4.41/1920x1080_hub.png"
+        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_hub.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_hub.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_hub.png"
       ],
       "limitations": "Repeated Talk labels and mixed station/NPC styling still need a unified world presentation.",
-      "defects": []
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      }
     },
     {
       "slot_id": "screen:hideout_ui.gd:show_shop",
@@ -1118,16 +1124,16 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.41/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.41/1080x2340_shop_compare_ready.png",
-        "docs/production/quality-evidence/0.4.41/1200x1920_shop_compare_ready.png",
-        "docs/production/quality-evidence/0.4.41/1920x1080_shop_compare_ready.png",
-        "docs/production/full-completion/continuous-production/player-route-0439/1080x2340_shop_compare_ready.webp",
-        "docs/production/full-completion/continuous-production/player-route-0439/1200x1920_shop_compare_ready.webp",
-        "docs/production/full-completion/continuous-production/player-route-0439/1920x1080_shop_compare_ready.webp"
+        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_shop_compare_ready.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_shop_compare_ready.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_shop_compare_ready.png"
       ],
-      "limitations": "Comparison padding corrected; offer, cache and comparison framing still varies.",
-      "defects": []
+      "limitations": "Shared cool/warm item frame and comparison padding reviewed. Cache button and portrait station presentation still need broader artistic acceptance.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      }
     },
     {
       "slot_id": "screen:hideout_ui.gd:show_stash",
@@ -1144,19 +1150,22 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.41/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.41/1080x2340_stash_owned_compare.png",
-        "docs/production/quality-evidence/0.4.41/1200x1920_stash_owned_compare.png",
-        "docs/production/quality-evidence/0.4.41/1920x1080_stash_owned_compare.png"
+        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_stash_owned_compare.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_stash_owned_compare.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_stash_owned_compare.png"
       ],
       "limitations": "Header/filter/equipment hierarchy and panel material consistency remain visually unfinished.",
-      "defects": []
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      }
     },
     {
       "slot_id": "screen:lootling.gd:show_boss_reward",
       "asset": null,
       "implementation": "lootling.gd",
-      "implementation_sha256": "cd6748e8f359a3f3a2fee2339af946327a196d6b9ee7fd0904c62431c61e3015",
+      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
       "stages": {
         "canon_reference_approved": false,
         "created": true,
@@ -1167,13 +1176,16 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.41/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.41/1080x2340_reward_find.png",
-        "docs/production/quality-evidence/0.4.41/1200x1920_reward_find.png",
-        "docs/production/quality-evidence/0.4.41/1920x1080_reward_find.png"
+        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_reward_find.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_reward_find.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_reward_find.png"
       ],
       "limitations": "Sparse single-find layout uses an oversized panel; full reward presentation acceptance remains open.",
-      "defects": []
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      }
     },
     {
       "slot_id": "screen:retention_runtime.gd:show_earned_spinner",
@@ -1190,12 +1202,69 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.41/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.41/1080x2340_spinner_real_earned_reveal.png",
-        "docs/production/quality-evidence/0.4.41/1200x1920_spinner_real_earned_reveal.png",
-        "docs/production/quality-evidence/0.4.41/1920x1080_spinner_real_earned_reveal.png"
+        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_spinner_real_earned_reveal.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_spinner_real_earned_reveal.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_spinner_real_earned_reveal.png"
       ],
       "limitations": "Functional earned reveal reviewed; perceptual sound and motion-quality acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      }
+    },
+    {
+      "slot_id": "screen:lootling.gd:show_merchant",
+      "asset": null,
+      "implementation": "lootling.gd",
+      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      },
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.42/cohesive_cards_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/compiled_cohesive_cards_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_merchant_selected.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_merchant_selected.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_merchant_selected.png"
+      ],
+      "limitations": "Existing approved frame artwork reused; icon containment, one-selection tick and independent focus verified. Entire screen layout/animation/audio/device and owner professional acceptance remain open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:lootling.gd:show_upgrade_choices",
+      "asset": null,
+      "implementation": "lootling.gd",
+      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
+      },
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.42/cohesive_cards_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/compiled_cohesive_cards_native_qa.log",
+        "docs/production/quality-evidence/0.4.42/1080x2340_perk_selected.png",
+        "docs/production/quality-evidence/0.4.42/1200x1920_perk_selected.png",
+        "docs/production/quality-evidence/0.4.42/1920x1080_perk_selected.png"
+      ],
+      "limitations": "Existing approved frame artwork reused; icon containment, one-selection tick and independent focus verified. Entire screen layout/animation/audio/device and owner professional acceptance remain open.",
       "defects": []
     }
   ],

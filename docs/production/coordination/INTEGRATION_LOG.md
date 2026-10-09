@@ -1,5 +1,7 @@
 # Integration log
 
+0.4.42 follows pushed 741ff4a: shared item frames and selection feedback in `lootlings_ui.gd`, offer-relative icons in `lootling.gd`, candidate version 51 in `export_presets.cfg`. Source and actual exported PCK native tests pass; APK asset/branding comparison passes. [Current pass report](../quality-evidence/0.4.42/REPORT.md). No audio or progression changes.
+
 0.4.41 continues pushed 1887f7a without reset. Exact added runtime files and hashes are in the [installation receipt](../full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json) and both referenced manifests.
 
 Runtime writers: `resident_art_catalog.gd`, `hideout_ui.gd`, `hub_navigation.gd`; manifest include/version update in `export_presets.cfg`. Canonical NPC portrait authority and old accepted enemy frames preserved.

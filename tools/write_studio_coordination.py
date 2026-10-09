@@ -14,7 +14,7 @@ def main():
     write('MASTER_STUDIO_STATE.md',f'''# Lootlings shared production state
 
 Active writer: Codex, live `C:\\Users\\Snkii\\Documents\\lootlings`, branch `codex/phase4e-gamefeel`.
-Verified base: pushed 0.4.40 `1887f7a`. Current candidate: 0.4.41 regional residents. Resolve the saved milestone with `git log`; an exported candidate is not a public release or final acceptance.
+Verified base: pushed 0.4.41 `741ff4a`. Current candidate: 0.4.42 cohesive item cards. Resolve the saved milestone with `git log`; an exported candidate is not a public release or final acceptance.
 
 {counts['installed_contracts']} installed exact delivery closures; {counts['remaining_contracts']} remaining. {counts['installed_artist_files']} installed artist files; {counts['remaining_artist_files']} remaining. These are frozen delivery denominators, not whole-game quality percentages.
 
@@ -37,7 +37,7 @@ Owner's pre-existing `project.godot` edits and supplied untracked references are
                    remaining_contracts=counts['remaining_by_category'][f],dependencies=['exact dedicated canon','runtime integration owner'],
                    acceptance=a+' All seven quality stages must be evidenced.',
                    authoritative_queue='../full-completion/continuous-production/EXACT_REMAINING_CONTRACTS.json') for f,p,a in families]
-    tasks += [dict(id='world-ui-professional-quality',owner='Codex',status='NEEDS_ART_CORRECTION',priority='P1',
+    tasks += [dict(id='cohesive-item-cards-042',owner='Codex',status='VERIFIED_BETA',priority='P1',dependencies=['741ff4a'],acceptance='Shared approved item frames, one-selection tick, independent keyboard focus and contained merchant icons; source and compiled three-viewport tests. No new art closures or final quality acceptance.',evidence='../quality-evidence/0.4.42/REPORT.md'),dict(id='world-ui-professional-quality',owner='Codex',status='NEEDS_ART_CORRECTION',priority='P1',
                    dependencies=['existing working navigation/save systems'],acceptance='Home/Hub props, service cues, item/reward frames and text assessed through actual routes; preserve functions.',
                    evidence='../QUALITY_ACCEPTANCE_EVIDENCE.json'),
               dict(id='audio-perceptual-review',owner='unassigned',status='QA_PENDING',priority='P1',
@@ -54,6 +54,8 @@ Owner's pre-existing `project.godot` edits and supplied untracked references are
 
 Current source and native gameplay evidence: [seven-stage ledger](../QUALITY_ACCEPTANCE_EVIDENCE.json), [captures/logs](../quality-evidence/0.4.41/).
 
+Latest 0.4.42 [item-card captures/logs](../quality-evidence/0.4.42/) show approved cool/warm shared framing, one persistent selection mark, independent focus and corrected merchant icon containment. Source and compiled PCK tested at all three viewports; no new art closure or full artistic acceptance.
+
 - Corrected and rejected before integration: mixed-sheet clipped bat ears and inherited pup bells; overlapping bounds; left resident crop contamination; wrong-facing Coal left commit.
 - Native-reviewed accepted cells: canonical faces/palettes/silhouettes, independent views, alpha, scale, feet anchors and exact state changes. This is keyframe review, not full multi-frame family approval.
 - Existing Home/Hub and Shop/Stash/reward screens have fresh representative review; subjective prop cohesion, repeated interaction labels and uneven menu framing remain open.
@@ -63,6 +65,8 @@ Current source and native gameplay evidence: [seven-stage ledger](../QUALITY_ACC
 Automation and packaged-resource checks do not grant final artistic approval. Physical Android listening/performance and independent owner acceptance remain pending.
 ''')
     write('INTEGRATION_LOG.md','''# Integration log
+
+0.4.42 follows pushed 741ff4a: shared item frames and selection feedback in `lootlings_ui.gd`, offer-relative icons in `lootling.gd`, candidate version 51 in `export_presets.cfg`. Source and actual exported PCK native tests pass; APK asset/branding comparison passes. [Current pass report](../quality-evidence/0.4.42/REPORT.md). No audio or progression changes.
 
 0.4.41 continues pushed 1887f7a without reset. Exact added runtime files and hashes are in the [installation receipt](../full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json) and both referenced manifests.
 
@@ -87,7 +91,7 @@ No additional canon decision is requested. Dedicated sources, approved companion
 
 Read MASTER_STUDIO_STATE and the single dashboard. Confirm branch/working tree without resetting. Do not regenerate the accepted 48 cells or rerun unchanged broad service passes.
 
-1. Secure the scoped 0.4.41 Git milestone/push; keep owner config/references recoverable.
+1. Keep pushed 0.4.41 `741ff4a` and the scoped 0.4.42 item-card checkpoint recoverable; preserve owner config/references. The exact 0.4.42 hash is in branch history.
 2. Claim complete compatible player body/action/grip families that remove the normal route's reference-card fallbacks, alongside independent enemy/boss/NPC work.
 3. Use the current frozen contract queue and dedicated canon. Integrate each independent valid family, quarantine failures, native-test real contact/transition states.
 4. Continue Home/Hub prop cohesion and shared reward/Shop/Stash framing; current functionality stays intact. Audio review must include actual listening and licence records; title track is locked.

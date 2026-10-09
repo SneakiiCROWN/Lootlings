@@ -1513,10 +1513,11 @@ func build_merchant_ui() -> void:
 		merchant_buttons.append(button)
 		var icon := ItemIcon.new()
 		icon.name = "OfferIcon%d" % i
-		icon.position = Vector2(28, 119 + i * 108)
+		# Keep artwork attached to its offer; row spacing must not drift independently.
+		icon.position = Vector2(8, 13)
 		icon.size = Vector2(64, 64)
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		merchant_panel.add_child(icon)
+		button.add_child(icon)
 		merchant_icons.append(icon)
 		var kicker := make_label(button, "", 11, Rect2(84, 10, 284, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#c7b18b"))
 		var title := make_label(button, "", 14, Rect2(84, 30, 284, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#edf0f7"))
