@@ -5,17 +5,17 @@ Current launch/runtime inventory; established canon and stable IDs override all 
 | Status | All records | Current launch slots |
 |---|---:|---:|
 | LIVE_FINAL | 0 | 0 |
-| LIVE_BETA | 3394 | 3393 |
+| LIVE_BETA | 3414 | 3413 |
 | EXTRACTABLE_NOW | 0 | 0 |
 | NEEDS_CROP_OR_MASK | 0 | 0 |
 | NEEDS_RUNTIME_ASSEMBLY | 0 | 0 |
 | NEEDS_NEW_CANON_EXPORT | 3001 | 3001 |
-| REFERENCE_ONLY | 835 | 0 |
+| REFERENCE_ONLY | 834 | 0 |
 | REJECTED_IDENTITY_DRIFT | 4 | 0 |
 | PLANNED_NOT_IMPLEMENTED | 10 | 0 |
 | NOT_REQUIRED_FOR_CURRENT_LAUNCH | 211 | 0 |
 
-Total records: **7455**. Current launch-scope slots: **6394**.
+Total records: **7474**. Current launch-scope slots: **6414**.
 Exact missing art delivery cells: **3001** grouped into **100 body/view bundles**. Whole support packages: **165** (82 right / 83 left), from authoritative full-state acceptance; partial windup samples do not close a family.
 
 The 3001 cells keep their individual state/view/family contracts. Shared body poses and weapon modules group into body/view bundles; the separate support-package count must not be added as unique images. No repeated neutral art, tint substitute or fake movement/attack export closes a slot.

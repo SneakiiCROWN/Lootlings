@@ -144,12 +144,22 @@ func recover_delivery(inventory, inventory_path: String) -> String:
 	if save() != OK: data.craft_pending = item
 	return "%s forged into Gear." % item.name
 
-func collection_text() -> String:
+func collection_text(category: String = "Mastery") -> String:
+	if category == "Field discoveries":
+		var records: Array[String] = []
+		var kinds := {"region":"Region", "enemy":"Creature", "miniboss":"Guardian", "boss":"Boss", "elite":"Elite", "event":"Encounter", "secret":"Secret"}
+		var encounters := {"secret_bell":"The Hidden Bell", "wandering_smith":"The Wandering Smith", "mimic_parley":"A Mimic's Bargain"}
+		for key in data.seen:
+			var parts: PackedStringArray = str(key).split(":", true, 1)
+			if parts.size()!=2 or not kinds.has(parts[0]):continue
+			var title: String = preload("res://campaign_system.gd").title(parts[1]) if parts[0]=="region" else str(encounters.get(parts[1],parts[1].replace("_"," ").capitalize()))
+			records.append("%s · %s" % [kinds[parts[0]],title])
+		records.sort()
+		return "FIELD DISCOVERIES\n\n"+("Explore expeditions to record creatures, places and hidden encounters." if records.is_empty() else "\n".join(records))
 	var text := "RELIC RANK %d\nUse characters and weapon families; rank unlocks routes, never raw damage.\n\n" % rank()
+	if data.actors.is_empty() and data.weapons.is_empty():text+="Defeat foes with your character and weapon to build mastery.\n"
 	for actor in data.actors:
-		var title: String = Catalog.HUMANS.get(actor,{}).get("mastery",actor.capitalize().replace("_"," "))
+		var title: String = str(Catalog.HUMANS.get(actor,{}).get("mastery",preload("res://lootling_catalog.gd").ENTRIES.get(actor,{}).get("display_name",str(actor).replace("_"," ").capitalize())))
 		text += "%s  •  mastery %d  (%d defeats)\n" % [title,mini(6,int(data.actors[actor])/30),int(data.actors[actor])]
 	for family in data.weapons: text += "%s  •  mastery %d\n" % [str(family).capitalize(),mini(6,int(data.weapons[family])/30)]
-	text += "\nFIELD DISCOVERIES\n"
-	for key in data.seen: text += str(key).replace(":"," • ").replace("_"," ").capitalize()+"\n"
 	return text

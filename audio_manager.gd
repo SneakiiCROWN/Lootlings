@@ -13,6 +13,7 @@ const MUSIC_PATHS := {
 	"NULLGLASS_EXPANSE":"res://art/audio/production/music/nullglass_expanse.ogg"
 }
 const BASE_EVENT_SPECS := {
+	"archive_page":["UI",0,.10,.10],
 	"home_bench":["Ambience",0,.12,.15], "home_page":["Ambience",0,.10,.10],
 	"relic_red":["SFX",0,1.1,.4], "draw_bow":["SFX",0,.18,.3], "charge_staff":["SFX",0,.23,.3],
 	"swing_greatsword":["SFX",0,.28,.5], "swing_greataxe":["SFX",0,.30,.5], "swing_maul":["SFX",0,.32,.5],
@@ -125,7 +126,7 @@ static func production_event_streams(event_name: String) -> Array[AudioStreamWAV
 	var result: Array[AudioStreamWAV] = []
 	if not EVENT_SPECS.has(event_name): return result
 	var count := variant_count(event_name)
-	var source_event: String=event_name
+	var source_event: String="home_page" if event_name=="archive_page" else event_name
 	for index in range(count):
 		var path := PRODUCTION_ROOT + "sfx/%s_%02d.wav" % [source_event,index+1]
 		if not ResourceLoader.exists(path):

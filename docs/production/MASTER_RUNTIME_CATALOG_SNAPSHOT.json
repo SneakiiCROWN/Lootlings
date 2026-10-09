@@ -792,6 +792,12 @@
   "audio_manager.gd": {
     "constants": {
       "BASE_EVENT_SPECS": {
+        "archive_page": [
+          "UI",
+          0,
+          0.1,
+          0.1
+        ],
         "boss_hit": [
           "SFX",
           62.0,
@@ -1258,7 +1264,7 @@
       "make_ambient_loop",
       "_exit_tree"
     ],
-    "source_sha256": "6cfcd64185af7ef73908f865c061b5e162bf8c5679f27b267628c3dd7551fcef"
+    "source_sha256": "a8de536f334fec8fe4dd11877a93e4012237c3964b5efd05a55d4b3b124536d9"
   },
   "authored_pose_manifest.gd": {
     "constants": {
@@ -4400,7 +4406,7 @@
       "recover_delivery",
       "collection_text"
     ],
-    "source_sha256": "37b46bedd83b99640b7348b6f11be3944e36ae30b5bf931ab300ba6f2dedc935"
+    "source_sha256": "d6313001329ca5ad569acf8bad69e65c1eb08038e15df5de324d8114b5fbdae8"
   },
   "field_notes_catalog.gd": {
     "constants": {
@@ -4945,7 +4951,7 @@
       "refresh_selection_styles",
       "restore_phase4_selection"
     ],
-    "source_sha256": "40fadebcf203fd7550bc507e36b847a294910205f8f4e0c32d26c9d4676cb1cc"
+    "source_sha256": "24c5558f905b44518e64a3b119eca3857dd797988559ede10d2fa55e216ab4ad"
   },
   "home_catalog.gd": {
     "constants": {

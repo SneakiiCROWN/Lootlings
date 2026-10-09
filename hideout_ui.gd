@@ -506,6 +506,8 @@ func show_phase4(mode: String) -> void:
 
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
+	var delivery_notice: String=phase4_message
+	phase4_action.visible=true; track_button.visible=true
 	phase4_selected = str(phase4_selections.get(phase4_mode,"")); track_button.disabled=true; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
 	phase4_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").paper() if phase4_mode=="archive" else preload("res://station_presentation.gd").metal())
 	phase4_detail.add_theme_color_override("default_color",Color("#382e32") if phase4_mode=="archive" else Color("#e7edff"))
@@ -517,8 +519,9 @@ func refresh_phase4() -> void:
 		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege"]:
 			var button := make_button(phase4_list,"",Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
 			button.set_meta("paper_selection",true)
+			button.set_meta("ui_sound","archive_page")
 			preload("res://station_presentation.gd").paper_button(button)
-			var icon_name: String={"Mastery":"core","Characters":"gear_charm","Named gear":"gear_armour","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune"}[category]
+			var icon_name: String={"Mastery":"core","Characters":"res://art/sprites/relic_beast_base.png","Named gear":"res://art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune"}[category]
 			# Use verified canonical icons, with all decorative children ignoring touch.
 			if icon_name=="core": icon_name="currency_star_shard"
 			if icon_name=="gear_weapon": icon_name="res://art/sprites/weapons/vanguard_hammer.png"
@@ -530,13 +533,17 @@ func refresh_phase4() -> void:
 				phase4_selections[phase4_mode]=category
 				refresh_selection_styles(phase4_list,category)
 				if category=="Field discoveries": last_home_facts.event="archive_discovery"
-				phase4_detail.text = expedition_progress.collection_text()
+				phase4_detail.text = expedition_progress.collection_text(category)
 				if category == "Relic Siege" and endgame_progress != null:
 					phase4_detail.text="Highest round %d • best score %d\nRootglass Vault clears %d\n%s\nRound 10: extraction. Round 20+: Crownroot chase.\nOwned gear, mastery and discoveries survive defeat." % [endgame_progress.data.highest,endgame_progress.data.best_score,endgame_progress.data.dungeon_clears,endgame_progress.target_text()]
 					var owned_red: bool=current_inventory!=null and (current_inventory.equipped_item("Weapon").get("id","")=="gravebloom_staff" or current_inventory.stash.any(func(item): return item.id=="gravebloom_staff"))
 					phase4_detail.text+="\nGravebloom Staff: "+("OWNED" if owned_red else "TARGET AVAILABLE")
 				if category == "Characters":
-					phase4_detail.text = ""
+					phase4_detail.text = "LOOTLINGS\n\n"
+					for id in LootlingCatalog.ENTRIES:
+						var actor: Dictionary=LootlingCatalog.ENTRIES[id]
+						phase4_detail.text += "%s\n%s\n%s\n\n" % [actor.display_name,actor.personality,actor.lore]
+					phase4_detail.text += "WANDERERS\n\n"
 					for id in Phase4.HUMANS:
 						var actor: Dictionary = Phase4.HUMANS[id]
 						phase4_detail.text += "%s • %s\n%s\nAffinity: %s. Every weapon is welcome.\nMastery: %s\n\n" % [str(id).capitalize().replace("_"," "),actor.role,actor.bio,actor.affinity,actor.mastery]
@@ -545,9 +552,9 @@ func refresh_phase4() -> void:
 					for source in Phase4.ITEMS:
 						var found: bool = expedition_progress.data.seen.has("item:"+str(source.id))
 						var pieces: int = int(expedition_progress.data.fragments.get(source.id,0))
-						phase4_detail.text += "%s • %s\n" % [str(source.name) if found or pieces > 0 else "???", "collected" if found else "blueprint %d/3" % pieces]
+						phase4_detail.text += "%s • %s\n" % [str(source.name) if found or pieces > 0 else "Undiscovered gear", "collected" if found else "blueprint %d/3" % pieces]
 			)
-		phase4_action.text = "EXPLORE TO DISCOVER"; restore_phase4_selection(); return
+		phase4_action.visible=false; track_button.visible=false; restore_phase4_selection(); return
 	var entries: Array = Phase4.ITEMS if phase4_mode == "blueprints" else CampaignSystem.ORDER
 	for entry in entries:
 		var id: String = str(entry.id) if entry is Dictionary else str(entry)
@@ -567,21 +574,27 @@ func refresh_phase4() -> void:
 		var caption:=make_label(button,text,14,Rect2(90,8,306,72),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff"))
 		caption.name="RecordCaption"; caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.set_meta("selection_id",id)
+		button.set_meta("gesture_release_owned",true)
 		button.pressed.connect(func():
 			phase4_selections[phase4_mode]=id
 			refresh_selection_styles(phase4_list,id)
 			phase4_selected = id; track_button.disabled=phase4_mode!="blueprints"; phase4_selected_msec = Time.get_ticks_msec()
 			if phase4_mode == "blueprints":
 				phase4_detail.text = "%s\n%s\n\nSource: %s bosses/minibosses; regional loot also drops directly.\nForge: 12 %s + one boss seal.\nOwned: %d material / %d seals. Recipe fragments %d/3.\nRare gear • keeps its named behaviour." % [entry.name,entry.desc,CampaignSystem.title(region),Phase4.FARMS[region].material,int(expedition_progress.data.materials.get(region,0)),int(expedition_progress.data.boss_parts.get(region,0)),pieces]
-				phase4_action.text = "FORGE %s" % str(entry.name).to_upper()
+				phase4_action.text = "CRAFT RARE GEAR"
+				if pieces < 3: phase4_action.text="NEED %d FRAGMENTS" % (3-pieces)
+				elif int(expedition_progress.data.materials.get(region,0)) < 12: phase4_action.text="NEED %d MATERIAL" % (12-int(expedition_progress.data.materials.get(region,0)))
+				elif int(expedition_progress.data.boss_parts.get(region,0)) < 1: phase4_action.text="NEED A BOSS SEAL"
+				elif current_inventory.stash.size() >= current_inventory.stash_capacity: phase4_action.text="STASH FULL"
 				phase4_action.disabled = pieces < 3 or int(expedition_progress.data.materials.get(region,0)) < 12 or int(expedition_progress.data.boss_parts.get(region,0)) < 1 or current_inventory.stash.size() >= current_inventory.stash_capacity
 			else:
 				var current: Dictionary = expedition_progress.job(region)
 				phase4_detail.text = "%s\n%s • %d / %d\nReturn anytime. No expiry.\nReward: 6 %s + one local blueprint fragment." % [CampaignSystem.title(region),current.name,current.progress,current.target,Phase4.FARMS[region].material]
-				phase4_action.text = "CLAIM BOUNTY"; phase4_action.disabled = current.progress < current.target
+				phase4_action.text = "CLAIM BOUNTY" if current.progress >= current.target else "%d MORE TO CLAIM" % (current.target-current.progress); phase4_action.disabled = current.progress < current.target
 		)
 
 	restore_phase4_selection()
+	if not delivery_notice.is_empty():phase4_detail.text=delivery_notice+"\n\n"+phase4_detail.text
 
 func build_campaign() -> void:
 	campaign_content=Control.new(); campaign_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); campaign_content.visible=false; add_child(campaign_content)
@@ -597,7 +610,9 @@ func build_campaign() -> void:
 	campaign_list=VBoxContainer.new(); campaign_list.custom_minimum_size.x=408; campaign_list.add_theme_constant_override("separation",10); scroll.add_child(campaign_list)
 	var patrol:=make_button(campaign_content,"PATROLS: SOLO",Rect2(24,761,432,48),Color("#172442"),Color("#7087ae"),13)
 	patrol.pressed.connect(func(): group_patrols_enabled=not group_patrols_enabled; patrol.text="PATROLS: GROUPS" if group_patrols_enabled else "PATROLS: SOLO"; group_patrols_changed.emit(group_patrols_enabled))
+	var region_veil:=ColorRect.new(); region_veil.name="RegionVeil"; region_veil.color=Color("#070c1cba"); region_veil.size=Vector2(480,854); region_veil.mouse_filter=Control.MOUSE_FILTER_STOP; region_veil.z_index=19; region_veil.visible=false; campaign_content.add_child(region_veil)
 	region_sheet=make_panel(campaign_content,Rect2(20,432,440,393),Color("#10182bfa"),Color("#d8bd7b")); region_sheet.z_index=20; region_sheet.visible=false
+	region_sheet.visibility_changed.connect(func():region_veil.visible=region_sheet.visible)
 	region_art=LootlingsUI.add_icon(region_sheet,Rect2(22,62,396,104),"res://art/backgrounds/treasure_ruins_arena.png")
 	region_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; region_art.clip_contents=true
 	region_detail=LootlingsUI.rich_label(region_sheet,Rect2(22,179,396,122),17,Color("#e7edff")); region_detail.scroll_active=true
@@ -642,6 +657,7 @@ func show_campaign() -> void:
 	for index in range(tier_buttons.size()):
 		var rank_value: int = expedition_progress.rank() if expedition_progress != null else 1
 		tier_buttons[index].disabled = rank_value < int(Phase4.TIERS[index].rank)
+		tier_buttons[index].text = str(Phase4.TIERS[index].name)+( "\nRank %d" % int(Phase4.TIERS[index].rank) if tier_buttons[index].disabled else "")
 		tier_buttons[index].tooltip_text = str(Phase4.TIERS[index].text)+" • Relic Rank %d" % int(Phase4.TIERS[index].rank)
 		apply_display_button_style(tier_buttons[index],Color("#d4ad65"),selected_tier == index)
 	if dungeon_start_button != null:
@@ -666,12 +682,15 @@ func show_campaign() -> void:
 			if tracked_here: target_name=ItemCatalog.definition(tracked).name
 		var detail := "Farm %s • hunt %s\n%s" % [farm.material,target_name,Phase4.TIERS[selected_tier].text]
 		var status := "RETURN TO FARM" if campaign != null and id in campaign.completed else "EXPEDITION" if available else "LOCKED"
+		if not available:
+			var previous_index:int=CampaignSystem.ORDER.find(id)-1
+			status="Clear %s to unlock" % CampaignSystem.title(CampaignSystem.ORDER[maxi(0,previous_index)])
 		if tracked_here: status="★ TRACKED SOURCE • "+status
 		var button := make_button(campaign_list, "", Rect2(0, 0, 408, 104), Color("#172442"), Color("#d4ad65") if available else Color("#697085"), 14)
 		button.custom_minimum_size = Vector2(408, 104)
 		var preview:=TextureRect.new(); preview.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; preview.texture=CampaignSystem.zone_for(id,1).background; preview.position=Vector2(10,10); preview.size=Vector2(66,68); preview.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; preview.mouse_filter=Control.MOUSE_FILTER_IGNORE; preview.clip_contents=true; button.add_child(preview)
 		make_label(button,CampaignSystem.title(id),14,Rect2(88,13,302,25),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6a0") if available else Color("#91a3c2")).mouse_filter=Control.MOUSE_FILTER_IGNORE
-		make_label(button,"%s • %s" % [farm.material,"★ TRACKED" if tracked_here else status],12,Rect2(88,42,302,29),HORIZONTAL_ALIGNMENT_LEFT,Color("#bacbe0")).mouse_filter=Control.MOUSE_FILTER_IGNORE
+		make_label(button,"%s • %s" % [farm.material,"★ TRACKED" if tracked_here else status],12,Rect2(88,39,302,36),HORIZONTAL_ALIGNMENT_LEFT,Color("#bacbe0")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 		var loot_hint: String=str(preload("res://world_content_catalog.gd").FUTURE_ZONES.get(id,{}).get("loot","steel / relics / regional blueprints"))
 		make_label(button,loot_hint,12,Rect2(88,74,302,23),HORIZONTAL_ALIGNMENT_LEFT,Color("#a6d2c3")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 		button.set_meta("gesture_release_owned",true)
@@ -679,10 +698,12 @@ func show_campaign() -> void:
 		apply_display_button_style(button,Color("#d4ad65") if available else Color("#697085"),id==selected_region_id)
 		button.add_theme_stylebox_override("disabled", button.get_theme_stylebox("normal"))
 		button.add_theme_color_override("font_disabled_color", Color("#91a3c2"))
-		button.disabled = not available
+		button.disabled = false
 		button.pressed.connect(func():
 			selected_region_id=id
 			refresh_selection_styles(campaign_list,id)
+			region_depart.disabled=not available
+			region_depart.text="DEPART" if available else "CLEAR THE PREVIOUS REGION"
 			region_sheet.visible=true; region_art.texture=CampaignSystem.zone_for(id,1).background; region_detail.text="[font_size=23]%s[/font_size]\n\n%s\n\n%s\n%s" % [CampaignSystem.title(id),WorldStory.region_line(id,0),detail,status]
 			for callback in region_depart.pressed.get_connections(): region_depart.pressed.disconnect(callback.callable)
 			region_depart.pressed.connect(func(): region_sheet.visible=false; campaign_requested.emit(id))
@@ -708,11 +729,13 @@ func refresh_forge() -> void:
 	for weapon_type in ForgeSystem.WeaponCatalog.STARTERS:
 		var data := ForgeSystem.WeaponCatalog.definition(weapon_type)
 		var button := make_forge_card(ForgeSystem.WeaponCatalog.starter(weapon_type), "MAKE %s\n150 Gold + 6 Scrap" % str(data.name).to_upper(), Color("#8bbedb"))
+		button.set_meta("selection_id","recipe:"+str(weapon_type))
 		button.pressed.connect(select_forge_recipe.bind(weapon_type))
 	select_forge_weapon(-1)
 
 func select_forge_recipe(weapon_type: String) -> void:
 	forge_recipe = weapon_type
+	refresh_selection_styles(forge_list,"recipe:"+weapon_type)
 	forge_armed = false
 	var item := ForgeSystem.WeaponCatalog.starter(weapon_type)
 	var description: String = str(item.desc).replace(" TEMP ART: shared class weapon.", "")
@@ -720,15 +743,20 @@ func select_forge_recipe(weapon_type: String) -> void:
 	forge_detail.add_theme_font_size_override("font_size", 17)
 	forge_confirm.text = "MAKE • STORE IN STASH"
 	forge_confirm.disabled = gold < 150 or current_inventory.scrap < 6 or current_inventory.stash.size() >= current_inventory.stash_capacity
+	if current_inventory.stash.size() >= current_inventory.stash_capacity:forge_confirm.text="STASH FULL • MAKE ROOM"
+	elif gold<150:forge_confirm.text="NEED %d MORE GOLD" % (150-gold)
+	elif current_inventory.scrap<6:forge_confirm.text="NEED %d MORE SCRAP" % (6-current_inventory.scrap)
 
 func add_forge_entry(item: Dictionary, index: int) -> void:
 	var label := "%s • %s\n%s / 3  •  %s" % ["EQUIPPED" if index == -1 else "STASH", item.get("name", "Weapon"), ForgeSystem.stage(item) + 1, item.get("rarity", "COMMON")]
 	var button := make_forge_card(item, label, ItemCatalog.rarity_color(item.get("rarity", "COMMON")))
+	button.set_meta("selection_id","owned:"+str(index))
 	button.pressed.connect(select_forge_weapon.bind(index))
 
 func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
 	var button := make_button(forge_list, "", Rect2(0, 0, 398, 72), Color("#172442"), accent, 15)
 	button.custom_minimum_size = Vector2(398, 72)
+	button.set_meta("gesture_release_owned",true)
 	for state in ["normal","hover","pressed","focus"]:
 		var plate:=preload("res://station_presentation.gd").metal(); plate.border_color=accent.darkened(.25)
 		if state in ["hover","focus"]: plate.bg_color=Color("#2e3e40")
@@ -749,14 +777,18 @@ func select_forge_weapon(index: int) -> void:
 	forge_recipe = ""
 	forge_detail.add_theme_font_size_override("font_size", 17)
 	forge_index = index
+	refresh_selection_styles(forge_list,"owned:"+str(index))
 	forge_armed = false
 	var item: Dictionary = current_inventory.equipped_item("Weapon") if index == -1 else current_inventory.stash[index]
 	var next := ForgeSystem.offer(item)
 	forge_confirm.text = "EVOLVE"
 	forge_confirm.disabled = next.is_empty() or gold < int(next.get("gold", 0)) or current_inventory.scrap < int(next.get("scrap", 0))
 	if next.is_empty():
+		forge_confirm.text="FULLY EVOLVED" if ForgeSystem.stage(item)==2 else "NO EVOLUTION AVAILABLE"
 		forge_detail.text = "%s\n%s\n%s" % [item.get("name", "Weapon"), "Fully evolved" if ForgeSystem.stage(item) == 2 else "No evolution line for this weapon yet", ForgeSystem.WeaponCatalog.evolution_text(str(item.get("weapon_type", "")), ForgeSystem.stage(item))]
 	else:
+		if gold<int(next.gold):forge_confirm.text="NEED %d MORE GOLD" % (int(next.gold)-gold)
+		elif current_inventory.scrap<int(next.scrap):forge_confirm.text="NEED %d MORE SCRAP" % (int(next.scrap)-current_inventory.scrap)
 		forge_detail.text = "%s\n+4%% damage • permanent\n%s\n\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [next.name, next.behaviour, next.gold, next.scrap, gold, current_inventory.scrap]
 
 func build_upgrades() -> void:
@@ -1018,6 +1050,7 @@ func refresh_lore() -> void:
 	cycle_lore(0)
 
 func cycle_lore(direction: int) -> void:
+	if direction!=0:ui_event.emit("archive_page")
 	if lore_entries.is_empty():
 		lore_art.texture=null; lore_heading.text="No recovered pages"
 		lore_detail.text="Bring this story home from your travels."
@@ -1493,14 +1526,16 @@ func build_transition_overlay() -> void:
 	add_child(presentation)
 
 func build_dialogue_overlay() -> void:
+	var speech_veil:=ColorRect.new(); speech_veil.name="DialogueVeil"; speech_veil.color=Color("#050b171c"); speech_veil.size=Vector2(480,854); speech_veil.z_index=79; speech_veil.mouse_filter=Control.MOUSE_FILTER_STOP; speech_veil.visible=false; add_child(speech_veil)
 	speech_panel=make_panel(self,Rect2(20,599,440,224),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
+	speech_panel.visibility_changed.connect(func():speech_veil.visible=speech_panel.visible)
 	speech_portrait=TextureRect.new(); speech_portrait.position=Vector2(14,14); speech_portrait.size=Vector2(54,64); speech_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; speech_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; speech_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; speech_panel.add_child(speech_portrait)
 	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,146),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	make_button(speech_panel,"×",Rect2(386,6,48,48),Color("#172442"),Color("#7087ae"),22).pressed.connect(dismiss_dialogue)
 	speech_role=make_button(speech_panel,"",Rect2(82,168,304,48),Color("#293a46"),Color("#d8bd7b"),14)
 	speech_role.pressed.connect(func():
 		match speech_speaker:
-			"Salvager": show_forge()
+			"Salvager": show_forge() if current_screen=="forge" else show_shop()
 			"Relic Keeper": show_upgrades()
 			"Archivist": show_phase4("archive")
 			_: profile_requested.emit(); dismiss_dialogue()
@@ -1560,7 +1595,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	speech_label.text=voice_name+"
 "+line
 	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile,"curious"))
-	speech_role.text={"Salvager":"OPEN FORGE  ›","Relic Keeper":"OPEN SHRINE  ›","Archivist":"OPEN ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
+	speech_role.text={"Salvager":"OPEN FORGE  ›" if current_screen=="forge" else "OPEN SHOP  ›","Relic Keeper":"OPEN SHRINE  ›","Archivist":"OPEN ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
 	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE
 	speech_visible_timer=0.0
 
@@ -1885,7 +1920,7 @@ func wire_press_feedback(button: Button) -> void:
 	button.pivot_offset = button.size * 0.5
 	button.button_down.connect(animate_press.bind(button))
 	button.button_up.connect(animate_release.bind(button))
-	button.pressed.connect(func(): ui_event.emit("ui_press"))
+	button.pressed.connect(func(): ui_event.emit(str(button.get_meta("ui_sound","ui_press"))))
 
 func animate_press(button: Button) -> void:
 	button.pivot_offset = button.size * 0.5

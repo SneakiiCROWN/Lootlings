@@ -1,0 +1,34 @@
+{
+  "base_checkpoint": "9e8eb45",
+  "version": "0.4.40-connected-services",
+  "android_code": 49,
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.40-connected-services.exe",
+      "bytes": 103136768,
+      "sha256": "0ba7ca8571e00fcbec84983991528bade06a32a9ecc6ec090d845dd32f49698a"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.40-connected-services.pck",
+      "bytes": 194443268,
+      "sha256": "dce577d1381a260195a36669a88569d81341d24291461748484d234c1d06f999"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.40-connected-services-debug.apk",
+      "bytes": 216672137,
+      "sha256": "07273b6f3a76a8cb6a51fa9448d26eced047bc66dbe3e1414a8ca7261a971e07"
+    }
+  ],
+  "compiled_native_viewports": [
+    "1080x2340",
+    "1200x1920",
+    "1920x1080"
+  ],
+  "desktop_mouse_pass": true,
+  "player_loop_regression_pass": true,
+  "physical_android_validated": false,
+  "new_art_contracts_closed": 0,
+  "new_artist_files": 0,
+  "remaining_contracts": 3131,
+  "remaining_artist_files": 8172
+}
