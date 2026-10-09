@@ -1,0 +1,44 @@
+{
+  "region": "act_i",
+  "identity_id": "hoard_dragon",
+  "state": "windup",
+  "action": "COIN BREATH",
+  "facing": "left",
+  "asset_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_COIN_BREATH_windup_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "anchor": [
+    0.5,
+    1
+  ],
+  "content_rect": [
+    263,
+    581,
+    498,
+    411
+  ],
+  "native_pixel_scale": 0.42,
+  "source_reference": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
+  "source_sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
+  "asset_sha256": "79290a0023ecfc37fefde294f84b2d192238fd6221df7ac5c942d8abdc20e367",
+  "authored_source": "art/source/continuous_combat/hoard_dragon/named_left_v1.png",
+  "authored_source_sha256": "81690d9fb629ef0d9ca8aa96f5134666e1855600e4aaaf6868534832d761457e",
+  "authored_source_bounds": [
+    1025,
+    51,
+    1523,
+    462
+  ],
+  "production_status": "staged_canon_candidate",
+  "owner_approval": "Owner explicitly restored original winged four-legged canon on 2026-10-09 and authorized validated production; individual frame runtime acceptance requires native review.",
+  "native_validated": false,
+  "contract_slot_id": "pose:act_i:COIN BREATH windup:left:None",
+  "missing_states_remain_open": true,
+  "temporal_vfx": "separate runtime; no baked weapon, background, charge or impacts",
+  "source_quality": "Original connected sprite RGBA pixels exported within explicit independent pose window; transparent 1024 padding; no recolour, mirror, resample or board bodies.",
+  "native_qa": "pending",
+  "visual_acceptance": "pending native review",
+  "exported_source_pixels": 142284
+}

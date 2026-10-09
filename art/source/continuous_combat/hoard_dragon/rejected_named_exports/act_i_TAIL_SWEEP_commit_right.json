@@ -1,0 +1,44 @@
+{
+  "region": "act_i",
+  "identity_id": "hoard_dragon",
+  "state": "commit",
+  "action": "TAIL SWEEP",
+  "facing": "right",
+  "asset_path": "res://art/sprites/enemies/approved/hoard_dragon/act_i_TAIL_SWEEP_commit_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "anchor": [
+    0.5,
+    1
+  ],
+  "content_rect": [
+    263,
+    579,
+    497,
+    413
+  ],
+  "native_pixel_scale": 0.42,
+  "source_reference": "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png",
+  "source_sha256": "a1689ad8254ff269b0afdc7f63a6fe5514893c709918a0e3f741fe70b3091301",
+  "asset_sha256": "f43c0f2cfe096a73dd9ef1f9211681da41e403b11bfa33a4b248c5f3b4e1e29b",
+  "authored_source": "art/source/continuous_combat/hoard_dragon/named_right_v1.png",
+  "authored_source_sha256": "cd9945b2c5ce4e160209e195937881dbdff1373a560d648e96b9aa2e7770dc8b",
+  "authored_source_bounds": [
+    1017,
+    536,
+    1514,
+    949
+  ],
+  "production_status": "staged_canon_candidate",
+  "owner_approval": "Owner explicitly restored original winged four-legged canon on 2026-10-09 and authorized validated production; individual frame runtime acceptance requires native review.",
+  "native_validated": false,
+  "contract_slot_id": "pose:act_i:TAIL SWEEP commit:right:None",
+  "missing_states_remain_open": true,
+  "temporal_vfx": "separate runtime; no baked weapon, background, charge or impacts",
+  "source_quality": "Original connected sprite RGBA pixels exported within explicit independent pose window; transparent 1024 padding; no recolour, mirror, resample or board bodies.",
+  "native_qa": "pending",
+  "visual_acceptance": "pending native review",
+  "exported_source_pixels": 142413
+}

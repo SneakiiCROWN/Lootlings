@@ -125,7 +125,7 @@ static func production_event_streams(event_name: String) -> Array[AudioStreamWAV
 	var result: Array[AudioStreamWAV] = []
 	if not EVENT_SPECS.has(event_name): return result
 	var count := variant_count(event_name)
-	var source_event: String={"home_bench":"scrap","home_page":"menu_open"}.get(event_name,event_name)
+	var source_event: String=event_name
 	for index in range(count):
 		var path := PRODUCTION_ROOT + "sfx/%s_%02d.wav" % [source_event,index+1]
 		if not ResourceLoader.exists(path):

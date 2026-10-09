@@ -7267,6 +7267,46 @@
       "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
       "seconds": 0.62,
       "sha256": "67aa2ba810c5c186897366366a6e0f6aff40db775750f5ffe4ceed8da935342e"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\home_bench_01.wav",
+      "sources": [
+        {
+          "pack": "impact",
+          "file": "Audio\\impactWood_light_000.ogg",
+          "sha256": "eb45e35b4bed784d3f120de4afec4b0d6ac09d9e143cce8cfcb7d739e1b1f3c3",
+          "speed": 0.85
+        },
+        {
+          "pack": "rpg",
+          "file": "Audio\\cloth1.ogg",
+          "sha256": "ddb93a3671233f95da0e0b10367f082f7eb42fa6caaddcf776410aa8833c747d",
+          "speed": 0.9
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.35,
+      "sha256": "523552f0e0904213907384fccdff5dd5b686a414ed19f66ec3dfab3858a69822"
+    },
+    {
+      "asset": "art\\audio\\production\\sfx\\home_page_01.wav",
+      "sources": [
+        {
+          "pack": "rpg",
+          "file": "Audio\\bookFlip1.ogg",
+          "sha256": "fa81ac2fedc8c641661b87e349630a36c9800e795e0c800e029214efdbe26a7d",
+          "speed": 0.92
+        },
+        {
+          "pack": "rpg",
+          "file": "Audio\\cloth1.ogg",
+          "sha256": "ddb93a3671233f95da0e0b10367f082f7eb42fa6caaddcf776410aa8833c747d",
+          "speed": 0.9
+        }
+      ],
+      "design": "trim, mono downmix, speed/resample, layered delays, noise filtering, fade, saturation and peak -3.35 dBFS",
+      "seconds": 0.45,
+      "sha256": "e87ad348ede7d8cf53b0fbff60c083ee68f4c5f7bc4da0dd0fd6231ff352f066"
     }
   ],
   "superseded_reactions": [

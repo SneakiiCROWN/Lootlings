@@ -124,4 +124,7 @@ def main():
         p=OUT/'ambience'/f'{cue}.wav';p.parent.mkdir(exist_ok=True);sf.write(p,y,RATE,subtype='PCM_16')
     print(f'Built {len(records)} bounded recorded/designed cues and four original low-noise ambience loops')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    main()
+    from build_home_feedback import main as build_station_feedback
+    build_station_feedback()
