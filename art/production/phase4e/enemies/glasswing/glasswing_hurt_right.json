@@ -1,0 +1,39 @@
+{
+  "actor": "glasswing",
+  "state": "hurt",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_hurt_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    252,
+    752,
+    520,
+    240
+  ],
+  "native_pixel_scale": 0.28,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+  "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+  "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+  "authored_source_bounds": [
+    0,
+    784,
+    520,
+    1024
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:glasswing:hurt:right:None",
+  "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+  "native_qa": "mass-enemies-2ffda52cd4",
+  "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "asset_sha256": "13833643d475130a415a06a7df7f6e36d724d9925f0824ab7f9be6ca642fdaeb"
+}

@@ -1,0 +1,32 @@
+{
+  "base_checkpoint": "30a0bd2",
+  "version": "0.4.39-player-polish",
+  "android_code": 48,
+  "files": [
+    {
+      "path": "builds/windows/Lootlings-0.4.39-player-polish.exe",
+      "bytes": 103136768,
+      "sha256": "9eafe38343405aec5263453baa6ed9aa12e071fbf977cbc350b56dbdc75b8c43"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.39-player-polish.pck",
+      "bytes": 194440484,
+      "sha256": "10a5bd6464c468145e6d620c2752b1233928b3479cb4e99173b10d23d2a12df2"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.39-player-polish-debug.apk",
+      "bytes": 216668041,
+      "sha256": "07ef2d4a3c9f7466799f2025b12249f17898f18614aee41d65ed24b09b3d09b8"
+    }
+  ],
+  "compiled_pack_native_viewports": [
+    "1080x2340",
+    "1200x1920",
+    "1920x1080"
+  ],
+  "desktop_mouse_route_passed": true,
+  "physical_android_tested": false,
+  "commercial_release_ready": false,
+  "title_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "scope": "Connected player-route polish; full-game completion is not claimed"
+}

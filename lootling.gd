@@ -2892,7 +2892,7 @@ func play_rarity_audio(rarity: String) -> void:
 
 func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 	if equipped.is_empty():
-		return "[color=#8fa4ce]CURRENTLY EQUIPPED[/color]  Empty slot\n[color=#69e6b0]▲ EVERYTHING IS A GAIN[/color]"
+		return "[color=#8fa4ce]Currently equipped: empty slot[/color]\nEquipping adds this item’s effects:\n" + ItemCatalog.describe_headline_effects(found, 3)
 	var equipped_summary := ItemCatalog.describe_headline_effects(equipped, 1).replace("\n", "  •  ")
 	var result := "[color=#8fa4ce]CURRENTLY EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), equipped_summary]
 	var found_effects: Dictionary = found.get("effects", {})
@@ -2912,13 +2912,16 @@ func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 		var found_value := float(found_effects.get(key, 0.0))
 		var equipped_value := float(equipped_effects.get(key, 0.0))
 		var delta := found_value - equipped_value
-		if key == "attack_slow":
+		if key in ["attack_slow", "incoming_mult"]:
 			delta = -delta
 		if absf(delta) < 0.001:
 			continue
 		var gain := delta > 0.0
 		var arrow := "▲" if gain else "▼"
 		var change_color := "#69e6b0" if gain else "#ff7d88"
+		if key == "incoming_mult":
+			changes.append("[color=%s]%s %.0f%% %s damage taken[/color]" % [change_color,arrow,absf(delta)*100.0,"less" if gain else "more"])
+			continue
 		changes.append("[color=%s]%s %s[/color]" % [change_color, arrow, format_effect_delta(key, absf(delta)).replace("+", "-" if not gain else "+")])
 		if changes.size() >= 3:
 			break
@@ -3757,7 +3760,7 @@ func draw_background() -> void:
 	var plane_tint := Color("#17100c28") if current_zone_id == "emberworks" else Color("#09082230") if current_zone_id == "hoard_depths" else Color("#08122922")
 	draw_rect(Rect2(0, 182, 480, 382), plane_tint, true)
 	draw_rect(Rect2(0, 558, 480, 156), Color("#07102142"), true)
-	draw_line(Vector2(0, 514), Vector2(480, 514), Color(current_zone.accent, 0.38), 2)
+	# The approved painted floor provides the ground plane; no debug-like guide across actors.
 	draw_zone_ambient()
 
 func draw_zone_ambient() -> void:

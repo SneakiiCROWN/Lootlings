@@ -1,0 +1,39 @@
+{
+  "actor": "mossmaw",
+  "state": "hurt",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_hurt_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    252,
+    733,
+    520,
+    259
+  ],
+  "native_pixel_scale": 0.42,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+  "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+  "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+  "authored_source_bounds": [
+    0,
+    258,
+    520,
+    517
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:mossmaw:hurt:left:None",
+  "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+  "native_qa": "mass-enemies-2ffda52cd4",
+  "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "asset_sha256": "79753ae59c4f98e658691a09bc845725ba2dbe3da82a7482c0674d0d22aea8c7"
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "authority": "Registered approved Fen Sneak named identity panel; existing accepted right neutral retained",
+  "authority": "Registered approved named Fen Sneak, Mossmaw and Glasswing panels; retained accepted assets preserved",
   "entries": [
     {
       "actor": "fen_sneak",
@@ -496,6 +496,942 @@
       ],
       "blade_contact_review": "Authored paw holds fixed canonical curved blade; native slash contact and return to retained neutral passed.",
       "visual_acceptance": "Named canonical panel and accepted left family compared; five distinct right actions, paw/blade contact, alpha and ground placement reviewed in native phone/tablet/desktop captures. Retained right neutral unchanged."
+    },
+    {
+      "actor": "mossmaw",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        252,
+        734,
+        520,
+        258
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        0,
+        0,
+        520,
+        258
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:idle:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "fd0a509d2a661ed3620b1653283461ef6d1c90cd9b72e2fd7301f80188f58453"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        260,
+        734,
+        504,
+        258
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        520,
+        0,
+        1024,
+        258
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:role windup:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "66d234b172081ae7d497d2538ba7421951db62b9cef8903cd5ffb2aa809bd73b"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        734,
+        512,
+        258
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        1024,
+        0,
+        1536,
+        258
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:role commit:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "9a4e77dd009acd10f5ebf1a93e068be5699a09d2ff00e6c375aa6d54422cc5c0"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        252,
+        733,
+        520,
+        259
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        0,
+        258,
+        520,
+        517
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:hurt:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "79753ae59c4f98e658691a09bc845725ba2dbe3da82a7482c0674d0d22aea8c7"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        260,
+        733,
+        504,
+        259
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        520,
+        258,
+        1024,
+        517
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:recovery:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "acc80659c3bcb960ac33679f155ff61dd3c50f4c2266cbdd7985b529570a080e"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        733,
+        512,
+        259
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        1024,
+        258,
+        1536,
+        517
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:defeat:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "102dc58893aaf3332740963237281db0d23bc4359d7f6c0a55cf008afba53d66"
+    },
+    {
+      "actor": "glasswing",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        252,
+        725,
+        520,
+        267
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        0,
+        517,
+        520,
+        784
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:idle:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "40d00547918bb7170c88f4962cb765aad85edb593bd4332b9842273a7c17e3d0"
+    },
+    {
+      "actor": "glasswing",
+      "state": "role windup",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_role_windup_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        260,
+        725,
+        504,
+        267
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        520,
+        517,
+        1024,
+        784
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:role windup:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "988cc72a174bd974744ccda33cf4c42e547f5794f6024e37cda8613d61f9a85b"
+    },
+    {
+      "actor": "glasswing",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        725,
+        512,
+        267
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        1024,
+        517,
+        1536,
+        784
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:role commit:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "f70562335ff456ca4df118d23c323dcc08eace28622307214a5fb0befd5a7a54"
+    },
+    {
+      "actor": "glasswing",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        252,
+        752,
+        520,
+        240
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        0,
+        784,
+        520,
+        1024
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:hurt:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "13833643d475130a415a06a7df7f6e36d724d9925f0824ab7f9be6ca642fdaeb"
+    },
+    {
+      "actor": "glasswing",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        260,
+        752,
+        504,
+        240
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        520,
+        784,
+        1024,
+        1024
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:recovery:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "3bb5ef457bcc3ee116b526d344a0242f1aff29db97b16108a4fa5bd3fc2787a3"
+    },
+    {
+      "actor": "glasswing",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        752,
+        512,
+        240
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/mixed_family_v1.png",
+      "authored_source_sha256": "4879cec2bd9714178f7de1cb52b0fe0b8f043835c90de685c42538b977beabd6",
+      "authored_source_bounds": [
+        1024,
+        784,
+        1536,
+        1024
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:defeat:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "8189b7e2a0d8160167caed47ab21e1497805c88d46d8dcac6c711d902baefa0e"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        731,
+        512,
+        261
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        0,
+        0,
+        512,
+        261
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:idle:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "6765fba66e73fdc7b760fe69971de6c1a8d51386ea9aaa407a388c9b5d28b502"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "role windup",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_role_windup_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        731,
+        512,
+        261
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        512,
+        0,
+        1024,
+        261
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:role windup:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "f2d790b5af73b94901df6958ab906e81b85b9cc251eab43e54f7e38174aad6ec"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        731,
+        512,
+        261
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        1024,
+        0,
+        1536,
+        261
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:role commit:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "a4bb4fd55960aad5ba9fc6777f4d5e0e1aac7b0818d76680b472b5b966c024b7"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        741,
+        512,
+        251
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        0,
+        261,
+        512,
+        512
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:hurt:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "9328f3fe37b75c45e39549a828d78844d33c9a2c343dbaa4a3ed338ee52f1aae"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        741,
+        512,
+        251
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        512,
+        261,
+        1024,
+        512
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:recovery:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "48c51eb32dc7b87ee69fb5b648fd4e3e719bbcfb708128b3e3385ad0047068dd"
+    },
+    {
+      "actor": "mossmaw",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/mossmaw/mossmaw_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        741,
+        512,
+        251
+      ],
+      "native_pixel_scale": 0.42,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        1024,
+        261,
+        1536,
+        512
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:mossmaw:defeat:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "41bf6ca4522cfadacee833b76d97c204dee652c235f20ea62139acb2c6429dba"
+    },
+    {
+      "actor": "glasswing",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        728,
+        512,
+        264
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        0,
+        512,
+        512,
+        776
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:idle:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "88ac40b05d6b7cfd97a25ff99fcda53ba5c6cff049184b56db603f3c9e31adfe"
+    },
+    {
+      "actor": "glasswing",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        728,
+        512,
+        264
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        512,
+        512,
+        1024,
+        776
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:role windup:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "d33e52aa456b0746134a7e965f339a36bee8254b9b76fa790cfdf7cab32368f2"
+    },
+    {
+      "actor": "glasswing",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        728,
+        512,
+        264
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        1024,
+        512,
+        1536,
+        776
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:hurt:left:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "f1b9c38d45090857134cbf985f23464271ed5ed023446626c298e3858a7a5db4"
+    },
+    {
+      "actor": "glasswing",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        744,
+        512,
+        248
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        0,
+        776,
+        512,
+        1024
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:role commit:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "94dbbf094e21375833aee6cafea4360ce4be4489c3b142ab01e842d5be7fed35"
+    },
+    {
+      "actor": "glasswing",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        744,
+        512,
+        248
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        512,
+        776,
+        1024,
+        1024
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:recovery:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "06dfcc0077ac25adf8c5bceaa36af0c72130302c906d1e2ec1de025ee57e0e86"
+    },
+    {
+      "actor": "glasswing",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/glasswing/glasswing_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        256,
+        744,
+        512,
+        248
+      ],
+      "native_pixel_scale": 0.28,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/mass_world_combat/enemies/complement_v1.png",
+      "authored_source_sha256": "398e8af6b55954a27a0566ada85b920cfb1a69163d0757e05f455d6e6a2fb905",
+      "authored_source_bounds": [
+        1024,
+        776,
+        1536,
+        1024
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:glasswing:defeat:right:None",
+      "source_quality": "Exact original RGBA cell pixels; no mirror, alpha edit or resampling. Padded on a transparent 1024 canvas.",
+      "native_qa": "mass-enemies-2ffda52cd4",
+      "visual_acceptance": "Compared to dedicated named Mossmaw/Glasswing panels; full raw RGBA sheets composited over opaque background, actual native phone/tablet/desktop state, facing, attack and grounding reviewed. No added anatomy; exact state/view pixels; no mirror.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "asset_sha256": "a60589e6265057da2fdddc0c7ad208a96c0082e3aba360a87a7ed718018b33c2"
     }
   ]
 }

@@ -51,6 +51,9 @@ func configure(target) -> void:
 	machine=preload("res://relic_machine.gd").new(); machine.position=Vector2(54,126); machine.size=Vector2(316,208); machine.visible=false; panel.add_child(machine)
 	machine.locked.connect(lock_spin); machine.completed.connect(finish_spin); machine.cue.connect(game.play_audio_event)
 	dimmer=ColorRect.new(); dimmer.color=Color(0.01,.02,.05,.74); dimmer.position=Vector2.ZERO; dimmer.size=Vector2(480,854); dimmer.z_index=79; dimmer.mouse_filter=Control.MOUSE_FILTER_STOP; dimmer.visible=false; panel.get_parent().add_child(dimmer)
+	# Control hit testing follows tree order, independently of visual z_index.
+	# Keep the blocking world veil behind the machine controls for real mouse clicks.
+	panel.get_parent().move_child(dimmer,panel.get_index())
 	chase=game.make_label(panel,"",13,Rect2(24,92,376,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ff9baa")); chase.visible=false
 	chase_bar=preload("res://relic_chase_meter.gd").new(); chase_bar.position=Vector2(24,132); chase_bar.size=Vector2(376,8); chase_bar.max_value=Catalog.RED_TARGET*SpinCatalog.SPARK_TARGET; panel.add_child(chase_bar); chase_bar.visible=false
 	pool_panel=game.make_panel(Rect2(28,110,424,690),Color("#081226")); pool_panel.z_index=82; pool_panel.visible=false
@@ -285,7 +288,7 @@ func finish(victory: bool) -> void:
 	if victory and (not siege or extracted):progress.earn_spin("extraction")
 	spinner_button.disabled=game.total_kills<10 and int(progress.data.get("free_spins",0))==0
 	spinner_button.text="FREE EARNED SPIN / NOW OR LATER" if int(progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
-	game.result_summary.text+="\n\nEARNED SPINS: %d stored. Spin now or later at Home.\nFree spins never charge Scrip." % int(progress.data.get("free_spins",0))
+	game.result_summary.text+="\n\nEARNED SPINS: %d stored. Spin now or later at the Hub.\nFree spins never charge Scrip." % int(progress.data.get("free_spins",0))
 	if not red_drop.is_empty(): call_deferred("present_red_drop",red_drop,delivery)
 func present_red_drop(reward: Dictionary, delivery: String) -> void:
 	if game.state!="result": return
@@ -313,21 +316,25 @@ func show_spinner(message: String="") -> void:
 	buttons[1].disabled=false
 	buttons[0].disabled=not can_spin();buttons[0].text=spin_text(false)
 	top_line.text=wallet_text()
-	buttons[1].text="LATER / HOME" if spinner_from_home else "LATER / RESULTS" if not spinner_from_modes else "LATER / MODES"
+	buttons[1].text="‹ HUB" if spinner_from_home else "LATER / RESULTS" if not spinner_from_modes else "LATER / MODES"
 
 func can_spin() -> bool:
 	if not progress.data.pending.is_empty():return false
 	if int(progress.data.get("free_spins",0))>0:return true
 	return not spinner_from_home and not spinner_from_modes and progress.data.spins<3 and progress.data.spin_wallet>=Catalog.SPIN_COSTS[mini(2,progress.data.spins)]
 func spin_text(quick: bool) -> String:
+	if not progress.data.pending.is_empty():return "REWARD DELIVERY PENDING"
 	if int(progress.data.get("free_spins",0))>0:return "FREE SPIN / %d EARNED" % progress.data.free_spins
+	if spinner_from_home or spinner_from_modes:return "EARN SPINS ON EXPEDITIONS"
 	return "SPINS COMPLETE" if progress.data.spins>=3 else "%s / %d %s" % ["FAST SPIN" if quick else "SPIN",Catalog.SPIN_COSTS[progress.data.spins],"EMBERS" if siege else "SCRIP"]
 func wallet_text() -> String:
 	return "%d FREE EARNED / %d %s" % [int(progress.data.get("free_spins",0)),progress.data.spin_wallet,"EMBERS" if siege else "SCRIP"]
 func show_earned_spinner() -> void:
 	if game.state!="hideout":return
 	spinner_from_home=true;spinner_from_modes=false;game.state="result";show_spinner()
-	spinner_from_home=true;buttons[1].text="LATER / HOME";buttons[0].disabled=not can_spin()
+	spinner_from_home=true;buttons[1].text="‹ HUB";buttons[0].disabled=not can_spin()
+	if not can_spin() and progress.data.pending.is_empty():
+		detail.text="[center][b]Your earned spins are stored here.[/b]\nEarn them from bosses, elites, 30 kills, secrets or extraction.\nReturn to the Hub and enter the Gate. No currency is charged.[/center]"
 
 func reset() -> void:
 	spinner_from_home=false;spinner_from_modes=false

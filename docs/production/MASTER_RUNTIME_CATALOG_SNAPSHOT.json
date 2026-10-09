@@ -3312,7 +3312,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "fb6f09138dff2bdf0819dd966674082fc4ec2a1b2d44247fe98b78a96d467b84"
+    "source_sha256": "80ef0740261e2e961b6fe9460abe6e7157a1105b72b82d07aec4b3e98dcf9970"
   },
   "debug_panel.gd": {
     "constants": {},
@@ -4945,7 +4945,7 @@
       "refresh_selection_styles",
       "restore_phase4_selection"
     ],
-    "source_sha256": "a5ec7a1c5cd3e9bce5aa3a928e9d5d4552c88290f5b3386da82c16c263b8afb2"
+    "source_sha256": "40fadebcf203fd7550bc507e36b847a294910205f8f4e0c32d26c9d4676cb1cc"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5255,7 +5255,7 @@
       "finish_details",
       "refresh"
     ],
-    "source_sha256": "a7f6d33717e6585499e92d222b67c8bcd1961d0d4ee91ea0363431659e820e2a"
+    "source_sha256": "9283117c22fac7d37d4aff15af3880d073ddc4e669156b7f28924b89c03d7915"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6901,7 +6901,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "c59f18a5b2563606bc91e30ec91a24395f65774d6964211ddbf1daec3e3a9856"
+    "source_sha256": "888ca376d86222cb143ec5ced1afe136db5575f1c5852a9a417da6bcdaeea328"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7157,9 +7157,10 @@
       "add_divider",
       "apply_rarity_card",
       "rarity_card_style",
-      "apply_selection"
+      "apply_selection",
+      "inset_style"
     ],
-    "source_sha256": "634fe133b753998139b76ac5cc4afe6738a631ef9e87ea1a8f0302a6950eae76"
+    "source_sha256": "c00b8d74677b207b000938eac2d405f1511546c4b7a591cdb1803ddb67d8210e"
   },
   "meta_store.gd": {
     "constants": {},
@@ -8545,7 +8546,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "ef1a0cdc199c220e1c5c1b7396b2cef35b63b32a82dbaaafcb14f532ab5460c2"
+    "source_sha256": "01ed3eacb3a62c19a5fa2acb0901d796a45cde02e7954f2a47dbe9ba8487a863"
   },
   "reward_reveal_catalog.gd": {
     "constants": {

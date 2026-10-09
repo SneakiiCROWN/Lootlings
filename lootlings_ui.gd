@@ -50,9 +50,9 @@ static func item_texture(item: Dictionary) -> Texture2D:
 		if ResourceLoader.exists(path): return icon(path)
 	if str(item.get("slot",""))=="Relic" and CANON_RELIC_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RELIC_ART[id])
 	if str(item.get("slot",""))=="Rune" and CANON_RUNE_ART.has(id): return icon("res://art/production/phase4e/items/%s.png" % CANON_RUNE_ART[id])
-	if str(item.get("slot",""))=="Rune" and RUNE_GLYPHS.has(id): return icon(RUNE_GLYPHS[id])
 	if ITEM_ART.has(id):
 		return icon("res://art/sprites/items/beta/%s.png" % ITEM_ART[id])
+	if str(item.get("slot",""))=="Rune" and RUNE_GLYPHS.has(id): return icon(RUNE_GLYPHS[id])
 	var slot := str(item.get("slot", "Relic"))
 	if slot=="Rune": return icon("rune_arcane")
 	return icon("gear_%s" % ("armour" if slot == "Armour" else "rune" if slot == "Rune" else "charm"))
@@ -254,15 +254,17 @@ static func apply_selection(button: Button, selected: bool) -> void:
 		if not selected and button.has_meta("rarity_accent"):
 			style = rarity_card_style(button.get_meta("rarity_accent"), state_name)
 		if button.has_meta("card_text_inset"):
-			var original := style
-			style = original.duplicate()
-			# Custom nine-patch fields are not exported Resource properties.
-			# Preserve them when reserving a per-card text lane.
-			if original is TextureSkin:
-				for property in ["texture","protected_margin","ornament","compact_texture","source_scale","tint"]:
-					style.set(property,original.get(property))
-			style.content_margin_left = float(button.get_meta("card_text_inset"))
+			style = inset_style(style,float(button.get_meta("card_text_inset")))
 		button.add_theme_stylebox_override(state_name, style)
 	var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#d1dff6")
 	focus.set_border_width_all(2);focus.set_corner_radius_all(10)
 	button.add_theme_stylebox_override("focus",focus)
+
+static func inset_style(original: StyleBox, left: float) -> StyleBox:
+	var style := original.duplicate() as StyleBox
+	# Script-backed nine-patch fields are not exported Resource properties.
+	if original is TextureSkin:
+		for property in ["texture","protected_margin","ornament","compact_texture","source_scale","tint"]:
+			style.set(property,original.get(property))
+	style.content_margin_left=left
+	return style

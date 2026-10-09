@@ -1,19 +1,19 @@
 {
-  "installed_contracts": 119,
-  "installed_artist_files": 275,
+  "installed_contracts": 143,
+  "installed_artist_files": 323,
   "installed_by_category": {
     "playable_lootlings": 35,
     "companions": 58,
     "Home": 3,
     "bosses": 12,
-    "enemies": 11
+    "enemies": 35
   },
-  "remaining_contracts": 3155,
-  "remaining_artist_files": 8220,
+  "remaining_contracts": 3131,
+  "remaining_artist_files": 8172,
   "remaining_by_category": {
     "playable_lootlings": 1421,
     "wanderers": 855,
-    "enemies": 312,
+    "enemies": 288,
     "bosses": 356,
     "npcs": 46,
     "support": 165
@@ -24,5 +24,7 @@
   "phone_native_qa": "crash-recovery-world-companion-title-eda9fd3376",
   "physical_device_validated": false,
   "home_revision": "One separately reviewed versioned background and sidecar; same existing environment contract, not an additional missing-art closure",
-  "combat_revision": "12 Hoard Dragon exact state/facing contracts, original winged owner canon; shared bounded hit/Ward/contact presentation across weapons. Missing named actions remain open."
+  "combat_revision": "12 Hoard Dragon exact state/facing contracts, original winged owner canon; shared bounded hit/Ward/contact presentation across weapons. Missing named actions remain open.",
+  "player_route_revision": "0.4.39 connected Home/Hub/cart Shop/Stash/Shrine/Spinner/combat/rewards; native compiled pack passed three viewports; actual desktop mouse passed; physical Android pending",
+  "latest_enemy_revision": "24 Mossmaw/Glasswing state/facing cells installed and native-tested; 48 PNG/sidecar artist files"
 }

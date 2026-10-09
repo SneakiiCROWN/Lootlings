@@ -1,0 +1,40 @@
+{
+  "base_checkpoint": "30a0bd2",
+  "installed_runtime_art_cells": 24,
+  "installed_artist_files": 48,
+  "slot_ids": [
+    "pose:glasswing:defeat:left:None",
+    "pose:glasswing:defeat:right:None",
+    "pose:glasswing:hurt:left:None",
+    "pose:glasswing:hurt:right:None",
+    "pose:glasswing:idle:left:None",
+    "pose:glasswing:idle:right:None",
+    "pose:glasswing:recovery:left:None",
+    "pose:glasswing:recovery:right:None",
+    "pose:glasswing:role commit:left:None",
+    "pose:glasswing:role commit:right:None",
+    "pose:glasswing:role windup:left:None",
+    "pose:glasswing:role windup:right:None",
+    "pose:mossmaw:defeat:left:None",
+    "pose:mossmaw:defeat:right:None",
+    "pose:mossmaw:hurt:left:None",
+    "pose:mossmaw:hurt:right:None",
+    "pose:mossmaw:idle:left:None",
+    "pose:mossmaw:idle:right:None",
+    "pose:mossmaw:recovery:left:None",
+    "pose:mossmaw:recovery:right:None",
+    "pose:mossmaw:role commit:left:None",
+    "pose:mossmaw:role commit:right:None",
+    "pose:mossmaw:role windup:left:None",
+    "pose:mossmaw:role windup:right:None"
+  ],
+  "native_qa": "mass-enemies-2ffda52cd4",
+  "by_actor": {
+    "mossmaw": 12,
+    "glasswing": 12
+  },
+  "scope": "Six exact combat states per facing on two existing enemy identities. Locomotion or new action variants not claimed.",
+  "rejected_assets": 0,
+  "preview_finding": "Raw preview displayed coloured RGB in alpha-zero pixels; Godot opaque-background composition and native render proved genuine transparency. No alpha pixels edited.",
+  "physical_device_validated": false
+}

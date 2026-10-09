@@ -87,13 +87,17 @@ func draw_missing_actor_reference(g, pos: Vector2, pose: Dictionary) -> void:
 	# alternate identity or unattached weapons as accepted gameplay artwork.
 	var rect:=Rect2(pos+Vector2(-54,-81),Vector2(108,131))
 	g.draw_set_transform(Vector2.ZERO)
-	g.draw_rect(rect,Color("#0c182eea"))
-	g.draw_rect(rect,Color("#b5a17a"),false,1.5)
+	g.draw_style_box(preload("res://lootlings_ui.gd").material_style("leather"),rect)
 	preload("res://lootlings_ui.gd").draw_icon(g.get_canvas_item(),Avatar.portrait(g.profile),Rect2(rect.position+Vector2(20,6),Vector2(68,68)))
 	var name_size:=preload("res://lootlings_ui.gd").fitted_font_size(g.body_font,Avatar.display_name(g.profile),100,12,8)
 	g.draw_string(g.body_font,rect.position+Vector2(4,91),Avatar.display_name(g.profile),HORIZONTAL_ALIGNMENT_CENTER,100,name_size,Color("#ffe3ac"))
-	g.draw_string(g.body_font,rect.position+Vector2(4,108),"POSE ART PENDING",HORIZONTAL_ALIGNMENT_CENTER,100,10,Color("#ddd6c4"))
-	g.draw_string(g.body_font,rect.position+Vector2(4,122),"REFERENCE ONLY",HORIZONTAL_ALIGNMENT_CENTER,100,9,Color("#a9b8d2"))
+	# Missing body contracts remain open in production records. Player UI shows
+	# their canonical portrait and readable loadout, never internal production IDs.
+	var weapon_name: String=WeaponCatalog.definition(str(pose.weapon_type)).get("name","Equipment")
+	var weapon_size:=preload("res://lootlings_ui.gd").fitted_font_size(g.body_font,weapon_name,100,11,8)
+	g.draw_string(g.body_font,rect.position+Vector2(4,111),weapon_name,HORIZONTAL_ALIGNMENT_CENTER,100,weapon_size,Color("#dce8f6"))
+	if OS.get_environment("LOOTLINGS_DEV_UI")=="1":
+		g.draw_string(g.body_font,rect.position+Vector2(4,124),"POSE ART PENDING",HORIZONTAL_ALIGNMENT_CENTER,100,9,Color("#a9b8d2"))
 
 func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 	if pose.get("baked_weapon","") == pose.weapon_type: return
