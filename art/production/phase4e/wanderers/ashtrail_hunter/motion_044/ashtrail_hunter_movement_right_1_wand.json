@@ -1,0 +1,107 @@
+{
+  "actor": "ashtrail_hunter",
+  "asset_path": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+  "baked_weapon": "",
+  "baseline_y": 1008.0,
+  "body_rect": [
+    -80.0,
+    -149.6,
+    160.0,
+    220.0
+  ],
+  "canvas": [
+    768.0,
+    1024.0
+  ],
+  "contract_slot_id": "pose:ashtrail_hunter:movement:right:wand",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 66.9625,
+  "foreground_layer": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1_grip_front.png",
+  "fps": 6.0,
+  "frame_count": 2.0,
+  "frame_index": 1.0,
+  "identity_authority": [
+    "art/sprites/wanderers/beta/ashtrail_hunter_idle.png"
+  ],
+  "metadata_path": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1_wand.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "MOVE",
+  "primary_anchor": [
+    0.518118013211382,
+    0.428654674639918
+  ],
+  "primary_palm": [
+    397.914634146341,
+    438.942386831276
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.518118013211382,
+    0.428654674639918
+  ],
+  "source": "art/source/player_motion_044/ashtrail_hunter.png",
+  "source_bounds": [
+    416.0,
+    12.0,
+    744.0,
+    498.0
+  ],
+  "source_primary": [
+    587.0,
+    212.0
+  ],
+  "source_sha256": "dd8e87245543d2b8a4a1d088f99b14833d0d1adaedbcfbda36eaa14df9ce1097",
+  "state": "movement",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {
+    "accessories": "bone_trophy_pouches",
+    "armour_accents": "bronze_pauldron",
+    "back_item": "hunter_short_cloak",
+    "face": "hunter",
+    "facial_hair": "auburn_beard",
+    "footwear": "hunter_strapped_boots",
+    "gloves": "hunter_bracers",
+    "hair_colour": "auburn",
+    "hair_style": "auburn_tousled",
+    "headwear": "none",
+    "jewellery": "hunter_brooch",
+    "lower_outfit": "hunter_trousers",
+    "makeup": "none",
+    "markings": "hunter_cheek_scar",
+    "skin_tone": "weathered_pale",
+    "style": "rugged_hunter",
+    "upper_outfit": "hunter_gambeson"
+  },
+  "weapon_overrides": {
+    "wand": {
+      "angle": 0.7,
+      "grip": [
+        0.419999986886978,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/wand_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        75.0,
+        93.0
+      ],
+      "socket": [
+        0.600000023841858,
+        0.100000001490116
+      ]
+    }
+  },
+  "weapon_types": [
+    "wand"
+  ]
+}

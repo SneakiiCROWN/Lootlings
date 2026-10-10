@@ -1,0 +1,68 @@
+{
+  "actor": "pebblewyrm",
+  "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:pebblewyrm:victory_return:left:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "VICTORY",
+  "primary_anchor": [
+    0.68287037037037,
+    0.653833762886598
+  ],
+  "primary_palm": [
+    349.62962962963,
+    334.762886597938
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.68287037037037,
+    0.653833762886598
+  ],
+  "source": "art/source/player_motion_044/pebblewyrm.png",
+  "source_bounds": [
+    779.0,
+    545.0,
+    1157.0,
+    933.0
+  ],
+  "source_primary": [
+    1047.0,
+    797.0
+  ],
+  "source_sha256": "3273e52ae9b764cf73c27019b23f72193d1a4b81b5f9d2e8cd3d6c7801da37f5",
+  "state": "victory_return",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

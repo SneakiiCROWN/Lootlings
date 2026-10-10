@@ -20,6 +20,8 @@ def main():
     extracted+=json.loads((ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json').read_text())['entries']
     batch=ROOT/'art/production/phase4e/player_batch_043_manifest.json'
     if batch.exists():extracted += [r for r in json.loads(batch.read_text())['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
+    motion=ROOT/"art/production/phase4e/player_motion_044_manifest.json"
+    if motion.exists():extracted += [r for r in json.loads(motion.read_text())["entries"] if r.get("native_validated") and r.get("production_status")=="canon_validated_runtime"]
     coverage={}; before={}; cells=[]
     for row in poses:
         if row['production_status']!='authored_beta':continue
@@ -31,7 +33,7 @@ def main():
                 before[key]=row['asset_path'];coverage[key]=row['asset_path']
     for row in extracted:
         for weapon in row['weapon_types']:
-            states={'IDLE':['idle'],'ANTICIPATE':['windup'],'ATTACK':['strike_or_cast'],'IMPACT':['follow_through'],'RECOVER':['recovery'],'HURT':['hurt']}
+            states={'IDLE':['idle'],'ANTICIPATE':['windup'],'ATTACK':['strike_or_cast'],'IMPACT':['follow_through'],'RECOVER':['recovery'],'HURT':['hurt'],'MOVE':['movement'],'VICTORY':['victory_return'],'DEFEAT':['defeat']}
             assert row['phase'] in states,'Unproven extracted state: '+row['phase']
             for state in ([row['state']] if row.get('contract_slot_id') and row.get('state') else states[row['phase']]):
                 key=(row['actor'],state,row['facing'].removesuffix('_only'),weapon)

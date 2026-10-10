@@ -1,0 +1,107 @@
+{
+  "actor": "velvet_astrologer",
+  "asset_path": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+  "baked_weapon": "",
+  "baseline_y": 1008.0,
+  "body_rect": [
+    -80.0,
+    -149.6,
+    160.0,
+    220.0
+  ],
+  "canvas": [
+    768.0,
+    1024.0
+  ],
+  "contract_slot_id": "pose:velvet_astrologer:movement:left:wand",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 66.9625,
+  "foreground_layer": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0_grip_front.png",
+  "fps": 6.0,
+  "frame_count": 2.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/sprites/wanderers/beta/velvet_astrologer_idle.png"
+  ],
+  "metadata_path": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0_wand.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "MOVE",
+  "primary_anchor": [
+    0.392481817061144,
+    0.448297145562771
+  ],
+  "primary_palm": [
+    301.426035502959,
+    459.056277056277
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.392481817061144,
+    0.448297145562771
+  ],
+  "source": "art/source/player_motion_044/velvet_astrologer.png",
+  "source_bounds": [
+    34.0,
+    535.0,
+    372.0,
+    997.0
+  ],
+  "source_primary": [
+    160.0,
+    713.0
+  ],
+  "source_sha256": "99034ab87c49272246d3836d989a992ecf694863625feca468bf42d149a14875",
+  "state": "movement",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {
+    "accessories": "arcana_belt",
+    "armour_accents": "gold_filigree",
+    "back_item": "split_skirt_tails",
+    "face": "astrologer",
+    "facial_hair": "none",
+    "footwear": "arcana_gold_boots",
+    "gloves": "arcana_bracers",
+    "hair_colour": "silver",
+    "hair_style": "silver_braids",
+    "headwear": "none",
+    "jewellery": "arcana_gold",
+    "lower_outfit": "arcana_split_skirt_leggings",
+    "makeup": "plum_lip",
+    "markings": "none",
+    "skin_tone": "umber",
+    "style": "glamorous_arcane",
+    "upper_outfit": "arcana_bodice"
+  },
+  "weapon_overrides": {
+    "wand": {
+      "angle": 0.7,
+      "grip": [
+        0.419999986886978,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/wand_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        75.0,
+        93.0
+      ],
+      "socket": [
+        0.600000023841858,
+        0.100000001490116
+      ]
+    }
+  },
+  "weapon_types": [
+    "wand"
+  ]
+}

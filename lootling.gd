@@ -793,17 +793,20 @@ func build_overlay_ui() -> void:
 	result_panel = make_panel(Rect2(28, 155, 424, 555), Color("#151b39f5"))
 	LootlingsUI.apply_material(result_panel, "hoard")
 	result_panel.visible = false
-	result_title = make_label(result_panel, "RUN COMPLETE!", 27, Rect2(96, 25, 308, 55), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	result_crest = LootlingsUI.add_icon(result_panel, Rect2(16, 30, 78, 34), "res://art/ui/results/victory_crest.png")
+	result_title = make_label(result_panel, "RUN COMPLETE!", 22, Rect2(135, 24, 268, 68), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	result_crest = LootlingsUI.add_icon(result_panel, Rect2(182, 103, 174, 30), "res://art/ui/results/victory_crest.png")
+	var result_actor := preload("res://result_actor_view.gd").new()
+	result_actor.game=self;result_actor.position=Vector2(12,8);result_actor.size=Vector2(118,132)
+	result_panel.add_child(result_actor)
 	result_summary = RichTextLabel.new()
-	result_summary.position = Vector2(35, 91)
-	result_summary.size = Vector2(354, 318)
+	result_summary.position = Vector2(35, 160)
+	result_summary.size = Vector2(354, 245)
 	result_summary.bbcode_enabled = true
 	result_summary.scroll_active = true
 	result_summary.add_theme_font_size_override("normal_font_size", 14)
 	result_summary.add_theme_color_override("default_color", Color("#e9efff"))
 	result_panel.add_child(result_summary)
-	LootlingsUI.add_divider(result_panel, Rect2(50, 80, 324, 10), "gold")
+	LootlingsUI.add_divider(result_panel, Rect2(30, 145, 364, 10), "gold")
 	restart_button = Button.new()
 	restart_button.text = "RETURN TO HIDEOUT"
 	restart_button.position = Vector2(47, 425)

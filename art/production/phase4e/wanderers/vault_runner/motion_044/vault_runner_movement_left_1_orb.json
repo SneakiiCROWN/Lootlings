@@ -1,0 +1,86 @@
+{
+  "actor": "vault_runner",
+  "asset_path": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+  "baked_weapon": "",
+  "baseline_y": 1008.0,
+  "body_rect": [
+    -80.0,
+    -149.6,
+    160.0,
+    220.0
+  ],
+  "canvas": [
+    768.0,
+    1024.0
+  ],
+  "contract_slot_id": "pose:vault_runner:movement:left:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 66.9625,
+  "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1_grip_front.png",
+  "fps": 6.0,
+  "frame_count": 2.0,
+  "frame_index": 1.0,
+  "identity_authority": [
+    "art/sprites/wanderers/beta/vault_runner_idle.png"
+  ],
+  "metadata_path": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "MOVE",
+  "primary_anchor": [
+    0.528225672257721,
+    0.452347905585106
+  ],
+  "primary_palm": [
+    405.67731629393,
+    463.204255319149
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.528225672257721,
+    0.452347905585106
+  ],
+  "source": "art/source/player_motion_044/vault_runner.png",
+  "source_bounds": [
+    454.0,
+    519.0,
+    767.0,
+    989.0
+  ],
+  "source_primary": [
+    622.0,
+    700.0
+  ],
+  "source_sha256": "a90d04e1cc6cb549b6945a2db4b057392c5eb06f68541de0692a7c597e75f8e7",
+  "state": "movement",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {
+    "accessories": "utility_belt",
+    "armour_accents": "brass",
+    "back_item": "coat_tails",
+    "face": "runner",
+    "facial_hair": "none",
+    "footwear": "runner_boots",
+    "gloves": "runner_bracers",
+    "hair_colour": "dark",
+    "hair_style": "short_curls",
+    "headwear": "none",
+    "jewellery": "runner_relic",
+    "lower_outfit": "runner_trousers",
+    "makeup": "natural",
+    "markings": "none",
+    "skin_tone": "umber",
+    "style": "practical_explorer",
+    "upper_outfit": "scavenger_coat"
+  },
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

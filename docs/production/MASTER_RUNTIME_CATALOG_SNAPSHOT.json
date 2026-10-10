@@ -1288,7 +1288,7 @@
       "facing_pack",
       "resolve"
     ],
-    "source_sha256": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3"
+    "source_sha256": "89baa284920d9598f7db416f4157856c68aca8d90cd050f0b705a48746a85cf0"
   },
   "avatar_presentation.gd": {
     "constants": {
@@ -6907,7 +6907,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "43f0b4f67ce319aa6a33ccab047cd7b88f92615555a0a91676e790a03be73c26"
+    "source_sha256": "c126220026f93f8664a2222571fcd125fa6b23db38a417d44f65889e5761e86d"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8519,6 +8519,16 @@
       "_draw"
     ],
     "source_sha256": "da2a4a7e005445b87e8f8b986216c6429400563dad8bea390b79e3b7ec94e52b"
+  },
+  "result_actor_view.gd": {
+    "constants": {},
+    "methods": [
+      "_ready",
+      "_process",
+      "_draw",
+      "draw_weapon"
+    ],
+    "source_sha256": "0770a801a9b481188e3a465e040d03cbb15a2d9543f15c2cd19f4db84d96e27f"
   },
   "retention_runtime.gd": {
     "constants": {
@@ -10273,7 +10283,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "4c28ca4c45248d21be490700cd77a39ee91ca216e475e92f2a9dc6d12886a936"
+    "source_sha256": "24b4e2b6e325555039c1d68940c2b9b18e82ba8989bc8cd31dbc6c8babaa3522"
   },
   "world_content_catalog.gd": {
     "constants": {

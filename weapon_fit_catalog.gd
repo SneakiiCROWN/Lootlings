@@ -185,6 +185,19 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		# accepted release frame at commit for actors without a later export.
 		if authored.is_empty() and source_phase == "IMPACT":
 			authored = Authored.extracted_phase(str(actor.id),subtype,"ATTACK",float(g.combat_facing()))
+	# Exact locomotion/outcome overrides are selected only when a compatible
+	# authored view exists. Combat clocks, attacks, equipment and saves stay intact.
+	var motion_phase := ""
+	if g.state=="result":motion_phase="VICTORY" if g.run_won else "DEFEAT"
+	elif not hurt and g.attack_anim<=0 and absf(g.player_x-g.target_player_x())>=4.0:motion_phase="MOVE"
+	if not motion_phase.is_empty():
+		var motion:=Authored.extracted_phase(str(actor.id),subtype,motion_phase,float(g.combat_facing()),float(g.run_time))
+		if not motion.is_empty():
+			authored=motion
+			action=action.duplicate()
+			action.phase=motion_phase;action.scale=Vector2.ONE;action.offset=Vector2.ZERO;action.rotation=0.0
+			action.anticipate=0.0;action.release=0.0;action.impact=0.0
+			relic_motion=false
 	var appearance: Dictionary = g.profile.get("wanderer",{}).get("appearance",{}).get("components",{})
 	for slot in authored.get("wardrobe_requires",{}):
 		if appearance.get(slot) != authored.wardrobe_requires[slot]:
@@ -216,10 +229,10 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	if relic_motion:
 		var feet := Vector2(0,float(authored.get("feet_baseline",53)))
 		root.origin += feet-root.basis_xform(feet)
-	elif creature or sprite_rig:
+	elif creature or sprite_rig or not authored.get("motion_phase","").is_empty():
 		var feet := Vector2(0,float(authored.get("feet_baseline",actor.body_rect.end.y)))
 		root.origin += feet-root.basis_xform(feet)
-		if g.player_x < g.target_player_x()-4.0:
+		if g.player_x < g.target_player_x()-4.0 and authored.get("motion_phase","").is_empty():
 			root.origin.y -= absf(sin(float(g.run_time)*8))*3.0
 	var geometry: Dictionary = authored.get("weapon_overrides",{}).get(subtype,weapon)
 	var size: Vector2 = Vector2(geometry.size)*float(actor.weapon_scale)*(1.0+clampi(int(item.get("evolution_stage",0)),0,2)*.06)
@@ -229,6 +242,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var secondary: Variant = authored.get("secondary_hand",actor.secondary_hand)
 	var handling: Dictionary = HANDLING_OVERRIDES.get(str(actor.handling),{}).get(subtype,{})
 	var angle := float(handling.get("angle",geometry.angle))+float(handling.get("angle_offset",0.0))
+	if not authored.get("motion_phase","").is_empty():angle=float(geometry.angle)
 	var release_angle := float(handling.get("release",stance.release))
 	if subtype=="staff": release_angle=.22
 	elif subtype in ["daggers","claws"]: release_angle*=1.18
@@ -292,7 +306,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			if g.attack_anim > .16: nock += forward*sin((.22-g.attack_anim)*80)*2
 			secondary = primary+(nock*weapon_scale).rotated(angle)
 	var socket := (rect.position+Vector2(geometry.socket)*size)*weapon_scale
-	return {"sprite_rig":sprite_rig,"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
+	return {"sprite_rig":sprite_rig,"motion_phase":authored.get("motion_phase",""),"frame_index":int(authored.get("frame_index",0)),"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
 		"bow_nock":bow_nock,"bow_forward":bow_forward,
 		"feet_baseline":float(authored.get("feet_baseline",actor.body_rect.end.y)),
 		"texture":authored.get("texture",actor.texture),"tint":actor.tint,"hand":primary,"primary_hand":primary,

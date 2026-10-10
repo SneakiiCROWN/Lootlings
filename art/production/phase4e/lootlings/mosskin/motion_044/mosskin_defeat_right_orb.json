@@ -1,0 +1,68 @@
+{
+  "actor": "mosskin",
+  "asset_path": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:mosskin:defeat:right:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "DEFEAT",
+  "primary_anchor": [
+    0.732574207869081,
+    0.893736172566372
+  ],
+  "primary_palm": [
+    375.077994428969,
+    457.592920353982
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.732574207869081,
+    0.893736172566372
+  ],
+  "source": "art/source/player_motion_044/mosskin.png",
+  "source_bounds": [
+    1157.0,
+    140.0,
+    1516.0,
+    479.0
+  ],
+  "source_primary": [
+    1445.0,
+    444.0
+  ],
+  "source_sha256": "c21cbbb0e2136ddc88ae2a00dffa68b9f7fa43da68e689cbd925ba4cd07caf8c",
+  "state": "defeat",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

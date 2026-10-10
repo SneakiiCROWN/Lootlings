@@ -7,7 +7,7 @@ static var extracted_rows: Array = []
 static var extracted_loaded := false
 static var extracted_resolved := {}
 
-static func extracted_phase(actor: String, subtype: String, phase: String, facing: float) -> Dictionary:
+static func extracted_phase(actor: String, subtype: String, phase: String, facing: float, clock: float = 0.0) -> Dictionary:
 	if not extracted_loaded:
 		extracted_loaded = true
 		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/runtime_manifest.json"))
@@ -20,6 +20,12 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 			if combat_batch is Dictionary:
 				for row in combat_batch.get("entries",[]):
 					if (row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime") or OS.get_environment("LOOTLINGS_PLAYER_BATCH_PREVIEW")=="1": extracted_rows.append(row)
+		var motion_path := "res://art/production/phase4e/player_motion_044_manifest.json"
+		if FileAccess.file_exists(motion_path):
+			var motion: Variant=JSON.parse_string(FileAccess.get_file_as_string(motion_path))
+			if motion is Dictionary:
+				for row in motion.get("entries",[]):
+					if (row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime") or (OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_MOTION_BATCH_PREVIEW")=="1"):extracted_rows.append(row)
 		var bow_slice: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json"))
 		if bow_slice is Dictionary:
 			for row in bow_slice.get("entries",[]):
@@ -27,6 +33,7 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 	for row in extracted_rows:
 		if not preload("res://actor_identity_corrections.gd").allowed(str(row.actor),str(row.asset_path)):continue
 		if row.actor == actor and subtype in row.weapon_types and row.phase == phase and row.facing == ("left_only" if facing<0 else "right_only"):
+			if int(row.get("frame_count",1))>1 and int(row.get("frame_index",0))!=posmod(int(floor(clock*float(row.get("fps",6)))),int(row.frame_count)):continue
 			# Canvas commands retain RIDs, not this local Texture2D reference.
 			# Keep source textures alive across frames, not just QA sampling.
 			if not extracted_resolved.has(row.asset_path):
@@ -34,6 +41,8 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 				result.baked_weapon = row.get("baked_weapon","")
 				result.extracted_idle = phase == "IDLE"
 				result.extracted_pose = true
+				result.motion_phase = phase if phase in ["MOVE","VICTORY","DEFEAT"] else ""
+				result.frame_index = int(row.get("frame_index",0))
 				extracted_resolved[row.asset_path] = result
 			return extracted_resolved[row.asset_path]
 	return {}
@@ -81,7 +90,7 @@ static func facing_pack(actor: String, stance: String, facing: String) -> Dictio
 static func resolve(row: Dictionary) -> Dictionary:
 	# Boards/reference crops must never become runtime bodies through a JSON edit.
 	var path: String=str(row.asset_path)
-	if not (path.begins_with("res://art/sprites/") or path.begins_with("res://art/production/phase4e/lootlings/")) or ".." in path: return {}
+	if not (path.begins_with("res://art/sprites/") or path.begins_with("res://art/production/phase4e/lootlings/") or path.begins_with("res://art/production/phase4e/wanderers/")) or ".." in path: return {}
 	if not ResourceLoader.exists(str(row.asset_path)): return {}
 	var rect := Rect2(Vector2(row.body_rect[0],row.body_rect[1]),Vector2(row.body_rect[2],row.body_rect[3]))
 	var result := {"texture":load(str(row.asset_path)),"body_rect":rect,

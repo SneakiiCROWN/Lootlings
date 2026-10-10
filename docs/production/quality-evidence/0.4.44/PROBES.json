@@ -1,0 +1,4071 @@
+{
+	"actor_count": 12,
+	"complete_fluid_animation": false,
+	"physical_device_tested": false,
+	"probes": [
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "relic_beast_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "relic_beast_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "emberhorn_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "emberhorn_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "mosskin_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "mosskin_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "pebblewyrm_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "pebblewyrm_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "glimmerfin_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "glimmerfin_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "moonkip_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "moonkip_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "gloomlet_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "gloomlet_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "vault_runner_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "vault_runner_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ruin_warden_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ruin_warden_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "nightstage_drifter_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "nightstage_drifter_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "velvet_astrologer_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "velvet_astrologer_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "velvet_astrologer_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "velvet_astrologer_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ashtrail_hunter_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_right.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ashtrail_hunter_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_left.png",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "relic_beast_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "relic_beast_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "emberhorn_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "emberhorn_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "mosskin_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "mosskin_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "pebblewyrm_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "pebblewyrm_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "glimmerfin_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "glimmerfin_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "moonkip_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "moonkip_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "gloomlet_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "gloomlet_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "vault_runner_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "vault_runner_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ruin_warden_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ruin_warden_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "nightstage_drifter_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "nightstage_drifter_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "velvet_astrologer_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "velvet_astrologer_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "velvet_astrologer_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "velvet_astrologer_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ashtrail_hunter_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_right.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ashtrail_hunter_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_left.png",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "relic_beast_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "relic_beast_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "relic_beast_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "relic_beast_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "emberhorn_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "emberhorn_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "emberhorn_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "emberhorn_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "mosskin_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "mosskin_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "mosskin_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "mosskin_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "pebblewyrm_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "pebblewyrm_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "pebblewyrm_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "pebblewyrm_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "glimmerfin_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "glimmerfin_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "glimmerfin_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "glimmerfin_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "moonkip_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "moonkip_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "moonkip_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "moonkip_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_wand_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_wand_victory_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_wand_victory_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_right_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_right_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_left_0",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "gloomlet_orb_walk_left_1",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_orb_victory_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "gloomlet_orb_victory_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "gloomlet_orb_defeat_right",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "gloomlet_orb_defeat_left",
+			"source": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "vault_runner_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "vault_runner_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "vault_runner_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "vault_runner_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ruin_warden_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ruin_warden_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ruin_warden_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ruin_warden_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "nightstage_drifter_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "nightstage_drifter_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "nightstage_drifter_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "nightstage_drifter_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "velvet_astrologer_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "velvet_astrologer_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "velvet_astrologer_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "velvet_astrologer_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "velvet_astrologer_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_wand_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_wand_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_wand_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_right_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_right_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 0,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_left_0",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"frame_index": 1,
+			"phase": "MOVE",
+			"probe": "ashtrail_hunter_orb_walk_left_1",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_orb_victory_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "VICTORY",
+			"probe": "ashtrail_hunter_orb_victory_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ashtrail_hunter_orb_defeat_right",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_right.png",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"phase": "DEFEAT",
+			"probe": "ashtrail_hunter_orb_defeat_left",
+			"source": "res://art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_left.png",
+			"viewport": "(1920, 1080)"
+		}
+	],
+	"three_viewports": true,
+	"total_probes": 498
+}

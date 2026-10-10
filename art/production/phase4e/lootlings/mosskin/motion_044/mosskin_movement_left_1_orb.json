@@ -1,0 +1,68 @@
+{
+  "actor": "mosskin",
+  "asset_path": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:mosskin:movement:left:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1_grip_front.png",
+  "fps": 6.0,
+  "frame_count": 2.0,
+  "frame_index": 1.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "MOVE",
+  "primary_anchor": [
+    0.231654023746702,
+    0.683867436305732
+  ],
+  "primary_palm": [
+    118.606860158311,
+    350.140127388535
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.231654023746702,
+    0.683867436305732
+  ],
+  "source": "art/source/player_motion_044/walk_correction_group.png",
+  "source_bounds": [
+    393.0,
+    504.0,
+    772.0,
+    975.0
+  ],
+  "source_primary": [
+    441.0,
+    825.0
+  ],
+  "source_sha256": "1876e41c7e76fb2d783b5a2b2bd8143cd1e182fdcec540dc3dfcdfc4a08187d2",
+  "state": "movement",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

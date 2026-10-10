@@ -6,6 +6,7 @@ func _initialize() -> void:
  call_deferred("review")
 func review() -> void:
  var stage:=OS.get_environment("LOOTLINGS_PLAYER_BATCH_STAGE")
+ if stage.is_empty():stage="after"
  assert(stage in ["before","preview","after"])
  var probes:=[]
  for viewport in [Vector2i(1080,2340),Vector2i(1200,1920),Vector2i(1920,1080)]:
@@ -33,9 +34,11 @@ func review() -> void:
       assert(not pose.sprite_rig,"Reference fallback remains: "+name)
       assert(pose.authored_facing==("right_only" if facing==1 else "left_only"))
      await capture(name)
-    # Moving remains explicitly unfulfilled; neutral must never masquerade as locomotion.
+    # Require actual motion where delivered; preserve explicit missing movement elsewhere.
     game.attack_anim=0;game.attack_clock=interval;game.player_flash=0;game.player_x-=30*facing
-    assert(preload("res://weapon_fit_catalog.gd").sample(game,false).sprite_rig)
+    var movement=preload("res://weapon_fit_catalog.gd").sample(game,false)
+    var delivered=preload("res://authored_pose_manifest.gd").extracted_phase(pair[0],pair[1],"MOVE",facing,game.run_time)
+    assert(movement.sprite_rig if delivered.is_empty() else not movement.sprite_rig and movement.motion_phase=="MOVE")
    assert(game.rng.state==held_rng and game.loot_system.rng.state==loot_rng and game.current_attack_interval()==interval and game.base_damage==damage)
    game.enemy_stage_x=372;game.player_x=game.target_player_x();game.enemy_hp=10000;game.enemy_max_hp=10000;game.attack_anim=0;game.attack_clock=0;game.player_flash=0
    var sequence:int=game.attack_sequence

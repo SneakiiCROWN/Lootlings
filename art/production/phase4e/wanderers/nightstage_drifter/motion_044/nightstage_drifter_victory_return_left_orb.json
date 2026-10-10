@@ -1,0 +1,86 @@
+{
+  "actor": "nightstage_drifter",
+  "asset_path": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+  "baked_weapon": "",
+  "baseline_y": 1008.0,
+  "body_rect": [
+    -80.0,
+    -149.6,
+    160.0,
+    220.0
+  ],
+  "canvas": [
+    768.0,
+    1024.0
+  ],
+  "contract_slot_id": "pose:nightstage_drifter:victory_return:left:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 66.9625,
+  "foreground_layer": "res://art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/sprites/wanderers/beta/nightstage_drifter_idle.png"
+  ],
+  "metadata_path": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "VICTORY",
+  "primary_anchor": [
+    0.813163724296537,
+    0.526942907444668
+  ],
+  "primary_palm": [
+    624.50974025974,
+    539.58953722334
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.813163724296537,
+    0.526942907444668
+  ],
+  "source": "art/source/player_motion_044/nightstage_drifter.png",
+  "source_bounds": [
+    811.0,
+    508.0,
+    1119.0,
+    1005.0
+  ],
+  "source_primary": [
+    1088.0,
+    765.0
+  ],
+  "source_sha256": "968c0589a434fe3be2648805068bf233a642d5f831f40c3df677ba827bafcf93",
+  "state": "victory_return",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {
+    "accessories": "chain_belt",
+    "armour_accents": "silver_hardware",
+    "back_item": "none",
+    "face": "drifter",
+    "facial_hair": "none",
+    "footwear": "nightstage_combat_boots",
+    "gloves": "nightstage_cuffs",
+    "hair_colour": "black_violet",
+    "hair_style": "violet_shag",
+    "headwear": "none",
+    "jewellery": "violet_choker_ear_stack",
+    "lower_outfit": "nightstage_trousers_sash",
+    "makeup": "dark_liner",
+    "markings": "drifter_geometry",
+    "skin_tone": "olive",
+    "style": "alternative",
+    "upper_outfit": "nightstage_vest"
+  },
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

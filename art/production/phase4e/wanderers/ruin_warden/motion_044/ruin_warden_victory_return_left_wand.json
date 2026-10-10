@@ -1,0 +1,107 @@
+{
+  "actor": "ruin_warden",
+  "asset_path": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+  "baked_weapon": "",
+  "baseline_y": 1008.0,
+  "body_rect": [
+    -80.0,
+    -149.6,
+    160.0,
+    220.0
+  ],
+  "canvas": [
+    768.0,
+    1024.0
+  ],
+  "contract_slot_id": "pose:ruin_warden:victory_return:left:wand",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 66.9625,
+  "foreground_layer": "res://art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/sprites/wanderers/beta/ruin_warden_idle.png"
+  ],
+  "metadata_path": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left_wand.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "VICTORY",
+  "primary_anchor": [
+    0.159674137512148,
+    0.551730303697183
+  ],
+  "primary_palm": [
+    122.629737609329,
+    564.971830985916
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.159674137512148,
+    0.551730303697183
+  ],
+  "source": "art/source/player_motion_044/ruin_warden.png",
+  "source_bounds": [
+    772.0,
+    498.0,
+    1115.0,
+    995.0
+  ],
+  "source_primary": [
+    806.0,
+    762.0
+  ],
+  "source_sha256": "f5d855edfb8dccbd69188ce1eabb89c6eb7a3cff45dc670a3dd4644742808ada",
+  "state": "victory_return",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {
+    "accessories": "utility_belt",
+    "armour_accents": "brass",
+    "back_item": "coat_tails",
+    "face": "warden",
+    "facial_hair": "warden_stubble",
+    "footwear": "warden_boots",
+    "gloves": "warden_bracers",
+    "hair_colour": "dark",
+    "hair_style": "braided_short",
+    "headwear": "none",
+    "jewellery": "warden_relic",
+    "lower_outfit": "warden_trousers",
+    "makeup": "none",
+    "markings": "none",
+    "skin_tone": "bronze",
+    "style": "armoured_warden",
+    "upper_outfit": "warden_coat"
+  },
+  "weapon_overrides": {
+    "wand": {
+      "angle": 0.7,
+      "grip": [
+        0.419999986886978,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/wand_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        75.0,
+        93.0
+      ],
+      "socket": [
+        0.600000023841858,
+        0.100000001490116
+      ]
+    }
+  },
+  "weapon_types": [
+    "wand"
+  ]
+}

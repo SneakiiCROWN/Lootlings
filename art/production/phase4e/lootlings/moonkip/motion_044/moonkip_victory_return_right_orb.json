@@ -1,0 +1,68 @@
+{
+  "actor": "moonkip",
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:moonkip:victory_return:right:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "VICTORY",
+  "primary_anchor": [
+    0.50556640625,
+    0.749606495700246
+  ],
+  "primary_palm": [
+    258.85,
+    383.798525798526
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.50556640625,
+    0.749606495700246
+  ],
+  "source": "art/source/player_motion_044/moonkip.png",
+  "source_bounds": [
+    791.0,
+    79.0,
+    1151.0,
+    486.0
+  ],
+  "source_primary": [
+    974.0,
+    368.0
+  ],
+  "source_sha256": "941d47a0a49daab0f1e27b35e505c4a4a0c1674150fa3f7fdf5b1c17a7f19c02",
+  "state": "victory_return",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

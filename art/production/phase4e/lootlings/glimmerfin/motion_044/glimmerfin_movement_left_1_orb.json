@@ -1,0 +1,68 @@
+{
+  "actor": "glimmerfin",
+  "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:glimmerfin:movement:left:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1_grip_front.png",
+  "fps": 6.0,
+  "frame_count": 2.0,
+  "frame_index": 1.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "MOVE",
+  "primary_anchor": [
+    0.124498623084291,
+    0.735395476445396
+  ],
+  "primary_palm": [
+    63.7432950191571,
+    376.522483940043
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.124498623084291,
+    0.735395476445396
+  ],
+  "source": "art/source/player_motion_044/moonkip_glimmerfin_walk_corrected.png",
+  "source_bounds": [
+    864.0,
+    514.0,
+    1386.0,
+    981.0
+  ],
+  "source_primary": [
+    886.0,
+    833.0
+  ],
+  "source_sha256": "90f68315e096eab8108c93aa957c0a7e775624383fbf3a8da05d1edd23e01eb4",
+  "state": "movement",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {},
+  "weapon_types": [
+    "orb"
+  ]
+}

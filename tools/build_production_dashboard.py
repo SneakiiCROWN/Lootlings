@@ -29,6 +29,10 @@ def build():
     receipt=read(str((CONT/'REGIONAL_RESIDENT_INSTALLATION_0441.json').relative_to(ROOT)))
     player_receipt=CONT/'PLAYER_COMBAT_INSTALLATION_0443.json'
     if player_receipt.exists():receipt=read(str(player_receipt.relative_to(ROOT)))
+    motion_receipt=CONT/'PLAYER_MOTION_INSTALLATION_0444.json'
+    if motion_receipt.exists():
+        receipt=read(str(motion_receipt.relative_to(ROOT)))
+        player_receipt=motion_receipt
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'
     evidence = read(evidence_path)

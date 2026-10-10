@@ -2042,6 +2042,3192 @@
       },
       "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
       "defects": []
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:defeat:left:orb",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_left.png",
+      "asset_sha256": "9b1be9ed5a8711dbc69c24a302fd90be0ce08c7d759371307d4cfb4c9629baec",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:defeat:right:orb",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_right.png",
+      "asset_sha256": "6e6a6cd546ef98a51b4a052ad68528ef5aa2940f65ffb2d51ef5c0d543116397",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:movement:left:orb",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+      "asset_sha256": "3570ccf343916e795503a7c26a3840d5b149159be0d40e4f74b409b1f0bd159b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:movement:left:wand",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+      "asset_sha256": "3570ccf343916e795503a7c26a3840d5b149159be0d40e4f74b409b1f0bd159b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:movement:right:orb",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+      "asset_sha256": "edc040809a8d7be614dfd6a2a497082baf3645157021d16bca8cf087c9d2da80",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:movement:right:wand",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+      "asset_sha256": "edc040809a8d7be614dfd6a2a497082baf3645157021d16bca8cf087c9d2da80",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:victory_return:left:orb",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+      "asset_sha256": "94e282b2bab77f161f73418d7b5b06ecfdd62fe7d136fce1861488e543cd27f9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:victory_return:left:wand",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+      "asset_sha256": "94e282b2bab77f161f73418d7b5b06ecfdd62fe7d136fce1861488e543cd27f9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:victory_return:right:orb",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+      "asset_sha256": "67f1e3177f7792f0b7fafad8579f058dc5e04705c0e8e831357d90622337e74f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ashtrail_hunter:victory_return:right:wand",
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+      "asset_sha256": "67f1e3177f7792f0b7fafad8579f058dc5e04705c0e8e831357d90622337e74f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_left.png",
+      "asset_sha256": "1c9966ec4d7ca903655c17e74d41395c7e4109138a628517c8b21f532f37e3a3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_right.png",
+      "asset_sha256": "541cbdb8c1782714ff4df2dba2af4b355d1f4a4c0d5326e937f05b86f4ebadba",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+      "asset_sha256": "f7af9397d201fa91fd46618b24cdff008356f9ee6a96c95496d163e13ca9954b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+      "asset_sha256": "f7af9397d201fa91fd46618b24cdff008356f9ee6a96c95496d163e13ca9954b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+      "asset_sha256": "807c8b315e646c6e6de71beba6012b80ae7642e0baf143224d09daab15a03bcb",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+      "asset_sha256": "807c8b315e646c6e6de71beba6012b80ae7642e0baf143224d09daab15a03bcb",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+      "asset_sha256": "f53be90e2ce23214502c567ecec7414eb7614b96de3687da81f72011e27b4928",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+      "asset_sha256": "f53be90e2ce23214502c567ecec7414eb7614b96de3687da81f72011e27b4928",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+      "asset_sha256": "b8ea6e92b63f80b63d0414bcf3125528deba1f2575b32c9b7ee8b791d58f80c2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+      "asset_sha256": "b8ea6e92b63f80b63d0414bcf3125528deba1f2575b32c9b7ee8b791d58f80c2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_left.png",
+      "asset_sha256": "91f339dd2b4fd6a5ced5afb7f47e8f160b50e89b93475d269f2d74452a60f275",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_right.png",
+      "asset_sha256": "cdc658fc1e9206bf0d8734798fb15494ccb30528aa7cb16a2112c5b11455b784",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+      "asset_sha256": "7d8cc1ea2815349f44a0591f260d2e7cf65b7988136f4d04c6c3e239a81e0a6f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+      "asset_sha256": "7d8cc1ea2815349f44a0591f260d2e7cf65b7988136f4d04c6c3e239a81e0a6f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+      "asset_sha256": "d3ce42d6f49496646cbd234e49f37d5de64efe948a59426fd888898a5514176f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+      "asset_sha256": "d3ce42d6f49496646cbd234e49f37d5de64efe948a59426fd888898a5514176f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+      "asset_sha256": "2513a855b7c5fa1997da3e6aa4c427301808c8a4d4b61bf541071f2edbdec3f8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+      "asset_sha256": "2513a855b7c5fa1997da3e6aa4c427301808c8a4d4b61bf541071f2edbdec3f8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+      "asset_sha256": "7ad1066b5146791ba02caa59d93ede7f736d846701c2444bb9097eb9e9c2031c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+      "asset_sha256": "7ad1066b5146791ba02caa59d93ede7f736d846701c2444bb9097eb9e9c2031c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_left.png",
+      "asset_sha256": "fc37dde7af9bd590cea769b49bd65ffa621b639d7573ac1d5665995896c8aba7",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_right.png",
+      "asset_sha256": "7274cedb6b54593c7661e8036d09cecdfa6796dcc8b9526ff67c9a81cd0a145c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+      "asset_sha256": "237e56768094cc8275ba615fa459f125b456dfc9da5b576a700c56470518e0da",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+      "asset_sha256": "237e56768094cc8275ba615fa459f125b456dfc9da5b576a700c56470518e0da",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+      "asset_sha256": "6b2e10a3747b894bb993d6e23e810a63ffa96b5f55e06f8ca86956fd542db420",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+      "asset_sha256": "6b2e10a3747b894bb993d6e23e810a63ffa96b5f55e06f8ca86956fd542db420",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+      "asset_sha256": "5f11eb154a234487f17ebaaa927ea910968431693700e7aa614d84eb5e4e8db9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+      "asset_sha256": "5f11eb154a234487f17ebaaa927ea910968431693700e7aa614d84eb5e4e8db9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+      "asset_sha256": "68ae9a0ea93eb05cad5069538e31f4f2123dafd2e9683cbb8217e6388e955c71",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:gloomlet:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+      "asset_sha256": "68ae9a0ea93eb05cad5069538e31f4f2123dafd2e9683cbb8217e6388e955c71",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_left.png",
+      "asset_sha256": "661862c626bff32adbe9110ce465574a0171f8386f29b061ed60e8fc507b43b0",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_right.png",
+      "asset_sha256": "9e615c9f0a9b7de7c8d26808446d13c782adbee16d85861eeccdc6d14cb6b564",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+      "asset_sha256": "b35eb8ad7c2d1abd26a5d8b5613288a521001bdb6d3ce29eedd1dd5333941e70",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+      "asset_sha256": "b35eb8ad7c2d1abd26a5d8b5613288a521001bdb6d3ce29eedd1dd5333941e70",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+      "asset_sha256": "a7a381618dce71da46c79536015cc6b72903a956d3afe92fdba614960ee1c5ab",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+      "asset_sha256": "a7a381618dce71da46c79536015cc6b72903a956d3afe92fdba614960ee1c5ab",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+      "asset_sha256": "7995d7737f9aef37354db174e07c48d7df9d1e10751fe42e38d80a67ec7ae503",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+      "asset_sha256": "7995d7737f9aef37354db174e07c48d7df9d1e10751fe42e38d80a67ec7ae503",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+      "asset_sha256": "75ae82a07000934df4130948b878ac3eeedc007786b93c302a5c4ab12f4ca563",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:moonkip:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+      "asset_sha256": "75ae82a07000934df4130948b878ac3eeedc007786b93c302a5c4ab12f4ca563",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_left.png",
+      "asset_sha256": "ea5ce970aea72d212f557262957b5cf7bffa049f55996117d5c58f395b41eb4e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right.png",
+      "asset_sha256": "08683a6aecd70055cab1b8456c2401b5257e629fb8700599d1cc2681a4609b54",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+      "asset_sha256": "c9f8d6849d1677985f1909e0acc09a26b130bd1d09ca09f9758f4bfa646e464a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+      "asset_sha256": "c9f8d6849d1677985f1909e0acc09a26b130bd1d09ca09f9758f4bfa646e464a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+      "asset_sha256": "d9565bba02f0a28a26fc87c406c1eca7ca8a797481ea678c2fd8ec1df2fd9bcd",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+      "asset_sha256": "d9565bba02f0a28a26fc87c406c1eca7ca8a797481ea678c2fd8ec1df2fd9bcd",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+      "asset_sha256": "bafe979510a18f3241a73460ac88817313a5b829e6c1c4312a82a1b0cfa6318a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+      "asset_sha256": "bafe979510a18f3241a73460ac88817313a5b829e6c1c4312a82a1b0cfa6318a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+      "asset_sha256": "059897ccc68046167fc1fcfbe55dd857bff0924574c7e9faccae94624424e050",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+      "asset_sha256": "059897ccc68046167fc1fcfbe55dd857bff0924574c7e9faccae94624424e050",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:defeat:left:orb",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_left.png",
+      "asset_sha256": "5e0cfd097ecbe5fbdbe6f99975b6ad3057155041df2db9565744c822369687bf",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:defeat:right:orb",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_right.png",
+      "asset_sha256": "3fd9a801d9d1f092345c1bb824595c7818c7af423f7f92a2509e2e859ef47bb3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:movement:left:orb",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+      "asset_sha256": "501eb05ec98cf22485043bb5ceea17c594b5590a2e3503174512d53a958815a5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:movement:left:wand",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+      "asset_sha256": "501eb05ec98cf22485043bb5ceea17c594b5590a2e3503174512d53a958815a5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:movement:right:orb",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+      "asset_sha256": "b15e9667f75c45cb5b82fb59a39c9b4e411f5ebf67485932b36589fbe0b59dd9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:movement:right:wand",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+      "asset_sha256": "b15e9667f75c45cb5b82fb59a39c9b4e411f5ebf67485932b36589fbe0b59dd9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:victory_return:left:orb",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+      "asset_sha256": "e336016eebdb466031381a5bfa36f4f4142911e70ce4da07b9c8f382dd4fad4d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:victory_return:left:wand",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+      "asset_sha256": "e336016eebdb466031381a5bfa36f4f4142911e70ce4da07b9c8f382dd4fad4d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:victory_return:right:orb",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+      "asset_sha256": "4b6ca7e7e73bd4c7520038a1a8d4ef771bb33bd7f1336340f289f911f2bf6d87",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:nightstage_drifter:victory_return:right:wand",
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+      "asset_sha256": "4b6ca7e7e73bd4c7520038a1a8d4ef771bb33bd7f1336340f289f911f2bf6d87",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_left.png",
+      "asset_sha256": "0f857912bccab1f23f43b68e88af2e1af8105a4890612a676cbf5aeecf4172c2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_right.png",
+      "asset_sha256": "29fbae02ed86e51d7d2cd5116fd0449eec7a8a4ed5625cbbbf96f002ae508cb3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+      "asset_sha256": "8b432ef21543c7db75228c47a3bd8e1b6de06c8bcf5a67b09594fa9b50be2ddc",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+      "asset_sha256": "8b432ef21543c7db75228c47a3bd8e1b6de06c8bcf5a67b09594fa9b50be2ddc",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+      "asset_sha256": "fc3f6409c75077193771472e542a06437125cf07766f9362d824b1811947c6b7",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+      "asset_sha256": "fc3f6409c75077193771472e542a06437125cf07766f9362d824b1811947c6b7",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+      "asset_sha256": "d5eb79ddace0623f535d2fcc6d37f5975db406e370693d00b9145672bb42b4bc",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+      "asset_sha256": "d5eb79ddace0623f535d2fcc6d37f5975db406e370693d00b9145672bb42b4bc",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+      "asset_sha256": "13fc19a3ae87a168d4505a8cec69d10503acd2488e7c9fbba28e6b6c79bd7a8e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:pebblewyrm:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+      "asset_sha256": "13fc19a3ae87a168d4505a8cec69d10503acd2488e7c9fbba28e6b6c79bd7a8e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:defeat:left:orb",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
+      "asset_sha256": "35dd713e1bfffb64411623cb5749e6e00902399ec9da1e7a1eeea3b3cc630875",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:defeat:right:orb",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
+      "asset_sha256": "c4188b7770d97448ef705270eeb23b0ecb87627d4b11e4f432e46fa772e89e03",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:movement:left:orb",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+      "asset_sha256": "943eca8674b7a50753cedc8d39c07f2e3d6a6c54db1092b0718afe06945057fa",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:movement:left:wand",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+      "asset_sha256": "943eca8674b7a50753cedc8d39c07f2e3d6a6c54db1092b0718afe06945057fa",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:movement:right:orb",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+      "asset_sha256": "24828ca33fbd638da43700c338be375ed3e8cb91d54eee2b7dbc46bacb8c5a62",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:movement:right:wand",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+      "asset_sha256": "24828ca33fbd638da43700c338be375ed3e8cb91d54eee2b7dbc46bacb8c5a62",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:victory_return:left:orb",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+      "asset_sha256": "22bc217443323e8e54dfea1cf0ad64ae7d9d20bbb5d14595566059a19d0b9197",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:victory_return:left:wand",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+      "asset_sha256": "22bc217443323e8e54dfea1cf0ad64ae7d9d20bbb5d14595566059a19d0b9197",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:victory_return:right:orb",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+      "asset_sha256": "9b741c42b2e269e99ab1af15170cc212048afde465bf174d0422fe62695987a6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:victory_return:right:wand",
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+      "asset_sha256": "9b741c42b2e269e99ab1af15170cc212048afde465bf174d0422fe62695987a6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:defeat:left:orb",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_left.png",
+      "asset_sha256": "01e57e00103d56503284314a6ee3d8c2a4e3ce8d04166503078ac7b060a2c9e8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:defeat:right:orb",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_right.png",
+      "asset_sha256": "92d418561429fb84252db4bf58f06e5213822fd6b1dc79bee6929a79081e3814",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:movement:left:orb",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+      "asset_sha256": "a60c8266fb301748efce1e3b1b3cfb8ac0ac20ca4a94547311b12777187b4de3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:movement:left:wand",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+      "asset_sha256": "a60c8266fb301748efce1e3b1b3cfb8ac0ac20ca4a94547311b12777187b4de3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:movement:right:orb",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+      "asset_sha256": "032f512577a066858e5b945d336098bb3cd54165b603d7d0ec51bb7c5c300457",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:movement:right:wand",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+      "asset_sha256": "032f512577a066858e5b945d336098bb3cd54165b603d7d0ec51bb7c5c300457",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:victory_return:left:orb",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+      "asset_sha256": "ae8c4705824c9ff7a8dcc06ec2ba5ccde58ae7013a588c8c915cbc8969337e4c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:victory_return:left:wand",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+      "asset_sha256": "ae8c4705824c9ff7a8dcc06ec2ba5ccde58ae7013a588c8c915cbc8969337e4c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:victory_return:right:orb",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+      "asset_sha256": "bd7e70df4f8a25c6a9c863c7f047a37d7a8b40b5ab03db290fa2849aa630448b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:ruin_warden:victory_return:right:wand",
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+      "asset_sha256": "bd7e70df4f8a25c6a9c863c7f047a37d7a8b40b5ab03db290fa2849aa630448b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:defeat:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_left.png",
+      "asset_sha256": "a5a2923ea25afc24b2fe114b845ee6bec2c897e9c85d428aa2ceafb9b0576126",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:defeat:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_right.png",
+      "asset_sha256": "f2410b8149d8f30effe5b83a6622753499386583a69e734cb923a9a716e39105",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:movement:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+      "asset_sha256": "1134055f90bc909ab3e3fa39f70fd5ee6825377680705c3fa67e268d80dfd71e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:movement:left:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+      "asset_sha256": "1134055f90bc909ab3e3fa39f70fd5ee6825377680705c3fa67e268d80dfd71e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:movement:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+      "asset_sha256": "7e61b32b850a3d23b1ed4801541f64d16238ca69a5269dfe899b3ff7a238a015",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:movement:right:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+      "asset_sha256": "7e61b32b850a3d23b1ed4801541f64d16238ca69a5269dfe899b3ff7a238a015",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:victory_return:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+      "asset_sha256": "d95355ac39ba2fb4300910a1368d6013676c694ccc63c1b6227b7b93773bdac4",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:victory_return:left:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+      "asset_sha256": "d95355ac39ba2fb4300910a1368d6013676c694ccc63c1b6227b7b93773bdac4",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:victory_return:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+      "asset_sha256": "5b682893ff7da0081a5d9c451e61aab402a494a289672f268de310f1ee73992e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:victory_return:right:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+      "asset_sha256": "5b682893ff7da0081a5d9c451e61aab402a494a289672f268de310f1ee73992e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:defeat:left:orb",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_left.png",
+      "asset_sha256": "18b5b10899c2923746bbc2aaeb4c69e113153dd9aa833417e4e94986b747943d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:defeat:right:orb",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_right.png",
+      "asset_sha256": "9a65b5a503945db08e92ebdb40a7661fc76788aea3b3c2226b1ec8e6da4aca7b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:movement:left:orb",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+      "asset_sha256": "776a94ec6098eddb85f5fec8ebbb6a22301d8072ae16339265a8e8b579948070",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:movement:left:wand",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+      "asset_sha256": "776a94ec6098eddb85f5fec8ebbb6a22301d8072ae16339265a8e8b579948070",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:movement:right:orb",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+      "asset_sha256": "7498376348d0e7431d8073e7abecdce5ff18475b708659d0d0ebada04b560bd0",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:movement:right:wand",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+      "asset_sha256": "7498376348d0e7431d8073e7abecdce5ff18475b708659d0d0ebada04b560bd0",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:victory_return:left:orb",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_left.png",
+      "asset_sha256": "b196f065b90c82def6335040576d237c62a2fb802fce71f1df2026f9b454b601",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
+    },
+    {
+      "slot_id": "pose:velvet_astrologer:victory_return:right:orb",
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_right.png",
+      "asset_sha256": "2e262e74ae71bdb09f93b6d918e062708393ea4c7bab61238d2706c1733acff8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.44/motion_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.44/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Two-step locomotion / outcome keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependency_sha256": {
+        "weapon_fit_catalog.gd": "8b7b6186a1323b00307191b9f944f01fd586619bdacb0e6a283a37d519b40cb5",
+        "authored_pose_manifest.gd": "02d198b6010e6a9658d0f7f16289d7aafa3329914ff7a8f0f944c7446e4df8b8",
+        "result_actor_view.gd": "55d409ad34b49cf5390f8e7abcb007a59683451708224e02ecdad90a835a89ba",
+        "art/production/phase4e/player_motion_044_manifest.json": "3f5567062d46acf0689e9deb5bf4ac175a8e64dd8f07dc5ca5fa26de88e8e3cb"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

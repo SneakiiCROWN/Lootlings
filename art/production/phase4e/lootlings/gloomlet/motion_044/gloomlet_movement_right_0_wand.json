@@ -1,0 +1,89 @@
+{
+  "actor": "gloomlet",
+  "asset_path": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:gloomlet:movement:right:wand",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0_grip_front.png",
+  "fps": 6.0,
+  "frame_count": 2.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0_wand.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "MOVE",
+  "primary_anchor": [
+    0.544743795955882,
+    0.721964833656331
+  ],
+  "primary_palm": [
+    278.908823529412,
+    369.645994832041
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.544743795955882,
+    0.721964833656331
+  ],
+  "source": "art/source/player_motion_044/gloomlet.png",
+  "source_bounds": [
+    33.0,
+    99.0,
+    373.0,
+    486.0
+  ],
+  "source_primary": [
+    222.0,
+    379.0
+  ],
+  "source_sha256": "763eacefbc3e3494be50a3d110b370108b5149114ecfdf1be3c7ba927a2495ce",
+  "state": "movement",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated identity/source anatomy/independent facing/alpha and 96 native pose views reviewed. 498 three-layout probes; carry contact corrected to avoid faces. Two-step keyframes and single outcome poses remain visually unfinished animation families; professional acceptance and physical-device review open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "wand": {
+      "angle": 0.7,
+      "grip": [
+        0.419999986886978,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/wand_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        75.0,
+        93.0
+      ],
+      "socket": [
+        0.600000023841858,
+        0.100000001490116
+      ]
+    }
+  },
+  "weapon_types": [
+    "wand"
+  ]
+}

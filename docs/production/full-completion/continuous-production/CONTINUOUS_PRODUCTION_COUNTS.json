@@ -1,19 +1,20 @@
 {
-  "installed_contracts": 216,
-  "installed_artist_files": 494,
+  "installed_contracts": 334,
+  "installed_artist_files": 848,
   "installed_by_category": {
-    "playable_lootlings": 60,
+    "playable_lootlings": 130,
     "companions": 58,
     "Home": 3,
     "bosses": 12,
     "enemies": 71,
-    "npcs": 12
+    "npcs": 12,
+    "wanderers": 48
   },
-  "remaining_contracts": 3058,
-  "remaining_artist_files": 8001,
+  "remaining_contracts": 2940,
+  "remaining_artist_files": 7647,
   "remaining_by_category": {
-    "playable_lootlings": 1396,
-    "wanderers": 855,
+    "playable_lootlings": 1326,
+    "wanderers": 807,
     "enemies": 252,
     "bosses": 356,
     "npcs": 34,
@@ -30,5 +31,5 @@
   "latest_enemy_revision": "36 Bell Bat/Rime Pup/Coal Pup exact combat state/facing cells installed; 72 PNG/sidecar artist files.",
   "latest_npc_revision": "12 Patch/Ilex rest/inspect/talk cells, both independently authored views; 24 PNG/sidecar artist files; left bodies live beside Hub stations. Route/work/sit still open.",
   "artist_file_count_unit": "Frozen artist-file requirements fulfilled, including verified reuse. Not unique newly authored physical files. See per-batch receipts.",
-  "latest_player_revision": "0.4.43: Gloomlet Bow ten new exact cells; Moonkip Wand five; Moonkip Orb ten using compatible verified bodies. 15 new body PNG +15 grip PNG +25 sidecars =55 new physical artist files; 75 frozen file requirements fulfilled, 20 via reuse. No movement/defeat/victory or whole-family completion."
+  "latest_player_revision": "0.4.44: all twelve actors, alternating movement (Wand/Orb), victory (Wand/Orb except Astrologer Wand), defeat (Orb). 118 exact state/view/weapon deliveries; 96 body PNG, 96 grip PNG, 166 sidecars. Basic keyframes, not completed fluid families."
 }
