@@ -7,6 +7,7 @@ var contacts:Dictionary={}
 var held_since:int=0
 var ready_to_open:bool=false
 var prompt:Panel
+var backdrop:ColorRect
 var pin:LineEdit
 var confirm_pin:LineEdit
 var message:Label
@@ -50,6 +51,7 @@ func configured() -> bool:
  var config:=ConfigFile.new();return config.load(PIN_PATH)==OK and not str(config.get_value("access","digest","")).is_empty()
 func show_prompt() -> void:
  if not enabled() or is_instance_valid(prompt):return
+ backdrop=ColorRect.new();backdrop.position=Vector2.ZERO;backdrop.size=Vector2(480,854);backdrop.color=Color("#030714b0");backdrop.mouse_filter=Control.MOUSE_FILTER_STOP;add_child(backdrop)
  prompt=Panel.new();prompt.position=Vector2(24,218);prompt.size=Vector2(432,398);prompt.mouse_filter=Control.MOUSE_FILTER_STOP;prompt.add_theme_stylebox_override("panel",preload("res://lootlings_ui.gd").material_style("leather"));add_child(prompt)
  message=Label.new();message.position=Vector2(20,18);message.size=Vector2(392,100);message.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;message.text="OWNER TEST BUILD\nEnter your PIN. Cheats use isolated test saves." if configured() else "SET OWNER PIN\nChoose 6-12 digits on this device. No shared PIN is shipped.";prompt.add_child(message)
  pin=LineEdit.new();pin.position=Vector2(20,132);pin.size=Vector2(392,50);pin.secret=true;pin.virtual_keyboard_type=LineEdit.KEYBOARD_TYPE_NUMBER;pin.placeholder_text="6-12 digit PIN";prompt.add_child(pin)
@@ -58,6 +60,7 @@ func show_prompt() -> void:
  var cancel:=Button.new();cancel.position=Vector2(20,326);cancel.size=Vector2(392,48);cancel.text="CANCEL";cancel.pressed.connect(close_prompt);prompt.add_child(cancel)
  game.touch_ux.renew_surface()
 func close_prompt() -> void:
+ if is_instance_valid(backdrop):backdrop.queue_free();backdrop=null
  if is_instance_valid(prompt):prompt.queue_free();prompt=null
  game.touch_ux.renew_surface()
 func unlock() -> void:

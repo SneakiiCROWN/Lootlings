@@ -1,0 +1,27 @@
+{
+  "version": "0.4.52",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.52-owner-tools-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "bcb630c9cd590cc0a6119a43df8fd596901e57c4e7f31e6795e2a28c0d5d45be"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.52-owner-tools-candidate.pck",
+      "bytes": 282932664,
+      "sha256": "5af6892a3633b7d5f33a713b140aaa2ff4f34b63e37ac7554f4dede4867f4831"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.52-normal-candidate-debug.apk",
+      "bytes": 303965966,
+      "sha256": "dbb8a266eac2ecd0d6de3eed80e65cb5497c84b72599bc5939faf46a5633fece"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.52-owner-test-debug.apk",
+      "bytes": 303965966,
+      "sha256": "604bc3fc887a993aaa2320eaae141006012807503549ede3730466ef78c59493"
+    }
+  ],
+  "physical_android_test": false,
+  "superseded_owner_access": "Owner now requests no PIN and SSH. Preserve these verified candidates as historical checkpoints; correction in progress."
+}

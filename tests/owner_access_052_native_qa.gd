@@ -19,10 +19,18 @@ func review() -> void:
   assert(not is_instance_valid(game.owner_test_access.prompt))
   await finger(left,true,0);await finger(right,true,1);await create_timer(2.65).timeout;await finger(left,false,0);assert(not is_instance_valid(game.owner_test_access.prompt));await finger(right,false,1)
   assert(is_instance_valid(game.owner_test_access.prompt));await capture("owner_pin_setup")
+  assert(game.input_surface()==game.owner_test_access.prompt)
+  assert(game.owner_test_access.backdrop.mouse_filter==Control.MOUSE_FILTER_STOP)
   # Fixture secret is generated for disposable storage, never shipped.
   var test_pin:String="%06d" % randi_range(100000,999999)
   if game.owner_test_access.configured():
    var config:=ConfigFile.new();config.set_value("access","salt","qa-only");config.set_value("access","digest",("qa-only"+test_pin).sha256_text());assert(config.save("user://lootlings_owner_access.cfg")==OK)
+  game.owner_test_access.pin.text="12";await tap(game.owner_test_access.enter_button);assert(not Scope.active and is_instance_valid(game.owner_test_access.prompt))
+  if game.owner_test_access.configured():
+   game.owner_test_access.pin.text="000000" if test_pin!="000000" else "111111"
+   await tap(game.owner_test_access.enter_button);assert(not Scope.active and "Incorrect" in game.owner_test_access.message.text)
+  else:
+   game.owner_test_access.pin.text=test_pin;game.owner_test_access.confirm_pin.text="wrong";await tap(game.owner_test_access.enter_button);assert(not Scope.active and not game.owner_test_access.configured())
   game.owner_test_access.pin.text=test_pin;game.owner_test_access.confirm_pin.text=test_pin
   await tap(game.owner_test_access.enter_button);await process_frame;await process_frame;game=current_scene
   assert(Scope.active and is_instance_valid(game.debug_panel) and game.debug_panel.visible and game.input_surface()==game.debug_panel)

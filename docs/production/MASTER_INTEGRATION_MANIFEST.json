@@ -143,7 +143,7 @@
     "mythical_chase_view.gd": "187b5a372f57b1d66fa784be40a23db3b429c435c83b52fa88dca36ff2489896",
     "mythical_collection.gd": "56ff7394cc8804acb69331b8b429cfa81b756d38ea412798726edd82ee354c16",
     "named_item_art.gd": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb",
-    "owner_test_access.gd": "91c1f722d66b25659693c6d7e4e238869a785a1311eb7cc57fc5aa5f6155abf9",
+    "owner_test_access.gd": "77e5fd65a408f6525de5158dc68294ebfa58f6292dc8253c9ab9fd3a275a64da",
     "permanent_upgrade_catalog.gd": "8e802308e3cea21e48f00c9ad13f6db0b5af23dccccd0ced64ecb62331d23863",
     "personal_home.gd": "da2b727e359cf7bd0fdee518610539a0038d17c21bc601730fa3ea7eaff5ee9b",
     "phase3_item_catalog.gd": "24e796e46e727e08aab4737bb5d9c99710cccaf908e23ae8437b42dfd40b5e47",
@@ -331199,7 +331199,7 @@
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:21:0:d7c47da0",
+      "slot_id": "label:owner_test_access.gd:22:0:d7c47da0",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331226,13 +331226,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 21,
+        "line": 22,
         "text": "OWNER TEST PROFILE - SEPARATE SAVES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:21:1:b147a9cc",
+      "slot_id": "label:owner_test_access.gd:22:1:b147a9cc",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331259,13 +331259,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 21,
+        "line": 22,
         "text": "font_size",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:21:2:d8901735",
+      "slot_id": "label:owner_test_access.gd:22:2:d8901735",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331292,13 +331292,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 21,
+        "line": 22,
         "text": "font_color",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:54:0:a02b7a5d",
+      "slot_id": "label:owner_test_access.gd:56:0:a02b7a5d",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331325,13 +331325,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 54,
+        "line": 56,
         "text": "OWNER TEST BUILD\\nEnter your PIN. Cheats use isolated test saves.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:54:1:f747e095",
+      "slot_id": "label:owner_test_access.gd:56:1:f747e095",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331358,13 +331358,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 54,
+        "line": 56,
         "text": "SET OWNER PIN\\nChoose 6-12 digits on this device. No shared PIN is shipped.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:57:0:9d2e461d",
+      "slot_id": "label:owner_test_access.gd:59:0:9d2e461d",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331391,13 +331391,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 57,
+        "line": 59,
         "text": "ENTER ISOLATED TEST PROFILE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:58:0:1507c40f",
+      "slot_id": "label:owner_test_access.gd:60:0:1507c40f",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331424,13 +331424,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 58,
+        "line": 60,
         "text": "CANCEL",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:65:0:87bea2cd",
+      "slot_id": "label:owner_test_access.gd:68:0:87bea2cd",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331457,46 +331457,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 65,
+        "line": 68,
         "text": "Wait 30 seconds before trying again.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:67:2:8abac099",
-      "game_id": "owner_test_access_gd",
-      "category": "player_text",
-      "subject": "owner_test_access.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "owner_test_access",
-      "implementation_file": "owner_test_access.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 67,
-        "text": "Use 6-12 digits.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:owner_test_access.gd:70:0:0a22f79d",
+      "slot_id": "label:owner_test_access.gd:70:2:8abac099",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331524,12 +331491,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 70,
+        "text": "Use 6-12 digits.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:owner_test_access.gd:73:0:0a22f79d",
+      "game_id": "owner_test_access_gd",
+      "category": "player_text",
+      "subject": "owner_test_access.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "owner_test_access",
+      "implementation_file": "owner_test_access.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 73,
         "text": "The two PINs must match.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:72:0:126f33cb",
+      "slot_id": "label:owner_test_access.gd:75:0:126f33cb",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331556,46 +331556,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 72,
+        "line": 75,
         "text": "PIN could not be saved. No profile switch.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:owner_test_access.gd:76:0:65dc8cee",
-      "game_id": "owner_test_access_gd",
-      "category": "player_text",
-      "subject": "owner_test_access.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "owner_test_access",
-      "implementation_file": "owner_test_access.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 76,
-        "text": "Incorrect PIN.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:owner_test_access.gd:79:0:ff64f703",
+      "slot_id": "label:owner_test_access.gd:79:0:65dc8cee",
       "game_id": "owner_test_access_gd",
       "category": "player_text",
       "subject": "owner_test_access.gd",
@@ -331623,6 +331590,39 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 79,
+        "text": "Incorrect PIN.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:owner_test_access.gd:82:0:ff64f703",
+      "game_id": "owner_test_access_gd",
+      "category": "player_text",
+      "subject": "owner_test_access.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "owner_test_access",
+      "implementation_file": "owner_test_access.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 82,
         "text": ";confirm_pin.text=",
         "dynamic_template": true
       }

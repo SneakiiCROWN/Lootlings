@@ -106,6 +106,8 @@ def main():
     assert '(Key=0x7f030015): (color) #ff0d182d' in resource_dump, 'Compatibility splash background is not branded navy'
     with zipfile.ZipFile(output) as apk:
         entries = apk.namelist()
+        project_binary=apk.read("assets/project.binary")
+        assert (b"owner_test" in project_binary)==args.owner, "Owner feature boundary mismatch in exported settings"
         assert apk.read('assets/art/actor_identity_corrections.json')==(ROOT/'art/actor_identity_corrections.json').read_bytes(), 'Stale owner identity confirmation'
         assert 'assets/actor_identity_corrections.gdc' in entries, 'Missing owner identity boundary'
         extracted_manifest = json.loads((ROOT/'art/production/phase4e/extraction_manifest.json').read_text(encoding='utf-8'))

@@ -1,3 +1,7 @@
+# Current - 0.4.52 isolated owner testing and truthful completion views
+
+Source milestone 09b9325 pushed. Existing F1 menu now touch-accessible in a separate owner Android app with on-device PIN and isolated saves. Normal Android owner access disabled. Art closures this pass: 0; 2757 remain. Exact queue 7289 paths versus legacy 7178-file ledger: 111 discrepancy OPEN. See [current report](quality-evidence/0.4.52/REPORT.md) and [owner instructions](OWNER_TEST_ACCESS.md). Export reports and compiled native evidence are in the same evidence folder. Professional whole-game and physical-device acceptance remain open.
+
 # Current — 0.4.48 canonical services, named loot and region atmosphere
 
 Six NPC work views, six named loot icons and twelve Inkling/Margin Imp keyframes installed and native-reviewed across three layouts. Eighteen frozen closures; 2834 contracts /7363 file requirements remain. See [current report](quality-evidence/0.4.48/REPORT.md). Fluid/professional/physical-device acceptance open.
