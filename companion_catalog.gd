@@ -25,14 +25,22 @@ static func preview(id: String, unlock: bool=false) -> Texture2D:
 	return load("res://art/production/companions/previews/"+id+("_unlock.png" if unlock else "_portrait.png"))
 
 static var textures := {}
+static var installed_entries: Array=[]
+static var installed_manifest_loaded := false
+static var ready_ids_cached: Array[String]=[]
+static var ready_ids_loaded:=false
+static var perch_readiness: Dictionary={}
 static var review_assets := {}
 const FOLLOWER_STATES := ["idle","move","reaction"]
 const PERCH_STATES := ["perch_rest","perch_interact"]
 
 static func manifest_entries() -> Array:
+	if installed_manifest_loaded:return installed_entries
+	installed_manifest_loaded=true
 	if not FileAccess.file_exists(RUNTIME_MANIFEST):return []
 	var manifest=JSON.parse_string(FileAccess.get_file_as_string(RUNTIME_MANIFEST))
-	return manifest.entries if manifest is Dictionary and manifest.get("entries",null) is Array else []
+	installed_entries=manifest.entries if manifest is Dictionary and manifest.get("entries",null) is Array else []
+	return installed_entries
 
 static func accepted_frame(id: String, state: String, facing: String, entries: Array) -> Texture2D:
 	var path:=runtime_path(id,state,facing)
@@ -65,15 +73,20 @@ static func complete_states(id: String, states: Array, entries: Array) -> bool:
 	return true
 
 static func available_ids() -> Array[String]:
+	if ready_ids_loaded and review_assets.is_empty():return ready_ids_cached.duplicate()
 	var result: Array[String]=[]
 	var entries:=manifest_entries()
 	for id in ENTRIES:
 		if complete_states(id,FOLLOWER_STATES,entries):result.append(id)
+	if review_assets.is_empty():ready_ids_cached=result;ready_ids_loaded=true
 	return result
 
 static func can_perch(id: String) -> bool:
+	if perch_readiness.has(id) and review_assets.is_empty():return perch_readiness[id]
 	var entries:=manifest_entries()
-	return complete_states(id,FOLLOWER_STATES,entries) and complete_states(id,PERCH_STATES,entries)
+	var ready:bool=id in available_ids() and complete_states(id,PERCH_STATES,entries)
+	if review_assets.is_empty():perch_readiness[id]=ready
+	return ready
 
 static func sanitize(value: Variant) -> Dictionary:
 	var result := {"equipped_id":"", "owned_ids":[], "accompany":false}
@@ -87,8 +100,8 @@ static func sanitize(value: Variant) -> Dictionary:
 
 static func texture(id: String, state: String, facing: String) -> Texture2D:
 	var entries:=manifest_entries()
-	if not complete_states(id,FOLLOWER_STATES,entries):return null
-	if state in PERCH_STATES and not complete_states(id,PERCH_STATES,entries):return null
+	if id not in available_ids():return null
+	if state in PERCH_STATES and not can_perch(id):return null
 	return accepted_frame(id,state,facing,entries)
 
 static func runtime_path(id: String, state: String, facing: String) -> String:

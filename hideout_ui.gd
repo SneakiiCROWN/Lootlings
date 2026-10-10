@@ -119,6 +119,7 @@ var companion_collection_content: Control
 var home_settings_summary: Label
 var home_display_buttons: Dictionary = {}
 var companion_buttons: Dictionary = {}
+var companion_follow_button: Button
 var companion_presenter := preload("res://companion_presentation.gd").new()
 var hub_navigation := preload("res://hub_navigation.gd").new()
 var home_content: Control
@@ -752,7 +753,7 @@ func select_forge_recipe(weapon_type: String) -> void:
 	forge_armed = false
 	var item := ForgeSystem.WeaponCatalog.starter(weapon_type)
 	var description: String = str(item.desc).replace(" TEMP ART: shared class weapon.", "")
-	forge_detail.text = "%s\n%s\n\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, description, gold, current_inventory.scrap]
+	forge_detail.text = "%s\n%s\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, description, gold, current_inventory.scrap]
 	forge_detail.add_theme_font_size_override("font_size", 17)
 	forge_confirm.text = "MAKE • STORE IN STASH"
 	forge_confirm.disabled = gold < 150 or current_inventory.scrap < 6 or current_inventory.stash.size() >= current_inventory.stash_capacity
@@ -802,7 +803,7 @@ func select_forge_weapon(index: int) -> void:
 	else:
 		if gold<int(next.gold):forge_confirm.text="NEED %d MORE GOLD" % (int(next.gold)-gold)
 		elif current_inventory.scrap<int(next.scrap):forge_confirm.text="NEED %d MORE SCRAP" % (int(next.scrap)-current_inventory.scrap)
-		forge_detail.text = "%s\n+4%% damage • permanent\n%s\n\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [next.name, next.behaviour, next.gold, next.scrap, gold, current_inventory.scrap]
+		forge_detail.text = "%s\n+4%% damage • permanent\n%s\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [next.name, next.behaviour, next.gold, next.scrap, gold, current_inventory.scrap]
 
 func build_upgrades() -> void:
 	upgrade_content = Control.new()
@@ -1663,7 +1664,7 @@ func _process(delta: float) -> void:
 	if not visible:
 		return
 	if current_screen == "home":
-		companion_presenter.update(delta,Vector2(240,491))
+		companion_presenter.update(delta,Vector2(240,491),Vector2(-96,10))
 		var cycle:=int(scene_time/28.0)
 		if cycle!=station_cycle:
 			station_cycle=cycle
@@ -1797,6 +1798,7 @@ func draw_home_scene() -> void:
 	LootlingsUI.draw_icon(get_canvas_item(),engine_art,Rect2(372,665,62,65))
 	draw_hideout_light(Vector2(403,689),15,.055,1.7)
 	draw_home_workstations()
+	companion_presenter.draw_world(self,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})),get_parent().audio_settings.get("cinematic_reduced_motion",false))
 
 func draw_home_board() -> void:
 	# Accepted painted contract banner replaces the flat board/paper prototype.
@@ -2037,9 +2039,11 @@ func build_home_settings() -> void:
 	companion_collection_content=Control.new();companion_collection_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);companion_collection_content.visible=false;add_child(companion_collection_content)
 	make_button(companion_collection_content,"‹ YOUR HOME",Rect2(20,20,148,48),Color("#202d4d"),Color("#7f94bc"),16).pressed.connect(func():get_parent().personal_home.go_back())
 	make_label(companion_collection_content,"COMPANION COLLECTION",23,Rect2(20,100,440,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
-	var collection_status:= make_label(companion_collection_content,"Meet the collection • not available yet",15,Rect2(20,154,440,35),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"));collection_status.name="CollectionStatus"
-	var collection_panel:=make_panel(companion_collection_content,Rect2(20,204,440,568),Color("#10162ff2"),Color("#8ea2c8"))
-	var scroll:=ScrollContainer.new();scroll.position=Vector2(18,18);scroll.size=Vector2(404,532);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;collection_panel.add_child(scroll)
+	var collection_status:= make_label(companion_collection_content,"Meet the collection • not available yet",15,Rect2(20,146,440,24),HORIZONTAL_ALIGNMENT_CENTER,Color("#dce6ff"));collection_status.name="CollectionStatus"
+	companion_follow_button=make_button(companion_collection_content,"",Rect2(20,174,440,48),Color("#202d4d"),Color("#d7b46d"),14)
+	companion_follow_button.name="CompanionFollow";companion_follow_button.pressed.connect(toggle_companion_follow)
+	var collection_panel:=make_panel(companion_collection_content,Rect2(20,236,440,536),Color("#10162ff2"),Color("#8ea2c8"))
+	var scroll:=ScrollContainer.new();scroll.position=Vector2(18,18);scroll.size=Vector2(404,500);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;collection_panel.add_child(scroll)
 	var list:=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)
 	list.add_theme_constant_override("separation",10)
 	for id in preload("res://companion_catalog.gd").known_ids():
@@ -2068,6 +2072,9 @@ func refresh_home_settings() -> void:
 	home_settings_summary.text="No companion equipped. Companions are cosmetic; they give no combat advantage."
 	if preload("res://companion_catalog.gd").available_ids().is_empty():home_settings_summary.text="No companions are available yet. Your slot is ready. Companions never change combat stats."
 	elif not companion.equipped_id.is_empty():home_settings_summary.text="Equipped: "+str(preload("res://companion_catalog.gd").ENTRIES[companion.equipped_id].get("name",companion.equipped_id))+" • cosmetic only"
+	companion_follow_button.disabled=companion.equipped_id.is_empty()
+	companion_follow_button.text="CHOOSE A COMPANION FIRST" if companion.equipped_id.is_empty() else "FOLLOWING YOU · STAY HOME" if companion.accompany else "STAYING HOME · FOLLOW ME"
+	companion_follow_button.set_meta("ui_selected",companion.accompany)
 	var ready_ids:=preload("res://companion_catalog.gd").available_ids()
 	var collection_status: Label=companion_collection_content.get_node("CollectionStatus")
 	collection_status.text="Meet the collection • not available yet" if ready_ids.is_empty() else "%d companions ready • unlock with relics" % ready_ids.size()
@@ -2106,3 +2113,10 @@ func restore_phase4_selection() -> void:
 		if child is Button and str(child.get_meta("selection_id",""))==selected_id:
 			child.pressed.emit()
 			return
+
+func toggle_companion_follow() -> void:
+	if current_screen!="companion_collection":return
+	var next:=preload("res://companion_catalog.gd").sanitize(profile.get("companion",{}))
+	if next.equipped_id.is_empty():return
+	next.accompany=not next.accompany
+	home_preferences_requested.emit(preload("res://home_catalog.gd").sanitize(profile.get("homestead",{}),next.equipped_id),next)

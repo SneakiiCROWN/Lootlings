@@ -318,6 +318,7 @@ var pause_panel: Panel
 var abandon_panel: Panel
 var hideout_ui
 var startup_ui
+var combat_companion:=preload("res://companion_presentation.gd").new()
 var personal_home
 var personal_profile_return := false
 var audio_manager
@@ -1618,6 +1619,8 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	combat_companion.initialized=false
+	combat_companion.reaction_timer=0
 	forced_facing_test = 0
 	enemy_stage_x = ENEMY_X
 	run_resolved=false
@@ -1971,6 +1974,10 @@ func finish_story_boss_intro() -> void:
 	spawn_enemy()
 
 func _process(delta: float) -> void:
+	if state=="playing" and profile.get("companion",{}).get("accompany",false) and not str(profile.get("companion",{}).get("equipped_id","")).is_empty():
+		var companion_owner:=Vector2(WeaponFit.world_position(self).x,preload("res://combat_stage.gd").GROUND_Y)
+		combat_companion.update(delta,companion_owner,Vector2(-100*combat_facing(),0))
+		combat_companion.position.x=clampf(combat_companion.position.x,30,450)
 	proc_timer = maxf(0.0,proc_timer-delta)
 	if presentation_director != null and presentation_director.vignette.active:
 		if pause_button != null: pause_button.visible = false
@@ -2555,6 +2562,7 @@ func update_elemental_damage(delta: float) -> void:
 			kill_enemy()
 
 func kill_enemy() -> void:
+	if profile.get("companion",{}).get("accompany",false):combat_companion.react("reward")
 	enemy_alive = false
 	spawn_clock = 0.90 if enemy_is_boss else 0.72 if enemy_is_miniboss else 0.48
 	enemy_death_anim = 0.82 if enemy_is_boss else 0.68 if enemy_is_miniboss else 0.50
@@ -3856,6 +3864,7 @@ func draw_arena(shake: Vector2) -> void:
 			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
 			draw_status_chip(Vector2(240 if enemy_is_boss else enemy_hud_x+enemy_hud_width*.5, (310 if enemy_is_boss else enemy_hud_y+76)+name_extra), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
+	combat_companion.draw_world(self,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})),audio_settings.get("cinematic_reduced_motion",false))
 	draw_lootling(player_pos, player_flash > 0.0)
 	if enemy_encounter.active:
 		enemy_encounter.draw(self, shake)

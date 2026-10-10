@@ -50,6 +50,8 @@ func open(next: String="room") -> void:
 	if next=="decor" and view not in ["decor","decor_preview"]:draft=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id",""))).home_layout.duplicate(true)
 	if next=="companions" and view!="companions":
 		companion_parent=view if visible and view in ["room","preferences"] else "room"
+	for overlay in [game.pause_button,game.pause_panel,game.abandon_panel,game.result_panel,game.upgrade_panel,game.item_panel,game.merchant_panel,game.boss_reward_panel,game.event_panel,game.help_label]:
+		if overlay!=null:overlay.hide()
 	game.state="personal_home";game.hideout_ui.visible=false;game.startup_ui.visible=false
 	game.hideout_ui.dismiss_dialogue();game.hideout_ui.loadout_panel.visible=false
 	visible=true;view=next;room.visible=view=="room"
@@ -118,7 +120,7 @@ func _draw() -> void:
 	elif display=="scroll":art=preload("res://art/production/phase4e/items/recipe_scroll.png")
 	elif display=="trophy":art=preload("res://art/production/phase4e/props/trophy_dais.png")
 	UI.draw_icon(get_canvas_item(),art,Rect2(351,267,70,70))
-	follower.draw_home(self,preload("res://companion_catalog.gd").sanitize(game.profile.get("companion",{})))
+	follower.draw_home(self,preload("res://companion_catalog.gd").sanitize(game.profile.get("companion",{})),not motion)
 	Decor.draw_foreground(self,layout)
 	if view=="decor":draw_rect(Rect2(0,0,480,854),Color("#050a1788"))
 

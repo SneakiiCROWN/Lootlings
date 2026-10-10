@@ -5,12 +5,15 @@ var facing := "right"
 var state := "idle"
 var reaction_timer := 0.0
 var initialized := false
+var motion_clock := 0.0
+var last_drawn_asset := ""
 
 func react(context: String) -> void:
 	if context in ["return", "reward", "talk"]:
 		state="reaction"; reaction_timer=.75
 
 func update(delta: float, owner_position: Vector2, offset: Vector2=Vector2(-72,45)) -> void:
+	motion_clock+=clampf(delta,0,.1)
 	var target:=owner_position+offset
 	if not initialized: position=target; initialized=true
 	var distance:=target-position
@@ -39,14 +42,25 @@ func update_home(delta: float, selection: Dictionary, layout: Dictionary) -> voi
 			facing=str(decor.SLOTS[slot].facing_default)
 			state="perch_interact" if reaction_timer>0 else "perch_rest"
 
-func draw_home(canvas: Control, selection: Dictionary) -> void:
+func draw_world(canvas: Control, selection: Dictionary, reduced_motion: bool=false) -> void:
+	if not selection.get("accompany",false):last_drawn_asset="";return
+	draw_home(canvas,selection,reduced_motion)
+
+func draw_home(canvas: Control, selection: Dictionary, reduced_motion: bool=false) -> void:
 	var id: String=selection.get("equipped_id","")
+	last_drawn_asset=""
 	if id.is_empty():return
 	var texture:=preload("res://companion_catalog.gd").texture(id,state,facing)
 	# Missing action/opposite view remains absent, never a fake idle or mirror.
 	if texture==null:return
+	last_drawn_asset=texture.resource_path
+	var hover:float=sin(motion_clock*1.8)*1.2 if not reduced_motion and id in ["lunarwisp","breezewyn"] and state=="idle" else 0.0
+	canvas.draw_set_transform(position,0,Vector2(1,.18));canvas.draw_circle(Vector2.ZERO,16,Color("#03071145"));canvas.draw_set_transform(Vector2.ZERO)
+	var breath:float=1.0+sin(motion_clock*1.7)*.004 if not reduced_motion and state in ["idle","perch_rest"] else 1.0
 	if state=="perch_interact":
 		var prop:=preload("res://companion_catalog.gd").preview(id,true)
 		var point:=position+Vector2(22 if facing=="right" else -22,-16)
 		preload("res://lootlings_ui.gd").draw_icon(canvas.get_canvas_item(),prop,Rect2(point-Vector2(10,10),Vector2(20,20)))
-	canvas.draw_texture_rect(texture,Rect2(position-Vector2(128,224)*(56.0/256.0),Vector2(56,56)),false)
+	canvas.draw_set_transform(position+Vector2(0,hover),0,Vector2(1,breath))
+	canvas.draw_texture_rect(texture,Rect2(-Vector2(128,224)*(56.0/256.0),Vector2(56,56)),false)
+	canvas.draw_set_transform(Vector2.ZERO)

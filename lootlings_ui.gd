@@ -36,7 +36,24 @@ const WORDMARK = preload("res://art/ui/brand/lootlings_wordmark.png")
 static var skin_cache: Dictionary = {}
 static var icon_cache: Dictionary = {}
 
+static var item_region_cache: Dictionary={}
+static func framed_item_texture(texture: Texture2D) -> Texture2D:
+	if texture==null or texture is AtlasTexture:return texture
+	var key:int=texture.get_instance_id()
+	if item_region_cache.has(key):return item_region_cache[key]
+	var image:=texture.get_image()
+	if image==null or image.is_empty():return texture
+	var used:=image.get_used_rect()
+	if used.size.x<1 or used.size.y<1:return texture
+	var padded:=used.grow(2).intersection(Rect2i(Vector2i.ZERO,image.get_size()))
+	var atlas:=AtlasTexture.new();atlas.atlas=texture;atlas.region=Rect2(padded)
+	item_region_cache[key]=atlas
+	return atlas
+
 static func item_texture(item: Dictionary) -> Texture2D:
+	return framed_item_texture(raw_item_texture(item))
+
+static func raw_item_texture(item: Dictionary) -> Texture2D:
 	if item.get("slot", "") == "Weapon":
 		var family := str(item.get("family", "VANGUARD"))
 		var fallback_path: String = {"RANGER":"ranger_bow", "MAGE":"mage_staff", "ROGUE":"rogue_daggers"}.get(family, "vanguard_hammer")

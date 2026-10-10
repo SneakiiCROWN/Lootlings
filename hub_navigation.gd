@@ -51,6 +51,7 @@ func feature(parent:Node,id:String,rect:Rect2,name:String,purpose:String,action:
  b.mouse_exited.connect(func():hint.hide())
  b.focus_entered.connect(func():hint.visible=not purpose.is_empty())
  b.focus_exited.connect(func():hint.hide())
+ preload("res://world_interaction_feedback.gd").bind(b)
  b.pressed.connect(action);return b
 
 func skin(b:Button) -> void:

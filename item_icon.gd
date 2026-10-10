@@ -35,7 +35,7 @@ func _draw() -> void:
 		var texture: Texture2D = {"RANGER":RANGER_TEXTURE, "MAGE":MAGE_TEXTURE, "ROGUE":ROGUE_TEXTURE}.get(family, VANGUARD_TEXTURE)
 		texture = WeaponCatalog.runtime_texture(weapon_type, texture, evolution_stage)
 		texture = WeaponCatalog.presentation_texture(weapon_type,"inventory",texture,evolution_stage)
-		LootlingsUI.draw_icon(get_canvas_item(), texture, Rect2(Vector2.ZERO, size))
+		LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.framed_item_texture(texture), Rect2(Vector2.ZERO, size))
 	else:
 		draw_circle(center, radius * 1.20, Color(rarity_color, 0.12))
 		LootlingsUI.draw_icon(get_canvas_item(), painted_texture, Rect2(Vector2.ZERO, size))
