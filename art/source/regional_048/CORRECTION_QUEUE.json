@@ -1,0 +1,69 @@
+{
+  "quarantined_components": [
+    {
+      "actor": "inkling",
+      "bounds": [
+        81,
+        12,
+        407,
+        557
+      ],
+      "defect": "joined rows or clipped silhouette; no independent state acceptance"
+    },
+    {
+      "actor": "inkling",
+      "bounds": [
+        944,
+        12,
+        1426,
+        568
+      ],
+      "defect": "joined rows or clipped silhouette; no independent state acceptance"
+    },
+    {
+      "actor": "inkling",
+      "bounds": [
+        87,
+        561,
+        437,
+        1072
+      ],
+      "defect": "joined rows or clipped silhouette; no independent state acceptance"
+    },
+    {
+      "actor": "margin_imp",
+      "bounds": [
+        111,
+        10,
+        574,
+        1010
+      ],
+      "defect": "joined rows or clipped silhouette; no independent state acceptance"
+    },
+    {
+      "actor": "margin_imp",
+      "bounds": [
+        551,
+        11,
+        976,
+        1010
+      ],
+      "defect": "joined rows or clipped silhouette; no independent state acceptance"
+    },
+    {
+      "actor": "margin_imp",
+      "bounds": [
+        975,
+        0,
+        1468,
+        538
+      ],
+      "defect": "joined rows or clipped silhouette; no independent state acceptance"
+    }
+  ],
+  "remaining_actor_states": [
+    "Inkling role commit/hurt both views",
+    "Margin Imp windup/commit/hurt/recovery both views"
+  ],
+  "idle_corrected_independently": 4
+}

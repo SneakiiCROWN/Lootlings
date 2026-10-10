@@ -3,6 +3,12 @@ extends SceneTree
 func _initialize() -> void:
  if not preload("res://tests/test_safety.gd").require_isolated(self):return
  var jobs:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://art/source/living_world_048/EXPORT_JOBS.json"))
+ for candidate in jobs.exports:
+  var metadata:String="res://"+str(candidate.asset).trim_suffix(".png")+".json"
+  if FileAccess.file_exists(metadata):
+   var prior:Variant=JSON.parse_string(FileAccess.get_file_as_string(metadata))
+   if prior is Dictionary and prior.get("native_validated",false):
+    push_error("Refusing to overwrite accepted runtime artwork: "+str(candidate.asset));quit(1);return
  for job in jobs.exports:
   var source:=Image.new();assert(source.load("res://"+job.source)==OK)
   var b:Rect2i=Rect2i(job.bounds[0],job.bounds[1],job.bounds[2]-job.bounds[0],job.bounds[3]-job.bounds[1])

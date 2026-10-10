@@ -1,0 +1,43 @@
+{
+  "actor": "inkling",
+  "state": "idle",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    299,
+    592,
+    425,
+    400
+  ],
+  "native_pixel_scale": 0.3,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+  "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+  "authored_source": "art/source/regional_048/idle_spaced.png",
+  "authored_source_sha256": "8b5743313e29bc16d8e4d5fc03bdbc2fc0e09e63fdf1e883d1819dc39ebf943e",
+  "authored_source_bounds": [
+    898,
+    122,
+    1285,
+    486
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:inkling:idle:left:None",
+  "fixed_enemy_blade": "Intrinsic living ink, no interchangeable weapon",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "metadata_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.json",
+  "full_fluid_animation_accepted": false,
+  "anatomy_mirroring": false,
+  "asset_sha256": "13d064820aa28a41a665a7073189df102b6d7c3dc6681206bc12deb54e44ed20",
+  "native_qa": "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log",
+  "visual_review": "Compared exact owner-approved regional identity with actual gameplay state/view/scale/alpha at phone/tablet/desktop. Independent individual keyframe; no fluid-family or missing-action acceptance.",
+  "production_quality_accepted": false
+}

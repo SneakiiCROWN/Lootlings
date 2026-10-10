@@ -8405,6 +8405,306 @@
         "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
         "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
       }
+    },
+    {
+      "slot_id": "pose:inkling:role windup:right:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_right.png",
+      "asset_sha256": "52674c47b92726c2af3516af6a62236465e6636e8bcf2685bb65903238465a83",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:role windup:left:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_left.png",
+      "asset_sha256": "15ef138745bd6462cc8eb95ac53f896b51e94aa69a6e17271b3f173dec9cb5aa",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:recovery:right:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_right.png",
+      "asset_sha256": "65f149ded25f766f029fbbb4425b494f50f98ee556b8d57f2dcd58e150a5e4a6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:defeat:right:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_right.png",
+      "asset_sha256": "db4826c10b741215c9ba29e41e8dc0772bf74ae97cbee65e57d2073ea68c7fad",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:recovery:left:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_left.png",
+      "asset_sha256": "87f2cdccf62983be8a5422009b18580d3a33cb47ccff4e5b02a5c944b2cd87ba",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:defeat:left:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_left.png",
+      "asset_sha256": "93576cde6e1c83d662b9aaa78109215d27d088cf1fb81fd547bd89342ede00bf",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:defeat:right:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
+      "asset_sha256": "73b605a4dcaa2c7e94fd359e51f2b5198f761dc8da39337272f317e1ded388ba",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:defeat:left:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
+      "asset_sha256": "5349c68f7ad758ea6495c33cde8010d75bed43e581999f302d57872db36361a1",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:idle:right:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_right.png",
+      "asset_sha256": "863f2c2e03357b378eef0e8c3c97a8e521f9222eb2ea3ddf24da9c1f24041def",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:idle:left:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
+      "asset_sha256": "13d064820aa28a41a665a7073189df102b6d7c3dc6681206bc12deb54e44ed20",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:idle:right:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
+      "asset_sha256": "3a328cb14d74ad2ae9ed16f077c89b03e01fb9f52a31ff0300996bb394ee1b10",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:idle:left:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
+      "asset_sha256": "3cb74728ae0bb4a34e93be8353fb3c2e8ffc2b2eb1622fc38f0247f9897622a7",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/regional/PROBES.json",
+        "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log"
+      ],
+      "limitations": "Missing actions, full fluid animation, native physical-device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "78ee19bf62690eedde3dcb763ec8c2bf26311b00c2791d1e6b43e6f56d5031db",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "7b335e30fca2b2bd9037801d8cc1fa11030613aaf5bdf7cb7d171e5c20094a14"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

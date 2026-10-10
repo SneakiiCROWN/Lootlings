@@ -19,6 +19,10 @@ static func frame(actor: String, state: String, facing: String) -> Dictionary:
 		if OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_QA_ENEMY_PREVIEW")=="1" and FileAccess.file_exists(continuation):
 			var preview_data:Variant=JSON.parse_string(FileAccess.get_file_as_string(continuation))
 			if preview_data is Dictionary:entries.append_array(preview_data.get("entries",[]))
+		var regional_preview:="res://art/source/regional_048/CANDIDATES.json"
+		if OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_QA_ENEMY_PREVIEW")=="1" and FileAccess.file_exists(regional_preview):
+			var candidates:Variant=JSON.parse_string(FileAccess.get_file_as_string(regional_preview))
+			if candidates is Dictionary:entries.append_array(candidates.get("entries",[]))
 	for row in entries:
 		if row.actor!=actor or row.state!=state or row.facing!=facing:continue
 		var accepted: bool=row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime"

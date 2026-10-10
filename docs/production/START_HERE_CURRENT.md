@@ -1,6 +1,6 @@
 # Current — 0.4.48 canonical services, named loot and region atmosphere
 
-Six new NPC work views + six named item icons installed and native-reviewed across three layouts. Six frozen closures; 2846 contracts /7387 file requirements remain. See [current report](quality-evidence/0.4.48/REPORT.md). Fluid/professional/physical-device acceptance open.
+Six NPC work views, six named loot icons and twelve Inkling/Margin Imp keyframes installed and native-reviewed across three layouts. Eighteen frozen closures; 2834 contracts /7363 file requirements remain. See [current report](quality-evidence/0.4.48/REPORT.md). Fluid/professional/physical-device acceptance open.
 
 # Current — 0.4.47 living companions and shared-world integration
 

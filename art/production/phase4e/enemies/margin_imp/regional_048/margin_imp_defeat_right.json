@@ -1,0 +1,43 @@
+{
+  "actor": "margin_imp",
+  "state": "defeat",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    209,
+    630,
+    606,
+    362
+  ],
+  "native_pixel_scale": 0.27,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+  "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+  "authored_source": "art/source/regional_048/margin_imp_sheet.png",
+  "authored_source_sha256": "98af213252493454fccdd8defb2c46b6f4ee984f3e55d2fe73b06234bae4bc60",
+  "authored_source_bounds": [
+    1057,
+    537,
+    1437,
+    764
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:margin_imp:defeat:right:None",
+  "fixed_enemy_blade": "Intrinsic manuscript quill",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.json",
+  "full_fluid_animation_accepted": false,
+  "anatomy_mirroring": false,
+  "asset_sha256": "73b605a4dcaa2c7e94fd359e51f2b5198f761dc8da39337272f317e1ded388ba",
+  "native_qa": "docs/production/quality-evidence/0.4.48/regional/regional_048_native_qa-preview.log",
+  "visual_review": "Compared exact owner-approved regional identity with actual gameplay state/view/scale/alpha at phone/tablet/desktop. Independent individual keyframe; no fluid-family or missing-action acceptance.",
+  "production_quality_accepted": false
+}

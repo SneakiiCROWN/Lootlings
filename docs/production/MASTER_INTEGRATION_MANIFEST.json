@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7985,
-    "total_launch_scope_slots": 6864,
+    "total_records": 8000,
+    "total_launch_scope_slots": 6876,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4184,
+      "LIVE_BETA": 4208,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 2681,
-      "REFERENCE_ONLY": 895,
+      "NEEDS_NEW_CANON_EXPORT": 2669,
+      "REFERENCE_ONLY": 898,
       "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4183,
+      "LIVE_BETA": 4207,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 2681,
+      "NEEDS_NEW_CANON_EXPORT": 2669,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 2681,
+    "exact_missing_art_cells": 2669,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -114,7 +114,7 @@
     "dungeon_route.gd": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2",
     "economy_transaction.gd": "1f0be462e167a5ff1897eea4f91654f5013b9ce12615885b621378e3ebca04e4",
     "endgame_progress.gd": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8",
-    "enemy_art_manifest.gd": "96e5f99180bf3ae3265757c2ae4fface006ee52e14329c58075b2c7f2629afd6",
+    "enemy_art_manifest.gd": "459761eff86552a52441cfb1d4e28fb84a5b363fbcc398b619732c149aa3e212",
     "enemy_encounter.gd": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7",
     "enemy_motion.gd": "8e76aab8a63a08de78431f82f7b9030d3342325387fbc3629d7a668faeb88542",
     "enemy_variant_catalog.gd": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25",
@@ -188,9 +188,9 @@
     "art/production/phase4e/items/named_048/manifest.json": "f95c6608998700df47b3f771c0295cdf4cb5c8679c8a44421b2a4bf464a07271",
     "art/approved_missing_canon_references.json": "71f7cc500a3f148985e258b9e8d078c565d97b55a7e5d89d536b540476bfc463",
     "art/production/phase4e/approved_missing_runtime_manifest.json": "a0c716c7c8c390c1847edf560aba398da43c27e439da0b1240947cefabf42edc",
-    "art/npc_identity_authorities.json": "3f62e7174d084b4352b062ccfa57a91458b630755ce7a5835ccba1e2417d8b39",
+    "art/npc_identity_authorities.json": "8881abdeb7dab8a844bb5e1ac8479d7893d9dda80ddf212bffbcc1fc6a792326",
     "art/production/companions/runtime_manifest.json": "967edf70bbc4e973574660098f74dea0d38508d0587e2807ec2499c4dbf73a54",
-    "art/production_enemy_manifest.json": "8099429a2d31a091762d822b7296536996763b3f73a3fb9f56ac7cc97be430bb",
+    "art/production_enemy_manifest.json": "68acdd205f1ba80e91ff747a9920c2ce6d8bf3d9424a8e18527adfc4da17d03c",
     "art/production_npc_manifest.json": "76c15494c31cbb9936b9dcb71018a2eb957eb8e36219daa3b6e7e55fb33490be",
     "art/production/phase4e/player_batch_043_manifest.json": "b2f5e62288240710812f8edb4d2c1865c1183debbd31493edffa5d2b28d1bab6",
     "art/production/phase4e/player_motion_044_manifest.json": "12c0b5b14c814eb59c83bbc8e9134133f2b2e1a71ad691f556730f18f9d6472c",
@@ -188108,56 +188108,41 @@
       "state": "idle",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_idle_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_idle_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_idle_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:idle:left:None",
@@ -188167,56 +188152,41 @@
       "state": "idle",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_idle_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:role windup:right:None",
@@ -188226,56 +188196,41 @@
       "state": "role windup",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_role_windup_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:role windup:left:None",
@@ -188285,56 +188240,41 @@
       "state": "role windup",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_role_windup_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:role commit:right:None",
@@ -188580,56 +188520,41 @@
       "state": "recovery",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_recovery_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:recovery:left:None",
@@ -188639,56 +188564,41 @@
       "state": "recovery",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_recovery_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:defeat:right:None",
@@ -188698,56 +188608,41 @@
       "state": "defeat",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_defeat_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:inkling:defeat:left:None",
@@ -188757,56 +188652,41 @@
       "state": "defeat",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/inkling/inkling_defeat_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "inkling__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:margin_imp:idle:right:None",
@@ -188816,56 +188696,41 @@
       "state": "idle",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/margin_imp/margin_imp_idle_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "margin_imp__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:margin_imp:idle:left:None",
@@ -188875,56 +188740,41 @@
       "state": "idle",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/margin_imp/margin_imp_idle_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "margin_imp__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:margin_imp:role windup:right:None",
@@ -189406,56 +189256,41 @@
       "state": "defeat",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/margin_imp/margin_imp_defeat_right.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
+      "target_production_path": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "margin_imp__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:margin_imp:defeat:left:None",
@@ -189465,56 +189300,41 @@
       "state": "defeat",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/margin_imp/margin_imp_defeat_left.png",
+      "current_production_asset": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
+      "target_production_path": "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
       "dimensions": [
         1024,
         1024
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": 548,
-        "target_canvas_y": 992,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          992
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "body pivot",
-        "ground or hover baseline",
-        "attack contact/launch point",
-        "effect anchor"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "margin_imp__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pagewyrm:idle:right:None",
@@ -354760,6 +354580,474 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_left.png",
+      "game_id": "inkling_defeat_left",
+      "category": "combat_art",
+      "subject": "inkling_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_left.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "93576cde6e1c83d662b9aaa78109215d27d088cf1fb81fd547bd89342ede00bf",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_right.png",
+      "game_id": "inkling_defeat_right",
+      "category": "combat_art",
+      "subject": "inkling_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_right.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_defeat_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "db4826c10b741215c9ba29e41e8dc0772bf74ae97cbee65e57d2073ea68c7fad",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
+      "game_id": "inkling_idle_left",
+      "category": "combat_art",
+      "subject": "inkling_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "13d064820aa28a41a665a7073189df102b6d7c3dc6681206bc12deb54e44ed20",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_idle_right.png",
+      "game_id": "inkling_idle_right",
+      "category": "combat_art",
+      "subject": "inkling_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_right.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_idle_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "863f2c2e03357b378eef0e8c3c97a8e521f9222eb2ea3ddf24da9c1f24041def",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_left.png",
+      "game_id": "inkling_recovery_left",
+      "category": "combat_art",
+      "subject": "inkling_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_left.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "87f2cdccf62983be8a5422009b18580d3a33cb47ccff4e5b02a5c944b2cd87ba",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_right.png",
+      "game_id": "inkling_recovery_right",
+      "category": "combat_art",
+      "subject": "inkling_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_right.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_recovery_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "65f149ded25f766f029fbbb4425b494f50f98ee556b8d57f2dcd58e150a5e4a6",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_left.png",
+      "game_id": "inkling_role_windup_left",
+      "category": "combat_art",
+      "subject": "inkling_role_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_left.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "15ef138745bd6462cc8eb95ac53f896b51e94aa69a6e17271b3f173dec9cb5aa",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_right.png",
+      "game_id": "inkling_role_windup_right",
+      "category": "combat_art",
+      "subject": "inkling_role_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_right.png",
+      "target_production_path": "art/production/phase4e/enemies/inkling/regional_048/inkling_role_windup_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "52674c47b92726c2af3516af6a62236465e6636e8bcf2685bb65903238465a83",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
+      "game_id": "margin_imp_defeat_left",
+      "category": "combat_art",
+      "subject": "margin_imp_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
+      "target_production_path": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "5349c68f7ad758ea6495c33cde8010d75bed43e581999f302d57872db36361a1",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
+      "game_id": "margin_imp_defeat_right",
+      "category": "combat_art",
+      "subject": "margin_imp_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
+      "target_production_path": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "73b605a4dcaa2c7e94fd359e51f2b5198f761dc8da39337272f317e1ded388ba",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
+      "game_id": "margin_imp_idle_left",
+      "category": "combat_art",
+      "subject": "margin_imp_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
+      "target_production_path": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "3cb74728ae0bb4a34e93be8353fb3c2e8ffc2b2eb1622fc38f0247f9897622a7",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
+      "game_id": "margin_imp_idle_right",
+      "category": "combat_art",
+      "subject": "margin_imp_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
+      "target_production_path": "art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "enemy_art_manifest.gd"
+      ],
+      "implementation_file": [
+        "enemy_art_manifest.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "3a328cb14d74ad2ae9ed16f077c89b03e01fb9f52a31ff0300996bb394ee1b10",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/enemies/mossmaw/mossmaw_defeat_left.png",
       "game_id": "mossmaw_defeat_left",
       "category": "combat_art",
@@ -388488,6 +388776,102 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "1876e41c7e76fb2d783b5a2b2bd8143cd1e182fdcec540dc3dfcdfc4a08187d2",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/regional_048/idle_spaced.png",
+      "game_id": "idle_spaced",
+      "category": "reference",
+      "subject": "idle_spaced",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/regional_048/idle_spaced.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "8b5743313e29bc16d8e4d5fc03bdbc2fc0e09e63fdf1e883d1819dc39ebf943e",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/regional_048/inkling_sheet.png",
+      "game_id": "inkling_sheet",
+      "category": "reference",
+      "subject": "inkling_sheet",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/regional_048/inkling_sheet.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "07845bbd791675156daa188904657c12c50ac094d40a624a015ac0f1efd8adce",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/regional_048/margin_imp_sheet.png",
+      "game_id": "margin_imp_sheet",
+      "category": "reference",
+      "subject": "margin_imp_sheet",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/regional_048/margin_imp_sheet.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "98af213252493454fccdd8defb2c46b6f4ee984f3e55d2fe73b06234bae4bc60",
         "rejection": null
       }
     },

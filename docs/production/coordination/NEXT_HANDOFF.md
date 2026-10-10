@@ -1,3 +1,7 @@
+# Current live continuation — 0.4.48
+
+Read quality-evidence/0.4.48/REPORT.md, the sole dashboard and Git HEAD. Eighteen exact closures, 24 PNG/24 sidecars installed across three NPCs, two enemies and six named items; ten-region atmosphere and grounded resident transitions. Remaining2834/7363. First checkpoint6bd2782 pushed; follow-up checkpoint and exports in progress. Never rerun extraction over accepted assets. Original rejected/merged sheets retained. Next: Inkling commit/hurt, Margin Imp windup/commit/hurt/recovery, NPC walk/sit, full playable weapon continuity and untouched enemy/boss families. Companion canon and exact title music preserved. Physical S23 deferred; fluid and professional approval open. Preserve owner project.godot and all untracked references.
+
 # Current live continuation — 0.4.47
 
 Read quality-evidence/0.4.47/REPORT.md and Git HEAD. Implementation 2d5a1e7 pushed, final evidence checkpoint follows. Six unchanged canonical companion identities now available in Hub/combat/reward; saved follow toggle, equipment framing, world feedback and Home overlay cleanup installed. No new PNG/artist-file/art-contract closures; 2852 / 7399 outstanding. Actual Windows PCK routes and Android code56 resources verified. Do not re-author accepted companion bodies or 046 characters. Next: continuous movement and NPC work/interaction families, item-specific art and regional effects. Full professional/S23 acceptance remains open. Preserve owner project.godot and all untracked references.
