@@ -103,7 +103,9 @@ func show_modes(tab: String="siege") -> void:
 	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ REGIONS" if mode_parent=="campaign" else "‹ HUB"])
 	buttons[1].disabled=not game.campaign.available("mossglass_wilds")
 	buttons[2].disabled=not "act_i" in game.campaign.completed
-	buttons[3].text="FORGE RED • 24 CROWNROOT FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
+	if buttons[1].disabled:buttons[1].text="ROOTGLASS VAULT • clear Treasure Ruins to unlock"
+	if buttons[2].disabled:buttons[2].text="RELIC ROUTE • clear Treasure Ruins to unlock"
+	buttons[3].text="FORGE GRAVEBLOOM • 24 FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
 	buttons[0].visible=tab=="siege"; buttons[1].visible=tab=="dungeons"; buttons[2].visible=tab=="dungeons"
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
 	mode_art.position.y=126;mode_art.size.y=118
@@ -111,14 +113,15 @@ func show_modes(tab: String="siege") -> void:
 	for button in mode_tabs:
 		game.hideout_ui.apply_display_button_style(button,Color("#b8a476"),button.text==("SIEGE" if tab=="siege" else "DUNGEONS"))
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
-	detail.text="%s\nCrownroot: %d / %d fragments\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
+	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0
 	for button in buttons:
 		if button.visible:
 			button.position=Vector2(24,388+visible_index*58); button.size.y=50; visible_index+=1
 			var primary: bool=button==buttons[0] or (tab=="dungeons" and button==buttons[1])
-			button.add_theme_stylebox_override("normal",SpinCatalog.flat_style(Color("#304e40") if primary else Color("#101c30"),Color("#e4bd70") if primary else Color("#435371"),10))
+			button.set_meta("ui_intent","primary" if primary else "secondary")
+			preload("res://lootlings_ui.gd").apply_button(button,Color("#172442"),Color("#d4ad65"))
 			button.add_theme_font_size_override("font_size",17 if primary else 13)
 
 func choose(index: int) -> void:
@@ -201,7 +204,7 @@ func lock_spin() -> void:
 	var amount: int=int(spin_reward.get("display_amount",spin_reward.get("amount",1)))
 	detail.add_theme_color_override("default_color",SpinCatalog.color(rarity))
 	detail.add_theme_stylebox_override("normal",SpinCatalog.flat_style(SpinCatalog.color(rarity).darkened(.88),SpinCatalog.color(rarity).darkened(.25),10))
-	detail.text="[center][b]%s\n%s%s[/b]\n%s[/center]" % ["CROWNROOT RELIC" if rarity=="RED" else rarity,name," × %d" % amount if spin_kind!="item" else "",spin_message]
+	detail.text="[center][b]%s\n%s%s[/b]\n%s[/center]" % ["GRAVEBLOOM RELIC" if rarity=="RED" else rarity,name," × %d" % amount if spin_kind!="item" else "",spin_message]
 
 func finish_spin() -> void:
 	if not spin_busy: return
@@ -230,9 +233,8 @@ func close_spinner() -> void:
 
 func update_chase() -> void:
 	chase.visible=true; chase_bar.visible=true
-	chase.text="CROWNROOT  %d / 24 fragments\nSPARKS  %d / 12 • every paid spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
+	chase.text="GRAVEBLOOM • %d / 24 Crownroot fragments\nSPARKS %d / 12 • paid and earned spins advance" % [progress.data.red_fragments,progress.data.spin_sparks]
 	chase_bar.value=mini(Catalog.RED_TARGET,progress.data.red_fragments)*SpinCatalog.SPARK_TARGET+progress.data.spin_sparks
-	chase.text="CROWNROOT  %d / 24 fragments\nSPARKS  %d / 12 / every spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
 
 func begin() -> void:
 	progress.begin(game.campaign_id); escrow=0; extracted=false; panel.visible=false; dimmer.visible=false; spinner_from_modes=false; spin_reward.clear()
@@ -298,14 +300,14 @@ func show_spinner(message: String="") -> void:
 	if spin_busy: return
 	if game.state=="result": spinner_from_modes=false
 	var spins: int=progress.data.spins
-	open("relic_spinner","RELIC ENGINE","",["%s • %s" % ["FAST SPIN" if spins>0 else "SPIN","COMPLETE" if spins>=3 else str(Catalog.SPIN_COSTS[spins])],"‹ RESULTS","","POOL & ODDS","FORGE RED"])
+	open("relic_spinner","RELIC ENGINE","",["%s • %s" % ["FAST SPIN" if spins>0 else "SPIN","COMPLETE" if spins>=3 else str(Catalog.SPIN_COSTS[spins])],"‹ RESULTS","","POOL & ODDS","FORGE GRAVEBLOOM"])
 	panel.position=Vector2(28,110); panel.size=Vector2(424,690); title.position.y=8
 	var top_line: Label=game.make_label(panel,"",14,Rect2(24,70,376,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#e7edff")) if not panel.has_node("Wallet") else panel.get_node("Wallet")
 	top_line.name="Wallet"; top_line.position.y=54; top_line.text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-spins]; top_line.visible=true
 	update_chase(); machine.position=Vector2(24,154); machine.size=Vector2(376,224)
 	detail.position=Vector2(24,394); detail.size=Vector2(376,130); detail.add_theme_font_size_override("normal_font_size",16)
 	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
-	detail.text=message if not message.is_empty() else "[center]Useful spoils on every spin.\nEpic + Legendary bundles get a full reveal.\n12 sparks earn 1 Crownroot fragment.[/center]"
+	detail.text=message if not message.is_empty() else "[center]Useful spoils on every spin.\nEpic + Legendary bundles get a full reveal.\n12 sparks earn 1 Crownroot fragment.\n24 fragments forge the Gravebloom Staff.[/center]"
 	buttons[0].position=Vector2(24,534); buttons[0].size=Vector2(376,58)
 	buttons[1].position=Vector2(24,606); buttons[1].size=Vector2(178,50); buttons[1].text="‹ MODES" if spinner_from_modes else "‹ RESULTS"
 	buttons[3].position=Vector2(214,606); buttons[3].size=Vector2(186,50)
@@ -315,6 +317,9 @@ func show_spinner(message: String="") -> void:
 	buttons[0].disabled=spins>=3 or (spins<3 and progress.data.spin_wallet<Catalog.SPIN_COSTS[spins])
 	buttons[1].disabled=false
 	buttons[0].disabled=not can_spin();buttons[0].text=spin_text(false)
+	for index in [0,1,2,3,4]:
+		buttons[index].set_meta("ui_intent","primary" if index in [0,4] else "secondary")
+		preload("res://lootlings_ui.gd").apply_button(buttons[index],Color("#172442"),Color("#d4ad65"))
 	top_line.text=wallet_text()
 	buttons[1].text="‹ HUB" if spinner_from_home else "LATER / RESULTS" if not spinner_from_modes else "LATER / MODES"
 

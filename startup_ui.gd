@@ -108,7 +108,7 @@ func build_title() -> void:
 	title_content.visible = false
 	add_child(title_content)
 	title_wordmark=LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
-	title_tagline=make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 108, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
+	title_tagline=make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 492, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
 	# Franchise ensemble uses the seven accepted canonical portrait sources,
 	# never marketing boards or alternate actor designs.
 	var index:=0
@@ -158,7 +158,7 @@ func build_profile() -> void:
 	name_edit.add_theme_font_size_override("font_size", 19)
 	LootlingsUI.apply_input(name_edit)
 	panel.add_child(name_edit)
-	make_label(panel, "LOOTLING NICKNAME  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  OPTIONAL", 13, Rect2(38, 211, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
+	make_label(panel, "LOOTLING NICKNAME  •  OPTIONAL", 13, Rect2(38, 211, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
 	nickname_edit = LineEdit.new()
 	nickname_edit.position = Vector2(38, 238)
 	nickname_edit.size = Vector2(336, 56)
@@ -169,9 +169,9 @@ func build_profile() -> void:
 	panel.add_child(nickname_edit)
 	LootlingsUI.add_divider(panel, Rect2(38, 304, 336, 10), "gold")
 	make_label(panel, "PLAYER CARD", 13, Rect2(38, 326, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
-	profile_actor_name = make_label(panel, "RELIC BEAST     ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
+	profile_actor_name = make_label(panel, "RELIC BEAST     •     RUIN ROOKIE", 15, Rect2(38, 355, 336, 38), HORIZONTAL_ALIGNMENT_CENTER, Color("#e7edff"))
 	LootlingsUI.add_icon(panel, Rect2(65, 362, 24, 24), "core_neutral")
-	var identity_card := make_label(panel, "BANNER  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  OUTER RUINS\nCURRENT LOOTLING  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
+	var identity_card := make_label(panel, "BANNER  •  OUTER RUINS\nCURRENT LOOTLING  •  RELIC BEAST", 11, Rect2(38, 395, 336, 44), HORIZONTAL_ALIGNMENT_CENTER, Color("#b8c7e7"))
 	profile_identity = identity_card
 	identity_card.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var change := make_button(panel, "CHANGE AVATAR", Rect2(45, 482, 322, 54), Color("#17294b"), Color("#72c8ff"), 16)
@@ -230,7 +230,7 @@ func build_settings() -> void:
 	profile_id_label = make_label(support_panel,"",14,Rect2(24,116,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
-	var support_back := make_button(support_panel,"ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
+	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
 	support_back.pressed.connect(func(): support_panel.visible = false)
 	var support := make_button(panel,"SUPPORT",Rect2(270,578,112,48),Color("#17294b"),Color("#72c8ff"),14)
 	support.pressed.connect(func(): support_panel.visible = true)
@@ -303,7 +303,7 @@ func refresh_selector() -> void:
 	selector_name.text = str(entry.display_name).to_upper()
 	selector_lore.text = str(entry.personality)
 	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_lootling_id]
-	selector_note.text = "%s ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ %s" % [trait_data.name,trait_data.text]
+	selector_note.text = "%s • %s" % [trait_data.name,trait_data.text]
 	selector_confirm.disabled = not entry.available
 	selector_confirm.text = "CHOOSE %s" % str(entry.display_name).to_upper()
 
@@ -396,11 +396,11 @@ func refresh_wanderer_selector() -> void:
 func refresh_wanderer_lore() -> void:
 	var id := str(wanderer_origin.get_item_metadata(wanderer_origin.selected))
 	var trait_data: Dictionary = preload("res://character_traits.gd").TRAITS[selected_wanderer]
-	wanderer_lore.text = str(trait_data.name) + " ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ " + str(trait_data.text)
+	wanderer_lore.text = str(trait_data.name) + " • " + str(trait_data.text)
 	var cohort: Dictionary = preload("res://phase4_catalog.gd").HUMANS[selected_wanderer]
 	wanderer_portrait.tooltip_text = "%s\n%s\nAffinity: %s. No weapon lock.\nMastery: %s" % [cohort.role,cohort.bio,cohort.affinity,cohort.mastery]
 	wanderer_personality.text=str(preload("res://contextual_dialogue.gd").PERSONALITY[selected_wanderer])
-	wanderer_weapon.text="Affinity: "+str(cohort.affinity)+" ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ any weapon"
+	wanderer_weapon.text="Affinity: "+str(cohort.affinity)+" • any weapon"
 
 func confirm_wanderer() -> void:
 	if WandererCatalog.runtime_texture(selected_wanderer) == null:
@@ -440,7 +440,7 @@ func show_title() -> void:
 		title_roster_buttons[id].add_theme_stylebox_override("normal",style)
 		title_roster_buttons[id].set_meta("ui_selected",chosen)
 	var nickname: String=str(profile.get("lootling_nickname",""))
-	title_identity.text=Avatar.display_name(profile) if nickname.is_empty() else nickname+" ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ "+Avatar.display_name(profile)
+	title_identity.text=Avatar.display_name(profile) if nickname.is_empty() else nickname+" • "+Avatar.display_name(profile)
 	title_identity.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	title_personality.text=Avatar.identity_line(profile) if Avatar.is_wanderer(profile) else str(LootlingCatalog.definition(actor_id).personality)
 	current_screen = "title"
@@ -496,9 +496,9 @@ func refresh_profile() -> void:
 	name_edit.text = str(profile.get("display_name", ""))
 	nickname_edit.text = str(profile.get("lootling_nickname", ""))
 	var uuid := str(profile.get("player_uuid", ""))
-	profile_id_label.text = "ACCOUNT INFO  ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢  SUPPORT ID ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦%s" % uuid.right(8)
-	profile_identity.text = "CURRENT AVATAR ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ %s" % Avatar.identity_line(profile).to_upper()
-	profile_actor_name.text = Avatar.display_name(profile).to_upper() + " ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ RUIN ROOKIE"
+	profile_id_label.text = "ACCOUNT INFO  •  SUPPORT ID …%s" % uuid.right(8)
+	profile_identity.text = "CURRENT AVATAR • %s" % Avatar.identity_line(profile).to_upper()
+	profile_actor_name.text = Avatar.display_name(profile).to_upper() + " • RUIN ROOKIE"
 
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
@@ -524,7 +524,7 @@ func _process(delta: float) -> void:
 		var owner=get_parent()
 		var header_y:float=maxf(18.0,36.0/owner.scale.y)-owner.position.y/owner.scale.y
 		title_wordmark.position.y=header_y
-		title_tagline.position.y=header_y+90
+		title_tagline.position.y=492
 
 	if current_screen == "boot":
 		boot_timer += delta

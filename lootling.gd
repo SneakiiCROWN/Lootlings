@@ -3835,7 +3835,7 @@ func draw_arena(shake: Vector2) -> void:
 		var enemy_name_size := 17
 		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
 		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
-		var enemy_hud_y := 243.0 if enemy_is_boss else 354.0
+		var enemy_hud_y := 243.0 if enemy_is_boss else 294.0
 		if not enemy_is_boss: enemy_hud_x=clampf(target_combat_visual_position().x-enemy_hud_width*.5,16,480-enemy_hud_width-16)
 		while enemy_name_size > 14 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1

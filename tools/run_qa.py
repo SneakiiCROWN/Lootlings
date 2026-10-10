@@ -42,8 +42,16 @@ if not args.only:
         scripts=sorted(ROOT.glob('*.gd'))+sorted((ROOT/'tests').glob('*.gd'))+sorted((ROOT/'tools').glob('*.gd'))
         for script in scripts:
             run('parse-'+script.relative_to(ROOT).as_posix().replace('/','-'), ['--headless','--check-only','--script','res://'+script.relative_to(ROOT).as_posix()],60)
+def scene_tree_fixture(path, seen=None):
+    import re
+    seen=set() if seen is None else seen
+    if path in seen:return False
+    seen.add(path);text=path.read_text(encoding='utf-8-sig')
+    if re.search(r'^extends\s+SceneTree\b',text,re.M):return True
+    parent=re.search(r'^extends\s+"res://([^"\n]+)"',text,re.M)
+    return bool(parent and (ROOT/parent[1]).is_file() and scene_tree_fixture(ROOT/parent[1],seen))
 for path in sorted((ROOT/'tests').glob('*.gd')):
-    if 'extends SceneTree' not in path.read_text(encoding='utf-8-sig') and path.stem != 'balance_audit': continue
+    if not scene_tree_fixture(path) and path.stem != 'balance_audit': continue
     name=path.stem
     if args.only and name not in args.only: continue
     if name == 'balance_audit' and not args.only: continue # Legacy entry point delegates to the isolated harness.
@@ -61,5 +69,8 @@ for path in sorted((ROOT/'tests').glob('*.gd')):
         cmd=['--headless','-s','res://tests/'+path.name,'--','--report']
     run(name,cmd,1200 if name in ['phase3_balance','balance_audit'] else 300)
 
+if args.only:
+    omitted=set(args.only)-{r['name'] for r in results}
+    if omitted: raise SystemExit('Requested QA fixture was not executed: '+', '.join(sorted(omitted)))
 print('QA results:',folder/'results.json',flush=True)
 sys.exit(0 if all(r['exit']==0 and not r['errors'] for r in results) else 1)

@@ -10,9 +10,4 @@ static func metal() -> StyleBoxFlat:
 	style.shadow_color=Color("#090b1680"); style.shadow_size=3
 	return style
 static func paper_button(button: Button) -> void:
-	for state in ["normal","disabled","focus","hover","pressed"]:
-		var style:=paper()
-		if state in ["hover","focus"]: style.bg_color=Color("#e4d3ad")
-		if state=="pressed": style.bg_color=Color("#b4a283")
-		button.add_theme_stylebox_override(state,style)
-	for state in ["font_color","font_disabled_color","font_hover_color","font_pressed_color","font_focus_color"]: button.add_theme_color_override(state,Color("#382e32"))
+	preload("res://lootlings_ui.gd").apply_rarity_card(button,Color("#d4ad65"))

@@ -438,15 +438,16 @@ func build_forge() -> void:
 	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 14, Rect2(28, 126, 424, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(28, 180)
-	scroll.size = Vector2(424, 285)
+	scroll.size = Vector2(424, 318)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	forge_content.add_child(scroll)
 	forge_list = VBoxContainer.new()
 	forge_list.custom_minimum_size.x = 398
 	forge_list.add_theme_constant_override("separation", 10)
 	scroll.add_child(forge_list)
-	var forge_plate:=make_panel(forge_content, Rect2(28, 478, 424, 222), Color("#0b1229ec"), Color("#b39466"))
+	var forge_plate:=make_panel(forge_content, Rect2(28, 516, 424, 184), Color("#0b1229ec"), Color("#b39466"))
 	forge_plate.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
-	forge_detail = make_label(forge_content, "", 19, Rect2(48, 490, 384, 200), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
+	forge_detail = make_label(forge_content, "", 17, Rect2(48, 526, 384, 164), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 725, 370, 70), Color("#493052"), Color("#e2b563"), 19)
 	forge_confirm.pressed.connect(func():
@@ -627,14 +628,17 @@ func build_contracts() -> void:
 	contracts_content.visible = false
 	add_child(contracts_content)
 	make_button(contracts_content, "‹ EXPEDITIONS", Rect2(20, 20, 158, 48), Color("#202d4d"), Color("#7f94bc"), 13).pressed.connect(show_campaign)
-	make_label(contracts_content, "CONTRACTS", 26, Rect2(180, 23, 280, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	LootlingsUI.add_icon(contracts_content,Rect2(194,26,30,38),"res://art/production/phase4e/props/contract_banner.png")
+	make_label(contracts_content, "CONTRACTS", 26, Rect2(220, 23, 240, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	LootlingsUI.add_icon(contracts_content,Rect2(180,26,30,38),"res://art/production/phase4e/props/contract_banner.png")
 	make_button(contracts_content,"REGIONAL BOUNTIES",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("contracts"))
 	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 14, Rect2(24, 126, 432, 52), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	for slot in range(3):
 		var button := make_button(contracts_content, "", Rect2(30, 190 + slot * 148, 420, 126), Color("#172442"), Color("#d4ad65"), 16)
-		preload("res://station_presentation.gd").paper_button(button)
-		LootlingsUI.add_icon(button,Rect2(16,38,44,44),"currency_gold")
+		LootlingsUI.apply_rarity_card(button,Color("#d4ad65"))
+		LootlingsUI.add_icon(button,Rect2(18,48,44,44),"currency_gold")
+		make_label(button,"",18,Rect2(80,12,320,28),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6ad")).name="JobName"
+		make_label(button,"",14,Rect2(80,43,320,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#dbe7ff")).name="Requirement"
+		make_label(button,"",15,Rect2(80,78,320,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#b8d3df")).name="Reward"
 		button.pressed.connect(func(): contract_claim_requested.emit(slot))
 		contract_buttons.append(button)
 
@@ -649,8 +653,16 @@ func refresh_contracts() -> void:
 	for slot in range(3):
 		var item: Dictionary = contracts.offer(slot)
 		var ready := int(item.progress) >= int(item.target)
-		contract_buttons[slot].text = "%s\n%d / %d • %s\n%d GOLD\n%s" % [str(item.name).to_upper(), item.progress, item.target, str(item.event).to_upper(), item.gold, "CLAIM REWARD" if ready else "IN PROGRESS"]
-		contract_buttons[slot].disabled = not ready
+		var button:Button=contract_buttons[slot]
+		var goals:Dictionary={"kill":"Defeat enemies", "miniboss":"Defeat a miniboss", "chest":"Open chests", "boss":"Defeat a boss", "win":"Return victorious"}
+		button.text=""
+		button.get_node("JobName").text=str(item.name)
+		button.get_node("Requirement").text="%s • %d / %d" % [goals.get(str(item.event),"Explore"),item.progress,item.target]
+		button.get_node("Reward").text="CLAIM %d GOLD  ›" % item.gold if ready else "%d Gold reward • keep adventuring" % item.gold
+		button.get_node("Reward").modulate=Color("#fff0a7") if ready else Color.WHITE
+		button.disabled=not ready
+		button.tooltip_text="Claim your reward" if ready else "%s to finish this job" % goals.get(str(item.event),"Explore")
+		LootlingsUI.apply_rarity_card(button,Color("#ffe178") if ready else Color("#738ba1"))
 
 func show_campaign() -> void:
 	selected_tier=clampi(int(get_parent().expedition_tier),0,Phase4.TIERS.size()-1)
@@ -755,8 +767,8 @@ func add_forge_entry(item: Dictionary, index: int) -> void:
 	button.pressed.connect(select_forge_weapon.bind(index))
 
 func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
-	var button := make_button(forge_list, "", Rect2(0, 0, 398, 72), Color("#172442"), accent, 15)
-	button.custom_minimum_size = Vector2(398, 72)
+	var button := make_button(forge_list, "", Rect2(0, 0, 398, 84), Color("#172442"), accent, 15)
+	button.custom_minimum_size = Vector2(398, 84)
 	button.set_meta("gesture_release_owned",true)
 	for state in ["normal","hover","pressed","focus"]:
 		var plate:=preload("res://station_presentation.gd").metal(); plate.border_color=accent.darkened(.25)
@@ -764,12 +776,12 @@ func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
 		button.add_theme_stylebox_override(state,plate)
 	button.tooltip_text = text
 	var visual := ItemIcon.new()
-	visual.position = Vector2(10, 6)
-	visual.size = Vector2(60, 60)
+	visual.position = Vector2(14, 16)
+	visual.size = Vector2(52, 52)
 	visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	button.add_child(visual)
 	visual.configure(item)
-	var caption := make_label(button, text, 15, Rect2(80, 8, 302, 56), HORIZONTAL_ALIGNMENT_LEFT, Color("#e5ecff"))
+	var caption := make_label(button, text, 15, Rect2(80, 10, 276, 64), HORIZONTAL_ALIGNMENT_LEFT, Color("#e5ecff"))
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return button
@@ -2058,11 +2070,7 @@ func refresh_selection_styles(list: Control, selected_id: String) -> void:
 			var selected: bool=str(child.get_meta("selection_id",""))==selected_id
 			if child.get_meta("paper_selection",false):
 				child.set_meta("ui_selected",selected)
-				preload("res://station_presentation.gd").paper_button(child)
-				if selected:
-					var paper: StyleBoxFlat=child.get_theme_stylebox("normal").duplicate()
-					paper.border_color=Color("#ad792e");paper.set_border_width_all(3)
-					child.add_theme_stylebox_override("normal",paper)
+				apply_display_button_style(child,Color("#d4ad65"),selected)
 			else:apply_display_button_style(child,Color("#d4ad65"),selected)
 
 func restore_phase4_selection() -> void:
