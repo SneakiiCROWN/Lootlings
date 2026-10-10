@@ -3834,6 +3834,7 @@ func draw_hud() -> void:
 		draw_rect(Rect2(60,57,402,19),Color("#ffa278"),false,1.5)
 
 func draw_arena(shake: Vector2) -> void:
+	if state=="playing":preload("res://regional_atmosphere.gd").draw(self,campaign_id,run_time,audio_settings.get("cinematic_reduced_motion",false))
 	var show_combat_context := state == "playing"
 	var enemy_color := Color("#ff6f87") if enemy_is_boss else Color("#bf80ff") if enemy_is_miniboss else Color("#73d7a2")
 	if enemy_flash > 0.0:

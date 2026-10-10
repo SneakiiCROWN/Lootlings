@@ -1,23 +1,23 @@
 {
-  "installed_contracts": 422,
-  "installed_artist_files": 1096,
+  "installed_contracts": 428,
+  "installed_artist_files": 1108,
   "installed_by_category": {
     "playable_lootlings": 186,
     "companions": 58,
     "Home": 3,
     "bosses": 12,
     "enemies": 81,
-    "npcs": 18,
+    "npcs": 24,
     "wanderers": 64
   },
-  "remaining_contracts": 2852,
-  "remaining_artist_files": 7399,
+  "remaining_contracts": 2846,
+  "remaining_artist_files": 7387,
   "remaining_by_category": {
     "playable_lootlings": 1270,
     "wanderers": 791,
     "enemies": 242,
     "bosses": 356,
-    "npcs": 28,
+    "npcs": 22,
     "support": 165
   },
   "scope": "Counts only exact missing contracts from frozen master specification; menu art, retained accepted poses and soundtrack are not counted as pose closures",
@@ -29,7 +29,7 @@
   "combat_revision": "12 Hoard Dragon exact state/facing contracts, original winged owner canon; shared bounded hit/Ward/contact presentation across weapons. Missing named actions remain open.",
   "player_route_revision": "0.4.39 connected Home/Hub/cart Shop/Stash/Shrine/Spinner/combat/rewards; native compiled pack passed three viewports; actual desktop mouse passed; physical Android pending",
   "latest_enemy_revision": "0.4.46 adds ten Dew Hexer state/facing deliveries (ten bodies/ten sidecars), exact approved green leaf-hatted cat and intrinsic staff. Right windup/hurt remain open.",
-  "latest_npc_revision": "12 Patch/Ilex rest/inspect/talk cells, both independently authored views; 24 PNG/sidecar artist files; left bodies live beside Hub stations. Route/work/sit still open.",
+  "latest_npc_revision": "0.4.48: 24 accepted resident cells; adds six Patch repair/Ilex read-write/Sera crystal-tending work views. Rest/inspect/talk preserved. Short grounded transitions; route/walk, sit and fluid motion remain open.",
   "artist_file_count_unit": "Frozen artist-file requirements fulfilled, including verified reuse. Not unique newly authored physical files. See per-batch receipts.",
   "latest_player_revision": "0.4.46: 26 exact heavy-weapon deliveries, Emberhorn20/Pebblewyrm6. Nine bodies/nine two-palm masks/26 sidecars. Defective strike and hidden-grip contracts remain open. Basic keyframes; no full fluid animation acceptance."
 }

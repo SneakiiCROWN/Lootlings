@@ -4954,7 +4954,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "5761cc59f09939891096722a9adaf1155ff69014eb53f4786296493beb9503f1"
+    "source_sha256": "dce7ad5a97f508d3ca2a11c49092e526ea71ea3b4ca17d5e2d63db041de125ea"
   },
   "home_catalog.gd": {
     "constants": {
@@ -6910,7 +6910,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "ac0102ef85da791db48c296fb2f0876d6ddfed4d5019e6114306c904e8701c67"
+    "source_sha256": "bd92f1a3eaa6b20caf7582a06c5cfa78dedf5d60119a2223dde66832a20dedc8"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7171,7 +7171,7 @@
       "apply_selection",
       "inset_style"
     ],
-    "source_sha256": "b32728f35bdc24997873a3690f4fe59973d14078c5e355cf1bc335358134f65c"
+    "source_sha256": "f0a51baf399fa4db146a20b558fabdf1033af1b2f9d4c59a5faf751bc913805b"
   },
   "meta_store.gd": {
     "constants": {},
@@ -7195,6 +7195,13 @@
       "show_report"
     ],
     "source_sha256": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8"
+  },
+  "named_item_art.gd": {
+    "constants": {},
+    "methods": [
+      "texture"
+    ],
+    "source_sha256": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb"
   },
   "personal_home.gd": {
     "constants": {
@@ -8051,6 +8058,47 @@
     ],
     "source_sha256": "1e6b241adc79578698c277fb0c58a56b202b313ab250b21d3fd709d8888a51a9"
   },
+  "regional_atmosphere.gd": {
+    "constants": {
+      "PALETTES": {
+        "act_i": {
+          "rgba": "a6e8b829"
+        },
+        "cinder_crown": {
+          "rgba": "ff8c304d"
+        },
+        "first_hoard": {
+          "rgba": "ffd45938"
+        },
+        "frostbell_hollows": {
+          "rgba": "ccf0ff47"
+        },
+        "moonfen": {
+          "rgba": "99e6de4d"
+        },
+        "mossglass_wilds": {
+          "rgba": "8cd9853d"
+        },
+        "nullglass_expanse": {
+          "rgba": "80d9ff2e"
+        },
+        "skyhook_bastion": {
+          "rgba": "dbf5ff1f"
+        },
+        "starfall_archive": {
+          "rgba": "bfbdff3d"
+        },
+        "sunken_gearworks": {
+          "rgba": "a6ccdb12"
+        }
+      }
+    },
+    "methods": [
+      "points",
+      "draw"
+    ],
+    "source_sha256": "067aa5460f6c766ee7401945e042c3160e7cdb9be6ca4266399aeef88541f289"
+  },
   "regional_enemy_presentation.gd": {
     "constants": {
       "BODIES": {
@@ -8484,7 +8532,7 @@
       "presentation",
       "draw"
     ],
-    "source_sha256": "72848b2cc558fa9e535d356d684234e70392a40d4efe8cdc4612507a48a477c9"
+    "source_sha256": "169a9a130029b6a5dec45b4b86e2b9d2e0bb5600b6d2f130aedf3ebfa589a666"
   },
   "resident_sprite_rig.gd": {
     "constants": {

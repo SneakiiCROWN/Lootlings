@@ -62,6 +62,8 @@ static func raw_item_texture(item: Dictionary) -> Texture2D:
 		var held := WeaponArt.runtime_texture(type, icon("res://art/sprites/weapons/%s.png" % fallback_path), stage)
 		return WeaponArt.presentation_texture(type,"inventory",held,stage)
 	var id := str(item.get("id", ""))
+	var named:Texture2D=preload("res://named_item_art.gd").texture(id)
+	if named!=null:return named
 	if item.get("slot", "") == "Armour" and id in ARMOUR_IDS:
 		var path := "res://art/production/phase4e/items/armour_inventory_v1/%s.png" % id
 		if ResourceLoader.exists(path): return icon(path)

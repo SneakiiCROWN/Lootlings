@@ -1,0 +1,40 @@
+{
+  "actor": "ilex",
+  "state": "work/read/tend",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "content_rect": [
+    339,
+    1000,
+    345,
+    504
+  ],
+  "pivot": [
+    512,
+    1504
+  ],
+  "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+  "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+  "authored_source": "art/source/living_world_048/npc_service_spaced.png",
+  "authored_source_sha256": "b4db11b7f1562e51a1e2e470f80242cb59f9d1ab7cab9cd1918ea13d19ded532",
+  "authored_source_bounds": [
+    614,
+    927,
+    915,
+    1367
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:ilex:work/read/tend:left:None",
+  "metadata_path": "art/production/phase4e/npcs/ilex/ilex_work_left_048.json",
+  "full_animation_family_accepted": false,
+  "anatomy_mirroring": false,
+  "asset_sha256": "a1b9dd8e217b9e829b2f6e59f180008326a6f037e5c8277716786cffdcda2cb5",
+  "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+  "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+  "production_quality_accepted": false
+}

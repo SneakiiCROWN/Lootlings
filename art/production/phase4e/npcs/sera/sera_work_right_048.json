@@ -1,0 +1,40 @@
+{
+  "actor": "sera",
+  "state": "work/read/tend",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/npcs/sera/sera_work_right_048.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "content_rect": [
+    24,
+    85,
+    976,
+    1419
+  ],
+  "pivot": [
+    512,
+    1504
+  ],
+  "source_reference": "art/sprites/npcs/beta/sera_idle.png",
+  "source_sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+  "authored_source": "art/source/living_world_048/sera_service_spaced.png",
+  "authored_source_sha256": "23649ac9a451d8e82caf36cbf9562c294d2f3eb54b2fc03aaf8008eb49b8d3e5",
+  "authored_source_bounds": [
+    81,
+    40,
+    726,
+    978
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:sera:work/read/tend:right:None",
+  "metadata_path": "art/production/phase4e/npcs/sera/sera_work_right_048.json",
+  "full_animation_family_accepted": false,
+  "anatomy_mirroring": false,
+  "asset_sha256": "eebebada7436eecc1be571e36adb4615f004a71196a64d4586c3940835af0a51",
+  "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+  "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+  "production_quality_accepted": false
+}

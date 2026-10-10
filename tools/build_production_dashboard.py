@@ -41,7 +41,7 @@ def build():
     if continuation_receipt.exists():
         receipt=read(str(continuation_receipt.relative_to(ROOT)))
         player_receipt=continuation_receipt
-    integration_path='docs/production/quality-evidence/0.4.47/INSTALLATION_RECEIPT.json'
+    integration_path='docs/production/quality-evidence/0.4.48/INSTALLATION_RECEIPT.json'
     integration_pass=read(integration_path) if (ROOT/integration_path).exists() else None
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'
@@ -226,7 +226,7 @@ function render(){const q=el('search').value.toLowerCase(),f=el('family').value,
 ['search','family','status'].forEach(id=>el(id).addEventListener('input',()=>{limit=250;render()}));el('more').onclick=()=>{limit+=250;render()};render();
 function debt(){const q=el('debtsearch').value.toLowerCase(),rows=d.remaining_contracts.filter(r=>JSON.stringify(r).toLowerCase().includes(q));el('debtcount').textContent=rows.length+' exact remaining contracts; first 250 shown';el('debt').innerHTML=table(['Contract','Category','Identity','State','Facing','Weapon'],rows.slice(0,250).map(r=>[r.slot_id,r.category,r.display_name,r.state,r.facing,r.weapon_family]));}el('debtsearch').oninput=debt;debt();
 el('gaps').innerHTML=d.coverage_gaps.map(x=>'<li>'+esc(x)+'</li>').join('');el('dependencies').innerHTML=table(['Implementation','Resource','Registration gap'],d.unregistered_dependencies.map(r=>[r.implementation,r.resource,r.reason]));
-if(d.latest_runtime_integration){const p=d.latest_runtime_integration;el('integration').innerHTML='<p>'+esc(p.version)+' · '+esc(p.kind)+' · '+esc(p.verified_contracts_closed)+' new art contract closures. Original canonical images reused; no new artist files.</p><ul>'+p.other_installed_features.concat(p.newly_available_companion_routes).map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p>Full animation and professional acceptance remain open.</p>';}
+if(d.latest_runtime_integration){const p=d.latest_runtime_integration;el('integration').innerHTML='<p>'+esc(p.version)+' · '+esc(p.kind)+' · '+esc(p.verified_contracts_closed)+' new art contract closures. New runtime PNGs: '+esc(p.new_runtime_png||0)+'; new physical artist files: '+esc(p.new_physical_artist_files||0)+'.</p><ul>'+p.other_installed_features.concat(p.newly_available_companion_routes).map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p>Full animation and professional acceptance remain open.</p>';}
 el('corrections').innerHTML=d.current_batch_corrections.map(x=>'<li>'+esc(x)+'</li>').join('');
 </script></html>'''
 

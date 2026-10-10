@@ -1,0 +1,17 @@
+{
+  "rejected": [
+    {
+      "source": "npc_service_sheet.png",
+      "reason": "Alpha connects vertical neighbors; corrected in npc_service_spaced.png."
+    },
+    {
+      "source": "sera_service_sheet.png",
+      "reason": "Both complete alpha components touch source top edge; retained, not installed. Correct margin/clipping before acceptance."
+    }
+  ],
+  "corrected_sources": [
+    "npc_service_spaced.png: four independent alpha silhouettes accepted",
+    "sera_service_spaced.png: two complete source silhouettes; both uniformly fit runtime width, cloak clipping corrected"
+  ],
+  "unaccepted_originals_preserved": true
+}

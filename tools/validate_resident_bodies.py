@@ -8,7 +8,7 @@ def validate():
  rows=json.loads((ROOT/'art/production_npc_manifest.json').read_text())['entries'];keys=set()
  for row in rows:
   key=(row['actor'],row['state'],row['facing']);assert key not in keys;keys.add(key)
-  assert row['state'] in ['rest','inspect','talk'] and row['facing'] in ['left','right']
+  assert row['state'] in ['rest','inspect','talk','work/read/tend'] and row['facing'] in ['left','right']
   ref=refs[row['actor']]
   assert row['source_reference']==ref['canonical_source'] and row['source_sha256']==ref['dedicated_sha256']
   assert hashlib.sha256((ROOT/row['source_reference']).read_bytes()).hexdigest()==row['source_sha256']
@@ -20,9 +20,15 @@ def validate():
   with Image.open(path) as im,Image.open(source) as authored:
    assert im.mode=='RGBA' and list(im.size)==[1024,1536]
    used=im.getchannel('A').getbbox();reused_original=row['actor']=='sera' and row['state']=='rest' and row['facing']=='right';assert used and (reused_original or used[0]>=16 and used[1]>=16 and used[2]<=1008 and used[3]<=1520)
-   x,y,w,h=row['content_rect'];assert im.crop((x,y,x+w,y+h)).tobytes()==authored.crop(row['authored_source_bounds']).tobytes() if row['actor']!='sera' else reused_original or used==tuple([x,y,x+w,y+h])
+   x,y,w,h=row['content_rect']
+   if row['state']=='work/read/tend':
+    jobs=json.loads((ROOT/'art/source/living_world_048/EXPORT_JOBS.json').read_text(encoding='utf-8-sig'))['exports']
+    job=next(j for j in jobs if j['asset']==str(path.relative_to(ROOT)).replace('\\','/'))
+    assert job['source']==row['authored_source'] and job['bounds']==row['authored_source_bounds'] and job['offset']+job['scaled_size']==row['content_rect']
+    assert used[0]>=x and used[1]>=y and used[2]<=x+w and used[3]<=y+h
+   else:assert im.crop((x,y,x+w,y+h)).tobytes()==authored.crop(row['authored_source_bounds']).tobytes() if row['actor']!='sera' else reused_original or used==tuple([x,y,x+w,y+h])
    assert all(im.getpixel(p)[3]==0 for p in [(0,0),(1023,0),(0,1535),(1023,1535)])
   assert row['pivot']==([512,1470] if row['actor']=='sera' and row['state']=='rest' and row['facing']=='right' else [512,1504])
- assert keys=={(a,s,f) for a in ['patch','ilex','sera'] for s in ['rest','inspect','talk'] for f in ['left','right']}
- return {'exact_resident_body_cells':len(rows),'independent_views':2,'mirrored_frames':0,'remaining_resident_states':['route/walk','work/read/tend','sit']}
+ assert keys=={(a,s,f) for a in ['patch','ilex','sera'] for s in ['rest','inspect','talk','work/read/tend'] for f in ['left','right']}
+ return {'exact_resident_body_cells':len(rows),'independent_views':2,'mirrored_frames':0,'remaining_resident_states':['route/walk','sit','fluid service continuity']}
 if __name__=='__main__':print(json.dumps(validate()))

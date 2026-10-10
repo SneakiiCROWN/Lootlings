@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 7960,
-    "total_launch_scope_slots": 6844,
+    "total_records": 7985,
+    "total_launch_scope_slots": 6864,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4158,
+      "LIVE_BETA": 4184,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 2687,
-      "REFERENCE_ONLY": 890,
+      "NEEDS_NEW_CANON_EXPORT": 2681,
+      "REFERENCE_ONLY": 895,
       "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4157,
+      "LIVE_BETA": 4183,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 2687,
+      "NEEDS_NEW_CANON_EXPORT": 2681,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 2687,
+    "exact_missing_art_cells": 2681,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "14bbb043528c1e36a06fc8894b0864e68908d419f9a1e6ae2b010df2340b36ae",
+    "export_presets.cfg": "5d38f4b248538f27b503072d3201ec63c4889d26d9e8cc3de8cdad379d64c206",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -124,7 +124,7 @@
     "forge_system.gd": "d27077eb3e7fa0b24ba266aa1a53b7590b9b61edea40b9593f760dbeda8a5831",
     "game_catalog.gd": "d47f5bcca5fcf99318d51234ed0765e478dbdc0084fdf9636f7d6c40631615a7",
     "hideout_shop_system.gd": "85c65c12965d28b6ead3d706c70f10aa5020533841c79791060b9e2c6986db8b",
-    "hideout_ui.gd": "5761cc59f09939891096722a9adaf1155ff69014eb53f4786296493beb9503f1",
+    "hideout_ui.gd": "dce7ad5a97f508d3ca2a11c49092e526ea71ea3b4ca17d5e2d63db041de125ea",
     "home_catalog.gd": "f9d7e86d825de2fa877bd16c1da39818367f541517786c6f326d065eb75ff609",
     "home_runtime_art.gd": "bdc814c8a86d2f6b780788e53a11b894906ca8f4d8ea9e466b8be46078048cb7",
     "hub_navigation.gd": "ae687cb952c1847b4fa7da3181391716262881079c7b67de30bf30b5ca5f1c93",
@@ -133,12 +133,13 @@
     "item_catalog.gd": "0fa1e563f4f640e584f46d9d2031abca70b7489482e11f97e1824db62cad8504",
     "item_icon.gd": "b5edd14c3915e8619120d68f40d76c528d8ea47b3f5f12ef917079a5aa56dac7",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "ac0102ef85da791db48c296fb2f0876d6ddfed4d5019e6114306c904e8701c67",
-    "lootlings_ui.gd": "b32728f35bdc24997873a3690f4fe59973d14078c5e355cf1bc335358134f65c",
+    "lootling.gd": "bd92f1a3eaa6b20caf7582a06c5cfa78dedf5d60119a2223dde66832a20dedc8",
+    "lootlings_ui.gd": "f0a51baf399fa4db146a20b558fabdf1033af1b2f9d4c59a5faf751bc913805b",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
     "loot_system.gd": "b7da5111482b7c16427b86f1cc4c9b4d3696bf91d10f4b3a20f7980e0a7e624d",
     "meta_store.gd": "0fbc1a8a90e19414e7fdabaee3a4d4bb1cf023651a2f5d44a35a60a665977ded",
     "mobile_test_monitor.gd": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8",
+    "named_item_art.gd": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb",
     "personal_home.gd": "da2b727e359cf7bd0fdee518610539a0038d17c21bc601730fa3ea7eaff5ee9b",
     "phase3_item_catalog.gd": "24e796e46e727e08aab4737bb5d9c99710cccaf908e23ae8437b42dfd40b5e47",
     "phase4b_catalog.gd": "a6c31156a1984e3768185a0c30f707098506476d73d7b23b08ebf5d23d9b9849",
@@ -148,6 +149,7 @@
     "presentation_director.gd": "034999fad57fdbc0c8751c6040b029961bf761c138ca88f954312f3427e3ae78",
     "profile_store.gd": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1",
     "projectile_presentation.gd": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9",
+    "regional_atmosphere.gd": "067aa5460f6c766ee7401945e042c3160e7cdb9be6ca4266399aeef88541f289",
     "regional_enemy_presentation.gd": "5f347a60c38e1be3c24db7d52c1c67a88963008f81a2fe4c68a173bf56e4268a",
     "region_audio.gd": "1e6b241adc79578698c277fb0c58a56b202b313ab250b21d3fd709d8888a51a9",
     "relic_chase_meter.gd": "7d0551cb1f9817d4321c829d5c4d577b6425c3ca45faf044ab5d7c3ac38e934a",
@@ -155,7 +157,7 @@
     "relic_machine.gd": "19befca3b196d6ad0b5b866cf2e39b23b86e1850bed3015d73a6345944a7b6ca",
     "relic_reveal_fx.gd": "5190335e1b7b05b233ee7f607ff6aa525d3f9a05e60ee28d72869cb622bb2892",
     "relic_spin_catalog.gd": "860ae69b742ecf599d45ae04e6c0c80b867f1da17d1c9b7fd8a5a896dabb2cd4",
-    "resident_art_catalog.gd": "72848b2cc558fa9e535d356d684234e70392a40d4efe8cdc4612507a48a477c9",
+    "resident_art_catalog.gd": "169a9a130029b6a5dec45b4b86e2b9d2e0bb5600b6d2f130aedf3ebfa589a666",
     "resident_sprite_rig.gd": "018675b14fad2964b875ca99389cafa752cf5eb869a94f6440e0ddf2208908e7",
     "responsive_backdrop.gd": "da2a4a7e005445b87e8f8b986216c6429400563dad8bea390b79e3b7ec94e52b",
     "result_actor_view.gd": "0770a801a9b481188e3a465e040d03cbb15a2d9543f15c2cd19f4db84d96e27f",
@@ -183,12 +185,13 @@
     "art/production/phase4e/reuse_manifest.json": "8ca6bf0e578a66b5bac8c4628edcf84a08ec7e4e1ef9412f036b97ef1efaa42f",
     "art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json": "79a1dda02fd64cc376b6aa63257663ee3d612793d1f87f4e5894a4549cf007f0",
     "art/production/phase4e/props/source_manifest.json": "abc402978abf8417022bf2df51f9a7ef57c0ed353faa8097a4e194df50019436",
+    "art/production/phase4e/items/named_048/manifest.json": "f95c6608998700df47b3f771c0295cdf4cb5c8679c8a44421b2a4bf464a07271",
     "art/approved_missing_canon_references.json": "71f7cc500a3f148985e258b9e8d078c565d97b55a7e5d89d536b540476bfc463",
     "art/production/phase4e/approved_missing_runtime_manifest.json": "a0c716c7c8c390c1847edf560aba398da43c27e439da0b1240947cefabf42edc",
     "art/npc_identity_authorities.json": "3f62e7174d084b4352b062ccfa57a91458b630755ce7a5835ccba1e2417d8b39",
     "art/production/companions/runtime_manifest.json": "967edf70bbc4e973574660098f74dea0d38508d0587e2807ec2499c4dbf73a54",
     "art/production_enemy_manifest.json": "8099429a2d31a091762d822b7296536996763b3f73a3fb9f56ac7cc97be430bb",
-    "art/production_npc_manifest.json": "05fb20ae103ed08afcba0b2a9cd12b4c866866b0319a96ac38c47390b6b57b8d",
+    "art/production_npc_manifest.json": "76c15494c31cbb9936b9dcb71018a2eb957eb8e36219daa3b6e7e55fb33490be",
     "art/production/phase4e/player_batch_043_manifest.json": "b2f5e62288240710812f8edb4d2c1865c1183debbd31493edffa5d2b28d1bab6",
     "art/production/phase4e/player_motion_044_manifest.json": "12c0b5b14c814eb59c83bbc8e9134133f2b2e1a71ad691f556730f18f9d6472c",
     "art/production/phase4e/player_combat_045_manifest.json": "56fcd5d091a0006a4c2b6f0192665634a887762f222465cf147f290bdb8bb84e",
@@ -218553,55 +218556,41 @@
       "state": "work/read/tend",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
       "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/npcs/patch/patch_work_read_tend_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/patch/patch_work_right_048.png",
+      "target_production_path": "res://art/production/phase4e/npcs/patch/patch_work_right_048.png",
       "dimensions": [
         1024,
         1536
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": null,
-        "target_canvas_y": 1504,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          1504
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "prop contact",
-        "feet baseline",
-        "head direction"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "resident_art_catalog.gd",
       "dependency": [
         "patch__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:patch:work/read/tend:left:None",
@@ -218611,55 +218600,41 @@
       "state": "work/read/tend",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
       "canonical_source": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/npcs/patch/patch_work_read_tend_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/patch/patch_work_left_048.png",
+      "target_production_path": "res://art/production/phase4e/npcs/patch/patch_work_left_048.png",
       "dimensions": [
         1024,
         1536
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": null,
-        "target_canvas_y": 1504,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          1504
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "prop contact",
-        "feet baseline",
-        "head direction"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "resident_art_catalog.gd",
       "dependency": [
         "patch__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:patch:inspect:right:None",
@@ -219165,55 +219140,41 @@
       "state": "work/read/tend",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
       "canonical_source": "art/sprites/npcs/beta/sera_idle.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/npcs/sera/sera_work_read_tend_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/sera/sera_work_right_048.png",
+      "target_production_path": "res://art/production/phase4e/npcs/sera/sera_work_right_048.png",
       "dimensions": [
         1024,
         1536
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": null,
-        "target_canvas_y": 1504,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          1504
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "prop contact",
-        "feet baseline",
-        "head direction"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "resident_art_catalog.gd",
       "dependency": [
         "sera__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:sera:work/read/tend:left:None",
@@ -219223,55 +219184,41 @@
       "state": "work/read/tend",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
       "canonical_source": "art/sprites/npcs/beta/sera_idle.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/npcs/sera/sera_work_read_tend_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/sera/sera_work_left_048.png",
+      "target_production_path": "res://art/production/phase4e/npcs/sera/sera_work_left_048.png",
       "dimensions": [
         1024,
         1536
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": null,
-        "target_canvas_y": 1504,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          1504
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "prop contact",
-        "feet baseline",
-        "head direction"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "resident_art_catalog.gd",
       "dependency": [
         "sera__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:sera:inspect:right:None",
@@ -219777,55 +219724,41 @@
       "state": "work/read/tend",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
       "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/npcs/ilex/ilex_work_read_tend_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
+      "target_production_path": "res://art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
       "dimensions": [
         1024,
         1536
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": null,
-        "target_canvas_y": 1504,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          1504
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "prop contact",
-        "feet baseline",
-        "head direction"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "resident_art_catalog.gd",
       "dependency": [
         "ilex__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:ilex:work/read/tend:left:None",
@@ -219835,55 +219768,41 @@
       "state": "work/read/tend",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
       "canonical_source": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/npcs/ilex/ilex_work_read_tend_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+      "target_production_path": "res://art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
       "dimensions": [
         1024,
         1536
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "renderer_ground_y": null,
-        "target_canvas_y": 1504,
-        "source_ground_or_hover_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512.0,
-          1504
-        ],
-        "source_pivot_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "prop contact",
-        "feet baseline",
-        "head direction"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "resident_art_catalog.gd",
       "dependency": [
         "ilex__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:ilex:inspect:right:None",
@@ -328597,40 +328516,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:3917:0:089331a2",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3917,
-        "text": "%s • %s",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3918:0:e29764e7",
+      "slot_id": "label:lootling.gd:3918:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328658,12 +328544,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 3918,
-        "text": "DETAILS: PAUSE",
+        "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4044:0:56d441fc",
+      "slot_id": "label:lootling.gd:3919:0:e29764e7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328690,13 +328576,46 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4044,
+        "line": 3919,
+        "text": "DETAILS: PAUSE",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:4045:0:56d441fc",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 4045,
         "text": "COMBO ×%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootlings_ui.gd:272:0:31f63f09",
+      "slot_id": "label:lootlings_ui.gd:274:0:31f63f09",
       "game_id": "lootlings_ui_gd",
       "category": "player_text",
       "subject": "lootlings_ui.gd",
@@ -328723,7 +328642,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 272,
+        "line": 274,
         "text": "SelectionMark",
         "dynamic_template": true
       }
@@ -331630,6 +331549,360 @@
         "line": 84,
         "text": "SKIP ›",
         "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "named-item:quiet_chime",
+      "game_id": "quiet_chime",
+      "category": "item_art",
+      "subject": "quiet_chime",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/items/named_048/quiet_chime.png",
+      "target_production_path": null,
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootlings_ui",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [
+        "art/production/phase4e/items/named_048/manifest.json"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "id": "quiet_chime",
+        "asset_path": "res://art/production/phase4e/items/named_048/quiet_chime.png",
+        "source": "art/source/living_world_048/named_loot_sheet.png",
+        "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "source_bounds": [
+          76,
+          41,
+          374,
+          498
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "status": "awaiting_native_review",
+        "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+        "gameplay_identity_source": "phase3_item_catalog.gd",
+        "native_validated": true,
+        "production_status": "canon_validated_runtime",
+        "asset_sha256": "61bf828f1ea2e81ded5d8856574387e5a72e4be54434064450e0f8790880b054",
+        "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+        "production_quality_accepted": false,
+        "metadata_path": "art/production/phase4e/items/named_048/quiet_chime.json"
+      }
+    },
+    {
+      "slot_id": "named-item:frostbell_seal",
+      "game_id": "frostbell_seal",
+      "category": "item_art",
+      "subject": "frostbell_seal",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/items/named_048/frostbell_seal.png",
+      "target_production_path": null,
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootlings_ui",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [
+        "art/production/phase4e/items/named_048/manifest.json"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "id": "frostbell_seal",
+        "asset_path": "res://art/production/phase4e/items/named_048/frostbell_seal.png",
+        "source": "art/source/living_world_048/named_loot_sheet.png",
+        "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "source_bounds": [
+          537,
+          63,
+          1010,
+          528
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "status": "awaiting_native_review",
+        "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+        "gameplay_identity_source": "phase3_item_catalog.gd",
+        "native_validated": true,
+        "production_status": "canon_validated_runtime",
+        "asset_sha256": "93fb6a4e2e288b5bb8f4eb6bc2c05a43fa295b6deaced6d483d4e1a9964b9822",
+        "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+        "production_quality_accepted": false,
+        "metadata_path": "art/production/phase4e/items/named_048/frostbell_seal.json"
+      }
+    },
+    {
+      "slot_id": "named-item:storm_ledger",
+      "game_id": "storm_ledger",
+      "category": "item_art",
+      "subject": "storm_ledger",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/items/named_048/storm_ledger.png",
+      "target_production_path": null,
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootlings_ui",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [
+        "art/production/phase4e/items/named_048/manifest.json"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "id": "storm_ledger",
+        "asset_path": "res://art/production/phase4e/items/named_048/storm_ledger.png",
+        "source": "art/source/living_world_048/named_loot_sheet.png",
+        "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "source_bounds": [
+          65,
+          569,
+          496,
+          1050
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "status": "awaiting_native_review",
+        "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+        "gameplay_identity_source": "phase3_item_catalog.gd",
+        "native_validated": true,
+        "production_status": "canon_validated_runtime",
+        "asset_sha256": "9e5955daeee096c022229a19e60d0f829d736c625b560bbce5a027d18694fa7a",
+        "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+        "production_quality_accepted": false,
+        "metadata_path": "art/production/phase4e/items/named_048/storm_ledger.json"
+      }
+    },
+    {
+      "slot_id": "named-item:threefold_ink",
+      "game_id": "threefold_ink",
+      "category": "item_art",
+      "subject": "threefold_ink",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/items/named_048/threefold_ink.png",
+      "target_production_path": null,
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootlings_ui",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [
+        "art/production/phase4e/items/named_048/manifest.json"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "id": "threefold_ink",
+        "asset_path": "res://art/production/phase4e/items/named_048/threefold_ink.png",
+        "source": "art/source/living_world_048/named_loot_sheet.png",
+        "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "source_bounds": [
+          575,
+          555,
+          961,
+          1025
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "status": "awaiting_native_review",
+        "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+        "gameplay_identity_source": "phase4_catalog.gd",
+        "native_validated": true,
+        "production_status": "canon_validated_runtime",
+        "asset_sha256": "3f17b002a8cfa425d2b173c1a73e54c34573c177b65016f4b258d203209a4ea2",
+        "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+        "production_quality_accepted": false,
+        "metadata_path": "art/production/phase4e/items/named_048/threefold_ink.json"
+      }
+    },
+    {
+      "slot_id": "named-item:shelter_script",
+      "game_id": "shelter_script",
+      "category": "item_art",
+      "subject": "shelter_script",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/items/named_048/shelter_script.png",
+      "target_production_path": null,
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootlings_ui",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [
+        "art/production/phase4e/items/named_048/manifest.json"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "id": "shelter_script",
+        "asset_path": "res://art/production/phase4e/items/named_048/shelter_script.png",
+        "source": "art/source/living_world_048/named_loot_sheet.png",
+        "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "source_bounds": [
+          28,
+          1075,
+          528,
+          1438
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "status": "awaiting_native_review",
+        "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+        "gameplay_identity_source": "phase4_catalog.gd",
+        "native_validated": true,
+        "production_status": "canon_validated_runtime",
+        "asset_sha256": "7fdd26e0366b623435a04f5071107ffdaa7c4227e75ec9f46d88b69503eb66a2",
+        "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+        "production_quality_accepted": false,
+        "metadata_path": "art/production/phase4e/items/named_048/shelter_script.json"
+      }
+    },
+    {
+      "slot_id": "named-item:critical_script",
+      "game_id": "critical_script",
+      "category": "item_art",
+      "subject": "critical_script",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+      "source_crop": null,
+      "current_production_asset": "res://art/production/phase4e/items/named_048/critical_script.png",
+      "target_production_path": null,
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "transparent RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootlings_ui",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [
+        "art/production/phase4e/items/named_048/manifest.json"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "id": "critical_script",
+        "asset_path": "res://art/production/phase4e/items/named_048/critical_script.png",
+        "source": "art/source/living_world_048/named_loot_sheet.png",
+        "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "source_bounds": [
+          565,
+          1038,
+          934,
+          1480
+        ],
+        "canvas": [
+          256,
+          256
+        ],
+        "status": "awaiting_native_review",
+        "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+        "gameplay_identity_source": "item_catalog.gd",
+        "native_validated": true,
+        "production_status": "canon_validated_runtime",
+        "asset_sha256": "06a7cfe7d490e767dc1fd29f02bcdec9b31dddd3d5025f0b629c6624c09624d4",
+        "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+        "production_quality_accepted": false,
+        "metadata_path": "art/production/phase4e/items/named_048/critical_script.json"
       }
     },
     {
@@ -356317,6 +356590,240 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/items/named_048/critical_script.png",
+      "game_id": "critical_script",
+      "category": "combat_art",
+      "subject": "critical_script",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/items/named_048/critical_script.png",
+      "target_production_path": "art/production/phase4e/items/named_048/critical_script.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "named_item_art.gd"
+      ],
+      "implementation_file": [
+        "named_item_art.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "06a7cfe7d490e767dc1fd29f02bcdec9b31dddd3d5025f0b629c6624c09624d4",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/items/named_048/frostbell_seal.png",
+      "game_id": "frostbell_seal",
+      "category": "combat_art",
+      "subject": "frostbell_seal",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/items/named_048/frostbell_seal.png",
+      "target_production_path": "art/production/phase4e/items/named_048/frostbell_seal.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "named_item_art.gd"
+      ],
+      "implementation_file": [
+        "named_item_art.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "93fb6a4e2e288b5bb8f4eb6bc2c05a43fa295b6deaced6d483d4e1a9964b9822",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/items/named_048/quiet_chime.png",
+      "game_id": "quiet_chime",
+      "category": "combat_art",
+      "subject": "quiet_chime",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/items/named_048/quiet_chime.png",
+      "target_production_path": "art/production/phase4e/items/named_048/quiet_chime.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "named_item_art.gd"
+      ],
+      "implementation_file": [
+        "named_item_art.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "61bf828f1ea2e81ded5d8856574387e5a72e4be54434064450e0f8790880b054",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/items/named_048/shelter_script.png",
+      "game_id": "shelter_script",
+      "category": "combat_art",
+      "subject": "shelter_script",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/items/named_048/shelter_script.png",
+      "target_production_path": "art/production/phase4e/items/named_048/shelter_script.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "named_item_art.gd"
+      ],
+      "implementation_file": [
+        "named_item_art.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "7fdd26e0366b623435a04f5071107ffdaa7c4227e75ec9f46d88b69503eb66a2",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/items/named_048/storm_ledger.png",
+      "game_id": "storm_ledger",
+      "category": "combat_art",
+      "subject": "storm_ledger",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/items/named_048/storm_ledger.png",
+      "target_production_path": "art/production/phase4e/items/named_048/storm_ledger.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "named_item_art.gd"
+      ],
+      "implementation_file": [
+        "named_item_art.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "9e5955daeee096c022229a19e60d0f829d736c625b560bbce5a027d18694fa7a",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/items/named_048/threefold_ink.png",
+      "game_id": "threefold_ink",
+      "category": "combat_art",
+      "subject": "threefold_ink",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/items/named_048/threefold_ink.png",
+      "target_production_path": "art/production/phase4e/items/named_048/threefold_ink.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "named_item_art.gd"
+      ],
+      "implementation_file": [
+        "named_item_art.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "3f17b002a8cfa425d2b173c1a73e54c34573c177b65016f4b258d203209a4ea2",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/items/obsidian_ring.png",
       "game_id": "obsidian_ring",
       "category": "combat_art",
@@ -368537,6 +369044,84 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+      "game_id": "ilex_work_left_048",
+      "category": "combat_art",
+      "subject": "ilex_work_left_048",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+      "target_production_path": "art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "a1b9dd8e217b9e829b2f6e59f180008326a6f037e5c8277716786cffdcda2cb5",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
+      "game_id": "ilex_work_right_048",
+      "category": "combat_art",
+      "subject": "ilex_work_right_048",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
+      "target_production_path": "art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "b022d136b02938605c5982099e2a0b35af70dc7ffb1e5c66ecf5d48fe83c6ba0",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/npcs/ilex_canonical_station_panel.png",
       "game_id": "ilex_canonical_station_panel",
       "category": "combat_art",
@@ -368812,6 +369397,84 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/npcs/patch/patch_work_left_048.png",
+      "game_id": "patch_work_left_048",
+      "category": "combat_art",
+      "subject": "patch_work_left_048",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/patch/patch_work_left_048.png",
+      "target_production_path": "art/production/phase4e/npcs/patch/patch_work_left_048.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "b99db05913f6b97dcdaf923d94e5b7a191442c18230e6e39881a38d997a5eaa9",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/patch/patch_work_right_048.png",
+      "game_id": "patch_work_right_048",
+      "category": "combat_art",
+      "subject": "patch_work_right_048",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/patch/patch_work_right_048.png",
+      "target_production_path": "art/production/phase4e/npcs/patch/patch_work_right_048.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "1c88f16263f6f47719534e7a75aa474090f90efd8349406a331b2ecbfacf2057",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/npcs/patch_canonical_station_panel.png",
       "game_id": "patch_canonical_station_panel",
       "category": "combat_art",
@@ -369044,6 +369707,84 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "064afd8f07e87127f260c2e4feba09e8b6eb909dec3c0d323fbc53a28b3e585d",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/sera/sera_work_left_048.png",
+      "game_id": "sera_work_left_048",
+      "category": "combat_art",
+      "subject": "sera_work_left_048",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/sera/sera_work_left_048.png",
+      "target_production_path": "art/production/phase4e/npcs/sera/sera_work_left_048.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "d29439b09d962aecc6a597002aed6e5cfc8e57548f34da5202e3940407499589",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/sera/sera_work_right_048.png",
+      "game_id": "sera_work_right_048",
+      "category": "combat_art",
+      "subject": "sera_work_right_048",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/sera/sera_work_right_048.png",
+      "target_production_path": "art/production/phase4e/npcs/sera/sera_work_right_048.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "eebebada7436eecc1be571e36adb4615f004a71196a64d4586c3940835af0a51",
         "usage": "static resource or documented dynamic loader"
       }
     },
@@ -382499,6 +383240,166 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "4f025566d647cb5f4a1d59d7aa00916d7e028228e8f7131dd82d4dfaabd9f2aa",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/living_world_048/named_loot_sheet.png",
+      "game_id": "named_loot_sheet",
+      "category": "reference",
+      "subject": "named_loot_sheet",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/living_world_048/named_loot_sheet.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/living_world_048/npc_service_sheet.png",
+      "game_id": "npc_service_sheet",
+      "category": "reference",
+      "subject": "npc_service_sheet",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/living_world_048/npc_service_sheet.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "5a57845876eb78efc6422952f9c6c2476d1e97b5c46f33f97ee5e29bd7babb9e",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/living_world_048/npc_service_spaced.png",
+      "game_id": "npc_service_spaced",
+      "category": "reference",
+      "subject": "npc_service_spaced",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/living_world_048/npc_service_spaced.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "b4db11b7f1562e51a1e2e470f80242cb59f9d1ab7cab9cd1918ea13d19ded532",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/living_world_048/sera_service_sheet.png",
+      "game_id": "sera_service_sheet",
+      "category": "reference",
+      "subject": "sera_service_sheet",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/living_world_048/sera_service_sheet.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "5c1157d634dfde1a945da645fc7e1167842b27b5b104873873ae1ad1dcb23b95",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/living_world_048/sera_service_spaced.png",
+      "game_id": "sera_service_spaced",
+      "category": "reference",
+      "subject": "sera_service_spaced",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/living_world_048/sera_service_spaced.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "23649ac9a451d8e82caf36cbf9562c294d2f3eb54b2fc03aaf8008eb49b8d3e5",
         "rejection": null
       }
     },
@@ -418204,6 +419105,39 @@
       }
     },
     {
+      "slot_id": "system:named_item_art.gd",
+      "game_id": "named_item_art_gd",
+      "category": "runtime_system",
+      "subject": "named_item_art.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "named_item_art.gd",
+      "implementation_file": "named_item_art.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "texture"
+        ]
+      }
+    },
+    {
       "slot_id": "system:personal_home.gd",
       "game_id": "personal_home_gd",
       "category": "runtime_system",
@@ -418581,6 +419515,40 @@
       "evidence": {
         "methods": [
           "combat_cue"
+        ]
+      }
+    },
+    {
+      "slot_id": "system:regional_atmosphere.gd",
+      "game_id": "regional_atmosphere_gd",
+      "category": "runtime_system",
+      "subject": "regional_atmosphere.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "regional_atmosphere.gd",
+      "implementation_file": "regional_atmosphere.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "points",
+          "draw"
         ]
       }
     },

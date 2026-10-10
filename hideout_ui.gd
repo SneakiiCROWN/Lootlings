@@ -1825,7 +1825,7 @@ func resident_activity(speaker: String) -> String:
 	var index: int=["Salvager","Relic Keeper","Archivist"].find(speaker)
 	if index<0: return "stand"
 	var state: int=int((scene_time+index*11)/28.0)%5
-	return {"Salvager":["repair","inspect","walk","sit","stand"],"Relic Keeper":["inspect","sit","walk","stand","inspect"],"Archivist":["read","inspect","walk","sit","read"]}[speaker][state]
+	return {"Salvager":["repair","inspect","walk","sit","stand"],"Relic Keeper":["tend","sit","walk","stand","inspect"],"Archivist":["read","inspect","walk","sit","read"]}[speaker][state]
 
 func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
 	var activity:=resident_activity(speaker)

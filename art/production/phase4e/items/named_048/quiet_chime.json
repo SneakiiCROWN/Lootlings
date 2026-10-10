@@ -1,0 +1,26 @@
+{
+  "id": "quiet_chime",
+  "asset_path": "res://art/production/phase4e/items/named_048/quiet_chime.png",
+  "source": "art/source/living_world_048/named_loot_sheet.png",
+  "source_sha256": "57a241b9242e89463a706a886e66cd82d010b4f0d7d98bf14ce000c9a13f2a40",
+  "source_bounds": [
+    76,
+    41,
+    374,
+    498
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "status": "awaiting_native_review",
+  "canonical_style_reference": "art/reference/canonical/phase2_master/lootlings_jewellery_relic_consumable_loot_reference.png",
+  "gameplay_identity_source": "phase3_item_catalog.gd",
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "asset_sha256": "61bf828f1ea2e81ded5d8856574387e5a72e4be54434064450e0f8790880b054",
+  "native_qa": "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+  "visual_review": "Exact dedicated NPC identity or named-item/style authority compared with original and actual phone/tablet/desktop rendering. Complete alpha silhouette; stable scale/pivot. Individual work keyframes or static icons, not complete fluid animation or professional family approval.",
+  "production_quality_accepted": false,
+  "metadata_path": "art/production/phase4e/items/named_048/quiet_chime.json"
+}

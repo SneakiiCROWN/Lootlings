@@ -1,0 +1,220 @@
+{
+  "entries": [
+    {
+      "actor": "patch",
+      "state": "work/read/tend",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_work_right_048.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        384,
+        1007,
+        255,
+        497
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/living_world_048/npc_service_spaced.png",
+      "authored_source_sha256": "b4db11b7f1562e51a1e2e470f80242cb59f9d1ab7cab9cd1918ea13d19ded532",
+      "authored_source_bounds": [
+        160,
+        209,
+        387,
+        652
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:patch:work/read/tend:right:None",
+      "metadata_path": "art/production/phase4e/npcs/patch/patch_work_right_048.json",
+      "full_animation_family_accepted": false,
+      "anatomy_mirroring": false
+    },
+    {
+      "actor": "patch",
+      "state": "work/read/tend",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/patch/patch_work_left_048.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        380,
+        1015,
+        264,
+        489
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+      "authored_source": "art/source/living_world_048/npc_service_spaced.png",
+      "authored_source_sha256": "b4db11b7f1562e51a1e2e470f80242cb59f9d1ab7cab9cd1918ea13d19ded532",
+      "authored_source_bounds": [
+        640,
+        208,
+        880,
+        652
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:patch:work/read/tend:left:None",
+      "metadata_path": "art/production/phase4e/npcs/patch/patch_work_left_048.json",
+      "full_animation_family_accepted": false,
+      "anatomy_mirroring": false
+    },
+    {
+      "actor": "ilex",
+      "state": "work/read/tend",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        333,
+        990,
+        358,
+        514
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/living_world_048/npc_service_spaced.png",
+      "authored_source_sha256": "b4db11b7f1562e51a1e2e470f80242cb59f9d1ab7cab9cd1918ea13d19ded532",
+      "authored_source_bounds": [
+        113,
+        927,
+        416,
+        1362
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:ilex:work/read/tend:right:None",
+      "metadata_path": "art/production/phase4e/npcs/ilex/ilex_work_right_048.json",
+      "full_animation_family_accepted": false,
+      "anatomy_mirroring": false
+    },
+    {
+      "actor": "ilex",
+      "state": "work/read/tend",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        339,
+        1000,
+        345,
+        504
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+      "authored_source": "art/source/living_world_048/npc_service_spaced.png",
+      "authored_source_sha256": "b4db11b7f1562e51a1e2e470f80242cb59f9d1ab7cab9cd1918ea13d19ded532",
+      "authored_source_bounds": [
+        614,
+        927,
+        915,
+        1367
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:ilex:work/read/tend:left:None",
+      "metadata_path": "art/production/phase4e/npcs/ilex/ilex_work_left_048.json",
+      "full_animation_family_accepted": false,
+      "anatomy_mirroring": false
+    },
+    {
+      "actor": "sera",
+      "state": "work/read/tend",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/npcs/sera/sera_work_right_048.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        24,
+        85,
+        976,
+        1419
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/sprites/npcs/beta/sera_idle.png",
+      "source_sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+      "authored_source": "art/source/living_world_048/sera_service_spaced.png",
+      "authored_source_sha256": "23649ac9a451d8e82caf36cbf9562c294d2f3eb54b2fc03aaf8008eb49b8d3e5",
+      "authored_source_bounds": [
+        81,
+        40,
+        726,
+        978
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:sera:work/read/tend:right:None",
+      "metadata_path": "art/production/phase4e/npcs/sera/sera_work_right_048.json",
+      "full_animation_family_accepted": false,
+      "anatomy_mirroring": false
+    },
+    {
+      "actor": "sera",
+      "state": "work/read/tend",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/npcs/sera/sera_work_left_048.png",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "content_rect": [
+        24,
+        146,
+        976,
+        1358
+      ],
+      "pivot": [
+        512,
+        1504
+      ],
+      "source_reference": "art/sprites/npcs/beta/sera_idle.png",
+      "source_sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+      "authored_source": "art/source/living_world_048/sera_service_spaced.png",
+      "authored_source_sha256": "23649ac9a451d8e82caf36cbf9562c294d2f3eb54b2fc03aaf8008eb49b8d3e5",
+      "authored_source_bounds": [
+        833,
+        62,
+        1490,
+        976
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:sera:work/read/tend:left:None",
+      "metadata_path": "art/production/phase4e/npcs/sera/sera_work_left_048.json",
+      "full_animation_family_accepted": false,
+      "anatomy_mirroring": false
+    }
+  ]
+}

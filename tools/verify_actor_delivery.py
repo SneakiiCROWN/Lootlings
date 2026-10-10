@@ -5,8 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def main():
  p=argparse.ArgumentParser();p.add_argument('apk');p.add_argument('--output',default='.godot_test_data/android/actor-delivery.json');a=p.parse_args();report={'apk':a.apk,'manifests':{},'textures':{},'physical_device_tested':False}
  with zipfile.ZipFile(ROOT/a.apk) as apk:
-  for name in ['player_batch_043_manifest','player_motion_044_manifest','player_combat_045_manifest','player_combat_046_manifest','enemy','companion']:
-   path='art/production/companions/runtime_manifest.json' if name=='companion' else 'art/production_enemy_manifest.json' if name=='enemy' else 'art/production/phase4e/'+name+'.json';data=json.loads((ROOT/path).read_text(encoding='utf-8-sig'))
+  for name in ['player_batch_043_manifest','player_motion_044_manifest','player_combat_045_manifest','player_combat_046_manifest','enemy','companion','npc','named_items']:
+   path='art/production_npc_manifest.json' if name=='npc' else 'art/production/phase4e/items/named_048/manifest.json' if name=='named_items' else 'art/production/companions/runtime_manifest.json' if name=='companion' else 'art/production_enemy_manifest.json' if name=='enemy' else 'art/production/phase4e/'+name+'.json';data=json.loads((ROOT/path).read_text(encoding='utf-8-sig'))
    assert apk.read('assets/'+path)==(ROOT/path).read_bytes(),'Stale exported manifest: '+path
    rows=data['entries'];assert all(r.get('native_validated') and (r.get('owner_approved') if name=='companion' else r.get('production_status')=='canon_validated_runtime') for r in rows)
    assets=set()

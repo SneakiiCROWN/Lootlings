@@ -37,7 +37,7 @@ static func presentation(speaker: String, bounds: Rect2, activity: String="rest"
 	if neutral.is_empty():
 		facing="right";neutral=body_frame(id,"rest",facing)
 	if not neutral.is_empty():
-		var state: String="talk" if activity=="talk" else "inspect" if activity in ["inspect","read"] else "rest"
+		var state: String="talk" if activity=="talk" else "work/read/tend" if activity in ["repair","read","tend"] else "inspect" if activity=="inspect" else "rest"
 		var chosen:=body_frame(id,state,facing)
 		if chosen.is_empty():chosen=neutral;state="rest"
 		var row: Dictionary=chosen.row
@@ -47,7 +47,7 @@ static func presentation(speaker: String, bounds: Rect2, activity: String="rest"
 		var extent:=Vector2(region[2],region[3])*scale
 		var ground:=Vector2(bounds.get_center().x,bounds.end.y)
 		var position:=ground+Vector2(region[0]-row.pivot[0],region[1]-row.pivot[1])*scale
-		return {"id":id,"texture":chosen.texture,"rect":Rect2(position,extent),"export_state":state,"facing":facing,"activity_states":"Authored rest/inspect/talk both views; route/work/sit remain missing","full_body":true}
+		return {"id":id,"texture":chosen.texture,"rect":Rect2(position,extent),"export_state":state,"facing":facing,"activity_states":"Authored rest/inspect/talk; selected work poses; route/sit/fluid continuity remain missing","full_body":true}
 	var texture: Texture2D=BODIES[IDS[speaker]]
 	var extent: Vector2=texture.get_size()*minf(bounds.size.x/texture.get_width(),bounds.size.y/texture.get_height())
 	var panel: bool=IDS[speaker] in ["patch","ilex"]
@@ -67,10 +67,23 @@ static func draw(home, speaker: String, bounds: Rect2, activity: String="rest", 
 		home.draw_string(ThemeDB.fallback_font,Vector2(bounds.position.x+6,bounds.end.y-24),caption,HORIZONTAL_ALIGNMENT_CENTER,bounds.size.x-12,11,Color("#ffe3ac"))
 		home.draw_string(ThemeDB.fallback_font,Vector2(bounds.position.x+6,bounds.end.y-11),"FORGE" if entry.id=="patch" else "NOTES",HORIZONTAL_ALIGNMENT_CENTER,bounds.size.x-12,9,Color("#dcb973"))
 	else:
-		if entry.get("full_body",false) and not home.get_parent().audio_settings.get("cinematic_reduced_motion",false):
-			var ground:=Vector2(bounds.get_center().x,bounds.end.y)
-			var breathe: float=1.0+sin(home.scene_time*1.65+(.7 if entry.id=="patch" else 2.1))*.003
-			home.draw_set_transform(ground,0,Vector2(1,breathe))
-			home.draw_texture_rect(entry.texture,Rect2(entry.rect.position-ground,entry.rect.size),false,Color.WHITE)
-			home.draw_set_transform(Vector2.ZERO)
-		else:home.draw_texture_rect(entry.texture,entry.rect,false,Color.WHITE)
+		var reduced:bool=home.get_parent().audio_settings.get("cinematic_reduced_motion",false)
+		var key:String="resident_transition_"+entry.id
+		var memory:Dictionary=home.get_meta(key,{})
+		var state_key:String=entry.export_state+":"+entry.facing
+		var now:float=Time.get_ticks_msec()/1000.0
+		if memory.get("state",state_key)!=state_key:
+			memory={"state":state_key,"previous":memory.get("current",entry),"current":entry,"started":now}
+		else:
+			memory["state"]=state_key;memory["current"]=entry
+		home.set_meta(key,memory)
+		var blend:float=1.0 if reduced else clampf((now-float(memory.get("started",now-.14)))/.14,0,1)
+		var ground:=Vector2(bounds.get_center().x,bounds.end.y)
+		var breathe:float=1.0 if reduced else 1.0+sin(home.scene_time*1.65+(.7 if entry.id=="patch" else 2.1))*.003
+		home.draw_set_transform(ground,0,Vector2(1,breathe))
+		# A short grounded dissolve smooths state changes; it is not a walking cycle.
+		if blend<1 and memory.has("previous"):
+			var previous:Dictionary=memory.previous
+			home.draw_texture_rect(previous.texture,Rect2(previous.rect.position-ground,previous.rect.size),false,Color(1,1,1,1-blend))
+		home.draw_texture_rect(entry.texture,Rect2(entry.rect.position-ground,entry.rect.size),false,Color(1,1,1,blend))
+		home.draw_set_transform(Vector2.ZERO)

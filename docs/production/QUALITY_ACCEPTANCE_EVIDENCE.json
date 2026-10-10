@@ -8105,6 +8105,306 @@
       },
       "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
       "defects": []
+    },
+    {
+      "slot_id": "pose:patch:work/read/tend:right:None",
+      "asset": "art/production/phase4e/npcs/patch/patch_work_right_048.png",
+      "asset_sha256": "1c88f16263f6f47719534e7a75aa474090f90efd8349406a331b2ecbfacf2057",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "resident_art_catalog.gd": "e46345e59e44c3a5fcd181f9f9d77264c0dc0fcc20c011cf24cf0b56f998c967",
+        "hideout_ui.gd": "247f1e91b946fb5115f31da6a4cc660811636b1059b644366273542ca3b50053",
+        "art/production_npc_manifest.json": "6e2afdbd6085d6fc0774d3b0122a022460b2931f359361b3e3fcbcf7dff8ebe3"
+      }
+    },
+    {
+      "slot_id": "pose:patch:work/read/tend:left:None",
+      "asset": "art/production/phase4e/npcs/patch/patch_work_left_048.png",
+      "asset_sha256": "b99db05913f6b97dcdaf923d94e5b7a191442c18230e6e39881a38d997a5eaa9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "resident_art_catalog.gd": "e46345e59e44c3a5fcd181f9f9d77264c0dc0fcc20c011cf24cf0b56f998c967",
+        "hideout_ui.gd": "247f1e91b946fb5115f31da6a4cc660811636b1059b644366273542ca3b50053",
+        "art/production_npc_manifest.json": "6e2afdbd6085d6fc0774d3b0122a022460b2931f359361b3e3fcbcf7dff8ebe3"
+      }
+    },
+    {
+      "slot_id": "pose:ilex:work/read/tend:right:None",
+      "asset": "art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
+      "asset_sha256": "b022d136b02938605c5982099e2a0b35af70dc7ffb1e5c66ecf5d48fe83c6ba0",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "resident_art_catalog.gd": "e46345e59e44c3a5fcd181f9f9d77264c0dc0fcc20c011cf24cf0b56f998c967",
+        "hideout_ui.gd": "247f1e91b946fb5115f31da6a4cc660811636b1059b644366273542ca3b50053",
+        "art/production_npc_manifest.json": "6e2afdbd6085d6fc0774d3b0122a022460b2931f359361b3e3fcbcf7dff8ebe3"
+      }
+    },
+    {
+      "slot_id": "pose:ilex:work/read/tend:left:None",
+      "asset": "art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
+      "asset_sha256": "a1b9dd8e217b9e829b2f6e59f180008326a6f037e5c8277716786cffdcda2cb5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "resident_art_catalog.gd": "e46345e59e44c3a5fcd181f9f9d77264c0dc0fcc20c011cf24cf0b56f998c967",
+        "hideout_ui.gd": "247f1e91b946fb5115f31da6a4cc660811636b1059b644366273542ca3b50053",
+        "art/production_npc_manifest.json": "6e2afdbd6085d6fc0774d3b0122a022460b2931f359361b3e3fcbcf7dff8ebe3"
+      }
+    },
+    {
+      "slot_id": "pose:sera:work/read/tend:right:None",
+      "asset": "art/production/phase4e/npcs/sera/sera_work_right_048.png",
+      "asset_sha256": "eebebada7436eecc1be571e36adb4615f004a71196a64d4586c3940835af0a51",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "resident_art_catalog.gd": "e46345e59e44c3a5fcd181f9f9d77264c0dc0fcc20c011cf24cf0b56f998c967",
+        "hideout_ui.gd": "247f1e91b946fb5115f31da6a4cc660811636b1059b644366273542ca3b50053",
+        "art/production_npc_manifest.json": "6e2afdbd6085d6fc0774d3b0122a022460b2931f359361b3e3fcbcf7dff8ebe3"
+      }
+    },
+    {
+      "slot_id": "pose:sera:work/read/tend:left:None",
+      "asset": "art/production/phase4e/npcs/sera/sera_work_left_048.png",
+      "asset_sha256": "d29439b09d962aecc6a597002aed6e5cfc8e57548f34da5202e3940407499589",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "resident_art_catalog.gd": "e46345e59e44c3a5fcd181f9f9d77264c0dc0fcc20c011cf24cf0b56f998c967",
+        "hideout_ui.gd": "247f1e91b946fb5115f31da6a4cc660811636b1059b644366273542ca3b50053",
+        "art/production_npc_manifest.json": "6e2afdbd6085d6fc0774d3b0122a022460b2931f359361b3e3fcbcf7dff8ebe3"
+      }
+    },
+    {
+      "slot_id": "named-item:quiet_chime",
+      "asset": "art/production/phase4e/items/named_048/quiet_chime.png",
+      "asset_sha256": "61bf828f1ea2e81ded5d8856574387e5a72e4be54434064450e0f8790880b054",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "d07e5da0f19421c55a1d04a69b89a3cf4014e09d7066c058e054c8e381ebecc3",
+        "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
+        "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
+      }
+    },
+    {
+      "slot_id": "named-item:frostbell_seal",
+      "asset": "art/production/phase4e/items/named_048/frostbell_seal.png",
+      "asset_sha256": "93fb6a4e2e288b5bb8f4eb6bc2c05a43fa295b6deaced6d483d4e1a9964b9822",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "d07e5da0f19421c55a1d04a69b89a3cf4014e09d7066c058e054c8e381ebecc3",
+        "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
+        "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
+      }
+    },
+    {
+      "slot_id": "named-item:storm_ledger",
+      "asset": "art/production/phase4e/items/named_048/storm_ledger.png",
+      "asset_sha256": "9e5955daeee096c022229a19e60d0f829d736c625b560bbce5a027d18694fa7a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "d07e5da0f19421c55a1d04a69b89a3cf4014e09d7066c058e054c8e381ebecc3",
+        "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
+        "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
+      }
+    },
+    {
+      "slot_id": "named-item:threefold_ink",
+      "asset": "art/production/phase4e/items/named_048/threefold_ink.png",
+      "asset_sha256": "3f17b002a8cfa425d2b173c1a73e54c34573c177b65016f4b258d203209a4ea2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "d07e5da0f19421c55a1d04a69b89a3cf4014e09d7066c058e054c8e381ebecc3",
+        "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
+        "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
+      }
+    },
+    {
+      "slot_id": "named-item:shelter_script",
+      "asset": "art/production/phase4e/items/named_048/shelter_script.png",
+      "asset_sha256": "7fdd26e0366b623435a04f5071107ffdaa7c4227e75ec9f46d88b69503eb66a2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "d07e5da0f19421c55a1d04a69b89a3cf4014e09d7066c058e054c8e381ebecc3",
+        "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
+        "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
+      }
+    },
+    {
+      "slot_id": "named-item:critical_script",
+      "asset": "art/production/phase4e/items/named_048/critical_script.png",
+      "asset_sha256": "06a7cfe7d490e767dc1fd29f02bcdec9b31dddd3d5025f0b629c6624c09624d4",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.48/asset_factory_048_native_qa.log",
+        "docs/production/quality-evidence/0.4.48/PROBES.json"
+      ],
+      "limitations": "Full continuity, contextual lighting, subjective UX, physical device and professional family acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "lootlings_ui.gd": "d07e5da0f19421c55a1d04a69b89a3cf4014e09d7066c058e054c8e381ebecc3",
+        "named_item_art.gd": "13d24821bbc1dc087cc8d5f709cb143f07915381a35233a88d38072a22b4ebec",
+        "art/production/phase4e/items/named_048/manifest.json": "8b89678ad2a4a208603ab2a97b82f790907b20ccdfe9c9fde6f89df3aef628c1"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"
