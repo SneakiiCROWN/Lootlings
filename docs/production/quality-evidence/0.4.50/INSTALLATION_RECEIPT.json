@@ -57,12 +57,34 @@
     "player_experience_reviewed": "automated native touch routes; owner review pending",
     "production_quality_accepted": false
   },
-  "builds": {},
+  "builds": {
+    "windows_exe": {
+      "path": "builds/windows/Lootlings-0.4.50-reward-foundation.exe",
+      "bytes": 103136768,
+      "sha256": "695550f149193f4bef49b41f8c0d5bef30144f547a1515c3b2d7db89761b1fd2"
+    },
+    "windows_pack": {
+      "path": "builds/windows/Lootlings-0.4.50-reward-foundation.pck",
+      "bytes": 263751128,
+      "sha256": "0741e951bd935b0f84a2fff04f5952d18c3b2cbe1f5a7a04b52e894f4eaf3a1c"
+    },
+    "android_debug": {
+      "path": "builds/android/Lootlings-0.4.50-reward-foundation-debug.apk",
+      "bytes": 284994985,
+      "sha256": "dc8c53f19466a0246342a499279c92000f5da6b78a46bbb2064922e09419625b"
+    }
+  },
   "quality_findings": [
     "Corrected new audio imports from compression mode 2 to PCM16 mode 0",
     "Corrected training boundary row clipping by fitting three complete rows",
     "Existing reward probabilities, receipt delivery, title track, combat damage and legacy stat ranks retained",
     "Android provenance guard initially caught missing new cue registration; corrected packaged sources.json, with original licences and title score unchanged"
   ],
-  "tests": "QA_RESULTS.json"
+  "tests": "QA_RESULTS.json",
+  "exported_pack_tested_fixtures": 6,
+  "actual_exe_verified": "startup only; native gameplay fixtures ran against its actual exported PCK",
+  "retained_actor_textures_verified_in_apk": 503,
+  "android_version_code": 59,
+  "android_signed_arm64_debug": true,
+  "canonical_asset_changes": "No character, companion, enemy, boss, branding or title music assets replaced"
 }

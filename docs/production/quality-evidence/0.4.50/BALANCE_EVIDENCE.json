@@ -1,0 +1,67 @@
+{
+  "persistent_prices_currency": "Lootcoins",
+  "equipment": [
+    90,
+    180,
+    420,
+    900
+  ],
+  "reroll": 60,
+  "stash_capacity": {
+    "12_to_18": 450,
+    "18_to_24": 900
+  },
+  "illustrative_full_clear_base_lootcoins": 250,
+  "equipment_full_clear_equivalents": [
+    0.36,
+    0.72,
+    1.68,
+    3.6
+  ],
+  "new_upgrades": {
+    "wardweave": {
+      "all_five_ranks": 7750,
+      "cap": "3% armour",
+      "full_clear_equivalents": 31
+    },
+    "hearthward": {
+      "all_five_ranks": 6150,
+      "cap": "5 starting Ward",
+      "full_clear_equivalents": 24.6
+    },
+    "mending": {
+      "all_five_ranks": 11600,
+      "cap": "0.15 HP/s",
+      "full_clear_equivalents": 46.4
+    }
+  },
+  "caveat": "Illustrative base clear payout only; no claim that every run earns 250 or that long-term economy is complete. Payouts and loot odds unchanged. Lootcoin spending cannot be refunded into Lootcoins by salvage, which produces Scrap. The legacy numeric coin-versus-Scrap comparison is not treated as an arbitrage proof. Scrap caches remain a resource sink.",
+  "temporary_run_scrip_merchant": {
+    "6": {
+      "inventories": 2000,
+      "min": 80,
+      "median": 94.0,
+      "max": 144
+    },
+    "11": {
+      "inventories": 2000,
+      "min": 105,
+      "median": 124.0,
+      "max": 341
+    }
+  },
+  "drops": {
+    "trials": 10000,
+    "regular_drops": 978,
+    "regular_rarities": {
+      "COMMON": 697,
+      "EPIC": 46,
+      "LEGENDARY": 13,
+      "RARE": 222
+    },
+    "longest_drought": 17,
+    "successive_duplicate": 0
+  },
+  "scrap_cache_cost": 20,
+  "scrap_cache_expected_salvage": 4.1
+}
