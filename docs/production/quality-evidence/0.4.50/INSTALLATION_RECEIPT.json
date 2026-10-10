@@ -75,13 +75,13 @@
     },
     "windows_pack": {
       "path": "builds/windows/Lootlings-0.4.50-chase-candidate.pck",
-      "bytes": 267838844,
-      "sha256": "17e0f971717bf2738d816188c35c67d7c77f833268ac0a46d8d2e9c9024882d1"
+      "bytes": 267840492,
+      "sha256": "60c4fc94c72aa1623c0a48d1d7cd06dceebdbfb7259a70df5f3d4edf6318e875"
     },
     "android": {
       "path": "builds/android/Lootlings-0.4.50-chase-candidate-debug.apk",
-      "bytes": 289036936,
-      "sha256": "daae35183f1322628723ac9e149d72710f7b71b94663da69ae72d40c0409340f"
+      "bytes": 289041032,
+      "sha256": "3e81e8279b949aba2b228a0d1d9e02eb1c78f756590ab2f0df2605387f554a67"
     }
   },
   "quality_findings": [
@@ -95,7 +95,7 @@
   "android_version_code": 60,
   "canonical_asset_changes": "No character, companion, enemy, boss, branding or title music assets replaced",
   "accepted_assets_scope": "Installed/functionally tested candidates; no professional collection or listening acceptance claim",
-  "build_status": "Final candidates exported and package/branding checked; native Windows PCK routes verified. Physical Android gameplay deferred.",
+  "build_status": "Final candidates include follow-on equipment/Ward integration; Windows PCK native routes verified at phone/tablet/desktop sizes, actual EXE startup and Android package/branding/import checks. Physical Android gameplay deferred.",
   "remaining_work": [
     "Full twelve-actor/all-state Mythical contact and animation acceptance",
     "Human full-clear elite encounter pacing and long-session progression balance",
@@ -109,7 +109,7 @@
     "new_character_animation_frames": 0
   },
   "new_contract_closures": 0,
-  "exported_pack_native_runs": 4,
+  "exported_pack_native_runs": 5,
   "exported_layouts": [
     "1080x2340",
     "1600x2560",
@@ -118,5 +118,14 @@
   "actual_exe_verified": "isolated headless startup; interactive fixtures against its compiled PCK",
   "android_signed_arm64_debug": true,
   "retained_actor_textures_verified_in_apk": 503,
-  "new_mythical_textures_verified_in_apk": 8
+  "new_mythical_textures_verified_in_apk": 8,
+  "follow_on_equipment_pass": {
+    "native_geometry_cases": 96,
+    "remaining_body_fallback_cases_in_sample": 63,
+    "professional_art_acceptance": false,
+    "new_art_assets": 0,
+    "frozen_contract_closures": 0,
+    "evidence": "equipment-feedback/REVIEW.md"
+  },
+  "latest_tests": "equipment-feedback/exported-0507-results.json, exported-0508-results.json, exported-0509-results.json and exported-05010-results.json"
 }

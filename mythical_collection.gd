@@ -109,3 +109,12 @@ static func texture(id: String) -> Texture2D:
  if not cache.has(id):cache[id]=load("res://art/production/phase4e/items/mythical_050/%s.png" % id)
  return cache[id]
 static func is_shield(id: String) -> bool:return id in IDS.slice(4)
+
+# A floating shield shares its actor's visual root; it never owns a hand socket.
+static func shield_position(pos: Vector2, pose: Dictionary, facing: int, time: float, reduced: bool) -> Vector2:
+ var anchor:Vector2=pos+Vector2(float(pose.root.origin.x),0)
+ var offset:=Vector2(-65*(1 if facing>=0 else -1),-38)
+ if not reduced:offset.y+=sin(time*2)*2
+ var result:=anchor+offset
+ result.x=clampf(result.x,28,452)
+ return result

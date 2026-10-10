@@ -16871,9 +16871,9 @@
         "content:voice_identity.gd:PLAYER_PROFILES:vault_runner",
         "content:voice_identity.gd:PLAYER_PROFILES:velvet_astrologer",
         "screen:lootling.gd:draw_background",
-        "label:creature_renderer.gd:85:0:064a0c35",
-        "label:creature_renderer.gd:85:1:2e9e37ed",
-        "label:creature_renderer.gd:106:0:3ed8a8e2",
+        "label:creature_renderer.gd:90:0:064a0c35",
+        "label:creature_renderer.gd:90:1:2e9e37ed",
+        "label:creature_renderer.gd:111:0:3ed8a8e2",
         "label:debug_panel.gd:156:0:9c8c4c1b",
         "label:debug_panel.gd:157:0:ff0a8510",
         "label:debug_panel.gd:209:0:9188a6e4",
@@ -163409,7 +163409,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:creature_renderer.gd:85:0:064a0c35",
+      "id": "label:creature_renderer.gd:90:0:064a0c35",
       "family": "player_text",
       "identity": "creature_renderer_gd",
       "name": "creature_renderer.gd",
@@ -163436,7 +163436,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:creature_renderer.gd:85:1:2e9e37ed",
+      "id": "label:creature_renderer.gd:90:1:2e9e37ed",
       "family": "player_text",
       "identity": "creature_renderer_gd",
       "name": "creature_renderer.gd",
@@ -163463,7 +163463,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:creature_renderer.gd:106:0:3ed8a8e2",
+      "id": "label:creature_renderer.gd:111:0:3ed8a8e2",
       "family": "player_text",
       "identity": "creature_renderer_gd",
       "name": "creature_renderer.gd",
@@ -279757,13 +279757,13 @@
       },
       "windows_pack": {
         "path": "builds/windows/Lootlings-0.4.50-chase-candidate.pck",
-        "bytes": 267838844,
-        "sha256": "17e0f971717bf2738d816188c35c67d7c77f833268ac0a46d8d2e9c9024882d1"
+        "bytes": 267840492,
+        "sha256": "60c4fc94c72aa1623c0a48d1d7cd06dceebdbfb7259a70df5f3d4edf6318e875"
       },
       "android": {
         "path": "builds/android/Lootlings-0.4.50-chase-candidate-debug.apk",
-        "bytes": 289036936,
-        "sha256": "daae35183f1322628723ac9e149d72710f7b71b94663da69ae72d40c0409340f"
+        "bytes": 289041032,
+        "sha256": "3e81e8279b949aba2b228a0d1d9e02eb1c78f756590ab2f0df2605387f554a67"
       }
     },
     "quality_findings": [
@@ -279777,7 +279777,7 @@
     "android_version_code": 60,
     "canonical_asset_changes": "No character, companion, enemy, boss, branding or title music assets replaced",
     "accepted_assets_scope": "Installed/functionally tested candidates; no professional collection or listening acceptance claim",
-    "build_status": "Final candidates exported and package/branding checked; native Windows PCK routes verified. Physical Android gameplay deferred.",
+    "build_status": "Final candidates include follow-on equipment/Ward integration; Windows PCK native routes verified at phone/tablet/desktop sizes, actual EXE startup and Android package/branding/import checks. Physical Android gameplay deferred.",
     "remaining_work": [
       "Full twelve-actor/all-state Mythical contact and animation acceptance",
       "Human full-clear elite encounter pacing and long-session progression balance",
@@ -279791,7 +279791,7 @@
       "new_character_animation_frames": 0
     },
     "new_contract_closures": 0,
-    "exported_pack_native_runs": 4,
+    "exported_pack_native_runs": 5,
     "exported_layouts": [
       "1080x2340",
       "1600x2560",
@@ -279800,7 +279800,16 @@
     "actual_exe_verified": "isolated headless startup; interactive fixtures against its compiled PCK",
     "android_signed_arm64_debug": true,
     "retained_actor_textures_verified_in_apk": 503,
-    "new_mythical_textures_verified_in_apk": 8
+    "new_mythical_textures_verified_in_apk": 8,
+    "follow_on_equipment_pass": {
+      "native_geometry_cases": 96,
+      "remaining_body_fallback_cases_in_sample": 63,
+      "professional_art_acceptance": false,
+      "new_art_assets": 0,
+      "frozen_contract_closures": 0,
+      "evidence": "equipment-feedback/REVIEW.md"
+    },
+    "latest_tests": "equipment-feedback/exported-0507-results.json, exported-0508-results.json, exported-0509-results.json and exported-05010-results.json"
   },
   "current_batch_corrections": [
     "Alpha bridges corrected in player sources before extraction.",
@@ -279818,8 +279827,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "6e570b0b91c6bfb7d1eb20da322ee92a0223606d2add54d225cc14a87ba766ab",
-    "docs/production/CANON_REGISTRY.json": "9bb2b9b9aa5df5e562314cad5d12e47c6f0daf430eeb4ef734059237d281dfef",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "18c7a00cf7a91d018dff5649760bc353d619fc0236b48f1a87361d2030cc7438",
+    "docs/production/CANON_REGISTRY.json": "f77a6025e58a4eeeed5ac28e79a47a3dc2e9735d3dceff559cf4507d3b05d7de",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "12bb3af5bc05507a05942802ec07fda177436869edc719454a343ea5c0e07833",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -279829,7 +279838,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "9d2965ad6df1ea1653bd61084a73785e4d7a75ae48dd364bcebd34aa37d9fcb5",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "f768251ef754b614c5f01203415f87ac428a6c9bdcec53b581e0c9833606e73c",
     "docs\\production\\full-completion\\continuous-production\\COMBAT_CONTINUATION_INSTALLATION_0446.json": "568612f976836dccb14747ea6afe8413f17f092acc83ded1e55f70fc96bcd5a1",
-    "docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json": "ecf7725741db727f3b6afe5dc810a0033d3d81cf9725b66f8450dbdd9d5c4c46"
+    "docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json": "cc5a84813dd9cb91bbd8e05525587c05455d87dc005f7624f0ba652c9c95e609"
   }
 }</script><script>
 const d=JSON.parse(document.getElementById('data').textContent),el=id=>document.getElementById(id),esc=x=>String(x??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

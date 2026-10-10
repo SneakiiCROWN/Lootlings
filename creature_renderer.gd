@@ -33,13 +33,18 @@ const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
 const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
+	var pose := WandererPose.sample(g, hurt)
 	var shield_id: String=str(g.inventory.equipped_item("Relic").get("id",""))
 	if preload("res://mythical_collection.gd").is_shield(shield_id):
 		g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-		var shield_pos: Vector2=pos+Vector2(-65,-38+(0.0 if g.audio_settings.get("cinematic_reduced_motion",false) else sin(g.run_time*2)*2))
+		var shield_pos: Vector2=preload("res://mythical_collection.gd").shield_position(pos,pose,g.combat_facing(),g.run_time,g.audio_settings.get("cinematic_reduced_motion",false))
 		g.draw_circle(shield_pos,24,Color("#a9fff01a"))
+		# React only to actual absorbed hits; never imply an inactive Ward blocked damage.
+		var ward_reaction:=0.0
+		for event in g.combat_presentation.incoming_contacts:
+			if event.ward:ward_reaction=maxf(ward_reaction,float(event.life)/.18)
+		if ward_reaction>0:g.draw_arc(shield_pos,26,0,TAU,24,Color("#d4fff4",ward_reaction*.75),2,true)
 		g.draw_texture_rect(preload("res://mythical_collection.gd").texture(shield_id),Rect2(shield_pos-Vector2(20,26),Vector2(40,52)),false,Color.WHITE)
-	var pose := WandererPose.sample(g, hurt)
 	if pose.get("sprite_rig",false) and not prototype_preview_enabled():
 		draw_missing_actor_reference(g,pos,pose)
 		return

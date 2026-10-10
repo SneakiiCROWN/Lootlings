@@ -99,7 +99,7 @@
     "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
     "chest_catalog.gd": "4bf50445f8512c96ad0d645b5425cd04ade3afe4831bb1ea7eef07fe580834bb",
     "combat_controls.gd": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68",
-    "combat_presentation.gd": "98491a27abc0347b2e936316f4dc76591bfcfca635c568878018d672e993bc02",
+    "combat_presentation.gd": "8f41165f4040b74ad54ef8bd7bb40bd49e1d4cfe8d0d271f7d2ca580d1399224",
     "combat_sprite_rig.gd": "a6124fcd68d18c68336581695f821b5a9c62e1b3dd27e339805235b20150b821",
     "combat_stage.gd": "0c604eeb8edeadc4d8c8341be036f6df75c5d1895a76a87e0f199c439a42d23e",
     "combat_tap_meter.gd": "1df4da3fb4ac3b65f74f79eaf088fc31772a8fb0006ba8971696c7e91ba3f9cc",
@@ -107,7 +107,7 @@
     "companion_presentation.gd": "e8161fcb29bf17e16ba2a649991279a7eaa1c1d9f55d3f6365c51a8f1c21bd9a",
     "contextual_dialogue.gd": "3de3ac6394b611264e0e65855a5360fbc52e4c8920e6a862359acaf4c9cda4ed",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
-    "creature_renderer.gd": "053d61f311372c10510927bd4634e7203be368f2e58b9b24767f069660a8b919",
+    "creature_renderer.gd": "7579f88c6f26661a5171d23cfef49ef0fb56dc3d33efb555ea7bae4d5dec37db",
     "currency_schema.gd": "8bf45ef6d3af57a228f6ffeebb766d342721f24c5a00a131521bba211121518a",
     "debug_panel.gd": "4cb84da52147317c138dc7add8d95ff955be4d5b7ef6a4032509da9a28248497",
     "dialogue_director.gd": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f",
@@ -125,11 +125,11 @@
     "forge_system.gd": "d27077eb3e7fa0b24ba266aa1a53b7590b9b61edea40b9593f760dbeda8a5831",
     "game_catalog.gd": "d47f5bcca5fcf99318d51234ed0765e478dbdc0084fdf9636f7d6c40631615a7",
     "hideout_shop_system.gd": "0110d80f43eab21f1bd2a22c2640c5cd990c46455cef0f6a771c3408261381e1",
-    "hideout_ui.gd": "efd399a31995d49e3d24d3e23bf3d93492e45f38451af77d6652175a072663c4",
+    "hideout_ui.gd": "cb3836e24334fea15ea173d778dd75fc148c6d1ca98c3b381ca976cfad05fba3",
     "home_catalog.gd": "f9d7e86d825de2fa877bd16c1da39818367f541517786c6f326d065eb75ff609",
     "home_runtime_art.gd": "bdc814c8a86d2f6b780788e53a11b894906ca8f4d8ea9e466b8be46078048cb7",
     "hub_navigation.gd": "ae687cb952c1847b4fa7da3181391716262881079c7b67de30bf30b5ca5f1c93",
-    "impact_presentation.gd": "c81b6e198930b1b2368d3b2913f9bb7ef0129a46bac192ea3e5aa24a7d0ee08c",
+    "impact_presentation.gd": "971b99da2f24858d27e4bd36876c3674a3ea8bcd1776cbdac4c5781b675245a6",
     "inventory_system.gd": "6bebfa96c22f25a931fdb691f481af0989bcee700b433918fd52baa03af50fc1",
     "item_catalog.gd": "20a5234b1048e45d710ee953f20b71af3c7b8e447cd52d31c6228827ed19f88e",
     "item_icon.gd": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8",
@@ -140,7 +140,7 @@
     "loot_system.gd": "69524d4ded62c7d7fb8de7edbc59a442a7f71b6ddd49c3f5bd9d74691a0ce07e",
     "meta_store.gd": "baeecc512bb18462e2edf4e0cbdfeb20e6339809e23494b04385c9611ebf79b6",
     "mobile_test_monitor.gd": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8",
-    "mythical_collection.gd": "dd8d98951b056fc810f2c6cc9c0a9de3868a8b34a6184189f4201d4b63288e08",
+    "mythical_collection.gd": "56ff7394cc8804acb69331b8b429cfa81b756d38ea412798726edd82ee354c16",
     "named_item_art.gd": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb",
     "permanent_upgrade_catalog.gd": "8e802308e3cea21e48f00c9ad13f6db0b5af23dccccd0ced64ecb62331d23863",
     "personal_home.gd": "da2b727e359cf7bd0fdee518610539a0038d17c21bc601730fa3ea7eaff5ee9b",
@@ -319349,7 +319349,7 @@
       "evidence": null
     },
     {
-      "slot_id": "label:creature_renderer.gd:85:0:064a0c35",
+      "slot_id": "label:creature_renderer.gd:90:0:064a0c35",
       "game_id": "creature_renderer_gd",
       "category": "player_text",
       "subject": "creature_renderer.gd",
@@ -319376,13 +319376,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 85,
+        "line": 90,
         "text": "sprite_rig",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:creature_renderer.gd:85:1:2e9e37ed",
+      "slot_id": "label:creature_renderer.gd:90:1:2e9e37ed",
       "game_id": "creature_renderer_gd",
       "category": "player_text",
       "subject": "creature_renderer.gd",
@@ -319409,13 +319409,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 85,
+        "line": 90,
         "text": "RIG PROTOTYPE / QA ONLY",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:creature_renderer.gd:106:0:3ed8a8e2",
+      "slot_id": "label:creature_renderer.gd:111:0:3ed8a8e2",
       "game_id": "creature_renderer_gd",
       "category": "player_text",
       "subject": "creature_renderer.gd",
@@ -319442,7 +319442,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 106,
+        "line": 111,
         "text": "POSE ART PENDING",
         "dynamic_template": true
       }
@@ -421734,7 +421734,8 @@
       "evidence": {
         "methods": [
           "texture",
-          "is_shield"
+          "is_shield",
+          "shield_position"
         ]
       }
     },

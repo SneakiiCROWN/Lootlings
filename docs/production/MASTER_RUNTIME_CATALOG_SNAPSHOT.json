@@ -2203,7 +2203,7 @@
       "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "98491a27abc0347b2e936316f4dc76591bfcfca635c568878018d672e993bc02"
+    "source_sha256": "8f41165f4040b74ad54ef8bd7bb40bd49e1d4cfe8d0d271f7d2ca580d1399224"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -3351,7 +3351,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "053d61f311372c10510927bd4634e7203be368f2e58b9b24767f069660a8b919"
+    "source_sha256": "7579f88c6f26661a5171d23cfef49ef0fb56dc3d33efb555ea7bae4d5dec37db"
   },
   "currency_schema.gd": {
     "constants": {
@@ -4995,7 +4995,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "efd399a31995d49e3d24d3e23bf3d93492e45f38451af77d6652175a072663c4"
+    "source_sha256": "cb3836e24334fea15ea173d778dd75fc148c6d1ca98c3b381ca976cfad05fba3"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5314,7 +5314,7 @@
       "draw_contact",
       "element"
     ],
-    "source_sha256": "c81b6e198930b1b2368d3b2913f9bb7ef0129a46bac192ea3e5aa24a7d0ee08c"
+    "source_sha256": "971b99da2f24858d27e4bd36876c3674a3ea8bcd1776cbdac4c5781b675245a6"
   },
   "inventory_system.gd": {
     "constants": {
@@ -7467,9 +7467,10 @@
     },
     "methods": [
       "texture",
-      "is_shield"
+      "is_shield",
+      "shield_position"
     ],
-    "source_sha256": "dd8d98951b056fc810f2c6cc9c0a9de3868a8b34a6184189f4201d4b63288e08"
+    "source_sha256": "56ff7394cc8804acb69331b8b429cfa81b756d38ea412798726edd82ee354c16"
   },
   "named_item_art.gd": {
     "constants": {},

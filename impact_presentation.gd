@@ -1,6 +1,12 @@
 extends RefCounted
 # Original compact material contacts and elemental shapes, capped at 9 strokes.
 static func contact(g, _pos: Vector2 = Vector2.ZERO) -> void:
+	if g.combat_presentation.ward_gain_life>0:
+		var gain_life:float=g.combat_presentation.ward_gain_life/.42
+		var actor_pose:Dictionary=preload("res://weapon_fit_catalog.gd").sample(g,g.player_flash>0)
+		var gain_pos:Vector2=preload("res://weapon_fit_catalog.gd").world_position(g)+Vector2(float(actor_pose.root.origin.x),-28)
+		var reduced:bool=g.audio_settings.get("cinematic_reduced_motion",false)
+		g.draw_arc(gain_pos,32 if reduced else 32+(1-gain_life)*10,-PI*.8,PI*.8,20,Color("#9eeaff",gain_life*.65),2,true)
 	for event in g.combat_presentation.contacts:
 		draw_contact(g,event)
 	for event in g.combat_presentation.incoming_contacts:

@@ -7,6 +7,9 @@ var boss_action_time := 0.0
 var player_prepared:=false
 var contacts: Array[Dictionary] = []
 var incoming_contacts: Array[Dictionary] = []
+var previous_ward: float = -1.0
+var ward_gain: float = 0.0
+var ward_gain_life: float = 0.0
 const CONTACT_LIMIT := 12
 
 static func name_lines(font: Font, text: String, width: float, font_size: int) -> Array[String]:
@@ -30,6 +33,7 @@ func reset() -> void:
 	health_trails.clear()
 	contacts.clear()
 	incoming_contacts.clear()
+	previous_ward=-1;ward_gain=0;ward_gain_life=0
 	boss_action=""; boss_action_time=0
 	player_prepared=false
 
@@ -67,6 +71,11 @@ func record_incoming(g, absorbed: float, damage: float) -> void:
 	while incoming_contacts.size()>6:incoming_contacts.pop_front()
 
 func step(g, delta: float) -> void:
+	ward_gain_life=maxf(0,ward_gain_life-delta)
+	if g.state=="playing" and previous_ward>=0 and float(g.player_ward)>previous_ward+.01:
+		ward_gain=float(g.player_ward)-previous_ward;ward_gain_life=.42
+		g.play_audio_event("ward")
+	previous_ward=float(g.player_ward)
 	for event in incoming_contacts:event.life=maxf(0,float(event.life)-delta)
 	incoming_contacts=incoming_contacts.filter(func(event):return event.life>0)
 	for event in contacts: event.life=maxf(0,float(event.life)-delta)
