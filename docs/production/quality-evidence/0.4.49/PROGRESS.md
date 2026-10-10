@@ -1,7 +1,3 @@
-# 0.4.49 recovery checkpoint
+# 0.4.49 final checkpoint
 
-Twelve new exact Inkling/Margin Imp state/facing keyframes installed and compared with approved identities and actual Godot renders at phone, tablet and desktop sizes. 452 installed contracts; 2,822 remain. 1,156 fulfilled frozen artist-file requirements; 7,339 remain. No fluid-family or professional-quality acceptance.
-
-Combat screen/modal input now owns all physical contacts until release; clears attack buffers, blocks inherited releases and requires a fresh press. Seven overlay types, repeated duplicate presses, held two-finger transitions, real mouse fencing, direct sliders and existing gestures passed native fixtures. Permanent scrap and Hub offer purchases use named confirmation. Compact merchant/perk/stash actions avoid the old Attack band. Broader geometric and actual consequence tests remain in progress.
-
-Economy migration, Sigil challenge loop and eight Mythical Shiny items remain unimplemented at this checkpoint. Existing 0.4.48 exports remain the latest built candidates. Approved title audio and owner project settings are preserved.
+See MILESTONE_REPORT.md and INSTALLATION_RECEIPT.json for final evidence and build hashes. Recovery checkpoint 0540c5f was pushed early; the second checkpoint includes save-name migration, named Forge/merchant confirmations, Stash boundary repair and successive-reward input generations. Twelve exact canonical enemy actions installed. 2,822 frozen art contracts remain; 7,339 artist-file requirement records remain. Full animations and professional acceptance remain open. Pricing/currency unification, new upgrades, Sigil challenges and all eight Mythical Shiny items remain unimplemented. Owner files, project.godot and live player saves are preserved.

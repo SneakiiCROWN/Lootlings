@@ -187,6 +187,7 @@ func choose(index: int) -> void:
 			else: close_spinner()
 
 func start_reveal(quick: bool) -> void:
+	game.touch_ux.renew_surface()
 	spin_kind=str(spin_reward.get("kind","material"))
 	var rarity: String=str(spin_reward.get("rarity",spin_reward.get("item",{}).get("rarity","COMMON")))
 	spin_busy=true; selected_at=Time.get_ticks_msec(); buttons[0].disabled=true; buttons[1].disabled=true; buttons[3].disabled=true; buttons[4].disabled=true
@@ -210,6 +211,7 @@ func lock_spin() -> void:
 func finish_spin() -> void:
 	if not spin_busy: return
 	spin_busy=false
+	game.touch_ux.renew_surface()
 	if spin_tween!=null and spin_tween.is_valid(): spin_tween.kill()
 	if machine.stage!="settled": machine.reveal(spin_kind)
 	if game.state=="relic_spinner":
@@ -349,6 +351,7 @@ func reset() -> void:
 	if pool_panel!=null: pool_panel.visible=false
 	if spin_tween!=null and spin_tween.is_valid(): spin_tween.kill()
 	spin_busy=false
+	game.touch_ux.renew_surface()
 	if machine!=null: machine.stop()
 	siege=false; targeted=false
 

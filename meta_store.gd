@@ -5,9 +5,9 @@ static func load_progress(path: String) -> Dictionary:
 	var config := ConfigFile.new()
 	if preload("res://safe_config.gd").load_config(config, path, "progress") != OK:
 		return result
-	result.shards = clampi(preload("res://safe_config.gd").int_value(config.get_value("progress", "shards", 0)), 0, 999999)
+	var balances:Dictionary=preload("res://currency_schema.gd").balances(config)
+	result.shards=balances.shards;result.gold=balances.gold
 	result.power = clampi(preload("res://safe_config.gd").int_value(config.get_value("progress", "power", 0)), 0, 100)
-	result.gold = clampi(preload("res://safe_config.gd").int_value(config.get_value("progress", "gold", 0)), 0, 999999999)
 	var saved_upgrades = config.get_value("progress", "gold_upgrades", {})
 	if saved_upgrades is Dictionary:
 		for upgrade_id in result.gold_upgrades:
@@ -24,4 +24,5 @@ static func save_progress(path: String, shards: int, power: int, gold: int = 0, 
 	for upgrade_id in safe_upgrades:
 		safe_upgrades[upgrade_id] = clampi(int(gold_upgrades.get(upgrade_id, 0)), 0, 5)
 	config.set_value("progress", "gold_upgrades", safe_upgrades)
+	preload("res://currency_schema.gd").write_names(config,gold,shards)
 	return preload("res://safe_config.gd").save_config(config, path)

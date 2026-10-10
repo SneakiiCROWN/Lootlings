@@ -13,7 +13,7 @@ func review() -> void:
   assert(h.forge_confirm.disabled and h.forge_confirm.text.contains("NEED"));assert(h.forge_list.get_child(0).get_meta("ui_selected"))
   var attacks:int=game.attack_sequence;await tap(h.forge_list.get_child(1));assert(h.forge_recipe=="greataxe" and not h.forge_list.get_child(0).get_meta("ui_selected"))
   game.gold=500;game.inventory.scrap=30;game.refresh_hideout();h.select_forge_recipe("greataxe");await capture("forge_recipe_ready")
-  await tap(h.forge_confirm);assert(h.forge_armed and game.inventory.stash.is_empty());await tap(h.forge_confirm);assert(game.inventory.stash.size()==1 and game.gold==350 and game.inventory.scrap==24)
+  await tap(h.forge_confirm);assert(is_instance_valid(game.touch_ux.dialog) and game.inventory.stash.is_empty());await wait_real(250);await tap(game.touch_ux.confirm_button);assert(game.inventory.stash.size()==1 and game.gold==350 and game.inventory.scrap==24)
   h.show_phase4("blueprints");await process_frame;await tap(h.phase4_list.get_child(0));assert(h.phase4_selected=="oath_slab" and h.phase4_action.disabled and h.phase4_action.text.contains("NEED"));await capture("blueprint_requirements")
   p.data.fragments.oath_slab=3;p.data.materials.act_i=30;p.data.boss_parts.act_i=2;h.refresh_phase4();assert(not h.phase4_action.disabled);await capture("blueprint_ready");await create_timer(.4).timeout;await tap(h.phase4_action)
   assert(game.inventory.stash.size()==2 and p.data.materials.act_i==18);assert(h.phase4_detail.text.contains("forged into Gear"));await capture("blueprint_delivery")
@@ -29,3 +29,7 @@ func review() -> void:
   assert(game.attack_sequence==attacks);assert(FileAccess.get_sha256("res://art/audio/production/music/title.ogg")=="7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7")
   game.free();await process_frame
  print("CONNECTED SERVICES NATIVE PASS: two-step weapon craft, exact blueprint debit/delivery, Archive categories and page audio, Patch Shop route, locked region inspection, modal isolation, depart/return/Stash; three viewports; title preserved");quit()
+
+func wait_real(milliseconds:int) -> void:
+ var until:int=Time.get_ticks_msec()+milliseconds
+ while Time.get_ticks_msec()<until:await process_frame

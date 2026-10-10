@@ -444,13 +444,13 @@ func debug_action(action: String, payload) -> String:
 			return "Previewing %s without rewards or saves." % action
 		"gold":
 			gold += int(payload); save_meta(); refresh_hideout()
-			return "Added %d Gold and saved." % int(payload)
+			return "Added %d Lootcoins and saved." % int(payload)
 		"scrap":
 			inventory.scrap += int(payload); inventory.save(INVENTORY_SAVE_PATH); refresh_hideout()
 			return "Added %d Scrap and saved." % int(payload)
 		"shards":
 			meta_shards += int(payload); save_meta(); refresh_hideout()
-			return "Added %d Star Shards and saved." % int(payload)
+			return "Added %d Loot Diamonds and saved." % int(payload)
 		"scrip":
 			debug_ensure_run(); coins += int(payload)
 			return "Added %d run-only Scrip." % int(payload)
@@ -1221,7 +1221,7 @@ func use_gold_cache() -> void:
 		hideout_ui.show_shop_message("STASH FULL\nMake room before opening a cache.", "#ff9b8f")
 		return
 	if gold < hideout_shop.GOLD_CACHE_COST:
-		hideout_ui.show_shop_message("Not enough Gold for a Scavenged Cache.", "#ffbd69")
+		hideout_ui.show_shop_message("Not enough Lootcoins for a Scavenged Cache.", "#ffbd69")
 		return
 	gold -= hideout_shop.GOLD_CACHE_COST
 	hideout_shop.reveal_gold_cache()
@@ -2840,8 +2840,10 @@ func inspect_merchant_item(index: int) -> void:
 
 func buy_selected_merchant() -> void:
 	if Time.get_ticks_msec()-selection_msec < 180 or merchant_selection < 0: return
-	var index := merchant_selection; merchant_selection = -1
-	buy_merchant_item(index)
+	var index := merchant_selection
+	if state!="merchant" or index>=shop.stock.size():return
+	var item:Dictionary=shop.stock[index]
+	touch_ux.request("Buy %s?" % item.name,"Pay %d Run Scrip. This ends the merchant stop. Equipping remains optional." % int(item.price),func():merchant_selection=-1;buy_merchant_item(index))
 
 func inspect_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size(): return
@@ -2876,6 +2878,7 @@ func show_next_item() -> void:
 		finish_item_decision()
 		return
 	state = "item"
+	if touch_ux!=null:touch_ux.renew_surface()
 	current_item = pending_items.pop_front()
 	expedition_progress.data.seen["item:"+str(current_item.get("id",""))] = true
 	expedition_progress.save()
@@ -3181,6 +3184,7 @@ func add_xp(amount: float) -> void:
 		show_upgrade_choices()
 
 func show_upgrade_choices() -> void:
+	if touch_ux!=null:touch_ux.renew_surface()
 	upgrade_compare.text="CURRENT: %s\nChoose a new perk to compare. FREE, or keep your current build." % build.short_summary()
 	upgrade_selection = -1
 	upgrade_take_button.disabled = true
@@ -3369,12 +3373,12 @@ func end_run(victory: bool) -> void:
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
 
 func format_result_summary(victory: bool, reached_wave: int, kills: int, earned: int, spent: int, left: int, scrap_gained: int, shards_gained: int, notable_loot: String, gold_gained: int = 0) -> String:
-	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nAt finish  %d\n\nRUN REWARDS\nGold +%d  •  Scrap +%d  •  Shards +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
+	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nAt finish  %d\n\nRUN REWARDS\nLootcoins +%d  •  Scrap +%d  •  Diamonds +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
 
 func style_result_summary(summary: String) -> String:
 	var styled := summary
-	for resource in ["Gold", "Scrap", "Shards"]:
-		var icon_name: String = {"Gold":"gold", "Scrap":"scrap", "Shards":"star_shard"}[resource]
+	for resource in ["Lootcoins", "Scrap", "Diamonds"]:
+		var icon_name: String = {"Lootcoins":"gold", "Scrap":"scrap", "Diamonds":"star_shard"}[resource]
 		styled = styled.replace("%s +" % resource, "%s %s +" % [LootlingsUI.inline_icon("currency_%s" % icon_name), resource])
 	for heading in ["RUN SCRIP", "RUN REWARDS", "NOTABLE LOOT"]:
 		styled = styled.replace(heading, "[font_size=12][color=#dabb79]%s[/color][/font_size]" % heading)
@@ -3481,7 +3485,7 @@ func input_surface() -> Control:
 		if startup_ui.visible and not hideout_ui.visible:return startup_ui
 		if hideout_ui.region_sheet.is_visible_in_tree():return hideout_ui.region_sheet
 		if hideout_ui.speech_panel.is_visible_in_tree():return hideout_ui.speech_panel
-		if hideout_ui.stash_detail_panel.is_visible_in_tree():return hideout_ui.stash_detail_panel
+		if hideout_ui.stash_detail_panel.is_visible_in_tree():return hideout_ui.stash_content
 		return hideout_ui
 	return {"merchant":merchant_panel,"item":item_panel,"upgrade":upgrade_panel,"event":event_panel,"boss_reward":boss_reward_panel,"result":result_panel,"route":route_panel,"paused":pause_panel,"abandon_confirm":abandon_panel}.get(state,null)
 

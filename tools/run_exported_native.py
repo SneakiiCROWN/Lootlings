@@ -18,7 +18,7 @@ def main():
     results=[]
     for name in a.fixtures:
         copy(name+'.gd');env=os.environ.copy();env['LOOTLINGS_QA']='1';env['LOOTLINGS_PLAYER_BATCH_STAGE']='after';env.pop('LOOTLINGS_PLAYER_BATCH_PREVIEW',None);env.pop('LOOTLINGS_COMBAT_BATCH_PREVIEW',None);env.pop('LOOTLINGS_QA_ENEMY_PREVIEW',None);env.pop('LOOTLINGS_MOTION_BATCH_PREVIEW',None)
-        env['APPDATA']=str(base/'isolated'/name);env['XDG_DATA_HOME']=env['APPDATA'];Path(env['APPDATA']).mkdir(parents=True,exist_ok=True)
+        env.setdefault('LOOTLINGS_CAPTURE_SIZE','1080x2340');env['APPDATA']=str(base/'isolated'/name);env['XDG_DATA_HOME']=env['APPDATA'];Path(env['APPDATA']).mkdir(parents=True,exist_ok=True)
         log=fixtures/(name+'.log')
         engine=Path.home()/'Desktop/Godot_v4.7.2-stable_win64_console.exe'
         with log.open('wb') as out:r=subprocess.run([str(engine),'--main-pack',str((ROOT/a.pack).resolve()),'--resolution','1080x2340','--position','0,0','-s',str(fixtures/(name+'.gd'))],env=env,cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,timeout=300)

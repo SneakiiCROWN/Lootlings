@@ -30,7 +30,60 @@
   "other_installed_features": [
     "Screen and modal pointer ownership, all-contact release barrier, cleared attack buffer",
     "Explicit named purchase and permanent-scrap confirmations",
-    "Direct slider touch ownership; compact combat reward and merchant actions outside old Attack area"
+    "Direct slider touch ownership; compact combat reward and merchant actions outside old Attack area",
+    "Explicit named Forge crafting/evolution and Pack Peddler spending confirmations",
+    "Stash input boundary includes its preview, Equip and Salvage actions",
+    "Forge description scrolls inside its frame; costs precede long effects",
+    "One-to-one v4 Lootcoin / Loot Diamond names with preserved power, all ranks and legacy mirrors; atomic journals retain canonical fields",
+    "Fresh contact ownership for reused successive perk/item panels and Relic Engine reveals"
   ],
-  "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7"
+  "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "economy_scope": {
+    "gold_to_lootcoins": "implemented-one-to-one",
+    "star_shards_to_loot_diamonds": "implemented-one-to-one-existing-payouts-and-power-preserved",
+    "shop_currency_unification": "not-implemented-Scrap-and-Run-Scrip-still-used",
+    "new_permanent_upgrades": "not-implemented",
+    "rift_sigils": "not-implemented",
+    "mythical_shiny_weapons": 0,
+    "mythical_shiny_shields": 0,
+    "pricing_or_payout_changes": false,
+    "live_player_save_modified_by_qa": false
+  },
+  "newly_available_companion_routes": [],
+  "new_requested_feature_debt": {
+    "separate_from_frozen_art_contracts": true,
+    "mythical_unique_weapons_required": 4,
+    "mythical_unique_shields_required": 4,
+    "mythical_items_installed": 0,
+    "sigil_challenges_installed": 0
+  },
+  "builds": {
+    "windows_exe": {
+      "path": "builds/windows/Lootlings-0.4.49-safe-combat.exe",
+      "bytes": 103136768,
+      "sha256": "cd53af88bf3adaa5758a75c82e2928a36e915a17900d2e93b8531769221aae03"
+    },
+    "windows_pack": {
+      "path": "builds/windows/Lootlings-0.4.49-safe-combat.pck",
+      "bytes": 263458148,
+      "sha256": "36fd20891ceb9dab04491ce042075abeecbfcfffec0e8a5dbc7a806d682b2f6c"
+    },
+    "android_debug": {
+      "path": "builds/android/Lootlings-0.4.49-safe-combat-debug.apk",
+      "bytes": 284739688,
+      "sha256": "3f6c599c55b28f11e1c07eab718c8e684a47c4b41f11df999f38f92a70996704"
+    }
+  },
+  "apk_verified_textures": 503,
+  "exported_android_version_code": 58,
+  "windows_executable_startup_exit": 0,
+  "windows_executable_test_scope": "Actual EXE headless startup/shutdown. Gameplay/touch/visual checks use actual exported PCK in native Godot; template does not execute standalone editor fixtures.",
+  "compiled_native_fixtures_passed": [
+    "input_transition_049_native_qa",
+    "currency_integration_049_qa",
+    "currency_labels_049_native_qa",
+    "connected_services_native_qa",
+    "regional_049_native_qa",
+    "relic_spinner_native_qa"
+  ]
 }

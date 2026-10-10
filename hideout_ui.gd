@@ -126,7 +126,7 @@ var home_content: Control
 var stash_content: Control
 var forge_content: Control
 var forge_list: VBoxContainer
-var forge_detail: Label
+var forge_detail: RichTextLabel
 var forge_confirm: Button
 var forge_index := -1
 var forge_armed := false
@@ -446,21 +446,20 @@ func build_forge() -> void:
 	forge_list.custom_minimum_size.x = 398
 	forge_list.add_theme_constant_override("separation", 10)
 	scroll.add_child(forge_list)
-	var forge_plate:=make_panel(forge_content, Rect2(28, 516, 424, 184), Color("#0b1229ec"), Color("#b39466"))
+	var forge_plate:=make_panel(forge_content, Rect2(28, 516, 424, 126), Color("#0b1229ec"), Color("#b39466"))
 	forge_plate.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
-	forge_detail = make_label(forge_content, "", 17, Rect2(48, 526, 384, 164), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe6ad"))
+	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 524, 384, 112), 14, Color("#ffe6ad"))
+	forge_detail.scroll_active=true
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 725, 370, 70), Color("#493052"), Color("#e2b563"), 19)
+	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 654, 370, 64), Color("#493052"), Color("#e2b563"), 19)
 	forge_confirm.pressed.connect(func():
-		if forge_armed:
-			if forge_recipe.is_empty():
-				forge_requested.emit(forge_index)
-			else:
-				forge_craft_requested.emit(forge_recipe)
-			refresh_forge()
-		else:
-			forge_armed = true
-			forge_confirm.text = "CONFIRM EVOLUTION" if forge_recipe.is_empty() else "CONFIRM • MAKE WEAPON"
+		var recipe:=forge_recipe;var index:=forge_index
+		var owned_item:Dictionary=current_inventory.equipped_item("Weapon") if index<0 else current_inventory.stash[index]
+		var heading:String="Make %s?" % str(ForgeSystem.WeaponCatalog.starter(recipe).name) if not recipe.is_empty() else "Evolve %s?" % str(owned_item.get("name","weapon"))
+		get_parent().touch_ux.request(heading,forge_detail.text+"\nThe displayed materials are spent permanently.",func():
+			if recipe.is_empty():forge_requested.emit(index)
+			else:forge_craft_requested.emit(recipe)
+			refresh_forge())
 	)
 
 func build_phase4() -> void:
@@ -659,7 +658,7 @@ func refresh_contracts() -> void:
 		button.text=""
 		button.get_node("JobName").text=str(item.name)
 		button.get_node("Requirement").text="%s • %d / %d" % [goals.get(str(item.event),"Explore"),item.progress,item.target]
-		button.get_node("Reward").text="CLAIM %d GOLD  ›" % item.gold if ready else "%d Gold reward • keep adventuring" % item.gold
+		button.get_node("Reward").text="CLAIM %d LOOTCOINS  ›" % item.gold if ready else "%d Lootcoins reward • keep adventuring" % item.gold
 		button.get_node("Reward").modulate=Color("#fff0a7") if ready else Color.WHITE
 		button.disabled=not ready
 		button.tooltip_text="Claim your reward" if ready else "%s to finish this job" % goals.get(str(item.event),"Explore")
@@ -742,7 +741,7 @@ func refresh_forge() -> void:
 			add_forge_entry(item, index)
 	for weapon_type in ForgeSystem.WeaponCatalog.STARTERS:
 		var data := ForgeSystem.WeaponCatalog.definition(weapon_type)
-		var button := make_forge_card(ForgeSystem.WeaponCatalog.starter(weapon_type), "MAKE %s\n150 Gold + 6 Scrap" % str(data.name).to_upper(), Color("#8bbedb"))
+		var button := make_forge_card(ForgeSystem.WeaponCatalog.starter(weapon_type), "MAKE %s\n150 Lootcoins + 6 Scrap" % str(data.name).to_upper(), Color("#8bbedb"))
 		button.set_meta("selection_id","recipe:"+str(weapon_type))
 		button.pressed.connect(select_forge_recipe.bind(weapon_type))
 	select_forge_weapon(-1)
@@ -753,12 +752,12 @@ func select_forge_recipe(weapon_type: String) -> void:
 	forge_armed = false
 	var item := ForgeSystem.WeaponCatalog.starter(weapon_type)
 	var description: String = str(item.desc).replace(" TEMP ART: shared class weapon.", "")
-	forge_detail.text = "%s\n%s\n150 Gold + 6 Scrap\nYou have %d Gold / %d Scrap" % [item.name, description, gold, current_inventory.scrap]
-	forge_detail.add_theme_font_size_override("font_size", 17)
+	forge_detail.text = "[center]" + ("%s\n150 Lootcoins + 6 Scrap\n%s\nYou have %d Lootcoins / %d Scrap" % [item.name, description, gold, current_inventory.scrap]) + "[/center]"
+	forge_detail.add_theme_font_size_override("normal_font_size", 14)
 	forge_confirm.text = "MAKE • STORE IN STASH"
 	forge_confirm.disabled = gold < 150 or current_inventory.scrap < 6 or current_inventory.stash.size() >= current_inventory.stash_capacity
 	if current_inventory.stash.size() >= current_inventory.stash_capacity:forge_confirm.text="STASH FULL • MAKE ROOM"
-	elif gold<150:forge_confirm.text="NEED %d MORE GOLD" % (150-gold)
+	elif gold<150:forge_confirm.text="NEED %d MORE LOOTCOINS" % (150-gold)
 	elif current_inventory.scrap<6:forge_confirm.text="NEED %d MORE SCRAP" % (6-current_inventory.scrap)
 
 func add_forge_entry(item: Dictionary, index: int) -> void:
@@ -789,7 +788,7 @@ func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
 
 func select_forge_weapon(index: int) -> void:
 	forge_recipe = ""
-	forge_detail.add_theme_font_size_override("font_size", 17)
+	forge_detail.add_theme_font_size_override("normal_font_size", 14)
 	forge_index = index
 	refresh_selection_styles(forge_list,"owned:"+str(index))
 	forge_armed = false
@@ -799,11 +798,11 @@ func select_forge_weapon(index: int) -> void:
 	forge_confirm.disabled = next.is_empty() or gold < int(next.get("gold", 0)) or current_inventory.scrap < int(next.get("scrap", 0))
 	if next.is_empty():
 		forge_confirm.text="FULLY EVOLVED" if ForgeSystem.stage(item)==2 else "NO EVOLUTION AVAILABLE"
-		forge_detail.text = "%s\n%s\n%s" % [item.get("name", "Weapon"), "Fully evolved" if ForgeSystem.stage(item) == 2 else "No evolution line for this weapon yet", ForgeSystem.WeaponCatalog.evolution_text(str(item.get("weapon_type", "")), ForgeSystem.stage(item))]
+		forge_detail.text = "[center]" + ("%s\n%s\n%s" % [item.get("name", "Weapon"), "Fully evolved" if ForgeSystem.stage(item) == 2 else "No evolution line for this weapon yet", ForgeSystem.WeaponCatalog.evolution_text(str(item.get("weapon_type", "")), ForgeSystem.stage(item))]) + "[/center]"
 	else:
-		if gold<int(next.gold):forge_confirm.text="NEED %d MORE GOLD" % (int(next.gold)-gold)
+		if gold<int(next.gold):forge_confirm.text="NEED %d MORE LOOTCOINS" % (int(next.gold)-gold)
 		elif current_inventory.scrap<int(next.scrap):forge_confirm.text="NEED %d MORE SCRAP" % (int(next.scrap)-current_inventory.scrap)
-		forge_detail.text = "%s\n+4%% damage • permanent\n%s\n%d Gold + %d Scrap\nYou have %d Gold / %d Scrap" % [next.name, next.behaviour, next.gold, next.scrap, gold, current_inventory.scrap]
+		forge_detail.text = "[center]" + ("%s\n%d Lootcoins + %d Scrap\n+4%% damage • permanent\n%s\nYou have %d Lootcoins / %d Scrap" % [next.name, next.gold, next.scrap, next.behaviour, gold, current_inventory.scrap]) + "[/center]"
 
 func build_upgrades() -> void:
 	upgrade_content = Control.new()
@@ -819,10 +818,10 @@ func build_upgrades() -> void:
 	make_label(upgrade_panel, "PERMANENT POWER", 20, Rect2(20, 12, 344, 32), HORIZONTAL_ALIGNMENT_CENTER, Color("#d8b5ff"))
 	upgrade_summary = LootlingsUI.rich_label(upgrade_panel, Rect2(28, 40, 328, 68), 14, Color("#e8efff"))
 	upgrade_button = make_button(upgrade_panel, "UPGRADE", Rect2(42, 126, 300, 60), Color("#49346b"), Color("#d19cff"), 17)
-	upgrade_button.pressed.connect(func(): safe_action(upgrade_button,"Permanent +5% power. Spends Star Shards.",func(): upgrade_requested.emit()))
+	upgrade_button.pressed.connect(func(): safe_action(upgrade_button,"Permanent +5% power. Spends Loot Diamonds.",func(): upgrade_requested.emit()))
 	var utility_panel := make_panel(upgrade_content, Rect2(30, 576, 420, 216), Color("#0d1530e8"), Color("#d1a85a"))
 	LootlingsUI.apply_material(utility_panel, "relic", 18)
-	make_label(utility_panel, "HIDEOUT IMPROVEMENTS  •  GOLD", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(utility_panel, "HIDEOUT IMPROVEMENTS  •  LOOTCOINS", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	for index in range(3):
 		var upgrade_id: String = ["bedroll", "whetstone", "pouch"][index]
 		var button := make_button(utility_panel, "", Rect2(14, 38 + index * 55, 392, 48), Color("#25304a"), Color("#d1a85a"), 12)
@@ -830,7 +829,7 @@ func build_upgrades() -> void:
 		gold_upgrade_buttons[upgrade_id] = button
 
 func request_gold_upgrade(upgrade_id: String) -> void:
-	safe_action(gold_upgrade_buttons[upgrade_id],"Permanent Hideout improvement. Spends Gold.",func(): gold_upgrade_requested.emit(upgrade_id))
+	safe_action(gold_upgrade_buttons[upgrade_id],"Permanent Hideout improvement. Spends Lootcoins.",func(): gold_upgrade_requested.emit(upgrade_id))
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -840,7 +839,7 @@ func build_shop() -> void:
 	var back := make_button(shop_content, "‹ HUB", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(shop_content, "PATCH’S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
+	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 11, Color("#d9e5ff"))
 	# The merchant cart is a world station in Hub; keep the selected shop view clear.
 	for index in range(3):
 		var offer_button := make_button(shop_content, "", Rect2(20, 196 + index * 84, 440, 76), Color("#172442e8"), Color("#b7c0ca"), 12)
@@ -864,7 +863,7 @@ func build_shop() -> void:
 	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
 	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 610, 137, 76), Color("#5a3f20"), Color("#ffd36a"), 12)
-	shop_gold_cache_button.pressed.connect(func(): safe_action(shop_gold_cache_button,"Spend Gold for one random item. Contents are not known before purchase.",func(): shop_gold_cache_requested.emit()))
+	shop_gold_cache_button.pressed.connect(func(): safe_action(shop_gold_cache_button,"Spend Lootcoins for one random item. Contents are not known before purchase.",func(): shop_gold_cache_requested.emit()))
 	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 610, 137, 76), Color("#3f315f"), Color("#c99cff"), 12)
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
 	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 610, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
@@ -1183,7 +1182,7 @@ func refresh_home() -> void:
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
 	hub_navigation.refresh()
-	resource_label.text="[center]%s %s Gold   %s %s Scrap   %s %s Shards[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
+	resource_label.text="[center]%s %s Lootcoins   %s %s Scrap   %s %s Diamonds[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
 	# Public Hub equipment marker remains independent of private Home decor.
 	home_weapon.visible=false
 	home_weapon_name.visible=false
@@ -1319,10 +1318,10 @@ func refresh_upgrades() -> void:
 	if upgrade_summary == null:
 		return
 	var cost := 10 + power * 5
-	upgrade_summary.text = "[center]LEVEL %d  •  TOTAL +%d%%\nDamage + Max HP every run\n%s %d STAR SHARDS[/center]" % [power, power * 5, LootlingsUI.inline_icon("currency_star_shard"), shards]
-	upgrade_button.text = "POWER +5%%\nCOST %d SHARDS" % cost
+	upgrade_summary.text = "[center]LEVEL %d  •  TOTAL +%d%%\nDamage + Max HP every run\n%s %d LOOT DIAMONDS[/center]" % [power, power * 5, LootlingsUI.inline_icon("currency_star_shard"), shards]
+	upgrade_button.text = "POWER +5%%\nCOST %d DIAMONDS" % cost
 	if power >= 100: upgrade_button.text = "POWER MAXED\nRANK 100 / 100"
-	elif shards < cost: upgrade_button.text = "POWER +5%%\nNEED %d MORE SHARDS" % (cost-shards)
+	elif shards < cost: upgrade_button.text = "POWER +5%%\nNEED %d MORE DIAMONDS" % (cost-shards)
 	upgrade_button.icon = LootlingsUI.icon("currency_star_shard")
 	upgrade_button.expand_icon = true
 	upgrade_button.add_theme_constant_override("icon_max_width", 20)
@@ -1341,7 +1340,7 @@ func refresh_upgrades() -> void:
 			button.disabled = true
 		else:
 			var price: int = data[2][rank]
-			button.text = "%s  •  RANK %d/5\n%s     %d GOLD" % [data[0], rank, data[1], price]
+			button.text = "%s  •  RANK %d/5\n%s     %d LOOTCOINS" % [data[0], rank, data[1], price]
 			button.icon = LootlingsUI.icon("currency_gold")
 			button.expand_icon = true
 			button.add_theme_constant_override("icon_max_width", 18)
@@ -1351,9 +1350,9 @@ func refresh_upgrades() -> void:
 func refresh_shop() -> void:
 	if current_inventory == null or current_shop == null or shop_scrap_label == null:
 		return
-	shop_scrap_label.text = "[center]%s %s GOLD • %s %s SCRAP • %d/%d STASH[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), current_inventory.stash.size(), current_inventory.stash_capacity]
+	shop_scrap_label.text = "[center]%s %s LOOTCOINS • %s %s SCRAP • %d/%d STASH[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), current_inventory.stash.size(), current_inventory.stash_capacity]
 	var reveal_pending: bool = not current_shop.pending_cache_item.is_empty()
-	shop_gold_cache_button.text = "SCAVENGED CACHE\n%d GOLD" % current_shop.GOLD_CACHE_COST
+	shop_gold_cache_button.text = "SCAVENGED CACHE\n%d LOOTCOINS" % current_shop.GOLD_CACHE_COST
 	shop_gold_cache_button.disabled = reveal_pending or current_shop.gold_cache_bought_this_cycle or gold < current_shop.GOLD_CACHE_COST or current_inventory.stash.size() >= current_inventory.stash_capacity
 	for index in range(shop_offer_buttons.size()):
 		var button: Button = shop_offer_buttons[index]

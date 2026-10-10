@@ -3323,6 +3323,16 @@
     ],
     "source_sha256": "80ef0740261e2e961b6fe9460abe6e7157a1105b72b82d07aec4b3e98dcf9970"
   },
+  "currency_schema.gd": {
+    "constants": {
+      "VERSION": 4
+    },
+    "methods": [
+      "balances",
+      "write_names"
+    ],
+    "source_sha256": "8bf45ef6d3af57a228f6ffeebb766d342721f24c5a00a131521bba211121518a"
+  },
   "debug_panel.gd": {
     "constants": {},
     "methods": [
@@ -4955,7 +4965,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "6eb596748695a6f7562bb7ecd7251fb71abb988f17523e3691229390c71e2e59"
+    "source_sha256": "b6a1e5c8bac188fd5e5606f03270f32c65c2385632b8a04fc3e91e7f3f07453e"
   },
   "home_catalog.gd": {
     "constants": {
@@ -6911,7 +6921,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "9ea2508650daab6ea99d2f422ad11f5fec191f92a68cef116d8f8f75e7a62aea"
+    "source_sha256": "eabc2be040084209a61e514c479b2acd607d096348bad990501e3f05f6411a53"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7180,7 +7190,7 @@
       "load_progress",
       "save_progress"
     ],
-    "source_sha256": "0fbc1a8a90e19414e7fdabaee3a4d4bb1cf023651a2f5d44a35a60a665977ded"
+    "source_sha256": "f16c3bc59a5db204fdecfc24c5254907a9e0f7cd0e4e522d370a3c5708295845"
   },
   "mobile_test_monitor.gd": {
     "constants": {
@@ -8619,7 +8629,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "ab6ca7f2d55b55820ab5d35001219c9d708dd36cc7a598a0c1ed963300e87956"
+    "source_sha256": "ebea204ac7c000db884827e20146ede2b9d4d10d5cc6fdb6c06f1492fc3d2ad3"
   },
   "reward_reveal_catalog.gd": {
     "constants": {
@@ -8862,6 +8872,7 @@
     },
     "methods": [
       "current_surface_token",
+      "renew_surface",
       "sync_surface",
       "pointer_gate",
       "register_button",
@@ -8876,7 +8887,7 @@
       "request",
       "set_slider_value"
     ],
-    "source_sha256": "d600f1933b36ee13bfea0d190fbc5f73fd5cea19ce2dce612d72206114631b12"
+    "source_sha256": "25a75ffaba32e4ea84a03a6c0b4a88bd8653ec818f0f6f8a98af7a24f0e20123"
   },
   "ui_surface_style.gd": {
     "constants": {},

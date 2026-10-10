@@ -26,13 +26,19 @@ var active_contacts: Dictionary = {}
 var surface_token := ""
 var release_barrier := false
 var press_token := ""
+var input_generation:=0
 
 func current_surface_token() -> String:
 	var surface: Control=game.input_surface()
-	var token: String=game.state+":"+str(surface.get_instance_id() if surface!=null else 0)
+	var token: String=game.state+":"+str(surface.get_instance_id() if surface!=null else 0)+":"+str(input_generation)
 	if game.state=="hideout":token+=":"+game.hideout_ui.current_screen
 	if game.state=="personal_home":token+=":"+game.personal_home.view
 	return token
+
+func renew_surface() -> void:
+	# Reused reward/perk panels are new input surfaces even with the same node ID.
+	input_generation+=1
+	sync_surface()
 
 func sync_surface() -> void:
 	if game==null:return
