@@ -70,7 +70,7 @@
     "7 inherited-input surface types and real purchase/perk/equip/salvage guards at three sizes",
     "Shared weapon/animation/combat staging plus Diamond/Sigil/Mythical save/economy regressions"
   ],
-  "export_status": "Building corrected Windows/Android 0.4.51 candidate; no physical device acceptance",
+  "export_status": "Final corrected Windows compiled pack passed all five affected fixtures; signed arm64 Android debug packaged, 42newPNG imports and approved branding/title verified. Physical S23 pending.",
   "production_quality_accepted": false,
   "new_runtime_png": 42,
   "new_physical_artist_files": 83,
@@ -104,5 +104,8 @@
     "correction_results": "Five wrong-costume right candidates replaced; five wrong-facing correction cells excluded. Approved woodland Pack Peddler and aquatic Merrow kept distinct.",
     "native_qa": "peddler051-safe-layout-80937d63d4",
     "layout_correction": "Reroll shifted into former Attack band in first candidate; compacted header/rows and restored spending controls to protected positions. Actual held/repeated/multitouch consequence regression passed three sizes."
-  }
+  },
+  "build_evidence": "docs/production/quality-evidence/0.4.51/BUILD_VERIFICATION.json",
+  "windows_compiled_pack_tested": true,
+  "android_version_code": 62
 }

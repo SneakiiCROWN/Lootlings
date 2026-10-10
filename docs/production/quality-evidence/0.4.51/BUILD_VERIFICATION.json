@@ -1,0 +1,89 @@
+{
+  "version": "0.4.51",
+  "windows_resource_version": "0.4.51.0",
+  "android_version_code": 62,
+  "source_checkpoint": "ecf4ffa",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.51-body-world-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "1830649437a2e4da66a2afd7acb21cb14e33270de88ff57e5c497b7e5871cc50"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.51-body-world-candidate.pck",
+      "bytes": 282921760,
+      "sha256": "74a9cdff0dd3b9c60f1ce672f568162a07a9a3418f1422d3e8996f31098ad801"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.51-body-world-candidate-debug.apk",
+      "bytes": 303953386,
+      "sha256": "6c9155988bb6656bc5d973591275bc18297acd6ecb84ed8a1fd99fa74bd5585c"
+    }
+  ],
+  "windows_native_fixtures": [
+    {
+      "fixture": "peddler_051_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.51-body-world-candidate.pck",
+      "pack_sha256": "74a9cdff0dd3b9c60f1ce672f568162a07a9a3418f1422d3e8996f31098ad801",
+      "fixture_sha256": "9fe80badf5599f534ee5e5b1ffc2de00ce13598e8a82dd41a95c292c86a2b6d5",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "chase_guidance_051_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.51-body-world-candidate.pck",
+      "pack_sha256": "74a9cdff0dd3b9c60f1ce672f568162a07a9a3418f1422d3e8996f31098ad801",
+      "fixture_sha256": "e2c93d051f04c341c843b66f536844bc78a36cad3ad8d292be5f5b250cae60bc",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "polearm_051_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.51-body-world-candidate.pck",
+      "pack_sha256": "74a9cdff0dd3b9c60f1ce672f568162a07a9a3418f1422d3e8996f31098ad801",
+      "fixture_sha256": "39ad2a1eb43dd2ee5f87305ae410309ca3057ffc52af31b41b3a4a1334c0a6aa",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "input_transition_049_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.51-body-world-candidate.pck",
+      "pack_sha256": "74a9cdff0dd3b9c60f1ce672f568162a07a9a3418f1422d3e8996f31098ad801",
+      "fixture_sha256": "5c027903e50f0dd4ffb3ff81f2231ac263635fe95c60bcf818643fc6acc05001",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "equipment_feedback_050_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.51-body-world-candidate.pck",
+      "pack_sha256": "74a9cdff0dd3b9c60f1ce672f568162a07a9a3418f1422d3e8996f31098ad801",
+      "fixture_sha256": "d7b4ae8bf48bc6479de669349bea3902e03dd1a25d2498151d9e74158fb6b13b",
+      "saves": "isolated",
+      "copied_game_code": false
+    }
+  ],
+  "three_layouts_reviewed": true,
+  "contact_probes": 186,
+  "contact_matrix_total": 96,
+  "remaining_body_fallback_cases": 55,
+  "android_signed_debug_arm64": true,
+  "android_zipalign_16k": true,
+  "branding_export_comparison_passed": true,
+  "title_theme_preserved": true,
+  "player_saves_used": false,
+  "physical_S23_tested": false,
+  "professional_acceptance": false,
+  "remaining_contracts": 2757,
+  "remaining_artist_requirements": 7178,
+  "full_fluid_animation_families_closed": 0
+}
