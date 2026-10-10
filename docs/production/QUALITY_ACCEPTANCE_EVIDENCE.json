@@ -8741,6 +8741,330 @@
         "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
         "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
       }
+    },
+    {
+      "slot_id": "pose:inkling:role commit:right:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_right.png",
+      "asset_sha256": "2e681a8b85e7d1462c032f335cf244378e306dfd900de7f02745aac9bad0c31b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:role commit:left:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.png",
+      "asset_sha256": "d8fdf01b078beb02bb8685e55dc7eaaa71c9b534a7deabe5a8c2bfe4225a4efb",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:hurt:right:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_right.png",
+      "asset_sha256": "3b8b7875fec3f828f2c70f88fa628cdaedcce14a6bdf68092b24fe1efccbfeae",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:inkling:hurt:left:None",
+      "asset": "art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_left.png",
+      "asset_sha256": "766aec63ba755365c32d0da5f417f12ed4362c800ed608af1016979ff037eed1",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:role windup:right:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_right.png",
+      "asset_sha256": "6ce2ced619c5b1746a01c8449ac9e66aa1d064e4ff5d28f37896cc5ffcf79d5f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:role windup:left:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_left.png",
+      "asset_sha256": "1e2dc058656a0b41f7934aca4899e934728cb3eecf9294632623c7c4ef9c7d87",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:role commit:right:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_right.png",
+      "asset_sha256": "642c56af1deb2b09914df99eb94010903935b5d8c8bf9b2d663c8cde60f0705a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:role commit:left:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_left.png",
+      "asset_sha256": "da3f4a5066c301182cdb7a114cc002a7f4078c9ecc80a6a4480a2587857d503e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:hurt:right:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_right.png",
+      "asset_sha256": "36585388abd74518e116b81881a25278db5ac6251ddc57c49c26ddaa626dbcfd",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:hurt:left:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_left.png",
+      "asset_sha256": "1b1aadb05ebb2bef561371ad92462f8229713395f564a8b46a84251bca2430d6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:recovery:right:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_right.png",
+      "asset_sha256": "9c85d521dd944667fec387fba02d426ae15b8e6e7c81b17caf686e925e3f4a04",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
+    },
+    {
+      "slot_id": "pose:margin_imp:recovery:left:None",
+      "asset": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_left.png",
+      "asset_sha256": "b7e2aa8d70cdc5b67a880da7831329bd562383a0e7c9751660f462cbf23274a1",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.49/regional/PROBES.json"
+      ],
+      "limitations": "Independent reviewed keyframes, not fully fluid animations. Professional family/player-experience and physical device acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "ab9adf8a684de2acd4e2db158b3a13f31e986aaa8a2d4685212e9c3aac73d8f6",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production_enemy_manifest.json": "fc6362ea02cfe86be7f90372a859ee5fd6db1816bd8e10c97026d79f0a63f9f5",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

@@ -1,0 +1,43 @@
+{
+  "actor": "inkling",
+  "state": "role commit",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.png",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "content_rect": [
+    142,
+    592,
+    740,
+    400
+  ],
+  "native_pixel_scale": 0.3,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+  "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+  "authored_source": "art/source/regional_049/inkling_combat.png",
+  "authored_source_sha256": "003ec9ea3eaea4f4506a7972319b07a4d169bedf31b53afe32f1cf6a91aa0e93",
+  "authored_source_bounds": [
+    807,
+    121,
+    1503,
+    497
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:inkling:role commit:left:None",
+  "fixed_enemy_blade": "Intrinsic living ink",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "metadata_path": "art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.json",
+  "full_fluid_animation_accepted": false,
+  "anatomy_mirroring": false,
+  "asset_sha256": "d8fdf01b078beb02bb8685e55dc7eaaa71c9b534a7deabe5a8c2bfe4225a4efb",
+  "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+  "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+  "production_quality_accepted": false
+}

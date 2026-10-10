@@ -1,0 +1,520 @@
+{
+  "entries": [
+    {
+      "actor": "inkling",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        121,
+        592,
+        782,
+        400
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/inkling_combat.png",
+      "authored_source_sha256": "003ec9ea3eaea4f4506a7972319b07a4d169bedf31b53afe32f1cf6a91aa0e93",
+      "authored_source_bounds": [
+        34,
+        128,
+        769,
+        504
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:inkling:role commit:right:None",
+      "fixed_enemy_blade": "Intrinsic living ink",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_right.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "2e681a8b85e7d1462c032f335cf244378e306dfd900de7f02745aac9bad0c31b",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "inkling",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        142,
+        592,
+        740,
+        400
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/inkling_combat.png",
+      "authored_source_sha256": "003ec9ea3eaea4f4506a7972319b07a4d169bedf31b53afe32f1cf6a91aa0e93",
+      "authored_source_bounds": [
+        807,
+        121,
+        1503,
+        497
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:inkling:role commit:left:None",
+      "fixed_enemy_blade": "Intrinsic living ink",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "d8fdf01b078beb02bb8685e55dc7eaaa71c9b534a7deabe5a8c2bfe4225a4efb",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "inkling",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        249,
+        622,
+        525,
+        370
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/inkling_combat.png",
+      "authored_source_sha256": "003ec9ea3eaea4f4506a7972319b07a4d169bedf31b53afe32f1cf6a91aa0e93",
+      "authored_source_bounds": [
+        129,
+        598,
+        620,
+        944
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:inkling:hurt:right:None",
+      "fixed_enemy_blade": "Intrinsic living ink",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_right.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "3b8b7875fec3f828f2c70f88fa628cdaedcce14a6bdf68092b24fe1efccbfeae",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "inkling",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        245,
+        622,
+        534,
+        370
+      ],
+      "native_pixel_scale": 0.3,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/inkling_combat.png",
+      "authored_source_sha256": "003ec9ea3eaea4f4506a7972319b07a4d169bedf31b53afe32f1cf6a91aa0e93",
+      "authored_source_bounds": [
+        920,
+        610,
+        1402,
+        944
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:inkling:hurt:left:None",
+      "fixed_enemy_blade": "Intrinsic living ink",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_left.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "766aec63ba755365c32d0da5f417f12ed4362c800ed608af1016979ff037eed1",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "role windup",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        206,
+        592,
+        611,
+        400
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        297,
+        28,
+        650,
+        259
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:role windup:right:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_right.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "6ce2ced619c5b1746a01c8449ac9e66aa1d064e4ff5d28f37896cc5ffcf79d5f",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        226,
+        592,
+        572,
+        400
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        899,
+        27,
+        1231,
+        259
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:role windup:left:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_left.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "1e2dc058656a0b41f7934aca4899e934728cb3eecf9294632623c7c4ef9c7d87",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        125,
+        592,
+        774,
+        400
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        303,
+        269,
+        744,
+        497
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:role commit:right:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_right.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "642c56af1deb2b09914df99eb94010903935b5d8c8bf9b2d663c8cde60f0705a",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        130,
+        592,
+        763,
+        400
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        802,
+        268,
+        1241,
+        498
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:role commit:left:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_left.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "da3f4a5066c301182cdb7a114cc002a7f4078c9ecc80a6a4480a2587857d503e",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "hurt",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        228,
+        622,
+        567,
+        370
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        345,
+        522,
+        693,
+        749
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:hurt:right:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_right.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "36585388abd74518e116b81881a25278db5ac6251ddc57c49c26ddaa626dbcfd",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        227,
+        622,
+        570,
+        370
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        884,
+        514,
+        1240,
+        745
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:hurt:left:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_left.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "1b1aadb05ebb2bef561371ad92462f8229713395f564a8b46a84251bca2430d6",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        252,
+        592,
+        519,
+        400
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        362,
+        753,
+        672,
+        992
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:recovery:right:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_right.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "9c85d521dd944667fec387fba02d426ae15b8e6e7c81b17caf686e925e3f4a04",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    },
+    {
+      "actor": "margin_imp",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        250,
+        592,
+        523,
+        400
+      ],
+      "native_pixel_scale": 0.27,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch05_scribed_foundry.png",
+      "source_sha256": "3ab44809b81d6866492b3d0f96934d25a8980ac5797b934ab86cd13533588962",
+      "authored_source": "art/source/regional_049/margin_combat.png",
+      "authored_source_sha256": "92ea160f6532e68edb7a9a71b9abb0c32af78e7057285731f8f3170376abe7e8",
+      "authored_source_bounds": [
+        866,
+        752,
+        1180,
+        992
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:margin_imp:recovery:left:None",
+      "fixed_enemy_blade": "Fixed canonical quill; no interchangeable weapon",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_left.json",
+      "full_fluid_animation_accepted": false,
+      "anatomy_mirroring": false,
+      "asset_sha256": "b7e2aa8d70cdc5b67a880da7831329bd562383a0e7c9751660f462cbf23274a1",
+      "native_qa": "docs/production/quality-evidence/0.4.49/regional/PROBES.json",
+      "visual_review": "Exact approved identities, both independently authored facings, full alpha silhouettes and all twelve native action keyframes reviewed at actual scale; phone/tablet/desktop probes. Not full fluid animation or professional family acceptance.",
+      "production_quality_accepted": false
+    }
+  ]
+}

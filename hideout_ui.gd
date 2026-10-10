@@ -395,7 +395,7 @@ func build_stash() -> void:
 	stash_list.custom_minimum_size = Vector2(402, 0)
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
-	stash_detail_panel = make_panel(stash_content, Rect2(20, 477, 440, 213), Color("#0d1530dc"), Color("#c99a4e"))
+	stash_detail_panel = make_panel(stash_content, Rect2(20, 477, 440, 186), Color("#0d1530dc"), Color("#c99a4e"))
 	LootlingsUI.apply_material(stash_detail_panel, "leather", 16)
 	stash_detail_icon = ItemIcon.new()
 	stash_detail_icon.position = Vector2(18, 12)
@@ -413,9 +413,9 @@ func build_stash() -> void:
 	stash_detail.add_theme_font_size_override("normal_font_size", 14)
 	stash_detail.add_theme_color_override("default_color", Color("#e5edff"))
 	stash_detail_panel.add_child(stash_detail)
-	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 694, 210, 66), Color("#285c4c"), Color("#69e6b0"), 18)
+	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 666, 210, 54), Color("#285c4c"), Color("#69e6b0"), 18)
 	stash_equip_button.pressed.connect(request_stash_equip)
-	stash_scrap_button = make_button(stash_content, "SALVAGE", Rect2(250, 694, 210, 66), Color("#5a3828"), Color("#ffbd69"), 18)
+	stash_scrap_button = make_button(stash_content, "SALVAGE", Rect2(250, 666, 210, 54), Color("#5a3828"), Color("#ffbd69"), 18)
 	stash_scrap_button.pressed.connect(request_stash_scrap)
 	make_button(stash_detail_panel,"×",Rect2(386,2,48,48),Color("#172442"),Color("#7087ae"),20).pressed.connect(close_stash_detail)
 	close_stash_detail()
@@ -1453,9 +1453,7 @@ func request_stash_scrap() -> void:
 	var entry: Dictionary=entries[selected_entry]
 	if entry.equipped: return
 	var item: Dictionary=entry.item; var index:=int(entry.stash_index)
-	var risky: bool=item.get("rarity","COMMON") in ["EPIC","LEGENDARY","RED","SIGNATURE"] or item.get("locked",false) or item.get("favourite",false) or not item.get("signature_hooks",[]).is_empty() or (endgame_progress!=null and item.id==endgame_progress.data.tracked)
-	if risky: get_parent().touch_ux.request("Salvage %s?" % item.name,"Receive %d Scrap. This item is destroyed permanently." % ItemCatalog.scrap_value(item),func(): stash_scrap_requested.emit(index))
-	else: stash_scrap_requested.emit(index)
+	get_parent().touch_ux.request("Salvage %s?" % item.name,"Receive %d Scrap. This item is destroyed permanently." % ItemCatalog.scrap_value(item),func(): stash_scrap_requested.emit(index))
 
 func select_shop_offer(index: int) -> void:
 	if current_shop == null or index < 0 or index >= current_shop.stock.size() or current_shop.stock[index].is_empty():
@@ -1468,7 +1466,9 @@ func select_shop_offer(index: int) -> void:
 
 func request_selected_shop_offer() -> void:
 	if selected_shop_offer >= 0:
-		shop_offer_requested.emit(selected_shop_offer)
+		var index:=selected_shop_offer
+		var item:Dictionary=current_shop.stock[index]
+		get_parent().touch_ux.request("Buy %s?" % item.name,"Pay %d Scrap. This item goes into your stash." % int(item.price),func():shop_offer_requested.emit(index))
 
 func play_shop_purchase(index: int, rarity_color: Color) -> void:
 	if index >= 0 and index < shop_offer_buttons.size():

@@ -1,0 +1,36 @@
+{
+  "version": "0.4.49",
+  "base_checkpoint": "a0ce883",
+  "kind": "canonical-enemy-actions-and-combat-transition-input-safety",
+  "verified_contracts_closed": 12,
+  "new_generated_assets": 2,
+  "new_runtime_png": 12,
+  "new_physical_artist_files": 24,
+  "frozen_artist_requirements_fulfilled": 24,
+  "enemy_cells": 12,
+  "remaining_contracts": 2822,
+  "remaining_artist_file_requirements": 7339,
+  "complete_fluid_animation_families": 0,
+  "professional_family_acceptance": false,
+  "physical_device_validated": false,
+  "accepted_assets": [
+    "res://art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_right.png",
+    "res://art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.png",
+    "res://art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_right.png",
+    "res://art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_left.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_right.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_windup_left.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_right.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_role_commit_left.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_right.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_hurt_left.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_right.png",
+    "res://art/production/phase4e/enemies/margin_imp/regional_049/margin_imp_recovery_left.png"
+  ],
+  "other_installed_features": [
+    "Screen and modal pointer ownership, all-contact release barrier, cleared attack buffer",
+    "Explicit named purchase and permanent-scrap confirmations",
+    "Direct slider touch ownership; compact combat reward and merchant actions outside old Attack area"
+  ],
+  "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7"
+}

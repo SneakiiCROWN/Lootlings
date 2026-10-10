@@ -785,9 +785,9 @@ func build_overlay_ui() -> void:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		upgrade_visuals.append({"kicker":kicker, "name":name_label, "effect":effect, "icon":icon, "core":core_icon, "rarity":rarity_icon})
-	upgrade_compare=LootlingsUI.rich_label(upgrade_panel,Rect2(20,418,396,128),14,Color("#e6edff"));upgrade_compare.scroll_active=true
-	make_action_button(upgrade_panel,"KEEP CURRENT",Vector2(222,556),Vector2(194,54),Color("#172442"),Color("#7087ae"),skip_upgrade).add_theme_font_size_override("font_size",14)
-	upgrade_take_button = make_action_button(upgrade_panel,"SELECT A CARD",Vector2(20,556),Vector2(194,54),Color("#49346b"),Color("#ffe178"),take_selected_upgrade)
+	upgrade_compare=LootlingsUI.rich_label(upgrade_panel,Rect2(20,418,396,110),14,Color("#e6edff"));upgrade_compare.scroll_active=true
+	make_action_button(upgrade_panel,"KEEP CURRENT",Vector2(222,538),Vector2(194,54),Color("#172442"),Color("#7087ae"),skip_upgrade).add_theme_font_size_override("font_size",14)
+	upgrade_take_button = make_action_button(upgrade_panel,"SELECT A CARD",Vector2(20,538),Vector2(194,54),Color("#49346b"),Color("#ffe178"),take_selected_upgrade)
 	upgrade_take_button.set_meta("ui_intent","primary")
 	apply_button_style(upgrade_take_button,Color("#49346b"),Color("#ffe178"))
 	upgrade_take_button.disabled = true
@@ -1387,9 +1387,7 @@ func build_item_ui() -> void:
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
 	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), func():
-		if current_item.get("rarity","COMMON") in ["EPIC","LEGENDARY","RED"] or not current_item.get("signature_hooks",[]).is_empty() or current_item.get("locked",false) or current_item.get("favourite",false) or current_item.get("id","")==retention.progress.data.tracked:
-			touch_ux.request("Salvage this item?","%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap)
-		else: accept_item_scrap()
+		touch_ux.request("Salvage %s?" % current_item.get("name","Item"),"%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap)
 	)
 
 	make_action_button(item_panel,"KEEP CURRENT / LEAVE FIND",Vector2(28,530),Vector2(376,60),Color("#172442"),Color("#7087ae"),skip_item).add_theme_font_size_override("font_size",15)
@@ -1533,13 +1531,13 @@ func build_merchant_ui() -> void:
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
 	merchant_panel.size.y = 688
-	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,406,376,132),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
-	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,548),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,406,376,74),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,492),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
-	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 616), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
-	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 616), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 560), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
+	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 560), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
 	boss_reward_panel = make_panel(Rect2(20, 115, 440, 630), Color("#17142ff8"))
@@ -2141,7 +2139,7 @@ func target_player_x() -> float:
 	return 222.0
 
 func request_tap_attack() -> void:
-	if state != "playing" or not enemy_alive or tap_input_cooldown > 0.0:
+	if state != "playing" or input_surface()!=null or not enemy_alive or tap_input_cooldown > 0.0:
 		return
 	tap_input_cooldown = 0.11
 	if player_x < target_player_x() - 4.0:

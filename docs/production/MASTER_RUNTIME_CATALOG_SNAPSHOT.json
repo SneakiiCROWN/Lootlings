@@ -3901,7 +3901,7 @@
       "state_for",
       "frame"
     ],
-    "source_sha256": "459761eff86552a52441cfb1d4e28fb84a5b363fbcc398b619732c149aa3e212"
+    "source_sha256": "772fc5afe8c51cd4caefc86a2654837ea7aa4341237f57e92b05dfc6386263e8"
   },
   "enemy_encounter.gd": {
     "constants": {
@@ -4955,7 +4955,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "dce7ad5a97f508d3ca2a11c49092e526ea71ea3b4ca17d5e2d63db041de125ea"
+    "source_sha256": "6eb596748695a6f7562bb7ecd7251fb71abb988f17523e3691229390c71e2e59"
   },
   "home_catalog.gd": {
     "constants": {
@@ -6911,7 +6911,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "bd92f1a3eaa6b20caf7582a06c5cfa78dedf5d60119a2223dde66832a20dedc8"
+    "source_sha256": "9ea2508650daab6ea99d2f422ad11f5fec191f92a68cef116d8f8f75e7a62aea"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8861,6 +8861,9 @@
       "DEADZONE": 12.0
     },
     "methods": [
+      "current_surface_token",
+      "sync_surface",
+      "pointer_gate",
       "register_button",
       "configure",
       "hit",
@@ -8870,9 +8873,10 @@
       "_process",
       "_input",
       "close_dialog",
-      "request"
+      "request",
+      "set_slider_value"
     ],
-    "source_sha256": "5fccfecf46d32cd3c3bf68409a257c5857755e4479210607ffd6e14c6442bd9d"
+    "source_sha256": "d600f1933b36ee13bfea0d190fbc5f73fd5cea19ce2dce612d72206114631b12"
   },
   "ui_surface_style.gd": {
     "constants": {},
