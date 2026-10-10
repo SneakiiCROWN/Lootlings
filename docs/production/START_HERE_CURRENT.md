@@ -1,6 +1,6 @@
 # Current — 0.4.46 installed combat continuation
 
-36 new tested deliveries; 2852 contracts remain. Accepted selectors tested without preview gates. Read [current report](quality-evidence/0.4.46/REPORT.md) and sole PRODUCTION_DASHBOARD. 0.4.46 exports pending. Preserve owner project.godot and all references.
+36 new tested deliveries; 2852 contracts remain. Accepted selectors tested without preview gates. Read [current report](quality-evidence/0.4.46/REPORT.md) and sole PRODUCTION_DASHBOARD. 0.4.46/code55 Windows and signed Android exported; actual PCK combat/Stash/Home/audio checks and 389 APK actor imports verified. Preserve owner project.godot and all references.
 
 Latest continuation: [live coverage and seven-stage quality dashboard](PRODUCTION_DASHBOARD.html). The dashboard is generated from the current registries, frozen delivery contracts, runtime reflection and explicit native-review evidence. Older completion labels do not grant professional acceptance.
 

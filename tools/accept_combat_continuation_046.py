@@ -12,6 +12,7 @@ def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  probes=read(ROOT/'.godot_test_data/combat-continuation-046/PROBES.json')
  assert len(probes['probes'])==108 and not probes['failures']
+ assert all(r.get('exact') and r.get('contact') for r in probes['probes'])
  assert len({str(x['viewport']) for x in probes['probes']})==3
  player_path=ROOT/'art/production/phase4e/player_combat_046_manifest.json'
  enemy_path=ROOT/'art/production_enemy_manifest.json'
@@ -34,6 +35,7 @@ def main():
   if 'source_reference' in r: assert sha(ROOT/r['source_reference'])==r['source_sha256']
  queue=read(CONT/'EXACT_REMAINING_CONTRACTS.json');remaining={r['slot_id'] for r in queue}
  assert slots<=remaining or not slots&remaining,'Partial closure journal; refuse double counting'
+ assert read(CONT/'CONTINUOUS_PRODUCTION_COUNTS.json')['remaining_contracts']==len(queue),'Interrupted queue/count update; recover journal before acceptance'
  production=read(enemy_path);old=[r for r in production['entries'] if r['contract_slot_id'] not in slots]
  assert len(old)==len(production['entries']) or {r['contract_slot_id'] for r in production['entries'] if r['contract_slot_id'] in slots}=={r['contract_slot_id'] for r in enemies}
  EVID.mkdir(parents=True,exist_ok=True)

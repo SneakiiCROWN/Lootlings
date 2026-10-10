@@ -14,7 +14,7 @@ func review() -> void:
   await tap(button);assert(h.stash_filter=="ALL" and not h.entries.is_empty());assert(JSON.stringify(game.inventory.stash)==items and game.gold==gold and game.attack_sequence==attacks);await capture("all_gear")
   await tap(h.stash_list.get_child(0));assert(h.stash_detail_panel.visible);await capture("selected_detail")
   h.close_stash_detail();assert(not h.stash_detail_panel.visible)
-  game.show_hideout();await capture("hub_preserved");h.show_home();await capture("home_preserved")
+  game.show_hideout();await capture("hub_preserved");game.show_personal_home();assert(game.state=="personal_home" and game.personal_home.visible and not h.visible);await capture("home_preserved");game.show_hideout();assert(game.state=="hideout" and h.visible and not game.personal_home.visible)
   assert(FileAccess.get_sha256("res://art/audio/production/music/title.ogg")=="7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7")
   game.free();await process_frame
  print("INVENTORY GUIDANCE 046 NATIVE PASS: empty category, touch return to all gear, selection/detail, unchanged items/gold/attack input, Home/Hub, three layouts; title track preserved")

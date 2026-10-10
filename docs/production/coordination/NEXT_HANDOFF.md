@@ -1,6 +1,6 @@
 # Current live continuation — 0.4.46
 
-Installed 26 heavy playable and ten Dew Hexer deliveries, 64 physical files, 36 closures. Remaining 2852 / 7399 frozen requirements. Accepted source/native testing passed; export pending. Read latest report and Git HEAD. Never rerun accepted preparation/export over 046 assets. Source/quarantine retained. Physical S23 deferred, full fluid/professional acceptance open. Continue independent families and broad player-facing work; no reset or general audit.
+Installed 26 heavy playable and ten Dew Hexer deliveries, 64 physical files, 36 closures. Remaining 2852 / 7399 frozen requirements. Accepted source/native testing passed; Windows/Android code55 exported and actual PCK combat/Stash/Home/audio tests passed. Read latest report and Git HEAD. Never rerun accepted preparation/export over 046 assets. Source/quarantine retained. Physical S23 deferred, full fluid/professional acceptance open. Continue independent families and broad player-facing work; no reset or general audit.
 
 # Continue live production — 0.4.45
 

@@ -1,4 +1,4 @@
-# 0.4.46 — installed heavy-weapon and regional-enemy batch
+# 0.4.46 â€” installed heavy-weapon and regional-enemy batch
 
 Live project continued from 4f80b95. Approved title theme, canon, weapon artwork/stats, economy, saves, branding, Home and Hub preserved.
 
@@ -22,4 +22,18 @@ Ten original strike contracts remain open; four Pebblewyrm hidden-grip poses and
 Accepted sheets are overwrite-guarded. Tooling checks ownership, edge clipping, RGBA/canvas, source hashes and grip-mask interiors; anatomy requires canonical/native review.
 
 ## Export status
-Version 0.4.46/code55 prepared. New exports and compiled-game verification are pending and will be recorded after successful tests.
+Windows executable/PCK and signed arm64 Android debug APK version 0.4.46/code55 exported successfully.
+Actual exported PCK passes 108 new combat probes, 138 retained combat probes and Stash/selection/detail/Personal Home/Hub routes at all three sizes. Corrected Home screenshots capture the actual separate Home, replacing a fixture that previously captured Hub.
+389 accepted actor/grip/enemy imports and all five manifests are byte-verified in the APK. Windows 16–256px icon resources and Android launcher/adaptive/monochrome/startup splash match approved sources. Licensed score imports and approved title SHA preserved.
+Seven retained music cues, transitions, rapid travel, Home/Hub return music, mute and distinct world wood/cloth/page feedback tested in the exported PCK. No new music/SFX assets authored in this milestone; subjective listening approval remains open.
+Actual Windows EXE starts and exits cleanly. External script-route invocation timed out because the export template did not execute that fixture; no route acceptance is claimed for that invocation. Gameplay routes verified using the actual exported PCK under native Godot. Physical S23 remains deferred.
+
+[Windows executable](../../../../builds/windows/Lootlings-0.4.46-canonical-combat.exe) (keep adjacent PCK) and [Android APK](../../../../builds/android/Lootlings-0.4.46-canonical-combat-debug.apk). Exact hashes and technical evidence: BUILD_VERIFICATION.json.
+Installed milestone pushed as cf9aa26. Final evidence checkpoint: read current Git HEAD.
+
+## Whole-game remaining production
+Frozen queue: playable 1270; Wanderers791; enemies242; bosses356; NPCs28; support165. Home/companion frozen delivery slots have no remaining entries, but their animation continuity, broad behavior/artistic/UX acceptance are separate and remain open where dashboard evidence is incomplete.
+Dashboard tracks 7956 broader requirements, 218 current hash-bound native-reviewed runtime body PNGs, zero automatically granted professional approvals, and 45 dependency registration gaps. Frozen contracts are not the entire UI/audio/world quality scope.
+Next independent lanes: missing compatible melee/ranged actions across actors and Wanderers, regional enemy/boss continuity, resident walk/work/seated contact, companion and environmental behaviors, equipment/VFX and listening/mix polish. Do not rerun accepted sheets or use a single bad strike to block unrelated families.
+Eight source sheets generated/corrected during this batch, including rejected originals. Only the 19 retained independent body cells were installed. Source/quarantine is excluded from exports.
+

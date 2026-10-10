@@ -1,0 +1,80 @@
+{
+  "version": "0.4.46",
+  "android_version_code": 55,
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.46-canonical-combat.exe",
+      "bytes": 103136768,
+      "sha256": "601d950bec593cea84ccdc5f1fa3e7416944a04e721d0d8b6d736f4fb8836c44"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.46-canonical-combat.pck",
+      "bytes": 253060680,
+      "sha256": "18e18d6b53769f6d66e77440ba891303e7d268afab6e68190d4fadf1d704b9ed"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.46-canonical-combat-debug.apk",
+      "bytes": 274394839,
+      "sha256": "9772c285b85fafe5d67827fbab1d1be3d3e370ad21215a56980bdae5c41f9d62"
+    }
+  ],
+  "compiled_game_combat_and_stash_routes": [
+    {
+      "fixture": "combat_continuation_046_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.46-canonical-combat.pck",
+      "pack_sha256": "18e18d6b53769f6d66e77440ba891303e7d268afab6e68190d4fadf1d704b9ed",
+      "fixture_sha256": "f4136380f9cebb65f51931230c6cbc7e79a62491e46c5e5af01524525150b32c",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "inventory_guidance_046_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.46-canonical-combat.pck",
+      "pack_sha256": "18e18d6b53769f6d66e77440ba891303e7d268afab6e68190d4fadf1d704b9ed",
+      "fixture_sha256": "1073816f9108dcb078157b6a10816de8eafbfffa478206fcfdb4f70a46044536",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "combat_batch_045_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.46-canonical-combat.pck",
+      "pack_sha256": "18e18d6b53769f6d66e77440ba891303e7d268afab6e68190d4fadf1d704b9ed",
+      "fixture_sha256": "d7fce9b2d136b48e5fd8401058486b2dbc985c41922455f043c81404fe1cb936",
+      "saves": "isolated",
+      "copied_game_code": false
+    }
+  ],
+  "compiled_audio": [
+    {
+      "fixture": "continuous_score_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.46-canonical-combat.pck",
+      "pack_sha256": "18e18d6b53769f6d66e77440ba891303e7d268afab6e68190d4fadf1d704b9ed",
+      "fixture_sha256": "7215b8eed62c52eb82aa1896c4dc8eb37f8b8e5e9b09cf2bdb8edbdacece013a",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "world_station_audio_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.46-canonical-combat.pck",
+      "pack_sha256": "18e18d6b53769f6d66e77440ba891303e7d268afab6e68190d4fadf1d704b9ed",
+      "fixture_sha256": "f099bccc60eaf286ed098889f581352aaf13e121c5080e2f195a18ffa3e1b825",
+      "saves": "isolated",
+      "copied_game_code": false
+    }
+  ],
+  "actual_windows_exe": "Startup/shutdown pass; external scripted route unsupported and timed out. Route acceptance based on actual exported PCK under native Godot.",
+  "apk_imported_actor_textures": 389,
+  "branding_verified": true,
+  "physical_device_tested": false,
+  "professional_acceptance": false
+}
