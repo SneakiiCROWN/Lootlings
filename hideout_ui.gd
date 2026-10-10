@@ -107,7 +107,7 @@ var comparison_callable: Callable
 var shards := 0
 var power := 0
 var gold := 0
-var gold_upgrades := {"bedroll":0, "whetstone":0, "pouch":0}
+var gold_upgrades := preload("res://permanent_upgrade_catalog.gd").defaults()
 var profile := {}
 var entries: Array = []
 var stash_filter := "ALL"
@@ -181,6 +181,7 @@ var upgrade_summary: RichTextLabel
 var upgrade_button: Button
 var upgrade_panel: Panel
 var gold_upgrade_buttons := {}
+var gold_upgrade_wallet: Label
 var coming_title: Label
 var shop_scrap_label: RichTextLabel
 var shop_offer_buttons: Array[Button] = []
@@ -821,15 +822,22 @@ func build_upgrades() -> void:
 	upgrade_button.pressed.connect(func(): safe_action(upgrade_button,"Permanent +5% power. Spends Loot Diamonds.",func(): upgrade_requested.emit()))
 	var utility_panel := make_panel(upgrade_content, Rect2(30, 576, 420, 216), Color("#0d1530e8"), Color("#d1a85a"))
 	LootlingsUI.apply_material(utility_panel, "relic", 18)
-	make_label(utility_panel, "HIDEOUT IMPROVEMENTS  •  LOOTCOINS", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	for index in range(3):
-		var upgrade_id: String = ["bedroll", "whetstone", "pouch"][index]
-		var button := make_button(utility_panel, "", Rect2(14, 38 + index * 55, 392, 48), Color("#25304a"), Color("#d1a85a"), 12)
+	gold_upgrade_wallet = make_label(utility_panel, "IMPROVEMENTS  •  LOOTCOINS", 15, Rect2(12, 8, 396, 24), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	var scroll:=ScrollContainer.new();scroll.position=Vector2(14,38);scroll.size=Vector2(392,160)
+	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;utility_panel.add_child(scroll)
+	var rows:=VBoxContainer.new();rows.size_flags_horizontal=Control.SIZE_EXPAND_FILL;rows.add_theme_constant_override("separation",8);scroll.add_child(rows)
+	for upgrade_id in preload("res://permanent_upgrade_catalog.gd").DEFINITIONS:
+		var button := make_button(rows,"",Rect2(0,0,368,48),Color("#25304a"),Color("#d1a85a"),12)
+		button.custom_minimum_size=Vector2(0,48)
 		button.pressed.connect(request_gold_upgrade.bind(upgrade_id))
 		gold_upgrade_buttons[upgrade_id] = button
 
 func request_gold_upgrade(upgrade_id: String) -> void:
-	safe_action(gold_upgrade_buttons[upgrade_id],"Permanent Hideout improvement. Spends Lootcoins.",func(): gold_upgrade_requested.emit(upgrade_id))
+	var data: Array=preload("res://permanent_upgrade_catalog.gd").DEFINITIONS[upgrade_id]
+	var rank: int=int(gold_upgrades.get(upgrade_id,0))
+	if rank>=data[2].size():return
+	var game=get_parent()
+	game.touch_ux.request("Improve %s?" % data[0],"Rank %d → %d. %s. Costs %d Lootcoins." % [rank,rank+1,data[1],data[2][rank]],func(): gold_upgrade_requested.emit(upgrade_id))
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -1326,11 +1334,8 @@ func refresh_upgrades() -> void:
 	upgrade_button.expand_icon = true
 	upgrade_button.add_theme_constant_override("icon_max_width", 20)
 	upgrade_button.disabled = shards < cost or power >= 100
-	var definitions := {
-		"bedroll":["STURDY BEDROLL", "+4 starting HP", [250,450,700,1000,1400]],
-		"whetstone":["RELIC WHETSTONE", "+0.6 starting damage", [300,525,800,1150,1600]],
-		"pouch":["FIELD POUCH", "+8 starting Run Scrip", [225,400,650,950,1300]]
-	}
+	gold_upgrade_wallet.text="IMPROVEMENTS • %s LOOTCOINS" % preload("res://display_numbers.gd").compact(gold)
+	var definitions:Dictionary=preload("res://permanent_upgrade_catalog.gd").DEFINITIONS
 	for upgrade_id in gold_upgrade_buttons:
 		var rank := int(gold_upgrades.get(upgrade_id, 0))
 		var data: Array = definitions[upgrade_id]
@@ -1366,7 +1371,7 @@ func refresh_shop() -> void:
 				selected_shop_offer = -1
 			continue
 		var item: Dictionary = current_shop.stock[index]
-		button.text = "%s\n%s · %d Scrap" % [item.get("name", "Unknown"), item.get("rarity", "COMMON").capitalize(), item.get("price", 0)]
+		button.text = "%s\n%s · %d Lootcoins" % [item.get("name", "Unknown"), item.get("rarity", "COMMON").capitalize(), item.get("price", 0)]
 		button.add_theme_font_size_override("font_size", 15)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.disabled = reveal_pending
@@ -1374,10 +1379,10 @@ func refresh_shop() -> void:
 		apply_item_thumbnail(button, item)
 	refresh_shop_detail(reveal_pending)
 	var expansion_cost: int = current_shop.expansion_cost(current_inventory.stash_capacity)
-	shop_expansion_button.text = "STASH EXPANSION\n%d → %d SLOTS\n%d SCRAP" % [current_inventory.stash_capacity, current_inventory.next_stash_capacity(), expansion_cost] if expansion_cost > 0 else "STASH EXPANSION\nMAXIMUM 24 SLOTS"
-	shop_expansion_button.disabled = expansion_cost <= 0 or current_inventory.scrap < expansion_cost or reveal_pending
-	shop_reroll_button.text = "REROLL ONCE  •  %d SCRAP" % current_shop.REROLL_COST if not current_shop.rerolled_this_cycle else "REROLL USED THIS RUN"
-	shop_reroll_button.disabled = current_shop.rerolled_this_cycle or current_inventory.scrap < current_shop.REROLL_COST or reveal_pending
+	shop_expansion_button.text = "STASH EXPANSION\n%d → %d SLOTS\n%d LOOTCOINS" % [current_inventory.stash_capacity, current_inventory.next_stash_capacity(), expansion_cost] if expansion_cost > 0 else "STASH EXPANSION\nMAXIMUM 24 SLOTS"
+	shop_expansion_button.disabled = expansion_cost <= 0 or gold < expansion_cost or reveal_pending
+	shop_reroll_button.text = "REROLL ONCE  •  %d LOOTCOINS" % current_shop.REROLL_COST if not current_shop.rerolled_this_cycle else "REROLL USED THIS RUN"
+	shop_reroll_button.disabled = current_shop.rerolled_this_cycle or gold < current_shop.REROLL_COST or reveal_pending
 	if reveal_pending:
 		var item: Dictionary = current_shop.pending_cache_item
 		var color := ItemCatalog.rarity_color(item.get("rarity", "COMMON")).to_html(false)
@@ -1400,7 +1405,7 @@ func refresh_shop() -> void:
 		if current_inventory.stash.size() >= current_inventory.stash_capacity:
 			shop_status.text = "[center][color=#ff9b8f]STASH FULL[/color]\nScrap or equip stored gear to make room.\nNothing will be overwritten.[/center]"
 		elif shop_status.text.is_empty() or shop_status.text.contains("MYSTERY CACHE REVEAL") or shop_status.text.contains("SCAVENGED CACHE REVEAL") or shop_status.text.contains("STASH FULL"):
-			shop_status.text = "[center][color=#ffe39a]Choose gear • pay with Scrap[/color]\nStock refreshes after a completed run.[/center]"
+			shop_status.text = "[center][color=#ffe39a]Choose gear • pay with Lootcoins[/color]\nStock refreshes after a completed run.[/center]"
 	if current_shop.requires_review():
 		for button in shop_offer_buttons+[shop_cache_button,shop_gold_cache_button,shop_expansion_button,shop_reroll_button]:button.disabled=true
 		show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.")
@@ -1408,7 +1413,7 @@ func refresh_shop() -> void:
 func refresh_shop_detail(reveal_pending: bool) -> void:
 	if selected_shop_offer < 0 or selected_shop_offer >= current_shop.stock.size() or current_shop.stock[selected_shop_offer].is_empty():
 		shop_detail_panel.visible = true
-		shop_detail.text = "[b]Choose an item above[/b]\nCompare it with your equipped gear, then buy with Scrap. Purchases go to your stash."
+		shop_detail.text = "[b]Choose an item above[/b]\nCompare it with your equipped gear, then buy with Lootcoins. Purchases go to your stash."
 		shop_buy_button.text = "CHOOSE\nAN ITEM"
 		shop_buy_button.disabled = true
 		return
@@ -1420,10 +1425,10 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	shop_detail.tooltip_text = str(item.get("desc",""))
 	shop_buy_button.text = "BUY\n%d SCRAP" % int(item.get("price", 0))
 	shop_detail.text+="\n\n%s\nBought gear goes to your stash; equip it when ready.\n\n%s" % [comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon")))),item.get("desc","")]
-	shop_buy_button.disabled = reveal_pending or current_inventory.scrap < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
+	shop_buy_button.disabled = reveal_pending or gold < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
 	if reveal_pending:shop_buy_button.text="CLAIM\nYOUR CACHE"
 	elif current_inventory.stash.size() >= current_inventory.stash_capacity:shop_buy_button.text="STASH\nIS FULL"
-	elif current_inventory.scrap < int(item.get("price",0)):shop_buy_button.text="NEED %d\nMORE SCRAP" % (int(item.get("price",0))-current_inventory.scrap)
+	elif gold < int(item.get("price",0)):shop_buy_button.text="NEED %d\nMORE LOOTCOINS" % (int(item.get("price",0))-gold)
 
 func show_shop_message(message: String, color: String = "#e5edff") -> void:
 	shop_status.text = "[center][color=%s]%s[/color][/center]" % [color, message]
@@ -1467,7 +1472,7 @@ func request_selected_shop_offer() -> void:
 	if selected_shop_offer >= 0:
 		var index:=selected_shop_offer
 		var item:Dictionary=current_shop.stock[index]
-		get_parent().touch_ux.request("Buy %s?" % item.name,"Pay %d Scrap. This item goes into your stash." % int(item.price),func():shop_offer_requested.emit(index))
+		get_parent().touch_ux.request("Buy %s?" % item.name,"Pay %d Lootcoins. This item goes into your stash." % int(item.price),func():shop_offer_requested.emit(index))
 
 func play_shop_purchase(index: int, rarity_color: Color) -> void:
 	if index >= 0 and index < shop_offer_buttons.size():

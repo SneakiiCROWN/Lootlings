@@ -1,0 +1,68 @@
+{
+  "version": "0.4.50-reward-foundation",
+  "kind": "capped-permanent-progression-hub-lootcoin-purchases-and-synchronized-relic-reveal",
+  "verified_contracts_closed": 0,
+  "new_generated_assets": 5,
+  "new_runtime_png": 0,
+  "new_runtime_wav": 5,
+  "new_physical_artist_files": 0,
+  "frozen_artist_requirements_fulfilled": 0,
+  "remaining_contracts": 2822,
+  "remaining_artist_file_requirements": 7339,
+  "complete_fluid_animation_families": 0,
+  "professional_family_acceptance": false,
+  "physical_device_validated": false,
+  "accepted_assets": [
+    "art/audio/production/sfx/spinner_tick_01.wav",
+    "art/audio/production/sfx/spinner_catch_01.wav",
+    "art/audio/production/sfx/spinner_stop_01.wav",
+    "art/audio/production/sfx/spinner_activate_01.wav",
+    "art/audio/production/sfx/spinner_fanfare_01.wav"
+  ],
+  "other_installed_features": [
+    "Six capped training upgrades including Wardweave, Hearthward and Mending; three legacy effects and prices retained",
+    "Atomic rank purchase saves, rollback and explicit named Lootcoin confirmation",
+    "Ordinary Hub equipment, rerolls and stash capacity spend Lootcoins; Scrap crafting and temporary Run Scrip retained",
+    "Reel ticks share the rendered symbol-displacement function; simultaneous crossings coalesce and stalled frames do not burst",
+    "All six existing reward tiers can reveal immediately without a second roll or payout",
+    "YOU WON! reward card includes exact reward name/amount; existing rare lighting retained",
+    "Five original offline procedural audio masters with PCM16 imports and provenance; long fanfare reserved for premium tiers"
+  ],
+  "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "economy_scope": {
+    "gold_to_lootcoins": "existing one-to-one balances retained",
+    "star_shards_to_loot_diamonds": "existing one-to-one balances and power retained",
+    "shop_currency_unification": "ordinary Hub equipment/rerolls/capacity use Lootcoins; Scrap caches/crafting and temporary Run Scrip retained",
+    "new_permanent_upgrades": "three installed: up to 3% armour, 5 starting Ward, 0.15 HP/s regeneration",
+    "rift_sigils": "not implemented",
+    "mythical_shiny_weapons": 0,
+    "mythical_shiny_shields": 0,
+    "pricing_or_payout_changes": "Hub equipment 90/180/420/900, reroll 60, stash 450/900 Lootcoins; existing payouts and cache costs unchanged",
+    "live_player_save_modified_by_qa": false
+  },
+  "new_requested_feature_debt": {
+    "separate_from_frozen_art_contracts": true,
+    "mythical_unique_weapons_required": 4,
+    "mythical_unique_shields_required": 4,
+    "mythical_items_installed": 0,
+    "sigil_challenges_installed": 0,
+    "spoken_you_won": "pending rights-cleared convincing performance",
+    "rare_diamond_economy": "existing payouts/power unchanged; redesign remains outstanding"
+  },
+  "quality_stages": {
+    "created": true,
+    "integrated": true,
+    "functionally_tested": true,
+    "gameplay_visual_reviewed": "Native phone/tablet/desktop training, shop and reward screenshots inspected; artistic and audio owner acceptance remain open",
+    "player_experience_reviewed": "automated native touch routes; owner review pending",
+    "production_quality_accepted": false
+  },
+  "builds": {},
+  "quality_findings": [
+    "Corrected new audio imports from compression mode 2 to PCM16 mode 0",
+    "Corrected training boundary row clipping by fitting three complete rows",
+    "Existing reward probabilities, receipt delivery, title track, combat damage and legacy stat ranks retained",
+    "Android provenance guard initially caught missing new cue registration; corrected packaged sources.json, with original licences and title score unchanged"
+  ],
+  "tests": "QA_RESULTS.json"
+}

@@ -13,6 +13,8 @@ const MUSIC_PATHS := {
 	"NULLGLASS_EXPANSE":"res://art/audio/production/music/nullglass_expanse.ogg"
 }
 const BASE_EVENT_SPECS := {
+	"spinner_activate":["SFX",0,.65,.35], "spinner_tick":["UI",0,.06,.2],
+	"spinner_catch":["SFX",0,.18,.3], "spinner_stop":["SFX",0,.35,.4], "spinner_fanfare":["SFX",0,1.35,.4],
 	"archive_page":["UI",0,.10,.10],
 	"home_bench":["Ambience",0,.12,.15], "home_page":["Ambience",0,.10,.10],
 	"relic_red":["SFX",0,1.1,.4], "draw_bow":["SFX",0,.18,.3], "charge_staff":["SFX",0,.23,.3],

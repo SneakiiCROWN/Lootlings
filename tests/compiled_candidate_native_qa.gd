@@ -30,8 +30,8 @@ func review() -> void:
   assert(hub.shop_offer_buttons[0].get_theme_stylebox("normal").texture.resource_path.ends_with("button_secondary.png"))
   assert(hub.shop_offer_buttons[1].get_node("SelectionMark").visible)
   await capture("shop_final")
-  var before:int=game.inventory.stash.size();var funds:int=game.inventory.scrap;var price:int=game.hideout_shop.stock[1].price
-  await tap(hub.shop_buy_button);assert(game.inventory.stash.size()==before+1 and game.inventory.scrap==funds-price)
+  var before:int=game.inventory.stash.size();var funds:int=game.gold;var price:int=game.hideout_shop.stock[1].price
+  await tap(hub.shop_buy_button);assert(game.inventory.stash.size()==before+1 and game.gold==funds-price)
   game.navigate_back();await process_frame;assert(hub.current_screen=="home")
   assert(ResourceLoader.exists("res://art/audio/production/music/title.ogg"))
   game.free();await process_frame

@@ -12,7 +12,7 @@ func review() -> void:
 	game.inventory.scrap=2000;game.gold=2000;game.save_meta();assert(game.inventory.save(game.INVENTORY_SAVE_PATH)==OK)
 	var offer: Dictionary=game.hideout_shop.stock[0].duplicate(true);var price: int=offer.price
 	var count: int=game.inventory.stash.size();game.buy_hideout_offer(0)
-	assert(game.inventory.scrap==2000-price and game.inventory.stash.size()==count+1 and game.hideout_shop.stock[0].is_empty())
+	assert(game.inventory.scrap==2000 and game.gold==2000-price and game.inventory.stash.size()==count+1 and game.hideout_shop.stock[0].is_empty())
 	game.buy_hideout_offer(0);assert(game.inventory.stash.size()==count+1)
 	var inventory=preload("res://inventory_system.gd").new();inventory.load(game.INVENTORY_SAVE_PATH)
 	var shop=preload("res://hideout_shop_system.gd").new();shop.load(game.HIDEOUT_SHOP_SAVE_PATH)
@@ -37,7 +37,7 @@ func review() -> void:
 	var source_hash: String=FileAccess.get_sha256(game.SAVE_PATH)
 	assert(preload("res://economy_transaction.gd").recover()==ERR_FILE_CORRUPT and FileAccess.get_sha256(game.SAVE_PATH)==source_hash)
 	assert(DirAccess.remove_absolute(preload("res://economy_transaction.gd").PATH)==OK)
-	game.free();await process_frame;print("COMPLETION ECONOMY PASS: unchanged offer/cache/contract prices, no duplicates, same debit/delivery generation, corrupt journal fail-closed");quit()
+	game.free();await process_frame;print("COMPLETION ECONOMY PASS: Lootcoin offers, unchanged cache/contract prices, no duplicates, same debit/delivery generation, corrupt journal fail-closed");quit()
 
 func same_saved_value(actual: Variant, expected: Variant) -> bool:
 	# ConfigFile writes decimal floats; a rare affix's binary roundoff must not

@@ -18,6 +18,7 @@ var progress:=0.0
 var burst:=0.0
 var reveal_started_at:=0.0
 var stopped_reels:=0
+var reel_crossings: Array[int]=[0,0,0]
 var aperture_layer: Control
 var plinth_style:=Catalog.flat_style(Color("#0b151b"),Color("#8c754c"),3)
 func _ready() -> void:
@@ -28,15 +29,17 @@ func wind_up(kind: String="material", tier: String="COMMON", quick: bool=false) 
 	reward_kind=kind; rarity=tier if tier in Catalog.TIERS else "COMMON"
 	fast=quick and Catalog.tier(rarity)<3
 	reel_seconds=Catalog.spin_seconds(rarity,fast)
-	elapsed=0; tick_at=0; progress=0; burst=0; reveal_started_at=0; stopped_reels=0; rolling=true; stage="rolling"
-	set_process(true); queue_redraw(); cue.emit("chest_windup")
+	elapsed=0; tick_at=0; progress=0; burst=0; reveal_started_at=0; stopped_reels=0; reel_crossings=[0,0,0]; rolling=true; stage="rolling"
+	set_process(true); queue_redraw(); cue.emit("spinner_activate")
 func skip() -> bool:
-	if not rolling or Catalog.tier(rarity)>=3: return false
+	if stage not in ["rolling","anticipation"]: return false
 	elapsed=reel_seconds+Catalog.anticipation(rarity); lock_result(); return true
 func lock_result() -> void:
 	if stage=="reveal" or stage=="settled": return
 	stage="reveal"; progress=1; burst=1; reveal_started_at=elapsed; rolling=false
-	cue.emit(Catalog.sound(rarity)); locked.emit(); queue_redraw()
+	cue.emit("spinner_stop"); cue.emit(Catalog.sound(rarity))
+	if Catalog.tier(rarity)>=3:cue.emit("spinner_fanfare")
+	locked.emit(); queue_redraw()
 func reveal(kind: String) -> void:
 	reward_kind=kind; rolling=false; stage="settled"; burst=0; progress=1; set_process(false); queue_redraw()
 func stop() -> void:
@@ -48,11 +51,17 @@ func _process(delta: float) -> void:
 		var stops: int=0
 		for reel in range(3):
 			if elapsed>=reel_seconds-(2-reel)*.08:stops+=1
-		if stops>stopped_reels:cue.emit("chest_land");stopped_reels=stops
-		if elapsed>=tick_at:
-			cue.emit("ui_press"); tick_at=elapsed+lerpf(.11,.30,progress*progress)
+		if stops>stopped_reels:cue.emit("spinner_catch");stopped_reels=stops
+		var crossing:=false
+		for reel in range(3):
+			var boundary:=int(floor(reel_turns(reel)))
+			if boundary>reel_crossings[reel]:crossing=true
+			reel_crossings[reel]=boundary
+		# Coalesce simultaneous crossings into one cue, never burst queued ticks
+		# after a dropped frame. Slow clicks follow the same eased reel motion.
+		if crossing:cue.emit("spinner_tick")
 		if progress>=1:
-			stage="anticipation"; cue.emit("chest_land")
+			stage="anticipation"
 	elif stage=="anticipation" and elapsed>=reel_seconds+Catalog.anticipation(rarity): lock_result()
 	elif stage=="reveal":
 		var hold:=.26 if Catalog.tier(rarity)==5 else .18 if Catalog.tier(rarity)==4 else 0.0
@@ -125,6 +134,9 @@ func _draw() -> void:
 	# corners previously crushed together over the rarity text.
 	draw_style_box(plinth_style,Rect2(center.x-84,size.y-28,168,24))
 	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-10),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,11,tint.lightened(.2))
+func reel_turns(reel: int) -> float:
+	var fraction: float=clampf(elapsed/maxf(.1,reel_seconds-(2-reel)*.08),0,1) if stage=="rolling" else 1.0
+	return (14+reel)*(1-pow(1-fraction,3))
 func draw_reels() -> void:
 	var tier:=Catalog.tier(rarity)
 	var tint:=Catalog.color(rarity) if stage not in ["idle","rolling"] else Color("#bca873")
@@ -143,9 +155,7 @@ func draw_reels() -> void:
 				aperture_layer.draw_polyline(PackedVector2Array([start,start.lerp(end,.35)+direction.orthogonal()*8,start.lerp(end,.6)-direction.orthogonal()*5,end]),Color(tint,burst*.7),2,true)
 			else: aperture_layer.draw_line(center+direction*18,center+direction*(70+(1-burst)*32),Color(tint,burst*.42),3,true)
 	for reel in range(3):
-		var reel_progress: float=clampf(elapsed/maxf(.1,reel_seconds-(2-reel)*.08),0,1) if stage=="rolling" else progress
-		var eased:=1-pow(1-reel_progress,3)
-		var turns: float=(14+reel)*eased
+		var turns: float=reel_turns(reel)
 		var x:=width*(reel+.5)
 		for edge in [-1,1]:
 			aperture_layer.draw_line(Vector2(x+edge*(width*.5-4),0),Vector2(x+edge*(width*.5-4),aperture_layer.size.y),Color("#514b415c"),3,true)

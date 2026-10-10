@@ -27,8 +27,8 @@ func review() -> void:
     if child is TextureRect or child.get_script()==preload("res://item_icon.gd"):icons+=1
    assert(icons<=2,"Refresh must not accumulate item pictures")
   assert(not hub.shop_buy_button.disabled);assert(hub.shop_offer_buttons[1].get_theme_stylebox("normal").texture!=null);await capture("shop_compare_ready")
-  var price:int=game.hideout_shop.stock[1].price;var stored:int=game.inventory.stash.size();var scrap:int=game.inventory.scrap
-  await tap(hub.shop_buy_button);assert(game.inventory.stash.size()==stored+1 and game.inventory.scrap==scrap-price)
+  var price:int=game.hideout_shop.stock[1].price;var stored:int=game.inventory.stash.size();var scrap:int=game.gold
+  await tap(hub.shop_buy_button);assert(game.inventory.stash.size()==stored+1 and game.gold==scrap-price)
   game.navigate_back();await process_frame;assert(hub.current_screen=="home")
   await tap(hub.hub_navigation.world_buttons.StorageChest);await tap(hub.stash_list.get_child(hub.entries.size()-1));await capture("stash_owned_compare");game.navigate_back();await process_frame;game.navigate_back();await process_frame
   game.meta_shards=0;hub.shards=0;await tap(hub.hub_navigation.world_buttons.ShrineProp);assert(hub.upgrade_button.disabled and hub.upgrade_button.text.contains("NEED"));await capture("shrine_requirements");game.navigate_back();await process_frame

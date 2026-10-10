@@ -256,7 +256,7 @@ var tap_tutorial_seen := false
 var meta_shards := 0
 var meta_power := 0
 var gold := 0
-var gold_upgrades := {"bedroll":0, "whetstone":0, "pouch":0}
+var gold_upgrades := preload("res://permanent_upgrade_catalog.gd").defaults()
 var run_gold_earned := 0
 var run_shards_earned := 0
 var run_coins_earned := 0
@@ -1141,21 +1141,22 @@ func buy_hideout_offer(index: int) -> void:
 		return
 	var offer: Dictionary = hideout_shop.stock[index]
 	var price := int(offer.get("price", 0))
-	if inventory.scrap < price:
-		hideout_ui.show_shop_message("Not enough Scrap for this offer.", "#ffbd69")
+	if gold < price:
+		hideout_ui.show_shop_message("Not enough Lootcoins for this offer.", "#ffbd69")
 		return
-	inventory.scrap -= price
+	gold -= price
 	var purchased := hideout_shop.take_offer(index)
 	if not inventory.keep(purchased):
-		inventory.scrap += price
-		hideout_ui.show_shop_message("STASH FULL\nNo Scrap was spent.", "#ff9b8f")
+		hideout_shop.stock[index]=purchased
+		gold += price
+		hideout_ui.show_shop_message("STASH FULL\nNo Lootcoins was spent.", "#ff9b8f")
 		return
 	if not save_hideout_economy():return
 	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
 	hideout_ui.play_shop_purchase(index, ItemCatalog.rarity_color(purchased.get("rarity", "COMMON")))
 	hideout_ui.request_dialogue("shop_purchase", "Salvager")
 	play_audio_event("shop_purchase")
-	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"scrap", "price":price, "item_id":purchased.get("id", "")})
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"lootcoins", "price":price, "item_id":purchased.get("id", "")})
 
 func use_mystery_cache() -> void:
 	if hideout_shop.requires_review():
@@ -1239,11 +1240,8 @@ func use_gold_cache() -> void:
 func buy_gold_upgrade(upgrade_id: String) -> void:
 	if state != "hideout" or not upgrade_id in gold_upgrades:
 		return
-	var costs := {
-		"bedroll":[250,450,700,1000,1400],
-		"whetstone":[300,525,800,1150,1600],
-		"pouch":[225,400,650,950,1300]
-	}
+	var costs: Dictionary={}
+	for id in preload("res://permanent_upgrade_catalog.gd").DEFINITIONS:costs[id]=preload("res://permanent_upgrade_catalog.gd").DEFINITIONS[id][2]
 	var rank := int(gold_upgrades[upgrade_id])
 	if rank >= 5:
 		return
@@ -1252,7 +1250,7 @@ func buy_gold_upgrade(upgrade_id: String) -> void:
 		return
 	gold -= price
 	gold_upgrades[upgrade_id] = rank + 1
-	save_meta()
+	if not save_hideout_economy():return
 	refresh_hideout()
 	hideout_ui.show_upgrades()
 	hideout_ui.play_shrine_upgrade()
@@ -1319,11 +1317,11 @@ func buy_stash_expansion() -> void:
 	if state != "hideout" or not hideout_shop.pending_cache_item.is_empty():
 		return
 	var price := hideout_shop.expansion_cost(inventory.stash_capacity)
-	if price <= 0 or inventory.scrap < price:
+	if price <= 0 or gold < price:
 		return
-	inventory.scrap -= price
+	gold -= price
 	if not inventory.expand_stash():
-		inventory.scrap += price
+		gold += price
 		return
 	if not save_hideout_economy():return
 	hideout_ui.show_shop_message("STASH EXPANDED\nCapacity increased to %d slots." % inventory.stash_capacity, "#72c8ff")
@@ -1333,11 +1331,11 @@ func reroll_hideout_shop() -> void:
 		hideout_ui.show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.");return
 	if state != "hideout" or hideout_shop.rerolled_this_cycle or not hideout_shop.pending_cache_item.is_empty():
 		return
-	if inventory.scrap < hideout_shop.REROLL_COST:
+	if gold < hideout_shop.REROLL_COST:
 		return
-	inventory.scrap -= hideout_shop.REROLL_COST
+	gold -= hideout_shop.REROLL_COST
 	if not hideout_shop.reroll():
-		inventory.scrap += hideout_shop.REROLL_COST
+		gold += hideout_shop.REROLL_COST
 		return
 	if not save_hideout_economy():return
 	hideout_ui.show_shop_message("Offers replaced. Inspect before buying.", "#ffe178")
@@ -1683,7 +1681,8 @@ func start_run() -> void:
 	multi_hits = 1
 	splash_ratio = 0.0
 	life_steal = 0.0
-	armor = 0.0
+	armor = preload("res://permanent_upgrade_catalog.gd").armour(int(gold_upgrades.get("wardweave",0)))
+	player_ward = float(gold_upgrades.get("hearthward",0))
 	frenzy = 0.0
 	tap_mult = 0.65
 	tap_buffer_timer = 0.0
@@ -1691,7 +1690,7 @@ func start_run() -> void:
 	tap_buffer_flash = 0.0
 	tap_tutorial_seen = false
 	execute_ratio = 0.0
-	regen_per_second = 0.0
+	regen_per_second = preload("res://permanent_upgrade_catalog.gd").regeneration(int(gold_upgrades.get("mending",0)))
 	coin_reward_mult = 1.0
 	xp_reward_mult = 1.0
 	carried_shockwave = 0.0

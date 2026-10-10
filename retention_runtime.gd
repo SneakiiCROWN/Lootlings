@@ -191,7 +191,7 @@ func start_reveal(quick: bool) -> void:
 	spin_kind=str(spin_reward.get("kind","material"))
 	var rarity: String=str(spin_reward.get("rarity",spin_reward.get("item",{}).get("rarity","COMMON")))
 	spin_busy=true; selected_at=Time.get_ticks_msec(); buttons[0].disabled=true; buttons[1].disabled=true; buttons[3].disabled=true; buttons[4].disabled=true
-	buttons[2].visible=true; buttons[2].disabled=SpinCatalog.tier(rarity)>=3; buttons[2].text="PREMIUM REVEAL" if buttons[2].disabled else "SKIP REVEAL"
+	buttons[2].visible=true; buttons[2].disabled=false; buttons[2].text="REVEAL NOW"
 	buttons[2].position=Vector2(24,606); buttons[2].size=Vector2(376,50); buttons[1].visible=false; buttons[3].visible=false; buttons[4].visible=false
 	update_chase(); detail.text="The seals are turning…\nReward reserved. Nothing is lost if you leave."; detail.add_theme_color_override("default_color",Color("#e7edff"))
 	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
@@ -206,7 +206,7 @@ func lock_spin() -> void:
 	var amount: int=int(spin_reward.get("display_amount",spin_reward.get("amount",1)))
 	detail.add_theme_color_override("default_color",SpinCatalog.color(rarity))
 	detail.add_theme_stylebox_override("normal",SpinCatalog.flat_style(SpinCatalog.color(rarity).darkened(.88),SpinCatalog.color(rarity).darkened(.25),10))
-	detail.text="[center][b]%s\n%s%s[/b]\n%s[/center]" % ["GRAVEBLOOM RELIC" if rarity=="RED" else rarity,name," × %d" % amount if spin_kind!="item" else "",spin_message]
+	detail.text="[center][b]%s\n%s%s[/b]\n%s[/center]" % ["YOU WON! • GRAVEBLOOM RELIC" if rarity=="RED" else "YOU WON! • "+rarity,name," × %d" % amount if spin_kind!="item" else "",spin_message]
 
 func finish_spin() -> void:
 	if not spin_busy: return
@@ -226,7 +226,9 @@ func finish_spin() -> void:
 func close_spinner() -> void:
 	if pool_panel.visible: pool_panel.visible=false; return
 	# Leaving never cancels the already committed reward. Return to its real origin.
-	if spin_busy and SpinCatalog.tier(machine.rarity)>=3: return
+	if spin_busy:
+		if machine.stage in ["rolling","anticipation"]:machine.skip()
+		finish_spin()
 	spin_busy=false; machine.stop(); panel.visible=false; dimmer.visible=false
 	if spinner_from_home:
 		spinner_from_home=false;game.show_hideout()

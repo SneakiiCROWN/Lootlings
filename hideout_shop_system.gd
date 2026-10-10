@@ -7,11 +7,11 @@ const OFFER_SLOTS := ["Weapon", "Armour"]
 const THIRD_OFFER_SLOTS := ["Relic", "Rune"]
 const OFFER_RARITY_WEIGHTS := [72.0, 25.0, 3.0, 0.0]
 const CACHE_RARITY_WEIGHTS := [82.0, 16.0, 2.0, 0.0]
-const EQUIPMENT_PRICES := [12, 28, 65, 140]
+const EQUIPMENT_PRICES := [90, 180, 420, 900]
 const CACHE_COST := 20
 const GOLD_CACHE_COST := 180
-const REROLL_COST := 9
-const EXPANSION_COSTS := {12:45, 18:90}
+const REROLL_COST := 60
+const EXPANSION_COSTS := {12:450, 18:900}
 
 var stock: Array = []
 var cycle := 0

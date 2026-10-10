@@ -1,7 +1,7 @@
 extends RefCounted
 
 static func load_progress(path: String) -> Dictionary:
-	var result := {"shards": 0, "power": 0, "gold": 0, "gold_upgrades":{"bedroll":0, "whetstone":0, "pouch":0}}
+	var result := {"shards": 0, "power": 0, "gold": 0, "gold_upgrades":preload("res://permanent_upgrade_catalog.gd").defaults()}
 	var config := ConfigFile.new()
 	if preload("res://safe_config.gd").load_config(config, path, "progress") != OK:
 		return result
@@ -20,7 +20,7 @@ static func save_progress(path: String, shards: int, power: int, gold: int = 0, 
 	config.set_value("progress", "shards", clampi(shards, 0, 999999))
 	config.set_value("progress", "power", clampi(power, 0, 100))
 	config.set_value("progress", "gold", clampi(gold, 0, 999999999))
-	var safe_upgrades := {"bedroll":0, "whetstone":0, "pouch":0}
+	var safe_upgrades := preload("res://permanent_upgrade_catalog.gd").defaults()
 	for upgrade_id in safe_upgrades:
 		safe_upgrades[upgrade_id] = clampi(int(gold_upgrades.get(upgrade_id, 0)), 0, 5)
 	config.set_value("progress", "gold_upgrades", safe_upgrades)

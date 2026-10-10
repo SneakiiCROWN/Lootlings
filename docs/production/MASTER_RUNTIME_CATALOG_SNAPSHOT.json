@@ -1038,6 +1038,36 @@
           0.17,
           0.3
         ],
+        "spinner_activate": [
+          "SFX",
+          0,
+          0.65,
+          0.35
+        ],
+        "spinner_catch": [
+          "SFX",
+          0,
+          0.18,
+          0.3
+        ],
+        "spinner_fanfare": [
+          "SFX",
+          0,
+          1.35,
+          0.4
+        ],
+        "spinner_stop": [
+          "SFX",
+          0,
+          0.35,
+          0.4
+        ],
+        "spinner_tick": [
+          "UI",
+          0,
+          0.06,
+          0.2
+        ],
         "swing_bow": [
           "SFX",
           0,
@@ -1264,7 +1294,7 @@
       "make_ambient_loop",
       "_exit_tree"
     ],
-    "source_sha256": "a8de536f334fec8fe4dd11877a93e4012237c3964b5efd05a55d4b3b124536d9"
+    "source_sha256": "49a238840d7279189e46c17086844b68f17b7f0efe489efebefa70aebe23a47f"
   },
   "authored_pose_manifest.gd": {
     "constants": {
@@ -4687,14 +4717,14 @@
         0.0
       ],
       "EQUIPMENT_PRICES": [
-        12,
-        28,
-        65,
-        140
+        90,
+        180,
+        420,
+        900
       ],
       "EXPANSION_COSTS": {
-        "12": 45,
-        "18": 90
+        "12": 450,
+        "18": 900
       },
       "GOLD_CACHE_COST": 180,
       "ItemCatalog": {
@@ -4710,7 +4740,7 @@
         "Weapon",
         "Armour"
       ],
-      "REROLL_COST": 9,
+      "REROLL_COST": 60,
       "THIRD_OFFER_SLOTS": [
         "Relic",
         "Rune"
@@ -4736,7 +4766,7 @@
       "serial_for",
       "requires_review"
     ],
-    "source_sha256": "85c65c12965d28b6ead3d706c70f10aa5020533841c79791060b9e2c6986db8b"
+    "source_sha256": "3b0315920ea7366f860aaad59997068ce1a734241a369f284ba8c57675808e0f"
   },
   "hideout_ui.gd": {
     "constants": {
@@ -4965,7 +4995,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "b6a1e5c8bac188fd5e5606f03270f32c65c2385632b8a04fc3e91e7f3f07453e"
+    "source_sha256": "30b7672ba0b65a67f9756a323ee5353fcc875014d921d80d7abf4bf693886470"
   },
   "home_catalog.gd": {
     "constants": {
@@ -6921,7 +6951,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "eabc2be040084209a61e514c479b2acd607d096348bad990501e3f05f6411a53"
+    "source_sha256": "2a39933db65443ff1c9be4c239054a45b43d9687e0753c91dc4dbcbb2fc46763"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7190,7 +7220,7 @@
       "load_progress",
       "save_progress"
     ],
-    "source_sha256": "f16c3bc59a5db204fdecfc24c5254907a9e0f7cd0e4e522d370a3c5708295845"
+    "source_sha256": "e275c9089ff7ba467e906f5aff591f82e277434ee6fe3307af3ad42ff9873e93"
   },
   "mobile_test_monitor.gd": {
     "constants": {
@@ -7213,6 +7243,85 @@
       "texture"
     ],
     "source_sha256": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb"
+  },
+  "permanent_upgrade_catalog.gd": {
+    "constants": {
+      "DEFINITIONS": {
+        "bedroll": [
+          "STURDY BEDROLL",
+          "+4 starting HP",
+          [
+            250,
+            450,
+            700,
+            1000,
+            1400
+          ]
+        ],
+        "hearthward": [
+          "HEARTHWARD CHARM",
+          "+1 starting Ward • up to 5",
+          [
+            450,
+            750,
+            1150,
+            1600,
+            2200
+          ]
+        ],
+        "mending": [
+          "MENDING THREAD",
+          "Diminishing regen • up to 0.15 HP/s",
+          [
+            900,
+            1400,
+            2100,
+            3000,
+            4200
+          ]
+        ],
+        "pouch": [
+          "FIELD POUCH",
+          "+8 starting Run Scrip",
+          [
+            225,
+            400,
+            650,
+            950,
+            1300
+          ]
+        ],
+        "wardweave": [
+          "WARDWEAVE LINING",
+          "Diminishing armour • up to 3%",
+          [
+            600,
+            950,
+            1400,
+            2000,
+            2800
+          ]
+        ],
+        "whetstone": [
+          "RELIC WHETSTONE",
+          "+0.6 starting damage",
+          [
+            300,
+            525,
+            800,
+            1150,
+            1600
+          ]
+        ]
+      }
+    },
+    "methods": [
+      "defaults",
+      "sanitize",
+      "armour",
+      "regeneration"
+    ],
+    "source_sha256": "9570a53f7a4916c5e9d30cef0b900f16ca980a5b7496ecd81b4ed92b028e9623"
   },
   "personal_home.gd": {
     "constants": {
@@ -8425,10 +8534,11 @@
       "stop",
       "_process",
       "_draw",
+      "reel_turns",
       "draw_reels",
       "draw_seal"
     ],
-    "source_sha256": "19befca3b196d6ad0b5b866cf2e39b23b86e1850bed3015d73a6345944a7b6ca"
+    "source_sha256": "cfe486d2d99157a5f66fdc21eb17f306efaa1942c46221f86b6976e2cbb8e141"
   },
   "relic_reveal_fx.gd": {
     "constants": {},
@@ -8629,7 +8739,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "ebea204ac7c000db884827e20146ede2b9d4d10d5cc6fdb6c06f1492fc3d2ad3"
+    "source_sha256": "bd8453fcc769cf0ba4363ec73d55d1848c8db1df8827812c1c5a816d25ade8db"
   },
   "reward_reveal_catalog.gd": {
     "constants": {

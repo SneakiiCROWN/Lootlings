@@ -295,9 +295,10 @@ func run_tests() -> void:
 	game.inventory.scrap_from_stash(0)
 	var bought_item: Dictionary = game.hideout_shop.stock[0].duplicate(true)
 	var bought_price: int = bought_item.price
-	var buy_scrap_before: int = game.inventory.scrap
+	game.gold=2000
+	var buy_scrap_before: int = game.gold
 	game.buy_hideout_offer(0)
-	check(game.inventory.stash.size() == game.inventory.stash_capacity and game.inventory.scrap == buy_scrap_before - bought_price and game.hideout_shop.stock[0].is_empty(), "buying Hideout equipment spends Scrap, marks its display sold, and sends the item to Stash")
+	check(game.inventory.stash.size() == game.inventory.stash_capacity and game.gold == buy_scrap_before - bought_price and game.hideout_shop.stock[0].is_empty(), "buying Hideout equipment spends Lootcoins, marks its display sold, and sends the item to Stash")
 	var purchased_index := -1
 	for stash_index in range(game.inventory.stash.size()):
 		if game.inventory.stash[stash_index].get("serial", 0) == bought_item.get("serial", -1):
@@ -344,10 +345,11 @@ func run_tests() -> void:
 	game.gold = 0
 	game.save_meta()
 	game.inventory.scrap = 999
-	var expansion_scrap_before: int = game.inventory.scrap
+	game.gold=2000
+	var expansion_scrap_before: int = game.gold
 	var expansion_cost: int = game.hideout_shop.expansion_cost(game.inventory.stash_capacity)
 	game.buy_stash_expansion()
-	check(game.inventory.stash_capacity == 18 and game.inventory.scrap == expansion_scrap_before - expansion_cost, "Stash Expansion purchases 12 to 18 slots with Scrap")
+	check(game.inventory.stash_capacity == 18 and game.gold == expansion_scrap_before - expansion_cost, "Stash Expansion purchases 12 to 18 slots with Lootcoins")
 	var expanded_reload = InventorySystem.new()
 	expanded_reload.load(game.INVENTORY_SAVE_PATH)
 	check(expanded_reload.stash_capacity == 18 and expanded_reload.scrap == game.inventory.scrap, "Stash capacity and Scrap persist across reloads")
@@ -696,7 +698,7 @@ func run_tests() -> void:
 	check(game.total_kills >= 40, "waves and miniboss produced the expected enemy sequence")
 	check(game.meta_shards > 0, "run rewards permanent-progression currency")
 	check(game.restart_button.text == "RETURN TO HIDEOUT", "results provide one clear return to the Hideout")
-	check(game.result_summary.text.contains("RUN SCRIP") and game.result_summary.text.contains("RUN REWARDS") and game.result_summary.text.contains("Gold +"), "results separate temporary Run Scrip from persistent Gold rewards")
+	check(game.result_summary.text.contains("RUN SCRIP") and game.result_summary.text.contains("RUN REWARDS") and game.result_summary.text.contains("Lootcoins +"), "results separate temporary Run Scrip from persistent Lootcoin rewards")
 	var large_result: String = game.format_result_summary(true, 9999, 9999, 9999, 8888, 1111, 7777, 6666, "A Very Long Legendary Item Name")
 	check(large_result.contains("Earned     9999\nSpent      8888\nAt finish  1111"), "four-digit Run Scrip values use separate responsive result rows")
 	game.show_hideout()
