@@ -52,6 +52,8 @@ static var EVENT_SPECS := event_specs()
 
 static func event_specs() -> Dictionary:
 	var result := BASE_EVENT_SPECS.duplicate(true)
+	result["spinner_announcement"]=["UI",0,1.8,.4]
+	result["spinner_jackpot"]=["SFX",0,1.9,.46]
 	for weapon in ["greatsword","greataxe","maul","spear","daggers","claws","bow","crossbow","sling","staff","wand","orb"]:
 		result["weapon_"+weapon]=["SFX",0,.4,.4]
 	for material in ["flesh","armour","stone","wood","glass","molten","ethereal"]:
@@ -170,7 +172,9 @@ func ensure_buses() -> void:
 		limiter.soft_clip_db = 2.0
 		AudioServer.add_bus_effect(master_index, limiter)
 
+var reward_announcements_enabled := true
 func apply_settings(settings: Dictionary) -> void:
+	reward_announcements_enabled=bool(settings.get("reward_announcements",true))
 	for channel in ["master", "music", "sfx", "ui", "ambience"]:
 		var bus_name: String = {"master":"Master", "music":"Music", "sfx":"SFX", "ui":"UI", "ambience":"Ambience"}[channel]
 		var index := AudioServer.get_bus_index(bus_name)
@@ -181,6 +185,7 @@ func apply_settings(settings: Dictionary) -> void:
 		AudioServer.set_bus_mute(index, bool(settings.get(channel + "_muted", false)))
 
 func play_event(event_name: String) -> void:
+	if event_name=="spinner_announcement" and not reward_announcements_enabled:return
 	if not output_enabled or not EVENT_SPECS.has(event_name):
 		return
 	if event_name in ["epic_reveal","legendary_reveal","relic_red","boss_warning","verdant_mirror","verdant_root"]:
@@ -224,6 +229,7 @@ func play_event(event_name: String) -> void:
 	if bus_name=="UI": player.volume_db-=2.0
 	elif event_name not in IMPORTANT_EVENTS: player.volume_db-=2.0
 	if event_name in ["home_bench","home_page"]: player.volume_db-=10.0
+	if event_name=="spinner_announcement":player.pitch_scale=1.0;player.volume_db=-7.0
 	player.play()
 
 func play_voice(profile: String, role: String) -> void:

@@ -1529,7 +1529,7 @@ func apply_item_thumbnail(button: Button, item: Dictionary, card_layout: bool = 
 	if old_icon != null:
 		button.remove_child(old_icon)
 		old_icon.queue_free()
-	button.icon = null if card_layout else weapon_texture_for_item(item)
+	button.icon = null if card_layout or item.get("rarity", "")=="MYTHICAL SHINY" else weapon_texture_for_item(item)
 	button.expand_icon = true
 	if button.icon != null:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -1562,7 +1562,7 @@ func apply_item_thumbnail(button: Button, item: Dictionary, card_layout: bool = 
 			category_icon.configure(item)
 			button.add_child(category_icon)
 	if item.get("slot", "") == "Weapon":
-		var badge := LootlingsUI.add_icon(button, Rect2(Vector2((button.size.x - 46) * 0.5 + 32, 36) if card_layout else Vector2(40, 42), Vector2(16, 16)), "rarity_%s" % str(item.get("rarity", "COMMON")).to_lower())
+		var badge := LootlingsUI.add_icon(button, Rect2(Vector2((button.size.x - 46) * 0.5 + 32, 36) if card_layout else Vector2(40, 42), Vector2(16, 16)), ("res://art/production/phase4e/items/mythical_050/starfold.png" if item.get("rarity","")=="MYTHICAL SHINY" else "gear_charm" if item.get("rarity","")=="RED" else "rarity_%s" % str(item.get("rarity", "COMMON")).to_lower()))
 		badge.name = "RarityBadge"
 
 func dismiss_dialogue() -> void:

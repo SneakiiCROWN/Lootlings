@@ -125,6 +125,8 @@ func show_modes(tab: String="siege") -> void:
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
 	if tab=="dungeons" and buttons[1].disabled and buttons[2].disabled:mode_line="Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nClear Treasure Ruins to unlock both routes."
 	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return.\nRift Sigils: %d • earn one per clear (8+ foes)." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET,int(game.rift_progress.sigils)]
+	detail.text+="\nMythical chase: %d / 24 clears; %d / 8 collected. 1%% chance, guaranteed at 24." % [int(game.rift_progress.pity),mini(8,int(game.rift_progress.collection))]
+	if not game.rift_progress.pending.is_empty():detail.text+="\nMythical reward saved: make room in Gear."
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0
 	for index in [0,1,2,5,3,4]:
@@ -143,7 +145,7 @@ func choose(index: int) -> void:
 			if index==4: close_modes(); return
 			if index==5:
 				if not "act_i" in game.campaign.completed or game.rift_progress.sigils<2:return
-				game.touch_ux.request("Enter the Prism Rift?","Costs 2 Rift Sigils when combat begins. Eight harder branching rooms. Clear with at least eight foes defeated: +250 Lootcoins, +20 Diamonds, +1 Sigil, plus guardian loot. Defeat gives no bonus. Regular dungeons remain free.",func():
+				game.touch_ux.request("Enter the Prism Rift?","Costs 2 Rift Sigils when combat begins. Eight harder branching rooms. Clear with at least eight foes defeated: +250 Lootcoins, +20 Diamonds, +1 Sigil, plus guardian loot. Mythical Shiny: 1% per clear; guaranteed by clear 24 since the last find. Eight unique finds before repeats. Defeat gives no bonus. Regular dungeons remain free.",func():
 					panel.visible=false;game.state="hideout";siege=false;targeted=false;rift_pending=true;game.expedition_tier=0;game.campaign_id="act_i"
 					game.dungeon.setup(int(Time.get_ticks_msec()),"act_i")
 					for layer in game.dungeon.map:
@@ -219,6 +221,7 @@ func start_reveal(quick: bool) -> void:
 	update_chase(); detail.text="The seals are turning…\nReward reserved. Nothing is lost if you leave."; detail.add_theme_color_override("default_color",Color("#e7edff"))
 	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
 	machine.reduced_motion=game.audio_settings.get("cinematic_reduced_motion",false)
+	machine.reward_texture=preload("res://lootlings_ui.gd").raw_item_texture(spin_reward.get("item",{})) if spin_kind=="item" else null
 	machine.wind_up(spin_kind,rarity,quick)
 	if SpinCatalog.tier(rarity)>=3 and game.audio_manager!=null: game.audio_manager.duck_music()
 

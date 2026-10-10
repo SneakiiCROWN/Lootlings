@@ -240,12 +240,12 @@ func build_settings() -> void:
 	LootlingsUI.apply_material(cinematic_preferences, "relic")
 	cinematic_preferences.visible = false
 	make_label(cinematic_preferences, "STORY & MOTION", 26, Rect2(22,24,380,44), HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
-	var options := {"cinematic_first_time":"First-time story moments", "cinematic_repeat_boss":"Short repeat boss stings", "cinematic_auto_skip":"Auto-skip viewed moments", "cinematic_reduced_motion":"Reduced cinematic motion", "cinematic_subtitles":"Story captions"}
+	var options := {"cinematic_first_time":"First-time story moments", "cinematic_repeat_boss":"Short repeat boss stings", "cinematic_auto_skip":"Auto-skip viewed moments", "cinematic_reduced_motion":"Reduced cinematic motion", "cinematic_subtitles":"Story captions", "reward_announcements":"Reward voice announcements"}
 	var index := 0
 	for key in options:
 		var toggle := CheckButton.new()
 		toggle.text = str(options[key])
-		toggle.position = Vector2(28,90+index*77)
+		toggle.position = Vector2(28,90+index*62)
 		toggle.size = Vector2(368,54)
 		toggle.add_theme_font_size_override("font_size",17)
 		cinematic_preferences.add_child(toggle)

@@ -3,10 +3,15 @@ extends RefCounted
 const ENTRY_COST=2
 const BONUS_COINS=250
 const BONUS_DIAMONDS=20
-static func defaults() -> Dictionary:return {"sigils":0,"receipts":[],"entry":""}
+static func defaults() -> Dictionary:return {"sigils":0,"receipts":[],"entry":"","clears":0,"pity":0,"collection":0,"pending":[]}
 static func sanitize(value: Dictionary) -> Dictionary:
  var result:=defaults()
  result.sigils=clampi(preload("res://safe_config.gd").int_value(value.get("sigils",0)),0,999999)
+ for key in ["clears","pity","collection"]:result[key]=clampi(preload("res://safe_config.gd").int_value(value.get(key,0)),0,999999)
+ var pending=value.get("pending",[])
+ if pending is Array:
+  for reward in pending:
+   if reward is Dictionary and reward.get("id","") in preload("res://mythical_collection.gd").IDS and reward.get("receipt",null) is String:result.pending.append(reward.duplicate(true))
  var receipts=value.get("receipts",[])
  if receipts is Array:
   for receipt in receipts:
@@ -31,6 +36,28 @@ static func settle(game, token: String, victory: bool, kills: int, elite: bool) 
  game.gold+=coins;game.meta_shards+=diamonds
  game.rift_progress.receipts.append(receipt)
  if game.rift_progress.receipts.size()>128:game.rift_progress.receipts.pop_front()
+ if coins>0:
+  game.rift_progress.clears+=1;game.rift_progress.pity+=1
+  # 1% per eligible clear; at most 24 clears between finds. Cycle the initial
+  # eight-item collection before repeats, so no duplicate blocks completion.
+  if game.rift_progress.pity>=24 or absi(hash(receipt))%1000<10:
+   var id: String=preload("res://mythical_collection.gd").IDS[int(game.rift_progress.collection)%8]
+   game.rift_progress.collection+=1;game.rift_progress.pity=0
+   game.rift_progress.pending.append({"id":id,"receipt":"mythical:"+receipt})
  game.rift_progress.entry=""
  if not game.save_hideout_economy():return "Rift reward could not be saved. No additional currency was charged."
- return ("RIFT REWARDS • +%d Sigil • +%d Lootcoins • +%d Diamonds" % [sigils,coins,diamonds]) if coins>0 else ("+1 RIFT SIGIL • optional elite entry costs 2" if sigils>0 else "")
+ return ("RIFT REWARDS â€¢ +%d Sigil â€¢ +%d Lootcoins â€¢ +%d Diamonds" % [sigils,coins,diamonds]) if coins>0 else ("+1 RIFT SIGIL â€¢ optional elite entry costs 2" if sigils>0 else "")
+
+static func recover(game) -> Array:
+ var delivered:Array=[]
+ while not game.rift_progress.pending.is_empty():
+  var reward:Dictionary=game.rift_progress.pending[0]
+  var item:Dictionary=preload("res://item_catalog.gd").create_item(reward.id,"MYTHICAL SHINY",int(hash(reward.receipt)))
+  if not reward.receipt in game.inventory.craft_receipts:
+   if game.inventory.stash.size()>=game.inventory.stash_capacity:break
+   if not game.inventory.keep(item):break
+   game.inventory.craft_receipts.append(reward.receipt)
+  game.rift_progress.pending.pop_front()
+  if not game.save_hideout_economy():break
+  delivered.append({"kind":"item","rarity":"MYTHICAL SHINY","item":item,"receipt":reward.receipt})
+ return delivered

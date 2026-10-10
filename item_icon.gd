@@ -29,7 +29,7 @@ func configure(item: Dictionary) -> void:
 func _draw() -> void:
 	var center := size * 0.5
 	var radius := minf(size.x, size.y) * 0.34
-	if slot == "Weapon":
+	if slot == "Weapon" and rarity!="MYTHICAL SHINY":
 		draw_circle(center, radius * 1.20, Color(rarity_color.r, rarity_color.g, rarity_color.b, 0.13))
 		draw_arc(center, radius, 0, TAU, 28, rarity_color, maxf(2.0, radius * 0.08))
 		var texture: Texture2D = {"RANGER":RANGER_TEXTURE, "MAGE":MAGE_TEXTURE, "ROGUE":ROGUE_TEXTURE}.get(family, VANGUARD_TEXTURE)
@@ -41,7 +41,7 @@ func _draw() -> void:
 		LootlingsUI.draw_icon(get_canvas_item(), painted_texture, Rect2(Vector2.ZERO, size))
 	var badge_size := minf(28, minf(size.x, size.y) * 0.28)
 	var badge_rect := Rect2(size - Vector2.ONE * badge_size, Vector2.ONE * badge_size)
-	if rarity=="RED":
+	if rarity in ["RED","MYTHICAL SHINY"]:
 		# Existing relic seal with a distinct scarlet rim; never a gold tier badge.
 		draw_circle(badge_rect.get_center(),badge_size*.52,Color("#280b22"))
 		draw_arc(badge_rect.get_center(),badge_size*.5,0,TAU,24,rarity_color,2,true)

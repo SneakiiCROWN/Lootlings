@@ -1019,6 +1019,7 @@ func show_hideout() -> void:
 	if personal_home!=null:personal_home.visible=false
 	hideout_ui.private_return=false
 	retention.progress.recover(self)
+	preload("res://rift_progress.gd").recover(self)
 	retention.reset()
 	if presentation_director != null: presentation_director.vignette.cancel()
 	dungeon.active = false
@@ -1783,6 +1784,8 @@ func start_run() -> void:
 	queue_redraw()
 
 func spawn_enemy() -> void:
+	if retention.rift_active and dungeon.active and dungeon.room.get("kind","") in ["Elite","Boss"]:
+		spawn_single_enemy();return
 	enemy_encounter.clear()
 	var encounter: Dictionary = ZoneCatalog.encounter_for(run_zone_for_wave(wave), wave, wave_kills, grouped_patrols or dungeon.active)
 	if encounter.members.size() > 1:
@@ -1810,6 +1813,9 @@ func spawn_single_enemy() -> void:
 			pass # Select below after actual mode boss flags are established.
 	enemy_is_miniboss = wave == 8
 	enemy_is_boss = wave == RUN_LAST_WAVE
+	if retention.rift_active and dungeon.active:
+		enemy_is_miniboss = dungeon.room.get("kind","")=="Elite"
+		enemy_is_boss = dungeon.room.get("kind","")=="Boss"
 	if retention.siege:
 		enemy_is_boss=retention.round_rule.boss; enemy_is_miniboss=retention.round_rule.miniboss
 	if audio_manager!=null:
@@ -3358,6 +3364,10 @@ func end_run(victory: bool) -> void:
 	var rift_line: String=preload("res://rift_progress.gd").settle(self,str(retention.progress.data.session),victory,total_kills,retention.rift_active)
 	if not rift_line.is_empty():result_summary.text+="\n"+rift_line
 	retention.finish(victory)
+	var mythical_deliveries: Array=preload("res://rift_progress.gd").recover(self)
+	if not mythical_deliveries.is_empty():
+		result_summary.text+="\nMYTHICAL SHINY: "+str(mythical_deliveries[0].item.name)
+		retention.call_deferred("present_red_drop",mythical_deliveries[0],"Saved to Gear. A prismatic keepsake!")
 	if retention.siege:
 		result_title.text="SIEGE EXTRACTED" if victory else "SIEGE ENDED"
 		result_summary.text=result_summary.text.replace("RUN SCRIP","SIEGE EMBERS").replace("Wave reached  %d / %d" % [wave,RUN_LAST_WAVE],"Round reached  %d" % wave)

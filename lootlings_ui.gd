@@ -54,6 +54,8 @@ static func item_texture(item: Dictionary) -> Texture2D:
 	return framed_item_texture(raw_item_texture(item))
 
 static func raw_item_texture(item: Dictionary) -> Texture2D:
+	var mythical: Texture2D=preload("res://mythical_collection.gd").texture(str(item.get("id","")))
+	if mythical!=null:return mythical
 	if item.get("slot", "") == "Weapon":
 		var family := str(item.get("family", "VANGUARD"))
 		var fallback_path: String = {"RANGER":"ranger_bow", "MAGE":"mage_staff", "ROGUE":"rogue_daggers"}.get(family, "vanguard_hammer")

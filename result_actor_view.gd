@@ -21,6 +21,10 @@ func _draw() -> void:
  draw_set_transform(Vector2.ZERO)
 func draw_weapon(transform: Transform2D,pose: Dictionary) -> void:
  var texture:Texture2D=preload("res://weapon_catalog.gd").presentation_texture(pose.weapon_type,"held",null,int(game.inventory.equipped_item("Weapon").get("evolution_stage",0)))
+ var item:Dictionary=game.inventory.equipped_item("Weapon")
+ var mythical:Texture2D=preload("res://mythical_collection.gd").texture(str(item.get("id","")))
+ var rect:Rect2=pose.weapon_rect
+ if mythical!=null:texture=mythical;rect.position=-preload("res://mythical_collection.gd").GRIPS[item.id]*rect.size
  if texture==null:return
  draw_set_transform_matrix(transform*Transform2D(float(pose.weapon_rotation),Vector2(pose.weapon_scale),0,Vector2(pose.hand)))
- draw_texture_rect(texture,pose.weapon_rect,false,Color.WHITE)
+ draw_texture_rect(texture,rect,false,Color.WHITE)

@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	var tier: int=preload("res://relic_spin_catalog.gd").tier(machine.rarity)
 	var intensity: float=machine.burst if machine.stage=="reveal" else 0.0
 	panel.pivot_offset=panel.size*.5
-	var emphasis: float=[0.0,.005,.018,.03,.05,.075][tier]*intensity
+	var emphasis: float=[0.0,.005,.018,.03,.05,.075,.085][tier]*intensity
 	panel.scale=Vector2.ONE*(1+emphasis*(.2 if reduced_motion else 1))
 	card.pivot_offset=card.size*.5
 	card.scale=Vector2.ONE*(1+intensity*(.025 if tier<3 else .055 if tier<5 else .09)) if not reduced_motion else Vector2.ONE
@@ -46,3 +46,9 @@ func _draw() -> void:
 			for root in range(6):
 				var y: float=center.y-210+root*75
 				draw_polyline(PackedVector2Array([Vector2(x,y+30),Vector2(x-side*12,y+17),Vector2(x+side*4,y+4),Vector2(x-side*16,y-9)]),Color(tint,energy*.9),3,true)
+
+	if tier==6:
+		# A restrained spectral ring distinguishes the earned Mythical jackpot.
+		for band in range(7):
+			var hue: Color=Color.from_hsv(float(band)/7,.45,1,energy*.75)
+			draw_arc(center,145+band*5,band*TAU/7,(band+1)*TAU/7,10,hue,3,true)

@@ -23,6 +23,6 @@ func review() -> void:
  machine._process(.05);assert(signals.ticks==ticks+1)
  ticks=signals.ticks;machine._process(.000001);assert(signals.ticks==ticks)
  machine._process(5);assert(signals.ticks<=ticks+1) # One coalesced cue after a stalled frame.
- assert(signals.locked==12)
- print("SPINNER 050 PASS: all six tiers skip rolling/anticipation once, repeated locks do not emit, clicks share rendered position, stalled frames do not burst queued audio")
+ assert(signals.locked==preload("res://relic_spin_catalog.gd").TIERS.size()*2)
+ print("SPINNER 050 PASS: all seven tiers skip rolling/anticipation once, repeated locks do not emit, clicks share rendered position, stalled frames do not burst queued audio")
  machine.free();quit()

@@ -33,6 +33,12 @@ const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
 const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
 
 func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
+	var shield_id: String=str(g.inventory.equipped_item("Relic").get("id",""))
+	if preload("res://mythical_collection.gd").is_shield(shield_id):
+		g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+		var shield_pos: Vector2=pos+Vector2(-65,-38+(0.0 if g.audio_settings.get("cinematic_reduced_motion",false) else sin(g.run_time*2)*2))
+		g.draw_circle(shield_pos,24,Color("#a9fff01a"))
+		g.draw_texture_rect(preload("res://mythical_collection.gd").texture(shield_id),Rect2(shield_pos-Vector2(20,26),Vector2(40,52)),false,Color.WHITE)
 	var pose := WandererPose.sample(g, hurt)
 	if pose.get("sprite_rig",false) and not prototype_preview_enabled():
 		draw_missing_actor_reference(g,pos,pose)
@@ -51,7 +57,7 @@ func draw_lootling(g, pos: Vector2, hurt: bool) -> void:
 			var aura := accent
 			aura.a = .18 if identity == "Neutral" else .34
 			g.draw_circle(pos+Vector2(cos(angle)*(58+tier*6),sin(angle)*(43+tier*4)),2.5+tier,aura)
-	g.draw_set_transform(Vector2(pos.x-4 if creature else pos.x,preload("res://combat_stage.gd").GROUND_Y),0,Vector2(1,.30 if creature else .28))
+	g.draw_set_transform(Vector2((pos.x-4 if creature else pos.x)+(float(pose.root.origin.x) if str(g.inventory.equipped_item("Weapon").get("id","")) in preload("res://mythical_collection.gd").GRIPS else 0.0),preload("res://combat_stage.gd").GROUND_Y),0,Vector2(1,.30 if creature else .28))
 	g.draw_circle(Vector2.ZERO,55 if creature else 39,Color("#07101f88"))
 	if pose.depth == "back": draw_fitted_weapon(g, root, pose)
 	g.draw_set_transform_matrix(root)
@@ -110,9 +116,18 @@ func draw_fitted_weapon(g, root: Transform2D, pose: Dictionary) -> void:
 	var texture := WeaponCatalog.presentation_texture(str(pose.weapon_type),"held",fallback,int(item.get("evolution_stage",0)))
 	if pose.geometry.has("held_path"):
 		texture = WeaponCatalog.authored_held_texture(str(pose.geometry.held_path),texture)
-	if pose.weapon_type == "bow": draw_bow_string(g,pose)
-	g.draw_texture_rect(texture,Rect2(pose.weapon_rect),false,Color.WHITE)
-	if pose.weapon_type in ["staff","wand","orb"]: draw_cast_connection(g,pose)
+	var mythical: Texture2D=preload("res://mythical_collection.gd").texture(str(item.get("id","")))
+	var rect: Rect2=pose.weapon_rect
+	if mythical!=null:
+		texture=mythical
+		rect.position=-preload("res://mythical_collection.gd").GRIPS[item.id]*rect.size
+	if pose.weapon_type == "bow" and mythical==null: draw_bow_string(g,pose)
+	g.draw_texture_rect(texture,rect,false,Color.WHITE)
+	if pose.weapon_type in ["staff","wand","orb"]:
+		var cast_pose: Dictionary=pose.duplicate(true)
+		if mythical!=null:
+			cast_pose.weapon_rect=rect;cast_pose.geometry.socket=preload("res://mythical_collection.gd").SOCKETS[item.id]
+		draw_cast_connection(g,cast_pose)
 
 func draw_cast_connection(g, pose: Dictionary) -> void:
 	var charge: float=float(pose.action.anticipate)
@@ -197,6 +212,9 @@ func draw_striking_blade(g, pos: Vector2) -> void:
 	if texture == null: return
 	g.draw_set_transform_matrix(root*Transform2D(float(pose.weapon_rotation),Vector2(pose.weapon_scale),0,Vector2(pose.hand)))
 	var rect: Rect2 = pose.weapon_rect
+	var mythical: Texture2D=preload("res://mythical_collection.gd").texture(str(item.get("id","")))
+	if mythical!=null:
+		texture=mythical;rect.position=-preload("res://mythical_collection.gd").GRIPS[item.id]*rect.size
 	var source := Rect2(Vector2.ZERO,Vector2(texture.get_size())*Vector2(1,blade_fraction))
 	g.draw_texture_rect_region(texture,Rect2(rect.position,rect.size*Vector2(1,blade_fraction)),source)
 	g.draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

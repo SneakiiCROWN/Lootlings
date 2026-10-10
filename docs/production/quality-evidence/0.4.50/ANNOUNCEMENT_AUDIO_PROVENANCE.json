@@ -1,0 +1,28 @@
+[
+  {
+    "event": "spinner_announcement",
+    "path": "art/audio/production/sfx/spinner_announcement_01.wav",
+    "sha256": "55ee7c96cf710d72241407462be1de8afd8d99d9e1abc04e8fb580fd243a95d3",
+    "seconds": 1.0424583333333333,
+    "peak_dbfs": -7.96,
+    "rms_dbfs": -20.62,
+    "source": "art/audio/production/voice_sources/you_won_original_050.mp3",
+    "task_id": "4e6efe7b-8216-4f2c-ab29-cafee89efcc9",
+    "voice": "Pip preset",
+    "model": "eleven_v3 via Runway",
+    "text": "[excited] You won!",
+    "license_url": "https://help.runwayml.com/hc/en-us/articles/21668707517587-Can-I-use-the-content-I-made-in-Runway-for-commercial-purposes",
+    "license": "Runway generated output - commercial use permitted; no cloned person",
+    "listening_approval": false
+  },
+  {
+    "event": "spinner_jackpot",
+    "path": "art/audio/production/sfx/spinner_jackpot_01.wav",
+    "sha256": "25b590baf22ce93c22bb128177b94467d004244fc670b43c35f14dc8cd89281b",
+    "seconds": 1.9,
+    "peak_dbfs": -6.74,
+    "rms_dbfs": -20.44,
+    "license": "Original project procedural composition; no third-party samples",
+    "listening_approval": false
+  }
+]

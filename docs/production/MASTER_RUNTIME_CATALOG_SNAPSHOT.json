@@ -1294,7 +1294,7 @@
       "make_ambient_loop",
       "_exit_tree"
     ],
-    "source_sha256": "49a238840d7279189e46c17086844b68f17b7f0efe489efebefa70aebe23a47f"
+    "source_sha256": "29483a0f25496b2379bf436a46e1a7a889b374c174dfcdfdb8f609a2491aaca7"
   },
   "authored_pose_manifest.gd": {
     "constants": {
@@ -3351,7 +3351,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "80ef0740261e2e961b6fe9460abe6e7157a1105b72b82d07aec4b3e98dcf9970"
+    "source_sha256": "053d61f311372c10510927bd4634e7203be368f2e58b9b24767f069660a8b919"
   },
   "currency_schema.gd": {
     "constants": {
@@ -3900,7 +3900,7 @@
       "commit",
       "recover"
     ],
-    "source_sha256": "1f0be462e167a5ff1897eea4f91654f5013b9ce12615885b621378e3ebca04e4"
+    "source_sha256": "40280f00df253b305c9ddf40dbeff4917b4d825d3a88461fb58668c934d8c9bc"
   },
   "endgame_progress.gd": {
     "constants": {
@@ -4766,7 +4766,7 @@
       "serial_for",
       "requires_review"
     ],
-    "source_sha256": "3b0315920ea7366f860aaad59997068ce1a734241a369f284ba8c57675808e0f"
+    "source_sha256": "0110d80f43eab21f1bd2a22c2640c5cd990c46455cef0f6a771c3408261381e1"
   },
   "hideout_ui.gd": {
     "constants": {
@@ -4995,7 +4995,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "80279248838c1162011e08e1ee789779e48af0b5a6da48422b3600da2e9fe77e"
+    "source_sha256": "efd399a31995d49e3d24d3e23bf3d93492e45f38451af77d6652175a072663c4"
   },
   "home_catalog.gd": {
     "constants": {
@@ -6305,6 +6305,104 @@
           "id": "siege_receipt",
           "name": "The Last Receipt",
           "slot": "Relic"
+        },
+        {
+          "desc": "A first sunrise woven into a blade. Heavy hits echo after impact.",
+          "effects": {
+            "damage_mult": 0.12
+          },
+          "family": "VANGUARD",
+          "fixed_signature": "aftershock_receipt",
+          "icon": "BLADE",
+          "id": "dawnweave",
+          "name": "Dawnweave",
+          "slot": "Weapon",
+          "weapon_type": "greatsword"
+        },
+        {
+          "desc": "A star rescued from the moon tide. Opening hits delay each foe.",
+          "effects": {
+            "boss_damage": 0.12
+          },
+          "family": "VANGUARD",
+          "fixed_signature": "frostbell_chime",
+          "icon": "BLADE",
+          "id": "tidestar",
+          "name": "Tidestar",
+          "slot": "Weapon",
+          "weapon_type": "spear"
+        },
+        {
+          "desc": "Its bowstring carries the northern lights. Every fifth shot arcs lightning.",
+          "effects": {
+            "crit": 0.045
+          },
+          "family": "RANGER",
+          "fixed_signature": "crooked_constellation",
+          "icon": "BOW",
+          "id": "aurora_thread",
+          "name": "Aurora Thread",
+          "projectile": "arrow",
+          "slot": "Weapon",
+          "weapon_type": "bow"
+        },
+        {
+          "desc": "Eight colours sing one promise. The first critical hit on each foe calls a spark.",
+          "effects": {
+            "attack_speed": 0.06
+          },
+          "family": "MAGE",
+          "fixed_signature": "first_light",
+          "icon": "STAFF",
+          "id": "prismsong",
+          "name": "Prismsong",
+          "projectile": "magic_orb",
+          "slot": "Weapon",
+          "weapon_type": "staff"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. Once per run, survive fatal damage at 1 HP. A keepsake of every welcoming hearth.",
+          "effects": {
+            "max_hp": 12
+          },
+          "fixed_signature": "last_lantern",
+          "icon": "GUARD",
+          "id": "hearthpearl",
+          "name": "Hearthpearl",
+          "slot": "Relic"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. Critical kills restore 4 Ward (cap 15). The tide remembers your brightest strikes.",
+          "effects": {
+            "armor": 0.03
+          },
+          "fixed_signature": "critical_shelter",
+          "icon": "GUARD",
+          "id": "mirrorwake",
+          "name": "Mirrorwake",
+          "slot": "Relic"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. First burn or poison on each foe grants 3 Ward (cap 15). Kindness grows fierce roots.",
+          "effects": {
+            "poison_duration": 0.12
+          },
+          "fixed_signature": "bubble_bargain",
+          "icon": "GUARD",
+          "id": "bloomward",
+          "name": "Bloomward",
+          "slot": "Relic"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. A defeated foe banks power for the next encounter. Folded starlight keeps a patient grudge.",
+          "effects": {
+            "boss_damage": 0.08
+          },
+          "fixed_signature": "grudgekeeper",
+          "icon": "GUARD",
+          "id": "starfold",
+          "name": "Starfold",
+          "slot": "Relic"
         }
       ],
       "Phase3": {
@@ -6315,7 +6413,8 @@
         "RARE",
         "EPIC",
         "LEGENDARY",
-        "RED"
+        "RED",
+        "MYTHICAL SHINY"
       ],
       "RARITY_COLORS": {
         "COMMON": {
@@ -6326,6 +6425,9 @@
         },
         "LEGENDARY": {
           "rgba": "ffb43fff"
+        },
+        "MYTHICAL SHINY": {
+          "rgba": "d4fff4ff"
         },
         "RARE": {
           "rgba": "62bfffff"
@@ -6338,6 +6440,7 @@
         "COMMON": 1.0,
         "EPIC": 1.6,
         "LEGENDARY": 2.15,
+        "MYTHICAL SHINY": 2.15,
         "RARE": 1.25,
         "RED": 2.15
       },
@@ -6359,7 +6462,7 @@
       "describe_effects",
       "describe_headline_effects"
     ],
-    "source_sha256": "0fa1e563f4f640e584f46d9d2031abca70b7489482e11f97e1824db62cad8504"
+    "source_sha256": "20a5234b1048e45d710ee953f20b71af3c7b8e447cd52d31c6228827ed19f88e"
   },
   "item_icon.gd": {
     "constants": {
@@ -6389,7 +6492,7 @@
       "configure",
       "_draw"
     ],
-    "source_sha256": "b5edd14c3915e8619120d68f40d76c528d8ea47b3f5f12ef917079a5aa56dac7"
+    "source_sha256": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8"
   },
   "local_save_provider.gd": {
     "constants": {
@@ -6440,7 +6543,7 @@
       "eligible_items",
       "weighted_rarity"
     ],
-    "source_sha256": "b7da5111482b7c16427b86f1cc4c9b4d3696bf91d10f4b3a20f7980e0a7e624d"
+    "source_sha256": "69524d4ded62c7d7fb8de7edbc59a442a7f71b6ddd49c3f5bd9d74691a0ce07e"
   },
   "lootling.gd": {
     "constants": {
@@ -6951,7 +7054,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "2a39933db65443ff1c9be4c239054a45b43d9687e0753c91dc4dbcbb2fc46763"
+    "source_sha256": "0bde54cb753ac1704e27b17fd08b6cec8c25b5561d4e866a05ec039faa3235ed"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7212,7 +7315,7 @@
       "apply_selection",
       "inset_style"
     ],
-    "source_sha256": "f0a51baf399fa4db146a20b558fabdf1033af1b2f9d4c59a5faf751bc913805b"
+    "source_sha256": "91a64f650aaaed793a701df21fe5fc0a00574c0c81075e5cf71cdfac2f07fa3a"
   },
   "meta_store.gd": {
     "constants": {},
@@ -7220,7 +7323,7 @@
       "load_progress",
       "save_progress"
     ],
-    "source_sha256": "e275c9089ff7ba467e906f5aff591f82e277434ee6fe3307af3ad42ff9873e93"
+    "source_sha256": "baeecc512bb18462e2edf4e0cbdfeb20e6339809e23494b04385c9611ebf79b6"
   },
   "mobile_test_monitor.gd": {
     "constants": {
@@ -7237,6 +7340,137 @@
     ],
     "source_sha256": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8"
   },
+  "mythical_collection.gd": {
+    "constants": {
+      "GRIPS": {
+        "aurora_thread": "(0.6, 0.5)",
+        "dawnweave": "(0.5, 0.85)",
+        "prismsong": "(0.51, 0.72)",
+        "tidestar": "(0.5, 0.81)"
+      },
+      "IDS": [
+        "dawnweave",
+        "tidestar",
+        "aurora_thread",
+        "prismsong",
+        "hearthpearl",
+        "mirrorwake",
+        "bloomward",
+        "starfold"
+      ],
+      "ITEMS": [
+        {
+          "desc": "A first sunrise woven into a blade. Heavy hits echo after impact.",
+          "effects": {
+            "damage_mult": 0.12
+          },
+          "family": "VANGUARD",
+          "fixed_signature": "aftershock_receipt",
+          "icon": "BLADE",
+          "id": "dawnweave",
+          "name": "Dawnweave",
+          "slot": "Weapon",
+          "weapon_type": "greatsword"
+        },
+        {
+          "desc": "A star rescued from the moon tide. Opening hits delay each foe.",
+          "effects": {
+            "boss_damage": 0.12
+          },
+          "family": "VANGUARD",
+          "fixed_signature": "frostbell_chime",
+          "icon": "BLADE",
+          "id": "tidestar",
+          "name": "Tidestar",
+          "slot": "Weapon",
+          "weapon_type": "spear"
+        },
+        {
+          "desc": "Its bowstring carries the northern lights. Every fifth shot arcs lightning.",
+          "effects": {
+            "crit": 0.045
+          },
+          "family": "RANGER",
+          "fixed_signature": "crooked_constellation",
+          "icon": "BOW",
+          "id": "aurora_thread",
+          "name": "Aurora Thread",
+          "projectile": "arrow",
+          "slot": "Weapon",
+          "weapon_type": "bow"
+        },
+        {
+          "desc": "Eight colours sing one promise. The first critical hit on each foe calls a spark.",
+          "effects": {
+            "attack_speed": 0.06
+          },
+          "family": "MAGE",
+          "fixed_signature": "first_light",
+          "icon": "STAFF",
+          "id": "prismsong",
+          "name": "Prismsong",
+          "projectile": "magic_orb",
+          "slot": "Weapon",
+          "weapon_type": "staff"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. Once per run, survive fatal damage at 1 HP. A keepsake of every welcoming hearth.",
+          "effects": {
+            "max_hp": 12
+          },
+          "fixed_signature": "last_lantern",
+          "icon": "GUARD",
+          "id": "hearthpearl",
+          "name": "Hearthpearl",
+          "slot": "Relic"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. Critical kills restore 4 Ward (cap 15). The tide remembers your brightest strikes.",
+          "effects": {
+            "armor": 0.03
+          },
+          "fixed_signature": "critical_shelter",
+          "icon": "GUARD",
+          "id": "mirrorwake",
+          "name": "Mirrorwake",
+          "slot": "Relic"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. First burn or poison on each foe grants 3 Ward (cap 15). Kindness grows fierce roots.",
+          "effects": {
+            "poison_duration": 0.12
+          },
+          "fixed_signature": "bubble_bargain",
+          "icon": "GUARD",
+          "id": "bloomward",
+          "name": "Bloomward",
+          "slot": "Relic"
+        },
+        {
+          "desc": "Floating magical shield - Charm slot; hands stay free. A defeated foe banks power for the next encounter. Folded starlight keeps a patient grudge.",
+          "effects": {
+            "boss_damage": 0.08
+          },
+          "fixed_signature": "grudgekeeper",
+          "icon": "GUARD",
+          "id": "starfold",
+          "name": "Starfold",
+          "slot": "Relic"
+        }
+      ],
+      "SOCKETS": {
+        "aurora_thread": "(0.14, 0.5)",
+        "dawnweave": "(0.5, 0.04)",
+        "prismsong": "(0.51, 0.17)",
+        "tidestar": "(0.5, 0.06)"
+      }
+    },
+    "methods": [
+      "texture",
+      "is_shield"
+    ],
+    "source_sha256": "dd8d98951b056fc810f2c6cc9c0a9de3868a8b34a6184189f4201d4b63288e08"
+  },
   "named_item_art.gd": {
     "constants": {},
     "methods": [
@@ -7247,6 +7481,15 @@
   "permanent_upgrade_catalog.gd": {
     "constants": {
       "DEFINITIONS": {
+        "aegisprism": [
+          "AEGIS PRISM",
+          "Diminishing starting Ward - up to +4",
+          [
+            50,
+            90,
+            150
+          ]
+        ],
         "bedroll": [
           "STURDY BEDROLL",
           "+4 starting HP",
@@ -7260,7 +7503,7 @@
         ],
         "hearthward": [
           "HEARTHWARD CHARM",
-          "+1 starting Ward • up to 5",
+          "+1 starting Ward - up to 5",
           [
             450,
             750,
@@ -7269,9 +7512,27 @@
             2200
           ]
         ],
+        "heartprism": [
+          "HEART PRISM",
+          "Diminishing starting HP - up to +12",
+          [
+            60,
+            110,
+            180
+          ]
+        ],
+        "keenprism": [
+          "KEEN PRISM",
+          "Diminishing critical chance - up to +2.25%",
+          [
+            80,
+            140,
+            220
+          ]
+        ],
         "mending": [
           "MENDING THREAD",
-          "Diminishing regen • up to 0.15 HP/s",
+          "Diminishing regen - up to 0.15 HP/s",
           [
             900,
             1400,
@@ -7293,7 +7554,7 @@
         ],
         "wardweave": [
           "WARDWEAVE LINING",
-          "Diminishing armour • up to 3%",
+          "Diminishing armour - up to 3%",
           [
             600,
             950,
@@ -7319,9 +7580,14 @@
       "defaults",
       "sanitize",
       "armour",
-      "regeneration"
+      "regeneration",
+      "diamonds",
+      "currency",
+      "heart",
+      "keen",
+      "aegis"
     ],
-    "source_sha256": "9570a53f7a4916c5e9d30cef0b900f16ca980a5b7496ecd81b4ed92b028e9623"
+    "source_sha256": "8e802308e3cea21e48f00c9ad13f6db0b5af23dccccd0ced64ecb62331d23863"
   },
   "personal_home.gd": {
     "constants": {
@@ -8538,7 +8804,7 @@
       "draw_reels",
       "draw_seal"
     ],
-    "source_sha256": "cfe486d2d99157a5f66fdc21eb17f306efaa1942c46221f86b6976e2cbb8e141"
+    "source_sha256": "3392dd8235e828314d650d1237f00580a4b6b22ad046a895a0b38c17a47e6bd3"
   },
   "relic_reveal_fx.gd": {
     "constants": {},
@@ -8547,7 +8813,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "5190335e1b7b05b233ee7f607ff6aa525d3f9a05e60ee28d72869cb622bb2892"
+    "source_sha256": "16c09aa522fc91dae56a43f5fbc84a9f4ea913095e2665c401404b949ed67570"
   },
   "relic_spin_catalog.gd": {
     "constants": {
@@ -8569,6 +8835,9 @@
         },
         {
           "rgba": "ff526aff"
+        },
+        {
+          "rgba": "d4fff4ff"
         }
       ],
       "POOL": [
@@ -8610,7 +8879,8 @@
         "RARE",
         "EPIC",
         "LEGENDARY",
-        "RED"
+        "RED",
+        "MYTHICAL SHINY"
       ]
     },
     "methods": [
@@ -8626,7 +8896,7 @@
       "reward_name",
       "pool_text"
     ],
-    "source_sha256": "860ae69b742ecf599d45ae04e6c0c80b867f1da17d1c9b7fd8a5a896dabb2cd4"
+    "source_sha256": "9448e392e2664ff0e20f55a1f3fddc3f43ddf9ebc49709d57432a14c1662e5a1"
   },
   "resident_art_catalog.gd": {
     "constants": {
@@ -8703,7 +8973,7 @@
       "_draw",
       "draw_weapon"
     ],
-    "source_sha256": "0770a801a9b481188e3a465e040d03cbb15a2d9543f15c2cd19f4db84d96e27f"
+    "source_sha256": "30394619a98adab02673a909139dcf9cd64e2558437b93f3526feb0ad7bcdca7"
   },
   "retention_runtime.gd": {
     "constants": {
@@ -8739,7 +9009,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "bd8453fcc769cf0ba4363ec73d55d1848c8db1df8827812c1c5a816d25ade8db"
+    "source_sha256": "f19a6abf46315813c2d4a814f25002a97eb431d9a42f04e4fdd1b30e9a230e15"
   },
   "reward_reveal_catalog.gd": {
     "constants": {
@@ -8834,6 +9104,21 @@
     ],
     "source_sha256": "e06fc82ad65408af2c80d0a3c29a6b63952ba2e433a07a86cc1f562fa49ac453"
   },
+  "rift_progress.gd": {
+    "constants": {
+      "BONUS_COINS": 250,
+      "BONUS_DIAMONDS": 20,
+      "ENTRY_COST": 2
+    },
+    "methods": [
+      "defaults",
+      "sanitize",
+      "enter",
+      "settle",
+      "recover"
+    ],
+    "source_sha256": "bbaa97c2dd084328cadbf1e07d699ee373af5c9b9b39116e6508e381f9984ebe"
+  },
   "safe_area_layout.gd": {
     "constants": {
       "DESIGN": "(480.0, 854.0)"
@@ -8872,7 +9157,7 @@
       "save_settings",
       "sanitize"
     ],
-    "source_sha256": "71afdca7aa57ef3a48a7014b0c271f557b222a21466443fe9c80003f0cce95eb"
+    "source_sha256": "662331a010dfe6945a2fadc0abfb3bcda9d8222ef2711e118a24d8c1994bdff2"
   },
   "shop_system.gd": {
     "constants": {
@@ -8965,7 +9250,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "8e0dd4b552e78a8abca29436b5bb0584210eac94c2a301e1038d6dcdfc2fafb3"
+    "source_sha256": "9c015aa030b8d9d6b8637a294cb8b218aebbb196541d561050c1c0730f70c818"
   },
   "station_presentation.gd": {
     "constants": {},
@@ -10463,7 +10748,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "c3944f19197144c02e651820dd5f5502b38ba9709a957cc34f27bf0281a30dcb"
+    "source_sha256": "8aa1bf96a9d52788e72928104e18c57dac77149db44d3c6690e03757b88df396"
   },
   "world_content_catalog.gd": {
     "constants": {

@@ -142,7 +142,7 @@ func generate_item_for_slot(slot: String, weights: Array, serial: int) -> Dictio
 	return ItemCatalog.create_item(source.id, weighted_rarity(weights), serial)
 
 func public_items() -> Array:
-	return ItemCatalog.ITEMS.filter(func(item): return not item.id in preload("res://phase3_item_catalog.gd").BOSS_ONLY)
+	return ItemCatalog.ITEMS.filter(func(item): return not item.id in preload("res://mythical_collection.gd").IDS and not item.id in preload("res://phase3_item_catalog.gd").BOSS_ONLY)
 
 func weighted_rarity(weights: Array) -> String:
 	var total := 0.0

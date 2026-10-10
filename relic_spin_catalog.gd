@@ -1,7 +1,7 @@
 extends RefCounted
 # Rewards, disclosed probabilities and presentation are one source of truth.
-const TIERS := ["COMMON","UNCOMMON","RARE","EPIC","LEGENDARY","RED"]
-const COLORS := [Color("#899db5"),Color("#79df92"),Color("#69bbff"),Color("#c287ff"),Color("#ffda72"),Color("#ff526a")]
+const TIERS := ["COMMON","UNCOMMON","RARE","EPIC","LEGENDARY","RED","MYTHICAL SHINY"]
+const COLORS := [Color("#899db5"),Color("#79df92"),Color("#69bbff"),Color("#c287ff"),Color("#ffda72"),Color("#ff526a"),Color("#d4fff4")]
 const SPARK_TARGET := 12
 const POOL := [
 	{"rarity":"COMMON","kind":"material","amount":2,"weight":42},
@@ -28,10 +28,10 @@ static func flat_style(fill: Color, edge: Color, radius: int=8) -> StyleBoxFlat:
 	return style
 static func spin_seconds(rarity: String, fast: bool) -> float:
 	return .75 if fast and tier(rarity)<3 else 1.65+tier(rarity)*.18
-static func anticipation(rarity: String) -> float: return [.12,.16,.22,.38,.50,.65][tier(rarity)]
-static func reveal_seconds(rarity: String) -> float: return [.28,.40,.52,.75,.95,1.25][tier(rarity)]
+static func anticipation(rarity: String) -> float: return [.12,.16,.22,.38,.50,.65,.80][tier(rarity)]
+static func reveal_seconds(rarity: String) -> float: return [.28,.40,.52,.75,.95,1.25,1.55][tier(rarity)]
 static func sound(rarity: String) -> String:
-	return ["resource_pickup","rarity_reveal","rare_reveal","epic_reveal","legendary_reveal","relic_red"][tier(rarity)]
+	return ["resource_pickup","rarity_reveal","rare_reveal","epic_reveal","legendary_reveal","relic_red","spinner_jackpot"][tier(rarity)]
 static func reward_name(reward: Dictionary, region: String) -> String:
 	if reward.has("display_name"): return reward.display_name
 	if reward.get("kind","")=="item": return str(reward.get("item",{}).get("name","Relic"))

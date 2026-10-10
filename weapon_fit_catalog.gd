@@ -311,6 +311,19 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			if g.attack_anim > .16: nock += forward*sin((.22-g.attack_anim)*80)*2
 			secondary = primary+(nock*weapon_scale).rotated(angle)
 	var socket := (rect.position+Vector2(geometry.socket)*size)*weapon_scale
+	var mythical_id: String=str(item.get("id",""))
+	if mythical_id in preload("res://mythical_collection.gd").GRIPS:
+		socket=(preload("res://mythical_collection.gd").SOCKETS[mythical_id]-preload("res://mythical_collection.gd").GRIPS[mythical_id])*size*weapon_scale
+		# Keep the complete original silhouette inside the arena when facing left.
+		# This moves only the shared visual root; stats, collisions and RNG stay intact.
+		var art_rect:=Rect2(-preload("res://mythical_collection.gd").GRIPS[mythical_id]*size,size)
+		var held_root:=root*Transform2D(angle,weapon_scale,0,primary)
+		var left:=480.0;var right:=0.0
+		for corner in [art_rect.position,art_rect.end,Vector2(art_rect.position.x,art_rect.end.y),Vector2(art_rect.end.x,art_rect.position.y)]:
+			var x:float=(held_root*corner).x+float(g.player_x)
+			left=minf(left,x);right=maxf(right,x)
+		root.origin.x+=maxf(0,8-left)-maxf(0,right-472)
+
 	return {"sprite_rig":sprite_rig,"motion_phase":authored.get("motion_phase",""),"frame_index":int(authored.get("frame_index",0)),"action":action,"root":root,"body_rect":authored.get("body_rect",actor.body_rect),
 		"bow_nock":bow_nock,"bow_forward":bow_forward,
 		"feet_baseline":float(authored.get("feet_baseline",actor.body_rect.end.y)),

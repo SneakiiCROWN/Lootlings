@@ -98,7 +98,7 @@ func eligible_items(boss: bool) -> Array:
 	# Named boss finds cannot leak through merchants, event caches or ordinary
 	# drops. Random signature affixes still permit other routes to the build.
 	var exclusive: Array = preload("res://phase3_item_catalog.gd").BOSS_ONLY + preload("res://phase4b_catalog.gd").EXCLUSIVE
-	return ItemCatalog.ITEMS.filter(func(item): return not item.id in exclusive or (boss and item.id in boss_pool))
+	return ItemCatalog.ITEMS.filter(func(item): return not item.id in preload("res://mythical_collection.gd").IDS and (not item.id in exclusive or (boss and item.id in boss_pool)))
 
 func weighted_rarity(weights: Array) -> String:
 	var total := 0.0

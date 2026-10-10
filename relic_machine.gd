@@ -8,6 +8,7 @@ signal cue(event: String)
 var elapsed:=0.0
 var rolling:=false
 var reward_kind:=""
+var reward_texture: Texture2D
 var rarity:="COMMON"
 var stage:="idle"
 var reel_seconds:=1.65
@@ -37,8 +38,8 @@ func skip() -> bool:
 func lock_result() -> void:
 	if stage=="reveal" or stage=="settled": return
 	stage="reveal"; progress=1; burst=1; reveal_started_at=elapsed; rolling=false
-	cue.emit("spinner_stop"); cue.emit(Catalog.sound(rarity))
-	if Catalog.tier(rarity)>=3:cue.emit("spinner_fanfare")
+	cue.emit("spinner_stop"); cue.emit(Catalog.sound(rarity));cue.emit("spinner_announcement")
+	if Catalog.tier(rarity)>=3 and Catalog.tier(rarity)<6:cue.emit("spinner_fanfare")
 	locked.emit(); queue_redraw()
 func reveal(kind: String) -> void:
 	reward_kind=kind; rolling=false; stage="settled"; burst=0; progress=1; set_process(false); queue_redraw()
@@ -118,7 +119,7 @@ func _draw() -> void:
 				var point:=Vector2(10+branch*(size.x-20)/3,34)
 				draw_polyline(PackedVector2Array([point,point+Vector2(8,12),point+Vector2(2,17),point+Vector2(11,22)]),Color(tint,.8),2,true)
 	if burst>0:
-		var count: int=mini(6,[0,6,10,16,22,26][tier]) if reduced_motion else [0,6,10,16,22,26][tier]
+		var count: int=mini(6,[0,6,10,16,22,26,30][tier]) if reduced_motion else [0,6,10,16,22,26,30][tier]
 		var radius:=30+(1-burst)*95
 		for particle in range(count):
 			var angle:=particle*TAU/maxi(1,count)+particle*.17
@@ -171,10 +172,10 @@ func draw_reels() -> void:
 				draw_seal(aperture_layer,Vector2.ZERO,30 if landing else 24,Catalog.color(rarity) if landing else Catalog.COLORS[passing],Catalog.icon_for(reward_kind) if landing else Catalog.icon_for(["material","mastery","blueprint","material","material","item"][passing]))
 				aperture_layer.draw_set_transform(Vector2.ZERO)
 		else:
-			var punch: float=1+burst*[.015,.03,.05,.075,.10,.14][tier] if not reduced_motion else 1.0
+			var punch: float=1+burst*[.015,.03,.05,.075,.10,.14,.16][tier] if not reduced_motion else 1.0
 			var shake:=Vector2(sin(elapsed*35)*2*burst,0) if tier==5 and not reduced_motion else Vector2.ZERO
 			var seal_radius: float=42 if tier==5 and reel==1 and stage=="reveal" else 34 if tier==4 and stage=="reveal" else 30
-			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,minf(seal_radius*punch,width*.46),tint,Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
+			draw_seal(aperture_layer,Vector2(x,aperture_layer.size.y*.5)+shake,minf(seal_radius*punch,width*.46),tint,reward_texture if reward_texture!=null and stage!="idle" else Catalog.icon_for(reward_kind) if stage!="idle" else "gear_rune")
 		if reel<2: aperture_layer.draw_line(Vector2(x+width*.5,0),Vector2(x+width*.5,aperture_layer.size.y),Color("#22304b"),1)
 	# Cylindrical reel lighting: shadowed edges and a narrow polished lock axis.
 	for band in range(8):
@@ -182,7 +183,7 @@ func draw_reels() -> void:
 		aperture_layer.draw_rect(Rect2(0,band*4,aperture_layer.size.x,height),Color("#00030b",.16-band*.016))
 		aperture_layer.draw_rect(Rect2(0,aperture_layer.size.y-band*4-height,aperture_layer.size.x,height),Color("#00030b",.16-band*.016))
 	aperture_layer.draw_line(Vector2(0,center.y-37),Vector2(aperture_layer.size.x,center.y-37),Color("#f2deb0",.12),1,true)
-func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_name: String) -> void:
+func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_name: Variant) -> void:
 	# Engraved relic medallions: depth, inset dark face, lit upper rim and runes.
 	layer.draw_circle(point+Vector2(0,3),radius+2,Color("#00040c"))
 	layer.draw_circle(point,radius,Color("#6a5035").lerp(tint,.35))
@@ -193,5 +194,5 @@ func draw_seal(layer: Control, point: Vector2, radius: float, tint: Color, icon_
 	for rune in range(8):
 		var direction:=Vector2.RIGHT.rotated(rune*TAU/8)
 		layer.draw_line(point+direction*(radius-4),point+direction*(radius-1),Color("#f3dca8"),1,true)
-	var image: Texture2D=preload("res://bible_runtime_art.gd").texture("recipe_scroll","items") if icon_name=="gear_rune" else UI.icon(icon_name)
+	var image: Texture2D=icon_name if icon_name is Texture2D else preload("res://bible_runtime_art.gd").texture("recipe_scroll","items") if icon_name=="gear_rune" else UI.icon(str(icon_name))
 	UI.draw_icon(layer.get_canvas_item(),image,Rect2(point-Vector2.ONE*radius*.73,Vector2.ONE*radius*1.46))
