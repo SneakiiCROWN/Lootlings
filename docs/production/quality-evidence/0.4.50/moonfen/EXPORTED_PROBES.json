@@ -1,0 +1,510 @@
+{
+	"full_fluid_animation_accepted": false,
+	"physical_device_tested": false,
+	"probes": [
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+			"slot_id": "pose:lantern_toad:idle:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+			"slot_id": "pose:lantern_toad:role windup:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+			"slot_id": "pose:lantern_toad:role commit:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+			"slot_id": "pose:lantern_toad:recovery:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+			"slot_id": "pose:lantern_toad:hurt:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+			"slot_id": "pose:lantern_toad:defeat:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+			"slot_id": "pose:lantern_toad:idle:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+			"slot_id": "pose:lantern_toad:role windup:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+			"slot_id": "pose:lantern_toad:role commit:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+			"slot_id": "pose:lantern_toad:recovery:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+			"slot_id": "pose:lantern_toad:hurt:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+			"slot_id": "pose:lantern_toad:defeat:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+			"slot_id": "pose:mudcloak:idle:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+			"slot_id": "pose:mudcloak:role windup:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+			"slot_id": "pose:mudcloak:role commit:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+			"slot_id": "pose:mudcloak:recovery:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+			"slot_id": "pose:mudcloak:hurt:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+			"slot_id": "pose:mudcloak:defeat:right:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+			"slot_id": "pose:mudcloak:idle:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+			"slot_id": "pose:mudcloak:role windup:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+			"slot_id": "pose:mudcloak:role commit:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+			"slot_id": "pose:mudcloak:recovery:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+			"slot_id": "pose:mudcloak:hurt:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+			"slot_id": "pose:mudcloak:defeat:left:None",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+			"slot_id": "pose:lantern_toad:idle:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+			"slot_id": "pose:lantern_toad:role windup:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+			"slot_id": "pose:lantern_toad:role commit:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+			"slot_id": "pose:lantern_toad:recovery:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+			"slot_id": "pose:lantern_toad:hurt:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+			"slot_id": "pose:lantern_toad:defeat:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+			"slot_id": "pose:lantern_toad:idle:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+			"slot_id": "pose:lantern_toad:role windup:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+			"slot_id": "pose:lantern_toad:role commit:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+			"slot_id": "pose:lantern_toad:recovery:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+			"slot_id": "pose:lantern_toad:hurt:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+			"slot_id": "pose:lantern_toad:defeat:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+			"slot_id": "pose:mudcloak:idle:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+			"slot_id": "pose:mudcloak:role windup:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+			"slot_id": "pose:mudcloak:role commit:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+			"slot_id": "pose:mudcloak:recovery:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+			"slot_id": "pose:mudcloak:hurt:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+			"slot_id": "pose:mudcloak:defeat:right:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+			"slot_id": "pose:mudcloak:idle:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+			"slot_id": "pose:mudcloak:role windup:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+			"slot_id": "pose:mudcloak:role commit:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+			"slot_id": "pose:mudcloak:recovery:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+			"slot_id": "pose:mudcloak:hurt:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+			"slot_id": "pose:mudcloak:defeat:left:None",
+			"viewport": "(1600, 2560)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+			"slot_id": "pose:lantern_toad:idle:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+			"slot_id": "pose:lantern_toad:role windup:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+			"slot_id": "pose:lantern_toad:role commit:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+			"slot_id": "pose:lantern_toad:recovery:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+			"slot_id": "pose:lantern_toad:hurt:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+			"slot_id": "pose:lantern_toad:defeat:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+			"slot_id": "pose:lantern_toad:idle:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+			"slot_id": "pose:lantern_toad:role windup:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+			"slot_id": "pose:lantern_toad:role commit:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+			"slot_id": "pose:lantern_toad:recovery:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+			"slot_id": "pose:lantern_toad:hurt:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+			"slot_id": "pose:lantern_toad:defeat:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+			"slot_id": "pose:mudcloak:idle:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+			"slot_id": "pose:mudcloak:role windup:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+			"slot_id": "pose:mudcloak:role commit:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+			"slot_id": "pose:mudcloak:recovery:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+			"slot_id": "pose:mudcloak:hurt:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "right",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+			"slot_id": "pose:mudcloak:defeat:right:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+			"slot_id": "pose:mudcloak:idle:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+			"slot_id": "pose:mudcloak:role windup:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+			"slot_id": "pose:mudcloak:role commit:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+			"slot_id": "pose:mudcloak:recovery:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+			"slot_id": "pose:mudcloak:hurt:left:None",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"exact": true,
+			"facing": "left",
+			"path": "res://art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+			"slot_id": "pose:mudcloak:defeat:left:None",
+			"viewport": "(1920, 1080)"
+		}
+	]
+}

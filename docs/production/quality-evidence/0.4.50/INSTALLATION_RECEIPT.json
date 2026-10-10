@@ -1,18 +1,18 @@
 {
-  "version": "0.4.50-chase-candidate",
-  "kind": "diamond-specializations-optional-prism-rift-eight-item-mythical-collection-and-original-announcement",
-  "verified_contracts_closed": 0,
+  "version": "0.4.50-world-chase-candidate",
+  "kind": "earned-currencies-mythical-rewards-equipment-feedback-and-two-canonical-moonfen-enemy-families",
+  "verified_contracts_closed": 24,
   "new_generated_assets": {
-    "image_sheet_candidates": 2,
+    "image_sheet_candidates": 5,
     "voice_performances": 1,
     "procedural_fanfare": 1
   },
-  "new_runtime_png": 8,
+  "new_runtime_png": 32,
   "new_runtime_wav": 2,
-  "new_physical_artist_files": 12,
-  "frozen_artist_requirements_fulfilled": 0,
-  "remaining_contracts": 2822,
-  "remaining_artist_file_requirements": 7339,
+  "new_physical_artist_files": 111,
+  "frozen_artist_requirements_fulfilled": 48,
+  "remaining_contracts": 2798,
+  "remaining_artist_file_requirements": 7291,
   "complete_fluid_animation_families": 0,
   "professional_family_acceptance": false,
   "physical_device_validated": false,
@@ -36,7 +36,10 @@
     "1% elite-clear chance; guarantee at 24 clears, eight unique items before repeats; full-stash delivery reserved",
     "Original rights-cleared spoken YOU WON! with separate saved toggle and bounded jackpot fanfare",
     "Seventh-tier honest reveal, real won item on reels and existing skip/payout protection",
-    "Custom weapon primary grips and projectile sockets, foreground blade and outcome selectors, left-facing clipping correction"
+    "Custom weapon primary grips and projectile sockets, foreground blade and outcome selectors, left-facing clipping correction",
+    "24 canonical Lantern Toad/Mudcloak keyframes, both original facings, selected by actual combat clocks",
+    "Three joined-alpha cells corrected; exact-pixel runtime compaction reduces estimated texture budget to 13.4 MiB",
+    "Shared facing-aware shield placement and honest Ward gain/absorption feedback"
   ],
   "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
   "economy_scope": {
@@ -69,19 +72,19 @@
   },
   "builds": {
     "windows": {
-      "path": "builds/windows/Lootlings-0.4.50-chase-candidate.exe",
+      "path": "builds/windows/Lootlings-0.4.50-world-chase-candidate.exe",
       "bytes": 103136768,
-      "sha256": "2cc6118c24e39b7d26acceb1264da8e3f115b8682d851ceddad24994c99e577a"
+      "sha256": "5b440a5b18563ba1c06cc26a8e572d4127e64a002ae7c561beecd7e4da77898d"
     },
     "windows_pack": {
-      "path": "builds/windows/Lootlings-0.4.50-chase-candidate.pck",
-      "bytes": 267840492,
-      "sha256": "60c4fc94c72aa1623c0a48d1d7cd06dceebdbfb7259a70df5f3d4edf6318e875"
+      "path": "builds/windows/Lootlings-0.4.50-world-chase-candidate.pck",
+      "bytes": 272741828,
+      "sha256": "935f41a8e3b3682ab04b88ef1012714bad2e9e4948b700520bcbde1ead5257de"
     },
     "android": {
-      "path": "builds/android/Lootlings-0.4.50-chase-candidate-debug.apk",
-      "bytes": 289041032,
-      "sha256": "3e81e8279b949aba2b228a0d1d9e02eb1c78f756590ab2f0df2605387f554a67"
+      "path": "builds/android/Lootlings-0.4.50-world-chase-candidate-debug.apk",
+      "bytes": 293887732,
+      "sha256": "3f0be002014f2ab8aa6f8261bbe9a4a4752025459a611a37cb8ef304e3c604d9"
     }
   },
   "quality_findings": [
@@ -91,25 +94,27 @@
     "Android provenance guard initially caught missing new cue registration; corrected packaged sources.json, with original licences and title score unchanged",
     "Native tablet inventory revealed tall weapon button icons overflowing rows; corrected to fixed-square icon lane before final export."
   ],
-  "tests": "chase-candidate/QA_RESULTS.json",
-  "android_version_code": 60,
+  "tests": "moonfen/exported-05011-results.json",
+  "android_version_code": 61,
   "canonical_asset_changes": "No character, companion, enemy, boss, branding or title music assets replaced",
   "accepted_assets_scope": "Installed/functionally tested candidates; no professional collection or listening acceptance claim",
-  "build_status": "Final candidates include follow-on equipment/Ward integration; Windows PCK native routes verified at phone/tablet/desktop sizes, actual EXE startup and Android package/branding/import checks. Physical Android gameplay deferred.",
+  "build_status": "New Windows/Android candidate includes all three integrated passes. Exported Windows PCK routes and 72 Moonfen probes across three sizes verified; Android package/branding/import checks only, physical device deferred.",
   "remaining_work": [
-    "Full twelve-actor/all-state Mythical contact and animation acceptance",
-    "Human full-clear elite encounter pacing and long-session progression balance",
+    "Full twelve-actor/all-state body, weapon grip and animation coverage (63 fallback cases in latest four-weapon sample)",
+    "Moonfen full fluid continuity and encounter/player-experience acceptance",
+    "Human elite-clear pacing and long-session rare-currency/collection grind balance",
     "Professional voice/fanfare listening and phone speaker mastering",
     "Physical S23 test",
-    "2822 frozen art contracts and 7339 artist requirement records"
+    "2798 frozen art contracts and 7291 artist requirement records"
   ],
   "new_runtime_assets": {
     "item_png": 8,
     "sound_wav": 2,
-    "new_character_animation_frames": 0
+    "new_character_animation_frames": 0,
+    "enemy_keyframe_png": 24
   },
-  "new_contract_closures": 0,
-  "exported_pack_native_runs": 5,
+  "new_contract_closures": 24,
+  "exported_pack_native_runs": 4,
   "exported_layouts": [
     "1080x2340",
     "1600x2560",
@@ -117,7 +122,7 @@
   ],
   "actual_exe_verified": "isolated headless startup; interactive fixtures against its compiled PCK",
   "android_signed_arm64_debug": true,
-  "retained_actor_textures_verified_in_apk": 503,
+  "retained_actor_textures_verified_in_apk": 527,
   "new_mythical_textures_verified_in_apk": 8,
   "follow_on_equipment_pass": {
     "native_geometry_cases": 96,
@@ -127,5 +132,14 @@
     "frozen_contract_closures": 0,
     "evidence": "equipment-feedback/REVIEW.md"
   },
-  "latest_tests": "equipment-feedback/exported-0507-results.json, exported-0508-results.json, exported-0509-results.json and exported-05010-results.json"
+  "latest_tests": "moonfen/exported-05011-results.json",
+  "moonfen_enemy_keyframes": {
+    "lantern_toad": 12,
+    "mudcloak": 12,
+    "corrected_rejected_cells": 3,
+    "native_exact_probes": 72,
+    "full_fluid_animation_accepted": false,
+    "professional_family_acceptance": false
+  },
+  "exported_pack_tested_fixtures": 4
 }

@@ -4,13 +4,13 @@
   "denominators": "Frozen delivery contracts, requested artist-file requirements (including verified compatible reuse), distinct newly created physical files, and broad requirement records are separate. Per-batch receipts give physical file counts. No whole-game completion percentage is asserted.",
   "counts": {
     "required_contracts": 3274,
-    "installed_contract_closures": 452,
-    "remaining_contracts": 2822,
+    "installed_contract_closures": 476,
+    "remaining_contracts": 2798,
     "required_artist_files": 8495,
-    "installed_artist_files": 1156,
-    "remaining_artist_files": 7339,
-    "current_reviewed_runtime_png_cells": 254,
-    "registered_requirement_records": 8068,
+    "installed_artist_files": 1204,
+    "remaining_artist_files": 7291,
+    "current_reviewed_runtime_png_cells": 278,
+    "registered_requirement_records": 8119,
     "production_ready_records": 0
   },
   "contract_families": [
@@ -41,8 +41,8 @@
     {
       "family": "enemies",
       "required": 323,
-      "installed_contract_closures": 105,
-      "remaining": 218,
+      "installed_contract_closures": 129,
+      "remaining": 194,
       "production_quality_accepted": null,
       "note": "Closure verifies exact delivery contract; family-wide artistic/UX acceptance remains separate."
     },
@@ -301,18 +301,18 @@
     },
     {
       "family": "combat_art",
-      "required_records": 820,
-      "launch_records": 687,
-      "installed_records": 687,
+      "required_records": 844,
+      "launch_records": 711,
+      "installed_records": 711,
       "production_ready": 0,
       "quality_counts": {
         "reference_or_planned": 133,
-        "installed_awaiting_visual_review": 687
+        "installed_awaiting_visual_review": 711
       },
       "stages": {
         "canon_reference_approved": 0,
-        "created": 820,
-        "integrated": 687,
+        "created": 844,
+        "integrated": 711,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -320,7 +320,7 @@
       },
       "canonical_source_files": 0,
       "recorded_canon_approved_identities": 28,
-      "manifest_runtime_files": 367,
+      "manifest_runtime_files": 391,
       "staged_manifest_files": 0,
       "unreviewed_manifest_files": 201,
       "completed_animation_families": null,
@@ -455,7 +455,7 @@
       },
       "canonical_source_files": 1,
       "recorded_canon_approved_identities": 27,
-      "manifest_runtime_files": 106,
+      "manifest_runtime_files": 130,
       "staged_manifest_files": 0,
       "unreviewed_manifest_files": 0,
       "completed_animation_families": null,
@@ -874,12 +874,12 @@
     },
     {
       "family": "reference",
-      "required_records": 381,
+      "required_records": 408,
       "launch_records": 0,
       "installed_records": 0,
       "production_ready": 0,
       "quality_counts": {
-        "reference_or_planned": 378,
+        "reference_or_planned": 405,
         "defective_requires_correction": 3
       },
       "stages": {
@@ -891,7 +891,7 @@
         "player_experience_reviewed": 0,
         "production_quality_accepted": 0
       },
-      "canonical_source_files": 381,
+      "canonical_source_files": 408,
       "recorded_canon_approved_identities": 10,
       "manifest_runtime_files": 192,
       "staged_manifest_files": 0,
@@ -904,25 +904,25 @@
       "family": "regional enemy",
       "required_records": 323,
       "launch_records": 323,
-      "installed_records": 105,
+      "installed_records": 129,
       "production_ready": 0,
       "quality_counts": {
         "installed_awaiting_visual_review": 69,
-        "missing": 218,
-        "functionally_working_visually_unfinished": 36
+        "missing": 194,
+        "functionally_working_visually_unfinished": 60
       },
       "stages": {
         "canon_reference_approved": 323,
-        "created": 105,
-        "integrated": 105,
-        "functionally_tested": 36,
-        "gameplay_visual_reviewed": 36,
+        "created": 129,
+        "integrated": 129,
+        "functionally_tested": 60,
+        "gameplay_visual_reviewed": 60,
         "player_experience_reviewed": 0,
         "production_quality_accepted": 0
       },
-      "canonical_source_files": 13,
+      "canonical_source_files": 12,
       "recorded_canon_approved_identities": 27,
-      "manifest_runtime_files": 106,
+      "manifest_runtime_files": 130,
       "staged_manifest_files": 0,
       "unreviewed_manifest_files": 0,
       "completed_animation_families": null,
@@ -5573,7 +5573,7 @@
     },
     {
       "domain": "Enemies / elites / minibosses / bosses",
-      "registered_requirement_records": 1064,
+      "registered_requirement_records": 1088,
       "records": [
         "pose:mossmaw:idle:right:None",
         "pose:mossmaw:idle:left:None",
@@ -6504,6 +6504,18 @@
         "asset:art/production/phase4e/enemies/inkling/regional_049/inkling_hurt_right.png",
         "asset:art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_left.png",
         "asset:art/production/phase4e/enemies/inkling/regional_049/inkling_role_commit_right.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+        "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
         "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
         "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_right.png",
         "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png",
@@ -6528,6 +6540,18 @@
         "asset:art/production/phase4e/enemies/mossmaw/mossmaw_role_commit_right.png",
         "asset:art/production/phase4e/enemies/mossmaw/mossmaw_role_windup_left.png",
         "asset:art/production/phase4e/enemies/mossmaw/mossmaw_role_windup_right.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+        "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
         "asset:art/production/phase4e/enemies/rime_pup/rime_pup_defeat_left.png",
         "asset:art/production/phase4e/enemies/rime_pup/rime_pup_defeat_right.png",
         "asset:art/production/phase4e/enemies/rime_pup/rime_pup_hurt_left.png",
@@ -15612,7 +15636,7 @@
     },
     {
       "domain": "Regions / backgrounds / layers / interiors / environments",
-      "registered_requirement_records": 1792,
+      "registered_requirement_records": 1795,
       "records": [
         "pose:mossmaw:idle:right:None",
         "pose:mossmaw:idle:left:None",
@@ -17363,6 +17387,9 @@
         "source:art/source/regional_048/margin_imp_sheet.png",
         "source:art/source/regional_049/inkling_combat.png",
         "source:art/source/regional_049/margin_combat.png",
+        "source:art/source/regional_050/correction_family.png",
+        "source:art/source/regional_050/left_family.png",
+        "source:art/source/regional_050/right_family.png",
         "source:art/source/regional_runtime_041/bell_bat.png",
         "source:art/source/regional_runtime_041/bell_bat_gaps.png",
         "source:art/source/regional_runtime_041/bell_bat_spaced.png",
@@ -79323,24 +79350,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:idle:left:None",
@@ -79352,24 +79377,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:role windup:right:None",
@@ -79381,24 +79404,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:role windup:left:None",
@@ -79410,24 +79431,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:role commit:right:None",
@@ -79439,24 +79458,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:role commit:left:None",
@@ -79468,24 +79485,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:hurt:right:None",
@@ -79497,24 +79512,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:hurt:left:None",
@@ -79526,24 +79539,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:recovery:right:None",
@@ -79555,24 +79566,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:recovery:left:None",
@@ -79584,24 +79593,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:defeat:right:None",
@@ -79613,24 +79620,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:lantern_toad:defeat:left:None",
@@ -79642,24 +79647,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:idle:right:None",
@@ -79671,24 +79674,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:idle:left:None",
@@ -79700,24 +79701,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:role windup:right:None",
@@ -79729,24 +79728,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:role windup:left:None",
@@ -79758,24 +79755,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:role commit:right:None",
@@ -79787,24 +79782,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:role commit:left:None",
@@ -79816,24 +79809,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:hurt:right:None",
@@ -79845,24 +79836,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:hurt:left:None",
@@ -79874,24 +79863,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:recovery:right:None",
@@ -79903,24 +79890,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:recovery:left:None",
@@ -79932,24 +79917,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:defeat:right:None",
@@ -79961,24 +79944,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:mudcloak:defeat:left:None",
@@ -79990,24 +79971,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
         "player_experience_reviewed": false,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png"
-      ],
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open."
     },
     {
       "id": "pose:bell_bat:idle:right:None",
@@ -192965,6 +192944,354 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_defeat_left",
+      "name": "lantern_toad_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_defeat_right",
+      "name": "lantern_toad_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_hurt_left",
+      "name": "lantern_toad_hurt_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_hurt_right",
+      "name": "lantern_toad_hurt_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_idle_left",
+      "name": "lantern_toad_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_idle_right",
+      "name": "lantern_toad_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_recovery_left",
+      "name": "lantern_toad_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_recovery_right",
+      "name": "lantern_toad_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_role_commit_left",
+      "name": "lantern_toad_role_commit_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_role_commit_right",
+      "name": "lantern_toad_role_commit_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_role_windup_left",
+      "name": "lantern_toad_role_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+      "family": "combat_art",
+      "identity": "lantern_toad_role_windup_right",
+      "name": "lantern_toad_role_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "asset:art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_defeat_left.png",
       "family": "combat_art",
       "identity": "margin_imp_defeat_left",
@@ -193652,6 +193979,354 @@
         "production_quality_accepted": false
       },
       "asset": "art/production/phase4e/enemies/mossmaw/mossmaw_role_windup_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+      "family": "combat_art",
+      "identity": "mudcloak_defeat_left",
+      "name": "mudcloak_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+      "family": "combat_art",
+      "identity": "mudcloak_defeat_right",
+      "name": "mudcloak_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+      "family": "combat_art",
+      "identity": "mudcloak_hurt_left",
+      "name": "mudcloak_hurt_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+      "family": "combat_art",
+      "identity": "mudcloak_hurt_right",
+      "name": "mudcloak_hurt_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+      "family": "combat_art",
+      "identity": "mudcloak_idle_left",
+      "name": "mudcloak_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+      "family": "combat_art",
+      "identity": "mudcloak_idle_right",
+      "name": "mudcloak_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+      "family": "combat_art",
+      "identity": "mudcloak_recovery_left",
+      "name": "mudcloak_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+      "family": "combat_art",
+      "identity": "mudcloak_recovery_right",
+      "name": "mudcloak_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+      "family": "combat_art",
+      "identity": "mudcloak_role_commit_left",
+      "name": "mudcloak_role_commit_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+      "family": "combat_art",
+      "identity": "mudcloak_role_commit_right",
+      "name": "mudcloak_role_commit_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+      "family": "combat_art",
+      "identity": "mudcloak_role_windup_left",
+      "name": "mudcloak_role_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+      "canon": null,
+      "implementation": [
+        "enemy_art_manifest.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+      "family": "combat_art",
+      "identity": "mudcloak_role_windup_right",
+      "name": "mudcloak_role_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
       "canon": null,
       "implementation": [
         "enemy_art_manifest.gd"
@@ -219117,6 +219792,654 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_defeat_left.png",
+      "family": "reference",
+      "identity": "lantern_toad_defeat_left",
+      "name": "lantern_toad_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_defeat_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_defeat_right.png",
+      "family": "reference",
+      "identity": "lantern_toad_defeat_right",
+      "name": "lantern_toad_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_defeat_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_hurt_left.png",
+      "family": "reference",
+      "identity": "lantern_toad_hurt_left",
+      "name": "lantern_toad_hurt_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_hurt_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_hurt_right.png",
+      "family": "reference",
+      "identity": "lantern_toad_hurt_right",
+      "name": "lantern_toad_hurt_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_hurt_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_idle_left.png",
+      "family": "reference",
+      "identity": "lantern_toad_idle_left",
+      "name": "lantern_toad_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_idle_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_idle_right.png",
+      "family": "reference",
+      "identity": "lantern_toad_idle_right",
+      "name": "lantern_toad_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_idle_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_recovery_left.png",
+      "family": "reference",
+      "identity": "lantern_toad_recovery_left",
+      "name": "lantern_toad_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_recovery_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_recovery_right.png",
+      "family": "reference",
+      "identity": "lantern_toad_recovery_right",
+      "name": "lantern_toad_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_recovery_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_role_commit_left.png",
+      "family": "reference",
+      "identity": "lantern_toad_role_commit_left",
+      "name": "lantern_toad_role_commit_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_role_commit_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_role_commit_right.png",
+      "family": "reference",
+      "identity": "lantern_toad_role_commit_right",
+      "name": "lantern_toad_role_commit_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_role_commit_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_role_windup_left.png",
+      "family": "reference",
+      "identity": "lantern_toad_role_windup_left",
+      "name": "lantern_toad_role_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_role_windup_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/lantern_toad/lantern_toad_role_windup_right.png",
+      "family": "reference",
+      "identity": "lantern_toad_role_windup_right",
+      "name": "lantern_toad_role_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/lantern_toad/lantern_toad_role_windup_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_defeat_left.png",
+      "family": "reference",
+      "identity": "mudcloak_defeat_left",
+      "name": "mudcloak_defeat_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_defeat_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_defeat_right.png",
+      "family": "reference",
+      "identity": "mudcloak_defeat_right",
+      "name": "mudcloak_defeat_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_defeat_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_hurt_left.png",
+      "family": "reference",
+      "identity": "mudcloak_hurt_left",
+      "name": "mudcloak_hurt_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_hurt_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_hurt_right.png",
+      "family": "reference",
+      "identity": "mudcloak_hurt_right",
+      "name": "mudcloak_hurt_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_hurt_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_idle_left.png",
+      "family": "reference",
+      "identity": "mudcloak_idle_left",
+      "name": "mudcloak_idle_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_idle_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_idle_right.png",
+      "family": "reference",
+      "identity": "mudcloak_idle_right",
+      "name": "mudcloak_idle_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_idle_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_recovery_left.png",
+      "family": "reference",
+      "identity": "mudcloak_recovery_left",
+      "name": "mudcloak_recovery_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_recovery_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_recovery_right.png",
+      "family": "reference",
+      "identity": "mudcloak_recovery_right",
+      "name": "mudcloak_recovery_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_recovery_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_role_commit_left.png",
+      "family": "reference",
+      "identity": "mudcloak_role_commit_left",
+      "name": "mudcloak_role_commit_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_role_commit_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_role_commit_right.png",
+      "family": "reference",
+      "identity": "mudcloak_role_commit_right",
+      "name": "mudcloak_role_commit_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_role_commit_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_role_windup_left.png",
+      "family": "reference",
+      "identity": "mudcloak_role_windup_left",
+      "name": "mudcloak_role_windup_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_role_windup_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/mudcloak/mudcloak_role_windup_right.png",
+      "family": "reference",
+      "identity": "mudcloak_role_windup_right",
+      "name": "mudcloak_role_windup_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_role_windup_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "source:art/source/player_combat_043/gloomlet_left.png",
       "family": "reference",
       "identity": "gloomlet_left",
@@ -219894,6 +221217,87 @@
       },
       "asset": null,
       "canon": "art/source/regional_049/margin_combat.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/regional_050/correction_family.png",
+      "family": "reference",
+      "identity": "correction_family",
+      "name": "correction_family",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/regional_050/correction_family.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/regional_050/left_family.png",
+      "family": "reference",
+      "identity": "left_family",
+      "name": "left_family",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/regional_050/left_family.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/regional_050/right_family.png",
+      "family": "reference",
+      "identity": "right_family",
+      "name": "right_family",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/regional_050/right_family.png",
       "implementation": null,
       "blocker": "Reference is not a production state; no new canon approval inferred",
       "defects": [],
@@ -250262,6 +251666,222 @@
       "exists": true
     },
     {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+      "actor": "lantern_toad",
+      "state": "idle",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+      "actor": "lantern_toad",
+      "state": "role windup",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+      "actor": "lantern_toad",
+      "state": "role commit",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+      "actor": "lantern_toad",
+      "state": "recovery",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+      "actor": "lantern_toad",
+      "state": "hurt",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+      "actor": "lantern_toad",
+      "state": "defeat",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+      "actor": "lantern_toad",
+      "state": "idle",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+      "actor": "lantern_toad",
+      "state": "role windup",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+      "actor": "lantern_toad",
+      "state": "role commit",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+      "actor": "lantern_toad",
+      "state": "recovery",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+      "actor": "lantern_toad",
+      "state": "hurt",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+      "actor": "lantern_toad",
+      "state": "defeat",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+      "actor": "mudcloak",
+      "state": "idle",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+      "actor": "mudcloak",
+      "state": "role windup",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+      "actor": "mudcloak",
+      "state": "role commit",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+      "actor": "mudcloak",
+      "state": "recovery",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+      "actor": "mudcloak",
+      "state": "hurt",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+      "actor": "mudcloak",
+      "state": "defeat",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+      "actor": "mudcloak",
+      "state": "idle",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+      "actor": "mudcloak",
+      "state": "role windup",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+      "actor": "mudcloak",
+      "state": "role commit",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+      "actor": "mudcloak",
+      "state": "recovery",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+      "actor": "mudcloak",
+      "state": "hurt",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_enemy_manifest.json",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+      "actor": "mudcloak",
+      "state": "defeat",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
       "manifest": "art/production_npc_manifest.json",
       "asset": "art/production/phase4e/npcs/patch/patch_rest_right.png",
       "actor": "patch",
@@ -271668,246 +273288,6 @@
       "expected_filename": "dew_hexer_hurt_right.png"
     },
     {
-      "slot_id": "pose:lantern_toad:idle:right:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "idle",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_idle_right.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:role windup:right:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "role windup",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_role_windup_right.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:role commit:right:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "role commit",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_role_commit_right.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:hurt:right:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "hurt",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_hurt_right.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:recovery:right:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "recovery",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_recovery_right.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:defeat:right:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "defeat",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_defeat_right.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:idle:left:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "idle",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_idle_left.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:role windup:left:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "role windup",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_role_windup_left.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:role commit:left:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "role commit",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_role_commit_left.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:hurt:left:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "hurt",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_hurt_left.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:recovery:left:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "recovery",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_recovery_left.png"
-    },
-    {
-      "slot_id": "pose:lantern_toad:defeat:left:None",
-      "category": "enemies",
-      "entity_id": "lantern_toad",
-      "display_name": "LANTERN TOAD",
-      "state": "defeat",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "lantern_toad_defeat_left.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:idle:right:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "idle",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_idle_right.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:role windup:right:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "role windup",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_role_windup_right.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:role commit:right:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "role commit",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_role_commit_right.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:hurt:right:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "hurt",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_hurt_right.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:recovery:right:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "recovery",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_recovery_right.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:defeat:right:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "defeat",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_defeat_right.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:idle:left:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "idle",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_idle_left.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:role windup:left:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "role windup",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_role_windup_left.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:role commit:left:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "role commit",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_role_commit_left.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:hurt:left:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "hurt",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_hurt_left.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:recovery:left:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "recovery",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_recovery_left.png"
-    },
-    {
-      "slot_id": "pose:mudcloak:defeat:left:None",
-      "category": "enemies",
-      "entity_id": "mudcloak",
-      "display_name": "MUDCLOAK",
-      "state": "defeat",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "mudcloak_defeat_left.png"
-    },
-    {
       "slot_id": "pose:icicle_imp:idle:right:None",
       "category": "enemies",
       "entity_id": "icicle_imp",
@@ -279340,6 +280720,11 @@
       "reason": "runtime literal not registered in current accepted manifests"
     },
     {
+      "implementation": "enemy_art_manifest.gd",
+      "resource": "art/source/regional_050/CANDIDATES.json",
+      "reason": "runtime literal not registered in current accepted manifests"
+    },
+    {
       "implementation": "field_notes_catalog.gd",
       "resource": "art/production/phase4e/ui/expressions/%s_happy.png",
       "reason": "dynamic resource pattern: per-variant resolution/registration required"
@@ -279670,20 +281055,20 @@
     "system:world_interaction_feedback.gd"
   ],
   "latest_runtime_integration": {
-    "version": "0.4.50-chase-candidate",
-    "kind": "diamond-specializations-optional-prism-rift-eight-item-mythical-collection-and-original-announcement",
-    "verified_contracts_closed": 0,
+    "version": "0.4.50-world-chase-candidate",
+    "kind": "earned-currencies-mythical-rewards-equipment-feedback-and-two-canonical-moonfen-enemy-families",
+    "verified_contracts_closed": 24,
     "new_generated_assets": {
-      "image_sheet_candidates": 2,
+      "image_sheet_candidates": 5,
       "voice_performances": 1,
       "procedural_fanfare": 1
     },
-    "new_runtime_png": 8,
+    "new_runtime_png": 32,
     "new_runtime_wav": 2,
-    "new_physical_artist_files": 12,
-    "frozen_artist_requirements_fulfilled": 0,
-    "remaining_contracts": 2822,
-    "remaining_artist_file_requirements": 7339,
+    "new_physical_artist_files": 111,
+    "frozen_artist_requirements_fulfilled": 48,
+    "remaining_contracts": 2798,
+    "remaining_artist_file_requirements": 7291,
     "complete_fluid_animation_families": 0,
     "professional_family_acceptance": false,
     "physical_device_validated": false,
@@ -279707,7 +281092,10 @@
       "1% elite-clear chance; guarantee at 24 clears, eight unique items before repeats; full-stash delivery reserved",
       "Original rights-cleared spoken YOU WON! with separate saved toggle and bounded jackpot fanfare",
       "Seventh-tier honest reveal, real won item on reels and existing skip/payout protection",
-      "Custom weapon primary grips and projectile sockets, foreground blade and outcome selectors, left-facing clipping correction"
+      "Custom weapon primary grips and projectile sockets, foreground blade and outcome selectors, left-facing clipping correction",
+      "24 canonical Lantern Toad/Mudcloak keyframes, both original facings, selected by actual combat clocks",
+      "Three joined-alpha cells corrected; exact-pixel runtime compaction reduces estimated texture budget to 13.4 MiB",
+      "Shared facing-aware shield placement and honest Ward gain/absorption feedback"
     ],
     "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
     "economy_scope": {
@@ -279740,19 +281128,19 @@
     },
     "builds": {
       "windows": {
-        "path": "builds/windows/Lootlings-0.4.50-chase-candidate.exe",
+        "path": "builds/windows/Lootlings-0.4.50-world-chase-candidate.exe",
         "bytes": 103136768,
-        "sha256": "2cc6118c24e39b7d26acceb1264da8e3f115b8682d851ceddad24994c99e577a"
+        "sha256": "5b440a5b18563ba1c06cc26a8e572d4127e64a002ae7c561beecd7e4da77898d"
       },
       "windows_pack": {
-        "path": "builds/windows/Lootlings-0.4.50-chase-candidate.pck",
-        "bytes": 267840492,
-        "sha256": "60c4fc94c72aa1623c0a48d1d7cd06dceebdbfb7259a70df5f3d4edf6318e875"
+        "path": "builds/windows/Lootlings-0.4.50-world-chase-candidate.pck",
+        "bytes": 272741828,
+        "sha256": "935f41a8e3b3682ab04b88ef1012714bad2e9e4948b700520bcbde1ead5257de"
       },
       "android": {
-        "path": "builds/android/Lootlings-0.4.50-chase-candidate-debug.apk",
-        "bytes": 289041032,
-        "sha256": "3e81e8279b949aba2b228a0d1d9e02eb1c78f756590ab2f0df2605387f554a67"
+        "path": "builds/android/Lootlings-0.4.50-world-chase-candidate-debug.apk",
+        "bytes": 293887732,
+        "sha256": "3f0be002014f2ab8aa6f8261bbe9a4a4752025459a611a37cb8ef304e3c604d9"
       }
     },
     "quality_findings": [
@@ -279762,25 +281150,27 @@
       "Android provenance guard initially caught missing new cue registration; corrected packaged sources.json, with original licences and title score unchanged",
       "Native tablet inventory revealed tall weapon button icons overflowing rows; corrected to fixed-square icon lane before final export."
     ],
-    "tests": "chase-candidate/QA_RESULTS.json",
-    "android_version_code": 60,
+    "tests": "moonfen/exported-05011-results.json",
+    "android_version_code": 61,
     "canonical_asset_changes": "No character, companion, enemy, boss, branding or title music assets replaced",
     "accepted_assets_scope": "Installed/functionally tested candidates; no professional collection or listening acceptance claim",
-    "build_status": "Final candidates include follow-on equipment/Ward integration; Windows PCK native routes verified at phone/tablet/desktop sizes, actual EXE startup and Android package/branding/import checks. Physical Android gameplay deferred.",
+    "build_status": "New Windows/Android candidate includes all three integrated passes. Exported Windows PCK routes and 72 Moonfen probes across three sizes verified; Android package/branding/import checks only, physical device deferred.",
     "remaining_work": [
-      "Full twelve-actor/all-state Mythical contact and animation acceptance",
-      "Human full-clear elite encounter pacing and long-session progression balance",
+      "Full twelve-actor/all-state body, weapon grip and animation coverage (63 fallback cases in latest four-weapon sample)",
+      "Moonfen full fluid continuity and encounter/player-experience acceptance",
+      "Human elite-clear pacing and long-session rare-currency/collection grind balance",
       "Professional voice/fanfare listening and phone speaker mastering",
       "Physical S23 test",
-      "2822 frozen art contracts and 7339 artist requirement records"
+      "2798 frozen art contracts and 7291 artist requirement records"
     ],
     "new_runtime_assets": {
       "item_png": 8,
       "sound_wav": 2,
-      "new_character_animation_frames": 0
+      "new_character_animation_frames": 0,
+      "enemy_keyframe_png": 24
     },
-    "new_contract_closures": 0,
-    "exported_pack_native_runs": 5,
+    "new_contract_closures": 24,
+    "exported_pack_native_runs": 4,
     "exported_layouts": [
       "1080x2340",
       "1600x2560",
@@ -279788,7 +281178,7 @@
     ],
     "actual_exe_verified": "isolated headless startup; interactive fixtures against its compiled PCK",
     "android_signed_arm64_debug": true,
-    "retained_actor_textures_verified_in_apk": 503,
+    "retained_actor_textures_verified_in_apk": 527,
     "new_mythical_textures_verified_in_apk": 8,
     "follow_on_equipment_pass": {
       "native_geometry_cases": 96,
@@ -279798,7 +281188,16 @@
       "frozen_contract_closures": 0,
       "evidence": "equipment-feedback/REVIEW.md"
     },
-    "latest_tests": "equipment-feedback/exported-0507-results.json, exported-0508-results.json, exported-0509-results.json and exported-05010-results.json"
+    "latest_tests": "moonfen/exported-05011-results.json",
+    "moonfen_enemy_keyframes": {
+      "lantern_toad": 12,
+      "mudcloak": 12,
+      "corrected_rejected_cells": 3,
+      "native_exact_probes": 72,
+      "full_fluid_animation_accepted": false,
+      "professional_family_acceptance": false
+    },
+    "exported_pack_tested_fixtures": 4
   },
   "current_batch_corrections": [
     "Alpha bridges corrected in player sources before extraction.",
@@ -279816,17 +281215,17 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "18c7a00cf7a91d018dff5649760bc353d619fc0236b48f1a87361d2030cc7438",
-    "docs/production/CANON_REGISTRY.json": "f77a6025e58a4eeeed5ac28e79a47a3dc2e9735d3dceff559cf4507d3b05d7de",
-    "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "12bb3af5bc05507a05942802ec07fda177436869edc719454a343ea5c0e07833",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "bcb0377a3b859b81fc97c169125a12948f1a0893598d833bee2f9859aeb430e3",
+    "docs/production/CANON_REGISTRY.json": "92ec382fa6ed1accb069a0728954712c757b4e5cf9d3ba0165507bf68c4a491f",
+    "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "b81711974eb6b7d138458b0a427ce9ca3fbecbc4c4a988e251b00a26f2de3a34",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
     "art/npc_identity_authorities.json": "8c758eb2106971c8ab094f50b072a56a7a617612d83b26a4505686659e50593b",
     "art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json": "097ed7c8e96e868e645cd5e42b19fa400c501118531b29bd3d05691fd38c2aa4",
     "art/hoard_dragon_identity_authority.json": "8c3991797f5d51db5f0f58f25fa71b2265a91f387ba871f4bf167bc856e0cd63",
-    "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "9d2965ad6df1ea1653bd61084a73785e4d7a75ae48dd364bcebd34aa37d9fcb5",
-    "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "f768251ef754b614c5f01203415f87ac428a6c9bdcec53b581e0c9833606e73c",
+    "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "a0dcf918b7313c49c14adad94a54bb469646b70b447bf5a6b49181d0292347b2",
+    "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "f2307130ea14e8e0c6abdaa558abf6a958a6b8113d00ccb909668e9b239971fa",
     "docs\\production\\full-completion\\continuous-production\\COMBAT_CONTINUATION_INSTALLATION_0446.json": "568612f976836dccb14747ea6afe8413f17f092acc83ded1e55f70fc96bcd5a1",
-    "docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json": "cc5a84813dd9cb91bbd8e05525587c05455d87dc005f7624f0ba652c9c95e609"
+    "docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json": "560369ae2dda0e24fd90209ae6f9ceb563f03ab4a94cebd20fef595e9aaa8971"
   }
 }

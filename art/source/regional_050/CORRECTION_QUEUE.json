@@ -1,0 +1,15 @@
+{
+  "rejected": [
+    {
+      "source": "left_family.png",
+      "cells": [
+        0,
+        1,
+        2
+      ],
+      "reason": "Lantern alpha glow bridges the top row; no grid slicing accepted",
+      "replacement": "correction_family.png",
+      "status": "corrected, native acceptance pending"
+    }
+  ]
+}

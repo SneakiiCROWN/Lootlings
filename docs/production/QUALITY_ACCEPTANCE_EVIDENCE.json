@@ -9065,6 +9065,654 @@
         "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
         "combat_presentation.gd": "0b653cbc87a23d26fd2901f842a3f606da454abcc4927928b745a8cfbf240a05"
       }
+    },
+    {
+      "slot_id": "pose:lantern_toad:idle:right:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_right.png",
+      "asset_sha256": "7d207ebba3d11ed456707fc5f66ac0cbe494b4ab56a4b0f5fa5747568c2ac449",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:role windup:right:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_right.png",
+      "asset_sha256": "b9a11ad078a4824d7912953ae7d4193a014f3541b2d8b1d41ab7621f06ddec9f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:role commit:right:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_right.png",
+      "asset_sha256": "8d0eb08a8e3f9796b9fbe1363531058b89b205132276a699adaa9e83ec08587a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:recovery:right:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+      "asset_sha256": "3c167f9f87b33053248c83d5c0046e75f2b7ee01ab12e7b86c535a818a755ab2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:hurt:right:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_right.png",
+      "asset_sha256": "8cd2900733e5904eb47d53cd084bb79a373db1d1421865a6d276cf4ae3e68a2c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:defeat:right:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_right.png",
+      "asset_sha256": "1fe2f1536ca043a0aaa055030250a3889b9a9c871f082976fd744e2eac58ff0a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:idle:left:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_idle_left.png",
+      "asset_sha256": "619964d3a60ac45260492731688b6f80b4a71deb912abb9b188623de24f87b21",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:role windup:left:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_windup_left.png",
+      "asset_sha256": "54b19f3a881e0da73b6fb4710a37a049042c1667a0f3ae77761b44e4d265d27f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:role commit:left:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_role_commit_left.png",
+      "asset_sha256": "70b1b9d1a40763814c69142f7bf10d3d9762cc11f5c0c600d604ded632b9e139",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:recovery:left:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_left.png",
+      "asset_sha256": "ca222f4360ca6499b3730c1e9a9745d112ba8ffe4c1eeca49db42332a2345f1b",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:hurt:left:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_hurt_left.png",
+      "asset_sha256": "2c082a14038628291f8c52d1644b95501131e4a3151c458886b9b0400ce723c9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:lantern_toad:defeat:left:None",
+      "asset": "art/production/phase4e/enemies/lantern_toad/lantern_toad_defeat_left.png",
+      "asset_sha256": "c69ba80eb3dcf0c89df0ccca3d8c8b30d53c0b0b8b59a761d7928af0d3b6670f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:idle:right:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_right.png",
+      "asset_sha256": "34278ab33158edda233e823de8e0d9d2dbc426b292e6d1143d3efcd372d7f84c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:role windup:right:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_right.png",
+      "asset_sha256": "bf38aa46611acf5467a911dfa7ace47be1276a374c0692aa3eac08225c54790a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:role commit:right:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_right.png",
+      "asset_sha256": "ce5d1ff02cf0139eb875906a4e32222567e8fd669193cdf282fef8f1b2ff48fa",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:recovery:right:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_right.png",
+      "asset_sha256": "2a45d637533e000bfa413c5e98f1bd190c53b41da7412d1a4d52e2c7784ac46c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:hurt:right:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_right.png",
+      "asset_sha256": "49b152d930b2c65f50931932e06803a15ce9e0d423b2ae3224c29e793ee91ee9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:defeat:right:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_right.png",
+      "asset_sha256": "028fd2b80ef09864087cc0e85e536b46c9c0d706a1b23f8aa7c2802bf613ed13",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:idle:left:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_idle_left.png",
+      "asset_sha256": "637cd65c4e4ec2f1e590ca1621d434694ca0d62dd4fb215c073c731234e96ef1",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:role windup:left:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_windup_left.png",
+      "asset_sha256": "3790306a8f01430aa3ef8d76834eaf51008412507ff489027c5f5d53a4800897",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:role commit:left:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_role_commit_left.png",
+      "asset_sha256": "b84b7fc6339acef446a01c531e2d15d6954ef4f3544c38968f5a0773be444627",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:recovery:left:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_recovery_left.png",
+      "asset_sha256": "21fda280f32b974443bfbdbe07e433aa64837d9d410e5513514e665451f14d2f",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:hurt:left:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_hurt_left.png",
+      "asset_sha256": "52314885897ac210d0da2d1f8e2c59dffa595af7fdc3567772fe570e0aca9484",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
+    },
+    {
+      "slot_id": "pose:mudcloak:defeat:left:None",
+      "asset": "art/production/phase4e/enemies/mudcloak/mudcloak_defeat_left.png",
+      "asset_sha256": "787b395d4478ed50cf207350289bb3d7f782335d87f83e2ea4b392f941e8675c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.50/moonfen/PROBES.json"
+      ],
+      "limitations": "Six independently reviewed states per facing, not a fluid animation family. Real-time transition/player experience and physical device acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "enemy_art_manifest.gd": "02a8a7e95de630a87c397e8911afd04f92063f1668330652af24e6d982f097ca",
+        "creature_renderer.gd": "0279051313ce88d945476a8f123a54fe17eea14262d5bb57ddfac374f6adb40c",
+        "art/production_enemy_manifest.json": "d146eb5da3ed2a41832641a74cde7fcf650512757a69305ea6b4a6b373147633",
+        "approved_missing_runtime_art.gd": "af069c347681870a32cd218724296c86bbdb9dc6679213584d093981af8a8fc6",
+        "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
+        "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

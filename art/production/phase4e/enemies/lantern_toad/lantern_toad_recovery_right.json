@@ -1,0 +1,46 @@
+{
+  "actor": "lantern_toad",
+  "state": "recovery",
+  "facing": "right",
+  "asset_path": "res://art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.png",
+  "canvas": [
+    383,
+    307
+  ],
+  "content_rect": [
+    16,
+    16,
+    351,
+    275
+  ],
+  "native_pixel_scale": 0.4,
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch02_moonfen_marshes.png",
+  "source_sha256": "c9fc50baf61874130744fd352308a05ce240a0838e61cfd17a9b5b094dbdac14",
+  "authored_source": "art/source/regional_050/right_family.png",
+  "authored_source_sha256": "26808e77b86a9fa20e0b8ae30cbc35d8b5e15199a7662c74f990e0435827cdc5",
+  "authored_source_bounds": [
+    14,
+    431,
+    365,
+    706
+  ],
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:lantern_toad:recovery:right:None",
+  "asset_sha256": "3c167f9f87b33053248c83d5c0046e75f2b7ee01ab12e7b86c535a818a755ab2",
+  "metadata_path": "art/production/phase4e/enemies/lantern_toad/lantern_toad_recovery_right.json",
+  "feet_baseline_normalized": 0.96875,
+  "anchor": [
+    0.5,
+    0.96875
+  ],
+  "source_quality": "Original RGBA silhouette, existing alpha-components tool; original source pixels preserved inside isolated silhouette with bounded antialias fringe. No mirror or board crop.",
+  "native_qa": "moonfen-candidate-93f39c3285",
+  "professional_family_accepted": false,
+  "visual_acceptance": "Exact named Moonfen board compared with independent source silhouettes; all six keyframes and both original facings inspected in native gameplay. Three viewports and real enemy damage checked. Basic authored states only; fluid continuity and professional/player-experience acceptance remain open.",
+  "source_delivery_canvas": [
+    1024,
+    1024
+  ],
+  "runtime_memory_policy": "Exact source pixels on compact runtime canvas; 16px transparent border; original 1024 source delivery preserved. No resize/mirror."
+}
