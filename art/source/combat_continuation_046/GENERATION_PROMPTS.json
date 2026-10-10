@@ -1,0 +1,13 @@
+{
+  "tool": "built-in image_gen",
+  "base_checkpoint": "4f80b95",
+  "production": "Eight isolated 4x2 heavy body states, idle/windup/strike/hurt, independently right then left, no baked weapon, exact dedicated BASE character identity. True transparent RGBA, full silhouettes and generous gutters. Distinct aligned two-hand shaft grips. Emberhorn orange fox-dragon red scarf cream fluff gold brown armor. Pebblewyrm grey cream rock-scale bruiser orange crown crystals blue chest gem, continuous rocky tail.",
+  "enemy": "Six isolated 3x2 Dew Hexer poses independently facing right/left: idle/windup/release/hurt/recovery/defeat. Exact approved regional lower-left cat, leaf hat daisies, maroon scarf, leafy cloak, wood staff blue orb and hanging lantern. True alpha and neutral edges.",
+  "left_correction": "Reduce oversized fluffy fox tail to small canon cream cat tail mostly covered by leaves. Leave all six left-facing poses and exact gripping hands/staff unchanged.",
+  "authorities": [
+    "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png",
+    "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
+    "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
+  ],
+  "stages": "Sources created only; gameplay and professional quality acceptance pending."
+}

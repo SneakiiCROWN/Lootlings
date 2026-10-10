@@ -1,0 +1,374 @@
+{
+  "entries": [
+    {
+      "actor": "dew_hexer",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        278,
+        593,
+        468,
+        399
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        15,
+        127,
+        483,
+        526
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:idle:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_right.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        231,
+        624,
+        562,
+        368
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        961,
+        164,
+        1523,
+        532
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:role commit:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_right.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        246,
+        620,
+        532,
+        372
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        494,
+        598,
+        1026,
+        970
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:recovery:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_right.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        265,
+        642,
+        493,
+        350
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        1032,
+        624,
+        1525,
+        974
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:defeat:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_right.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        278,
+        599,
+        468,
+        393
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        15,
+        127,
+        483,
+        520
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:idle:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_left.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        287,
+        495,
+        450,
+        497
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        494,
+        17,
+        944,
+        514
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:role windup:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_windup_left.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        228,
+        623,
+        567,
+        369
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        949,
+        145,
+        1516,
+        514
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:role commit:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_left.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        295,
+        549,
+        434,
+        443
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        64,
+        533,
+        498,
+        976
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:hurt:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_hurt_left.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        301,
+        565,
+        422,
+        427
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        529,
+        556,
+        951,
+        983
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:recovery:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_left.json"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        264,
+        642,
+        496,
+        350
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        1011,
+        653,
+        1507,
+        1003
+      ],
+      "production_status": "awaiting_native_visual_review",
+      "native_validated": false,
+      "contract_slot_id": "pose:dew_hexer:defeat:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_left.json"
+    }
+  ]
+}
