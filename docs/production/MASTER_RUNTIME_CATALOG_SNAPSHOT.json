@@ -2339,7 +2339,7 @@
       "texture",
       "runtime_path"
     ],
-    "source_sha256": "302ffabaff57384045dae133800012a60c5f5da22d0160c95528aa0efffe8a6b"
+    "source_sha256": "9b92065490bc13c13b0da2360af8fd85bad80e53e0e51858a1dca086dbd2ca50"
   },
   "companion_presentation.gd": {
     "constants": {},
@@ -2347,9 +2347,10 @@
       "react",
       "update",
       "update_home",
+      "draw_world",
       "draw_home"
     ],
-    "source_sha256": "b53c1956aedf8ac276087e3c659e10a3d05bbfe970552ff8080c974fc86bbb00"
+    "source_sha256": "e8161fcb29bf17e16ba2a649991279a7eaa1c1d9f55d3f6365c51a8f1c21bd9a"
   },
   "contextual_dialogue.gd": {
     "constants": {
@@ -4950,9 +4951,10 @@
       "choose_home_display",
       "choose_companion",
       "refresh_selection_styles",
-      "restore_phase4_selection"
+      "restore_phase4_selection",
+      "toggle_companion_follow"
     ],
-    "source_sha256": "f2fbb9f676e6a49e5a9917a1423bae3f1ebb99d3b82fe4c0d2a76db3c565bee4"
+    "source_sha256": "5761cc59f09939891096722a9adaf1155ff69014eb53f4786296493beb9503f1"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5262,7 +5264,7 @@
       "finish_details",
       "refresh"
     ],
-    "source_sha256": "2c2a0c414c7aec55a70dccbe51d805e40733a6734b09c938fb422b98a2fd469e"
+    "source_sha256": "ae687cb952c1847b4fa7da3181391716262881079c7b67de30bf30b5ca5f1c93"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6346,7 +6348,7 @@
       "configure",
       "_draw"
     ],
-    "source_sha256": "3afc76c43750f880535bbc095bb37efda52b67bda79896f2fde53c56a4ae75f9"
+    "source_sha256": "b5edd14c3915e8619120d68f40d76c528d8ea47b3f5f12ef917079a5aa56dac7"
   },
   "local_save_provider.gd": {
     "constants": {
@@ -6908,7 +6910,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "51151bdd05f3020b8cad3a7a0341d2957d6d774a05072808a013267c444db597"
+    "source_sha256": "ac0102ef85da791db48c296fb2f0876d6ddfed4d5019e6114306c904e8701c67"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7144,7 +7146,9 @@
       }
     },
     "methods": [
+      "framed_item_texture",
       "item_texture",
+      "raw_item_texture",
       "icon",
       "draw_icon",
       "add_icon",
@@ -7167,7 +7171,7 @@
       "apply_selection",
       "inset_style"
     ],
-    "source_sha256": "f6642b86a6513db9cc7ced45d99efd5a605c1b777df249a6e0b68ddc70e1dc98"
+    "source_sha256": "b32728f35bdc24997873a3690f4fe59973d14078c5e355cf1bc335358134f65c"
   },
   "meta_store.gd": {
     "constants": {},
@@ -7222,7 +7226,7 @@
       "greet_or_collection",
       "open_collection"
     ],
-    "source_sha256": "016c88d1261b22f762d34aba345194fdf215744828cfe1b03463a470aaa88c39"
+    "source_sha256": "da2b727e359cf7bd0fdee518610539a0038d17c21bc601730fa3ea7eaff5ee9b"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -10470,6 +10474,13 @@
     },
     "methods": [],
     "source_sha256": "e878d414b98fad06534cf0ae96d99a8c89f704717533fa3d4d48b969cadff746"
+  },
+  "world_interaction_feedback.gd": {
+    "constants": {},
+    "methods": [
+      "bind"
+    ],
+    "source_sha256": "a2b1ce80a310ddb4a40de242fd553a84ae78d8232953105b18c0c5e6f79bf924"
   },
   "world_story.gd": {
     "constants": {

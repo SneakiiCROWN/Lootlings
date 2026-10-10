@@ -1,0 +1,71 @@
+{
+  "version": "0.4.47",
+  "base_checkpoint": "386ffef",
+  "kind": "living-world-runtime-integration",
+  "verified_contracts_closed": 0,
+  "new_generated_assets": 0,
+  "new_physical_artist_files": 0,
+  "existing_canonical_companion_bodies_preserved": 60,
+  "newly_available_companion_routes": [
+    "Hub follower",
+    "combat follower both facings",
+    "combat reward reaction",
+    "persisted Follow Me / Stay Home setting"
+  ],
+  "companion_identities": [
+    "auricub",
+    "stonekith",
+    "pixrask",
+    "lunarwisp",
+    "puffnest",
+    "breezewyn"
+  ],
+  "other_installed_features": [
+    "shared Hub/Home object tap and hover feedback",
+    "cached accepted companion manifest/readiness",
+    "alpha-bound equipment UI framing in shared item/weapon widgets",
+    "Forge resource description spacing correction",
+    "Home explicitly clears combat overlays on entry"
+  ],
+  "native_layouts": [
+    "1080x2340",
+    "1200x1920",
+    "1920x1080"
+  ],
+  "remaining_contracts": 2852,
+  "remaining_artist_file_requirements": 7399,
+  "complete_fluid_animation_families": 0,
+  "professional_family_acceptance": false,
+  "physical_device_validated": false,
+  "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "source_sha256": {
+    "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+    "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+    "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+    "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+    "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+    "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+    "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+    "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+    "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb"
+  },
+  "limitations": [
+    "Existing companion movement uses keyframes, not fluid walking cycles.",
+    "NPC walk/work/sit, body lighting and world prop cohesion remain open.",
+    "Equipment framing preserves originals; missing specific item artwork remains missing.",
+    "No new art-contract closure or new soundtrack delivery claimed.",
+    "Native and packaged evidence must remain distinct from professional artistic approval."
+  ],
+  "native_companion_layout_probes": 18,
+  "compiled_game_route_checks": [
+    "asset_factory_047_native_qa",
+    "companion_perch_native_qa",
+    "service_quality_045_native_qa"
+  ],
+  "exported_apk_actor_textures_verified": 449,
+  "companion_textures_verified_in_apk": 60,
+  "implementation_checkpoint": "2d5a1e7",
+  "windows_pack_sha256": "28b3e63611b4bce3456e679603ca346cd23784333155024a08ca2575a9324c84",
+  "android_apk_sha256": "551ddc0b7171800ee17884261da55767a89045a5b9954a7d7557b5e3dcc6df5f",
+  "android_version_code": 56
+}

@@ -1,3 +1,7 @@
+# Current live continuation — 0.4.47
+
+Read quality-evidence/0.4.47/REPORT.md and Git HEAD. Implementation 2d5a1e7 pushed, final evidence checkpoint follows. Six unchanged canonical companion identities now available in Hub/combat/reward; saved follow toggle, equipment framing, world feedback and Home overlay cleanup installed. No new PNG/artist-file/art-contract closures; 2852 / 7399 outstanding. Actual Windows PCK routes and Android code56 resources verified. Do not re-author accepted companion bodies or 046 characters. Next: continuous movement and NPC work/interaction families, item-specific art and regional effects. Full professional/S23 acceptance remains open. Preserve owner project.godot and all untracked references.
+
 # Current live continuation — 0.4.46
 
 Installed 26 heavy playable and ten Dew Hexer deliveries, 64 physical files, 36 closures. Remaining 2852 / 7399 frozen requirements. Accepted source/native testing passed; Windows/Android code55 exported and actual PCK combat/Stash/Home/audio tests passed. Read latest report and Git HEAD. Never rerun accepted preparation/export over 046 assets. Source/quarantine retained. Physical S23 deferred, full fluid/professional acceptance open. Continue independent families and broad player-facing work; no reset or general audit.

@@ -41,6 +41,8 @@ def build():
     if continuation_receipt.exists():
         receipt=read(str(continuation_receipt.relative_to(ROOT)))
         player_receipt=continuation_receipt
+    integration_path='docs/production/quality-evidence/0.4.47/INSTALLATION_RECEIPT.json'
+    integration_pass=read(integration_path) if (ROOT/integration_path).exists() else None
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'
     evidence = read(evidence_path)
@@ -181,6 +183,7 @@ def build():
             'art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json','art/hoard_dragon_identity_authority.json',
             str((CONT/'CONTINUOUS_PRODUCTION_COUNTS.json').relative_to(ROOT)),str((CONT/'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT))]
     if player_receipt.exists():inputs.append(str(player_receipt.relative_to(ROOT)))
+    if integration_pass:inputs.append(integration_path)
     return dict(schema_version=1, quality_policy='All seven stages required. Tests/export/file existence do not grant artistic or player-experience acceptance. Old LIVE_FINAL/LIVE_BETA labels are reclassified pending evidence.',
                 denominators='Frozen delivery contracts, requested artist-file requirements (including verified compatible reuse), distinct newly created physical files, and broad requirement records are separate. Per-batch receipts give physical file counts. No whole-game completion percentage is asserted.',
                 counts=dict(required_contracts=counts['installed_contracts']+counts['remaining_contracts'], installed_contract_closures=counts['installed_contracts'], remaining_contracts=counts['remaining_contracts'],
@@ -192,6 +195,7 @@ def build():
                 remaining_contracts=[{k:r.get(k) for k in ['slot_id','category','entity_id','display_name','state','facing','weapon_family','expected_filename']} for r in remaining],
                 unregistered_dependencies=dependencies,
                 stale_quality_evidence=stale_evidence,
+                latest_runtime_integration=integration_pass,
                 current_batch_corrections=receipt['quality_findings'],
                 coverage_gaps=['No total artist-file denominator for all audio/UI/environment variations is specified by frozen pose contracts.',
                                'A source-sheet approval does not approve every derived pose or runtime use.',
@@ -203,6 +207,7 @@ def build():
 HTML='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lootlings production dashboard</title>
 <style>body{background:#101c2e;color:#e9eef4;font:15px system-ui;margin:0;padding:24px}h1{color:#ffd88b}section{background:#18293e;border:1px solid #456077;border-radius:12px;padding:20px;margin:18px 0}p{line-height:1.6}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid #365064;vertical-align:top}th{color:#ffd88b}input,select,button{background:#243d56;color:white;border:1px solid #6c8ca7;padding:12px;border-radius:7px;margin:5px}a{color:#9cdbff}.scroll{overflow:auto;max-height:650px}.stats{display:flex;gap:18px;flex-wrap:wrap}.stat{padding:14px;background:#24364a;border-radius:9px}.note{color:#b8cbd9}</style>
 <h1>Lootlings · complete registered scope & quality</h1><p id="policy"></p><div class="stats" id="stats"></div>
+<section><h2>Latest playable integration pass</h2><div id="integration"></div></section>
 <section><h2>Frozen delivery contracts</h2><p class="note">Installed closures are delivery evidence, not automatic professional acceptance. Artist-file totals count requested body/layer/sidecar requirements, including verified reuse. Per-batch receipts separately count new physical files.</p><div id="contracts"></div></section>
 <section><h2>Every registered family</h2><div class="scroll" id="families"></div></section>
 <section><h2>Runtime quality stages / requirements</h2><p>Stage order: canon approval → created → integrated → functional test → gameplay visual review → player-experience review → production acceptance. A dot means unverified, not necessarily failed.</p><input id="search" aria-label="Search identity, region, state or screen" placeholder="Search identity, region, state or screen"><select id="family" aria-label="Family"></select><select id="status" aria-label="Quality status"></select><p id="matched"></p><div class="scroll" id="records"></div><button id="more">Show next 250</button></section>
@@ -221,6 +226,7 @@ function render(){const q=el('search').value.toLowerCase(),f=el('family').value,
 ['search','family','status'].forEach(id=>el(id).addEventListener('input',()=>{limit=250;render()}));el('more').onclick=()=>{limit+=250;render()};render();
 function debt(){const q=el('debtsearch').value.toLowerCase(),rows=d.remaining_contracts.filter(r=>JSON.stringify(r).toLowerCase().includes(q));el('debtcount').textContent=rows.length+' exact remaining contracts; first 250 shown';el('debt').innerHTML=table(['Contract','Category','Identity','State','Facing','Weapon'],rows.slice(0,250).map(r=>[r.slot_id,r.category,r.display_name,r.state,r.facing,r.weapon_family]));}el('debtsearch').oninput=debt;debt();
 el('gaps').innerHTML=d.coverage_gaps.map(x=>'<li>'+esc(x)+'</li>').join('');el('dependencies').innerHTML=table(['Implementation','Resource','Registration gap'],d.unregistered_dependencies.map(r=>[r.implementation,r.resource,r.reason]));
+if(d.latest_runtime_integration){const p=d.latest_runtime_integration;el('integration').innerHTML='<p>'+esc(p.version)+' · '+esc(p.kind)+' · '+esc(p.verified_contracts_closed)+' new art contract closures. Original canonical images reused; no new artist files.</p><ul>'+p.other_installed_features.concat(p.newly_available_companion_routes).map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p>Full animation and professional acceptance remain open.</p>';}
 el('corrections').innerHTML=d.current_batch_corrections.map(x=>'<li>'+esc(x)+'</li>').join('');
 </script></html>'''
 

@@ -7832,6 +7832,279 @@
         "enemy_art_manifest.gd": "06eae461b79cbc1faa266a499295c6a5d4011e26edc438978464fd7b5fbb4176",
         "art/production_enemy_manifest.json": "8fbb59be36593c01e38361d83d95a16320a3d490f920536d60d8ed6d7f3a98a4"
       }
+    },
+    {
+      "slot_id": "system:companion_catalog.gd",
+      "implementation": "companion_catalog.gd",
+      "implementation_sha256": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
+    },
+    {
+      "slot_id": "system:companion_presentation.gd",
+      "implementation": "companion_presentation.gd",
+      "implementation_sha256": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
+    },
+    {
+      "slot_id": "system:hub_navigation.gd",
+      "implementation": "hub_navigation.gd",
+      "implementation_sha256": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
+    },
+    {
+      "slot_id": "system:personal_home.gd",
+      "implementation": "personal_home.gd",
+      "implementation_sha256": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
+    },
+    {
+      "slot_id": "system:item_icon.gd",
+      "implementation": "item_icon.gd",
+      "implementation_sha256": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
+    },
+    {
+      "slot_id": "system:lootlings_ui.gd",
+      "implementation": "lootlings_ui.gd",
+      "implementation_sha256": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
+    },
+    {
+      "slot_id": "system:world_interaction_feedback.gd",
+      "implementation": "world_interaction_feedback.gd",
+      "implementation_sha256": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.47/COMPILED_PCK_RESULTS.json",
+        "docs/production/quality-evidence/0.4.47/COMPANION_PROBES.json",
+        "docs/production/quality-evidence/0.4.47/HUB_NAVIGATION_NATIVE.log",
+        "docs/production/quality-evidence/0.4.47/1080x2340_auricub_hub.png",
+        "docs/production/quality-evidence/0.4.47/1200x1920_breezewyn_home.png",
+        "docs/production/quality-evidence/0.4.47/1920x1080_forge.png"
+      ],
+      "dependencies_sha256": {
+        "companion_catalog.gd": "5c13fa0fc422ee5a965746d9d7787a2fb7df98971e9025c03e6d74f95f06dfb2",
+        "companion_presentation.gd": "72c813bb6c781129720745890c8dd61de75a1876bdd17b87f368e021175170d2",
+        "hub_navigation.gd": "3ac2c2bb3a4424906e9b0e8347dc825286009ab8f9dd30e230914c20dc87fd2e",
+        "personal_home.gd": "d179bb8c36649955be1e431c4dbf5e0092bc46342fadcdf4656b5d8ec9840b68",
+        "item_icon.gd": "3534d195298531a8a32b95c53efa279a584fdc649d17f126507e3f3cbfb1d2e6",
+        "lootlings_ui.gd": "ff727c3bcac44fe4c70dc6415914911c2b8cb120bf5a4ec0d56ae1dc3b1d0118",
+        "world_interaction_feedback.gd": "f3be61e0df37c3026dedb47f52687777d2730d91ea21da4f706407ff483c3beb",
+        "hideout_ui.gd": "9ab2082df6d4a0ecc7e01b6981e1fcd8c72a882ccc5a1b9fe739009bfe255d9f",
+        "lootling.gd": "73e48ff81e3e9117fcb6cde529b9bd726f6944d2c141d917713c873f8f81a797",
+        "tests/asset_factory_047_native_qa.gd": "a52905c651695d72806009cf87673edaead98a36b0e6657e4b814e5f10d03ea3",
+        "art/production/companions/runtime_manifest.json": "bf40cbd10688f2357959126282f4651b3982bb037c110ed117804a9bb4e6182e",
+        "art/reference/canonical/companions/Lootlings_Companion_Collection_Canonical.png": "b0ac7ba0b51f2ccbd22be53f2b752f35eef752d153a98e740d725a101c7d9794",
+        "art/reference/canonical/companions/Lootlings_Companion_Implementation_Pack_Canonical.png": "d91de9110db1c234117e0f5a250fec4b317e67c3ade3d6fe776ea95c79e487a6"
+      },
+      "limitations": "0.4.47 companion travel/reward presentation, Home overlay cleanup, object feedback and equipment framing only. Representative actual compiled-game views reviewed; full fluid cycles, all-item/NPC artistic polish, player-experience acceptance and physical Android testing remain open. This does not approve the complete family or all existing screens.",
+      "defects": []
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

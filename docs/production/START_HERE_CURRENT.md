@@ -1,3 +1,7 @@
+# Current — 0.4.47 living companions and shared-world integration
+
+All six canon companions now follow in Hub/combat, react to rewards and have persisted Follow Me / Stay Home controls. Shared world tap feedback, equipment framing, Forge text and Home overlay cleanup installed. **0 new art contracts**; 2852 / 7399 remain. Implementation 2d5a1e7 pushed; actual Windows PCK and Android code56 verified. Read [current report](quality-evidence/0.4.47/REPORT.md). Fluid animation, full artistic/UX and physical S23 acceptance remain open. Preserve owner settings/references.
+
 # Current — 0.4.46 installed combat continuation
 
 36 new tested deliveries; 2852 contracts remain. Accepted selectors tested without preview gates. Read [current report](quality-evidence/0.4.46/REPORT.md) and sole PRODUCTION_DASHBOARD. 0.4.46/code55 Windows and signed Android exported; actual PCK combat/Stash/Home/audio checks and 389 APK actor imports verified. Preserve owner project.godot and all references.
