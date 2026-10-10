@@ -48,6 +48,8 @@ def main():
     if combat.exists():pose_sources.update({r['asset_path']:r for r in json.loads(read(combat))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime'})
     heavy=ROOT/'art/production/phase4e/player_combat_046_manifest.json'
     if heavy.exists():pose_sources.update({r['asset_path']:r for r in json.loads(read(heavy))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime'})
+    polearm=ROOT/'art/production/phase4e/player_polearm_051_manifest.json'
+    if polearm.exists():pose_sources.update({x['asset_path']:x for x in json.loads(read(polearm))['entries'] if x.get('native_validated') and x.get('production_status')=='canon_validated_runtime'})
     references=json.loads(read(ROOT/'art/reference/phase4e_handoff/REFERENCE_STATUS.json'))
     npc_authorities={x['id']:x for x in json.loads(read(ROOT/'art/npc_identity_authorities.json'))['entries']} if (ROOT/'art/npc_identity_authorities.json').exists() else {}
     texts={p.name:read(p) for p in ROOT.glob('*.gd')}
@@ -203,7 +205,7 @@ def main():
     data['source_inputs']['art/production/phase4e/reuse_manifest.json']=input_digest(ROOT/'art/production/phase4e/reuse_manifest.json')
     data['source_inputs']['art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json']=input_digest(ROOT/'art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')
     data['source_inputs']['art/production/phase4e/props/source_manifest.json']=input_digest(ROOT/'art/production/phase4e/props/source_manifest.json')
-    for new_input in ['art/production/phase4e/items/named_048/manifest.json','art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json','art/npc_identity_authorities.json','art/production/companions/runtime_manifest.json','art/production_enemy_manifest.json','art/production_npc_manifest.json','art/production/phase4e/player_batch_043_manifest.json','art/production/phase4e/player_motion_044_manifest.json','art/production/phase4e/player_combat_045_manifest.json','art/production/phase4e/player_combat_046_manifest.json']:
+    for new_input in ['art/production/phase4e/items/named_048/manifest.json','art/approved_missing_canon_references.json','art/production/phase4e/approved_missing_runtime_manifest.json','art/npc_identity_authorities.json','art/production/companions/runtime_manifest.json','art/production_enemy_manifest.json','art/production_npc_manifest.json','art/production/phase4e/player_batch_043_manifest.json','art/production/phase4e/player_motion_044_manifest.json','art/production/phase4e/player_combat_045_manifest.json','art/production/phase4e/player_combat_046_manifest.json','art/production/phase4e/player_polearm_051_manifest.json']:
         if (ROOT/new_input).exists():data['source_inputs'][new_input]=input_digest(ROOT/new_input)
     dump(OUT/'MASTER_INTEGRATION_MANIFEST.json',data)
     def write_csv(name,records):

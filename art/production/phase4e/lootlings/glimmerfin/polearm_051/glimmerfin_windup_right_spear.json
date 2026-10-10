@@ -1,0 +1,91 @@
+{
+  "actor": "glimmerfin",
+  "state": "windup",
+  "phase": "ANTICIPATE",
+  "weapon_types": [
+    "spear"
+  ],
+  "facing": "right_only",
+  "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_right.png",
+  "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_right_grip_front.png",
+  "metadata_path": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_right_spear.json",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.7530299211876833,
+    0.6196082746478874
+  ],
+  "secondary_anchor": [
+    0.8157475714809385,
+    0.4607174295774648
+  ],
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "feet_baseline": 58,
+  "baseline_y": 496,
+  "canvas": [
+    512,
+    512
+  ],
+  "supports_two_hand": true,
+  "draw_depth": "back",
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "frame_count": 1,
+  "frame_index": 0,
+  "fps": 0,
+  "contract_slot_id": "pose:glimmerfin:windup:right:spear",
+  "source": "art/source/player_polearm_051/glimmerfin_candidate.png",
+  "source_sha256": "848c74ce3eef304667c39e769a0f91021e339bb13d1a1614c765a5ef4caac85c",
+  "source_bounds": [
+    392,
+    47,
+    733,
+    473
+  ],
+  "source_primary": [
+    684,
+    306
+  ],
+  "source_secondary": [
+    714,
+    230
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+  ],
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "weapon_overrides": {
+    "spear": {
+      "size": [
+        104,
+        162
+      ],
+      "grip": [
+        0.37,
+        0.76
+      ],
+      "secondary_grip": [
+        0.37,
+        0.49361252007205586
+      ],
+      "socket": [
+        0.8,
+        0.08
+      ],
+      "angle": 0.35,
+      "held_path": "res://art/sprites/weapons/spear_held.png"
+    }
+  },
+  "grip_calibration": "Two source palms measured; second contact placed on existing shaft. No shifted body palms or painted limbs.",
+  "asset_sha256": "6520a364063c77a581d2d5e97847648649a5f5be38a894dda0f718ada7d58f32",
+  "visual_review": "Dedicated identity, complete source silhouette, native source and actual weapon grips/facings/grounding reviewed. 186 ordinary/Mythical state/view/layout checks. Basic keyframes; movement/hurt/outcomes/full fluid animation and professional family acceptance remain open."
+}

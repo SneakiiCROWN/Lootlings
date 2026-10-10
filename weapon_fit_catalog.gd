@@ -176,7 +176,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	# registered actor/view/weapon/state. Existing accepted phases stay intact.
 	var delivered_phase:String="HURT" if hurt else "RECOVER" if g.attack_anim>0.0 and g.attack_anim<.10 else str(action.phase)
 	var delivered:Dictionary=Authored.extracted_phase(str(actor.id),subtype,delivered_phase,float(g.combat_facing()))
-	if delivered.get("combat_batch_045",false) or delivered.get("combat_batch_046",false):authored=delivered
+	if delivered.get("combat_batch_045",false) or delivered.get("combat_batch_046",false) or delivered.get("polearm_batch_051",false):authored=delivered
 	# Exact extracted idles do not stand in for missing action/movement views.
 	if authored.is_empty():
 		# A source strike is valid at commit, not an invented recovery pose.
@@ -240,6 +240,18 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		if g.player_x < g.target_player_x()-4.0 and authored.get("motion_phase","").is_empty():
 			root.origin.y -= absf(sin(float(g.run_time)*8))*3.0
 	var geometry: Dictionary = authored.get("weapon_overrides",{}).get(subtype,weapon)
+	# The actual equipped artwork owns grip/socket geometry. Rendering and both
+	# hand-contact calculations must agree, including pearlescent shaft variants.
+	var mythical_id: String=str(item.get("id",""))
+	if mythical_id in preload("res://mythical_collection.gd").GRIPS:
+		geometry=geometry.duplicate()
+		var old_grip:Vector2=Vector2(geometry.grip)
+		var old_second:Vector2=Vector2(geometry.get("secondary_grip",stance.secondary_grip))
+		var grip:Vector2=preload("res://mythical_collection.gd").GRIPS[mythical_id]
+		geometry.grip=grip
+		geometry.socket=preload("res://mythical_collection.gd").SOCKETS[mythical_id]
+		if subtype in ["staff","spear","greatsword"]:
+			geometry.secondary_grip=Vector2(grip.x,clampf(grip.y-old_grip.distance_to(old_second),.25,grip.y-.04))
 	var size: Vector2 = Vector2(geometry.size)*float(actor.weapon_scale)*(1.0+clampi(int(item.get("evolution_stage",0)),0,2)*.06)
 	if creature: size *= 1.0+float(g.build.weapon_tier())*.14
 	size *= minf(1.0,minf(MAX_HELD_SIZE.x/size.x,MAX_HELD_SIZE.y/size.y))
@@ -247,7 +259,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var secondary: Variant = authored.get("secondary_hand",actor.secondary_hand)
 	var handling: Dictionary = HANDLING_OVERRIDES.get(str(actor.handling),{}).get(subtype,{})
 	var angle := float(handling.get("angle",geometry.angle))+float(handling.get("angle_offset",0.0))
-	if not authored.get("motion_phase","").is_empty() or authored.get("combat_batch_045",false):angle=float(geometry.angle)
+	if not authored.get("motion_phase","").is_empty() or authored.get("combat_batch_045",false) or authored.get("polearm_batch_051",false):angle=float(geometry.angle)
 	var release_angle := float(handling.get("release",stance.release))
 	if subtype=="staff": release_angle=.22
 	elif subtype in ["daggers","claws"]: release_angle*=1.18
@@ -270,7 +282,8 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			var target: Vector2 = secondary-primary
 			if span.length() > 1.0:
 				var factor := target.length()/span.length()
-				if factor >= .75 and factor <= 1.25 and size.x*factor <= MAX_HELD_SIZE.x and size.y*factor <= MAX_HELD_SIZE.y:
+				var max_fit:float=1.40 if authored.get("polearm_batch_051",false) and mythical_id in ["prismsong","tidestar"] else 1.25
+				if factor >= .75 and factor <= max_fit and size.x*factor <= MAX_HELD_SIZE.x and size.y*factor <= MAX_HELD_SIZE.y:
 					size *= factor
 					angle = target.angle()-span.angle()
 					rect = Rect2(-Vector2(geometry.grip)*size,size)
@@ -311,7 +324,6 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 			if g.attack_anim > .16: nock += forward*sin((.22-g.attack_anim)*80)*2
 			secondary = primary+(nock*weapon_scale).rotated(angle)
 	var socket := (rect.position+Vector2(geometry.socket)*size)*weapon_scale
-	var mythical_id: String=str(item.get("id",""))
 	if mythical_id in preload("res://mythical_collection.gd").GRIPS:
 		socket=(preload("res://mythical_collection.gd").SOCKETS[mythical_id]-preload("res://mythical_collection.gd").GRIPS[mythical_id])*size*weapon_scale
 		# Keep the complete original silhouette inside the arena when facing left.

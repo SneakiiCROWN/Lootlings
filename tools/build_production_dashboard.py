@@ -41,9 +41,13 @@ def build():
     if continuation_receipt.exists():
         receipt=read(str(continuation_receipt.relative_to(ROOT)))
         player_receipt=continuation_receipt
+    polearm_receipt=CONT/'POLEARM_INSTALLATION_0451.json'
+    if polearm_receipt.exists():
+        receipt=read(str(polearm_receipt.relative_to(ROOT)));player_receipt=polearm_receipt
     integration_path='docs/production/quality-evidence/0.4.48/INSTALLATION_RECEIPT.json'
     if (ROOT/'docs/production/quality-evidence/0.4.49/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.49/INSTALLATION_RECEIPT.json'
     if (ROOT/'docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json'
+    if (ROOT/'docs/production/quality-evidence/0.4.51/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.51/INSTALLATION_RECEIPT.json'
     integration_pass=read(integration_path) if (ROOT/integration_path).exists() else None
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'

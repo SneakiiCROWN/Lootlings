@@ -1,0 +1,565 @@
+{
+  "unique_bodies": [
+    {
+      "actor": "glimmerfin",
+      "state": "idle",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        26,
+        61,
+        369,
+        477
+      ],
+      "source_palms": [
+        [
+          264,
+          348
+        ],
+        [
+          337,
+          298
+        ]
+      ],
+      "mapped_palms": [
+        [
+          326.65306122448976,
+          358.00721153846155
+        ],
+        [
+          404.7609329446064,
+          304.52163461538464
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "windup",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_right.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        392,
+        47,
+        733,
+        473
+      ],
+      "source_palms": [
+        [
+          684,
+          306
+        ],
+        [
+          714,
+          230
+        ]
+      ],
+      "mapped_palms": [
+        [
+          385.55131964809385,
+          317.23943661971833
+        ],
+        [
+          417.6627565982405,
+          235.88732394366198
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "strike_or_cast",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_right.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        754,
+        117,
+        1149,
+        474
+      ],
+      "source_palms": [
+        [
+          1104,
+          347
+        ],
+        [
+          1136,
+          318
+        ]
+      ],
+      "mapped_palms": [
+        [
+          418.8101265822785,
+          360.1064425770308
+        ],
+        [
+          453.07848101265824,
+          329.07563025210084
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "recovery",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_right.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        1183,
+        92,
+        1516,
+        475
+      ],
+      "source_palms": [
+        [
+          1445,
+          349
+        ],
+        [
+          1485,
+          319
+        ]
+      ],
+      "mapped_palms": [
+        [
+          358.0960960960961,
+          361.11749347258484
+        ],
+        [
+          400.85885885885887,
+          329.00261096605743
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "idle",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_left.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        33,
+        543,
+        386,
+        955
+      ],
+      "source_palms": [
+        [
+          143,
+          832
+        ],
+        [
+          70,
+          782
+        ]
+      ],
+      "mapped_palms": [
+        [
+          184.79036827195466,
+          364.34223300970876
+        ],
+        [
+          106.62039660056658,
+          310.8228155339806
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "windup",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_left.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        407,
+        531,
+        736,
+        953
+      ],
+      "source_palms": [
+        [
+          438,
+          775
+        ],
+        [
+          426,
+          709
+        ]
+      ],
+      "mapped_palms": [
+        [
+          113.16717325227964,
+          305.34597156398104
+        ],
+        [
+          100.32826747720364,
+          234.65402843601896
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "strike_or_cast",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_left.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        760,
+        595,
+        1166,
+        954
+      ],
+      "source_palms": [
+        [
+          801,
+          829
+        ],
+        [
+          785,
+          797
+        ]
+      ],
+      "mapped_palms": [
+        [
+          81.92857142857143,
+          362.2952646239554
+        ],
+        [
+          64.78571428571428,
+          328.06685236768806
+        ]
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "state": "recovery",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_left.png",
+      "foreground": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\glimmerfin_candidate.png",
+      "source_bounds": [
+        1184,
+        569,
+        1518,
+        958
+      ],
+      "source_palms": [
+        [
+          1268,
+          832
+        ],
+        [
+          1217,
+          793
+        ]
+      ],
+      "mapped_palms": [
+        [
+          167.03592814371257,
+          361.254498714653
+        ],
+        [
+          112.37125748502994,
+          319.54755784061695
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "idle",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "source_bounds": [
+        10,
+        5,
+        433,
+        433
+      ],
+      "source_palms": [
+        [
+          260,
+          303
+        ],
+        [
+          375,
+          281
+        ]
+      ],
+      "mapped_palms": [
+        [
+          293.8179669030733,
+          366.60747663551405
+        ],
+        [
+          408.274231678487,
+          344.7102803738318
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "windup",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "source_bounds": [
+        447,
+        52,
+        883,
+        431
+      ],
+      "source_palms": [
+        [
+          705,
+          294
+        ],
+        [
+          813,
+          299
+        ]
+      ],
+      "mapped_palms": [
+        [
+          295.8165137614679,
+          359.7229551451187
+        ],
+        [
+          403.3211009174312,
+          364.69656992084435
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "strike_or_cast",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_release_correction.png",
+      "source_bounds": [
+        10,
+        4,
+        896,
+        781
+      ],
+      "source_palms": [
+        [
+          506,
+          525
+        ],
+        [
+          838,
+          477
+        ]
+      ],
+      "mapped_palms": [
+        [
+          282.2392776523702,
+          366.84684684684686
+        ],
+        [
+          449.73814898419863,
+          342.63063063063066
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "recovery",
+      "facing": "right",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "source_bounds": [
+        1355,
+        5,
+        1764,
+        432
+      ],
+      "source_palms": [
+        [
+          1634,
+          310
+        ],
+        [
+          1718,
+          278
+        ]
+      ],
+      "mapped_palms": [
+        [
+          329.63569682151586,
+          374.57142857142856
+        ],
+        [
+          413.2249388753056,
+          342.72131147540983
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "idle",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "source_bounds": [
+        12,
+        445,
+        434,
+        869
+      ],
+      "source_palms": [
+        [
+          168,
+          735
+        ],
+        [
+          70,
+          710
+        ]
+      ],
+      "mapped_palms": [
+        [
+          201.260663507109,
+          362.6320754716981
+        ],
+        [
+          103.72511848341233,
+          337.75
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "windup",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "source_bounds": [
+        457,
+        475,
+        877,
+        864
+      ],
+      "source_palms": [
+        [
+          649,
+          746
+        ],
+        [
+          524,
+          740
+        ]
+      ],
+      "mapped_palms": [
+        [
+          238.0857142857143,
+          378.60668380462727
+        ],
+        [
+          113.68095238095238,
+          372.6375321336761
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "strike_or_cast",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_release_correction.png",
+      "source_bounds": [
+        1091,
+        4,
+        1973,
+        781
+      ],
+      "source_palms": [
+        [
+          1503,
+          523
+        ],
+        [
+          1144,
+          478
+        ]
+      ],
+      "mapped_palms": [
+        [
+          241.00680272108843,
+          362.5173745173745
+        ],
+        [
+          55.40136054421769,
+          339.2355212355212
+        ]
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "state": "recovery",
+      "facing": "left",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
+      "foreground": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left_grip_front.png",
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "source_bounds": [
+        1366,
+        450,
+        1765,
+        869
+      ],
+      "source_palms": [
+        [
+          1580,
+          748
+        ],
+        [
+          1419,
+          714
+        ]
+      ],
+      "mapped_palms": [
+        [
+          269.9273182957394,
+          375.57756563245823
+        ],
+        [
+          109.734335839599,
+          341.7398568019093
+        ]
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "actor": "relic_beast",
+      "cell": 2,
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "reason": "Release hides second glove; no valid modular two-hand grip",
+      "disposition": "Replaced by grouped two-visible-glove correction"
+    },
+    {
+      "actor": "relic_beast",
+      "cell": 6,
+      "source": "art\\source\\player_polearm_051\\relic_beast_candidate.png",
+      "reason": "Release hides second glove; no valid modular two-hand grip",
+      "disposition": "Replaced by grouped two-visible-glove correction"
+    }
+  ],
+  "complete_fluid_animation": false
+}

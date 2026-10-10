@@ -9713,6 +9713,781 @@
         "regional_enemy_presentation.gd": "da3e97a5f11d3415ae2f7ff4f84e3f4590dda2f7afd4dbd72f0427abf46e8c39",
         "combat_presentation.gd": "7407791dd45765e1ccc451ad83351df942c4636a6f0399e239b907a8870e6327"
       }
+    },
+    {
+      "slot_id": "pose:glimmerfin:idle:right:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right.png",
+      "asset_sha256": "a498fb633132f8f1e82f03ce7941da4ecc32d69acf3f7cb7a75d8cc1043ea642",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:idle:right:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right.png",
+      "asset_sha256": "a498fb633132f8f1e82f03ce7941da4ecc32d69acf3f7cb7a75d8cc1043ea642",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:windup:right:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_right.png",
+      "asset_sha256": "6520a364063c77a581d2d5e97847648649a5f5be38a894dda0f718ada7d58f32",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:strike_or_cast:right:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_right.png",
+      "asset_sha256": "87d178ff201591f9407e83ba92666fca2ca7233d7d2dae724111324dd72846e7",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:strike_or_cast:right:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_right.png",
+      "asset_sha256": "87d178ff201591f9407e83ba92666fca2ca7233d7d2dae724111324dd72846e7",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:right:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_right.png",
+      "asset_sha256": "0f2ecf7673030cebd51236c6be1f90ce49710b78f452908cc96c93e8d6a8bc98",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:right:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_right.png",
+      "asset_sha256": "0f2ecf7673030cebd51236c6be1f90ce49710b78f452908cc96c93e8d6a8bc98",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:idle:left:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_left.png",
+      "asset_sha256": "f4fa9bbe16ffeffb9b3b1e0e2cebe1cd993711e22b2d4612fd8cd2a2123d4bc5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:idle:left:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_left.png",
+      "asset_sha256": "f4fa9bbe16ffeffb9b3b1e0e2cebe1cd993711e22b2d4612fd8cd2a2123d4bc5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:windup:left:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_left.png",
+      "asset_sha256": "2b90a4cd472df4d00426639e30d5ac2b773591e19abe8edafaf051f40bf3e6ab",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:windup:left:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_windup_left.png",
+      "asset_sha256": "2b90a4cd472df4d00426639e30d5ac2b773591e19abe8edafaf051f40bf3e6ab",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:strike_or_cast:left:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_left.png",
+      "asset_sha256": "20293ed762e4220427d8dbf9b8ab13cac0583c87a747fda279cb77645292ecbd",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:strike_or_cast:left:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_strike_or_cast_left.png",
+      "asset_sha256": "20293ed762e4220427d8dbf9b8ab13cac0583c87a747fda279cb77645292ecbd",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:left:staff",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_left.png",
+      "asset_sha256": "9abe9d56f2b68cbaf32179944779eda08f2cef55ccccc2639ccab229a7d9a338",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:left:spear",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_recovery_left.png",
+      "asset_sha256": "9abe9d56f2b68cbaf32179944779eda08f2cef55ccccc2639ccab229a7d9a338",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:idle:right:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
+      "asset_sha256": "2dac3afa756387efb82ce97d5529e7ee4eaee9c644c65755c35f2f3259c5c4ec",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:idle:right:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
+      "asset_sha256": "2dac3afa756387efb82ce97d5529e7ee4eaee9c644c65755c35f2f3259c5c4ec",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:windup:right:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
+      "asset_sha256": "4e5e6c099b04dd434510be503d58dbc71fdcb345f19ca409e68bd11fab203665",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:windup:right:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
+      "asset_sha256": "4e5e6c099b04dd434510be503d58dbc71fdcb345f19ca409e68bd11fab203665",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:strike_or_cast:right:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
+      "asset_sha256": "e9e231464487ccf3bc405e0d90265146a6f5a66795b16032ab3992e553faacd9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:strike_or_cast:right:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
+      "asset_sha256": "e9e231464487ccf3bc405e0d90265146a6f5a66795b16032ab3992e553faacd9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:recovery:right:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
+      "asset_sha256": "0c37a67979cf416978559b2698f41efe2c25b47c6694e0219d50f810a05665db",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:recovery:right:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
+      "asset_sha256": "0c37a67979cf416978559b2698f41efe2c25b47c6694e0219d50f810a05665db",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:idle:left:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
+      "asset_sha256": "278c8f7a809b01ec2e989d61ebf81c4f45f557a6712e83e5ff77b00804bfbe71",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:idle:left:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
+      "asset_sha256": "278c8f7a809b01ec2e989d61ebf81c4f45f557a6712e83e5ff77b00804bfbe71",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:windup:left:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
+      "asset_sha256": "76f312b8cff6cbae184d3e21bc060ea1e150d681385d9ca6c174453cbac260e3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:windup:left:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
+      "asset_sha256": "76f312b8cff6cbae184d3e21bc060ea1e150d681385d9ca6c174453cbac260e3",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:strike_or_cast:left:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
+      "asset_sha256": "c29d0816b6d011c9894f55dac64e22096aaf7b364048c9ecd2d38800195e0500",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:strike_or_cast:left:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
+      "asset_sha256": "c29d0816b6d011c9894f55dac64e22096aaf7b364048c9ecd2d38800195e0500",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:recovery:left:staff",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
+      "asset_sha256": "a8a0647db7f37b5c8a9b53e46d26abc1fe06b3c751698e0e3e7f32eea0772837",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
+    },
+    {
+      "slot_id": "pose:relic_beast:recovery:left:spear",
+      "asset": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
+      "asset_sha256": "a8a0647db7f37b5c8a9b53e46d26abc1fe06b3c751698e0e3e7f32eea0772837",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.51/POLEARM_PROBES.json",
+        "docs/production/quality-evidence/0.4.51/polearm_051_native_qa.log"
+      ],
+      "limitations": "Native keyframe/contact review; complete fluid animation, missing movement/hurt/outcomes, physical device and professional acceptance remain open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "068f44a6081bf1246852597a0c7a327ec96cb9965e638514483fcc85214c2129",
+        "authored_pose_manifest.gd": "3083e82e8d3462355724aba73d26d6cdb92dba41408c239b79c206c90b61bf44",
+        "art/production/phase4e/player_polearm_051_manifest.json": "752f3755b1234826b2cbc82e3bd23fc09ee3c2bba7107f687b9b4df162861550"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

@@ -1318,7 +1318,7 @@
       "facing_pack",
       "resolve"
     ],
-    "source_sha256": "d9488ef6c3d5f9b79907eb58c820416328492e60b18f51c65460fe8bd4e6cfc9"
+    "source_sha256": "deb342f25660cc6e66d82289c88702b8356bce30761b81b52c6088b886a37ccc"
   },
   "avatar_presentation.gd": {
     "constants": {
@@ -7340,6 +7340,15 @@
     ],
     "source_sha256": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8"
   },
+  "mythical_chase_view.gd": {
+    "constants": {},
+    "methods": [
+      "_ready",
+      "refresh",
+      "_draw"
+    ],
+    "source_sha256": "187b5a372f57b1d66fa784be40a23db3b429c435c83b52fa88dca36ff2489896"
+  },
   "mythical_collection.gd": {
     "constants": {
       "GRIPS": {
@@ -9010,7 +9019,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "f19a6abf46315813c2d4a814f25002a97eb431d9a42f04e4fdd1b30e9a230e15"
+    "source_sha256": "cc712438a1841b155ceedeeb78b44f5238355d0ccda0ce35c575c43eedb7f796"
   },
   "reward_reveal_catalog.gd": {
     "constants": {
@@ -9116,9 +9125,10 @@
       "sanitize",
       "enter",
       "settle",
-      "recover"
+      "recover",
+      "chase_summary"
     ],
-    "source_sha256": "bbaa97c2dd084328cadbf1e07d699ee373af5c9b9b39116e6508e381f9984ebe"
+    "source_sha256": "64eb57f559ffd77bef7ce501f748153e3755765add212f80046aaa7d6dc6dde5"
   },
   "safe_area_layout.gd": {
     "constants": {
@@ -10749,7 +10759,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "8aa1bf96a9d52788e72928104e18c57dac77149db44d3c6690e03757b88df396"
+    "source_sha256": "f76a9979defb3f3af537b4304c1f7db9fbd1220eb091c1a4064fffc710ed4556"
   },
   "world_content_catalog.gd": {
     "constants": {

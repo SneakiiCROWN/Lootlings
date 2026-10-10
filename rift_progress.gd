@@ -46,7 +46,7 @@ static func settle(game, token: String, victory: bool, kills: int, elite: bool) 
    game.rift_progress.pending.append({"id":id,"receipt":"mythical:"+receipt})
  game.rift_progress.entry=""
  if not game.save_hideout_economy():return "Rift reward could not be saved. No additional currency was charged."
- return ("RIFT REWARDS â€¢ +%d Sigil â€¢ +%d Lootcoins â€¢ +%d Diamonds" % [sigils,coins,diamonds]) if coins>0 else ("+1 RIFT SIGIL â€¢ optional elite entry costs 2" if sigils>0 else "")
+ return ("RIFT REWARDS Ã¢â‚¬Â¢ +%d Sigil Ã¢â‚¬Â¢ +%d Lootcoins Ã¢â‚¬Â¢ +%d Diamonds" % [sigils,coins,diamonds]) if coins>0 else ("+1 RIFT SIGIL Ã¢â‚¬Â¢ optional elite entry costs 2" if sigils>0 else "")
 
 static func recover(game) -> Array:
  var delivered:Array=[]
@@ -61,3 +61,11 @@ static func recover(game) -> Array:
   if not game.save_hideout_economy():break
   delivered.append({"kind":"item","rarity":"MYTHICAL SHINY","item":item,"receipt":reward.receipt})
  return delivered
+
+# Read-only discovery presentation; owned/sold items and reserved rewards never reset it.
+static func chase_summary(progress: Dictionary) -> Dictionary:
+ var collection=preload("res://mythical_collection.gd")
+ var finds:int=maxi(0,int(progress.get("collection",0)))
+ var pity:int=clampi(int(progress.get("pity",0)),0,23)
+ var index:int=posmod(finds,collection.IDS.size())
+ return {"discovered":mini(8,finds),"next_id":collection.IDS[index],"next_name":collection.ITEMS[index].name,"clears_remaining":24-pity,"pending":progress.get("pending",[]).size(),"complete":finds>=8}

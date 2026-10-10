@@ -38,6 +38,12 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 			if heavy is Dictionary:
 				for row in heavy.get("entries",[]):
 					if (row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime") or (OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_COMBAT_BATCH_PREVIEW")=="1"):extracted_rows.append(row)
+		var polearm_path := "res://art/production/phase4e/player_polearm_051_manifest.json"
+		if FileAccess.file_exists(polearm_path):
+			var polearm: Variant = JSON.parse_string(FileAccess.get_file_as_string(polearm_path))
+			if polearm is Dictionary:
+				for row in polearm.get("entries",[]):
+					if (row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime") or (OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_POLEARM_PREVIEW")=="1"): extracted_rows.append(row)
 		var bow_slice: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json"))
 		if bow_slice is Dictionary:
 			for row in bow_slice.get("entries",[]):
@@ -56,6 +62,7 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 				result.extracted_pose = true
 				result.combat_batch_045=str(row.get("source","")).begins_with("art/source/player_combat_045/")
 				result.combat_batch_046=str(row.get("source","")).begins_with("art/source/combat_continuation_046/")
+				result.polearm_batch_051=str(row.get("source","")).begins_with("art/source/player_polearm_051/")
 				result.motion_phase = phase if phase in ["MOVE","VICTORY","DEFEAT"] else ""
 				result.frame_index = int(row.get("frame_index",0))
 				extracted_resolved[cache_key] = result

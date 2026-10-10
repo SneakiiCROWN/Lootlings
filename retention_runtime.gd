@@ -31,6 +31,7 @@ var chase: Label
 var chase_bar: Control
 var pool_panel: Panel
 var mode_art: TextureRect
+var mythical_chase: Control
 var spinner_from_home:=false
 var mode_tabs: Array[Button]=[]
 func configure(target) -> void:
@@ -45,6 +46,7 @@ func configure(target) -> void:
 	title=game.make_label(panel,"RELIC SIEGE",25,Rect2(20,14,384,48),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	detail=preload("res://lootlings_ui.gd").rich_label(panel,Rect2(24,72,376,150),14,Color("#e7edff")); detail.scroll_active=true
 	mode_art=TextureRect.new(); mode_art.position=Vector2(24,70); mode_art.size=Vector2(376,118); mode_art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; mode_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED; mode_art.mouse_filter=Control.MOUSE_FILTER_IGNORE; mode_art.visible=false; panel.add_child(mode_art)
+	mythical_chase=preload("res://mythical_chase_view.gd").new(); mythical_chase.game=game; mythical_chase.position=Vector2(24,153); mythical_chase.size=Vector2(376,91); mythical_chase.visible=false; panel.add_child(mythical_chase)
 	for tab in ["REGIONS","SIEGE","DUNGEONS"]:
 		var b: Button=game.make_action_button(panel,tab,Vector2(24+mode_tabs.size()*128,64),Vector2(120,48),Color("#172442"),Color("#b8a476"),func():
 			if tab=="REGIONS":panel.visible=false;game.show_hideout();game.hideout_ui.show_campaign()
@@ -83,7 +85,7 @@ func configure(target) -> void:
 	game.hideout_ui.tracked_requested.connect(func(id): progress.track(id); game.hideout_ui.phase4_message=progress.target_text(); game.hideout_ui.refresh_phase4())
 func open(state: String, heading: String, line: String, choices: Array) -> void:
 	spin_busy=false; machine.visible=state=="relic_spinner"
-	mode_art.visible=false
+	mode_art.visible=false; mythical_chase.visible=false
 	dimmer.visible=state=="relic_spinner"; chase.visible=false; chase_bar.visible=false; pool_panel.visible=false
 	panel.position=Vector2(28,150); panel.size=Vector2(424,625)
 	title.position.y=14; detail.add_theme_font_size_override("normal_font_size",14); detail.add_theme_color_override("default_color",Color("#e7edff"))
@@ -111,7 +113,7 @@ func show_modes(tab: String="siege") -> void:
 	buttons[2].disabled=not "act_i" in game.campaign.completed
 	if buttons[1].disabled:buttons[1].text="ROOTGLASS VAULT • LOCKED"
 	if buttons[2].disabled:buttons[2].text="RELIC ROUTE • LOCKED"
-	buttons[3].text="FORGE GRAVEBLOOM • 24 FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
+	buttons[3].text="FORGE GRAVEBLOOM STAFF" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM | %d / 24 CROWNROOT" % progress.data.red_fragments
 	buttons[5].visible=tab=="dungeons"
 	buttons[5].disabled=not "act_i" in game.campaign.completed or int(game.rift_progress.sigils)<2
 	buttons[5].text="PRISM RIFT • %d / 2 SIGILS" % int(game.rift_progress.sigils)
@@ -125,7 +127,12 @@ func show_modes(tab: String="siege") -> void:
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
 	if tab=="dungeons" and buttons[1].disabled and buttons[2].disabled:mode_line="Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nClear Treasure Ruins to unlock both routes."
 	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return.\nRift Sigils: %d • earn one per clear (8+ foes)." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET,int(game.rift_progress.sigils)]
-	detail.text+="\nMythical chase: %d / 24 clears; %d / 8 collected. 1%% chance, guaranteed at 24." % [int(game.rift_progress.pity),mini(8,int(game.rift_progress.collection))]
+	mythical_chase.visible=tab=="dungeons";mythical_chase.refresh(game.rift_progress)
+	if tab=="dungeons":
+		detail.text="Rootglass: local loot. Relic Route: branching rooms.\nRift Sigils: %d | earn 1 per clear with 8+ foes.\nPrism Rift: costs 2; optional harder encounters.\nMythical: 1%% per elite clear; first 8 finds are unique." % int(game.rift_progress.sigils)
+	else:
+		detail.text+="\nPrism Rift and Mythical collection: see Dungeons."
+
 	if not game.rift_progress.pending.is_empty():detail.text+="\nMythical reward saved: make room in Gear."
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0

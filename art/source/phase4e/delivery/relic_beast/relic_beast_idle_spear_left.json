@@ -1,0 +1,91 @@
+{
+  "actor": "relic_beast",
+  "state": "idle",
+  "phase": "IDLE",
+  "weapon_types": [
+    "spear"
+  ],
+  "facing": "left_only",
+  "asset_path": "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
+  "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left_grip_front.png",
+  "metadata_path": "art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left_spear.json",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.39308723341232227,
+    0.7082657724056604
+  ],
+  "secondary_anchor": [
+    0.2025881220379147,
+    0.65966796875
+  ],
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "feet_baseline": 58,
+  "baseline_y": 496,
+  "canvas": [
+    512,
+    512
+  ],
+  "supports_two_hand": true,
+  "draw_depth": "back",
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "frame_count": 1,
+  "frame_index": 0,
+  "fps": 0,
+  "contract_slot_id": "pose:relic_beast:idle:left:spear",
+  "source": "art/source/player_polearm_051/relic_beast_candidate.png",
+  "source_sha256": "59b00147997390176dd299c921663a589704dbc6673c1cc533f3784405fe39e4",
+  "source_bounds": [
+    12,
+    445,
+    434,
+    869
+  ],
+  "source_primary": [
+    168,
+    735
+  ],
+  "source_secondary": [
+    70,
+    710
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
+  ],
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "weapon_overrides": {
+    "spear": {
+      "size": [
+        104,
+        162
+      ],
+      "grip": [
+        0.37,
+        0.76
+      ],
+      "secondary_grip": [
+        0.37,
+        0.4758442650458665
+      ],
+      "socket": [
+        0.8,
+        0.08
+      ],
+      "angle": 0.35,
+      "held_path": "res://art/sprites/weapons/spear_held.png"
+    }
+  },
+  "grip_calibration": "Two source palms measured; second contact placed on existing shaft. No shifted body palms or painted limbs.",
+  "asset_sha256": "278c8f7a809b01ec2e989d61ebf81c4f45f557a6712e83e5ff77b00804bfbe71",
+  "visual_review": "Dedicated identity, complete source silhouette, native source and actual weapon grips/facings/grounding reviewed. 186 ordinary/Mythical state/view/layout checks. Basic keyframes; movement/hurt/outcomes/full fluid animation and professional family acceptance remain open."
+}

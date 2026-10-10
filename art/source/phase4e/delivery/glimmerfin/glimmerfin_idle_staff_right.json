@@ -1,0 +1,91 @@
+{
+  "actor": "glimmerfin",
+  "state": "idle",
+  "phase": "IDLE",
+  "weapon_types": [
+    "staff"
+  ],
+  "facing": "right_only",
+  "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right.png",
+  "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right_grip_front.png",
+  "metadata_path": "art/production/phase4e/lootlings/glimmerfin/polearm_051/glimmerfin_idle_right_staff.json",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.6379942602040816,
+    0.6992328350360577
+  ],
+  "secondary_anchor": [
+    0.7905486971574344,
+    0.5947688176081731
+  ],
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "feet_baseline": 58,
+  "baseline_y": 496,
+  "canvas": [
+    512,
+    512
+  ],
+  "supports_two_hand": true,
+  "draw_depth": "back",
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "frame_count": 1,
+  "frame_index": 0,
+  "fps": 0,
+  "contract_slot_id": "pose:glimmerfin:idle:right:staff",
+  "source": "art/source/player_polearm_051/glimmerfin_candidate.png",
+  "source_sha256": "848c74ce3eef304667c39e769a0f91021e339bb13d1a1614c765a5ef4caac85c",
+  "source_bounds": [
+    26,
+    61,
+    369,
+    477
+  ],
+  "source_primary": [
+    264,
+    348
+  ],
+  "source_secondary": [
+    337,
+    298
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+  ],
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "weapon_overrides": {
+    "staff": {
+      "size": [
+        80,
+        142
+      ],
+      "grip": [
+        0.32,
+        0.76
+      ],
+      "secondary_grip": [
+        0.32,
+        0.43105687503600626
+      ],
+      "socket": [
+        0.8,
+        0.2
+      ],
+      "angle": -0.12,
+      "held_path": "res://art/sprites/weapons/staff_held.png"
+    }
+  },
+  "grip_calibration": "Two source palms measured; second contact placed on existing shaft. No shifted body palms or painted limbs.",
+  "asset_sha256": "a498fb633132f8f1e82f03ce7941da4ecc32d69acf3f7cb7a75d8cc1043ea642",
+  "visual_review": "Dedicated identity, complete source silhouette, native source and actual weapon grips/facings/grounding reviewed. 186 ordinary/Mythical state/view/layout checks. Basic keyframes; movement/hurt/outcomes/full fluid animation and professional family acceptance remain open."
+}

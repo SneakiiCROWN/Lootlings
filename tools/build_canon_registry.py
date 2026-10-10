@@ -58,6 +58,8 @@ def build():
     if combat.exists():export_rows += [r for r in json.loads(combat.read_text(encoding='utf-8-sig'))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
     heavy=ROOT/'art/production/phase4e/player_combat_046_manifest.json'
     if heavy.exists():export_rows += [r for r in json.loads(heavy.read_text(encoding='utf-8-sig'))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
+    polearm=ROOT/'art/production/phase4e/player_polearm_051_manifest.json'
+    if polearm.exists():export_rows += [x for x in json.loads(polearm.read_text(encoding='utf-8-sig'))['entries'] if x.get('native_validated') and x.get('production_status')=='canon_validated_runtime']
     for path in ['art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']:
         export_rows+=read(path)['entries']
     for category,filename,constant in [('lootling','lootling_catalog.gd','ENTRIES'),('wanderer','wanderer_catalog.gd','PRESETS')]:
@@ -130,6 +132,7 @@ def build():
     if motion.exists():inputs.append('art/production/phase4e/player_motion_044_manifest.json')
     if combat.exists():inputs.append('art/production/phase4e/player_combat_045_manifest.json')
     if heavy.exists():inputs.append('art/production/phase4e/player_combat_046_manifest.json')
+    if polearm.exists():inputs.append('art/production/phase4e/player_polearm_051_manifest.json')
     inputs+=['art/production_npc_manifest.json','art/npc_identity_authorities.json']
     approved_file='art/approved_missing_canon_references.json'
     if (ROOT/approved_file).exists():
