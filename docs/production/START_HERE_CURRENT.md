@@ -1,6 +1,6 @@
 Latest continuation: [live coverage and seven-stage quality dashboard](PRODUCTION_DASHBOARD.html). The dashboard is generated from the current registries, frozen delivery contracts, runtime reflection and explicit native-review evidence. Older completion labels do not grant professional acceptance.
 
-Current continuation: [0.4.43 real player combat bodies and rewards](quality-evidence/0.4.43/REPORT.md).25 new exact delivery closures; full motion/family/device professional acceptance remains open.
+Current continuation: [0.4.44 twelve-actor motion and Hub/residents](quality-evidence/0.4.44/residents-hub/REPORT.md). 118 actor contracts pushed as d5394d0; six Sera views and Hub composition pushed as 5408c8e. Full professional acceptance remains open.
 
 IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES, THE CURRENT AUTHORITIES WIN.
 
@@ -8,9 +8,17 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — 0.4.43 player combat bodies and connected rewards
+## CURRENT — 0.4.44 actor motion and shared Hub world
 
-Gloomlet Bow, Moonkip Wand/Orb:25 new native-reviewed contracts;108 selected stationary/action probes81→0 reference fallback incidents.15 new bodies,15 grip layers,25 sidecars;55 new physical artist files fulfil75 requested file requirements with20 verified reuse references. Compact single-find rewards and unchanged connected purchase/Spinner/combat/return routes verified in source and actual exported Windows PCK.3,058 contracts /8,001 file requirements remain. [Current report](quality-evidence/0.4.43/REPORT.md). Full animation continuity and physical Android/perceptual audio/professional acceptance remain open.
+All seven Lootlings and five Wanderers now have independently reviewed alternating movement and outcome keyframes for explicitly supported Wand/Orb contracts. 118 exact closures; 96 body PNG, 96 grip PNG and 166 sidecars. Sera adds six rest/talk/inspect views using five new bodies plus the original approved right rest and six sidecars. Combined: 124 closures, 369 new physical artist files; 2,934 contracts and 7,635 artist-file requirements remain. These are keyframes, not completed fluid animation families.
+
+Hub actors are grounded with tighter shadows; the hero is smaller and feet stay planted. Header spacing and currency labels corrected, overlapping Talk labels replaced by compact speech-bubble cues, and every direct station/chat/return route remains working. Personal Home remains separate. Defeat rewards use a readable approved frame. Owner project.godot and reference changes remain untouched.
+
+Source-native and exported-PCK Hub/Sera routes passed phone/tablet/desktop. Version 0.4.44/code53 Windows and signed arm64 Android candidates exported. Actual approved launcher/adaptive/monochrome/splash resources and 210 actor/grip/resident imports verified. Full motion exported QA is recorded in the current report when complete. Physical S23, full animation continuity, environmental lighting/prop cohesion, subjective audio and professional acceptance remain open.
+
+## Previous — 0.4.43 player combat bodies and connected rewards
+
+25 exact Gloomlet Bow and Moonkip Wand/Orb action/stationary contracts remain preserved. [Historical report](quality-evidence/0.4.43/REPORT.md).
 
 ## Previous — 0.4.42 cohesive item-card continuation
 

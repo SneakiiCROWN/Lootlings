@@ -1,7 +1,9 @@
-# Continue current live production
+# Continue current live production — 0.4.44
 
-Preserve all newer owner work. 0.4.43 tested candidate is checkpointed separately; read Git for exact saved/pushed SHA. No restart, reset or cleanup.
+Live project only: C:/Users/Snkii/Documents/lootlings. Pushed actor milestone d5394d0 (118 exact closures), Hub/Sera milestone 5408c8e (six more). Preserve owner project.godot, all untracked references and all newer files. No reset, clean, new checkout or regenerated accepted sheets.
 
-Read the sole dashboard, Issue #3 and current receipt. Next coordinated pass: missing high-frequency melee/player and enemy/resident actions, both views and actual modular contacts. Existing new Bow/Wand/Orb stationary/action exports must not be regenerated. Movement remains a visible fallback and cannot be satisfied by bobbing neutral. Moonkip separate follow-through remains outstanding; ATTACK is not a contract substitute. Resident rest/talk/inspect is installed; route/work/sit remains missing.
+Read the sole PRODUCTION_DASHBOARD and quality-evidence/0.4.44/residents-hub/REPORT.md. Exact remaining: 2,934 contracts / 7,635 frozen artist-file requirements. 124 combined new closures, 369 new physical artist files. Two-step locomotion and single outcome/resident keyframes are integrated, not professionally approved complete animation families. Wand defeat and Astrologer Wand victory remain open; no melee/paired/ranged grip compatibility invented.
 
-Keep25 new closures separate from historical registry reconciliation. Only native source/exported-game-tested exact slots close debt. Preserve title theme, original branding, approved six companions, winged quadruped Dragon, all stats/economy/saves. Native screenshots and tests are linked in0.4.43 report; physical S23 and complete artistic/audio/UX acceptance remain pending.
+Next coordinated work: frequently visible actual melee grips/releases and movement continuity across all actor families, regional creature/boss combat states, resident walk/work/seated contact, world prop lighting/grounding and companion actions. Source/resident_044 contains two seated candidates withheld until an actual fitted seat exists. Source/player_motion_044 has recovered twelve source sheets and grouped corrections; do not rerun preparation over accepted manifest. No missing companion or Hoard Dragon redesign permitted.
+
+Source-native and exported Hub/Sera tests passed three layouts; Windows and Android 0.4.44/code53 candidates exist in builds/. Physical S23 and subjective audio remain pending. Title track, canon, gameplay, economy and saves unchanged. Recover exact latest Git checkpoint and any unfinished exported QA from logs before continuing.

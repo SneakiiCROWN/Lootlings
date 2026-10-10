@@ -1,0 +1,37 @@
+{
+  "version": "0.4.44",
+  "android_version_code": 53,
+  "checkpoints": [
+    "d5394d0",
+    "5408c8e"
+  ],
+  "native_layouts": [
+    "1080x2340",
+    "1200x1920",
+    "1920x1080"
+  ],
+  "source_and_exported_motion_probes": 498,
+  "exported_hub_and_resident_routes": true,
+  "apk_current_imports_verified": 210,
+  "retained_enemy_resident_imports_verified": 48,
+  "title_source_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "physical_s23_tested": false,
+  "professional_quality_accepted": false,
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.44-motion-world.exe",
+      "bytes": 103136768,
+      "sha256": "fc39e5e85762351b06019f43d8542e0b516842fe61f746aefa931f20cc4289c8"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.44-motion-world.pck",
+      "bytes": 240263044,
+      "sha256": "2c255eaa83b243dfeaa802d926065a69eacbaa2b5a366f68fd76d4384651db08"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.44-motion-world-debug.apk",
+      "bytes": 261849453,
+      "sha256": "a6ff67ef71b90b4eaec530ddde1424d3c44995858c20c93d44d56932d011fd42"
+    }
+  ]
+}
