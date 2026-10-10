@@ -53,3 +53,17 @@ static func identity_line(profile: Dictionary) -> String:
 		var appearance: Dictionary = profile.get("wanderer", {})
 		return str(Wanderers.ORIGINS.get(str(appearance.get("origin", "vault_hunter")), Wanderers.ORIGINS.vault_hunter).name)
 	return display_name(profile)
+
+# Cache only transparent margins of accepted runtime bodies; retain every body pixel.
+static var grounded_bodies: Dictionary = {}
+static func grounded_texture(source: Texture2D) -> Texture2D:
+	var key: String = source.resource_path
+	if not grounded_bodies.has(key):
+		var image: Image = source.get_image()
+		var bounds: Rect2i = image.get_used_rect()
+		if bounds.size.x == 0 or bounds.size.y == 0: return source
+		var body := AtlasTexture.new()
+		body.atlas = source
+		body.region = Rect2(bounds)
+		grounded_bodies[key] = body
+	return grounded_bodies[key]

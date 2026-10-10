@@ -1,0 +1,576 @@
+{
+  "apk": "builds/android/Lootlings-0.4.44-motion-world-debug.apk",
+  "physical_device_validated": false,
+  "checks": [
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_left.png",
+      "imported_sha256": "5ba59da7af8fe5f595e0019bf5109e3d5b7b021f761a9ea667e6b10341b46203",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_defeat_right.png",
+      "imported_sha256": "76f5f5444c0167120196ba8cc843f89be3dc3e4b40c7146e52083428e3ed3da4",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_0.png",
+      "imported_sha256": "fbc8743241001b51e3883e482d3c2a3531419fd4bdc4f9b439155152f08ec65a",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_left_1.png",
+      "imported_sha256": "e54ced88e775c4fc86c2ae3ce9c479af2a81ad78e17e5fe8818bfd93c86f3239",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_0.png",
+      "imported_sha256": "171e2424a9e37c0d065c3a18fc3e36ef7bdc3741a96d2512e215d5c7e3002879",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_movement_right_1.png",
+      "imported_sha256": "c492c47b27253c66df0882bb770bc23fdbbe2ebf9e1fbab0891947871af36b9f",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_left.png",
+      "imported_sha256": "aba73c76acfe12e0e794414f22e5cf876c4505f248716fd9a1efc270cdc124b5",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/emberhorn/motion_044/emberhorn_victory_return_right.png",
+      "imported_sha256": "3cfdd72b984f1211a574fa17bab21f0d92ac303c92b1763c0bddf792293817bc",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_left.png",
+      "imported_sha256": "bb629d71a9a6b11c4a76e56204aaeff88f177efa9155fc08a6d307cfc2ce181f",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_defeat_right.png",
+      "imported_sha256": "02be2f4ffb7d80f5c14c5087bb87ebafce588841523717b2009fed0ec94dd8fb",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_0.png",
+      "imported_sha256": "0fae89cf0a3d0b7eb7b1c90cde44d5f96754004ff27e6c2cfcd292c5dc5d627e",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_left_1.png",
+      "imported_sha256": "62a6344d229ffa94bb8e94d2f037de335edbd24967d7b2533fa838e580bef3ad",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_0.png",
+      "imported_sha256": "8ee7c64080c053c49a19c08f03a3d539b81308d74d0049516265127c16e216ac",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_movement_right_1.png",
+      "imported_sha256": "e71cdbcd22b0ff648a7fcd08c9378e4c218972f8396266c274c96d89fc17d913",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_left.png",
+      "imported_sha256": "46417d79f3c19e5423d73d2f45b4c9ebe2d1a453b6322f9d6859c9f74d4c8317",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/glimmerfin/motion_044/glimmerfin_victory_return_right.png",
+      "imported_sha256": "0b25b4159886c3d2447f91fa078d26f98a69215dc130f152ac2ad65fec519d21",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_left.png",
+      "imported_sha256": "3fc261bfb21c7e43b5f46c71d91e9bbe986d0e4cb17876f5f884a9c9ab4ab67f",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_defeat_right.png",
+      "imported_sha256": "cdde4dc7fdd3bb1795ca96fd33609388119bea4246d1a576b97df882bda9600e",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_0.png",
+      "imported_sha256": "68a2029bd78e309996b60b7f93a22c4484b5d1aed8f9b9f6d332db42dcd752b7",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_left_1.png",
+      "imported_sha256": "e7e05103f10f39419ef36cd14fb81334013eecb925782ab999cb04d4f1085add",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_0.png",
+      "imported_sha256": "2ec0c8890040072fc5e0cac0322e58e4dbff6d636839cc15c05a2f0d2b831534",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_movement_right_1.png",
+      "imported_sha256": "41e757b9a16449d829e3751414fb00a0882c143af562d133515e905c2bd8a063",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_left.png",
+      "imported_sha256": "d6444a8edbf73fcec1621cae77bda8839c7824186bb776380b4bde0c9a6905d3",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/gloomlet/motion_044/gloomlet_victory_return_right.png",
+      "imported_sha256": "73ffb24982cf1d15a3c808caf0257445252eb5eacc36b35a15d2a643f3456d32",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_left.png",
+      "imported_sha256": "dac62f83a08cc0864a183665ab97d750c0b701cc44d150259c4810d35783fd4a",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_defeat_right.png",
+      "imported_sha256": "49a8f899088c3fc98f671b63b66e8bd619c81c53fc2ea970aa8c45addb8c88e6",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_0.png",
+      "imported_sha256": "c86482ff95c0e56c6254d4c208bbfb11303c316c0b69300963c072fbbedca4f2",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_left_1.png",
+      "imported_sha256": "5f1130e54b5e5f5df70344aff8c76b21dfcae068582ed022eb6bc954519c8d32",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_0.png",
+      "imported_sha256": "3437c0084759be58dc2103bcfbba378378e145b3385d75ed43c17371d38cc21a",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_movement_right_1.png",
+      "imported_sha256": "b61781c5afc1d83ef2c85393cba3e04ea8a9dddb2304f44fe467b88fc2d9ac9a",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_left.png",
+      "imported_sha256": "15af894f3727b30e473c9645f407c91c6c7a81e81a52ba3a9bb1918f4d64e926",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/moonkip/motion_044/moonkip_victory_return_right.png",
+      "imported_sha256": "c894105e1b5bfdab78737629c0309bcc94f0744515b775bd02eb2d1d18528e16",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_left.png",
+      "imported_sha256": "bdcbdc1c89591dfc550d38def8af9acdfc9e381a5d12d086338c0141bdc4b856",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_defeat_right.png",
+      "imported_sha256": "06060df710e9043d1095462f2044616e50dbf73fb4a841c554df3cadfe28e018",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_0.png",
+      "imported_sha256": "8de62b8b81bbc7c6c56aca99286bf62c4ba53a232d478b413ba832e9e3042cbf",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_left_1.png",
+      "imported_sha256": "74989083ab1f2fbadd317c522c37ef592b4e22794ffb51b622bb67f16a029578",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_0.png",
+      "imported_sha256": "bf2313eaf8f9896ab777043d2771e1ceb2f865d1d958a2037386a383feddfe35",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_movement_right_1.png",
+      "imported_sha256": "e5c63ba77f4bc74912da932f0c12e7c9c9eede9933897357dd0c1cfd7b4f88ff",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_left.png",
+      "imported_sha256": "c315732c9f91acd9e4c6d35029dbc4db7377e57e1c636e74fdc995a55bd4404e",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/mosskin/motion_044/mosskin_victory_return_right.png",
+      "imported_sha256": "22003e103780fd92493cd1421fa421226812ff766f81f6451532f2c86f42b84c",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_left.png",
+      "imported_sha256": "dcae2fd326cf1540f9a91ba85eaeabb572a740df54d28c876fc4547a00c0beba",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_defeat_right.png",
+      "imported_sha256": "b1e5200fc7847faac9198eb4854d5a1ebe3eaa120922cccdaa5102ee0dfe4f01",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_0.png",
+      "imported_sha256": "705e33c063c26e25d67fbe86158ca2bffb8756d7e2358913bfb462081417e9c0",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_left_1.png",
+      "imported_sha256": "482bf41fb0d63d2e6bb0677648d9d9002b9ba04261e194d3ee2f56ba0964fad1",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_0.png",
+      "imported_sha256": "81ddb2950f5748a56b17b0e822bbdc8f58922729e0670c9670d04acf2891144d",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_movement_right_1.png",
+      "imported_sha256": "1dbbb4c13012527129dd3591c4477fe8bb5b8fdbdc341447339fe260d6c04163",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_left.png",
+      "imported_sha256": "6b809797ca6c8d2e2a1ce3388de0a84fc3b988b5655401ac628b65f8ab04127d",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/pebblewyrm/motion_044/pebblewyrm_victory_return_right.png",
+      "imported_sha256": "6329ab3a6722f0446cb75617aab265185f03c30a22981369f666997a51d60ea3",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
+      "imported_sha256": "5034903c935faccf86dd3cb573e8306153133c02dc7b18fe855b1155f0851d07",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
+      "imported_sha256": "2874ac582eae2c888e61d3067c679188350f0e3b85f71f1661837d38265365ea",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
+      "imported_sha256": "4382f079d00a03d36767d7cbc737e92c87cf1c121118486da5cf15e34870b109",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
+      "imported_sha256": "dbd83a555fc8b4080d984c47c2ff6d2e0d05270f109792fbb97c1912686ed708",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
+      "imported_sha256": "507a28f7285e06a803e3d55683e1f3e9cc0c40145a8c9129be28332ea03a318c",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
+      "imported_sha256": "47dcf8aa00e6efdd34dac5f9994ab957429724972f24856e824b7a9dc43c4b8b",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
+      "imported_sha256": "5fa479c18d390044dc0c46b56317d848474727a99b3247123c0a3add57f669c3",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
+      "imported_sha256": "e266bcfc1e50ba7b50854a68033811f46dbd0ac2a65eb101513f6297e4a2efb2",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_left.png",
+      "imported_sha256": "1952760450509e979639a5d8ac4b707cbfee912cdd0bd924c441cddba2b4f92e",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_defeat_right.png",
+      "imported_sha256": "672ada831731d25bf4ef5fee4c9774a3b092337c26ca2ab02dea1beda1b993fb",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_0.png",
+      "imported_sha256": "b33718de1f6a4642cfe14dfd5d2472a1b2519015e31459146c10b85b498f0aa9",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_left_1.png",
+      "imported_sha256": "eda69e016f2de9d351e2110f05bc38ebdff4f1d4db337f656fbf02b6ad4c47d4",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_0.png",
+      "imported_sha256": "58800116a640a5ee44fc0c681ebb37735f9a5aa69776bef41a799717c489f5ea",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_movement_right_1.png",
+      "imported_sha256": "3d9d9b58183e8c083f8202fba2ab3c3961019f9a25733f1cfbf5ac3ab5b2a1ad",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_left.png",
+      "imported_sha256": "b6c97330eaa32f4978d7b03ff76bc84ca7a318ef7b6263a6e4d0a6c3a6798d5f",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ashtrail_hunter/motion_044/ashtrail_hunter_victory_return_right.png",
+      "imported_sha256": "5b1a90414cb6d0b8f4dc836c27258ab6aa6ab946720c583c5d95c13886bc0146",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_left.png",
+      "imported_sha256": "e6e695b167c1b71ce10500d2126eed48bb03a397a5b2c5f40e27eb3b4635a3a2",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_defeat_right.png",
+      "imported_sha256": "067e802517ba5667340dd50a661ebb10a5acfefe3ef566c64a1600db9fb112b3",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_0.png",
+      "imported_sha256": "2a74f08b44fe92238182a5af296af7f014d93fb7227cc7578125403e8b717038",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_left_1.png",
+      "imported_sha256": "b0abe4718e28bab1d0d896e57136c830f4da707e3f1ab41b3c006b0f0a0ebae7",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_0.png",
+      "imported_sha256": "4ecb86d2e0dde9299c3081cb01eeda300d1ee06475682256f5b0c3b4619ffc47",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_movement_right_1.png",
+      "imported_sha256": "94ad73b9f7cfacd5de5edafecb7a0872984fa3509e24603f9173f0fd1850e2c7",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_left.png",
+      "imported_sha256": "7674df64d4ae089fd9146bb4e5c7b3ecd891beb84531bdca78dcec172549b1c6",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/nightstage_drifter/motion_044/nightstage_drifter_victory_return_right.png",
+      "imported_sha256": "edc1167e250b3a2810fb450eb8a58404db41297449db9167732ab7860164debb",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_left.png",
+      "imported_sha256": "7857a915cb83a2bcccf062e72c553b4f035ac635994fd57aa54feb9ad26ac955",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_defeat_right.png",
+      "imported_sha256": "3e96144addef766eb9bec1839671443da083c0534d44fc8a98d9f5eb8ad555e9",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_0.png",
+      "imported_sha256": "9c0ece486599d63e7183b2211b7de8762f3a5f810490deb09cdcf1afa9fe6e36",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_left_1.png",
+      "imported_sha256": "f2ceb8ea5162eccf42c68fea4417c64be2a3631328ffd4fcfb06483694842a95",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_0.png",
+      "imported_sha256": "d52027c4b37e0417939aa4b8f726862113b59da075dcb447bffe0e182d318a30",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_movement_right_1.png",
+      "imported_sha256": "cac1860cb1373ddbf581f6ea3ecaada3ce8430fe6c0b8f9eaf5c085710b14d3d",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_left.png",
+      "imported_sha256": "d67cfa0977db835096a118a8a678b7cfd1a78e80f42b4ebca9b1c8125250794c",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/ruin_warden/motion_044/ruin_warden_victory_return_right.png",
+      "imported_sha256": "5c20c48ea44663f19c209f5d392201a27733e66584e138648acebe8e20cd6d88",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_left.png",
+      "imported_sha256": "69cf4c243eb3339a301d811184eec19222662d8594710cce97efd957d8d72798",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_defeat_right.png",
+      "imported_sha256": "2206fd68fe1ad9a4f6d681c373bdbae8163c9e0f37867fc561f1ad4775178e50",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_0.png",
+      "imported_sha256": "666be615f1bdf423ce83bae002de030e08a6e4ea71fe86f7355d06a9233b14bf",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_left_1.png",
+      "imported_sha256": "de63b6e8d5860a83514058d24582a541e4776ada591a13bf695effa16320b5f1",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_0.png",
+      "imported_sha256": "270509ffed5633ef059a868d8de022c2dca8093be34f4c6cc984122e26465954",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_movement_right_1.png",
+      "imported_sha256": "a0c837d7466264e792ccd21611651a4190066c07f99cc3ae5ec9c9b7c3d14e24",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_left.png",
+      "imported_sha256": "a732496f1df08973b880f8776d2130799993acbdcc061aa49a52e70b51949efa",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/vault_runner/motion_044/vault_runner_victory_return_right.png",
+      "imported_sha256": "bf742e552307d8508f2fd1f89d05255b0b66270c586476c5d6b1e4eba638742d",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_left.png",
+      "imported_sha256": "3dee9c0b69f73d26f80b24c59bc07a63b316182e3f202bef6a746fe4656e40fb",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_defeat_right.png",
+      "imported_sha256": "baf05a43ce280edd9cae22b0365f8a593603a9c0e8feac84e4191eb049d79a56",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_0.png",
+      "imported_sha256": "9652fc0aeb19148b567b4ded6b42e09d8938e262f5e832d438f30e8650559d97",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_left_1.png",
+      "imported_sha256": "3b057cc64578bf2ad3ef666692bb58e2d57229e57977799c51e03373513faa23",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_0.png",
+      "imported_sha256": "a4993ff1d0f40d472ed871d630251fcf2eeeb1b67ef8baae39bcd259f63c602e",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_movement_right_1.png",
+      "imported_sha256": "cdc32bf7a552206ae900910d067e1c526a38d883ce7965cf7212d6c28b1b4fdc",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_left.png",
+      "imported_sha256": "879302049655469903dc5a5cad85f240a0ae48e4c3a0306fcbf8cd0260db4acf",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/wanderers/velvet_astrologer/motion_044/velvet_astrologer_victory_return_right.png",
+      "imported_sha256": "d17a743a31fc2d199ec3b17d0ad89f66f2b62b5e0f689ad0151a323cfe196f19",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/ilex/ilex_inspect_left.png",
+      "imported_sha256": "aaae01b46742f6684aaa0b591cab37e47517ff6bb7676edeaf03e1dce7dbaf52",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/ilex/ilex_inspect_right.png",
+      "imported_sha256": "4375b97ea346b1bc54318f1f39dd052690cd3941a47774be170fdab433bd194a",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/ilex/ilex_rest_left.png",
+      "imported_sha256": "3dee7e8a4ebfe7eb5a521093f66b4c97d3d6e4f2b71369dd29ad78bf0769c500",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/ilex/ilex_rest_right.png",
+      "imported_sha256": "434e3b6bda21e4e0c1122e6f1fed891ac1f28893415d30d7c955bf715b5de0d9",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/ilex/ilex_talk_left.png",
+      "imported_sha256": "e9f28e2cf8dc77d614cc92bc85c682a0bc0fffba3db012a747280e0574f0beef",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/ilex/ilex_talk_right.png",
+      "imported_sha256": "ee34bcedb126a1a4cd8a0ba05a5914062731803e4b47e509838dfb436339884b",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/patch/patch_inspect_left.png",
+      "imported_sha256": "6b9e184d25298e98a12a505d99591f2538298b298551cb698144cf12e9cc9653",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/patch/patch_inspect_right.png",
+      "imported_sha256": "0aa2f08e050d181ff9c2373c2c3fc531c3f9a18e54391035844bfb33e9ad8f2a",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/patch/patch_rest_left.png",
+      "imported_sha256": "3b206a6fcf70c911e92b1a37a51ae805078f7a54c901919b5df4e6c273ecbff3",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/patch/patch_rest_right.png",
+      "imported_sha256": "87752d9c70c072b412e6d026b009d1e7b050af8df965ec9fd991dd829d2b8f97",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/patch/patch_talk_left.png",
+      "imported_sha256": "aa5f72dde279c300ac6819279160076e25209c05c1e2ff9e1adc8325ccf6fe2b",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/patch/patch_talk_right.png",
+      "imported_sha256": "5091e4ab361d12a59d1c88bf55314cbf96f62a3a11f2fb42a3ac0325cba8f5ea",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/sera/sera_inspect_left.png",
+      "imported_sha256": "97c838f3c9e73771ca90b582ed32a1dd21a7f45ff4112ac01addab89cd1566c7",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/sera/sera_inspect_right.png",
+      "imported_sha256": "7c1c865afc7eadbeb5ee847c771ec85cd00791203aad4542387ad94ca1e65244",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/sera/sera_rest_left.png",
+      "imported_sha256": "39e46672dd60ed7eff75203304973cf51d4e8701d6b64ab53334157ab7298b04",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/sera/sera_talk_left.png",
+      "imported_sha256": "2ba482620946634add6f792a4b2066dff976a6612478e1972fe2d35cd4bcf1f1",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/production/phase4e/npcs/sera/sera_talk_right.png",
+      "imported_sha256": "83eb427b66a279ce6e5b0255c097be6d5e730a22e84b26e2804a204b252c2dcd",
+      "matches_live_import": true
+    },
+    {
+      "asset": "art/sprites/npcs/beta/sera_idle.png",
+      "imported_sha256": "4224962e6cac3bd0ce51c7ee0403772e99dba9bc745b8e507b25a4dc405b58e3",
+      "matches_live_import": true
+    }
+  ]
+}

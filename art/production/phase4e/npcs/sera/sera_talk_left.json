@@ -1,0 +1,34 @@
+{
+  "actor": "sera",
+  "state": "talk",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/npcs/sera/sera_talk_left.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "content_rect": [
+    53,
+    259,
+    917,
+    1245
+  ],
+  "pivot": [
+    512,
+    1504
+  ],
+  "source_reference": "art/sprites/npcs/beta/sera_idle.png",
+  "source_sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+  "authored_source": "art/source/resident_044/sera_states.png",
+  "authored_source_sha256": "338404976c3e1f9c4adea31d0cadc7f18925f5e2032077d6633e4eaddc8d7cbf",
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "contract_slot_id": "pose:sera:talk:left:None",
+  "metadata_path": "art/production/phase4e/npcs/sera/sera_talk_left.json",
+  "full_animation_family_accepted": false,
+  "anatomy_mirroring": false,
+  "production_quality_accepted": false,
+  "visual_review": "Exact approved Sera identity compared; rest/talk/inspect both source-authored views reviewed within actual Hub at three layouts. Keyframes only; walk/work/sit, full continuity and professional acceptance remain open.",
+  "asset_sha256": "de74cd08a4c7861289bd83c236f84e2139df00c596bdff6c67adc0f62ee4ce80",
+  "native_qa": "docs/production/quality-evidence/0.4.44/residents-hub/resident_outcome_native_qa.log"
+}

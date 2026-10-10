@@ -177,7 +177,7 @@ def build():
                 denominators='Frozen delivery contracts, requested artist-file requirements (including verified compatible reuse), distinct newly created physical files, and broad requirement records are separate. Per-batch receipts give physical file counts. No whole-game completion percentage is asserted.',
                 counts=dict(required_contracts=counts['installed_contracts']+counts['remaining_contracts'], installed_contract_closures=counts['installed_contracts'], remaining_contracts=counts['remaining_contracts'],
                             required_artist_files=counts['installed_artist_files']+counts['remaining_artist_files'], installed_artist_files=counts['installed_artist_files'], remaining_artist_files=counts['remaining_artist_files'],
-                            current_reviewed_runtime_png_cells=len({e['asset'] for e in evidence['entries'] if e.get('asset') and e['asset'].endswith('.png') and e['stages'].get('gameplay_visual_reviewed')}),
+                            current_reviewed_runtime_png_cells=len({frame['asset'] for e in evidence['entries'] if e['stages'].get('gameplay_visual_reviewed') for frame in [e]+e.get('additional_runtime_frames',[]) if (frame.get('asset') or '').endswith('.png') and (ROOT/frame['asset']).is_file() and sha(frame['asset'])==frame['asset_sha256']}),
                             registered_requirement_records=len(rows), production_ready_records=sum(r['quality']=='production_ready' for r in rows)),
                 contract_families=contracts, requirement_families=families, domain_coverage=domain_coverage,
                 stages=STAGES,statuses=STATUSES,records=rows,registered_manifest_files=manifest_rows,

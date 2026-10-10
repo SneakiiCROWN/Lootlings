@@ -1,0 +1,27 @@
+{
+  "staged_not_installed": [
+    {
+      "cell": 3,
+      "reason": "Seated pose requires an actual fitted chair/bench interaction context; cannot float in Hub shrine"
+    },
+    {
+      "cell": 7,
+      "reason": "Seated pose requires an actual fitted chair/bench interaction context; cannot float in Hub shrine"
+    }
+  ],
+  "reuse": [
+    {
+      "cell": 0,
+      "reason": "Existing approved rest-right source reused; generated duplicate excluded"
+    }
+  ],
+  "rejected_cells": [
+    {
+      "cells": [
+        0,
+        4
+      ],
+      "reason": "Original rest views overlap in one alpha component; not extracted. Original approved rest-right reused; independently corrected left accepted after native review."
+    }
+  ]
+}

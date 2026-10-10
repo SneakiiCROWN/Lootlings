@@ -162,6 +162,7 @@ var achievement_filter := "ALL"
 var selected_achievement_id := ""
 var achievement_manager
 var visited_destinations := {}
+var resident_facing: String = "left"
 var resource_label: RichTextLabel
 var loadout_label: RichTextLabel
 var loadout_panel: Panel
@@ -1169,7 +1170,7 @@ func refresh_home() -> void:
 	if display_name.is_empty():
 		display_name = "TREASURE SEEKER"
 	hub_navigation.refresh()
-	resource_label.text="[center]%s %s   %s %s   %s %s[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
+	resource_label.text="[center]%s %s Gold   %s %s Scrap   %s %s Shards[/center]" % [LootlingsUI.inline_icon("currency_gold"),preload("res://display_numbers.gd").compact(gold),LootlingsUI.inline_icon("currency_scrap"),preload("res://display_numbers.gd").compact(current_inventory.scrap),LootlingsUI.inline_icon("currency_star_shard"),preload("res://display_numbers.gd").compact(shards)]
 	# Public Hub equipment marker remains independent of private Home decor.
 	home_weapon.visible=false
 	home_weapon_name.visible=false
@@ -1664,7 +1665,7 @@ func _draw() -> void:
 	elif current_screen == "upgrades": veil = Color("#160a2a26")
 	elif current_screen == "coming": veil = Color("#10172b56")
 	draw_rect(Rect2(0, 0, 480, 854), veil, true)
-	draw_rect(Rect2(0, 0, 480, 74 if current_screen=="home" else 74), Color("#080e24b0"), true)
+	draw_rect(Rect2(0, 0, 480, 56 if current_screen=="home" else 74), Color("#080e24b0"), true)
 	draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 	match current_screen:
@@ -1692,8 +1693,8 @@ func background_for_screen() -> Texture2D:
 
 func draw_home_scene() -> void:
 	# Canonical resident mascot, gently breathing in the painted Hideout.
-	var bob := sin(scene_time * 2.0) * 4.0
-	var breathe := 1.0 + sin(scene_time * 1.65) * 0.010
+	var bob := 0.0 # Feet stay planted; only the torso breathes.
+	var breathe := 1.0 if get_parent().audio_settings.get("cinematic_reduced_motion",false) else 1.0 + sin(scene_time * 1.65) * 0.003
 	draw_hideout_light(Vector2(179, 244), 20.0, 0.040, 0.0)
 	draw_hideout_light(Vector2(302, 244), 20.0, 0.040, 1.3)
 	draw_hideout_light(Vector2(442, 169), 17.0, 0.030, 2.1)
@@ -1713,14 +1714,16 @@ func draw_home_scene() -> void:
 		var point:=Vector2(240,182)+Vector2.RIGHT.rotated(PI+rune*PI/4)*63
 		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(scene_time*2-rune))*.16))
 	draw_home_board()
-	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.26))
-	draw_circle(Vector2.ZERO, 71, Color("#03061299"))
+	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.18))
+	draw_circle(Vector2.ZERO, 52, Color("#03061280"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	draw_set_transform(Vector2(240, 422 + bob), sin(scene_time * 1.15) * 0.006, Vector2(breathe, 1.0 / breathe))
-	draw_texture_rect(actor_texture(), Avatar.fit_rect(profile, Rect2(-89, -89, 178, 178)), false, actor_tint())
+	draw_set_transform(Vector2(240, 491), sin(scene_time * 1.15) * 0.006, Vector2(1.0, breathe))
+	var grounded_actor: Texture2D = Avatar.grounded_texture(actor_texture())
+	var actor_extent: Vector2 = grounded_actor.get_size() * minf(144.0 / grounded_actor.get_width(), 144.0 / grounded_actor.get_height())
+	draw_texture_rect(grounded_actor, Rect2(Vector2(-actor_extent.x*.5,-actor_extent.y),actor_extent), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var core_pulse := 0.07 + maxf(0.0, sin(scene_time * 2.6)) * 0.07
-	draw_circle(Vector2(256, 425 + bob), 10.0 + sin(scene_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
+	draw_circle(Vector2(253, 435), 10.0 + sin(scene_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
 	for index in range(6):
 		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
 		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
@@ -1785,16 +1788,14 @@ func resident_activity(speaker: String) -> String:
 
 func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
 	var activity:=resident_activity(speaker)
-	var local_time:=fmod(scene_time+phase*11,28.0)
-	var walk:=sin(clampf(local_time/4,0,1)*PI)*12 if activity=="walk" else 0.0
-	if speaker not in ["Salvager","Archivist"]:rect.position.x+=walk
+	# Route frames remain missing: keep actors grounded at their real interaction zones.
 	# Until authored seated/work layers arrive, show the established idle body.
 	# Activity routes and dialogue remain live; no fake body deformation.
 
 	if speaker not in ["Salvager","Archivist"] or preload("res://resident_art_catalog.gd").has_body(speaker):
-		draw_set_transform(Vector2(rect.get_center().x,rect.end.y-9),0,Vector2(1,.22))
-		draw_circle(Vector2.ZERO,31,Color("#03061280"))
-	preload("res://resident_art_catalog.gd").draw(self,speaker,rect,activity)
+		draw_set_transform(Vector2(rect.get_center().x,rect.end.y-3),0,Vector2(1,.22))
+		draw_circle(Vector2.ZERO,rect.size.x*.28,Color("#03061270"))
+	preload("res://resident_art_catalog.gd").draw(self,speaker,rect,activity,resident_facing)
 
 func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.

@@ -22,7 +22,7 @@ static func body_frame(id: String, state: String, facing: String="left") -> Dict
 		var preview: bool=OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_QA_NPC_PREVIEW")=="1"
 		if not accepted and not preview:continue
 		var path: String=row.asset_path
-		if not path.begins_with("res://art/production/phase4e/npcs/") or ".." in path:continue
+		if not (path.begins_with("res://art/production/phase4e/npcs/") or id=="sera" and path=="res://art/sprites/npcs/beta/sera_idle.png") or ".." in path:continue
 		if not authored_textures.has(path):
 			var region: Array=row.content_rect
 			var atlas:=AtlasTexture.new();atlas.atlas=load(path);atlas.region=Rect2(region[0],region[1],region[2],region[3]);authored_textures[path]=atlas
@@ -52,8 +52,8 @@ static func presentation(speaker: String, bounds: Rect2, activity: String="rest"
 	var extent: Vector2=texture.get_size()*minf(bounds.size.x/texture.get_width(),bounds.size.y/texture.get_height())
 	var panel: bool=IDS[speaker] in ["patch","ilex"]
 	return {"id":IDS[speaker],"texture":texture,"rect":Rect2(Vector2(bounds.get_center().x-extent.x*.5,bounds.end.y-extent.y),extent),"export_state":"canonical_station_panel" if panel else "idle","activity_states":"NEEDS_NEW_CANON_EXPORT: transparent full-body states" if panel else "TEMP: authored route/work/inspect/talk/sit exports pending"}
-static func draw(home, speaker: String, bounds: Rect2, activity: String="rest") -> void:
-	var entry:=presentation(speaker,bounds,activity)
+static func draw(home, speaker: String, bounds: Rect2, activity: String="rest", facing: String="left") -> void:
+	var entry:=presentation(speaker,bounds,activity,facing)
 	if entry.is_empty():return
 	home.draw_set_transform(Vector2.ZERO)
 	if entry.export_state=="canonical_station_panel":

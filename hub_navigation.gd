@@ -11,24 +11,24 @@ var archive_talk:Button
 func build(hub) -> void:
  owner=hub
  var surface:Control=hub.home_content
- text(surface,"MAIN HUB",Rect2(120,14,240,28),19,Color("#ffe3ac"))
- hub.resource_label=UI.rich_label(surface,Rect2(100,42,280,25),12,Color("#dce6f5"))
+ text(surface,"MAIN HUB",Rect2(120,9,240,22),16,Color("#ffe3ac"))
+ hub.resource_label=UI.rich_label(surface,Rect2(32,31,416,22),11,Color("#dce6f5"))
  world_buttons.GateEntrance=feature(surface,"GateEntrance",Rect2(148,100,184,232),"ENTER THE GATE  ›","Choose an expedition",func():hub.play_requested.emit(),17)
  # The same shrine hit area includes Sera; one service, one named world location.
  world_buttons.ShrineProp=feature(surface,"ShrineProp",Rect2(12,208,128,304),"Sera · Upgrades","Permanent power",hub.show_upgrades)
- talk_buttons.sera=talk_badge(world_buttons.ShrineProp,Rect2(76,130,48,48),"Relic Keeper")
- world_buttons.ShopEntrance=feature(surface,"ShopEntrance",Rect2(332,320,144,192),"Patch · Shop","Gear & caches",hub.show_shop)
- talk_buttons.patch=talk_badge(world_buttons.ShopEntrance,Rect2(76,8,48,48),"Salvager")
- world_buttons.ContractBoard=feature(surface,"ContractBoard",Rect2(342,166,122,152),"Quest board","Jobs & bounties",hub.show_contracts)
+ talk_buttons.sera=talk_badge(world_buttons.ShrineProp,Rect2(76,150,48,48),"Relic Keeper")
+ world_buttons.ShopEntrance=feature(surface,"ShopEntrance",Rect2(332,320,144,192),"Patch’s Shop","Gear & caches",hub.show_shop)
+ talk_buttons.patch=talk_badge(world_buttons.ShopEntrance,Rect2(86,94,48,48),"Salvager")
+ world_buttons.ContractBoard=feature(surface,"ContractBoard",Rect2(342,166,122,152),"Quest Board · Jobs","Jobs & bounties",hub.show_contracts)
  world_buttons.StorageChest=feature(surface,"StorageChest",Rect2(12,514,136,122),"Gear & Stash","Equip & compare",hub.show_stash)
  world_buttons.ForgeStation=feature(surface,"ForgeStation",Rect2(12,642,136,106),"Forge","Craft & evolve",hub.show_forge)
  world_buttons.ArchiveDesk=feature(surface,"ArchiveDesk",Rect2(332,528,132,132),"Ilex · Archive","Records & stories",func():hub.show_phase4("archive"))
  world_buttons.ArchiveDesk.get_node("FeatureName").position.y=125
  world_buttons.ArchiveDesk.get_node("Purpose").position.y=149
- talk_buttons.ilex=talk_badge(world_buttons.ArchiveDesk,Rect2(80,6,48,48),"Archivist")
+ talk_buttons.ilex=talk_badge(world_buttons.ArchiveDesk,Rect2(82,76,48,48),"Archivist")
  world_buttons.RelicEngine=feature(surface,"RelicEngine",Rect2(332,668,132,98),"Relic Engine","Secured rewards",func():hub.engine_requested.emit())
  hub.engine_button=world_buttons.RelicEngine;engine_hint=world_buttons.RelicEngine.get_node("Purpose")
- world_buttons.Mascot=feature(surface,"YourLootling",Rect2(158,334,164,218),"Talk  ›","",func():hub.request_dialogue("tapped","Mascot"),12)
+ world_buttons.Mascot=feature(surface,"YourLootling",Rect2(164,364,152,178),"Your Lootling","",func():hub.request_dialogue("tapped","Mascot"),12)
  # Only essential shortcuts stay at the edge, below the living scene.
  buttons.home=shortcut(surface,"Home",Rect2(24,782,136,52),func():hub.get_parent().show_personal_home(),"Your separate private den")
  buttons.character=shortcut(surface,"Character",Rect2(172,782,136,52),func():hub.profile_requested.emit(),"Character and profile")
@@ -66,7 +66,11 @@ func shortcut(parent:Node,name:String,rect:Rect2,action:Callable,hint:String) ->
  b.pressed.connect(action);return b
 
 func talk_badge(parent:Node,rect:Rect2,speaker:String) -> Button:
- var b:Button=owner.make_button(parent,"Talk",rect,Color.TRANSPARENT,Color.TRANSPARENT,11);b.flat=true;b.tooltip_text="Talk to "+preload("res://world_story.gd").SPEAKERS[speaker];skin(b);b.add_theme_color_override("font_outline_color",Color("#051224"));b.add_theme_constant_override("outline_size",4)
+ var b:Button=owner.make_button(parent,"",rect,Color.TRANSPARENT,Color.TRANSPARENT,11);b.flat=true;b.tooltip_text="Talk to "+preload("res://world_story.gd").SPEAKERS[speaker];skin(b);b.add_theme_color_override("font_outline_color",Color("#051224"));b.add_theme_constant_override("outline_size",4)
+ b.draw.connect(func():
+  var ink:=Color("#ffe3ac");b.draw_rect(Rect2(13,12,23,17),Color("#0c1b2bd9"));b.draw_rect(Rect2(13,12,23,17),ink,false,1.2)
+  b.draw_polyline(PackedVector2Array([Vector2(26,29),Vector2(26,34),Vector2(32,29)]),ink,1.2,true)
+  for x in [18,24,30]:b.draw_circle(Vector2(x,20),1.2,ink))
  b.pressed.connect(func():owner.resident_meeting_requested.emit(speaker));return b
 
 func finish_details() -> void:

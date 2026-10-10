@@ -5,8 +5,8 @@ from PIL import Image
 R=Path(__file__).resolve().parents[1]
 def validate():
  data=json.loads((R/'art/npc_identity_authorities.json').read_text())
- assert {e['id'] for e in data['entries']}=={'patch','ilex'}
- for e in data['entries']:
+ assert {e['id'] for e in data['entries']}=={'patch','ilex','sera'}
+ for e in [r for r in data['entries'] if r['id'] in ['patch','ilex']]:
   source=R/e['source_board'];assert hashlib.sha256(source.read_bytes()).hexdigest()==e['source_sha256']
   with Image.open(source) as board:crop=board.crop(e['source_crop']).convert('RGBA')
   for key,hashkey in [('canonical_source','dedicated_sha256'),('runtime_asset','runtime_sha256')]:

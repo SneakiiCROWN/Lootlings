@@ -1198,7 +1198,7 @@
   "authority": "Existing locked identity; final production art cannot be inferred from rejected boards",
   "count_unit": "body/view bundles, each containing reusable pose states plus exact family/socket restrictions; not unique files per delivery cell",
   "body_view_packages": 94,
-  "delivery_cells": 2775,
+  "delivery_cells": 2769,
   "support_packages_recalculated": {
     "right": 82,
     "left": 83
@@ -294170,7 +294170,9 @@
       "game_id": "sera",
       "category": "resident",
       "facing": "right",
-      "canonical_sources": "Existing shrine/Relic personality and portrait; relic tending",
+      "canonical_sources": [
+        "res://art/sprites/npcs/beta/sera_idle.png"
+      ],
       "canvas": [
         1024,
         1536
@@ -294191,93 +294193,6 @@
       "layering_rules": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "reusable_rig": true,
       "states": {
-        "rest": {
-          "weapon_families": [
-            null
-          ],
-          "requirements": [
-            {
-              "slot_id": "pose:sera:rest:right:None",
-              "weapon_family": null,
-              "primary_socket": {
-                "source_pixels": null,
-                "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
-              },
-              "support_socket": [
-                "primary palm",
-                "secondary palm",
-                "prop contact",
-                "feet baseline",
-                "head direction"
-              ],
-              "target_path": "art/production/phase4e/npcs/sera/sera_rest_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": []
-              },
-              "purpose": "rest / right / resident",
-              "weapon_contract": "Preserve established authored equipment/props for this entity; no interchangeable proxy.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "sera_rest_right.png",
-              "runtime_destination": "art/production/phase4e/npcs/sera/sera_rest_right.png",
-              "source_destination": "art/source/phase4e/delivery/sera/sera_rest_right.png",
-              "entity": "sera",
-              "state": "rest",
-              "facing": "right",
-              "canvas": [
-                1024,
-                1536
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": null,
-                "target_canvas_y": 1504,
-                "source_ground_or_hover_pixels": null
-              },
-              "pivot": {
-                "target_canvas": [
-                  512.0,
-                  1504
-                ],
-                "source_pivot_pixels": null
-              },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
-              "socket_sidecar_filename": "sera_rest_right.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  1008,
-                  1520
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Exact named rest state of this established entity; follow its existing route/attack clocks without redesign.",
-              "separate_layers_required": [
-                "named attack VFX and launch points separate from canonical body",
-                "activity props with actual hand/contact metadata where required"
-              ],
-              "layer_filenames": {
-                "body": "sera_rest_right.png",
-                "metadata": "sera_rest_right.json",
-                "foreground_grip_if_needed": "sera_rest_right_grip_front.png",
-                "support_hand_if_needed": "sera_rest_right_support.png",
-                "separate_temporal_vfx_if_required": "sera_rest_right_vfx.png"
-              },
-              "current_temp_replacement": "pose:sera:rest:right:None; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P1"
-            }
-          ]
-        },
         "route/walk": {
           "weapon_families": [
             null
@@ -294298,7 +294213,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/sera/sera_route_walk_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294333,7 +294248,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
+              "canonical_reference": "art/sprites/npcs/beta/sera_idle.png",
               "socket_sidecar_filename": "sera_route_walk_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294385,7 +294300,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/sera/sera_work_read_tend_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294420,7 +294335,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
+              "canonical_reference": "art/sprites/npcs/beta/sera_idle.png",
               "socket_sidecar_filename": "sera_work_read_tend_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294452,180 +294367,6 @@
             }
           ]
         },
-        "inspect": {
-          "weapon_families": [
-            null
-          ],
-          "requirements": [
-            {
-              "slot_id": "pose:sera:inspect:right:None",
-              "weapon_family": null,
-              "primary_socket": {
-                "source_pixels": null,
-                "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
-              },
-              "support_socket": [
-                "primary palm",
-                "secondary palm",
-                "prop contact",
-                "feet baseline",
-                "head direction"
-              ],
-              "target_path": "art/production/phase4e/npcs/sera/sera_inspect_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": []
-              },
-              "purpose": "inspect / right / resident",
-              "weapon_contract": "Preserve established authored equipment/props for this entity; no interchangeable proxy.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "sera_inspect_right.png",
-              "runtime_destination": "art/production/phase4e/npcs/sera/sera_inspect_right.png",
-              "source_destination": "art/source/phase4e/delivery/sera/sera_inspect_right.png",
-              "entity": "sera",
-              "state": "inspect",
-              "facing": "right",
-              "canvas": [
-                1024,
-                1536
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": null,
-                "target_canvas_y": 1504,
-                "source_ground_or_hover_pixels": null
-              },
-              "pivot": {
-                "target_canvas": [
-                  512.0,
-                  1504
-                ],
-                "source_pivot_pixels": null
-              },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
-              "socket_sidecar_filename": "sera_inspect_right.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  1008,
-                  1520
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Exact named inspect state of this established entity; follow its existing route/attack clocks without redesign.",
-              "separate_layers_required": [
-                "named attack VFX and launch points separate from canonical body",
-                "activity props with actual hand/contact metadata where required"
-              ],
-              "layer_filenames": {
-                "body": "sera_inspect_right.png",
-                "metadata": "sera_inspect_right.json",
-                "foreground_grip_if_needed": "sera_inspect_right_grip_front.png",
-                "support_hand_if_needed": "sera_inspect_right_support.png",
-                "separate_temporal_vfx_if_required": "sera_inspect_right_vfx.png"
-              },
-              "current_temp_replacement": "pose:sera:inspect:right:None; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P1"
-            }
-          ]
-        },
-        "talk": {
-          "weapon_families": [
-            null
-          ],
-          "requirements": [
-            {
-              "slot_id": "pose:sera:talk:right:None",
-              "weapon_family": null,
-              "primary_socket": {
-                "source_pixels": null,
-                "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
-              },
-              "support_socket": [
-                "primary palm",
-                "secondary palm",
-                "prop contact",
-                "feet baseline",
-                "head direction"
-              ],
-              "target_path": "art/production/phase4e/npcs/sera/sera_talk_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": []
-              },
-              "purpose": "talk / right / resident",
-              "weapon_contract": "Preserve established authored equipment/props for this entity; no interchangeable proxy.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "sera_talk_right.png",
-              "runtime_destination": "art/production/phase4e/npcs/sera/sera_talk_right.png",
-              "source_destination": "art/source/phase4e/delivery/sera/sera_talk_right.png",
-              "entity": "sera",
-              "state": "talk",
-              "facing": "right",
-              "canvas": [
-                1024,
-                1536
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": null,
-                "target_canvas_y": 1504,
-                "source_ground_or_hover_pixels": null
-              },
-              "pivot": {
-                "target_canvas": [
-                  512.0,
-                  1504
-                ],
-                "source_pivot_pixels": null
-              },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
-              "socket_sidecar_filename": "sera_talk_right.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  1008,
-                  1520
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Exact named talk state of this established entity; follow its existing route/attack clocks without redesign.",
-              "separate_layers_required": [
-                "named attack VFX and launch points separate from canonical body",
-                "activity props with actual hand/contact metadata where required"
-              ],
-              "layer_filenames": {
-                "body": "sera_talk_right.png",
-                "metadata": "sera_talk_right.json",
-                "foreground_grip_if_needed": "sera_talk_right_grip_front.png",
-                "support_hand_if_needed": "sera_talk_right_support.png",
-                "separate_temporal_vfx_if_required": "sera_talk_right_vfx.png"
-              },
-              "current_temp_replacement": "pose:sera:talk:right:None; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P1"
-            }
-          ]
-        },
         "sit": {
           "weapon_families": [
             null
@@ -294646,7 +294387,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/sera/sera_sit_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294681,7 +294422,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
+              "canonical_reference": "art/sprites/npcs/beta/sera_idle.png",
               "socket_sidecar_filename": "sera_sit_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294717,14 +294458,11 @@
       "existing_source_sockets": "See art/production/phase4e/runtime_manifest.json and each delivery cell; actual missing source pixels are OPEN, not invented",
       "temp_evidence": "docs/production/phase4e/extraction/GALLERY.md",
       "no_redesign": true,
+      "owner_reference_approval": "Existing dedicated Sera Vey full-body identity, retained from established live project; no redesign.",
       "locked_source_images": [
         {
           "path": "art/sprites/npcs/beta/sera_idle.png",
           "sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300"
-        },
-        {
-          "path": "art/sprites/npcs/beta/sera_portrait.png",
-          "sha256": "7b8e0421ec75d600a02dae81dcccac437f2764b677192302cb92c458e75ca493"
         }
       ],
       "visual_source_gate": "MATCH_EXISTING_CANON_EXACTLY",
@@ -294736,7 +294474,9 @@
       "game_id": "sera",
       "category": "resident",
       "facing": "left",
-      "canonical_sources": "Existing shrine/Relic personality and portrait; relic tending",
+      "canonical_sources": [
+        "res://art/sprites/npcs/beta/sera_idle.png"
+      ],
       "canvas": [
         1024,
         1536
@@ -294757,93 +294497,6 @@
       "layering_rules": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "reusable_rig": true,
       "states": {
-        "rest": {
-          "weapon_families": [
-            null
-          ],
-          "requirements": [
-            {
-              "slot_id": "pose:sera:rest:left:None",
-              "weapon_family": null,
-              "primary_socket": {
-                "source_pixels": null,
-                "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
-              },
-              "support_socket": [
-                "primary palm",
-                "secondary palm",
-                "prop contact",
-                "feet baseline",
-                "head direction"
-              ],
-              "target_path": "art/production/phase4e/npcs/sera/sera_rest_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": []
-              },
-              "purpose": "rest / left / resident",
-              "weapon_contract": "Preserve established authored equipment/props for this entity; no interchangeable proxy.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "sera_rest_left.png",
-              "runtime_destination": "art/production/phase4e/npcs/sera/sera_rest_left.png",
-              "source_destination": "art/source/phase4e/delivery/sera/sera_rest_left.png",
-              "entity": "sera",
-              "state": "rest",
-              "facing": "left",
-              "canvas": [
-                1024,
-                1536
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": null,
-                "target_canvas_y": 1504,
-                "source_ground_or_hover_pixels": null
-              },
-              "pivot": {
-                "target_canvas": [
-                  512.0,
-                  1504
-                ],
-                "source_pivot_pixels": null
-              },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
-              "socket_sidecar_filename": "sera_rest_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  1008,
-                  1520
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Exact named rest state of this established entity; follow its existing route/attack clocks without redesign.",
-              "separate_layers_required": [
-                "named attack VFX and launch points separate from canonical body",
-                "activity props with actual hand/contact metadata where required"
-              ],
-              "layer_filenames": {
-                "body": "sera_rest_left.png",
-                "metadata": "sera_rest_left.json",
-                "foreground_grip_if_needed": "sera_rest_left_grip_front.png",
-                "support_hand_if_needed": "sera_rest_left_support.png",
-                "separate_temporal_vfx_if_required": "sera_rest_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:sera:rest:left:None; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P1"
-            }
-          ]
-        },
         "route/walk": {
           "weapon_families": [
             null
@@ -294864,7 +294517,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/sera/sera_route_walk_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294899,7 +294552,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
+              "canonical_reference": "art/sprites/npcs/beta/sera_idle.png",
               "socket_sidecar_filename": "sera_route_walk_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -294951,7 +294604,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/sera/sera_work_read_tend_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -294986,7 +294639,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
+              "canonical_reference": "art/sprites/npcs/beta/sera_idle.png",
               "socket_sidecar_filename": "sera_work_read_tend_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295018,180 +294671,6 @@
             }
           ]
         },
-        "inspect": {
-          "weapon_families": [
-            null
-          ],
-          "requirements": [
-            {
-              "slot_id": "pose:sera:inspect:left:None",
-              "weapon_family": null,
-              "primary_socket": {
-                "source_pixels": null,
-                "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
-              },
-              "support_socket": [
-                "primary palm",
-                "secondary palm",
-                "prop contact",
-                "feet baseline",
-                "head direction"
-              ],
-              "target_path": "art/production/phase4e/npcs/sera/sera_inspect_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": []
-              },
-              "purpose": "inspect / left / resident",
-              "weapon_contract": "Preserve established authored equipment/props for this entity; no interchangeable proxy.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "sera_inspect_left.png",
-              "runtime_destination": "art/production/phase4e/npcs/sera/sera_inspect_left.png",
-              "source_destination": "art/source/phase4e/delivery/sera/sera_inspect_left.png",
-              "entity": "sera",
-              "state": "inspect",
-              "facing": "left",
-              "canvas": [
-                1024,
-                1536
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": null,
-                "target_canvas_y": 1504,
-                "source_ground_or_hover_pixels": null
-              },
-              "pivot": {
-                "target_canvas": [
-                  512.0,
-                  1504
-                ],
-                "source_pivot_pixels": null
-              },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
-              "socket_sidecar_filename": "sera_inspect_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  1008,
-                  1520
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Exact named inspect state of this established entity; follow its existing route/attack clocks without redesign.",
-              "separate_layers_required": [
-                "named attack VFX and launch points separate from canonical body",
-                "activity props with actual hand/contact metadata where required"
-              ],
-              "layer_filenames": {
-                "body": "sera_inspect_left.png",
-                "metadata": "sera_inspect_left.json",
-                "foreground_grip_if_needed": "sera_inspect_left_grip_front.png",
-                "support_hand_if_needed": "sera_inspect_left_support.png",
-                "separate_temporal_vfx_if_required": "sera_inspect_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:sera:inspect:left:None; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P1"
-            }
-          ]
-        },
-        "talk": {
-          "weapon_families": [
-            null
-          ],
-          "requirements": [
-            {
-              "slot_id": "pose:sera:talk:left:None",
-              "weapon_family": null,
-              "primary_socket": {
-                "source_pixels": null,
-                "status": "OPEN: no approved articulated source palms/launch pixels exist; supply actual authored coordinates, never inferred board anatomy"
-              },
-              "support_socket": [
-                "primary palm",
-                "secondary palm",
-                "prop contact",
-                "feet baseline",
-                "head direction"
-              ],
-              "target_path": "art/production/phase4e/npcs/sera/sera_talk_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": []
-              },
-              "purpose": "talk / left / resident",
-              "weapon_contract": "Preserve established authored equipment/props for this entity; no interchangeable proxy.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "sera_talk_left.png",
-              "runtime_destination": "art/production/phase4e/npcs/sera/sera_talk_left.png",
-              "source_destination": "art/source/phase4e/delivery/sera/sera_talk_left.png",
-              "entity": "sera",
-              "state": "talk",
-              "facing": "left",
-              "canvas": [
-                1024,
-                1536
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": null,
-                "target_canvas_y": 1504,
-                "source_ground_or_hover_pixels": null
-              },
-              "pivot": {
-                "target_canvas": [
-                  512.0,
-                  1504
-                ],
-                "source_pivot_pixels": null
-              },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
-              "socket_sidecar_filename": "sera_talk_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  1008,
-                  1520
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Exact named talk state of this established entity; follow its existing route/attack clocks without redesign.",
-              "separate_layers_required": [
-                "named attack VFX and launch points separate from canonical body",
-                "activity props with actual hand/contact metadata where required"
-              ],
-              "layer_filenames": {
-                "body": "sera_talk_left.png",
-                "metadata": "sera_talk_left.json",
-                "foreground_grip_if_needed": "sera_talk_left_grip_front.png",
-                "support_hand_if_needed": "sera_talk_left_support.png",
-                "separate_temporal_vfx_if_required": "sera_talk_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:sera:talk:left:None; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P1"
-            }
-          ]
-        },
         "sit": {
           "weapon_families": [
             null
@@ -295212,7 +294691,7 @@
                 "head direction"
               ],
               "target_path": "art/production/phase4e/npcs/sera/sera_sit_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -295247,7 +294726,7 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing shrine/Relic personality and portrait; relic tending",
+              "canonical_reference": "art/sprites/npcs/beta/sera_idle.png",
               "socket_sidecar_filename": "sera_sit_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -295283,14 +294762,11 @@
       "existing_source_sockets": "See art/production/phase4e/runtime_manifest.json and each delivery cell; actual missing source pixels are OPEN, not invented",
       "temp_evidence": "docs/production/phase4e/extraction/GALLERY.md",
       "no_redesign": true,
+      "owner_reference_approval": "Existing dedicated Sera Vey full-body identity, retained from established live project; no redesign.",
       "locked_source_images": [
         {
           "path": "art/sprites/npcs/beta/sera_idle.png",
           "sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300"
-        },
-        {
-          "path": "art/sprites/npcs/beta/sera_portrait.png",
-          "sha256": "7b8e0421ec75d600a02dae81dcccac437f2764b677192302cb92c458e75ca493"
         }
       ],
       "visual_source_gate": "MATCH_EXISTING_CANON_EXACTLY",

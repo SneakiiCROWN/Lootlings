@@ -565,7 +565,7 @@ func debug_show_result(victory: bool) -> void:
 	result_panel.visible = true
 	result_title.text = "HOARD CONQUERED!" if victory else "EXPEDITION ENDED"
 	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))
-	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
+	LootlingsUI.apply_material(result_panel, "hoard")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	result_summary.text = style_result_summary("DEVELOPMENT PREVIEW\nNo rewards, stock refresh, or save changes.\n\nWave reached  %d / %d\nEnemies  %d" % [wave, RUN_LAST_WAVE, total_kills])
 	help_label.visible = false
@@ -3324,7 +3324,7 @@ func end_run(victory: bool) -> void:
 	hideout_shop.save(HIDEOUT_SHOP_SAVE_PATH)
 	result_title.text = "HOARD CONQUERED!" if victory else "EXPEDITION ENDED"
 	result_crest.texture = LootlingsUI.icon("res://art/ui/results/%s_crest.png" % ("victory" if victory else "defeat"))
-	LootlingsUI.apply_material(result_panel, "hoard" if victory else "danger")
+	LootlingsUI.apply_material(result_panel, "hoard")
 	result_title.add_theme_color_override("font_color", Color("#ffe178") if victory else Color("#ff8995"))
 	var notable_loot := "None"
 	if not run_kept_loot.is_empty():
