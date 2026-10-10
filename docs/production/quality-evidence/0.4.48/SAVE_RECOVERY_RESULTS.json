@@ -1,0 +1,12 @@
+[
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 2.13,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  }
+]

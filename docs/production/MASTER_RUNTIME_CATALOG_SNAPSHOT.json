@@ -787,7 +787,7 @@
       "frame",
       "enemy_neutral"
     ],
-    "source_sha256": "1e95140294adacdc6bfdfb0e077060bff85815b98206a5ddee52e35242865a51"
+    "source_sha256": "7ba37458ca1d52db49d05f2449b8a196a6e3cb50f4d4ebbd7c517b7367b6e746"
   },
   "audio_manager.gd": {
     "constants": {
@@ -2170,9 +2170,10 @@
       "step",
       "health_ratio",
       "attack_cue",
+      "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "5c7271501229a79b760f8931f6153efed928b5015e3ff3595263f4cbae6f426b"
+    "source_sha256": "98491a27abc0347b2e936316f4dc76591bfcfca635c568878018d672e993bc02"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -8368,11 +8369,12 @@
       }
     },
     "methods": [
+      "canonical_actor_id",
       "profile",
       "material",
       "material_for"
     ],
-    "source_sha256": "5f347a60c38e1be3c24db7d52c1c67a88963008f81a2fe4c68a173bf56e4268a"
+    "source_sha256": "4fd9c7f2a503b693ed22407680596069bcf768702368849fef86dc3d98c71745"
   },
   "relic_chase_meter.gd": {
     "constants": {},

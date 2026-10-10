@@ -18,7 +18,7 @@ static func enemy_neutral(g, x: float) -> Dictionary:
 	# A missing authored action never licenses an alternate identity. Keep the
 	# accepted facing's neutral body through the visual clocks, explicitly as
 	# reused idle art, not a completed authored attack/hurt/defeat delivery.
-	var actor: String=g.enemy_name.to_lower().replace(" ","_")
+	var actor: String=preload("res://regional_enemy_presentation.gd").canonical_actor_id(g.enemy_name)
 	var facing: String="right" if g.enemy_facing_at(x)>0 else "left"
 	var result:=preload("res://enemy_art_manifest.gd").frame(actor,preload("res://enemy_art_manifest.gd").state_for(g),facing)
 	if not result.is_empty():return result

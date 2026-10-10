@@ -83,7 +83,7 @@
     "actor_identity_corrections.gd": "a097a88735df133fa0451b69d770135ec978479f685f0f8d81976b71772b6be4",
     "affix_catalog.gd": "51c79ebce9a0881b93c59bbd2c9f83c7727084b551d1377453261d64381a8e39",
     "analytics_logger.gd": "1816129efa90fa7f5e06229b6a079a638724a18e905b9dcf99cc4d7d9fc11c60",
-    "approved_missing_runtime_art.gd": "1e95140294adacdc6bfdfb0e077060bff85815b98206a5ddee52e35242865a51",
+    "approved_missing_runtime_art.gd": "7ba37458ca1d52db49d05f2449b8a196a6e3cb50f4d4ebbd7c517b7367b6e746",
     "app_lifecycle.gd": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474",
     "audio_manager.gd": "a8de536f334fec8fe4dd11877a93e4012237c3964b5efd05a55d4b3b124536d9",
     "authored_pose_manifest.gd": "d9488ef6c3d5f9b79907eb58c820416328492e60b18f51c65460fe8bd4e6cfc9",
@@ -99,7 +99,7 @@
     "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
     "chest_catalog.gd": "4bf50445f8512c96ad0d645b5425cd04ade3afe4831bb1ea7eef07fe580834bb",
     "combat_controls.gd": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68",
-    "combat_presentation.gd": "5c7271501229a79b760f8931f6153efed928b5015e3ff3595263f4cbae6f426b",
+    "combat_presentation.gd": "98491a27abc0347b2e936316f4dc76591bfcfca635c568878018d672e993bc02",
     "combat_sprite_rig.gd": "a6124fcd68d18c68336581695f821b5a9c62e1b3dd27e339805235b20150b821",
     "combat_stage.gd": "0c604eeb8edeadc4d8c8341be036f6df75c5d1895a76a87e0f199c439a42d23e",
     "combat_tap_meter.gd": "1df4da3fb4ac3b65f74f79eaf088fc31772a8fb0006ba8971696c7e91ba3f9cc",
@@ -150,7 +150,7 @@
     "profile_store.gd": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1",
     "projectile_presentation.gd": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9",
     "regional_atmosphere.gd": "067aa5460f6c766ee7401945e042c3160e7cdb9be6ca4266399aeef88541f289",
-    "regional_enemy_presentation.gd": "5f347a60c38e1be3c24db7d52c1c67a88963008f81a2fe4c68a173bf56e4268a",
+    "regional_enemy_presentation.gd": "4fd9c7f2a503b693ed22407680596069bcf768702368849fef86dc3d98c71745",
     "region_audio.gd": "1e6b241adc79578698c277fb0c58a56b202b313ab250b21d3fd709d8888a51a9",
     "relic_chase_meter.gd": "7d0551cb1f9817d4321c829d5c4d577b6425c3ca45faf044ab5d7c3ac38e934a",
     "relic_greatsword_motion.gd": "9aa65ee1c96323957d62c96a60fe3c1d67281e2dde492839b7b97842077685af",
@@ -417679,6 +417679,7 @@
           "step",
           "health_ratio",
           "attack_cue",
+          "cue_label_rect",
           "draw_cue"
         ]
       }
@@ -419965,6 +419966,7 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "methods": [
+          "canonical_actor_id",
           "profile",
           "material",
           "material_for"

@@ -277671,7 +277671,8 @@
       "140 ms grounded resident transitions with reduced-motion support",
       "Six unique named item icons in shared loot/equipment renderer",
       "Bounded deterministic background atmosphere across ten established regions; six details, no combat RNG/input changes",
-      "Inkling and Margin Imp generic idle rigs replaced by canonical authored views; twelve enemy state/facing cells"
+      "Inkling and Margin Imp generic idle rigs replaced by canonical authored views; twelve enemy state/facing cells",
+      "Enemy attack warnings clear HP/status HUD; prefixed variants retain canonical authored bodies"
     ],
     "newly_available_companion_routes": [],
     "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
@@ -277701,7 +277702,27 @@
       "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
       "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png"
     ],
-    "enemy_cells": 12
+    "enemy_cells": 12,
+    "builds": {
+      "windows_exe": {
+        "path": "builds/windows/Lootlings-0.4.48-living-world.exe",
+        "bytes": 103136768,
+        "sha256": "5ac2faf49686a8a5eee7abc2ca509a3c48def439a572fe231579129003927418"
+      },
+      "windows_pack": {
+        "path": "builds/windows/Lootlings-0.4.48-living-world.pck",
+        "bytes": 259970644,
+        "sha256": "3fc4cb39d8e5e5a0a13d096a8a9889aecf1a5530fe44227dcb2c97a254cac63a"
+      },
+      "android_debug": {
+        "path": "builds/android/Lootlings-0.4.48-living-world-debug.apk",
+        "bytes": 281269379,
+        "sha256": "859466525f9844419bf5e389d90e2d5071175a8c5472c45f42b623aa41562d10"
+      }
+    },
+    "apk_verified_textures": 491,
+    "exported_android_version_code": 57,
+    "windows_executable_startup_exit": 0
   },
   "current_batch_corrections": [
     "Alpha bridges corrected in player sources before extraction.",
@@ -277719,18 +277740,18 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "25ee928707de6bdeb9b32bf1d1a2667ad243b125a228bd33d6cc55b4011a959a",
-    "docs/production/CANON_REGISTRY.json": "9dc841b757c174c80982e593f2ea9ee1d1669932e1e59b886e4a5b038cfe24c1",
-    "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "2376f24e929aad421a9128f945797b3831bc658117e6a4988554916160006003",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "734e211d1432ab7a1ba36e1719539d3059a02704087b0ba92b0049fb76a2195f",
+    "docs/production/CANON_REGISTRY.json": "56e29ce984ac04accb645176818c687448687f71f22ca96efe903e520e79f530",
+    "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "1b7b5e8e998e71bba559f15d5c5de2b2f84e72ecfe32d35e4d3a8eaa0ca3e870",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
-    "art/npc_identity_authorities.json": "92fea712146ee6426d1e69ffb151983871bace135420eb81bad6cc3c32d4907a",
+    "art/npc_identity_authorities.json": "8c758eb2106971c8ab094f50b072a56a7a617612d83b26a4505686659e50593b",
     "art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json": "097ed7c8e96e868e645cd5e42b19fa400c501118531b29bd3d05691fd38c2aa4",
     "art/hoard_dragon_identity_authority.json": "8c3991797f5d51db5f0f58f25fa71b2265a91f387ba871f4bf167bc856e0cd63",
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "8cd5012e31d6f1e4af63082f8fcaecb76e8f1ed6bf2d320247d6e0463c6517a9",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "8ed51d42dfcc6e4b4cbc119222860df75b1869e58a48e6c7f3cd76ddefbaa944",
     "docs\\production\\full-completion\\continuous-production\\COMBAT_CONTINUATION_INSTALLATION_0446.json": "568612f976836dccb14747ea6afe8413f17f092acc83ded1e55f70fc96bcd5a1",
-    "docs/production/quality-evidence/0.4.48/INSTALLATION_RECEIPT.json": "35a789667880c641ea2926015b128183c9926b9c62255d252755b1fefbacaef9"
+    "docs/production/quality-evidence/0.4.48/INSTALLATION_RECEIPT.json": "42e0bab58ed98d56020ef5468952b100ffda315a59150fcef331577816859411"
   }
 }</script><script>
 const d=JSON.parse(document.getElementById('data').textContent),el=id=>document.getElementById(id),esc=x=>String(x??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

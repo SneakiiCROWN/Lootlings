@@ -44,6 +44,11 @@ const ENTRIES={
 	"HOARD ECHO":["hexer","ethereal","hexer",Color("#ffdab4")]
 }
 static var variant_textures: Dictionary = {}
+static func canonical_actor_id(name: String) -> String:
+	var normalized:String=name.to_upper().replace("_"," ")
+	for key in ENTRIES:
+		if normalized.ends_with(key):return key.to_lower().replace(" ","_")
+	return name.to_lower().replace(" ","_")
 static func profile(name: String) -> Dictionary:
 	var normalized:=name.to_upper().replace("_"," ")
 	# Variant prefixes may precede the canonical name; choose longest exact suffix.

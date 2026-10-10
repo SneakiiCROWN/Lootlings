@@ -20,7 +20,8 @@
     "140 ms grounded resident transitions with reduced-motion support",
     "Six unique named item icons in shared loot/equipment renderer",
     "Bounded deterministic background atmosphere across ten established regions; six details, no combat RNG/input changes",
-    "Inkling and Margin Imp generic idle rigs replaced by canonical authored views; twelve enemy state/facing cells"
+    "Inkling and Margin Imp generic idle rigs replaced by canonical authored views; twelve enemy state/facing cells",
+    "Enemy attack warnings clear HP/status HUD; prefixed variants retain canonical authored bodies"
   ],
   "newly_available_companion_routes": [],
   "title_audio_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
@@ -50,5 +51,25 @@
     "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_right.png",
     "res://art/production/phase4e/enemies/margin_imp/regional_048/margin_imp_idle_left.png"
   ],
-  "enemy_cells": 12
+  "enemy_cells": 12,
+  "builds": {
+    "windows_exe": {
+      "path": "builds/windows/Lootlings-0.4.48-living-world.exe",
+      "bytes": 103136768,
+      "sha256": "5ac2faf49686a8a5eee7abc2ca509a3c48def439a572fe231579129003927418"
+    },
+    "windows_pack": {
+      "path": "builds/windows/Lootlings-0.4.48-living-world.pck",
+      "bytes": 259970644,
+      "sha256": "3fc4cb39d8e5e5a0a13d096a8a9889aecf1a5530fe44227dcb2c97a254cac63a"
+    },
+    "android_debug": {
+      "path": "builds/android/Lootlings-0.4.48-living-world-debug.apk",
+      "bytes": 281269379,
+      "sha256": "859466525f9844419bf5e389d90e2d5071175a8c5472c45f42b623aa41562d10"
+    }
+  },
+  "apk_verified_textures": 491,
+  "exported_android_version_code": 57,
+  "windows_executable_startup_exit": 0
 }

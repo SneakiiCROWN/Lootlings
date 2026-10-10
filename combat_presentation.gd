@@ -98,7 +98,17 @@ static func attack_cue(g) -> Dictionary:
 	var accent := Color("#bca3ff") if ward else Color("#d197ff") if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else Color("#ffb86b")
 	return {"visible":g.state == "playing" and g.enemy_alive and g.enemy_entry_anim <= 0.0 and g.enemy_attack_clock <= window, "progress":clampf(1.0 - g.enemy_attack_clock / window, 0.0, 1.0), "label":label, "accent":accent}
 
-static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: Rect2 = Rect2(120, 312, 240, 28)) -> void:
+static func cue_label_rect(g) -> Rect2:
+	if g.enemy_is_boss:return Rect2(120,312,240,28)
+	var width:float=195.0
+	var x:float=clampf(g.target_combat_visual_position().x-width*.5,16,480-width-16)
+	var text:String=g.enemy_name.to_upper()
+	var size:int=17
+	while size>14 and g.body_font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x>width-2:size-=1
+	var extra:float=18.0 if name_lines(g.body_font,text,width-2,size).size()>1 else 0.0
+	return Rect2(x,370+extra,width,22)
+static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: Rect2 = Rect2()) -> void:
+	if label_rect.size==Vector2.ZERO:label_rect=cue_label_rect(g)
 	var cue := attack_cue(g)
 	if not cue.visible: return
 	var accent: Color = cue.accent

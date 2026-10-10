@@ -30,6 +30,15 @@ func review() -> void:
    assert(frame.get("authored_state","")==phase and frame.source_facing==face and frame.path==row.asset_path,"Exact regional state missing: "+row.contract_slot_id)
    await capture(row.contract_slot_id.replace(":","_"));assert([game.rng.state,game.loot_system.rng.state,game.attack_sequence,game.gold]==invariants)
    records.append({"slot_id":row.contract_slot_id,"viewport":str(viewport),"exact":true,"facing":face,"path":frame.path})
+   if phase=="role windup":
+    var label:Rect2=game.combat_presentation.cue_label_rect(game)
+    assert(label.position.y>=370 and label.end.y<=410 and label.size.x==195)
+   if phase=="idle":
+    game.enemy_name="Overcharged Inkling" if row.actor=="inkling" else "Hasty Margin Imp"
+    var variant:Dictionary=preload("res://approved_missing_runtime_art.gd").enemy_neutral(game,game.enemy_stage_x)
+    assert(variant.path==row.asset_path and variant.source_facing==face)
+    await capture("variant_"+row.actor+"_"+face)
+
   helper.free();game.free();await process_frame
  var report=FileAccess.open("res://.godot_test_data/regional-048/PROBES.json",FileAccess.WRITE);report.store_string(JSON.stringify({"probes":records,"full_fluid_animation_accepted":false,"physical_device_tested":false},"\t"));report.close()
  print("REGIONAL 048 NATIVE PASS: ",records.size()," exact state/view probes, both original canonical creature identities, unchanged cosmetic RNG/economy; three viewports.")
