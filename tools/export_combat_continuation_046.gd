@@ -31,6 +31,15 @@ func _initialize() -> void:
   var weapon:String=row.weapon_types[0]
   var geometry:Dictionary=preload("res://weapon_fit_catalog.gd").GEOMETRY[weapon]
   var secondary:Vector2={"greatsword":Vector2(.415,.70),"greataxe":Vector2(.45,.54),"maul":Vector2(.46,.56)}[weapon]
+  # Calibrate the second contact along the already reviewed shaft segment.
+  # Source palms stay fixed; weapon artwork, proportions and size stay unchanged.
+  var primary_uv:=Vector2(row.primary_anchor[0],row.primary_anchor[1]);var secondary_uv:=Vector2(row.secondary_anchor[0],row.secondary_anchor[1])
+  var hand_span:float=primary_uv.distance_to(secondary_uv)*192.0
+  var actor_scale:float=preload("res://weapon_fit_catalog.gd").CREATURE_PROFILES[row.actor].scale
+  var grip_start:Vector2=geometry.grip;var stock_span:float=((secondary-grip_start)*Vector2(geometry.size)*actor_scale).length()
+  var placement:float=clampf(hand_span/stock_span,.55,1.0)
+  secondary=grip_start+(secondary-grip_start)*placement
+  row.grip_calibration="Second contact measured from source palms along existing visible shaft; no body/socket movement or weapon stretch."
   var held:String="res://art/sprites/weapons/"+weapon+"_held.png" if weapon!="maul" else "res://art/sprites/weapons/vanguard_hammer.png"
   row.weapon_overrides[weapon]={"size":[geometry.size.x,geometry.size.y],"grip":[geometry.grip.x,geometry.grip.y],"secondary_grip":[secondary.x,secondary.y],"socket":[geometry.socket.x,geometry.socket.y],"angle":geometry.angle,"held_path":held}
   var sidecar:=FileAccess.open("res://"+row.metadata_path,FileAccess.WRITE);sidecar.store_string(JSON.stringify(row,"\t"));sidecar.close()

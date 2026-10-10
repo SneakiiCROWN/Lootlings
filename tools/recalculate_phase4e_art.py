@@ -24,6 +24,8 @@ def main():
     if motion.exists():extracted += [r for r in json.loads(motion.read_text())["entries"] if r.get("native_validated") and r.get("production_status")=="canon_validated_runtime"]
     combat=ROOT/'art/production/phase4e/player_combat_045_manifest.json'
     if combat.exists():extracted += [r for r in json.loads(combat.read_text(encoding='utf-8-sig'))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
+    heavy=ROOT/'art/production/phase4e/player_combat_046_manifest.json'
+    if heavy.exists():extracted += [r for r in json.loads(heavy.read_text(encoding='utf-8-sig'))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
     coverage={}; before={}; cells=[]
     for row in poses:
         if row['production_status']!='authored_beta':continue

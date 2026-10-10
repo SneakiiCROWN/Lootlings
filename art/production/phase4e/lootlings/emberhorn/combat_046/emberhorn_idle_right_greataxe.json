@@ -1,0 +1,91 @@
+{
+  "actor": "emberhorn",
+  "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_046/emberhorn_idle_right.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:emberhorn:idle:right:greataxe",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/combat_046/emberhorn_idle_right_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "grip_calibration": "Second contact measured from source palms along existing visible shaft; no body/socket movement or weapon stretch.",
+  "identity_authority": [
+    "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_046/emberhorn_idle_right_greataxe.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "IDLE",
+  "primary_anchor": [
+    0.662296660958904,
+    0.667297508949881
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.747640196917808,
+    0.661060560859189
+  ],
+  "source": "art/source/combat_continuation_046/emberhorn_gutter_corrected.png",
+  "source_bounds": [
+    23.0,
+    47.0,
+    388.0,
+    466.0
+  ],
+  "source_primary": [
+    283.0,
+    321.0
+  ],
+  "source_secondary": [
+    324.0,
+    318.0
+  ],
+  "source_sha256": "e9b91cc6b460831902f995d72fbaf6773efa5713fb413b9524daa14bde79d925",
+  "state": "idle",
+  "supports_two_hand": true,
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "greataxe": {
+      "angle": 0.44,
+      "grip": [
+        0.370000004768372,
+        0.699999988079071
+      ],
+      "held_path": "res://art/sprites/weapons/greataxe_held.png",
+      "secondary_grip": [
+        0.438996315002441,
+        0.562007308006287
+      ],
+      "size": [
+        112.0,
+        142.0
+      ],
+      "socket": [
+        0.629999995231628,
+        0.200000002980232
+      ]
+    }
+  },
+  "weapon_types": [
+    "greataxe"
+  ],
+  "asset_sha256": "d823e59a5468004780325d07314b70163f95895af04a32dac040842c88032023",
+  "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance."
+}

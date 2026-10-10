@@ -9,5 +9,19 @@
     "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png",
     "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png"
   ],
-  "stages": "Sources created only; gameplay and professional quality acceptance pending."
+  "stages": "Sources created only; gameplay and professional quality acceptance pending.",
+  "correction_history": [
+    {
+      "source": "emberhorn_gutter_corrected.png",
+      "purpose": "Separate all eight independent canon poses with transparent gutters, preserve flame ears/horns/tail and visible palms."
+    },
+    {
+      "source": "pebblewyrm_gutter_corrected.png",
+      "purpose": "Separate all eight independent canon poses, preserve rocky continuous tail, no wings, expose palms without identity change."
+    },
+    {
+      "source": "strike_correction_group.png",
+      "purpose": "Coordinated Emberhorn/Pebblewyrm two-facing horizontal chest-height strikes, both palms co-linear, no baked weapons, clear floor. Only Emberhorn-left axe/maul accepted; clipped right ear and merged Pebble silhouettes rejected."
+    }
+  ]
 }

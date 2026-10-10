@@ -2837,6 +2837,426 @@
         271
       ],
       "asset_sha256": "c316d027c0ba6479a42d7f127e7afed2852653eeaa18c27a4ec06c18cff0f57b"
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "idle",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        278,
+        593,
+        468,
+        399
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        15,
+        127,
+        483,
+        526
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:idle:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_right.json",
+      "asset_sha256": "5d5c73d323ed3bd8fd64a0a9097ea7f8d104906c63e0aebce37faa22beb2f89d",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "role commit",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        231,
+        624,
+        562,
+        368
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        961,
+        164,
+        1523,
+        532
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:role commit:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_right.json",
+      "asset_sha256": "6081a8b7d5c8a7bc5dea60bd279b20878f5f72a7c07325bbcbe76122fcc07af6",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "recovery",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        246,
+        620,
+        532,
+        372
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        494,
+        598,
+        1026,
+        970
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:recovery:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_right.json",
+      "asset_sha256": "9c549961ddd7cede791787f3718f3a5d6f1ff42bdcdcd6e3439d2226eb3271d5",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "defeat",
+      "facing": "right",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_right.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        265,
+        642,
+        493,
+        350
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_candidate.png",
+      "authored_source_sha256": "55d93aa679e867fb24d5f8151a35e1e896289d64a572352fb361a1f9430c136b",
+      "authored_source_bounds": [
+        1032,
+        624,
+        1525,
+        974
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:defeat:right:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_right.json",
+      "asset_sha256": "61dedbfa4bfd4e4234bbed4e4fe70da3b954ecd037cbafa398a034c35096a187",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "idle",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        278,
+        599,
+        468,
+        393
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        15,
+        127,
+        483,
+        520
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:idle:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_idle_left.json",
+      "asset_sha256": "fe7260245d201f1d8d99d0b64187647bf02d9a4ac02b82a50602c8c2e6917b2b",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "role windup",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_windup_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        287,
+        495,
+        450,
+        497
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        494,
+        17,
+        944,
+        514
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:role windup:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_windup_left.json",
+      "asset_sha256": "81e7ff192d069400bb7712b7a15fb4e457e7be1b5b1348dae68227ee89752598",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "role commit",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        228,
+        623,
+        567,
+        369
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        949,
+        145,
+        1516,
+        514
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:role commit:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_role_commit_left.json",
+      "asset_sha256": "85f2bb165598fe8f3b33f3b4bc6e1653105c29a1e57c702e526df9fd7435e336",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "hurt",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_hurt_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        295,
+        549,
+        434,
+        443
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        64,
+        533,
+        498,
+        976
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:hurt:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_hurt_left.json",
+      "asset_sha256": "6090fb1ba6fa6a4b968d13c669bd976daf875e167a7d2709daf22be7eb19cd1e",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "recovery",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        301,
+        565,
+        422,
+        427
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        529,
+        556,
+        951,
+        983
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:recovery:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_recovery_left.json",
+      "asset_sha256": "e135a1fb46ef52d7de23a1fb648c8a9d311d9c9572cd73df5e31016ac2e82472",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
+    },
+    {
+      "actor": "dew_hexer",
+      "state": "defeat",
+      "facing": "left",
+      "asset_path": "res://art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_left.png",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "content_rect": [
+        264,
+        642,
+        496,
+        350
+      ],
+      "native_pixel_scale": 0.26,
+      "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+      "source_sha256": "01b76b9530c4854da4d44a2978728754c9538a8a170dc2642bb3d2d756737b78",
+      "authored_source": "art/source/combat_continuation_046/dew_hexer_left_corrected.png",
+      "authored_source_sha256": "0e9957156eeed85c135045284ce5b2331c678e78c31dc3223984f07ce22a330c",
+      "authored_source_bounds": [
+        1011,
+        653,
+        1507,
+        1003
+      ],
+      "production_status": "canon_validated_runtime",
+      "native_validated": true,
+      "contract_slot_id": "pose:dew_hexer:defeat:left:None",
+      "fixed_enemy_blade": "Canonical intrinsic wood staff and dew lantern, not modular player weapon.",
+      "feet_baseline_normalized": 0.96875,
+      "anchor": [
+        0.5,
+        0.96875
+      ],
+      "metadata_path": "art/production/phase4e/enemies/dew_hexer/combat_046/dew_hexer_defeat_left.json",
+      "asset_sha256": "d485784e380fa87df6a7970002d25a64a02c0a80fe22b23a20028ffe7063ec7a",
+      "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "native_qa": "continuation046-final-a6531c04a5",
+      "visual_acceptance": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance.",
+      "source_quality": "Original RGBA transparent silhouettes, isolated without cutting overlapping cells. Canonical staff and modest leaf-covered cat tail retained."
     }
   ]
 }

@@ -37,6 +37,10 @@ def build():
     if combat_receipt.exists():
         receipt=read(str(combat_receipt.relative_to(ROOT)))
         player_receipt=combat_receipt
+    continuation_receipt=CONT/'COMBAT_CONTINUATION_INSTALLATION_0446.json'
+    if continuation_receipt.exists():
+        receipt=read(str(continuation_receipt.relative_to(ROOT)))
+        player_receipt=continuation_receipt
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'
     evidence = read(evidence_path)

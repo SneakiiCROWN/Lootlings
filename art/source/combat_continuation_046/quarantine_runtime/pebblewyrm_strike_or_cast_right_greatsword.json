@@ -1,0 +1,89 @@
+{
+	"actor": "pebblewyrm",
+	"asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_strike_or_cast_right.png",
+	"baked_weapon": "",
+	"baseline_y": 496.0,
+	"body_rect": [
+		-96.0,
+		-128.0,
+		192.0,
+		192.0
+	],
+	"canvas": [
+		512.0,
+		512.0
+	],
+	"contract_slot_id": "pose:pebblewyrm:strike_or_cast:right:greatsword",
+	"core_anchor": [
+		0.5,
+		0.55
+	],
+	"draw_depth": "front",
+	"facing": "right_only",
+	"feet_baseline": 58.0,
+	"foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_strike_or_cast_right_grip_front.png",
+	"fps": 0.0,
+	"frame_count": 1.0,
+	"frame_index": 0.0,
+	"grip_calibration": "Second contact measured from source palms along existing visible shaft; no body/socket movement or weapon stretch.",
+	"identity_authority": [
+		"art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png"
+	],
+	"metadata_path": "art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_strike_or_cast_right_greatsword.json",
+	"mirroring_allowed": false,
+	"native_validated": false,
+	"phase": "ATTACK",
+	"primary_anchor": [
+		0.710906902741514,
+		0.823475302419355
+	],
+	"production_status": "awaiting_native_visual_review",
+	"secondary_anchor": [
+		0.821546589425587,
+		0.848840725806452
+	],
+	"source": "art/source/combat_continuation_046/pebblewyrm_gutter_corrected.png",
+	"source_bounds": [
+		765.0,
+		143.0,
+		1148.0,
+		453.0
+	],
+	"source_primary": [
+		1048.0,
+		390.0
+	],
+	"source_secondary": [
+		1096.0,
+		401.0
+	],
+	"source_sha256": "d5d6b38cf365f7261ff8a8868f35e1dc1296254de9020d9ae17defc1c5cba472",
+	"state": "strike_or_cast",
+	"supports_two_hand": true,
+	"wardrobe_requires": {},
+	"weapon_overrides": {
+		"greatsword": {
+			"angle": 0.36,
+			"grip": [
+				0.377000004053116,
+				0.839999973773956
+			],
+			"held_path": "res://art/sprites/weapons/greatsword_held.png",
+			"secondary_grip": [
+				0.41499999165535,
+				0.699999988079071
+			],
+			"size": [
+				112.0,
+				142.0
+			],
+			"socket": [
+				0.649999976158142,
+				0.0500000007450581
+			]
+		}
+	},
+	"weapon_types": [
+		"greatsword"
+	]
+}

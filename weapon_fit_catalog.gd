@@ -176,7 +176,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	# registered actor/view/weapon/state. Existing accepted phases stay intact.
 	var delivered_phase:String="HURT" if hurt else "RECOVER" if g.attack_anim>0.0 and g.attack_anim<.10 else str(action.phase)
 	var delivered:Dictionary=Authored.extracted_phase(str(actor.id),subtype,delivered_phase,float(g.combat_facing()))
-	if delivered.get("combat_batch_045",false):authored=delivered
+	if delivered.get("combat_batch_045",false) or delivered.get("combat_batch_046",false):authored=delivered
 	# Exact extracted idles do not stand in for missing action/movement views.
 	if authored.is_empty():
 		# A source strike is valid at commit, not an invented recovery pose.

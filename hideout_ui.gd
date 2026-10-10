@@ -1235,6 +1235,33 @@ func refresh_stash() -> void:
 		button.clip_text = true
 		apply_item_thumbnail(button, item)
 		button.pressed.connect(select_entry.bind(entry_index))
+	if entries.is_empty():
+		var empty := VBoxContainer.new()
+		empty.name="EmptyStashGuide"
+		empty.custom_minimum_size=Vector2(402,220)
+		empty.add_theme_constant_override("separation",14)
+		stash_list.add_child(empty)
+		var heading:=Label.new()
+		heading.text="YOUR NEXT TREASURE AWAITS" if stash_filter=="ALL" else "NO "+stash_filter.to_upper()+" GEAR YET"
+		heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		heading.add_theme_font_size_override("font_size",19)
+		heading.add_theme_color_override("font_color",Color("#ffe178"))
+		heading.custom_minimum_size=Vector2(402,48)
+		empty.add_child(heading)
+		var help:=Label.new()
+		help.text="Find equipment beyond the Gate, then return here to compare, equip or salvage it.\nYour equipped gear appears above." if stash_filter=="ALL" else "Try another category, or find more equipment on an expedition."
+		help.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		help.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		help.add_theme_font_size_override("font_size",17)
+		help.add_theme_color_override("font_color",Color("#b9cce9"))
+		help.custom_minimum_size=Vector2(402,92)
+		empty.add_child(help)
+		if stash_filter!="ALL":
+			var all_gear:=make_button(empty,"SHOW ALL GEAR",Rect2(0,0,402,56),Color("#1c2948"),Color("#72c8ff"),17)
+			all_gear.custom_minimum_size=Vector2(402,56)
+			all_gear.set_meta("ui_intent","primary")
+			LootlingsUI.apply_button(all_gear,Color("#1c2948"),Color("#72c8ff"))
+			all_gear.pressed.connect(func():stash_filter="ALL";refresh_stash())
 	var bottom_padding := Control.new()
 	bottom_padding.custom_minimum_size = Vector2(402, 16)
 	stash_list.add_child(bottom_padding)

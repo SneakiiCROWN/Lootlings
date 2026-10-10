@@ -1,0 +1,91 @@
+{
+  "actor": "pebblewyrm",
+  "asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_hurt_left.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:pebblewyrm:hurt:left:maul",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_hurt_left_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "grip_calibration": "Second contact measured from source palms along existing visible shaft; no body/socket movement or weapon stretch.",
+  "identity_authority": [
+    "art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_hurt_left_maul.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "HURT",
+  "primary_anchor": [
+    0.397265625,
+    0.6141357421875
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.3096875,
+    0.6141357421875
+  ],
+  "source": "art/source/combat_continuation_046/pebblewyrm_gutter_corrected.png",
+  "source_bounds": [
+    1173.0,
+    577.0,
+    1523.0,
+    929.0
+  ],
+  "source_primary": [
+    1303.0,
+    775.0
+  ],
+  "source_secondary": [
+    1265.0,
+    775.0
+  ],
+  "source_sha256": "d5d6b38cf365f7261ff8a8868f35e1dc1296254de9020d9ae17defc1c5cba472",
+  "state": "hurt",
+  "supports_two_hand": true,
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "maul": {
+      "angle": -0.12,
+      "grip": [
+        0.300000011920929,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/vanguard_hammer.png",
+      "secondary_grip": [
+        0.416871309280396,
+        0.603128671646118
+      ],
+      "size": [
+        116.0,
+        110.0
+      ],
+      "socket": [
+        0.819999992847443,
+        0.150000005960464
+      ]
+    }
+  },
+  "weapon_types": [
+    "maul"
+  ],
+  "asset_sha256": "f26e764ba3733644a81328b5fe8cf7bc73a321c3b99a89b11cfb98aeb4932747",
+  "visual_review": "Canonical source and actual native pose/facing/contact at phone, tablet and desktop reviewed. Basic individual keyframes, not complete fluid animation or professional family acceptance."
+}

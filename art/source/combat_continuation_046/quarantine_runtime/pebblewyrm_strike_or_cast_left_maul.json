@@ -1,0 +1,89 @@
+{
+	"actor": "pebblewyrm",
+	"asset_path": "res://art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_strike_or_cast_left.png",
+	"baked_weapon": "",
+	"baseline_y": 496.0,
+	"body_rect": [
+		-96.0,
+		-128.0,
+		192.0,
+		192.0
+	],
+	"canvas": [
+		512.0,
+		512.0
+	],
+	"contract_slot_id": "pose:pebblewyrm:strike_or_cast:left:maul",
+	"core_anchor": [
+		0.5,
+		0.55
+	],
+	"draw_depth": "front",
+	"facing": "left_only",
+	"feet_baseline": 58.0,
+	"foreground_layer": "res://art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_strike_or_cast_left_grip_front.png",
+	"fps": 0.0,
+	"frame_count": 1.0,
+	"frame_index": 0.0,
+	"grip_calibration": "Second contact measured from source palms along existing visible shaft; no body/socket movement or weapon stretch.",
+	"identity_authority": [
+		"art/reference/canonical/characters/Pebblewyrm_CharacterSheet_Canonical.png"
+	],
+	"metadata_path": "art/production/phase4e/lootlings/pebblewyrm/combat_046/pebblewyrm_strike_or_cast_left_maul.json",
+	"mirroring_allowed": false,
+	"native_validated": false,
+	"phase": "ATTACK",
+	"primary_anchor": [
+		0.2764453125,
+		0.82578125
+	],
+	"production_status": "awaiting_native_visual_review",
+	"secondary_anchor": [
+		0.17734375,
+		0.823475302419355
+	],
+	"source": "art/source/combat_continuation_046/pebblewyrm_gutter_corrected.png",
+	"source_bounds": [
+		769.0,
+		616.0,
+		1169.0,
+		926.0
+	],
+	"source_primary": [
+		872.0,
+		864.0
+	],
+	"source_secondary": [
+		829.0,
+		863.0
+	],
+	"source_sha256": "d5d6b38cf365f7261ff8a8868f35e1dc1296254de9020d9ae17defc1c5cba472",
+	"state": "strike_or_cast",
+	"supports_two_hand": true,
+	"wardrobe_requires": {},
+	"weapon_overrides": {
+		"maul": {
+			"angle": -0.12,
+			"grip": [
+				0.300000011920929,
+				0.720000028610229
+			],
+			"held_path": "res://art/sprites/weapons/vanguard_hammer.png",
+			"secondary_grip": [
+				0.432284891605377,
+				0.587715148925781
+			],
+			"size": [
+				116.0,
+				110.0
+			],
+			"socket": [
+				0.819999992847443,
+				0.150000005960464
+			]
+		}
+	},
+	"weapon_types": [
+		"maul"
+	]
+}

@@ -1,3 +1,7 @@
+# Current live continuation — 0.4.46
+
+Installed 26 heavy playable and ten Dew Hexer deliveries, 64 physical files, 36 closures. Remaining 2852 / 7399 frozen requirements. Accepted source/native testing passed; export pending. Read latest report and Git HEAD. Never rerun accepted preparation/export over 046 assets. Source/quarantine retained. Physical S23 deferred, full fluid/professional acceptance open. Continue independent families and broad player-facing work; no reset or general audit.
+
 # Continue live production — 0.4.45
 
 Live project only: C:/Users/Snkii/Documents/lootlings. UI checkpoint c057b1d and combat ccd6293 pushed; read Git HEAD for final delivery checkpoint. Preserve owner project.godot, untracked references and all newer progress. No reset/clean/copy/regeneration.

@@ -37,6 +37,75 @@
       "source": "dew_hexer_left_rejected_tail.png",
       "cells": 6,
       "reason": "Oversized fluffy tail drift; replaced by canon-tail correction, original retained."
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:right:greatsword",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:right:greataxe",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:right:maul",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:left:greatsword",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:left:greataxe",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "Corrected independently in strike_correction_group.png; native axe/maul floor/contact review passed. Original rejected preserved."
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:left:maul",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "Corrected independently in strike_correction_group.png; native axe/maul floor/contact review passed. Original rejected preserved."
+    },
+    {
+      "slot_id": "pose:pebblewyrm:strike_or_cast:right:greatsword",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:pebblewyrm:strike_or_cast:right:greataxe",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:pebblewyrm:strike_or_cast:right:maul",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:pebblewyrm:strike_or_cast:left:greatsword",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:pebblewyrm:strike_or_cast:left:greataxe",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "slot_id": "pose:pebblewyrm:strike_or_cast:left:maul",
+      "reason": "Native weapon contact mathematically passes but strike directs blade/head below combat floor; NOT accepted.",
+      "disposition": "held for grouped strike correction"
+    },
+    {
+      "source": "strike_correction_group.png",
+      "reason": "Emberhorn right ear clipped at source top; Pebblewyrm top/bottom silhouettes share alpha component. Emberhorn left silhouette independent but grip/scale not yet runtime-validated. No correction cells accepted.",
+      "disposition": "preserved; no install"
     }
+  ],
+  "accepted_independent_corrected_strikes": [
+    "pose:emberhorn:strike_or_cast:left:greataxe",
+    "pose:emberhorn:strike_or_cast:left:maul"
   ]
 }

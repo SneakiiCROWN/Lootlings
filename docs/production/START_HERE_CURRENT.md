@@ -1,3 +1,7 @@
+# Current — 0.4.46 installed combat continuation
+
+36 new tested deliveries; 2852 contracts remain. Accepted selectors tested without preview gates. Read [current report](quality-evidence/0.4.46/REPORT.md) and sole PRODUCTION_DASHBOARD. 0.4.46 exports pending. Preserve owner project.godot and all references.
+
 Latest continuation: [live coverage and seven-stage quality dashboard](PRODUCTION_DASHBOARD.html). The dashboard is generated from the current registries, frozen delivery contracts, runtime reflection and explicit native-review evidence. Older completion labels do not grant professional acceptance.
 
 Current continuation: [0.4.44 twelve-actor motion and Hub/residents](quality-evidence/0.4.44/residents-hub/REPORT.md). 118 actor contracts pushed as d5394d0; six Sera views and Hub composition pushed as 5408c8e. Full professional acceptance remains open.
