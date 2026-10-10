@@ -261274,7 +261274,9 @@
       "game_id": "act_i",
       "category": "boss",
       "facing": "right",
-      "canonical_sources": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_sources": [
+        "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+      ],
       "canvas": [
         2048,
         2048
@@ -261315,7 +261317,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_phase_transition_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261350,7 +261352,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_phase_transition_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261402,7 +261406,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_vulnerability_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261437,7 +261441,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_vulnerability_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261489,7 +261495,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_claws_recovery_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261524,7 +261530,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_claws_recovery_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261576,7 +261584,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_brace_windup_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261611,7 +261619,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_brace_windup_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261663,7 +261673,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_brace_commit_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261698,7 +261708,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_brace_commit_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261750,7 +261762,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_brace_recovery_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261785,7 +261797,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_brace_recovery_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261837,7 +261851,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_coin_breath_windup_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261872,7 +261886,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_coin_breath_windup_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -261924,7 +261940,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_coin_breath_commit_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -261959,7 +261975,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_coin_breath_commit_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262011,7 +262029,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_coin_breath_recovery_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262046,7 +262064,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_coin_breath_recovery_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262098,7 +262118,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_recover_recovery_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262133,7 +262153,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_recover_recovery_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262185,7 +262207,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_tail_sweep_windup_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262220,7 +262242,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_tail_sweep_windup_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262272,7 +262296,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_tail_sweep_commit_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262307,7 +262331,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_tail_sweep_commit_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262359,7 +262385,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_tail_sweep_recovery_right.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262394,7 +262420,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_tail_sweep_recovery_right.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262445,7 +262473,9 @@
       "game_id": "act_i",
       "category": "boss",
       "facing": "left",
-      "canonical_sources": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+      "canonical_sources": [
+        "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+      ],
       "canvas": [
         2048,
         2048
@@ -262486,7 +262516,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_phase_transition_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262521,7 +262551,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_phase_transition_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262573,7 +262605,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_vulnerability_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262608,7 +262640,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_vulnerability_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262660,7 +262694,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_claws_recovery_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262695,7 +262729,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_claws_recovery_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262747,7 +262783,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_brace_windup_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262782,7 +262818,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_brace_windup_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262834,7 +262872,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_brace_commit_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262869,7 +262907,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_brace_commit_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -262921,7 +262961,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_brace_recovery_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -262956,7 +262996,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_brace_recovery_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263008,7 +263050,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_coin_breath_windup_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263043,7 +263085,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_coin_breath_windup_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263095,7 +263139,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_coin_breath_commit_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263130,7 +263174,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_coin_breath_commit_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263182,7 +263228,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_coin_breath_recovery_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263217,7 +263263,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_coin_breath_recovery_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263269,7 +263317,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_recover_recovery_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263304,7 +263352,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_recover_recovery_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263356,7 +263406,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_tail_sweep_windup_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263391,7 +263441,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_tail_sweep_windup_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263443,7 +263495,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_tail_sweep_commit_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263478,7 +263530,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_tail_sweep_commit_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {
@@ -263530,7 +263584,7 @@
                 "tail root/tip for dragon"
               ],
               "target_path": "art/production/phase4e/bosses/act_i/act_i_tail_sweep_recovery_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
               "existing_source_search": {
                 "accepted_state_manifest": "art/production_pose_manifest.json",
                 "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
@@ -263565,7 +263619,9 @@
                 ],
                 "source_pivot_pixels": null
               },
-              "canonical_reference": "Existing gold-bound violet gemstone vault/greed dragon; canonical boss data/intro text authoritative",
+              "canonical_reference": [
+                "res://art/reference/canonical/characters/01_Hoard_Dragon_Canonical_Reference.png"
+              ],
               "socket_sidecar_filename": "act_i_tail_sweep_recovery_left.json",
               "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
               "occupied_bounds": {

@@ -8,7 +8,11 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — 0.4.44 actor motion and shared Hub world
+## CURRENT — 0.4.45 combat and service corrections
+
+46 verified combat deliveries across four actors: 29 bodies, 29 hand masks, 46 sidecars. Remaining 2,888 contracts / 7,497 requested artist files. Title encoding/overlap, Forge rows, Contracts, Crownroot/Gravebloom wording, dungeon label overflow and result-return touch ownership corrected. Final compiled-game combat/service/498 outcome tests pass three layouts. Windows and signed Android code54 candidates in builds/. [Report and limits](quality-evidence/0.4.45/REPORT.md). Dew Hexer remains rejected. Full fluid/professional/S23 acceptance open.
+
+## Previous — 0.4.44 actor motion and shared Hub world
 
 All seven Lootlings and five Wanderers now have independently reviewed alternating movement and outcome keyframes for explicitly supported Wand/Orb contracts. 118 exact closures; 96 body PNG, 96 grip PNG and 166 sidecars. Sera adds six rest/talk/inspect views using five new bodies plus the original approved right rest and six sidecars. Combined: 124 closures, 369 new physical artist files; 2,934 contracts and 7,635 artist-file requirements remain. These are keyframes, not completed fluid animation families.
 

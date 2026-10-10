@@ -1,6 +1,6 @@
 """Run external guarded fixtures against the actual exported PCK, never copied game code."""
 from pathlib import Path
-import argparse,os,re,subprocess,json
+import argparse,os,re,subprocess,json,hashlib
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     p=argparse.ArgumentParser();p.add_argument('pack');p.add_argument('--version',required=True);p.add_argument('--fixtures',nargs='+',required=True);a=p.parse_args()
@@ -24,7 +24,7 @@ def main():
         with log.open('wb') as out:r=subprocess.run([str(engine),'--main-pack',str((ROOT/a.pack).resolve()),'--resolution','1080x2340','--position','0,0','-s',str(fixtures/(name+'.gd'))],env=env,cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,timeout=300)
         output=log.read_text(encoding='utf-8',errors='replace');errors=[line for line in output.splitlines() if 'ERROR:' in line or 'SCRIPT ERROR' in line]
         assert r.returncode==0 and not errors,(name,r.returncode,errors)
-        results.append(dict(fixture=name,exit=r.returncode,errors=errors,pack=str((ROOT/a.pack).resolve()),saves='isolated',copied_game_code=False))
+        results.append(dict(fixture=name,exit=r.returncode,errors=errors,pack=str((ROOT/a.pack).resolve()),pack_sha256=hashlib.sha256((ROOT/a.pack).read_bytes()).hexdigest(),fixture_sha256=hashlib.sha256((ROOT/'tests'/(name+'.gd')).read_bytes()).hexdigest(),saves='isolated',copied_game_code=False))
         print(name+' compiled PCK native PASS',flush=True)
     (fixtures/'results.json').write_text(json.dumps(results,indent=2)+'\n',encoding='utf-8')
 if __name__=='__main__':main()

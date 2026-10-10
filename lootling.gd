@@ -809,6 +809,7 @@ func build_overlay_ui() -> void:
 	LootlingsUI.add_divider(result_panel, Rect2(30, 145, 364, 10), "gold")
 	restart_button = Button.new()
 	restart_button.text = "RETURN TO HIDEOUT"
+	restart_button.set_meta("gesture_release_owned",true) # Result returns own touch release like other destination buttons.
 	restart_button.position = Vector2(47, 425)
 	restart_button.size = Vector2(330, 68)
 	restart_button.add_theme_font_size_override("font_size", 20)

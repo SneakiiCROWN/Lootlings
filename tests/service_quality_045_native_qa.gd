@@ -28,6 +28,10 @@ func review() -> void:
   var gold:int=game.gold;await tap(h.contract_buttons[0]);assert(game.gold==gold+10);assert(h.contract_buttons[0].disabled);await capture("contract_claimed")
   h.show_campaign();await capture("expeditions")
   h.show_home();game.retention.show_modes("dungeons");await capture("dungeons");assert(game.retention.detail.text.contains("Crownroot fragments") and game.retention.detail.text.contains("Gravebloom"))
+  if game.retention.buttons[1].disabled:
+   assert(game.retention.detail.text.contains("unlock both routes"))
+   var button:Button=game.retention.buttons[1]
+   assert(button.get_theme_font("font").get_string_size(button.text,HORIZONTAL_ALIGNMENT_LEFT,-1,button.get_theme_font_size("font_size")).x<button.size.x-36,"Dungeon label crosses frame")
   game.retention.show_modes("siege");await capture("siege")
   game.show_hideout();h.show_home();game.retention.progress.data.free_spins=1;game.retention.show_earned_spinner();await capture("engine_ready")
   assert(game.retention.chase.text.contains("paid and earned"));var fragments:int=game.retention.progress.data.red_fragments

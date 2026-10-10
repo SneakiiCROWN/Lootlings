@@ -103,8 +103,8 @@ func show_modes(tab: String="siege") -> void:
 	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ REGIONS" if mode_parent=="campaign" else "‹ HUB"])
 	buttons[1].disabled=not game.campaign.available("mossglass_wilds")
 	buttons[2].disabled=not "act_i" in game.campaign.completed
-	if buttons[1].disabled:buttons[1].text="ROOTGLASS VAULT • clear Treasure Ruins to unlock"
-	if buttons[2].disabled:buttons[2].text="RELIC ROUTE • clear Treasure Ruins to unlock"
+	if buttons[1].disabled:buttons[1].text="ROOTGLASS VAULT • LOCKED"
+	if buttons[2].disabled:buttons[2].text="RELIC ROUTE • LOCKED"
 	buttons[3].text="FORGE GRAVEBLOOM • 24 FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
 	buttons[0].visible=tab=="siege"; buttons[1].visible=tab=="dungeons"; buttons[2].visible=tab=="dungeons"
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
@@ -113,6 +113,7 @@ func show_modes(tab: String="siege") -> void:
 	for button in mode_tabs:
 		game.hideout_ui.apply_display_button_style(button,Color("#b8a476"),button.text==("SIEGE" if tab=="siege" else "DUNGEONS"))
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
+	if tab=="dungeons" and buttons[1].disabled and buttons[2].disabled:mode_line="Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nClear Treasure Ruins to unlock both routes."
 	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0

@@ -1084,84 +1084,6 @@
       }
     },
     {
-      "slot_id": "screen:hideout_ui.gd:show_home",
-      "asset": null,
-      "implementation": "hideout_ui.gd",
-      "implementation_sha256": "ee86e7ce1cf44f7b138690da99f3061140f944a718b8718ed81d2366f088b7b4",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": true,
-        "integrated": true,
-        "functionally_tested": true,
-        "gameplay_visual_reviewed": true,
-        "player_experience_reviewed": true,
-        "production_quality_accepted": false
-      },
-      "evidence_files": [
-        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.42/1080x2340_hub.png",
-        "docs/production/quality-evidence/0.4.42/1200x1920_hub.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_hub.png"
-      ],
-      "limitations": "Repeated Talk labels and mixed station/NPC styling still need a unified world presentation.",
-      "defects": [],
-      "dependencies_sha256": {
-        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
-      }
-    },
-    {
-      "slot_id": "screen:hideout_ui.gd:show_shop",
-      "asset": null,
-      "implementation": "hideout_ui.gd",
-      "implementation_sha256": "ee86e7ce1cf44f7b138690da99f3061140f944a718b8718ed81d2366f088b7b4",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": true,
-        "integrated": true,
-        "functionally_tested": true,
-        "gameplay_visual_reviewed": true,
-        "player_experience_reviewed": true,
-        "production_quality_accepted": false
-      },
-      "evidence_files": [
-        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.42/1080x2340_shop_compare_ready.png",
-        "docs/production/quality-evidence/0.4.42/1200x1920_shop_compare_ready.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_shop_compare_ready.png"
-      ],
-      "limitations": "Shared cool/warm item frame and comparison padding reviewed. Cache button and portrait station presentation still need broader artistic acceptance.",
-      "defects": [],
-      "dependencies_sha256": {
-        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
-      }
-    },
-    {
-      "slot_id": "screen:hideout_ui.gd:show_stash",
-      "asset": null,
-      "implementation": "hideout_ui.gd",
-      "implementation_sha256": "ee86e7ce1cf44f7b138690da99f3061140f944a718b8718ed81d2366f088b7b4",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": true,
-        "integrated": true,
-        "functionally_tested": true,
-        "gameplay_visual_reviewed": true,
-        "player_experience_reviewed": true,
-        "production_quality_accepted": false
-      },
-      "evidence_files": [
-        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.42/1080x2340_stash_owned_compare.png",
-        "docs/production/quality-evidence/0.4.42/1200x1920_stash_owned_compare.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_stash_owned_compare.png"
-      ],
-      "limitations": "Header/filter/equipment hierarchy and panel material consistency remain visually unfinished.",
-      "defects": [],
-      "dependencies_sha256": {
-        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
-      }
-    },
-    {
       "slot_id": "screen:lootling.gd:show_boss_reward",
       "asset": null,
       "implementation": "lootling.gd",
@@ -1182,32 +1104,6 @@
         "docs/production/quality-evidence/0.4.43/1920x1080_reward_find.png"
       ],
       "limitations": "Single-find panel now fits one card; artwork belongs to its item button. Connected source and compiled routes tested at three layouts. Broader reward audio/motion/device and professional acceptance remain open.",
-      "defects": [],
-      "dependencies_sha256": {
-        "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
-      }
-    },
-    {
-      "slot_id": "screen:retention_runtime.gd:show_earned_spinner",
-      "asset": null,
-      "implementation": "retention_runtime.gd",
-      "implementation_sha256": "91fd8ec9b62e024767b5302a0d8473a0b03a305a25d2baafc8aef6042200219a",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": true,
-        "integrated": true,
-        "functionally_tested": true,
-        "gameplay_visual_reviewed": true,
-        "player_experience_reviewed": true,
-        "production_quality_accepted": false
-      },
-      "evidence_files": [
-        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.42/1080x2340_spinner_real_earned_reveal.png",
-        "docs/production/quality-evidence/0.4.42/1200x1920_spinner_real_earned_reveal.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_spinner_real_earned_reveal.png"
-      ],
-      "limitations": "Functional earned reveal reviewed; perceptual sound and motion-quality acceptance remain open.",
       "defects": [],
       "dependencies_sha256": {
         "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
@@ -6850,6 +6746,166 @@
         "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
         "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
       }
+    },
+    {
+      "slot_id": "screen:startup_ui.gd:show_title",
+      "implementation": "startup_ui.gd",
+      "implementation_sha256": "2298621d2a06e385462e324c25590218c4d668e365223e69d1a45034d2e60363",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Title encoding and logo/tagline separation reviewed; whole-screen artistic acceptance open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:hideout_ui.gd:show_forge",
+      "implementation": "hideout_ui.gd",
+      "implementation_sha256": "a71ed1e134a44da3169755711f629d82906ef2507449b8731db41cf5b0d9da2c",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Rows, icon sizing, selection spacing, detail separation and end-of-list scrolling reviewed; entire artistic composition open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:hideout_ui.gd:show_contracts",
+      "implementation": "hideout_ui.gd",
+      "implementation_sha256": "a71ed1e134a44da3169755711f629d82906ef2507449b8731db41cf5b0d9da2c",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Crystal/gold goal, progress, reward and whole-card claim reviewed; remaining content/artistic acceptance open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:hideout_ui.gd:show_home",
+      "implementation": "hideout_ui.gd",
+      "implementation_sha256": "a71ed1e134a44da3169755711f629d82906ef2507449b8731db41cf5b0d9da2c",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Current Hub scale, portal and routes reviewed; NPC/environment lighting, prop cohesion and fluid life remain open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:hideout_ui.gd:show_shop",
+      "implementation": "hideout_ui.gd",
+      "implementation_sha256": "a71ed1e134a44da3169755711f629d82906ef2507449b8731db41cf5b0d9da2c",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Retained approved cards and item/merchant framing reviewed; complete item variants and artistic acceptance open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:hideout_ui.gd:show_stash",
+      "implementation": "hideout_ui.gd",
+      "implementation_sha256": "a71ed1e134a44da3169755711f629d82906ef2507449b8731db41cf5b0d9da2c",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Current equipment/filter/card layout reviewed; empty-stash guidance and full artistic hierarchy remain open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:retention_runtime.gd:show_modes",
+      "implementation": "retention_runtime.gd",
+      "implementation_sha256": "8618be64257ad859155d303e2ab1548582ae3de4cc294763d57942a3291d7a5b",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Crownroot/Gravebloom and unlock explanations reviewed; locked label overflow corrected; entire player experience acceptance open.",
+      "defects": []
+    },
+    {
+      "slot_id": "screen:retention_runtime.gd:show_earned_spinner",
+      "implementation": "retention_runtime.gd",
+      "implementation_sha256": "8618be64257ad859155d303e2ab1548582ae3de4cc294763d57942a3291d7a5b",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/exported_service_quality_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REPORT.md"
+      ],
+      "limitations": "Actual earned spin/reward/return and current proportions reviewed; perceptual audio/motion and professional acceptance remain open.",
+      "defects": []
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

@@ -91,7 +91,9 @@ def main():
         cell['why_existing_source_cannot_close']='No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.'
         if cell['game_id'] in npc_authorities:cell['why_existing_source_cannot_close']+=' Scoped owner-approved panel is an upper-body workstation vignette with counter/background, not transparent complete anatomy. Superseded beta body/portrait may not fill this request.'
         if cell['game_id']=='moonkip':cell['why_existing_source_cannot_close']+=' Existing original hooded rogue idle has baked daggers; removal would require missing covered paw/anatomy pixels.'
-        if cell['game_id'] in ['hoard_dragon','act_i']:cell['why_existing_source_cannot_close']+=' Existing wingless/coiled source has the malformed double-reading tail; extraction cannot redraw absent continuous anatomy. Winged redesign boards are rejected.'
+        if cell['game_id'] in ['hoard_dragon','act_i']:
+            cell['source_canonical_sheet']=['res://'+json.loads((ROOT/'art/hoard_dragon_identity_authority.json').read_text(encoding='utf-8-sig'))['canonical_source']]
+            cell['why_existing_source_cannot_close']+=' Owner-authoritative original winged, four-legged Hoard Dragon is required; superseded wingless/coiled anatomy is not canon. Retained valid boss states do not substitute for a missing named action.'
         if not candidates:cell['why_existing_source_cannot_close']+=' Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.'
     # A sampled windup contact pass cannot close a whole family across its
     # missing attack/recovery/hurt states. Retain the authoritative full matrix.

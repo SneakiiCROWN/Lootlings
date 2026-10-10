@@ -1,3 +1,15 @@
+# Continue live production — 0.4.45
+
+Live project only: C:/Users/Snkii/Documents/lootlings. UI checkpoint c057b1d and combat ccd6293 pushed; read Git HEAD for final delivery checkpoint. Preserve owner project.godot, untracked references and all newer progress. No reset/clean/copy/regeneration.
+
+Read sole PRODUCTION_DASHBOARD and quality-evidence/0.4.45/REPORT.md. New 46 exact closures, remaining 2888 contracts / 7497 requested artist files; 104 new physical files. Full fluid/professional acceptance open. Combat manifest accepted and overwrite-guarded. Dew Hexer both sheets rejected for alpha/edge contamination; Glimmerfin left anticipation/release withheld.
+
+Actual Windows/Android 0.4.45/code54 exported; final compiled Windows combat/service/498 outcome tests pass three layouts. Return now owns touch release; all twelve actor routes pass. Final APK 290 actor/grip imports and original branding verified. Title unchanged. Physical S23 and subjective audio open.
+
+Next broad batch: melee/paired/ranged grips and releases across actors, continuous motion, clean-alpha regional enemies, resident walk/work/seated contact, world lighting/props, companions, equipment, environments and audio. Reuse passes and retain correction queues. 44 registration gaps and 29 stale old quality-evidence records remain explicit.
+
+## Historical 0.4.44 handoff preserved
+
 # Continue current live production — 0.4.44
 
 Live project only: C:/Users/Snkii/Documents/lootlings. Pushed actor milestone d5394d0 (118 exact closures), Hub/Sera milestone 5408c8e (six more). Preserve owner project.godot, all untracked references and all newer files. No reset, clean, new checkout or regenerated accepted sheets.

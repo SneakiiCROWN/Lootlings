@@ -6,6 +6,6 @@ Dungeons/Siege and Engine explain Crownroot fragments versus the Gravebloom Staf
 
 Functional native tests: connected_services_native_qa (actual inherited fixture now executed) passed; service_quality_045_native_qa passed phone 1080x2340, tablet 1200x1920 and desktop 1920x1080. Named-title/profile, Forge selection/last rows, Shop/Stash, Contract progress/ready/claim, Expeditions, Dungeons/Siege, earned Engine spin and return captured. Exact Contract claim +10 Gold and selection/input behavior verified with disposable saves.
 
-Visual review: current native phone screens inspected. Tablet/desktop artistic review continues. Whole screens are NOT professionally approved. Generic item art, fuller NPC/world motion, Home furniture cohesion, remaining character/enemy/boss/companion/weapon continuity and physical device acceptance remain open. No new art contracts closed in this UI-only checkpoint.
+Visual review: representative final compiled phone/tablet/desktop screens inspected. Locked Rootglass label overflow and result-return touch ownership corrected after native review. Whole screens are NOT professionally approved. Generic item art, fuller NPC/world motion, Home furniture cohesion, remaining character/enemy/boss/companion/weapon continuity and physical device acceptance remain open. No new art contracts closed in this UI-only checkpoint.
 
 QA runner defect repaired: inherited SceneTree fixtures are followed recursively; explicitly requested skipped fixtures now fail instead of returning an empty success.
