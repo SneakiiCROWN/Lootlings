@@ -6,7 +6,7 @@ const PATH="user://home_economy_transaction.cfg"
 const STORES={"user://lootlings_save.cfg":"progress","user://lootlings_inventory.cfg":"inventory","user://lootlings_hideout_shop.cfg":"shop","user://contracts.cfg":"contracts"}
 
 static func commit(game, stop_after: int=-1) -> Error:
-	if FileAccess.file_exists(PATH) and recover()!=OK:return ERR_BUSY
+	if FileAccess.file_exists(preload("res://save_scope.gd").path(PATH)) and recover()!=OK:return ERR_BUSY
 	var writes := {}
 	var stages := {
 		"user://lootlings_save.cfg":func(path):return preload("res://meta_store.gd").save_progress(path,game.meta_shards,game.meta_power,game.gold,game.gold_upgrades,game.rift_progress),
@@ -18,7 +18,7 @@ static func commit(game, stop_after: int=-1) -> Error:
 		var stage: String=path+".stage"
 		var error: Error=stages[path].call(stage)
 		if error!=OK:return error
-		writes[path]=FileAccess.get_file_as_string(stage)
+		writes[path]=FileAccess.get_file_as_string(preload("res://save_scope.gd").path(stage))
 	var journal:=ConfigFile.new();journal.set_value("transaction","version",1);journal.set_value("transaction","writes",writes)
 	var hashes: Dictionary={}
 	for path in writes:hashes[path]=str(writes[path]).sha256_text()
@@ -28,9 +28,9 @@ static func commit(game, stop_after: int=-1) -> Error:
 	return recover(stop_after)
 
 static func recover(stop_after: int=-1) -> Error:
-	if not FileAccess.file_exists(PATH):return OK
+	if not FileAccess.file_exists(preload("res://save_scope.gd").path(PATH)):return OK
 	var journal:=ConfigFile.new()
-	if journal.load(PATH)!=OK or journal.get_value("transaction","version",0)!=1:return ERR_FILE_CORRUPT
+	if journal.load(preload("res://save_scope.gd").path(PATH))!=OK or journal.get_value("transaction","version",0)!=1:return ERR_FILE_CORRUPT
 	var writes=journal.get_value("transaction","writes",null)
 	if not writes is Dictionary or writes.size()!=STORES.size():return ERR_FILE_CORRUPT
 	var hashes=journal.get_value("transaction","sha256",{})
@@ -49,4 +49,4 @@ static func recover(stop_after: int=-1) -> Error:
 		var error:=Safe.save_config(configs[path],path)
 		if error!=OK:return error
 		completed+=1
-	return DirAccess.remove_absolute(PATH)
+	return DirAccess.remove_absolute(preload("res://save_scope.gd").path(PATH))

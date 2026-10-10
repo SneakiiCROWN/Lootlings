@@ -1,0 +1,11 @@
+# 0.4.52 owner testing and honest completion views
+
+Implemented in the existing F1 menu: four touch categories, 52-pixel action targets, numeric Lootcoin grant, catalog grants, eight Mythical grants, Rift Sigils, Ward, sandbox save/reload and existing mode/spinner navigation. Separate Android owner app/preset; title two-finger opposite-upper-corner hold (2.5 seconds), release both, then configure/enter a per-install 6-12 digit PIN. No shared PIN.
+
+Test commands require isolated saves. Switching profiles reloads fresh store instances; transition writes are blocked. All SafeConfig stores and raw economy journals are scoped. Reset acts only on explicitly named sandbox files and requires confirmation. Native three-layout tests checked touch opening, Mythical grants, profile return, reset cancellation and ten normal save stores byte-identical; combat modal input regression and economy/save-recovery tests passed. Rendered header overlap and category mismatch were corrected. Physical Android keyboard/device testing remains pending. All original debug commands are retained, but each individual command has not been exhaustively exercised through touch.
+
+Reward announcements default OFF for new settings; existing saved preferences and approved title theme are preserved.
+
+One dashboard now has exact contract coverage plus player-facing feature completeness/shared-source dependencies. No art contracts closed: 2,757 remain. Legacy artist-file ledger 7,178 conflicts with 7,289 unique exact queued paths (2,592 body/prop PNG, 1,940 grip/layer PNG, 2,757 metadata); 111 difference remains open, no silent denominator adjustment. 943 dependency groups are candidates, not guaranteed reusable drawings. Full fluid animations and professional acceptance remain outstanding.
+
+Export verification is pending at this source checkpoint. No new art generated or installed in this batch. Owner project.godot edits and untracked source/reference packs remain untouched.

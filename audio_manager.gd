@@ -172,9 +172,9 @@ func ensure_buses() -> void:
 		limiter.soft_clip_db = 2.0
 		AudioServer.add_bus_effect(master_index, limiter)
 
-var reward_announcements_enabled := true
+var reward_announcements_enabled := false
 func apply_settings(settings: Dictionary) -> void:
-	reward_announcements_enabled=bool(settings.get("reward_announcements",true))
+	reward_announcements_enabled=bool(settings.get("reward_announcements",false))
 	for channel in ["master", "music", "sfx", "ui", "ambience"]:
 		var bus_name: String = {"master":"Master", "music":"Music", "sfx":"SFX", "ui":"UI", "ambience":"Ambience"}[channel]
 		var index := AudioServer.get_bus_index(bus_name)

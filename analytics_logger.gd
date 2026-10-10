@@ -4,6 +4,8 @@ const SCHEMA_VERSION := 1
 const MAX_LOG_BYTES := 256 * 1024
 
 static func log_event(path: String, event_name: String, data: Dictionary = {}) -> void:
+	if preload("res://save_scope.gd").transitioning:return
+	path=preload("res://save_scope.gd").path(path)
 	var safe_data := data.duplicate(true)
 	for forbidden in ["display_name", "lootling_nickname", "provider_player_id"]:
 		safe_data.erase(forbidden)

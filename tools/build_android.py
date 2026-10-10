@@ -32,6 +32,7 @@ def invoke(command, env, log=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare', action='store_true')
+    parser.add_argument('--owner',action='store_true',help='Separate owner-only app identity and feature boundary')
     parser.add_argument('--output', default='builds/android/Lootlings-predevice-rc-debug.apk')
     args = parser.parse_args()
     print('Canonical freeze preflight:', validate_canonical_art(), flush=True)
@@ -88,14 +89,15 @@ def main():
     version = invoke([editor/original.name, '--version'], env).strip()
     if not version.startswith('4.7.2.stable.'):
         raise SystemExit('Expected Godot 4.7.2 to match the verified template; found ' + version)
-    exported = invoke([editor/original.name, '--headless', '--path', ROOT, '--export-debug', 'Android', output], env, WORK/'export.log')
+    exported = invoke([editor/original.name, '--headless', '--path', ROOT, '--export-debug', 'Android Owner Test' if args.owner else 'Android', output], env, WORK/'export.log')
     if any(marker in exported for marker in ['ERROR:', 'SCRIPT ERROR', 'Parse Error']):
         raise SystemExit('Android export emitted errors; inspect ' + str(WORK/'export.log'))
     invoke([jdk/'bin'/'java.exe', '-jar', buildtools/'lib'/'apksigner.jar', 'verify', '--verbose', '--print-certs', output], env, WORK/'signature.log')
     invoke([buildtools/'zipalign.exe', '-c', '-P', '16', '4', output], env, WORK/'alignment.log')
     badging = invoke([buildtools/'aapt.exe', 'dump', 'badging', output], env, WORK/'badging.log')
     assert "native-code: 'arm64-v8a'" in badging
-    assert "package: name='com.sneakiicrown.lootlings'" in badging
+    expected_package='com.sneakiicrown.lootlings.owner' if args.owner else 'com.sneakiicrown.lootlings'
+    assert "package: name='"+expected_package+"'" in badging
     exported_version = re.search(r"versionCode='(\d+)' versionName='([^']+)'",badging)
     assert exported_version, 'Missing exported package version'
     assert 'uses-permission:' not in badging, 'Unexpected Android permission in offline test build'
@@ -243,7 +245,7 @@ def main():
               'extracted_canonical_count': len(extracted_imports),
               'reused_canonical_bodies': reuse_imports,
               'source_derived_home_props': prop_imports,
-              'accepted_home_imports': imported_home, 'licensed_score_imports': imported_scores, 'device_validated': False, 'debug_only': True}
+              'accepted_home_imports': imported_home, 'licensed_score_imports': imported_scores, 'device_validated': False, 'debug_only': True,'owner_test_build':args.owner,'application_id':expected_package}
     (output.parent/'build-report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))
 

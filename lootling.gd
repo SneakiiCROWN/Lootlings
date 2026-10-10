@@ -327,6 +327,7 @@ var presentation_director
 var story_run_presentations := false
 var story_life_was_processing := true
 var debug_panel
+var owner_test_access
 var app_lifecycle
 var safe_area_layout
 var mobile_test_monitor
@@ -352,6 +353,7 @@ var achievements = AchievementManager.new()
 var last_lantern_spent := false
 
 func _ready() -> void:
+	preload("res://save_scope.gd").transitioning=false
 	if preload("res://economy_transaction.gd").recover()!=OK:
 		set_process(false)
 		var notice:=Label.new();notice.text="Your saved purchase could not be recovered.\nYour files have been retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
@@ -415,6 +417,11 @@ func build_debug_tools() -> void:
 	debug_panel = DebugPanel.new()
 	add_child(debug_panel)
 	debug_panel.configure(self)
+	if preload("res://owner_test_access.gd").enabled():
+		owner_test_access=preload("res://owner_test_access.gd").new();add_child(owner_test_access);owner_test_access.configure(self)
+	if preload("res://save_scope.gd").open_debug:
+		preload("res://save_scope.gd").open_debug=false
+		debug_panel.call_deferred("open")
 
 func current_weapon_family() -> String:
 	if debug_enabled and not debug_weapon_family_override.is_empty():
@@ -427,7 +434,24 @@ func debug_snapshot() -> String:
 func debug_action(action: String, payload) -> String:
 	if not debug_enabled:
 		return "Debug tools are disabled."
+	if not preload("res://save_scope.gd").active and OS.get_environment("LOOTLINGS_QA")!="1":return "Enter the isolated test profile first."
 	match action:
+		"sigils":
+			rift_progress.sigils+=maxi(0,int(payload));save_meta();return "Added test Rift Sigils."
+		"ward":
+			player_ward+=maxf(0,float(payload));return "Added test Ward."
+		"item_id":
+			if not str(payload) in ItemCatalog.ITEMS.map(func(item):return item.id):return "Unknown item."
+			if inventory.stash.size()>=inventory.stash_capacity:return "Test stash full; make room first."
+			var item:Dictionary=ItemCatalog.create_item(str(payload),"MYTHICAL SHINY" if str(payload) in preload("res://mythical_collection.gd").IDS else "LEGENDARY",rng.randi());inventory.stash.append(item);inventory.save(INVENTORY_SAVE_PATH);refresh_hideout();return "Granted %s to test stash." % item.name
+		"save_test":
+			app_lifecycle.persist();return "Saved isolated test progress."
+		"load_test":
+			preload("res://save_scope.gd").switch_profile(get_tree(),true);return "Reloading isolated test profile."
+		"modes":
+			show_hideout();retention.show_modes("dungeons");return "Close this menu to select an existing mode."
+		"spinner":
+			show_hideout();retention.progress.data.free_spins=3;retention.progress.save();retention.show_spinner();return "Three test spins. Close menu to use existing Spinner."
 		"wave":
 			debug_jump_to_wave(int(payload))
 			return "Jumped to wave %d." % int(payload)
@@ -575,9 +599,10 @@ func debug_show_result(victory: bool) -> void:
 func debug_reset_lootlings_saves() -> void:
 	Engine.time_scale = 1.0
 	get_tree().paused = false
-	var exact_paths := [SAVE_PATH, INVENTORY_SAVE_PATH, HIDEOUT_SHOP_SAVE_PATH, PROFILE_SAVE_PATH, SETTINGS_SAVE_PATH, ANALYTICS_PATH, achievements.path]
+	if not preload("res://save_scope.gd").active:return
+	var exact_paths := [SAVE_PATH,INVENTORY_SAVE_PATH,HIDEOUT_SHOP_SAVE_PATH,PROFILE_SAVE_PATH,SETTINGS_SAVE_PATH,ANALYTICS_PATH,achievements.path,"user://campaign.cfg","user://contracts.cfg","user://endgame.cfg","user://expedition_progress.cfg","user://home_economy_transaction.cfg"]
 	for path in exact_paths:
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+		for suffix in ["",".bak",".tmp",".bak.tmp",".stage",".stage.bak"]:DirAccess.remove_absolute(ProjectSettings.globalize_path(preload("res://save_scope.gd").path(path+suffix)))
 	get_tree().reload_current_scene()
 
 func build_foundation_services() -> void:
@@ -3497,6 +3522,9 @@ func navigate_back() -> void:
 		startup_ui.show_title()
 
 func input_surface() -> Control:
+	if touch_ux!=null and is_instance_valid(touch_ux.dialog):return touch_ux.dialog
+	if is_instance_valid(owner_test_access) and is_instance_valid(owner_test_access.prompt):return owner_test_access.prompt
+	if is_instance_valid(debug_panel) and debug_panel.visible:return debug_panel
 	# The topmost confirmation owns input, including inside personal Home.
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
 	if state=="personal_home":return personal_home.input_surface()

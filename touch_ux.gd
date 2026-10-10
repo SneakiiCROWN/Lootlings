@@ -121,6 +121,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if game == null: return
+	if is_instance_valid(game.owner_test_access) and game.owner_test_access.observe(event):get_viewport().set_input_as_handled();return
 	if not pointer_gate(event):return
 	if event is InputEventMouseButton or event is InputEventMouseMotion:
 		if event.device == -1 and Time.get_ticks_msec() < block_mouse_until:

@@ -218,12 +218,14 @@ HTML='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewpor
 <section><h2>Frozen delivery contracts</h2><p class="note">Installed closures are delivery evidence, not automatic professional acceptance. Artist-file totals count requested body/layer/sidecar requirements, including verified reuse. Per-batch receipts separately count new physical files.</p><div id="contracts"></div></section>
 <section><h2>Every registered family</h2><div class="scroll" id="families"></div></section>
 <section><h2>Runtime quality stages / requirements</h2><p>Stage order: canon approval → created → integrated → functional test → gameplay visual review → player-experience review → production acceptance. A dot means unverified, not necessarily failed.</p><input id="search" aria-label="Search identity, region, state or screen" placeholder="Search identity, region, state or screen"><select id="family" aria-label="Family"></select><select id="status" aria-label="Quality status"></select><p id="matched"></p><div class="scroll" id="records"></div><button id="more">Show next 250</button></section>
+<section><h2>Player-facing feature completeness &amp; shared dependencies</h2><p id="feature-note"></p><div class="scroll" id="feature-view"></div><p id="dependency-summary"></p></section>
 <section><h2>Remaining exact contracts</h2><input id="debtsearch" aria-label="Search remaining contracts" placeholder="Search character, family, state, weapon"><p id="debtcount"></p><div class="scroll" id="debt"></div></section>
 <section><h2>Current batch rejection / correction queue</h2><ul id="corrections"></ul><p>No rejected source is installed merely to reduce the backlog. Original source sheets and the quarantined Coal candidate remain recoverable.</p></section>
 <section><h2>Unregistered dependencies & coverage gaps</h2><ul id="gaps"></ul><div class="scroll" id="dependencies"></div></section>
 <script id="data" type="application/json">__DATA__</script><script>
 const d=JSON.parse(document.getElementById('data').textContent),el=id=>document.getElementById(id),esc=x=>String(x??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const table=(heads,rows)=>'<table><thead><tr>'+heads.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
+if(d.feature_completeness){const f=d.feature_completeness;el('feature-note').textContent=f.accounting_note+' '+f.illustration_note;el('dependency-summary').textContent=f.shared_body_state_view_groups+' source dependency groups; '+f.multi_weapon_candidate_groups+' multi-weapon candidates need native compatibility validation. '+f.sampled_body_fallbacks+' / '+f.sampled_player_cases+' sampled body fallbacks remain. No automatic closures.';el('feature-view').innerHTML=table(['Player-facing family','Integrated records','Missing','Unfinished/review pending','Production ready'],f.player_facing_features.map(x=>[x.family,x.installed_records,x.missing_records,x.visually_unfinished_or_unreviewed,x.production_ready]));}
 el('policy').textContent=d.quality_policy+' '+d.denominators;
 el('stats').innerHTML=Object.entries(d.counts).map(([k,v])=>'<div class="stat"><b>'+esc(v)+'</b><br>'+esc(k.replaceAll('_',' '))+'</div>').join('');
 el('contracts').innerHTML=table(['Family','Required contracts','Installed closures','Remaining'],d.contract_families.map(r=>[r.family,r.required,r.installed_contract_closures,r.remaining]));
@@ -239,7 +241,11 @@ el('corrections').innerHTML=d.current_batch_corrections.map(x=>'<li>'+esc(x)+'</
 </script></html>'''
 
 if __name__=='__main__':
-    data=build(); payload=json.dumps(data,ensure_ascii=False,indent=2)
+    data=build()
+    from build_feature_completeness import build as feature_view
+    data["feature_completeness"]=feature_view(data)
+    (OUT/"FEATURE_COMPLETENESS.json").write_text(json.dumps(data["feature_completeness"],indent=2)+"\n",encoding="utf-8")
+    payload=json.dumps(data,ensure_ascii=False,indent=2)
     (OUT/'PRODUCTION_DASHBOARD.json').write_text(payload+'\n',encoding='utf-8')
     (OUT/'PRODUCTION_DASHBOARD.html').write_text(HTML.replace('__DATA__',payload.replace('<','\\u003c')),encoding='utf-8')
     print(json.dumps(data['counts']));print('Dependency registration gaps:',len(data['unregistered_dependencies']))

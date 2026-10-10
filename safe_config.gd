@@ -8,6 +8,7 @@ static func int_value(value: Variant, fallback: int = 0) -> int:
 # A verified temporary file plus one previous parseable generation per store.
 # This is per-file recovery, not a cross-store transaction or a resumable run.
 static func load_config(config: ConfigFile, path: String, section: String) -> Error:
+	path=preload("res://save_scope.gd").path(path)
 	var error := config.load(path)
 	if error == OK and config.has_section(section): return OK
 	for suffix in [".bak", ".tmp"]:
@@ -20,6 +21,8 @@ static func load_config(config: ConfigFile, path: String, section: String) -> Er
 	return error if error != OK else ERR_FILE_CORRUPT
 
 static func save_config(config: ConfigFile, path: String) -> Error:
+	if preload("res://save_scope.gd").transitioning:return ERR_BUSY
+	path=preload("res://save_scope.gd").path(path)
 	var temp := path + ".tmp"
 	var error := config.save(temp)
 	if error != OK: return report(path, error)

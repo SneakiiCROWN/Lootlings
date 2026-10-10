@@ -768,7 +768,7 @@
     "methods": [
       "log_event"
     ],
-    "source_sha256": "1816129efa90fa7f5e06229b6a079a638724a18e905b9dcf99cc4d7d9fc11c60"
+    "source_sha256": "cdb40da79323b41c030916977e159c0e6eccf5e3529b4c7836503040be55692e"
   },
   "app_lifecycle.gd": {
     "constants": {},
@@ -1294,7 +1294,7 @@
       "make_ambient_loop",
       "_exit_tree"
     ],
-    "source_sha256": "29483a0f25496b2379bf436a46e1a7a889b374c174dfcdfdb8f609a2491aaca7"
+    "source_sha256": "1eba9dac01c86d7e9a077687dedc2a85966e5a1c8820175d05ecc9311a233add"
   },
   "authored_pose_manifest.gd": {
     "constants": {
@@ -3369,6 +3369,7 @@
       "allowed",
       "configure",
       "build_ui",
+      "filter_sections",
       "add_section",
       "make_label",
       "make_button",
@@ -3381,7 +3382,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "4cb84da52147317c138dc7add8d95ff955be4d5b7ef6a4032509da9a28248497"
+    "source_sha256": "c217b109756cb076c0c9e6aa88e4a38165dc78e42d7db5b55971e23d4279adb9"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -3900,7 +3901,7 @@
       "commit",
       "recover"
     ],
-    "source_sha256": "40280f00df253b305c9ddf40dbeff4917b4d825d3a88461fb58668c934d8c9bc"
+    "source_sha256": "72e10bb994a0b0d8e0abefb502314a1c1004827019ac5274cc704558d5f9474b"
   },
   "endgame_progress.gd": {
     "constants": {
@@ -7054,7 +7055,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "e3f25f55979b9f65001354a1ac2185007be46e13a592ad89cc2dadd09f7da757"
+    "source_sha256": "492d91fbd88fa53e8d6c1b19f14032b71d9728f26ea34e35c966eb3f56af736e"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7487,6 +7488,25 @@
       "texture"
     ],
     "source_sha256": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb"
+  },
+  "owner_test_access.gd": {
+    "constants": {
+      "PIN_PATH": "user://lootlings_owner_access.cfg",
+      "Scope": {
+        "resource_path": "res://save_scope.gd"
+      }
+    },
+    "methods": [
+      "enabled",
+      "configure",
+      "observe",
+      "_process",
+      "configured",
+      "show_prompt",
+      "close_prompt",
+      "unlock"
+    ],
+    "source_sha256": "91c1f722d66b25659693c6d7e4e238869a785a1311eb7cc57fc5aa5f6155abf9"
   },
   "permanent_upgrade_catalog.gd": {
     "constants": {
@@ -9150,7 +9170,15 @@
       "save_config",
       "report"
     ],
-    "source_sha256": "6bdd31a0d2b443a606864fe6531f44f12e0e5edc46331f61494555254fcddf75"
+    "source_sha256": "57cea8148e26a75522212ee5b4e442698cd100891c69dd2d2e10907ac995f6fb"
+  },
+  "save_scope.gd": {
+    "constants": {},
+    "methods": [
+      "path",
+      "switch_profile"
+    ],
+    "source_sha256": "4773643627da8cdac0d90c7447506804e8d360c93ff9e5cec7271c89559264e7"
   },
   "settings_store.gd": {
     "constants": {
@@ -9168,7 +9196,7 @@
       "save_settings",
       "sanitize"
     ],
-    "source_sha256": "662331a010dfe6945a2fadc0abfb3bcda9d8222ef2711e118a24d8c1994bdff2"
+    "source_sha256": "c7fa1e1bb0b195c761e680a8b9e19dae50eb5227d338e3ca5749cefaab618434"
   },
   "shop_system.gd": {
     "constants": {
@@ -9293,7 +9321,7 @@
       "request",
       "set_slider_value"
     ],
-    "source_sha256": "25a75ffaba32e4ea84a03a6c0b4a88bd8653ec818f0f6f8a98af7a24f0e20123"
+    "source_sha256": "21f0974ab9373a1c1ca15a22e296e890a0e48307bcb0dd64d364babe68cbe88b"
   },
   "travelling_merchant_view.gd": {
     "constants": {

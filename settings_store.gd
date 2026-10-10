@@ -10,7 +10,7 @@ static func defaults() -> Dictionary:
 		"ui_muted":false, "ambience_muted":false,
 		"cinematic_first_time":true, "cinematic_repeat_boss":true,
 		"cinematic_auto_skip":true, "cinematic_reduced_motion":false,
-		"cinematic_subtitles":true,"reward_announcements":true
+		"cinematic_subtitles":true,"reward_announcements":false
 	}
 
 static func load_settings(path: String) -> Dictionary:
