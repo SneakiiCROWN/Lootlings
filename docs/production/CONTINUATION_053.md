@@ -1,0 +1,15 @@
+# 0.4.53 no-PIN hush access and seeded free-perk offers
+
+Owner correction implemented: no PIN code, PIN registration or PIN validation remains in the access controller. Seven quick taps on the blue crystal inside the second O of the approved title logo, then an eighth touch held for at least 0.8 seconds, unlocks the same F1 menu. Per-session unlock survives scene/profile reloads; a compact SHH button with original hush-face icon reopens the panel. HIDE / RELOCK SHH is in Diagnostics. First unlocking enters isolated test saves; closing/reopening within that profile preserves the current scene. Gesture hit area follows actual wordmark layout. Placement avoids visible labels/controls; exclusive confirmation and debug modals temporarily hide the shortcut. No networking introduced; normal APK lacks owner feature.
+
+Three-layout native tests passed secret activation, deliberate relocking, persistent title/Hub reopening, existing command groups, eight Mythical grants, currency/Ward/Sigil commands, reset cancellation, held combat input fencing and byte-identical normal save stores. Physical S23 device acceptance and every individual legacy touch command remain unverified. The icon uses an SVG instead of platform-dependent emoji glyphs; one original UI icon installed, no new character art.
+
+Perk choices were already free. Their offers now use the actual run RNG with weighted Common/Rare/Epic selection (65/27/8 when all rarity groups are available), distinct entries and exclusion of capped critical chance, life steal and execution effects. Obsolete temporary-currency Greed perk is no longer offered. Existing damage/status formulas are preserved. Core contribution is shown in the card header. Existing owner menu gains rarity-forced offers and an existing poison-synergy test preset.
+
+2,000 paired seeded offer tests passed: 6,000 choices, Common 3,903 / Rare 1,560 / Epic 537. Forced rarity and no duplicate/capped selection checks passed. Native three-layout selection did not charge either currency. Economy/save regression passed. These checks do NOT demonstrate expert-versus-random combat superiority, prolonged-run balance or professional whole-game acceptance.
+
+Run Scrip retirement is NOT complete. Remaining connected migration: HUD/results, Pack Peddler gear/rerolls, event offers, pickup rewards, temporary-currency gear traits, previously purchased Field Pouch ranks, spinner wallet/earned-spin accounting, legacy tests and dialogue. No old temporary balance has been converted into permanent currency; no permanent investment or item stats changed.
+
+Art closures 0; 2,757 exact contracts remain. Legacy ledger 7,178 versus exact queue 7,289 paths: arithmetic difference 111 (not 11), still open. 55 sampled body fallbacks remain. No animation family is newly complete or professionally accepted. Broader actor/world/content production remains unfinished. Approved title audio and branding are preserved.
+
+0.4.52 exports/checkpoints are retained as pre-correction evidence. 0.4.53 final exports and compiled-pack checks pending at this source checkpoint.

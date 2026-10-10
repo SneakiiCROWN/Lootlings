@@ -128,6 +128,7 @@ var frenzy := 0.0
 var tap_mult := 0.65
 var execute_ratio := 0.0
 var regen_per_second := 0.0
+var debug_perk_rarity := ""
 var coin_reward_mult := 1.0
 var xp_reward_mult := 1.0
 var enemy_name := ""
@@ -436,6 +437,16 @@ func debug_action(action: String, payload) -> String:
 		return "Debug tools are disabled."
 	if not preload("res://save_scope.gd").active and OS.get_environment("LOOTLINGS_QA")!="1":return "Enter the isolated test profile first."
 	match action:
+		"perk_offers":
+			debug_ensure_run();pending_levels=maxi(1,pending_levels);debug_perk_rarity=str(payload);show_upgrade_choices();debug_perk_rarity="";return "Test perk offers prepared. Close this menu to choose."
+		"synergy_poison":
+			debug_ensure_run()
+			for up in UPGRADES:
+				if up.id in ["venom","plague","vamp"]:apply_upgrade_effect(up)
+			return "Applied existing Venom Coat, Plague Siphon and Toxic Fang to the test build."
+		"relock":
+			if is_instance_valid(owner_test_access):owner_test_access.relock();return "SSH hidden. Repeat the title gesture to unlock."
+			return "SSH is available only in the owner build."
 		"sigils":
 			rift_progress.sigils+=maxi(0,int(payload));save_meta();return "Added test Rift Sigils."
 		"ward":
@@ -805,7 +816,7 @@ func build_overlay_ui() -> void:
 		var rarity_icon := LootlingsUI.add_icon(button, Rect2(338, 29, 28, 28), "rarity_common")
 		var kicker := make_label(button, "", 10, Rect2(102, 9, 264, 16), HORIZONTAL_ALIGNMENT_LEFT, Color("#b9a5d5"))
 		var name_label := make_label(button, "", 17, Rect2(80, 28, 248, 25), HORIZONTAL_ALIGNMENT_LEFT, Color.WHITE)
-		var effect := make_label(button, "", 14, Rect2(80, 57, 286, 32), HORIZONTAL_ALIGNMENT_LEFT, Color("#c9d6e9"))
+		var effect := make_label(button, "", 14, Rect2(80, 54, 286, 40), HORIZONTAL_ALIGNMENT_LEFT, Color("#c9d6e9"))
 		effect.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		for label in [kicker, name_label, effect]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -3233,8 +3244,7 @@ func show_upgrade_choices() -> void:
 	state = "upgrade"
 	help_label.visible = false
 	selected_upgrades.clear()
-	var pool := UPGRADES.duplicate(true)
-	pool.shuffle()
+	var pool:Array=preload("res://perk_offer_catalog.gd").offers(rng,UPGRADES,{"crit":crit_chance,"life_steal":life_steal,"execute":execute_ratio},debug_perk_rarity)
 	for i in range(3):
 		selected_upgrades.append(pool[i])
 		var up: Dictionary = pool[i]
@@ -3252,6 +3262,7 @@ func show_upgrade_choices() -> void:
 		upgrade_visuals[i].kicker.add_theme_color_override("font_color", GameCatalog.rarity_color(up.rarity).lightened(0.20))
 		upgrade_visuals[i].name.text = str(up.name).to_upper()
 		upgrade_visuals[i].effect.text = str(up.desc)
+		if not tags.is_empty():upgrade_visuals[i].kicker.text += "  /  CORE %d > %d" % [build.count(str(tags[0])),build.count(str(tags[0]))+tags.size()]
 		upgrade_visuals[i].core.texture = LootlingsUI.icon("core_%s" % (str(tags[0]).to_lower() if not tags.is_empty() else "neutral"))
 		upgrade_visuals[i].rarity.texture = LootlingsUI.icon("rarity_%s" % str(up.rarity).to_lower())
 		# Only the exact supplied production upgrade texture fills this socket.
@@ -3523,7 +3534,6 @@ func navigate_back() -> void:
 
 func input_surface() -> Control:
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog):return touch_ux.dialog
-	if is_instance_valid(owner_test_access) and is_instance_valid(owner_test_access.prompt):return owner_test_access.prompt
 	if is_instance_valid(debug_panel) and debug_panel.visible:return debug_panel
 	# The topmost confirmation owns input, including inside personal Home.
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog

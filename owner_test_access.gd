@@ -1,83 +1,108 @@
 extends Control
-# Per-install owner PIN; build boundary is protection, not the secret gesture.
+# Owner-only build feature. Secret gesture is convenience, not security.
 const Scope=preload("res://save_scope.gd")
-const PIN_PATH="user://lootlings_owner_access.cfg"
+static var unlocked:bool=false
+static var restore_title:bool=false
 var game
-var contacts:Dictionary={}
+var shortcut:Button
+var badge:Label
+var taps:int=0
+var last_tap:int=0
+var gesture_pointer:int=-1
 var held_since:int=0
-var ready_to_open:bool=false
-var prompt:Panel
-var backdrop:ColorRect
-var pin:LineEdit
-var confirm_pin:LineEdit
-var message:Label
-var enter_button:Button
-var attempts:int=0
-var locked_until:int=0
+var holding_unlock:bool=false
+var origin:Vector2
+var cancelled:bool=false
+var ssh_pointer:int=-1
+var ssh_origin:Vector2
+var ssh_cancelled:bool=false
+var layout_timer:float=0.0
 static func enabled() -> bool:
  return OS.is_debug_build() and (OS.has_feature("owner_test") or OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_OWNER_TEST")=="1")
 func configure(target) -> void:
  game=target;mouse_filter=Control.MOUSE_FILTER_IGNORE;process_mode=Node.PROCESS_MODE_ALWAYS;z_index=1100
- if Scope.active:
-  var badge:=Label.new();badge.position=Vector2(12,0);badge.size=Vector2(456,20);badge.text="OWNER TEST PROFILE - SEPARATE SAVES";badge.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;badge.mouse_filter=Control.MOUSE_FILTER_IGNORE;badge.add_theme_font_size_override("font_size",10);badge.add_theme_color_override("font_color",Color("#ffe39a"));add_child(badge)
-func observe(event: InputEvent) -> bool:
- if not enabled() or is_instance_valid(prompt):return false
- if game.state!="startup" or game.startup_ui.current_screen!="title":contacts.clear();held_since=0;ready_to_open=false;return false
+ badge=Label.new();badge.position=Vector2(12,832);badge.size=Vector2(456,18);badge.text="OWNER TEST PROFILE - SEPARATE SAVES";badge.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;badge.mouse_filter=Control.MOUSE_FILTER_IGNORE;badge.add_theme_font_size_override("font_size",10);badge.add_theme_color_override("font_color",Color("#ffe39a"));add_child(badge)
+ shortcut=Button.new();shortcut.name="OwnerSSH";shortcut.text="SHH";shortcut.icon=preload("res://art/ui/icons/owner_hush.svg");shortcut.expand_icon=true;shortcut.add_theme_constant_override("icon_max_width",16);shortcut.size=Vector2(52,44);shortcut.add_theme_font_size_override("font_size",11);shortcut.tooltip_text="SSSHHH! Don't tell anyone I'm cheating!\nOpen isolated test tools";shortcut.pressed.connect(open_tools);preload("res://lootlings_ui.gd").apply_button(shortcut,Color("#172442dd"),Color("#d4ad65"));add_child(shortcut)
+ update_layout()
+ if restore_title:restore_title=false;call_deferred("show_activation_title")
+func show_activation_title() -> void:
+ game.startup_ui.show_title();game.state="startup"
+func relock() -> void:
+ unlocked=false;taps=0;gesture_pointer=-1;held_since=0;shortcut.hide();game.debug_panel.close()
+func modal_active() -> bool:
+ return game.debug_panel.visible or (is_instance_valid(game.touch_ux) and is_instance_valid(game.touch_ux.dialog))
+func update_layout() -> void:
+ badge.visible=Scope.active
+ shortcut.visible=unlocked and not modal_active()
+ if not shortcut.visible:return
+ # Fixed portrait world uses the already safe-area-fitted game transform.
+ # Avoid visible controls and readable labels; hide temporarily if no spare area.
+ var candidates:Array=[Vector2(8,134),Vector2(420,134),Vector2(8,792),Vector2(420,792),Vector2(8,172),Vector2(420,172),Vector2(8,680),Vector2(420,680)]
+ if game.state=="startup" and game.startup_ui.current_screen=="title":candidates.push_front(Vector2(4,740))
+ for point in candidates:
+  var rect:=Rect2(game.get_global_transform()*point,game.get_global_transform().basis_xform(Vector2(52,44)))
+  var blocked:bool=false
+  for control in game.find_children("*","Control",true,false):
+   if control==self or is_ancestor_of(control) or not control.is_visible_in_tree():continue
+   if control is BaseButton or control is LineEdit or control is Range or control is ScrollContainer or control is Label or control is RichTextLabel:
+    if control.get_global_rect().grow(4).intersects(rect):blocked=true;break
+  if not blocked:shortcut.position=point;return
+ shortcut.hide()
+func open_tools() -> void:
+ if not enabled() or not unlocked or modal_active():return
+ if not Scope.active:restore_title=true;call_deferred("enter_sandbox");return
+ game.debug_panel.open();update_layout()
+func enter_sandbox() -> void:
+ Scope.switch_profile(get_tree(),true)
+func activate_secret() -> void:
+ if Scope.active:restore_title=false;show_activation_title();game.debug_panel.open();update_layout()
+ else:enter_sandbox()
+func activation_rect() -> Rect2:
+ var mark:TextureRect=game.startup_ui.title_wordmark
+ var rect:Rect2=mark.get_global_rect();var source:Vector2=mark.texture.get_size()
+ var factor:float=minf(rect.size.x/source.x,rect.size.y/source.y)
+ var crystal:Vector2=rect.get_center()-source*factor*.5+source*Vector2(.414,.46)*factor
+ var size:Vector2=Vector2(48,48)*game.scale
+ return Rect2(crystal-size*.5,size)
+func observe(event:InputEvent) -> bool:
+ if not enabled():return false
  if event is InputEventScreenDrag:
-  var owned:bool=contacts.has(event.index)
-  if owned and event.position.distance_to(contacts[event.index])>14:contacts.clear();held_since=0;ready_to_open=false
-  return owned
+  if event.index==ssh_pointer:
+   if event.position.distance_to(ssh_origin)>14:ssh_cancelled=true
+   return true
+  if event.index==gesture_pointer:
+   if event.position.distance_to(origin)>14:cancelled=true;taps=0
+   return true
+  return false
  if not event is InputEventScreenTouch:return false
  var point:Vector2=game.get_global_transform_with_canvas().affine_inverse()*event.position
- if event.pressed:
-  if point.y>72 or not (point.x<64 or point.x>416):contacts.clear();held_since=0;ready_to_open=false;return false
-  if contacts.has(event.index):return true
-  contacts[event.index]=event.position
-  if contacts.size()==2:
-   var points:Array=contacts.values();var p0:Vector2=game.get_global_transform_with_canvas().affine_inverse()*points[0];var p1:Vector2=game.get_global_transform_with_canvas().affine_inverse()*points[1]
-   if (p0.x<64 and p1.x>416) or (p1.x<64 and p0.x>416):held_since=Time.get_ticks_msec()
-  elif contacts.size()>2:held_since=0;ready_to_open=false
+ if event.pressed and shortcut.visible and not modal_active() and shortcut.get_global_rect().has_point(game.get_global_transform()*point):
+  if ssh_pointer<0:ssh_pointer=event.index;ssh_origin=event.position;ssh_cancelled=false
   return true
- elif contacts.has(event.index):
-  contacts.erase(event.index)
-  if contacts.is_empty():
-   if ready_to_open:show_prompt()
-   held_since=0;ready_to_open=false
+ if not event.pressed and event.index==ssh_pointer:
+  ssh_pointer=-1
+  if not ssh_cancelled and event.position.distance_to(ssh_origin)<=14:open_tools()
+  return true
+ if game.state!="startup" or game.startup_ui.current_screen!="title" or unlocked:
+  taps=0;gesture_pointer=-1;held_since=0;return false
+ # Existing approved logo's blue crystal, not an extra visible button.
+ var zone:Rect2=activation_rect()
+ if event.pressed:
+  if gesture_pointer>=0:cancelled=true;taps=0;return true
+  if not zone.has_point(game.get_global_transform()*point):taps=0;return false
+  if Time.get_ticks_msec()-last_tap>3000:taps=0
+  gesture_pointer=event.index;origin=event.position;held_since=Time.get_ticks_msec();holding_unlock=taps==7;cancelled=false;return true
+ if event.index==gesture_pointer:
+  gesture_pointer=-1
+  var elapsed:int=Time.get_ticks_msec()-held_since;held_since=0
+  if cancelled:return true
+  if holding_unlock and elapsed>=800:
+   taps=0;unlocked=true;restore_title=true
+   call_deferred("activate_secret")
+  elif elapsed<500:taps=mini(7,taps+1);last_tap=Time.get_ticks_msec()
+  else:taps=0
   return true
  return false
-func _process(_delta:float) -> void:
- if held_since>0 and contacts.size()==2 and Time.get_ticks_msec()-held_since>=2500:ready_to_open=true
-func configured() -> bool:
- var config:=ConfigFile.new();return config.load(PIN_PATH)==OK and not str(config.get_value("access","digest","")).is_empty()
-func show_prompt() -> void:
- if not enabled() or is_instance_valid(prompt):return
- backdrop=ColorRect.new();backdrop.position=Vector2.ZERO;backdrop.size=Vector2(480,854);backdrop.color=Color("#030714b0");backdrop.mouse_filter=Control.MOUSE_FILTER_STOP;add_child(backdrop)
- prompt=Panel.new();prompt.position=Vector2(24,218);prompt.size=Vector2(432,398);prompt.mouse_filter=Control.MOUSE_FILTER_STOP;prompt.add_theme_stylebox_override("panel",preload("res://lootlings_ui.gd").material_style("leather"));add_child(prompt)
- message=Label.new();message.position=Vector2(20,18);message.size=Vector2(392,100);message.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;message.text="OWNER TEST BUILD\nEnter your PIN. Cheats use isolated test saves." if configured() else "SET OWNER PIN\nChoose 6-12 digits on this device. No shared PIN is shipped.";prompt.add_child(message)
- pin=LineEdit.new();pin.position=Vector2(20,132);pin.size=Vector2(392,50);pin.secret=true;pin.virtual_keyboard_type=LineEdit.KEYBOARD_TYPE_NUMBER;pin.placeholder_text="6-12 digit PIN";prompt.add_child(pin)
- confirm_pin=LineEdit.new();confirm_pin.position=Vector2(20,192);confirm_pin.size=Vector2(392,50);confirm_pin.secret=true;confirm_pin.virtual_keyboard_type=LineEdit.KEYBOARD_TYPE_NUMBER;confirm_pin.placeholder_text="Repeat new PIN";confirm_pin.visible=not configured();prompt.add_child(confirm_pin)
- enter_button=Button.new();enter_button.position=Vector2(20,264);enter_button.size=Vector2(392,52);enter_button.text="ENTER ISOLATED TEST PROFILE";enter_button.pressed.connect(unlock);prompt.add_child(enter_button)
- var cancel:=Button.new();cancel.position=Vector2(20,326);cancel.size=Vector2(392,48);cancel.text="CANCEL";cancel.pressed.connect(close_prompt);prompt.add_child(cancel)
- game.touch_ux.renew_surface()
-func close_prompt() -> void:
- if is_instance_valid(backdrop):backdrop.queue_free();backdrop=null
- if is_instance_valid(prompt):prompt.queue_free();prompt=null
- game.touch_ux.renew_surface()
-func unlock() -> void:
- if not enabled() or not is_instance_valid(prompt):return
- if Time.get_ticks_msec()<locked_until:message.text="Wait 30 seconds before trying again.";return
- var value:String=pin.text
- if value.length()<6 or value.length()>12 or not value.is_valid_int() or value.begins_with("-") or value.begins_with("+"):message.text="Use 6-12 digits.";return
- var config:=ConfigFile.new()
- if not configured():
-  if value!=confirm_pin.text:message.text="The two PINs must match.";return
-  var salt:String=Crypto.new().generate_random_bytes(32).hex_encode();config.set_value("access","salt",salt);config.set_value("access","digest",(salt+value).sha256_text())
-  if config.save(PIN_PATH)!=OK:message.text="PIN could not be saved. No profile switch.";return
- else:
-  config.load(PIN_PATH)
-  if (str(config.get_value("access","salt",""))+value).sha256_text()!=str(config.get_value("access","digest","")):
-   attempts+=1;message.text="Incorrect PIN."
-   if attempts>=5:locked_until=Time.get_ticks_msec()+30000;attempts=0
-   return
- pin.text="";confirm_pin.text=""
- Scope.switch_profile(get_tree(),true)
+func _process(delta:float) -> void:
+ layout_timer-=delta
+ if layout_timer<=0:layout_timer=.25;update_layout()

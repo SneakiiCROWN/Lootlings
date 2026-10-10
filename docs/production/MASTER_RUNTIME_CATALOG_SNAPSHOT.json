@@ -3382,7 +3382,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "c217b109756cb076c0c9e6aa88e4a38165dc78e42d7db5b55971e23d4279adb9"
+    "source_sha256": "23d2906d444ef1ef833e90e8bd75624cef122287fe80dc41528da879506a255e"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -7055,7 +7055,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "492d91fbd88fa53e8d6c1b19f14032b71d9728f26ea34e35c966eb3f56af736e"
+    "source_sha256": "28cd309e77d727420e0e80eaa485d25f0059c6f5fdd2f5c57dd5834e8ec68bdc"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7491,7 +7491,6 @@
   },
   "owner_test_access.gd": {
     "constants": {
-      "PIN_PATH": "user://lootlings_owner_access.cfg",
       "Scope": {
         "resource_path": "res://save_scope.gd"
       }
@@ -7499,14 +7498,32 @@
     "methods": [
       "enabled",
       "configure",
+      "show_activation_title",
+      "relock",
+      "modal_active",
+      "update_layout",
+      "open_tools",
+      "enter_sandbox",
+      "activate_secret",
+      "activation_rect",
       "observe",
-      "_process",
-      "configured",
-      "show_prompt",
-      "close_prompt",
-      "unlock"
+      "_process"
     ],
-    "source_sha256": "77e5fd65a408f6525de5158dc68294ebfa58f6292dc8253c9ab9fd3a275a64da"
+    "source_sha256": "4506836ce89b77e9823f82c1968097cfdedb31a36cf90572d54a9ed5f8e067df"
+  },
+  "perk_offer_catalog.gd": {
+    "constants": {
+      "RARITY_WEIGHTS": {
+        "COMMON": 65.0,
+        "EPIC": 8.0,
+        "RARE": 27.0
+      }
+    },
+    "methods": [
+      "eligible",
+      "offers"
+    ],
+    "source_sha256": "5932dd6061487a8c4bfcfb2613159ee5756f96bc50b61d21abfb213e3ce1b82b"
   },
   "permanent_upgrade_catalog.gd": {
     "constants": {

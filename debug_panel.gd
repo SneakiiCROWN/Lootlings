@@ -115,6 +115,7 @@ func build_ui() -> void:
 	add_section(list, "TROPHY QA", [
 		["UNLOCK DRAGON", "achievement", "hoard_dragon"], ["UNLOCK EPIC", "achievement", "first_epic"], ["RESET TROPHIES", "achievement", "reset"]
 	])
+	add_section(list,"PERK TESTING",[["COMMON OFFERS","perk_offers","COMMON"],["RARE OFFERS","perk_offers","RARE"],["EPIC OFFERS","perk_offers","EPIC"],["POISON SYNERGY","synergy_poison",null]])
 	add_section(list, "TEST SPEED", [
 		["1×", "speed", 1.0], ["2×", "speed", 2.0], ["4×", "speed", 4.0]
 	])
@@ -130,6 +131,7 @@ func build_ui() -> void:
 	reset_button = make_button("RESET LOOTLINGS TEST SAVES", "reset", null)
 	reset_button.custom_minimum_size = Vector2(406, 52)
 	section_groups["TEST PROGRESSION"].node.add_child(reset_button)
+	section_groups["TEST SPEED"].node.add_child(make_button("HIDE / RELOCK SHH","relock",null))
 	filter_sections(0)
 
 func filter_sections(index:int) -> void:
