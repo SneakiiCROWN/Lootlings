@@ -1506,12 +1506,14 @@ func build_merchant_ui() -> void:
 	merchant_panel = make_panel(Rect2(28, 112, 424, 540), Color("#11182ee8"))
 	LootlingsUI.apply_material(merchant_panel, "salvage")
 	merchant_panel.visible = false
-	merchant_title = make_label(merchant_panel, "PACK PEDDLER", 29, Rect2(20, 12, 384, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	merchant_subtitle = make_label(merchant_panel, "ROADSIDE STOP  •  BETWEEN WAVES", 13, Rect2(26, 50, 372, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#d3b777"))
-	merchant_coin_label = LootlingsUI.rich_label(merchant_panel, Rect2(54, 74, 316, 26), 16, Color("#ffe078"))
+	var peddler=preload("res://travelling_merchant_view.gd").new()
+	peddler.name="PackPeddlerBody";peddler.game=self;peddler.position=Vector2(20,8);peddler.size=Vector2(116,118);merchant_panel.add_child(peddler)
+	merchant_title = make_label(merchant_panel, "PACK PEDDLER", 22, Rect2(146, 12, 258, 40), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	merchant_subtitle = make_label(merchant_panel, "ROADSIDE STOP  •  BETWEEN WAVES", 11, Rect2(146, 50, 258, 22), HORIZONTAL_ALIGNMENT_CENTER, Color("#d3b777"))
+	merchant_coin_label = LootlingsUI.rich_label(merchant_panel, Rect2(146, 86, 258, 26), 16, Color("#ffe078"))
 	for i in range(3):
 		var button := Button.new()
-		button.position = Vector2(20, 106 + i * 96)
+		button.position = Vector2(20, 136 + i * 96)
 		button.size = Vector2(384, 90)
 		button.add_theme_font_size_override("font_size", 15)
 		button.pressed.connect(inspect_merchant_item.bind(i))
@@ -1533,8 +1535,8 @@ func build_merchant_ui() -> void:
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
 	merchant_panel.size.y = 688
-	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,406,376,74),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
-	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,492),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,434,376,50),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,494),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
@@ -3101,7 +3103,7 @@ func refresh_merchant_ui() -> void:
 		var button := merchant_buttons[i]
 		LootlingsUI.apply_selection(button,false)
 		if i >= shop.stock.size():
-			button.text = "SOLD • IN GOOD PAWS\nPatch is already counting the coins."
+			button.text = "SOLD • IN GOOD PAWS\nThe peddler is packing the receipts."
 			button.disabled = true
 			button.icon = null
 			merchant_icons[i].visible = false
@@ -3130,7 +3132,7 @@ func refresh_merchant_ui() -> void:
 			button.add_theme_color_override(state_name, Color.TRANSPARENT)
 		merchant_visuals[i].kicker.text = "%s  •  %s  •  %d SCRIP" % ["PREMIUM" if item.get("premium",false) else ItemCatalog.display_slot(item.get("slot", "Item")), item.rarity, price]
 		merchant_visuals[i].name.text = str(item.name)
-		merchant_visuals[i].effect.text = ""
+		merchant_visuals[i].effect.text = headline
 		for label in merchant_visuals[i].values():
 			label.modulate = Color("#a1a9bb") if button.disabled else Color.WHITE
 	var reroll_price := shop.reroll_cost(wave)

@@ -140,6 +140,7 @@ def build():
         runtime_file='art/production/phase4e/approved_missing_runtime_manifest.json'
         deliveries=read(runtime_file)['entries'] if (ROOT/runtime_file).exists() else []
         deliveries+=read('art/production_enemy_manifest.json')['entries']
+        deliveries+=read('art/production_npc_manifest.json')['entries']
         inputs.append('art/production_enemy_manifest.json')
         for ref in approved:
             category={'regional enemy':'enemy','boss':'boss_identity','current merchant role':'merchant'}[ref['category']]
@@ -150,6 +151,13 @@ def build():
             entry['status']='OWNER_APPROVED_VISUAL_REFERENCE_RUNTIME_STATES_OPEN'
             entry['identity_lock']='Approved named entity panel only; written stable ID/region and mechanics override board headings.'
             entry['accepted_runtime_sources']=sorted(set(entry['accepted_runtime_sources']+[r['asset_path'] for r in deliveries if r['actor']==ref['game_id'] and r.get('native_validated')]))
+        merchant=entries['merchant:pack_peddler']
+        merchant['display_name']='Pack Peddler'
+        merchant['identity_lock']='Brown woodland Pack Peddler on left half of approved dual-role sheet. Aquatic Merrow is separate; no merged traits or new merchant mechanics.'
+        if any(r['actor']=='pack_peddler' and r.get('native_validated') for r in deliveries):
+            merchant['status']='CANON_SERVICE_KEYFRAMES_INTEGRATED_FLUID_ANIMATION_OPEN'
+            merchant['missing_required_states']=[]
+            merchant['remaining_quality_work']=['Articulated fluid continuity','Full-game professional acceptance']
         inputs.append(approved_file)
         if (ROOT/runtime_file).exists():inputs.append(runtime_file)
     companion_file='art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json'

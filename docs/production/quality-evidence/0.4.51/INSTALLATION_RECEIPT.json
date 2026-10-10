@@ -1,7 +1,7 @@
 {
   "version": "0.4.51",
   "base_checkpoint": "d6fef08",
-  "verified_contracts_closed": 31,
+  "verified_contracts_closed": 41,
   "slot_ids": [
     "pose:glimmerfin:idle:left:spear",
     "pose:glimmerfin:idle:left:staff",
@@ -38,7 +38,7 @@
   "new_runtime_body_png": 16,
   "new_foreground_grip_png": 16,
   "new_sidecars": 31,
-  "frozen_artist_file_requirements_fulfilled": 93,
+  "frozen_artist_file_requirements_fulfilled": 113,
   "new_runtime_physical_artist_files": 63,
   "new_source_delivery_files": 93,
   "by_family": {
@@ -70,6 +70,39 @@
     "7 inherited-input surface types and real purchase/perk/equip/salvage guards at three sizes",
     "Shared weapon/animation/combat staging plus Diamond/Sigil/Mythical save/economy regressions"
   ],
-  "export_status": "New export pending; preceding 0.4.50 candidate preserved",
-  "production_quality_accepted": false
+  "export_status": "Building corrected Windows/Android 0.4.51 candidate; no physical device acceptance",
+  "production_quality_accepted": false,
+  "new_runtime_png": 42,
+  "new_physical_artist_files": 83,
+  "other_installed_features": [
+    "Ten canonical Pack Peddler service keyframes both facings, grounded live roadside-shop activity, restored readable per-offer benefits; purchases/economy/touch guards preserved."
+  ],
+  "merchant_batch": {
+    "version": "0.4.51",
+    "verified_contracts_closed": 10,
+    "slot_ids": [
+      "pose:pack_peddler:inspect:left:None",
+      "pose:pack_peddler:inspect:right:None",
+      "pose:pack_peddler:offer:left:None",
+      "pose:pack_peddler:offer:right:None",
+      "pose:pack_peddler:rest:left:None",
+      "pose:pack_peddler:rest:right:None",
+      "pose:pack_peddler:return:left:None",
+      "pose:pack_peddler:return:right:None",
+      "pose:pack_peddler:talk:left:None",
+      "pose:pack_peddler:talk:right:None"
+    ],
+    "new_runtime_png": 10,
+    "new_sidecars": 10,
+    "required_artist_files_fulfilled": 20,
+    "native_probes": 30,
+    "complete_fluid_animation_families": 0,
+    "professional_acceptance": false,
+    "default_live_facing": "right",
+    "left_facing": "Registered and native fixture reviewed; not chosen by current roadside header",
+    "rejected_cells": 10,
+    "correction_results": "Five wrong-costume right candidates replaced; five wrong-facing correction cells excluded. Approved woodland Pack Peddler and aquatic Merrow kept distinct.",
+    "native_qa": "peddler051-safe-layout-80937d63d4",
+    "layout_correction": "Reroll shifted into former Attack band in first candidate; compacted header/rows and restored spending controls to protected positions. Actual held/repeated/multitouch consequence regression passed three sizes."
+  }
 }

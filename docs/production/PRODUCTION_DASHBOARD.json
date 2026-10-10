@@ -4,13 +4,13 @@
   "denominators": "Frozen delivery contracts, requested artist-file requirements (including verified compatible reuse), distinct newly created physical files, and broad requirement records are separate. Per-batch receipts give physical file counts. No whole-game completion percentage is asserted.",
   "counts": {
     "required_contracts": 3274,
-    "installed_contract_closures": 507,
-    "remaining_contracts": 2767,
+    "installed_contract_closures": 517,
+    "remaining_contracts": 2757,
     "required_artist_files": 8495,
-    "installed_artist_files": 1297,
-    "remaining_artist_files": 7198,
-    "current_reviewed_runtime_png_cells": 294,
-    "registered_requirement_records": 8220,
+    "installed_artist_files": 1317,
+    "remaining_artist_files": 7178,
+    "current_reviewed_runtime_png_cells": 304,
+    "registered_requirement_records": 8245,
     "production_ready_records": 0
   },
   "contract_families": [
@@ -49,8 +49,8 @@
     {
       "family": "npcs",
       "required": 46,
-      "installed_contract_closures": 24,
-      "remaining": 22,
+      "installed_contract_closures": 34,
+      "remaining": 12,
       "production_quality_accepted": null,
       "note": "Closure verifies exact delivery contract; family-wide artistic/UX acceptance remains separate."
     },
@@ -301,18 +301,18 @@
     },
     {
       "family": "combat_art",
-      "required_records": 876,
-      "launch_records": 743,
-      "installed_records": 743,
+      "required_records": 886,
+      "launch_records": 753,
+      "installed_records": 753,
       "production_ready": 0,
       "quality_counts": {
         "reference_or_planned": 133,
-        "installed_awaiting_visual_review": 743
+        "installed_awaiting_visual_review": 753
       },
       "stages": {
         "canon_reference_approved": 0,
-        "created": 876,
-        "integrated": 743,
+        "created": 886,
+        "integrated": 753,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -320,7 +320,7 @@
       },
       "canonical_source_files": 0,
       "recorded_canon_approved_identities": 28,
-      "manifest_runtime_files": 407,
+      "manifest_runtime_files": 417,
       "staged_manifest_files": 0,
       "unreviewed_manifest_files": 201,
       "completed_animation_families": null,
@@ -358,23 +358,23 @@
       "family": "current merchant role",
       "required_records": 10,
       "launch_records": 10,
-      "installed_records": 0,
+      "installed_records": 10,
       "production_ready": 0,
       "quality_counts": {
-        "missing": 10
+        "functionally_working_visually_unfinished": 10
       },
       "stages": {
         "canon_reference_approved": 10,
-        "created": 0,
-        "integrated": 0,
-        "functionally_tested": 0,
-        "gameplay_visual_reviewed": 0,
-        "player_experience_reviewed": 0,
+        "created": 10,
+        "integrated": 10,
+        "functionally_tested": 10,
+        "gameplay_visual_reviewed": 10,
+        "player_experience_reviewed": 10,
         "production_quality_accepted": 0
       },
       "canonical_source_files": 1,
       "recorded_canon_approved_identities": 1,
-      "manifest_runtime_files": 0,
+      "manifest_runtime_files": 10,
       "staged_manifest_files": 0,
       "unreviewed_manifest_files": 0,
       "completed_animation_families": null,
@@ -874,12 +874,12 @@
     },
     {
       "family": "reference",
-      "required_records": 474,
+      "required_records": 488,
       "launch_records": 0,
       "installed_records": 0,
       "production_ready": 0,
       "quality_counts": {
-        "reference_or_planned": 471,
+        "reference_or_planned": 485,
         "defective_requires_correction": 3
       },
       "stages": {
@@ -891,7 +891,7 @@
         "player_experience_reviewed": 0,
         "production_quality_accepted": 0
       },
-      "canonical_source_files": 474,
+      "canonical_source_files": 488,
       "recorded_canon_approved_identities": 10,
       "manifest_runtime_files": 208,
       "staged_manifest_files": 0,
@@ -987,17 +987,17 @@
     },
     {
       "family": "runtime_system",
-      "required_records": 109,
-      "launch_records": 109,
-      "installed_records": 109,
+      "required_records": 110,
+      "launch_records": 110,
+      "installed_records": 110,
       "production_ready": 0,
       "quality_counts": {
-        "installed_awaiting_visual_review": 109
+        "installed_awaiting_visual_review": 110
       },
       "stages": {
         "canon_reference_approved": 0,
         "created": 0,
-        "integrated": 109,
+        "integrated": 110,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -4069,83 +4069,83 @@
         "label:lootling.gd:1443:0:4b8e7a37",
         "label:lootling.gd:1453:0:089331a2",
         "label:lootling.gd:1502:0:0052f02c",
-        "label:lootling.gd:2432:0:14cc9e57",
-        "label:lootling.gd:2434:0:60d92e6f",
-        "label:lootling.gd:2436:0:b636872a",
-        "label:lootling.gd:2438:0:d896b990",
-        "label:lootling.gd:2440:0:479c9dc5",
-        "label:lootling.gd:2444:0:491cd481",
-        "label:lootling.gd:2446:0:1e88206f",
-        "label:lootling.gd:2448:0:338d68f0",
-        "label:lootling.gd:2450:0:084904bf",
-        "label:lootling.gd:2452:0:be8f4941",
-        "label:lootling.gd:2799:0:6a9fef6e",
-        "label:lootling.gd:2799:1:6e688269",
-        "label:lootling.gd:2801:0:c497c9c1",
-        "label:lootling.gd:2801:1:4dc26b13",
-        "label:lootling.gd:2813:0:3b8d5b98",
-        "label:lootling.gd:2813:1:462854f9",
-        "label:lootling.gd:2813:2:6867e600",
-        "label:lootling.gd:2819:0:ef7e6794",
-        "label:lootling.gd:2819:1:ef7e6794",
-        "label:lootling.gd:2849:0:e3bab90b",
-        "label:lootling.gd:2849:1:462854f9",
-        "label:lootling.gd:2849:2:ead53368",
-        "label:lootling.gd:2850:0:148be80c",
-        "label:lootling.gd:2865:0:0d2cee9c",
-        "label:lootling.gd:2869:0:3d0a6ba5",
-        "label:lootling.gd:2906:0:b23e7e58",
-        "label:lootling.gd:2906:1:deb80331",
-        "label:lootling.gd:2910:0:5c18f8eb",
-        "label:lootling.gd:2911:0:5fde04be",
-        "label:lootling.gd:3080:0:ed059f21",
-        "label:lootling.gd:3080:1:520d7b36",
-        "label:lootling.gd:3094:0:9f888007",
-        "label:lootling.gd:3095:0:119bed34",
-        "label:lootling.gd:3096:0:e5d5cd32",
-        "label:lootling.gd:3097:0:a7e24318",
-        "label:lootling.gd:3099:0:9a1dca47",
-        "label:lootling.gd:3099:1:2c2ef4d6",
-        "label:lootling.gd:3104:0:b6e2fa32",
-        "label:lootling.gd:3108:0:a276cade",
-        "label:lootling.gd:3109:0:1fc287f0",
-        "label:lootling.gd:3123:0:526d5d47",
-        "label:lootling.gd:3123:1:462854f9",
-        "label:lootling.gd:3123:2:ecdda59a",
-        "label:lootling.gd:3131:0:eb995721",
-        "label:lootling.gd:3131:1:71c77258",
-        "label:lootling.gd:3131:2:5c0a4fc7",
-        "label:lootling.gd:3131:3:462854f9",
-        "label:lootling.gd:3131:4:ecdda59a",
-        "label:lootling.gd:3137:0:a74032f4",
-        "label:lootling.gd:3202:0:9afc3c93",
-        "label:lootling.gd:3205:0:86597834",
-        "label:lootling.gd:3224:0:408ab24d",
-        "label:lootling.gd:3224:1:caa4ad3d",
-        "label:lootling.gd:3224:2:cd7cff17",
-        "label:lootling.gd:3233:0:e8634078",
-        "label:lootling.gd:3350:0:80e69ea0",
-        "label:lootling.gd:3350:1:628283b0",
-        "label:lootling.gd:3372:0:aa11de5a",
-        "label:lootling.gd:3372:1:106840bc",
-        "label:lootling.gd:3373:0:4943fd98",
-        "label:lootling.gd:3373:1:eb10c001",
-        "label:lootling.gd:3373:2:c6f00561",
-        "label:lootling.gd:3373:3:7ac2a5ca",
-        "label:lootling.gd:3376:0:6d91faaa",
-        "label:lootling.gd:3376:1:d3c6e300",
-        "label:lootling.gd:3376:2:84089e35",
-        "label:lootling.gd:3376:3:7f403abb",
-        "label:lootling.gd:3377:0:c6f00561",
-        "label:lootling.gd:3377:1:49e79ce8",
-        "label:lootling.gd:3445:0:6ae99955",
-        "label:lootling.gd:3445:1:e8fef4b9",
-        "label:lootling.gd:3844:0:d5954590",
-        "label:lootling.gd:3844:1:5c83506e",
-        "label:lootling.gd:3853:0:e4fbbd8b",
-        "label:lootling.gd:3941:0:089331a2",
-        "label:lootling.gd:3942:0:e29764e7",
-        "label:lootling.gd:4068:0:56d441fc",
+        "label:lootling.gd:2434:0:14cc9e57",
+        "label:lootling.gd:2436:0:60d92e6f",
+        "label:lootling.gd:2438:0:b636872a",
+        "label:lootling.gd:2440:0:d896b990",
+        "label:lootling.gd:2442:0:479c9dc5",
+        "label:lootling.gd:2446:0:491cd481",
+        "label:lootling.gd:2448:0:1e88206f",
+        "label:lootling.gd:2450:0:338d68f0",
+        "label:lootling.gd:2452:0:084904bf",
+        "label:lootling.gd:2454:0:be8f4941",
+        "label:lootling.gd:2801:0:6a9fef6e",
+        "label:lootling.gd:2801:1:6e688269",
+        "label:lootling.gd:2803:0:c497c9c1",
+        "label:lootling.gd:2803:1:4dc26b13",
+        "label:lootling.gd:2815:0:3b8d5b98",
+        "label:lootling.gd:2815:1:462854f9",
+        "label:lootling.gd:2815:2:6867e600",
+        "label:lootling.gd:2821:0:ef7e6794",
+        "label:lootling.gd:2821:1:ef7e6794",
+        "label:lootling.gd:2851:0:e3bab90b",
+        "label:lootling.gd:2851:1:462854f9",
+        "label:lootling.gd:2851:2:ead53368",
+        "label:lootling.gd:2852:0:148be80c",
+        "label:lootling.gd:2867:0:0d2cee9c",
+        "label:lootling.gd:2871:0:3d0a6ba5",
+        "label:lootling.gd:2908:0:b23e7e58",
+        "label:lootling.gd:2908:1:deb80331",
+        "label:lootling.gd:2912:0:5c18f8eb",
+        "label:lootling.gd:2913:0:5fde04be",
+        "label:lootling.gd:3082:0:ed059f21",
+        "label:lootling.gd:3082:1:520d7b36",
+        "label:lootling.gd:3096:0:9f888007",
+        "label:lootling.gd:3097:0:119bed34",
+        "label:lootling.gd:3098:0:e5d5cd32",
+        "label:lootling.gd:3099:0:a7e24318",
+        "label:lootling.gd:3101:0:9a1dca47",
+        "label:lootling.gd:3101:1:2c2ef4d6",
+        "label:lootling.gd:3106:0:b93e34c2",
+        "label:lootling.gd:3110:0:a276cade",
+        "label:lootling.gd:3111:0:1fc287f0",
+        "label:lootling.gd:3125:0:526d5d47",
+        "label:lootling.gd:3125:1:462854f9",
+        "label:lootling.gd:3125:2:ecdda59a",
+        "label:lootling.gd:3133:0:eb995721",
+        "label:lootling.gd:3133:1:71c77258",
+        "label:lootling.gd:3133:2:5c0a4fc7",
+        "label:lootling.gd:3133:3:462854f9",
+        "label:lootling.gd:3133:4:ecdda59a",
+        "label:lootling.gd:3139:0:a74032f4",
+        "label:lootling.gd:3204:0:9afc3c93",
+        "label:lootling.gd:3207:0:86597834",
+        "label:lootling.gd:3226:0:408ab24d",
+        "label:lootling.gd:3226:1:caa4ad3d",
+        "label:lootling.gd:3226:2:cd7cff17",
+        "label:lootling.gd:3235:0:e8634078",
+        "label:lootling.gd:3352:0:80e69ea0",
+        "label:lootling.gd:3352:1:628283b0",
+        "label:lootling.gd:3374:0:aa11de5a",
+        "label:lootling.gd:3374:1:106840bc",
+        "label:lootling.gd:3375:0:4943fd98",
+        "label:lootling.gd:3375:1:eb10c001",
+        "label:lootling.gd:3375:2:c6f00561",
+        "label:lootling.gd:3375:3:7ac2a5ca",
+        "label:lootling.gd:3378:0:6d91faaa",
+        "label:lootling.gd:3378:1:d3c6e300",
+        "label:lootling.gd:3378:2:84089e35",
+        "label:lootling.gd:3378:3:7f403abb",
+        "label:lootling.gd:3379:0:c6f00561",
+        "label:lootling.gd:3379:1:49e79ce8",
+        "label:lootling.gd:3447:0:6ae99955",
+        "label:lootling.gd:3447:1:e8fef4b9",
+        "label:lootling.gd:3846:0:d5954590",
+        "label:lootling.gd:3846:1:5c83506e",
+        "label:lootling.gd:3855:0:e4fbbd8b",
+        "label:lootling.gd:3943:0:089331a2",
+        "label:lootling.gd:3944:0:e29764e7",
+        "label:lootling.gd:4070:0:56d441fc",
         "label:lootlings_ui.gd:276:0:31f63f09",
         "asset:art/backgrounds/lootlings_hideout.png",
         "asset:art/production/phase4e/items/armour_inventory_v1/second_skin.png",
@@ -4993,7 +4993,7 @@
     },
     {
       "domain": "NPCs / merchants / dialogue",
-      "registered_requirement_records": 605,
+      "registered_requirement_records": 616,
       "records": [
         "pose:patch:rest:right:None",
         "pose:patch:rest:left:None",
@@ -5522,6 +5522,16 @@
         "asset:art/production/phase4e/npcs/ilex/ilex_work_left_048.png",
         "asset:art/production/phase4e/npcs/ilex/ilex_work_right_048.png",
         "asset:art/production/phase4e/npcs/ilex_canonical_station_panel.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+        "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
         "asset:art/production/phase4e/npcs/patch/patch_inspect_left.png",
         "asset:art/production/phase4e/npcs/patch/patch_inspect_right.png",
         "asset:art/production/phase4e/npcs/patch/patch_rest_left.png",
@@ -5599,6 +5609,7 @@
         "system:dialogue_director.gd",
         "system:resident_art_catalog.gd",
         "system:resident_sprite_rig.gd",
+        "system:travelling_merchant_view.gd",
         "system:world_story.gd"
       ],
       "completeness": "Registered scope only; dynamic/unregistered dependencies and unspecified variants remain coverage gaps."
@@ -17195,83 +17206,83 @@
         "label:lootling.gd:1443:0:4b8e7a37",
         "label:lootling.gd:1453:0:089331a2",
         "label:lootling.gd:1502:0:0052f02c",
-        "label:lootling.gd:2432:0:14cc9e57",
-        "label:lootling.gd:2434:0:60d92e6f",
-        "label:lootling.gd:2436:0:b636872a",
-        "label:lootling.gd:2438:0:d896b990",
-        "label:lootling.gd:2440:0:479c9dc5",
-        "label:lootling.gd:2444:0:491cd481",
-        "label:lootling.gd:2446:0:1e88206f",
-        "label:lootling.gd:2448:0:338d68f0",
-        "label:lootling.gd:2450:0:084904bf",
-        "label:lootling.gd:2452:0:be8f4941",
-        "label:lootling.gd:2799:0:6a9fef6e",
-        "label:lootling.gd:2799:1:6e688269",
-        "label:lootling.gd:2801:0:c497c9c1",
-        "label:lootling.gd:2801:1:4dc26b13",
-        "label:lootling.gd:2813:0:3b8d5b98",
-        "label:lootling.gd:2813:1:462854f9",
-        "label:lootling.gd:2813:2:6867e600",
-        "label:lootling.gd:2819:0:ef7e6794",
-        "label:lootling.gd:2819:1:ef7e6794",
-        "label:lootling.gd:2849:0:e3bab90b",
-        "label:lootling.gd:2849:1:462854f9",
-        "label:lootling.gd:2849:2:ead53368",
-        "label:lootling.gd:2850:0:148be80c",
-        "label:lootling.gd:2865:0:0d2cee9c",
-        "label:lootling.gd:2869:0:3d0a6ba5",
-        "label:lootling.gd:2906:0:b23e7e58",
-        "label:lootling.gd:2906:1:deb80331",
-        "label:lootling.gd:2910:0:5c18f8eb",
-        "label:lootling.gd:2911:0:5fde04be",
-        "label:lootling.gd:3080:0:ed059f21",
-        "label:lootling.gd:3080:1:520d7b36",
-        "label:lootling.gd:3094:0:9f888007",
-        "label:lootling.gd:3095:0:119bed34",
-        "label:lootling.gd:3096:0:e5d5cd32",
-        "label:lootling.gd:3097:0:a7e24318",
-        "label:lootling.gd:3099:0:9a1dca47",
-        "label:lootling.gd:3099:1:2c2ef4d6",
-        "label:lootling.gd:3104:0:b6e2fa32",
-        "label:lootling.gd:3108:0:a276cade",
-        "label:lootling.gd:3109:0:1fc287f0",
-        "label:lootling.gd:3123:0:526d5d47",
-        "label:lootling.gd:3123:1:462854f9",
-        "label:lootling.gd:3123:2:ecdda59a",
-        "label:lootling.gd:3131:0:eb995721",
-        "label:lootling.gd:3131:1:71c77258",
-        "label:lootling.gd:3131:2:5c0a4fc7",
-        "label:lootling.gd:3131:3:462854f9",
-        "label:lootling.gd:3131:4:ecdda59a",
-        "label:lootling.gd:3137:0:a74032f4",
-        "label:lootling.gd:3202:0:9afc3c93",
-        "label:lootling.gd:3205:0:86597834",
-        "label:lootling.gd:3224:0:408ab24d",
-        "label:lootling.gd:3224:1:caa4ad3d",
-        "label:lootling.gd:3224:2:cd7cff17",
-        "label:lootling.gd:3233:0:e8634078",
-        "label:lootling.gd:3350:0:80e69ea0",
-        "label:lootling.gd:3350:1:628283b0",
-        "label:lootling.gd:3372:0:aa11de5a",
-        "label:lootling.gd:3372:1:106840bc",
-        "label:lootling.gd:3373:0:4943fd98",
-        "label:lootling.gd:3373:1:eb10c001",
-        "label:lootling.gd:3373:2:c6f00561",
-        "label:lootling.gd:3373:3:7ac2a5ca",
-        "label:lootling.gd:3376:0:6d91faaa",
-        "label:lootling.gd:3376:1:d3c6e300",
-        "label:lootling.gd:3376:2:84089e35",
-        "label:lootling.gd:3376:3:7f403abb",
-        "label:lootling.gd:3377:0:c6f00561",
-        "label:lootling.gd:3377:1:49e79ce8",
-        "label:lootling.gd:3445:0:6ae99955",
-        "label:lootling.gd:3445:1:e8fef4b9",
-        "label:lootling.gd:3844:0:d5954590",
-        "label:lootling.gd:3844:1:5c83506e",
-        "label:lootling.gd:3853:0:e4fbbd8b",
-        "label:lootling.gd:3941:0:089331a2",
-        "label:lootling.gd:3942:0:e29764e7",
-        "label:lootling.gd:4068:0:56d441fc",
+        "label:lootling.gd:2434:0:14cc9e57",
+        "label:lootling.gd:2436:0:60d92e6f",
+        "label:lootling.gd:2438:0:b636872a",
+        "label:lootling.gd:2440:0:d896b990",
+        "label:lootling.gd:2442:0:479c9dc5",
+        "label:lootling.gd:2446:0:491cd481",
+        "label:lootling.gd:2448:0:1e88206f",
+        "label:lootling.gd:2450:0:338d68f0",
+        "label:lootling.gd:2452:0:084904bf",
+        "label:lootling.gd:2454:0:be8f4941",
+        "label:lootling.gd:2801:0:6a9fef6e",
+        "label:lootling.gd:2801:1:6e688269",
+        "label:lootling.gd:2803:0:c497c9c1",
+        "label:lootling.gd:2803:1:4dc26b13",
+        "label:lootling.gd:2815:0:3b8d5b98",
+        "label:lootling.gd:2815:1:462854f9",
+        "label:lootling.gd:2815:2:6867e600",
+        "label:lootling.gd:2821:0:ef7e6794",
+        "label:lootling.gd:2821:1:ef7e6794",
+        "label:lootling.gd:2851:0:e3bab90b",
+        "label:lootling.gd:2851:1:462854f9",
+        "label:lootling.gd:2851:2:ead53368",
+        "label:lootling.gd:2852:0:148be80c",
+        "label:lootling.gd:2867:0:0d2cee9c",
+        "label:lootling.gd:2871:0:3d0a6ba5",
+        "label:lootling.gd:2908:0:b23e7e58",
+        "label:lootling.gd:2908:1:deb80331",
+        "label:lootling.gd:2912:0:5c18f8eb",
+        "label:lootling.gd:2913:0:5fde04be",
+        "label:lootling.gd:3082:0:ed059f21",
+        "label:lootling.gd:3082:1:520d7b36",
+        "label:lootling.gd:3096:0:9f888007",
+        "label:lootling.gd:3097:0:119bed34",
+        "label:lootling.gd:3098:0:e5d5cd32",
+        "label:lootling.gd:3099:0:a7e24318",
+        "label:lootling.gd:3101:0:9a1dca47",
+        "label:lootling.gd:3101:1:2c2ef4d6",
+        "label:lootling.gd:3106:0:b93e34c2",
+        "label:lootling.gd:3110:0:a276cade",
+        "label:lootling.gd:3111:0:1fc287f0",
+        "label:lootling.gd:3125:0:526d5d47",
+        "label:lootling.gd:3125:1:462854f9",
+        "label:lootling.gd:3125:2:ecdda59a",
+        "label:lootling.gd:3133:0:eb995721",
+        "label:lootling.gd:3133:1:71c77258",
+        "label:lootling.gd:3133:2:5c0a4fc7",
+        "label:lootling.gd:3133:3:462854f9",
+        "label:lootling.gd:3133:4:ecdda59a",
+        "label:lootling.gd:3139:0:a74032f4",
+        "label:lootling.gd:3204:0:9afc3c93",
+        "label:lootling.gd:3207:0:86597834",
+        "label:lootling.gd:3226:0:408ab24d",
+        "label:lootling.gd:3226:1:caa4ad3d",
+        "label:lootling.gd:3226:2:cd7cff17",
+        "label:lootling.gd:3235:0:e8634078",
+        "label:lootling.gd:3352:0:80e69ea0",
+        "label:lootling.gd:3352:1:628283b0",
+        "label:lootling.gd:3374:0:aa11de5a",
+        "label:lootling.gd:3374:1:106840bc",
+        "label:lootling.gd:3375:0:4943fd98",
+        "label:lootling.gd:3375:1:eb10c001",
+        "label:lootling.gd:3375:2:c6f00561",
+        "label:lootling.gd:3375:3:7ac2a5ca",
+        "label:lootling.gd:3378:0:6d91faaa",
+        "label:lootling.gd:3378:1:d3c6e300",
+        "label:lootling.gd:3378:2:84089e35",
+        "label:lootling.gd:3378:3:7f403abb",
+        "label:lootling.gd:3379:0:c6f00561",
+        "label:lootling.gd:3379:1:49e79ce8",
+        "label:lootling.gd:3447:0:6ae99955",
+        "label:lootling.gd:3447:1:e8fef4b9",
+        "label:lootling.gd:3846:0:d5954590",
+        "label:lootling.gd:3846:1:5c83506e",
+        "label:lootling.gd:3855:0:e4fbbd8b",
+        "label:lootling.gd:3943:0:089331a2",
+        "label:lootling.gd:3944:0:e29764e7",
+        "label:lootling.gd:4070:0:56d441fc",
         "label:lootlings_ui.gd:276:0:31f63f09",
         "label:mobile_test_monitor.gd:139:0:861ac9ae",
         "label:mobile_test_monitor.gd:145:0:d7eccf85",
@@ -97856,24 +97867,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:rest:left:None",
@@ -97885,24 +97894,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:talk:right:None",
@@ -97914,24 +97921,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:talk:left:None",
@@ -97943,24 +97948,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:offer:right:None",
@@ -97972,24 +97975,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:offer:left:None",
@@ -98001,24 +98002,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:inspect:right:None",
@@ -98030,24 +98029,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:inspect:left:None",
@@ -98059,24 +98056,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:return:right:None",
@@ -98088,24 +98083,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:pack_peddler:return:left:None",
@@ -98117,24 +98110,22 @@
       "weapon": null,
       "scope": true,
       "priority": "P1",
-      "quality": "missing",
+      "quality": "functionally_working_visually_unfinished",
       "stages": {
         "canon_reference_approved": true,
-        "created": false,
-        "integrated": false,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": true,
         "production_quality_accepted": false
       },
-      "asset": null,
-      "canon": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "canon": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "implementation": "regional_enemy_presentation.gd",
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+      "quality_notes": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open."
     },
     {
       "id": "pose:ashtrail_hunter:defeat:left:orb",
@@ -169622,7 +169613,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2432:0:14cc9e57",
+      "id": "label:lootling.gd:2434:0:14cc9e57",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169649,7 +169640,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2434:0:60d92e6f",
+      "id": "label:lootling.gd:2436:0:60d92e6f",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169676,7 +169667,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2436:0:b636872a",
+      "id": "label:lootling.gd:2438:0:b636872a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169703,7 +169694,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2438:0:d896b990",
+      "id": "label:lootling.gd:2440:0:d896b990",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169730,7 +169721,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2440:0:479c9dc5",
+      "id": "label:lootling.gd:2442:0:479c9dc5",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169757,7 +169748,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2444:0:491cd481",
+      "id": "label:lootling.gd:2446:0:491cd481",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169784,7 +169775,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2446:0:1e88206f",
+      "id": "label:lootling.gd:2448:0:1e88206f",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169811,7 +169802,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2448:0:338d68f0",
+      "id": "label:lootling.gd:2450:0:338d68f0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169838,7 +169829,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2450:0:084904bf",
+      "id": "label:lootling.gd:2452:0:084904bf",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169865,7 +169856,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2452:0:be8f4941",
+      "id": "label:lootling.gd:2454:0:be8f4941",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169892,7 +169883,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2799:0:6a9fef6e",
+      "id": "label:lootling.gd:2801:0:6a9fef6e",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169919,7 +169910,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2799:1:6e688269",
+      "id": "label:lootling.gd:2801:1:6e688269",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169946,7 +169937,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2801:0:c497c9c1",
+      "id": "label:lootling.gd:2803:0:c497c9c1",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -169973,7 +169964,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2801:1:4dc26b13",
+      "id": "label:lootling.gd:2803:1:4dc26b13",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170000,7 +169991,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2813:0:3b8d5b98",
+      "id": "label:lootling.gd:2815:0:3b8d5b98",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170027,7 +170018,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2813:1:462854f9",
+      "id": "label:lootling.gd:2815:1:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170054,7 +170045,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2813:2:6867e600",
+      "id": "label:lootling.gd:2815:2:6867e600",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170081,7 +170072,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2819:0:ef7e6794",
+      "id": "label:lootling.gd:2821:0:ef7e6794",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170108,7 +170099,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2819:1:ef7e6794",
+      "id": "label:lootling.gd:2821:1:ef7e6794",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170135,7 +170126,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2849:0:e3bab90b",
+      "id": "label:lootling.gd:2851:0:e3bab90b",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170162,7 +170153,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2849:1:462854f9",
+      "id": "label:lootling.gd:2851:1:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170189,7 +170180,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2849:2:ead53368",
+      "id": "label:lootling.gd:2851:2:ead53368",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170216,7 +170207,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2850:0:148be80c",
+      "id": "label:lootling.gd:2852:0:148be80c",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170243,7 +170234,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2865:0:0d2cee9c",
+      "id": "label:lootling.gd:2867:0:0d2cee9c",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170270,7 +170261,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2869:0:3d0a6ba5",
+      "id": "label:lootling.gd:2871:0:3d0a6ba5",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170297,7 +170288,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2906:0:b23e7e58",
+      "id": "label:lootling.gd:2908:0:b23e7e58",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170324,7 +170315,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2906:1:deb80331",
+      "id": "label:lootling.gd:2908:1:deb80331",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170351,7 +170342,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2910:0:5c18f8eb",
+      "id": "label:lootling.gd:2912:0:5c18f8eb",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170378,7 +170369,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2911:0:5fde04be",
+      "id": "label:lootling.gd:2913:0:5fde04be",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170405,7 +170396,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3080:0:ed059f21",
+      "id": "label:lootling.gd:3082:0:ed059f21",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170432,7 +170423,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3080:1:520d7b36",
+      "id": "label:lootling.gd:3082:1:520d7b36",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170459,7 +170450,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3094:0:9f888007",
+      "id": "label:lootling.gd:3096:0:9f888007",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170486,7 +170477,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3095:0:119bed34",
+      "id": "label:lootling.gd:3097:0:119bed34",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170513,7 +170504,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3096:0:e5d5cd32",
+      "id": "label:lootling.gd:3098:0:e5d5cd32",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170540,7 +170531,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3097:0:a7e24318",
+      "id": "label:lootling.gd:3099:0:a7e24318",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170567,7 +170558,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3099:0:9a1dca47",
+      "id": "label:lootling.gd:3101:0:9a1dca47",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170594,7 +170585,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3099:1:2c2ef4d6",
+      "id": "label:lootling.gd:3101:1:2c2ef4d6",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170621,7 +170612,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3104:0:b6e2fa32",
+      "id": "label:lootling.gd:3106:0:b93e34c2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170648,7 +170639,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3108:0:a276cade",
+      "id": "label:lootling.gd:3110:0:a276cade",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170675,7 +170666,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3109:0:1fc287f0",
+      "id": "label:lootling.gd:3111:0:1fc287f0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170702,7 +170693,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3123:0:526d5d47",
+      "id": "label:lootling.gd:3125:0:526d5d47",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170729,7 +170720,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3123:1:462854f9",
+      "id": "label:lootling.gd:3125:1:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170756,7 +170747,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3123:2:ecdda59a",
+      "id": "label:lootling.gd:3125:2:ecdda59a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170783,7 +170774,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3131:0:eb995721",
+      "id": "label:lootling.gd:3133:0:eb995721",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170810,7 +170801,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3131:1:71c77258",
+      "id": "label:lootling.gd:3133:1:71c77258",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170837,7 +170828,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3131:2:5c0a4fc7",
+      "id": "label:lootling.gd:3133:2:5c0a4fc7",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170864,7 +170855,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3131:3:462854f9",
+      "id": "label:lootling.gd:3133:3:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170891,7 +170882,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3131:4:ecdda59a",
+      "id": "label:lootling.gd:3133:4:ecdda59a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170918,7 +170909,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3137:0:a74032f4",
+      "id": "label:lootling.gd:3139:0:a74032f4",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170945,7 +170936,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3202:0:9afc3c93",
+      "id": "label:lootling.gd:3204:0:9afc3c93",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170972,7 +170963,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3205:0:86597834",
+      "id": "label:lootling.gd:3207:0:86597834",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170999,7 +170990,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3224:0:408ab24d",
+      "id": "label:lootling.gd:3226:0:408ab24d",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171026,7 +171017,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3224:1:caa4ad3d",
+      "id": "label:lootling.gd:3226:1:caa4ad3d",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171053,7 +171044,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3224:2:cd7cff17",
+      "id": "label:lootling.gd:3226:2:cd7cff17",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171080,7 +171071,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3233:0:e8634078",
+      "id": "label:lootling.gd:3235:0:e8634078",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171107,7 +171098,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3350:0:80e69ea0",
+      "id": "label:lootling.gd:3352:0:80e69ea0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171134,7 +171125,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3350:1:628283b0",
+      "id": "label:lootling.gd:3352:1:628283b0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171161,7 +171152,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3372:0:aa11de5a",
+      "id": "label:lootling.gd:3374:0:aa11de5a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171188,7 +171179,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3372:1:106840bc",
+      "id": "label:lootling.gd:3374:1:106840bc",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171215,7 +171206,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3373:0:4943fd98",
+      "id": "label:lootling.gd:3375:0:4943fd98",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171242,7 +171233,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3373:1:eb10c001",
+      "id": "label:lootling.gd:3375:1:eb10c001",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171269,7 +171260,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3373:2:c6f00561",
+      "id": "label:lootling.gd:3375:2:c6f00561",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171296,7 +171287,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3373:3:7ac2a5ca",
+      "id": "label:lootling.gd:3375:3:7ac2a5ca",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171323,7 +171314,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3376:0:6d91faaa",
+      "id": "label:lootling.gd:3378:0:6d91faaa",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171350,7 +171341,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3376:1:d3c6e300",
+      "id": "label:lootling.gd:3378:1:d3c6e300",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171377,7 +171368,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3376:2:84089e35",
+      "id": "label:lootling.gd:3378:2:84089e35",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171404,7 +171395,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3376:3:7f403abb",
+      "id": "label:lootling.gd:3378:3:7f403abb",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171431,7 +171422,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3377:0:c6f00561",
+      "id": "label:lootling.gd:3379:0:c6f00561",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171458,7 +171449,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3377:1:49e79ce8",
+      "id": "label:lootling.gd:3379:1:49e79ce8",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171485,7 +171476,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3445:0:6ae99955",
+      "id": "label:lootling.gd:3447:0:6ae99955",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171512,7 +171503,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3445:1:e8fef4b9",
+      "id": "label:lootling.gd:3447:1:e8fef4b9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171539,7 +171530,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3844:0:d5954590",
+      "id": "label:lootling.gd:3846:0:d5954590",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171566,7 +171557,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3844:1:5c83506e",
+      "id": "label:lootling.gd:3846:1:5c83506e",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171593,7 +171584,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3853:0:e4fbbd8b",
+      "id": "label:lootling.gd:3855:0:e4fbbd8b",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171620,7 +171611,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3941:0:089331a2",
+      "id": "label:lootling.gd:3943:0:089331a2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171647,7 +171638,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3942:0:e29764e7",
+      "id": "label:lootling.gd:3944:0:e29764e7",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171674,7 +171665,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4068:0:56d441fc",
+      "id": "label:lootling.gd:4070:0:56d441fc",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -206011,6 +206002,296 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_inspect_left",
+      "name": "pack_peddler_inspect_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_inspect_right",
+      "name": "pack_peddler_inspect_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_offer_left",
+      "name": "pack_peddler_offer_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_offer_right",
+      "name": "pack_peddler_offer_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_rest_left",
+      "name": "pack_peddler_rest_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_rest_right",
+      "name": "pack_peddler_rest_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_return_left",
+      "name": "pack_peddler_return_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_return_right",
+      "name": "pack_peddler_return_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_talk_left",
+      "name": "pack_peddler_talk_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "family": "combat_art",
+      "identity": "pack_peddler_talk_right",
+      "name": "pack_peddler_talk_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "canon": null,
+      "implementation": [
+        "resident_art_catalog.gd"
+      ],
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "asset:art/production/phase4e/npcs/patch/patch_inspect_left.png",
       "family": "combat_art",
       "identity": "patch_inspect_left",
@@ -220863,6 +221144,114 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "source:art/source/peddler_051/left_candidate.png",
+      "family": "reference",
+      "identity": "left_candidate",
+      "name": "left_candidate",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/peddler_051/left_candidate.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/peddler_051/right_candidate.png",
+      "family": "reference",
+      "identity": "right_candidate",
+      "name": "right_candidate",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/peddler_051/right_candidate.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/peddler_051/right_corrected.png",
+      "family": "reference",
+      "identity": "right_corrected",
+      "name": "right_corrected",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/peddler_051/right_corrected.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/peddler_051/wrong_facing_correction.png",
+      "family": "reference",
+      "identity": "wrong_facing_correction",
+      "name": "wrong_facing_correction",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/peddler_051/wrong_facing_correction.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "source:art/source/phase4e/delivery/glimmerfin/glimmerfin_idle_spear_left.png",
       "family": "reference",
       "identity": "glimmerfin_idle_spear_left",
@@ -222315,6 +222704,276 @@
       },
       "asset": null,
       "canon": "art/source/phase4e/delivery/mudcloak/mudcloak_role_windup_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_left.png",
+      "family": "reference",
+      "identity": "pack_peddler_inspect_left",
+      "name": "pack_peddler_inspect_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_right.png",
+      "family": "reference",
+      "identity": "pack_peddler_inspect_right",
+      "name": "pack_peddler_inspect_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_left.png",
+      "family": "reference",
+      "identity": "pack_peddler_offer_left",
+      "name": "pack_peddler_offer_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_right.png",
+      "family": "reference",
+      "identity": "pack_peddler_offer_right",
+      "name": "pack_peddler_offer_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_left.png",
+      "family": "reference",
+      "identity": "pack_peddler_rest_left",
+      "name": "pack_peddler_rest_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_right.png",
+      "family": "reference",
+      "identity": "pack_peddler_rest_right",
+      "name": "pack_peddler_rest_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_return_left.png",
+      "family": "reference",
+      "identity": "pack_peddler_return_left",
+      "name": "pack_peddler_return_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_return_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_return_right.png",
+      "family": "reference",
+      "identity": "pack_peddler_return_right",
+      "name": "pack_peddler_return_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_return_right.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_left.png",
+      "family": "reference",
+      "identity": "pack_peddler_talk_left",
+      "name": "pack_peddler_talk_left",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_left.png",
+      "implementation": null,
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_right.png",
+      "family": "reference",
+      "identity": "pack_peddler_talk_right",
+      "name": "pack_peddler_talk_right",
+      "state": null,
+      "facing": null,
+      "weapon": null,
+      "scope": false,
+      "priority": "P2",
+      "quality": "reference_or_planned",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": false,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": "art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_right.png",
       "implementation": null,
       "blocker": "Reference is not a production state; no new canon approval inferred",
       "defects": [],
@@ -248343,6 +249002,33 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "system:travelling_merchant_view.gd",
+      "family": "runtime_system",
+      "identity": "travelling_merchant_view_gd",
+      "name": "travelling_merchant_view.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "travelling_merchant_view.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "system:ui_surface_style.gd",
       "family": "runtime_system",
       "identity": "ui_surface_style_gd",
@@ -255253,6 +255939,96 @@
       "actor": "sera",
       "state": "work/read/tend",
       "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "actor": "pack_peddler",
+      "state": "rest",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "actor": "pack_peddler",
+      "state": "talk",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "actor": "pack_peddler",
+      "state": "offer",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "actor": "pack_peddler",
+      "state": "inspect",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "actor": "pack_peddler",
+      "state": "return",
+      "facing": "left",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "actor": "pack_peddler",
+      "state": "rest",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "actor": "pack_peddler",
+      "state": "talk",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "actor": "pack_peddler",
+      "state": "offer",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "actor": "pack_peddler",
+      "state": "inspect",
+      "facing": "right",
+      "native_validated": true,
+      "exists": true
+    },
+    {
+      "manifest": "art/production_npc_manifest.json",
+      "asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "actor": "pack_peddler",
+      "state": "return",
+      "facing": "right",
       "native_validated": true,
       "exists": true
     },
@@ -281737,106 +282513,6 @@
       "expected_filename": "ilex_sit_left.png"
     },
     {
-      "slot_id": "pose:pack_peddler:rest:right:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "rest",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_rest_right.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:talk:right:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "talk",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_talk_right.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:offer:right:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "offer",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_offer_right.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:inspect:right:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "inspect",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_inspect_right.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:return:right:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "return",
-      "facing": "right",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_return_right.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:rest:left:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "rest",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_rest_left.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:talk:left:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "talk",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_talk_left.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:offer:left:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "offer",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_offer_left.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:inspect:left:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "inspect",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_inspect_left.png"
-    },
-    {
-      "slot_id": "pose:pack_peddler:return:left:None",
-      "category": "npcs",
-      "entity_id": "pack_peddler",
-      "display_name": "Pack Peddler / Merrow",
-      "state": "return",
-      "facing": "left",
-      "weapon_family": null,
-      "expected_filename": "pack_peddler_return_left.png"
-    },
-    {
       "slot_id": "support:ashtrail_hunter:bow:left",
       "category": "support",
       "entity_id": "ashtrail_hunter",
@@ -283906,7 +284582,7 @@
   "latest_runtime_integration": {
     "version": "0.4.51",
     "base_checkpoint": "d6fef08",
-    "verified_contracts_closed": 31,
+    "verified_contracts_closed": 41,
     "slot_ids": [
       "pose:glimmerfin:idle:left:spear",
       "pose:glimmerfin:idle:left:staff",
@@ -283943,7 +284619,7 @@
     "new_runtime_body_png": 16,
     "new_foreground_grip_png": 16,
     "new_sidecars": 31,
-    "frozen_artist_file_requirements_fulfilled": 93,
+    "frozen_artist_file_requirements_fulfilled": 113,
     "new_runtime_physical_artist_files": 63,
     "new_source_delivery_files": 93,
     "by_family": {
@@ -283960,7 +284636,56 @@
       "One prismatic left release exceeded the old uniform fit allowance; source palms preserved, uniform fit bounded by existing held size limit.",
       "Windows backslash metadata prevented the new contact adapter from activating; source paths normalized and all 186 checks rerun.",
       "Four generated source images preserved; one later standalone left correction remains staged/unused, not an installation."
-    ]
+    ],
+    "sampled_body_fallbacks_before": 63,
+    "sampled_body_fallbacks_after": 55,
+    "installed_gameplay_features": [
+      "Actual-art primary/support grip and projectile geometry agree for Mythical weapons",
+      "Canonical face-preserving weapon/body depth with separate foreground fists",
+      "Read-only eight-item discovery/next-find/guarantee/reserved-reward preview inside Dungeons",
+      "Crownroot requirement named explicitly on Gravebloom action"
+    ],
+    "tests": [
+      "186 exact ordinary/Mythical contacts across three viewports",
+      "96 installed actor/weapon/facing cases: 55 fallback cases remain",
+      "7 inherited-input surface types and real purchase/perk/equip/salvage guards at three sizes",
+      "Shared weapon/animation/combat staging plus Diamond/Sigil/Mythical save/economy regressions"
+    ],
+    "export_status": "Building corrected Windows/Android 0.4.51 candidate; no physical device acceptance",
+    "production_quality_accepted": false,
+    "new_runtime_png": 42,
+    "new_physical_artist_files": 83,
+    "other_installed_features": [
+      "Ten canonical Pack Peddler service keyframes both facings, grounded live roadside-shop activity, restored readable per-offer benefits; purchases/economy/touch guards preserved."
+    ],
+    "merchant_batch": {
+      "version": "0.4.51",
+      "verified_contracts_closed": 10,
+      "slot_ids": [
+        "pose:pack_peddler:inspect:left:None",
+        "pose:pack_peddler:inspect:right:None",
+        "pose:pack_peddler:offer:left:None",
+        "pose:pack_peddler:offer:right:None",
+        "pose:pack_peddler:rest:left:None",
+        "pose:pack_peddler:rest:right:None",
+        "pose:pack_peddler:return:left:None",
+        "pose:pack_peddler:return:right:None",
+        "pose:pack_peddler:talk:left:None",
+        "pose:pack_peddler:talk:right:None"
+      ],
+      "new_runtime_png": 10,
+      "new_sidecars": 10,
+      "required_artist_files_fulfilled": 20,
+      "native_probes": 30,
+      "complete_fluid_animation_families": 0,
+      "professional_acceptance": false,
+      "default_live_facing": "right",
+      "left_facing": "Registered and native fixture reviewed; not chosen by current roadside header",
+      "rejected_cells": 10,
+      "correction_results": "Five wrong-costume right candidates replaced; five wrong-facing correction cells excluded. Approved woodland Pack Peddler and aquatic Merrow kept distinct.",
+      "native_qa": "peddler051-safe-layout-80937d63d4",
+      "layout_correction": "Reroll shifted into former Attack band in first candidate; compacted header/rows and restored spending controls to protected positions. Actual held/repeated/multitouch consequence regression passed three sizes."
+    }
   },
   "current_batch_corrections": [
     "Two initial Relic Beast release cells hide the second glove; rejected and replaced together.",
@@ -283977,17 +284702,17 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "7169577d1e88bde72268317dfe80fd7f8cd79fc4b520cddc897c3981cbd7129a",
-    "docs/production/CANON_REGISTRY.json": "c9022cac47540a3a7d9ad8a6e655b46d8aa3d8f9c37f0d2ba10fdb18e2a01097",
-    "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "cf4127d8449fce9e3b667523a7725c6e601f235bba4fba8b946b1bf51e4099a7",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "7b81aba1970024a4942dee67d5df5fa8b5604ce6d92ea119ddc63803eb453b8c",
+    "docs/production/CANON_REGISTRY.json": "d31c39579b9d3fe35057d394cba2d81f9b0a3975a7f88c03025ca07ae70767cd",
+    "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
     "art/npc_identity_authorities.json": "8c758eb2106971c8ab094f50b072a56a7a617612d83b26a4505686659e50593b",
     "art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json": "097ed7c8e96e868e645cd5e42b19fa400c501118531b29bd3d05691fd38c2aa4",
     "art/hoard_dragon_identity_authority.json": "8c3991797f5d51db5f0f58f25fa71b2265a91f387ba871f4bf167bc856e0cd63",
-    "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "ff029327ebc6b043af57f790d0b51d82a14f5a9d96594047f3d79246943c7f54",
-    "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "e4f283b3513558d0c577cb2088158d652d30bb8129996a9548988d3aadec2eca",
+    "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
+    "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.51/INSTALLATION_RECEIPT.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d"
+    "docs/production/quality-evidence/0.4.51/INSTALLATION_RECEIPT.json": "119d9c4de64102d7bd7de27115df385325e4c5d32c8fdb612aa7fa128c41ad05"
   }
 }

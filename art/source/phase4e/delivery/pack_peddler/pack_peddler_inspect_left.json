@@ -1,0 +1,44 @@
+{
+  "actor": "pack_peddler",
+  "state": "inspect",
+  "facing": "left",
+  "asset_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "content_rect": [
+    279,
+    1012,
+    467,
+    492
+  ],
+  "pivot": [
+    512,
+    1504
+  ],
+  "source_reference": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
+  "source_sha256": "49247db3314ede12d2f757a63851700adb115520148074dcd200eb2d6c8d94dc",
+  "authored_source": "art/source/peddler_051/left_candidate.png",
+  "authored_source_sha256": "a16a6adf990d65c7e51d28df6af623718c3a05ce37dbb28c0ab5a0d6f320517a",
+  "authored_source_bounds": [
+    15,
+    509,
+    482,
+    1001
+  ],
+  "contract_slot_id": "pose:pack_peddler:inspect:left:None",
+  "production_status": "canon_validated_runtime",
+  "native_validated": true,
+  "asset_sha256": "de78e43f4e90c22df9d0324bf3858f1d4fa8988ac3c78d08e8313d57a8e0e752",
+  "source_delivery_canvas": [
+    1024,
+    1536
+  ],
+  "source_quality": "Connected actual alpha silhouette; original pixels, 16px compact transparent gutter, no mirror or painted anatomy.",
+  "identity_subset": "LEFT brown woodland Pack Peddler on approved dual-role board. Aquatic Merrow is a distinct identity, not merged.",
+  "prop_ownership": "Intrinsic service potion/compass contact; no interchangeable weapon.",
+  "native_qa": "peddler051-final-b501c71226",
+  "visual_acceptance": "Dedicated approved brown Pack Peddler subset compared; ten actual native state/view frames reviewed on three layouts. True transparent isolated bodies, complete tails/feet/hats/packs, canonical amber face/travel costume. Basic service keyframes and breathing; fluid locomotion/professional acceptance remain open.",
+  "runtime_asset_sha256": "1a943e2407d38abb0b5e4f2b9e7b64fda65f5551af359a4260b36fc73e9972c1"
+}

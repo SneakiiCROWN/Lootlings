@@ -16,33 +16,33 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 8220,
-    "total_launch_scope_slots": 6993,
+    "total_records": 8245,
+    "total_launch_scope_slots": 7004,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4392,
+      "LIVE_BETA": 4413,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 2602,
-      "REFERENCE_ONLY": 1001,
+      "NEEDS_NEW_CANON_EXPORT": 2592,
+      "REFERENCE_ONLY": 1015,
       "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4391,
+      "LIVE_BETA": 4412,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
-      "NEEDS_NEW_CANON_EXPORT": 2602,
+      "NEEDS_NEW_CANON_EXPORT": 2592,
       "REFERENCE_ONLY": 0,
       "REJECTED_IDENTITY_DRIFT": 0,
       "PLANNED_NOT_IMPLEMENTED": 0,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
     },
-    "exact_missing_art_cells": 2602,
+    "exact_missing_art_cells": 2592,
     "support_packages": 165
   },
   "source_hash_encoding": "UTF8 text, LF line endings, no BOM; source image/audio evidence retains raw SHA256",
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "e736e2f7350ab2f7c8e7b727341000db4d8805f5fdcd68cf329f020603378ed2",
+    "export_presets.cfg": "a6570f015dda0ecc4b6b43d3c500a831bcbfd8ecc2e7593b4cd687993d98f791",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -134,7 +134,7 @@
     "item_catalog.gd": "20a5234b1048e45d710ee953f20b71af3c7b8e447cd52d31c6228827ed19f88e",
     "item_icon.gd": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "0bde54cb753ac1704e27b17fd08b6cec8c25b5561d4e866a05ec039faa3235ed",
+    "lootling.gd": "e3f25f55979b9f65001354a1ac2185007be46e13a592ad89cc2dadd09f7da757",
     "lootlings_ui.gd": "91a64f650aaaed793a701df21fe5fc0a00574c0c81075e5cf71cdfac2f07fa3a",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
     "loot_system.gd": "69524d4ded62c7d7fb8de7edbc59a442a7f71b6ddd49c3f5bd9d74691a0ce07e",
@@ -175,6 +175,7 @@
     "startup_ui.gd": "9c015aa030b8d9d6b8637a294cb8b218aebbb196541d561050c1c0730f70c818",
     "station_presentation.gd": "66abc58cf23ca587eae457c676a74adf7d8861b1afb1820c022ad7897b73b150",
     "touch_ux.gd": "25a75ffaba32e4ea84a03a6c0b4a88bd8653ec818f0f6f8a98af7a24f0e20123",
+    "travelling_merchant_view.gd": "d25cee30842ef521744cad22f9e19ea4f4029d1929202129d6f231306f9c8a43",
     "ui_surface_style.gd": "722177f70bf5f2be4c5e901ca1ff08e9c441711c3ece9b071019cac935794e65",
     "vignette_catalog.gd": "7695dc6d64bd057c6558cd6a2cb3acb4e77d4a36abacd4e9b41776384f0c5d1e",
     "vignette_player.gd": "69970bc6839ae27f62608d12a23ed5342990c83f8c8a9b1c36c8046e9152b6e9",
@@ -196,7 +197,7 @@
     "art/npc_identity_authorities.json": "8881abdeb7dab8a844bb5e1ac8479d7893d9dda80ddf212bffbcc1fc6a792326",
     "art/production/companions/runtime_manifest.json": "967edf70bbc4e973574660098f74dea0d38508d0587e2807ec2499c4dbf73a54",
     "art/production_enemy_manifest.json": "33213189e6284e4745c897a83dc214c71b4cd88d576bce94c7626a9af4e26f1e",
-    "art/production_npc_manifest.json": "76c15494c31cbb9936b9dcb71018a2eb957eb8e36219daa3b6e7e55fb33490be",
+    "art/production_npc_manifest.json": "9e4c2bc46b8efaf1d9d9d95f73ab5dd0173c58f07ffb14f50ae10c65c8dc194e",
     "art/production/phase4e/player_batch_043_manifest.json": "b2f5e62288240710812f8edb4d2c1865c1183debbd31493edffa5d2b28d1bab6",
     "art/production/phase4e/player_motion_044_manifest.json": "12c0b5b14c814eb59c83bbc8e9134133f2b2e1a71ad691f556730f18f9d6472c",
     "art/production/phase4e/player_combat_045_manifest.json": "56fcd5d091a0006a4c2b6f0192665634a887762f222465cf147f290bdb8bb84e",
@@ -219546,55 +219547,41 @@
       "state": "rest",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_rest_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
       "dimensions": [
-        1024,
-        1536
+        518,
+        508
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:rest:left:None",
@@ -219604,55 +219591,41 @@
       "state": "rest",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_rest_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
       "dimensions": [
-        1024,
-        1536
+        490,
+        507
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:talk:right:None",
@@ -219662,55 +219635,41 @@
       "state": "talk",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_talk_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
       "dimensions": [
-        1024,
-        1536
+        519,
+        504
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:talk:left:None",
@@ -219720,55 +219679,41 @@
       "state": "talk",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_talk_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
       "dimensions": [
-        1024,
-        1536
+        521,
+        506
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:offer:right:None",
@@ -219778,55 +219723,41 @@
       "state": "offer",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_offer_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
       "dimensions": [
-        1024,
-        1536
+        507,
+        506
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:offer:left:None",
@@ -219836,55 +219767,41 @@
       "state": "offer",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_offer_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
       "dimensions": [
-        1024,
-        1536
+        515,
+        502
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:inspect:right:None",
@@ -219894,55 +219811,41 @@
       "state": "inspect",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_inspect_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
       "dimensions": [
-        1024,
-        1536
+        531,
+        511
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:inspect:left:None",
@@ -219952,55 +219855,41 @@
       "state": "inspect",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_inspect_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
       "dimensions": [
-        1024,
-        1536
+        499,
+        524
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:return:right:None",
@@ -220010,55 +219899,41 @@
       "state": "return",
       "facing": "right",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_return_right.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
       "dimensions": [
-        1024,
-        1536
+        509,
+        509
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__right"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:pack_peddler:return:left:None",
@@ -220068,55 +219943,41 @@
       "state": "return",
       "facing": "left",
       "weapon_family": null,
-      "status": "NEEDS_NEW_CANON_EXPORT",
+      "status": "LIVE_BETA",
       "launch_scope": true,
-      "canonical_source": [
-        "res://art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png"
-      ],
+      "canonical_source": "art/reference/phase4e_handoff/chatgpt_generated_candidates/merchant_candidates/pack_peddler_merrow_canonical_candidate.png",
       "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": "art/production/phase4e/enemies/pack_peddler/pack_peddler_return_left.png",
+      "current_production_asset": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "target_production_path": "res://art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
       "dimensions": [
-        1024,
-        1536
+        534,
+        519
       ],
       "background": "transparent RGBA",
       "baseline": {
-        "target_canvas_y": 1504,
-        "source_pixels": null
+        "rig_local_y": null,
+        "renderer_ground_y": 548
       },
       "pivot_anchor": {
-        "target_canvas": [
-          512,
-          1504
-        ],
-        "source_pixels": null
+        "body_rect": null,
+        "core_normalized": null
       },
       "weapon_socket": {
-        "source_pixels": null,
-        "status": "OPEN, exact authored palms/offer prop needed"
+        "primary_normalized": null,
+        "secondary_normalized": null,
+        "coordinate_space": "existing authored frame normalized canvas"
       },
-      "support_hand_socket": [
-        "primary palm",
-        "secondary palm",
-        "offer prop",
-        "feet baseline"
-      ],
+      "support_hand_socket": false,
       "layering_requirements": "Preserve body/weapon depth, existing target facing, paw contact, support/nock/paired sockets; no baked replacement identity",
       "runtime_system": "regional_enemy_presentation / resident_art_catalog",
       "implementation_file": "regional_enemy_presentation.gd",
       "dependency": [
         "pack_peddler__left"
       ],
-      "blocker": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented. Existing proxy/intro presentation is not an approved articulated state export; written regional canon constrains the eventual asset.",
+      "blocker": null,
       "priority": "P1",
-      "acceptance_status": "OPEN",
-      "evidence": {
-        "accepted_state_manifest": "art/production_pose_manifest.json",
-        "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-        "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-        "existing_actor_candidates": []
-      }
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
     },
     {
       "slot_id": "pose:ashtrail_hunter:defeat:left:orb",
@@ -328531,40 +328392,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:2432:0:14cc9e57",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 2432,
-        "text": "MIRROR CHARGE",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:2434:0:60d92e6f",
+      "slot_id": "label:lootling.gd:2434:0:14cc9e57",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328592,12 +328420,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2434,
-        "text": "FEINT",
+        "text": "MIRROR CHARGE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2436:0:b636872a",
+      "slot_id": "label:lootling.gd:2436:0:60d92e6f",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328625,12 +328453,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2436,
-        "text": "CHIME",
+        "text": "FEINT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2438:0:d896b990",
+      "slot_id": "label:lootling.gd:2438:0:b636872a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328658,12 +328486,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2438,
-        "text": "PRESSURE RISE",
+        "text": "CHIME",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2440:0:479c9dc5",
+      "slot_id": "label:lootling.gd:2440:0:d896b990",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328691,12 +328519,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2440,
-        "text": "TRIBUTE FLARE",
+        "text": "PRESSURE RISE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2444:0:491cd481",
+      "slot_id": "label:lootling.gd:2442:0:479c9dc5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328723,13 +328551,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2444,
-        "text": "ERASE",
+        "line": 2442,
+        "text": "TRIBUTE FLARE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2446:0:1e88206f",
+      "slot_id": "label:lootling.gd:2446:0:491cd481",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328757,12 +328585,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2446,
-        "text": "REFRACT",
+        "text": "ERASE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2448:0:338d68f0",
+      "slot_id": "label:lootling.gd:2448:0:1e88206f",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328790,12 +328618,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2448,
-        "text": "REEL IN",
+        "text": "REFRACT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2450:0:084904bf",
+      "slot_id": "label:lootling.gd:2450:0:338d68f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328823,12 +328651,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2450,
-        "text": "CLAIM",
+        "text": "REEL IN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2452:0:be8f4941",
+      "slot_id": "label:lootling.gd:2452:0:084904bf",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328856,12 +328684,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2452,
+        "text": "CLAIM",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:2454:0:be8f4941",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 2454,
         "text": "TAIL SWEEP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2799:0:6a9fef6e",
+      "slot_id": "label:lootling.gd:2801:0:6a9fef6e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328888,13 +328749,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2799,
+        "line": 2801,
         "text": "WAVE FINDS — PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2799:1:6e688269",
+      "slot_id": "label:lootling.gd:2801:1:6e688269",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328921,13 +328782,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2799,
+        "line": 2801,
         "text": "BOSS HOARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2801:0:c497c9c1",
+      "slot_id": "label:lootling.gd:2803:0:c497c9c1",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328954,13 +328815,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2801,
+        "line": 2803,
         "text": "One find from this wave. The rest stay in the ruins.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2801:1:4dc26b13",
+      "slot_id": "label:lootling.gd:2803:1:4dc26b13",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328987,13 +328848,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2801,
+        "line": 2803,
         "text": "Choose one reward to carry home.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2813:0:3b8d5b98",
+      "slot_id": "label:lootling.gd:2815:0:3b8d5b98",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329020,13 +328881,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2813,
+        "line": 2815,
         "text": "%s  •  %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2813:1:462854f9",
+      "slot_id": "label:lootling.gd:2815:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329053,13 +328914,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2813,
+        "line": 2815,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2813:2:6867e600",
+      "slot_id": "label:lootling.gd:2815:2:6867e600",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329086,13 +328947,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2813,
+        "line": 2815,
         "text": "Relic",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2819:0:ef7e6794",
+      "slot_id": "label:lootling.gd:2821:0:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329119,13 +328980,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2819,
+        "line": 2821,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2819:1:ef7e6794",
+      "slot_id": "label:lootling.gd:2821:1:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329152,13 +329013,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2819,
+        "line": 2821,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2849:0:e3bab90b",
+      "slot_id": "label:lootling.gd:2851:0:e3bab90b",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329185,13 +329046,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2849,
+        "line": 2851,
         "text": "[b]NEW ITEM: %s[/b]\\n%d RUN SCRIP / equip only if you choose\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2849:1:462854f9",
+      "slot_id": "label:lootling.gd:2851:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329218,13 +329079,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2849,
+        "line": 2851,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2849:2:ead53368",
+      "slot_id": "label:lootling.gd:2851:2:ead53368",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329251,13 +329112,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2849,
+        "line": 2851,
         "text": "Weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2850:0:148be80c",
+      "slot_id": "label:lootling.gd:2852:0:148be80c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329284,13 +329145,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2850,
+        "line": 2852,
         "text": "BUY %d — ENDS THIS STOP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2865:0:0d2cee9c",
+      "slot_id": "label:lootling.gd:2867:0:0d2cee9c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329317,13 +329178,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2865,
+        "line": 2867,
         "text": "TAKE PERK / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2869:0:3d0a6ba5",
+      "slot_id": "label:lootling.gd:2871:0:3d0a6ba5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329350,13 +329211,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2869,
+        "line": 2871,
         "text": "CURRENT: %d stacks / %s\\nNEW PERK: %s / stacks %d to %d\\nCOST: FREE / %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2906:0:b23e7e58",
+      "slot_id": "label:lootling.gd:2908:0:b23e7e58",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329383,13 +329244,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2906,
+        "line": 2908,
         "text": "%s\\n%s\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2906:1:deb80331",
+      "slot_id": "label:lootling.gd:2908:1:deb80331",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329416,13 +329277,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2906,
+        "line": 2908,
         "text": "desc",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2910:0:5c18f8eb",
+      "slot_id": "label:lootling.gd:2912:0:5c18f8eb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329449,13 +329310,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2910,
+        "line": 2912,
         "text": "KEEP IN STASH\\n%d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2911:0:5fde04be",
+      "slot_id": "label:lootling.gd:2913:0:5fde04be",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329482,13 +329343,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2911,
+        "line": 2913,
         "text": "SCRAP  +%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3080:0:ed059f21",
+      "slot_id": "label:lootling.gd:3082:0:ed059f21",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329515,13 +329376,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3080,
+        "line": 3082,
         "text": "RELIC ROUTE • MERCHANT ROOM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3080:1:520d7b36",
+      "slot_id": "label:lootling.gd:3082:1:520d7b36",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329548,79 +329409,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3080,
+        "line": 3082,
         "text": "ROADSIDE STOP  •  BETWEEN WAVES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3094:0:9f888007",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3094,
-        "text": "SELECT AN OFFER",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3095:0:119bed34",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3095,
-        "text": "Inspect an offer. One purchase ends this stop.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3096:0:e5d5cd32",
+      "slot_id": "label:lootling.gd:3096:0:9f888007",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329648,12 +329443,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 3096,
-        "text": "PACK PEDDLER",
+        "text": "SELECT AN OFFER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3097:0:a7e24318",
+      "slot_id": "label:lootling.gd:3097:0:119bed34",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329681,12 +329476,78 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 3097,
+        "text": "Inspect an offer. One purchase ends this stop.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3098:0:e5d5cd32",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3098,
+        "text": "PACK PEDDLER",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3099:0:a7e24318",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3099,
         "text": " • PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3099:0:9a1dca47",
+      "slot_id": "label:lootling.gd:3101:0:9a1dca47",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329713,13 +329574,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3099,
+        "line": 3101,
         "text": "[center]%s  %s RUN SCRIP[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3099:1:2c2ef4d6",
+      "slot_id": "label:lootling.gd:3101:1:2c2ef4d6",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329746,13 +329607,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3099,
+        "line": 3101,
         "text": "currency_run_scrip",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3104:0:b6e2fa32",
+      "slot_id": "label:lootling.gd:3106:0:b93e34c2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329779,13 +329640,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3104,
-        "text": "SOLD • IN GOOD PAWS\\nPatch is already counting the coins.",
+        "line": 3106,
+        "text": "SOLD • IN GOOD PAWS\\nThe peddler is packing the receipts.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3108:0:a276cade",
+      "slot_id": "label:lootling.gd:3110:0:a276cade",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329812,13 +329673,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3108,
+        "line": 3110,
         "text": "SOLD • IN GOOD PAWS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3109:0:1fc287f0",
+      "slot_id": "label:lootling.gd:3111:0:1fc287f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329845,13 +329706,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3109,
+        "line": 3111,
         "text": "Nothing left but the receipt.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3123:0:526d5d47",
+      "slot_id": "label:lootling.gd:3125:0:526d5d47",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329878,13 +329739,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3123,
+        "line": 3125,
         "text": "%s%s  •  %d SCRIP\\n%s%s  [%s]\\n%s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3123:1:462854f9",
+      "slot_id": "label:lootling.gd:3125:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329911,13 +329772,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3123,
+        "line": 3125,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3123:2:ecdda59a",
+      "slot_id": "label:lootling.gd:3125:2:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329944,13 +329805,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3123,
+        "line": 3125,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3131:0:eb995721",
+      "slot_id": "label:lootling.gd:3133:0:eb995721",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329977,13 +329838,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3131,
+        "line": 3133,
         "text": "%s  •  %s  •  %d SCRIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3131:1:71c77258",
+      "slot_id": "label:lootling.gd:3133:1:71c77258",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330010,13 +329871,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3131,
+        "line": 3133,
         "text": "PREMIUM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3131:2:5c0a4fc7",
+      "slot_id": "label:lootling.gd:3133:2:5c0a4fc7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330043,13 +329904,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3131,
+        "line": 3133,
         "text": "premium",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3131:3:462854f9",
+      "slot_id": "label:lootling.gd:3133:3:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330076,13 +329937,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3131,
+        "line": 3133,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3131:4:ecdda59a",
+      "slot_id": "label:lootling.gd:3133:4:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330109,13 +329970,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3131,
+        "line": 3133,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3137:0:a74032f4",
+      "slot_id": "label:lootling.gd:3139:0:a74032f4",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330142,13 +330003,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3137,
+        "line": 3139,
         "text": "REROLL  %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3202:0:9afc3c93",
+      "slot_id": "label:lootling.gd:3204:0:9afc3c93",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330175,13 +330036,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3202,
+        "line": 3204,
         "text": "CURRENT: %s\\nChoose a new perk to compare. FREE, or keep your current build.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3205:0:86597834",
+      "slot_id": "label:lootling.gd:3207:0:86597834",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330208,13 +330069,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3205,
+        "line": 3207,
         "text": "SELECT A CARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3224:0:408ab24d",
+      "slot_id": "label:lootling.gd:3226:0:408ab24d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330241,13 +330102,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3224,
+        "line": 3226,
         "text": "%s  /  %s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3224:1:caa4ad3d",
+      "slot_id": "label:lootling.gd:3226:1:caa4ad3d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330274,13 +330135,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3224,
+        "line": 3226,
         "text": "UTILITY",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3224:2:cd7cff17",
+      "slot_id": "label:lootling.gd:3226:2:cd7cff17",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330307,13 +330168,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3224,
+        "line": 3226,
         "text": "  /  STACK ×%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3233:0:e8634078",
+      "slot_id": "label:lootling.gd:3235:0:e8634078",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330340,13 +330201,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3233,
+        "line": 3235,
         "text": "LEVEL %d - PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3350:0:80e69ea0",
+      "slot_id": "label:lootling.gd:3352:0:80e69ea0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330373,13 +330234,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3350,
+        "line": 3352,
         "text": "HOARD CONQUERED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3350:1:628283b0",
+      "slot_id": "label:lootling.gd:3352:1:628283b0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330406,13 +330267,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3350,
+        "line": 3352,
         "text": "EXPEDITION ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3372:0:aa11de5a",
+      "slot_id": "label:lootling.gd:3374:0:aa11de5a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330439,13 +330300,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3372,
+        "line": 3374,
         "text": "SIEGE EXTRACTED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3372:1:106840bc",
+      "slot_id": "label:lootling.gd:3374:1:106840bc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330472,13 +330333,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3372,
+        "line": 3374,
         "text": "SIEGE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3373:0:4943fd98",
+      "slot_id": "label:lootling.gd:3375:0:4943fd98",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330505,13 +330366,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3373,
+        "line": 3375,
         "text": "RUN SCRIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3373:1:eb10c001",
+      "slot_id": "label:lootling.gd:3375:1:eb10c001",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330538,13 +330399,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3373,
+        "line": 3375,
         "text": "SIEGE EMBERS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3373:2:c6f00561",
+      "slot_id": "label:lootling.gd:3375:2:c6f00561",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330571,13 +330432,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3373,
+        "line": 3375,
         "text": "Wave reached  %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3373:3:7ac2a5ca",
+      "slot_id": "label:lootling.gd:3375:3:7ac2a5ca",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330604,13 +330465,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3373,
+        "line": 3375,
         "text": "Round reached  %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3376:0:6d91faaa",
+      "slot_id": "label:lootling.gd:3378:0:6d91faaa",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330637,13 +330498,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3376,
+        "line": 3378,
         "text": "PRISM RIFT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3376:1:d3c6e300",
+      "slot_id": "label:lootling.gd:3378:1:d3c6e300",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330670,13 +330531,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3376,
+        "line": 3378,
         "text": "ROOTGLASS VAULT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3376:2:84089e35",
+      "slot_id": "label:lootling.gd:3378:2:84089e35",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330703,13 +330564,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3376,
+        "line": 3378,
         "text": "RELIC ROUTE CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3376:3:7f403abb",
+      "slot_id": "label:lootling.gd:3378:3:7f403abb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330736,13 +330597,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3376,
+        "line": 3378,
         "text": "ROUTE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3377:0:c6f00561",
+      "slot_id": "label:lootling.gd:3379:0:c6f00561",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330769,13 +330630,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3377,
+        "line": 3379,
         "text": "Wave reached  %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3377:1:49e79ce8",
+      "slot_id": "label:lootling.gd:3379:1:49e79ce8",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330802,13 +330663,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3377,
+        "line": 3379,
         "text": "Rooms entered  %d / 8 • Seed %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3445:0:6ae99955",
+      "slot_id": "label:lootling.gd:3447:0:6ae99955",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330835,13 +330696,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3445,
+        "line": 3447,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3445:1:e8fef4b9",
+      "slot_id": "label:lootling.gd:3447:1:e8fef4b9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330868,13 +330729,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3445,
+        "line": 3447,
         "text": "Loot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3844:0:d5954590",
+      "slot_id": "label:lootling.gd:3846:0:d5954590",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330901,13 +330762,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3844,
+        "line": 3846,
         "text": "EMBERS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3844:1:5c83506e",
+      "slot_id": "label:lootling.gd:3846:1:5c83506e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330934,13 +330795,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3844,
+        "line": 3846,
         "text": "SCRIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3853:0:e4fbbd8b",
+      "slot_id": "label:lootling.gd:3855:0:e4fbbd8b",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330967,13 +330828,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3853,
+        "line": 3855,
         "text": "WARD %.0f",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3941:0:089331a2",
+      "slot_id": "label:lootling.gd:3943:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331000,13 +330861,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3941,
+        "line": 3943,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3942:0:e29764e7",
+      "slot_id": "label:lootling.gd:3944:0:e29764e7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331033,13 +330894,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3942,
+        "line": 3944,
         "text": "DETAILS: PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4068:0:56d441fc",
+      "slot_id": "label:lootling.gd:4070:0:56d441fc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331066,7 +330927,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4068,
+        "line": 4070,
         "text": "COMBO ×%d",
         "dynamic_template": true
       }
@@ -375476,6 +375337,396 @@
       }
     },
     {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "game_id": "pack_peddler_inspect_left",
+      "category": "combat_art",
+      "subject": "pack_peddler_inspect_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_left.png",
+      "dimensions": [
+        499,
+        524
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "1a943e2407d38abb0b5e4f2b9e7b64fda65f5551af359a4260b36fc73e9972c1",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "game_id": "pack_peddler_inspect_right",
+      "category": "combat_art",
+      "subject": "pack_peddler_inspect_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_inspect_right.png",
+      "dimensions": [
+        531,
+        511
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "823f081bf39058b0fccfcf7139a5db7c3acc5b12c502c7c8e617d5abefc7fad5",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "game_id": "pack_peddler_offer_left",
+      "category": "combat_art",
+      "subject": "pack_peddler_offer_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_left.png",
+      "dimensions": [
+        515,
+        502
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "d5b468c439536afbbbc57b940f9967188fc06b628f30767eea40ee1d87a37ca1",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "game_id": "pack_peddler_offer_right",
+      "category": "combat_art",
+      "subject": "pack_peddler_offer_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_offer_right.png",
+      "dimensions": [
+        507,
+        506
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "f4ebbfae30c5f6974312ca74291eb2962c7df7192774775a860ea8be326aac7e",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "game_id": "pack_peddler_rest_left",
+      "category": "combat_art",
+      "subject": "pack_peddler_rest_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_left.png",
+      "dimensions": [
+        490,
+        507
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "681fcb513ff369290468a294c7af67944d540863d014d87d426869feb980db47",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "game_id": "pack_peddler_rest_right",
+      "category": "combat_art",
+      "subject": "pack_peddler_rest_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_rest_right.png",
+      "dimensions": [
+        518,
+        508
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "958b84bb21300562dcfcd0dc93f432cbe974b6f59d06e6faf2904b4054a8e198",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "game_id": "pack_peddler_return_left",
+      "category": "combat_art",
+      "subject": "pack_peddler_return_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_left.png",
+      "dimensions": [
+        534,
+        519
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "ef2726cf3ade4d599951e311a0f679c3601326f0db633ced925886048cab25d9",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "game_id": "pack_peddler_return_right",
+      "category": "combat_art",
+      "subject": "pack_peddler_return_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_return_right.png",
+      "dimensions": [
+        509,
+        509
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "79da85b0c94cb1f282719cb6d1abb55a5b1650d4c75e0162dc11dc4aeef3fd54",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "game_id": "pack_peddler_talk_left",
+      "category": "combat_art",
+      "subject": "pack_peddler_talk_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_left.png",
+      "dimensions": [
+        521,
+        506
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "de6492046f0082c3186a6a7d199dad6bd6ac8337a788ee480f98ef71b8a08401",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "game_id": "pack_peddler_talk_right",
+      "category": "combat_art",
+      "subject": "pack_peddler_talk_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "target_production_path": "art/production/phase4e/npcs/pack_peddler/pack_peddler_talk_right.png",
+      "dimensions": [
+        519,
+        504
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "resident_art_catalog.gd"
+      ],
+      "implementation_file": [
+        "resident_art_catalog.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "2db4dd64fa333d0562488af4c37bc9a662ae76e2114f0145d891b22318bfef20",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
       "slot_id": "asset:art/production/phase4e/npcs/patch/patch_inspect_left.png",
       "game_id": "patch_inspect_left",
       "category": "combat_art",
@@ -394037,6 +394288,134 @@
       }
     },
     {
+      "slot_id": "source:art/source/peddler_051/left_candidate.png",
+      "game_id": "left_candidate",
+      "category": "reference",
+      "subject": "left_candidate",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/peddler_051/left_candidate.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "a16a6adf990d65c7e51d28df6af623718c3a05ce37dbb28c0ab5a0d6f320517a",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/peddler_051/right_candidate.png",
+      "game_id": "right_candidate",
+      "category": "reference",
+      "subject": "right_candidate",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/peddler_051/right_candidate.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "613511a608b527f03fee848fc7c70691219ca7279f34672be1871bb3981ef940",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/peddler_051/right_corrected.png",
+      "game_id": "right_corrected",
+      "category": "reference",
+      "subject": "right_corrected",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/peddler_051/right_corrected.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "6510e16a53ca00bfb208d69593b404122b873244f189bcac292020c48efc0c07",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/peddler_051/wrong_facing_correction.png",
+      "game_id": "wrong_facing_correction",
+      "category": "reference",
+      "subject": "wrong_facing_correction",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/peddler_051/wrong_facing_correction.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "1ab1f992a63a2cb188bb64af418347cba369c5097d10e60ee38677de84c63562",
+        "rejection": null
+      }
+    },
+    {
       "slot_id": "source:art/source/phase4e/delivery/glimmerfin/glimmerfin_idle_spear_left.png",
       "game_id": "glimmerfin_idle_spear_left",
       "category": "reference",
@@ -395761,6 +396140,326 @@
       "acceptance_status": "OPEN",
       "evidence": {
         "sha256": "b33a664d57991a4e59255234824956f9871ca14fa822375745d25dd5e145bbe1",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_left.png",
+      "game_id": "pack_peddler_inspect_left",
+      "category": "reference",
+      "subject": "pack_peddler_inspect_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_left.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "de78e43f4e90c22df9d0324bf3858f1d4fa8988ac3c78d08e8313d57a8e0e752",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_right.png",
+      "game_id": "pack_peddler_inspect_right",
+      "category": "reference",
+      "subject": "pack_peddler_inspect_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_inspect_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "55a2d45942a18181180ce14b2dd7bfc6694a4e8edb2cad4e39da9c29ae0d0259",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_left.png",
+      "game_id": "pack_peddler_offer_left",
+      "category": "reference",
+      "subject": "pack_peddler_offer_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_left.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "0bbe29a980134bf805e0204e77dc1ee0d43a06af8974927d9ed9a18c18c91e2b",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_right.png",
+      "game_id": "pack_peddler_offer_right",
+      "category": "reference",
+      "subject": "pack_peddler_offer_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_offer_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "fc93da885c533e74270d54ee91d5c7e7e3e7d3976d7c4a584cb69cb3c243d7d0",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_left.png",
+      "game_id": "pack_peddler_rest_left",
+      "category": "reference",
+      "subject": "pack_peddler_rest_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_left.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "ec0fc678c489741f070fc82fd8772cb5b7b7d46a5c12f938dac2281cafca1a0b",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_right.png",
+      "game_id": "pack_peddler_rest_right",
+      "category": "reference",
+      "subject": "pack_peddler_rest_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_rest_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "a707a0654c19aaf07af5a592fc14fb40e9f3cce1693d3cc8efbc611461262f8f",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_return_left.png",
+      "game_id": "pack_peddler_return_left",
+      "category": "reference",
+      "subject": "pack_peddler_return_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_return_left.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "ff52beb993774cf6c5bdedeae5b1f5f595dd135d85d00e549ee3f101d20f30f1",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_return_right.png",
+      "game_id": "pack_peddler_return_right",
+      "category": "reference",
+      "subject": "pack_peddler_return_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_return_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "3c1c5cd775f8505aa46c1465aa78a59787eb0b82391c53877963c967570a1ff0",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_left.png",
+      "game_id": "pack_peddler_talk_left",
+      "category": "reference",
+      "subject": "pack_peddler_talk_left",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_left.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "5899a72eaf81d15cbaf40f789b9b5e1f1ce90a7f54e1a901641186d9d6b2bf06",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_right.png",
+      "game_id": "pack_peddler_talk_right",
+      "category": "reference",
+      "subject": "pack_peddler_talk_right",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/phase4e/delivery/pack_peddler/pack_peddler_talk_right.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "d39e9883d41ee07db64f39fef729462e172723255252fc8d5e34530b20e83067",
         "rejection": null
       }
     },
@@ -429939,6 +430638,41 @@
           "close_dialog",
           "request",
           "set_slider_value"
+        ]
+      }
+    },
+    {
+      "slot_id": "system:travelling_merchant_view.gd",
+      "game_id": "travelling_merchant_view_gd",
+      "category": "runtime_system",
+      "subject": "travelling_merchant_view.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "travelling_merchant_view.gd",
+      "implementation_file": "travelling_merchant_view.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "_ready",
+          "_process",
+          "_draw"
         ]
       }
     },

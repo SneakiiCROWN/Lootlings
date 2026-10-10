@@ -7054,7 +7054,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "0bde54cb753ac1704e27b17fd08b6cec8c25b5561d4e866a05ec039faa3235ed"
+    "source_sha256": "e3f25f55979b9f65001354a1ac2185007be46e13a592ad89cc2dadd09f7da757"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9294,6 +9294,19 @@
       "set_slider_value"
     ],
     "source_sha256": "25a75ffaba32e4ea84a03a6c0b4a88bd8653ec818f0f6f8a98af7a24f0e20123"
+  },
+  "travelling_merchant_view.gd": {
+    "constants": {
+      "Art": {
+        "resource_path": "res://resident_art_catalog.gd"
+      }
+    },
+    "methods": [
+      "_ready",
+      "_process",
+      "_draw"
+    ],
+    "source_sha256": "d25cee30842ef521744cad22f9e19ea4f4029d1929202129d6f231306f9c8a43"
   },
   "ui_surface_style.gd": {
     "constants": {},
