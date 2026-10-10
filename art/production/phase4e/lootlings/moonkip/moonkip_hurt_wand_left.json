@@ -1,0 +1,93 @@
+{
+  "actor": "moonkip",
+  "phase": "HURT",
+  "state": "hurt",
+  "facing": "left_only",
+  "weapon_types": [
+    "wand"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.2865209858786611,
+    0.63671875
+  ],
+  "secondary_anchor": [
+    0.5444438088389121,
+    0.7727705792682926
+  ],
+  "core_anchor": [
+    0.42927072437238495,
+    0.7436166158536586
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": false,
+  "contract_slot_id": "pose:moonkip:hurt:left:wand",
+  "source": "art/source/player_combat_043/moonkip_left_mixed.png",
+  "source_sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f",
+  "source_bounds": [
+    560,
+    552,
+    1038,
+    962
+  ],
+  "source_primary": [
+    668,
+    757
+  ],
+  "source_secondary": [
+    827,
+    841
+  ],
+  "primary_palm": [
+    146.69874476987448,
+    326.0
+  ],
+  "secondary_palm": [
+    278.755230125523,
+    395.6585365853658
+  ],
+  "core_or_eye": [
+    219.7866108786611,
+    380.7317073170732
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8305439330543933,
+      0.8292682926829268
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      57,
+      156
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.json",
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

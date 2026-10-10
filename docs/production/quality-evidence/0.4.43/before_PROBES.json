@@ -1,0 +1,980 @@
+{
+	"full_motion_family_accepted": false,
+	"movement": "OPEN; neutral is not locomotion",
+	"probes": [
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_idle_right",
+			"projectile_origin": "(66.03276, -29.22368)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(81.51639, -21.81967)",
+			"probe": "gloomlet_bow_windup_right",
+			"projectile_origin": "(87.91785, -25.19269)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_commit_right",
+			"projectile_origin": "(60.85689, -33.77315)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_follow_right",
+			"projectile_origin": "(56.44891, -36.79221)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_recovery_right",
+			"projectile_origin": "(60.50484, -32.33418)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_hurt_right",
+			"projectile_origin": "(53.79538, -31.18259)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_idle_left",
+			"projectile_origin": "(-66.03276, -29.22368)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-83.41837, -26.64286)",
+			"probe": "gloomlet_bow_windup_left",
+			"projectile_origin": "(-89.53517, -30.11864)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_commit_left",
+			"projectile_origin": "(-60.85689, -33.77315)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_follow_left",
+			"projectile_origin": "(-56.44891, -36.79221)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_recovery_left",
+			"projectile_origin": "(-60.50484, -32.33418)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_hurt_left",
+			"projectile_origin": "(-53.79538, -31.18259)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_wand_idle_right",
+			"projectile_origin": "(61.19308, -46.88928)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_wand_windup_right",
+			"projectile_origin": "(-27.3398, -39.72505)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_commit_right",
+			"projectile_origin": "(86.26002, -28.93035)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_follow_right",
+			"projectile_origin": "(87.71356, -36.61424)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_wand_recovery_right",
+			"projectile_origin": "(60.04223, -12.30163)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_wand_hurt_right",
+			"projectile_origin": "(49.15612, -51.91047)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_wand_idle_left",
+			"projectile_origin": "(-61.19308, -46.88928)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_wand_windup_left",
+			"projectile_origin": "(-45.06199, -70.41242)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_commit_left",
+			"projectile_origin": "(-83.53404, -30.32246)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_follow_left",
+			"projectile_origin": "(-84.94721, -37.92427)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_wand_recovery_left",
+			"projectile_origin": "(-60.0538, -17.1001)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_wand_hurt_left",
+			"projectile_origin": "(-49.15612, -51.91047)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_orb_idle_right",
+			"projectile_origin": "(90.2569, -24.84992)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_orb_windup_right",
+			"projectile_origin": "(81.63732, -48.37642)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -33.18182)",
+			"probe": "moonkip_orb_commit_right",
+			"projectile_origin": "(82.90636, -50.0798)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -25.81818)",
+			"probe": "moonkip_orb_follow_right",
+			"projectile_origin": "(86.81606, -48.50534)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_recovery_right",
+			"projectile_origin": "(88.22398, -34.34176)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_hurt_right",
+			"projectile_origin": "(82.92764, -34.99323)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_orb_idle_left",
+			"projectile_origin": "(-90.2569, -24.84992)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_orb_windup_left",
+			"projectile_origin": "(-81.63732, -48.37642)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -33.18182)",
+			"probe": "moonkip_orb_commit_left",
+			"projectile_origin": "(-82.90636, -50.0798)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -25.81818)",
+			"probe": "moonkip_orb_follow_left",
+			"projectile_origin": "(-86.81606, -48.50534)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_recovery_left",
+			"projectile_origin": "(-88.22398, -34.34176)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_hurt_left",
+			"projectile_origin": "(-82.92764, -34.99323)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_idle_right",
+			"projectile_origin": "(66.03276, -29.22368)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(81.51639, -21.81967)",
+			"probe": "gloomlet_bow_windup_right",
+			"projectile_origin": "(87.91785, -25.19269)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_commit_right",
+			"projectile_origin": "(60.85689, -33.77315)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_follow_right",
+			"projectile_origin": "(56.44891, -36.79221)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_recovery_right",
+			"projectile_origin": "(60.50484, -32.33418)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_hurt_right",
+			"projectile_origin": "(53.79538, -31.18259)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_idle_left",
+			"projectile_origin": "(-66.03276, -29.22368)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-83.41837, -26.64286)",
+			"probe": "gloomlet_bow_windup_left",
+			"projectile_origin": "(-89.53517, -30.11864)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_commit_left",
+			"projectile_origin": "(-60.85689, -33.77315)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_follow_left",
+			"projectile_origin": "(-56.44891, -36.79221)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_recovery_left",
+			"projectile_origin": "(-60.50484, -32.33418)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_hurt_left",
+			"projectile_origin": "(-53.79538, -31.18259)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_wand_idle_right",
+			"projectile_origin": "(61.19308, -46.88928)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_wand_windup_right",
+			"projectile_origin": "(-27.3398, -39.72505)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_commit_right",
+			"projectile_origin": "(86.26002, -28.93035)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_follow_right",
+			"projectile_origin": "(87.71356, -36.61424)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_wand_recovery_right",
+			"projectile_origin": "(60.04223, -12.30163)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_wand_hurt_right",
+			"projectile_origin": "(49.15612, -51.91047)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_wand_idle_left",
+			"projectile_origin": "(-61.19308, -46.88928)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_wand_windup_left",
+			"projectile_origin": "(-45.06199, -70.41242)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_commit_left",
+			"projectile_origin": "(-83.53404, -30.32246)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_follow_left",
+			"projectile_origin": "(-84.94721, -37.92427)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_wand_recovery_left",
+			"projectile_origin": "(-60.0538, -17.1001)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_wand_hurt_left",
+			"projectile_origin": "(-49.15612, -51.91047)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_orb_idle_right",
+			"projectile_origin": "(90.2569, -24.84992)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_orb_windup_right",
+			"projectile_origin": "(81.63732, -48.37642)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -33.18182)",
+			"probe": "moonkip_orb_commit_right",
+			"projectile_origin": "(82.90636, -50.0798)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -25.81818)",
+			"probe": "moonkip_orb_follow_right",
+			"projectile_origin": "(86.81606, -48.50534)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_recovery_right",
+			"projectile_origin": "(88.22398, -34.34176)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_hurt_right",
+			"projectile_origin": "(82.92764, -34.99323)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_orb_idle_left",
+			"projectile_origin": "(-90.2569, -24.84992)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_orb_windup_left",
+			"projectile_origin": "(-81.63732, -48.37642)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -33.18182)",
+			"probe": "moonkip_orb_commit_left",
+			"projectile_origin": "(-82.90636, -50.0798)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -25.81818)",
+			"probe": "moonkip_orb_follow_left",
+			"projectile_origin": "(-86.81606, -48.50534)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_recovery_left",
+			"projectile_origin": "(-88.22398, -34.34176)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_hurt_left",
+			"projectile_origin": "(-82.92764, -34.99323)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_idle_right",
+			"projectile_origin": "(66.03276, -29.22368)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(81.51639, -21.81967)",
+			"probe": "gloomlet_bow_windup_right",
+			"projectile_origin": "(87.91785, -25.19269)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_commit_right",
+			"projectile_origin": "(60.85689, -33.77315)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_follow_right",
+			"projectile_origin": "(56.44891, -36.79221)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_recovery_right",
+			"projectile_origin": "(60.50484, -32.33418)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_hurt_right",
+			"projectile_origin": "(53.79538, -31.18259)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_idle_left",
+			"projectile_origin": "(-66.03276, -29.22368)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-83.41837, -26.64286)",
+			"probe": "gloomlet_bow_windup_left",
+			"projectile_origin": "(-89.53517, -30.11864)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_commit_left",
+			"projectile_origin": "(-60.85689, -33.77315)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_follow_left",
+			"projectile_origin": "(-56.44891, -36.79221)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_recovery_left",
+			"projectile_origin": "(-60.50484, -32.33418)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(48.0, -29.0)",
+			"probe": "gloomlet_bow_hurt_left",
+			"projectile_origin": "(-53.79538, -31.18259)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/gloomlet.svg",
+			"support_status": "rigged_two_hand",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_wand_idle_right",
+			"projectile_origin": "(61.19308, -46.88928)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_wand_windup_right",
+			"projectile_origin": "(-27.3398, -39.72505)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_commit_right",
+			"projectile_origin": "(86.26002, -28.93035)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_follow_right",
+			"projectile_origin": "(87.71356, -36.61424)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_wand_recovery_right",
+			"projectile_origin": "(60.04223, -12.30163)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_wand_hurt_right",
+			"projectile_origin": "(49.15612, -51.91047)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_wand_idle_left",
+			"projectile_origin": "(-61.19308, -46.88928)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_wand_windup_left",
+			"projectile_origin": "(-45.06199, -70.41242)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_commit_left",
+			"projectile_origin": "(-83.53404, -30.32246)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_follow_left",
+			"projectile_origin": "(-84.94721, -37.92427)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_wand_recovery_left",
+			"projectile_origin": "(-60.0538, -17.1001)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_wand_hurt_left",
+			"projectile_origin": "(-49.15612, -51.91047)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_orb_idle_right",
+			"projectile_origin": "(90.2569, -24.84992)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_orb_windup_right",
+			"projectile_origin": "(81.63732, -48.37642)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -33.18182)",
+			"probe": "moonkip_orb_commit_right",
+			"projectile_origin": "(82.90636, -50.0798)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -25.81818)",
+			"probe": "moonkip_orb_follow_right",
+			"projectile_origin": "(86.81606, -48.50534)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_recovery_right",
+			"projectile_origin": "(88.22398, -34.34176)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_hurt_right",
+			"projectile_origin": "(82.92764, -34.99323)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -16.0)",
+			"probe": "moonkip_orb_idle_left",
+			"projectile_origin": "(-90.2569, -24.84992)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(43.54546, -33.72727)",
+			"probe": "moonkip_orb_windup_left",
+			"projectile_origin": "(-81.63732, -48.37642)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -33.18182)",
+			"probe": "moonkip_orb_commit_left",
+			"projectile_origin": "(-82.90636, -50.0798)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -25.81818)",
+			"probe": "moonkip_orb_follow_left",
+			"projectile_origin": "(-86.81606, -48.50534)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_recovery_left",
+			"projectile_origin": "(-88.22398, -34.34176)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(40.0, -19.68182)",
+			"probe": "moonkip_orb_hurt_left",
+			"projectile_origin": "(-82.92764, -34.99323)",
+			"reference_fallback": true,
+			"source": "res://art/sprites/combat_rigs/moonkip.svg",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		}
+	],
+	"reference_fallback_incidents": 81,
+	"total_probes": 108
+}

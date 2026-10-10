@@ -1,0 +1,108 @@
+{
+  "base_checkpoint": "6a15b57",
+  "version": "0.4.43",
+  "verified_contracts_closed": 25,
+  "slot_ids": [
+    "pose:gloomlet:follow_through:left:bow",
+    "pose:gloomlet:follow_through:right:bow",
+    "pose:gloomlet:hurt:left:bow",
+    "pose:gloomlet:hurt:right:bow",
+    "pose:gloomlet:idle:left:bow",
+    "pose:gloomlet:idle:right:bow",
+    "pose:gloomlet:recovery:left:bow",
+    "pose:gloomlet:recovery:right:bow",
+    "pose:gloomlet:strike_or_cast:left:bow",
+    "pose:gloomlet:strike_or_cast:right:bow",
+    "pose:moonkip:hurt:left:orb",
+    "pose:moonkip:hurt:left:wand",
+    "pose:moonkip:hurt:right:orb",
+    "pose:moonkip:hurt:right:wand",
+    "pose:moonkip:idle:left:orb",
+    "pose:moonkip:idle:left:wand",
+    "pose:moonkip:idle:right:orb",
+    "pose:moonkip:idle:right:wand",
+    "pose:moonkip:recovery:left:orb",
+    "pose:moonkip:recovery:right:orb",
+    "pose:moonkip:strike_or_cast:left:orb",
+    "pose:moonkip:strike_or_cast:right:orb",
+    "pose:moonkip:windup:left:orb",
+    "pose:moonkip:windup:left:wand",
+    "pose:moonkip:windup:right:orb"
+  ],
+  "new_runtime_body_png": 15,
+  "new_foreground_grip_png": 15,
+  "new_sidecars": 25,
+  "new_physical_artist_files": 55,
+  "frozen_artist_file_requirements_fulfilled": 75,
+  "reused_body_or_grip_requirements": 20,
+  "by_family": {
+    "gloomlet_bow": 10,
+    "moonkip_wand": 5,
+    "moonkip_orb": 10
+  },
+  "quality_findings": [
+    "Moonkip mixed left windup/cast actually face right: rejected for left slots; accepted padded left windup replaces the missing Wand/Orb anticipation.",
+    "Moonkip mixed left recovery has three feet: rejected, no recovery contract closed from that candidate.",
+    "Corrected Gloomlet right follow-through touches source edge: rejected; valid earlier independent follow-through retained.",
+    "First standalone Moonkip windup ear touches canvas edge: rejected and padded correction used.",
+    "Native review caught resting Wand and lowered Bow overlapping faces: runtime angles corrected and retested.",
+    "Movement, Moonkip separate follow-through, defeat/victory, additional weapons and full animation continuity remain open."
+  ],
+  "selected_probe_fallbacks_before": 81,
+  "selected_probe_fallbacks_after": 0,
+  "total_probes_each": 108,
+  "physical_device_validated": false,
+  "professional_family_acceptance": false,
+  "exported_native_fixtures": [
+    {
+      "fixture": "player_batch_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.43-player-combat.pck",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "player_route_polish_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.43-player-combat.pck",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "compiled_candidate_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.43-player-combat.pck",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "cohesive_cards_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.43-player-combat.pck",
+      "saves": "isolated",
+      "copied_game_code": false
+    }
+  ],
+  "registry_reconciliation": "Derived launch missing cells 2953 to 2893: 25 new exact contracts, 35 already-installed casting states now reflected. An ATTACK frame does not close separate follow-through. Historical reconciliation is not credited as new contract production.",
+  "builds": [
+    {
+      "path": "builds/android/Lootlings-0.4.43-player-combat-debug.apk",
+      "sha256": "0f80ef6b54fc2065fb6c082dc913ad0ff896d82dc414d76741383b5d4d21a631",
+      "bytes": 228027067
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.43-player-combat.exe",
+      "sha256": "176badcbc6cab3f25021d3d3a9bbf08a7100f62cdd53bab8e662bdbc66b615c9",
+      "bytes": 109228544
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.43-player-combat.pck",
+      "sha256": "883018fb67109301226fd62639e2a26eaca9bc9b6c9faaa7d24775adf4929abc",
+      "bytes": 205937800
+    }
+  ]
+}

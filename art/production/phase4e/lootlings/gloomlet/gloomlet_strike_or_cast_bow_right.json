@@ -1,0 +1,93 @@
+{
+  "actor": "gloomlet",
+  "phase": "ATTACK",
+  "state": "strike_or_cast",
+  "facing": "right_only",
+  "weapon_types": [
+    "bow"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.8935244064922481,
+    0.6264098716887417
+  ],
+  "secondary_anchor": [
+    0.457038820251938,
+    0.5679195985099338
+  ],
+  "core_anchor": [
+    0.6116990673449613,
+    0.6952219577814569
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": true,
+  "contract_slot_id": "pose:gloomlet:strike_or_cast:right:bow",
+  "source": "art/source/player_combat_043/gloomlet_right_fixed.png",
+  "source_sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534",
+  "source_bounds": [
+    523,
+    49,
+    1039,
+    502
+  ],
+  "source_primary": [
+    1010,
+    303
+  ],
+  "source_secondary": [
+    756,
+    269
+  ],
+  "primary_palm": [
+    457.484496124031,
+    320.72185430463577
+  ],
+  "secondary_palm": [
+    234.00387596899225,
+    290.7748344370861
+  ],
+  "core_or_eye": [
+    313.18992248062017,
+    355.95364238410593
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8798449612403101,
+      0.8807947019867549
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      29,
+      97
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.json",
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

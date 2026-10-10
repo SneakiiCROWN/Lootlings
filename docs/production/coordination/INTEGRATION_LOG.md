@@ -11,3 +11,5 @@ Native fixtures cover 1080×2340, 1200×1920 and 1920×1080; compiled PCK tested
 Dashboard generation records all registered families, exact debt, stages and unregistered/dynamic dependency gaps. No previous LIVE_BETA/complete label is automatically production-ready.
 
 Git milestone: commit titled “Integrate canonical regional creatures and Hub residents with quality gates”; use branch history for its actual hash. Unknown owner work remains outside this scoped checkpoint.
+
+0.4.43:25 exact player deliveries,15 new bodies/15 grip layers/25 sidecars;108 selected probe fallback incidents81→0; compact single-find rewards; source and compiled three-layout route checks. See receipt.

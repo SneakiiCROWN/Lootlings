@@ -1,0 +1,93 @@
+{
+  "actor": "gloomlet",
+  "phase": "IDLE",
+  "state": "idle",
+  "facing": "left_only",
+  "weapon_types": [
+    "bow"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.1925979872881356,
+    0.678105987278761
+  ],
+  "secondary_anchor": [
+    0.5221984715496368,
+    0.7451776825221239
+  ],
+  "core_anchor": [
+    0.3522482218523002,
+    0.7021830060840708
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": true,
+  "contract_slot_id": "pose:gloomlet:idle:left:bow",
+  "source": "art/source/player_combat_043/gloomlet_left.png",
+  "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+  "source_bounds": [
+    80,
+    36,
+    493,
+    488
+  ],
+  "source_primary": [
+    108,
+    319
+  ],
+  "source_secondary": [
+    300,
+    358
+  ],
+  "primary_palm": [
+    98.61016949152543,
+    347.19026548672565
+  ],
+  "secondary_palm": [
+    267.36561743341406,
+    381.53097345132744
+  ],
+  "core_or_eye": [
+    180.3510895883777,
+    359.51769911504425
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8789346246973365,
+      0.8805309734513275
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      74,
+      98
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.json",
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

@@ -1,0 +1,980 @@
+{
+	"full_motion_family_accepted": false,
+	"movement": "OPEN; neutral is not locomotion",
+	"probes": [
+		{
+			"primary": "(73.91766, -10.91872)",
+			"probe": "gloomlet_bow_idle_right",
+			"projectile_origin": "(91.80521, -8.623861)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(81.51639, -21.81967)",
+			"probe": "gloomlet_bow_windup_right",
+			"projectile_origin": "(87.91785, -25.19269)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(75.55669, -7.729301)",
+			"probe": "gloomlet_bow_commit_right",
+			"projectile_origin": "(89.46371, -10.20906)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(72.63669, 9.793304)",
+			"probe": "gloomlet_bow_follow_right",
+			"projectile_origin": "(83.00011, 1.180728)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(24.42274, 8.770935)",
+			"probe": "gloomlet_bow_recovery_right",
+			"projectile_origin": "(28.72882, -8.845913)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(26.88025, 0.26857)",
+			"probe": "gloomlet_bow_hurt_right",
+			"projectile_origin": "(20.99982, -19.50834)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-59.02119, 2.19635)",
+			"probe": "gloomlet_bow_idle_left",
+			"projectile_origin": "(-76.90873, 4.491205)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-83.41837, -26.64286)",
+			"probe": "gloomlet_bow_windup_left",
+			"projectile_origin": "(-89.53517, -30.11864)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-78.0043, -8.680161)",
+			"probe": "gloomlet_bow_commit_left",
+			"projectile_origin": "(-91.86279, -11.27648)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-72.2728, -2.763519)",
+			"probe": "gloomlet_bow_follow_left",
+			"projectile_origin": "(-81.43905, -11.28399)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-49.23676, -1.688324)",
+			"probe": "gloomlet_bow_recovery_left",
+			"projectile_origin": "(-53.14503, -20.20284)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-3.631271, 12.80798)",
+			"probe": "gloomlet_bow_hurt_left",
+			"projectile_origin": "(0.859467, -4.678532)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(1.088547, 8.567307)",
+			"probe": "moonkip_wand_idle_right",
+			"projectile_origin": "(-12.69696, -33.0302)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_wand_windup_right",
+			"projectile_origin": "(-27.3398, -39.72505)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_commit_right",
+			"projectile_origin": "(86.26002, -28.93035)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_follow_right",
+			"projectile_origin": "(87.71356, -36.61424)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_wand_recovery_right",
+			"projectile_origin": "(60.04223, -12.30163)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(15.40514, -1.684212)",
+			"probe": "moonkip_wand_hurt_right",
+			"projectile_origin": "(-14.75194, -46.57381)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-37.0332, -8.918755)",
+			"probe": "moonkip_wand_idle_left",
+			"projectile_origin": "(-53.69345, -49.45058)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-50.92319, -10.25272)",
+			"probe": "moonkip_wand_windup_left",
+			"projectile_origin": "(-49.00112, -58.32827)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_commit_left",
+			"projectile_origin": "(-83.53404, -30.32246)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_follow_left",
+			"projectile_origin": "(-84.94721, -37.92427)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_wand_recovery_left",
+			"projectile_origin": "(-60.0538, -17.1001)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-40.98797, -5.75)",
+			"probe": "moonkip_wand_hurt_left",
+			"projectile_origin": "(-40.6997, -55.40866)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(1.088547, 8.567307)",
+			"probe": "moonkip_orb_idle_right",
+			"projectile_origin": "(44.65975, -8.008692)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_orb_windup_right",
+			"projectile_origin": "(6.717503, -15.48853)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_orb_commit_right",
+			"projectile_origin": "(116.3384, -9.096722)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_orb_follow_right",
+			"projectile_origin": "(117.7355, -16.6953)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_orb_recovery_right",
+			"projectile_origin": "(88.04935, 10.36293)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(15.40514, -1.684212)",
+			"probe": "moonkip_orb_hurt_right",
+			"projectile_origin": "(45.04226, -28.1206)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-37.0332, -8.918755)",
+			"probe": "moonkip_orb_idle_left",
+			"projectile_origin": "(-80.6044, -25.49475)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-50.92319, -10.25272)",
+			"probe": "moonkip_orb_windup_left",
+			"projectile_origin": "(-83.05843, -34.09175)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_orb_commit_left",
+			"projectile_origin": "(-113.6124, -10.48883)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_orb_follow_left",
+			"projectile_origin": "(-114.9691, -18.00532)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_orb_recovery_left",
+			"projectile_origin": "(-88.06091, 5.564452)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(-40.98797, -5.75)",
+			"probe": "moonkip_orb_hurt_left",
+			"projectile_origin": "(-70.11983, -34.61115)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"primary": "(73.91766, -10.91872)",
+			"probe": "gloomlet_bow_idle_right",
+			"projectile_origin": "(91.80521, -8.623861)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(81.51639, -21.81967)",
+			"probe": "gloomlet_bow_windup_right",
+			"projectile_origin": "(87.91785, -25.19269)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(75.55669, -7.729301)",
+			"probe": "gloomlet_bow_commit_right",
+			"projectile_origin": "(89.46371, -10.20906)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(72.63669, 9.793304)",
+			"probe": "gloomlet_bow_follow_right",
+			"projectile_origin": "(83.00011, 1.180728)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(24.42274, 8.770935)",
+			"probe": "gloomlet_bow_recovery_right",
+			"projectile_origin": "(28.72882, -8.845913)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(26.88025, 0.26857)",
+			"probe": "gloomlet_bow_hurt_right",
+			"projectile_origin": "(20.99982, -19.50834)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-59.02119, 2.19635)",
+			"probe": "gloomlet_bow_idle_left",
+			"projectile_origin": "(-76.90873, 4.491205)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-83.41837, -26.64286)",
+			"probe": "gloomlet_bow_windup_left",
+			"projectile_origin": "(-89.53517, -30.11864)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-78.0043, -8.680161)",
+			"probe": "gloomlet_bow_commit_left",
+			"projectile_origin": "(-91.86279, -11.27648)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-72.2728, -2.763519)",
+			"probe": "gloomlet_bow_follow_left",
+			"projectile_origin": "(-81.43905, -11.28399)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-49.23676, -1.688324)",
+			"probe": "gloomlet_bow_recovery_left",
+			"projectile_origin": "(-53.14503, -20.20284)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-3.631271, 12.80798)",
+			"probe": "gloomlet_bow_hurt_left",
+			"projectile_origin": "(0.859467, -4.678532)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(1.088547, 8.567307)",
+			"probe": "moonkip_wand_idle_right",
+			"projectile_origin": "(-12.69696, -33.0302)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_wand_windup_right",
+			"projectile_origin": "(-27.3398, -39.72505)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_commit_right",
+			"projectile_origin": "(86.26002, -28.93035)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_follow_right",
+			"projectile_origin": "(87.71356, -36.61424)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_wand_recovery_right",
+			"projectile_origin": "(60.04223, -12.30163)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(15.40514, -1.684212)",
+			"probe": "moonkip_wand_hurt_right",
+			"projectile_origin": "(-14.75194, -46.57381)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-37.0332, -8.918755)",
+			"probe": "moonkip_wand_idle_left",
+			"projectile_origin": "(-53.69345, -49.45058)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-50.92319, -10.25272)",
+			"probe": "moonkip_wand_windup_left",
+			"projectile_origin": "(-49.00112, -58.32827)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_commit_left",
+			"projectile_origin": "(-83.53404, -30.32246)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_follow_left",
+			"projectile_origin": "(-84.94721, -37.92427)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_wand_recovery_left",
+			"projectile_origin": "(-60.0538, -17.1001)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-40.98797, -5.75)",
+			"probe": "moonkip_wand_hurt_left",
+			"projectile_origin": "(-40.6997, -55.40866)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(1.088547, 8.567307)",
+			"probe": "moonkip_orb_idle_right",
+			"projectile_origin": "(44.65975, -8.008692)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_orb_windup_right",
+			"projectile_origin": "(6.717503, -15.48853)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_orb_commit_right",
+			"projectile_origin": "(116.3384, -9.096722)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_orb_follow_right",
+			"projectile_origin": "(117.7355, -16.6953)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_orb_recovery_right",
+			"projectile_origin": "(88.04935, 10.36293)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(15.40514, -1.684212)",
+			"probe": "moonkip_orb_hurt_right",
+			"projectile_origin": "(45.04226, -28.1206)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-37.0332, -8.918755)",
+			"probe": "moonkip_orb_idle_left",
+			"projectile_origin": "(-80.6044, -25.49475)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-50.92319, -10.25272)",
+			"probe": "moonkip_orb_windup_left",
+			"projectile_origin": "(-83.05843, -34.09175)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_orb_commit_left",
+			"projectile_origin": "(-113.6124, -10.48883)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_orb_follow_left",
+			"projectile_origin": "(-114.9691, -18.00532)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_orb_recovery_left",
+			"projectile_origin": "(-88.06091, 5.564452)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(-40.98797, -5.75)",
+			"probe": "moonkip_orb_hurt_left",
+			"projectile_origin": "(-70.11983, -34.61115)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"primary": "(73.91766, -10.91872)",
+			"probe": "gloomlet_bow_idle_right",
+			"projectile_origin": "(91.80521, -8.623861)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(81.51639, -21.81967)",
+			"probe": "gloomlet_bow_windup_right",
+			"projectile_origin": "(87.91785, -25.19269)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_right.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(75.55669, -7.729301)",
+			"probe": "gloomlet_bow_commit_right",
+			"projectile_origin": "(89.46371, -10.20906)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(72.63669, 9.793304)",
+			"probe": "gloomlet_bow_follow_right",
+			"projectile_origin": "(83.00011, 1.180728)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(24.42274, 8.770935)",
+			"probe": "gloomlet_bow_recovery_right",
+			"projectile_origin": "(28.72882, -8.845913)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(26.88025, 0.26857)",
+			"probe": "gloomlet_bow_hurt_right",
+			"projectile_origin": "(20.99982, -19.50834)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-59.02119, 2.19635)",
+			"probe": "gloomlet_bow_idle_left",
+			"projectile_origin": "(-76.90873, 4.491205)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-83.41837, -26.64286)",
+			"probe": "gloomlet_bow_windup_left",
+			"projectile_origin": "(-89.53517, -30.11864)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/bow/gloomlet_bow_windup_left.png",
+			"support_status": "authored_bow_draw",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-78.0043, -8.680161)",
+			"probe": "gloomlet_bow_commit_left",
+			"projectile_origin": "(-91.86279, -11.27648)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-72.2728, -2.763519)",
+			"probe": "gloomlet_bow_follow_left",
+			"projectile_origin": "(-81.43905, -11.28399)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-49.23676, -1.688324)",
+			"probe": "gloomlet_bow_recovery_left",
+			"projectile_origin": "(-53.14503, -20.20284)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-3.631271, 12.80798)",
+			"probe": "gloomlet_bow_hurt_left",
+			"projectile_origin": "(0.859467, -4.678532)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+			"support_status": "authored_bow_primary",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(1.088547, 8.567307)",
+			"probe": "moonkip_wand_idle_right",
+			"projectile_origin": "(-12.69696, -33.0302)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_wand_windup_right",
+			"projectile_origin": "(-27.3398, -39.72505)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_commit_right",
+			"projectile_origin": "(86.26002, -28.93035)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_wand_follow_right",
+			"projectile_origin": "(87.71356, -36.61424)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_wand_recovery_right",
+			"projectile_origin": "(60.04223, -12.30163)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(15.40514, -1.684212)",
+			"probe": "moonkip_wand_hurt_right",
+			"projectile_origin": "(-14.75194, -46.57381)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-37.0332, -8.918755)",
+			"probe": "moonkip_wand_idle_left",
+			"projectile_origin": "(-53.69345, -49.45058)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-50.92319, -10.25272)",
+			"probe": "moonkip_wand_windup_left",
+			"projectile_origin": "(-49.00112, -58.32827)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_commit_left",
+			"projectile_origin": "(-83.53404, -30.32246)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_wand_follow_left",
+			"projectile_origin": "(-84.94721, -37.92427)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_wand_recovery_left",
+			"projectile_origin": "(-60.0538, -17.1001)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-40.98797, -5.75)",
+			"probe": "moonkip_wand_hurt_left",
+			"projectile_origin": "(-40.6997, -55.40866)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(1.088547, 8.567307)",
+			"probe": "moonkip_orb_idle_right",
+			"projectile_origin": "(44.65975, -8.008692)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-26.25, 4.522751)",
+			"probe": "moonkip_orb_windup_right",
+			"projectile_origin": "(6.717503, -15.48853)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_orb_commit_right",
+			"projectile_origin": "(116.3384, -9.096722)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(77.2395, 19.66562)",
+			"probe": "moonkip_orb_follow_right",
+			"projectile_origin": "(117.7355, -16.6953)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(47.09137, 34.29587)",
+			"probe": "moonkip_orb_recovery_right",
+			"projectile_origin": "(88.04935, 10.36293)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(15.40514, -1.684212)",
+			"probe": "moonkip_orb_hurt_right",
+			"projectile_origin": "(45.04226, -28.1206)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-37.0332, -8.918755)",
+			"probe": "moonkip_orb_idle_left",
+			"projectile_origin": "(-80.6044, -25.49475)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-50.92319, -10.25272)",
+			"probe": "moonkip_orb_windup_left",
+			"projectile_origin": "(-83.05843, -34.09175)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_orb_commit_left",
+			"projectile_origin": "(-113.6124, -10.48883)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-74.6145, 18.09137)",
+			"probe": "moonkip_orb_follow_left",
+			"projectile_origin": "(-114.9691, -18.00532)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-47.25, 29.5)",
+			"probe": "moonkip_orb_recovery_left",
+			"projectile_origin": "(-88.06091, 5.564452)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"primary": "(-40.98797, -5.75)",
+			"probe": "moonkip_orb_hurt_left",
+			"projectile_origin": "(-70.11983, -34.61115)",
+			"reference_fallback": false,
+			"source": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+			"support_status": "not_required",
+			"viewport": "(1920, 1080)"
+		}
+	],
+	"reference_fallback_incidents": 0,
+	"total_probes": 108
+}

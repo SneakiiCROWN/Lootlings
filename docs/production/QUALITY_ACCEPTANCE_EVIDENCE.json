@@ -1165,7 +1165,7 @@
       "slot_id": "screen:lootling.gd:show_boss_reward",
       "asset": null,
       "implementation": "lootling.gd",
-      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
+      "implementation_sha256": "46ac8f0a8ea94d86bd6ec12a1d737e2a68dd4c6100f94781aab1a64ef329da1a",
       "stages": {
         "canon_reference_approved": false,
         "created": true,
@@ -1176,12 +1176,12 @@
         "production_quality_accepted": false
       },
       "evidence_files": [
-        "docs/production/quality-evidence/0.4.42/player_route_polish_native_qa.log",
-        "docs/production/quality-evidence/0.4.42/1080x2340_reward_find.png",
-        "docs/production/quality-evidence/0.4.42/1200x1920_reward_find.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_reward_find.png"
+        "docs/production/quality-evidence/0.4.43/compiled_player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_reward_find.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_reward_find.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_reward_find.png"
       ],
-      "limitations": "Sparse single-find layout uses an oversized panel; full reward presentation acceptance remains open.",
+      "limitations": "Single-find panel now fits one card; artwork belongs to its item button. Connected source and compiled routes tested at three layouts. Broader reward audio/motion/device and professional acceptance remain open.",
       "defects": [],
       "dependencies_sha256": {
         "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
@@ -1217,7 +1217,7 @@
       "slot_id": "screen:lootling.gd:show_merchant",
       "asset": null,
       "implementation": "lootling.gd",
-      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
+      "implementation_sha256": "46ac8f0a8ea94d86bd6ec12a1d737e2a68dd4c6100f94781aab1a64ef329da1a",
       "dependencies_sha256": {
         "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
       },
@@ -1235,7 +1235,9 @@
         "docs/production/quality-evidence/0.4.42/compiled_cohesive_cards_native_qa.log",
         "docs/production/quality-evidence/0.4.42/1080x2340_merchant_selected.png",
         "docs/production/quality-evidence/0.4.42/1200x1920_merchant_selected.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_merchant_selected.png"
+        "docs/production/quality-evidence/0.4.42/1920x1080_merchant_selected.png",
+        "docs/production/quality-evidence/0.4.43/player_route_polish_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/compiled_cohesive_cards_native_qa.log"
       ],
       "limitations": "Existing approved frame artwork reused; icon containment, one-selection tick and independent focus verified. Entire screen layout/animation/audio/device and owner professional acceptance remain open.",
       "defects": []
@@ -1244,7 +1246,7 @@
       "slot_id": "screen:lootling.gd:show_upgrade_choices",
       "asset": null,
       "implementation": "lootling.gd",
-      "implementation_sha256": "1bc15f106a53ffa33128113a0c852d1dd7015043620f6a93a6dd54976ae65400",
+      "implementation_sha256": "46ac8f0a8ea94d86bd6ec12a1d737e2a68dd4c6100f94781aab1a64ef329da1a",
       "dependencies_sha256": {
         "lootlings_ui.gd": "78e241ed421e6cf5ba1cb7d7eb4452cf0333b7d655ed1d6d4d74da4a23c0f0ea"
       },
@@ -1262,9 +1264,783 @@
         "docs/production/quality-evidence/0.4.42/compiled_cohesive_cards_native_qa.log",
         "docs/production/quality-evidence/0.4.42/1080x2340_perk_selected.png",
         "docs/production/quality-evidence/0.4.42/1200x1920_perk_selected.png",
-        "docs/production/quality-evidence/0.4.42/1920x1080_perk_selected.png"
+        "docs/production/quality-evidence/0.4.42/1920x1080_perk_selected.png",
+        "docs/production/quality-evidence/0.4.43/player_route_polish_native_qa.log"
       ],
       "limitations": "Existing approved frame artwork reused; icon containment, one-selection tick and independent focus verified. Entire screen layout/animation/audio/device and owner professional acceptance remain open.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:idle:right:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+      "asset_sha256": "106d3b87dad6783cd9ec1e7a94971cf4b72063eef4cff9a30f9bf357f8808236",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_idle_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_idle_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:strike_or_cast:right:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+      "asset_sha256": "275be3f77f8d70466a0c19551e5317728c0671c42343e6bea25ddfbf34784e9e",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_commit_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_commit_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:follow_through:right:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+      "asset_sha256": "70dd2e1ad1fb0cafb85ca40b13b7944aa5a71924479359c41508b20554a3abb0",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_follow_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_follow_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:recovery:right:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+      "asset_sha256": "8b3297661d7412dfdd1b953857fc7dd62a805229b614f8717496264be2dcd03f",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_recovery_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_recovery_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:hurt:right:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+      "asset_sha256": "b1b4426ea6104947a5a5a4aed84e060d59ee6b99b23880c93f116327961cc3b8",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_hurt_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_hurt_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:idle:left:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+      "asset_sha256": "02a472c514898c90400c9407cd7a5aceea88926cdd4a900f546a85a5d8033303",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_idle_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_idle_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:strike_or_cast:left:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+      "asset_sha256": "c506c8e1e3986534a9f508b53b3d5282dd3bfc48f63e70fddded0f27a11ae177",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_commit_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_commit_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:follow_through:left:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+      "asset_sha256": "b5e54cdf866317fc2b27cf7032a25ca4ac73b8f4c8b91d9f8e6bd2ef29a0ad7a",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_follow_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_follow_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:recovery:left:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+      "asset_sha256": "9adb75b70de6a03ecd88523ca5abdbc16dba22f9c016b59c46b98f16ad4209c3",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_recovery_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_recovery_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:gloomlet:hurt:left:bow",
+      "asset": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+      "asset_sha256": "776c385b3eddc57190735f62885ce555affbe3c73aad88f561da4eb678b1784a",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_hurt_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_gloomlet_bow_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_gloomlet_bow_hurt_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:idle:right:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+      "asset_sha256": "c9f3e0249a2037399f79c90e739a6224c9acf19c4495e4e7542bb2e0768dad5e",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_idle_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_wand_idle_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:hurt:right:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+      "asset_sha256": "f454cd51eca0531972fe6a54aa716f91e2207209c255dd11f4063a612621d894",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_hurt_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_wand_hurt_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:idle:left:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+      "asset_sha256": "aee10e2852f76d1d7e631295f8924c8e791d4f710ce5f95f7ea786380f0cb7d6",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_idle_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_wand_idle_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:hurt:left:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+      "asset_sha256": "6f875be2fc68e180a234167cc180c03f9d7af896f5ce4ebd45e881183e47e4f9",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_hurt_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_wand_hurt_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:windup:left:wand",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+      "asset_sha256": "bff2996562d3939a257431d4e6ddf8a46cf8ad1c27d947c63cf4b0ad691c4dd3",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_windup_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_wand_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_wand_windup_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:windup:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+      "asset_sha256": "c6fae7d36324e8a770ae805a38ac2708929b9eb4bdc7f005695cdb79042d609d",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_windup_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_windup_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:strike_or_cast:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+      "asset_sha256": "1effd7d56c4d58f1b21d50571a4e5960b27a2171ea1855305a2456d1a63de61d",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_commit_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_commit_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:recovery:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+      "asset_sha256": "d78ea1a06fbf8c2dd1df6e58e666ac376f2ee1678052fb4a2e0de3f2f7d7a492",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_recovery_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:strike_or_cast:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+      "asset_sha256": "8ea49ccd16260484fd4d7591967cfd711d13c795dde2f6dd516264cfc29c32af",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_commit_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_commit_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:recovery:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+      "asset_sha256": "2176a08e8720de1076e308e0b8dd9e49fdc4414e03ddbd78065a1c8f09c3074b",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_recovery_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:idle:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+      "asset_sha256": "c9f3e0249a2037399f79c90e739a6224c9acf19c4495e4e7542bb2e0768dad5e",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_idle_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_idle_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:hurt:right:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+      "asset_sha256": "f454cd51eca0531972fe6a54aa716f91e2207209c255dd11f4063a612621d894",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_hurt_right.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_hurt_right.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:idle:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+      "asset_sha256": "aee10e2852f76d1d7e631295f8924c8e791d4f710ce5f95f7ea786380f0cb7d6",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_idle_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_idle_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:hurt:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+      "asset_sha256": "6f875be2fc68e180a234167cc180c03f9d7af896f5ce4ebd45e881183e47e4f9",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_hurt_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_hurt_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:moonkip:windup:left:orb",
+      "asset": "art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+      "asset_sha256": "bff2996562d3939a257431d4e6ddf8a46cf8ad1c27d947c63cf4b0ad691c4dd3",
+      "dependencies_sha256": {
+        "authored_pose_manifest.gd": "071eaa3d58e27c6ce2ca1fa5a1ce5c55e81cb0b416af162468a081c4d6b4a6c3",
+        "weapon_fit_catalog.gd": "0c068da1cbae8bcdd7996d6eb4b2827b39f64a7a6a94069a691e905f76575a9e",
+        "creature_renderer.gd": "707347db64d260a28304a14fa67201898f5e4caec56eb86addbda9cf6783b5c7",
+        "art/production/phase4e/player_batch_043_manifest.json": "a44bed6d49f1fa25e4992fd895cd9c7f224cd9ab5f1d87065c005a1c62017371"
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.43/player_batch_native_qa.log",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_windup_left.png",
+        "docs/production/quality-evidence/0.4.43/1080x2340_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1200x1920_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/1920x1080_moonkip_orb_actual_attack.png",
+        "docs/production/quality-evidence/0.4.43/compiled_1080x2340_moonkip_orb_windup_left.png",
+        "docs/production/quality-evidence/0.4.43/compiled_player_batch_native_qa.log"
+      ],
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "limitations": "Exact stationary/action pose, source identity, contact and native views reviewed. Motion/defeat/victory and full weapon/character continuity remain open; no blanket professional acceptance or physical Android claim.",
       "defects": []
     }
   ],

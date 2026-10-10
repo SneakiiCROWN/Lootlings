@@ -1,0 +1,114 @@
+{
+  "actor": "moonkip",
+  "phase": "HURT",
+  "state": "hurt",
+  "facing": "right_only",
+  "weapon_types": [
+    "wand"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.580235105140187,
+    0.6578947368421053
+  ],
+  "secondary_anchor": [
+    0.7698817172897197,
+    0.5753238075657895
+  ],
+  "core_anchor": [
+    0.6126533294392523,
+    0.740465666118421
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {
+    "wand": {
+      "size": [
+        75,
+        93
+      ],
+      "grip": [
+        0.42,
+        0.72
+      ],
+      "secondary_grip": [
+        0.3,
+        0.65
+      ],
+      "socket": [
+        0.6,
+        0.1
+      ],
+      "angle": -0.55,
+      "held_path": "res://art/sprites/weapons/wand_held.png"
+    }
+  },
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": false,
+  "contract_slot_id": "pose:moonkip:hurt:right:wand",
+  "source": "art/source/player_combat_043/moonkip_right.png",
+  "source_sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768",
+  "source_bounds": [
+    488,
+    581,
+    1023,
+    961
+  ],
+  "source_primary": [
+    805,
+    769
+  ],
+  "source_secondary": [
+    922,
+    718
+  ],
+  "primary_palm": [
+    297.0803738317757,
+    336.8421052631579
+  ],
+  "secondary_palm": [
+    394.17943925233646,
+    294.5657894736842
+  ],
+  "core_or_eye": [
+    313.6785046728972,
+    379.11842105263156
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8299065420560747,
+      0.8289473684210527
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      34,
+      181
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.json",
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

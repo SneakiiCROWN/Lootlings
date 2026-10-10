@@ -1,0 +1,94 @@
+{
+  "actor": "moonkip",
+  "phase": "ANTICIPATE",
+  "state": "windup",
+  "facing": "left_only",
+  "weapon_types": [
+    "orb"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.23477503765060243,
+    0.6132670454545455
+  ],
+  "secondary_anchor": [
+    0.4605374623493976,
+    0.7813636363636364
+  ],
+  "core_anchor": [
+    0.39629612198795183,
+    0.7666666666666667
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": false,
+  "contract_slot_id": "pose:moonkip:windup:left:orb",
+  "source": "art/source/player_combat_043/moonkip_windup_left.png",
+  "source_sha256": "5bcc4d308856a40c8bbb4e6817c93b90ee4f95328f165f11bd8c66b0e506ff9f",
+  "source_bounds": [
+    377,
+    228,
+    1041,
+    1053
+  ],
+  "source_primary": [
+    420,
+    666
+  ],
+  "source_secondary": [
+    666,
+    849
+  ],
+  "primary_palm": [
+    120.20481927710844,
+    313.9927272727273
+  ],
+  "secondary_palm": [
+    235.79518072289156,
+    400.0581818181818
+  ],
+  "core_or_eye": [
+    202.90361445783134,
+    392.53333333333336
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.46987951807228917,
+      0.4703030303030303
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      100,
+      108
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_windup_orb_left.json",
+  "reused_body": true,
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

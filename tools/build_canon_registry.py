@@ -50,6 +50,8 @@ def build():
         coverage[row['slot_id']]=key
     export_rows=[]
     export_rows+=read('art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')['entries']
+    batch=ROOT/'art/production/phase4e/player_batch_043_manifest.json'
+    if batch.exists():export_rows += [r for r in json.loads(batch.read_text())['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
     for path in ['art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']:
         export_rows+=read(path)['entries']
     for category,filename,constant in [('lootling','lootling_catalog.gd','ENTRIES'),('wanderer','wanderer_catalog.gd','PRESETS')]:
@@ -118,6 +120,7 @@ def build():
         entry['guidance_only_sources']=['art/reference/phase4e_handoff/REFERENCE_STATUS.json']
     inputs=['docs/production/MASTER_INTEGRATION_MANIFEST.json','docs/production/MASTER_RUNTIME_CATALOG_SNAPSHOT.json','art/reference/phase4e_handoff/REFERENCE_STATUS.json','art/actor_identity_corrections.json','art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']
     inputs.append('art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')
+    if batch.exists():inputs.append('art/production/phase4e/player_batch_043_manifest.json')
     inputs+=['art/production_npc_manifest.json','art/npc_identity_authorities.json']
     approved_file='art/approved_missing_canon_references.json'
     if (ROOT/approved_file).exists():

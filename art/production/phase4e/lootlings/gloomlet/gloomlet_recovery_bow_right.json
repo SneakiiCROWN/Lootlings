@@ -1,0 +1,94 @@
+{
+  "actor": "gloomlet",
+  "phase": "RECOVER",
+  "state": "recovery",
+  "facing": "right_only",
+  "weapon_types": [
+    "bow"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.6272017774640657,
+    0.7123485682819384
+  ],
+  "secondary_anchor": [
+    0.8629122818275154,
+    0.7398816079295154
+  ],
+  "core_anchor": [
+    0.6736556724845996,
+    0.6796530837004405
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": true,
+  "contract_slot_id": "pose:gloomlet:recovery:right:bow",
+  "source": "art/source/player_combat_043/gloomlet_right_fixed.png",
+  "source_sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534",
+  "source_bounds": [
+    12,
+    531,
+    499,
+    985
+  ],
+  "source_primary": [
+    330,
+    836
+  ],
+  "source_secondary": [
+    467,
+    852
+  ],
+  "primary_palm": [
+    321.12731006160163,
+    364.72246696035245
+  ],
+  "secondary_palm": [
+    441.8110882956879,
+    378.8193832599119
+  ],
+  "core_or_eye": [
+    344.911704312115,
+    347.98237885462555
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8809034907597536,
+      0.8810572687224669
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      41,
+      96
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.json",
+  "bow_rest_angle": -0.45,
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

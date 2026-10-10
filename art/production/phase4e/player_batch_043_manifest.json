@@ -1,0 +1,2141 @@
+{
+  "entries": [
+    {
+      "actor": "gloomlet",
+      "phase": "IDLE",
+      "state": "idle",
+      "facing": "right_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8849878368263473,
+        0.609798376789366
+      ],
+      "secondary_anchor": [
+        0.5703709767964071,
+        0.6338429831288344
+      ],
+      "core_anchor": [
+        0.6700856100299402,
+        0.6681924207566462
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:idle:right:bow",
+      "source": "art/source/player_combat_043/gloomlet_right_fixed.png",
+      "source_sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534",
+      "source_bounds": [
+        8,
+        12,
+        509,
+        501
+      ],
+      "source_primary": [
+        483,
+        292
+      ],
+      "source_secondary": [
+        300,
+        306
+      ],
+      "primary_palm": [
+        453.1137724550898,
+        312.2167689161554
+      ],
+      "secondary_palm": [
+        292.02994011976045,
+        324.5276073619632
+      ],
+      "core_or_eye": [
+        343.08383233532936,
+        342.11451942740285
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8802395209580839,
+          0.8793456032719836
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          35,
+          66
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_right.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ATTACK",
+      "state": "strike_or_cast",
+      "facing": "right_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8935244064922481,
+        0.6264098716887417
+      ],
+      "secondary_anchor": [
+        0.457038820251938,
+        0.5679195985099338
+      ],
+      "core_anchor": [
+        0.6116990673449613,
+        0.6952219577814569
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:strike_or_cast:right:bow",
+      "source": "art/source/player_combat_043/gloomlet_right_fixed.png",
+      "source_sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534",
+      "source_bounds": [
+        523,
+        49,
+        1039,
+        502
+      ],
+      "source_primary": [
+        1010,
+        303
+      ],
+      "source_secondary": [
+        756,
+        269
+      ],
+      "primary_palm": [
+        457.484496124031,
+        320.72185430463577
+      ],
+      "secondary_palm": [
+        234.00387596899225,
+        290.7748344370861
+      ],
+      "core_or_eye": [
+        313.18992248062017,
+        355.95364238410593
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8798449612403101,
+          0.8807947019867549
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          29,
+          97
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_right.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "IMPACT",
+      "state": "follow_through",
+      "facing": "right_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.8783160412524851,
+        0.7176733993902439
+      ],
+      "secondary_anchor": [
+        0.3313090208747515,
+        0.5611804496951219
+      ],
+      "core_anchor": [
+        0.680499037027833,
+        0.7830221036585366
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:follow_through:right:bow",
+      "source": "art/source/player_combat_043/gloomlet_right_initial.png",
+      "source_sha256": "0e722351edaf59297766d98babb6d8ab1358996a793a8ef4359884cb8b44c5a7",
+      "source_bounds": [
+        1020,
+        79,
+        1523,
+        489
+      ],
+      "source_primary": [
+        1492,
+        343
+      ],
+      "source_secondary": [
+        1174,
+        252
+      ],
+      "primary_palm": [
+        449.69781312127236,
+        367.44878048780487
+      ],
+      "secondary_palm": [
+        169.63021868787277,
+        287.3243902439024
+      ],
+      "core_or_eye": [
+        348.4155069582505,
+        400.90731707317076
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8807157057654076,
+          0.8804878048780488
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          34,
+          135
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "RECOVER",
+      "state": "recovery",
+      "facing": "right_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.6272017774640657,
+        0.7123485682819384
+      ],
+      "secondary_anchor": [
+        0.8629122818275154,
+        0.7398816079295154
+      ],
+      "core_anchor": [
+        0.6736556724845996,
+        0.6796530837004405
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:recovery:right:bow",
+      "source": "art/source/player_combat_043/gloomlet_right_fixed.png",
+      "source_sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534",
+      "source_bounds": [
+        12,
+        531,
+        499,
+        985
+      ],
+      "source_primary": [
+        330,
+        836
+      ],
+      "source_secondary": [
+        467,
+        852
+      ],
+      "primary_palm": [
+        321.12731006160163,
+        364.72246696035245
+      ],
+      "secondary_palm": [
+        441.8110882956879,
+        378.8193832599119
+      ],
+      "core_or_eye": [
+        344.911704312115,
+        347.98237885462555
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8809034907597536,
+          0.8810572687224669
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          41,
+          96
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_right.json",
+      "bow_rest_angle": -0.45,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "HURT",
+      "state": "hurt",
+      "facing": "right_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.6400013130252101,
+        0.6680654849646226
+      ],
+      "secondary_anchor": [
+        0.7930138852415967,
+        0.48421838148584906
+      ],
+      "core_anchor": [
+        0.617651162027311,
+        0.5357642983490566
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:hurt:right:bow",
+      "source": "art/source/player_combat_043/gloomlet_right_fixed.png",
+      "source_sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534",
+      "source_bounds": [
+        530,
+        560,
+        1006,
+        984
+      ],
+      "source_primary": [
+        850,
+        809
+      ],
+      "source_secondary": [
+        939,
+        702
+      ],
+      "primary_palm": [
+        327.6806722689076,
+        342.04952830188677
+      ],
+      "secondary_palm": [
+        406.0231092436975,
+        247.91981132075472
+      ],
+      "core_or_eye": [
+        316.2373949579832,
+        274.311320754717
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8802521008403361,
+          0.8797169811320755
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          46,
+          123
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_right.json",
+      "bow_rest_angle": -0.45,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "IDLE",
+      "state": "idle",
+      "facing": "left_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.1925979872881356,
+        0.678105987278761
+      ],
+      "secondary_anchor": [
+        0.5221984715496368,
+        0.7451776825221239
+      ],
+      "core_anchor": [
+        0.3522482218523002,
+        0.7021830060840708
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:idle:left:bow",
+      "source": "art/source/player_combat_043/gloomlet_left.png",
+      "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+      "source_bounds": [
+        80,
+        36,
+        493,
+        488
+      ],
+      "source_primary": [
+        108,
+        319
+      ],
+      "source_secondary": [
+        300,
+        358
+      ],
+      "primary_palm": [
+        98.61016949152543,
+        347.19026548672565
+      ],
+      "secondary_palm": [
+        267.36561743341406,
+        381.53097345132744
+      ],
+      "core_or_eye": [
+        180.3510895883777,
+        359.51769911504425
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8789346246973365,
+          0.8805309734513275
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          74,
+          98
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_idle_bow_left.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "ATTACK",
+      "state": "strike_or_cast",
+      "facing": "left_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.09372759321223709,
+        0.6214575249445676
+      ],
+      "secondary_anchor": [
+        0.5901873207456979,
+        0.5922299404101996
+      ],
+      "core_anchor": [
+        0.3823270195984704,
+        0.710859548226164
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:strike_or_cast:left:bow",
+      "source": "art/source/player_combat_043/gloomlet_left.png",
+      "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+      "source_bounds": [
+        492,
+        36,
+        1015,
+        487
+      ],
+      "source_primary": [
+        517,
+        285
+      ],
+      "source_secondary": [
+        806,
+        268
+      ],
+      "primary_palm": [
+        47.98852772466539,
+        318.1862527716186
+      ],
+      "secondary_palm": [
+        302.17590822179733,
+        303.2217294900222
+      ],
+      "core_or_eye": [
+        195.75143403441683,
+        363.960088691796
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8795411089866156,
+          0.8802660753880266
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          26,
+          99
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_strike_or_cast_bow_left.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "IMPACT",
+      "state": "follow_through",
+      "facing": "left_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.12357918962925851,
+        0.6522733671171171
+      ],
+      "secondary_anchor": [
+        0.5548675475951903,
+        0.5869140625
+      ],
+      "core_anchor": [
+        0.424278243987976,
+        0.7159126900337838
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:follow_through:left:bow",
+      "source": "art/source/player_combat_043/gloomlet_left.png",
+      "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+      "source_bounds": [
+        1019,
+        48,
+        1518,
+        492
+      ],
+      "source_primary": [
+        1050,
+        308
+      ],
+      "source_secondary": [
+        1301,
+        270
+      ],
+      "primary_palm": [
+        63.27254509018036,
+        333.963963963964
+      ],
+      "secondary_palm": [
+        284.09218436873743,
+        300.5
+      ],
+      "core_or_eye": [
+        217.2304609218437,
+        366.5472972972973
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8797595190380761,
+          0.8806306306306306
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          36,
+          105
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_left.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "RECOVER",
+      "state": "recovery",
+      "facing": "left_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.2435585678807947,
+        0.657873320997807
+      ],
+      "secondary_anchor": [
+        0.4930023799668874,
+        0.7368806537828947
+      ],
+      "core_anchor": [
+        0.36225941639072845,
+        0.7128349438048246
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:recovery:left:bow",
+      "source": "art/source/player_combat_043/gloomlet_left.png",
+      "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+      "source_bounds": [
+        59,
+        514,
+        512,
+        970
+      ],
+      "source_primary": [
+        137,
+        789
+      ],
+      "source_secondary": [
+        282,
+        835
+      ],
+      "primary_palm": [
+        124.70198675496688,
+        336.8311403508772
+      ],
+      "secondary_palm": [
+        252.41721854304635,
+        377.2828947368421
+      ],
+      "core_or_eye": [
+        185.47682119205297,
+        364.9714912280702
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8807947019867549,
+          0.8793859649122807
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          56,
+          95
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_recovery_bow_left.json",
+      "bow_rest_angle": -0.45,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "gloomlet",
+      "phase": "HURT",
+      "state": "hurt",
+      "facing": "left_only",
+      "weapon_types": [
+        "bow"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.4810871138996139,
+        0.733374931619256
+      ],
+      "secondary_anchor": [
+        0.2902388996138996,
+        0.48425533369803064
+      ],
+      "core_anchor": [
+        0.4656129343629344,
+        0.693859409190372
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": true,
+      "contract_slot_id": "pose:gloomlet:hurt:left:bow",
+      "source": "art/source/player_combat_043/gloomlet_left.png",
+      "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+      "source_bounds": [
+        517,
+        513,
+        1035,
+        970
+      ],
+      "source_primary": [
+        765,
+        833
+      ],
+      "source_secondary": [
+        654,
+        688
+      ],
+      "primary_palm": [
+        246.3166023166023,
+        375.4879649890591
+      ],
+      "secondary_palm": [
+        148.6023166023166,
+        247.9387308533917
+      ],
+      "core_or_eye": [
+        238.3938223938224,
+        355.2560175054705
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8803088803088803,
+          0.8796498905908097
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          28,
+          94
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.json",
+      "bow_rest_angle": -0.45,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "IDLE",
+      "state": "idle",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.505669546436285,
+        0.7112880608974359
+      ],
+      "secondary_anchor": [
+        0.7518898488120951,
+        0.7971087072649573
+      ],
+      "core_anchor": [
+        0.6044816414686824,
+        0.7485309829059829
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {
+        "wand": {
+          "size": [
+            75,
+            93
+          ],
+          "grip": [
+            0.42,
+            0.72
+          ],
+          "secondary_grip": [
+            0.3,
+            0.65
+          ],
+          "socket": [
+            0.6,
+            0.1
+          ],
+          "angle": -0.55,
+          "held_path": "res://art/sprites/weapons/wand_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:idle:right:wand",
+      "source": "art/source/player_combat_043/moonkip_right.png",
+      "source_sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768",
+      "source_bounds": [
+        31,
+        28,
+        494,
+        496
+      ],
+      "source_primary": [
+        266,
+        337
+      ],
+      "source_secondary": [
+        418,
+        390
+      ],
+      "primary_palm": [
+        258.90280777537794,
+        364.1794871794872
+      ],
+      "secondary_palm": [
+        384.9676025917927,
+        408.11965811965814
+      ],
+      "core_or_eye": [
+        309.4946004319654,
+        383.2478632478632
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8293736501079914,
+          0.8290598290598291
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          64,
+          108
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "HURT",
+      "state": "hurt",
+      "facing": "right_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.580235105140187,
+        0.6578947368421053
+      ],
+      "secondary_anchor": [
+        0.7698817172897197,
+        0.5753238075657895
+      ],
+      "core_anchor": [
+        0.6126533294392523,
+        0.740465666118421
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {
+        "wand": {
+          "size": [
+            75,
+            93
+          ],
+          "grip": [
+            0.42,
+            0.72
+          ],
+          "secondary_grip": [
+            0.3,
+            0.65
+          ],
+          "socket": [
+            0.6,
+            0.1
+          ],
+          "angle": -0.55,
+          "held_path": "res://art/sprites/weapons/wand_held.png"
+        }
+      },
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:hurt:right:wand",
+      "source": "art/source/player_combat_043/moonkip_right.png",
+      "source_sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768",
+      "source_bounds": [
+        488,
+        581,
+        1023,
+        961
+      ],
+      "source_primary": [
+        805,
+        769
+      ],
+      "source_secondary": [
+        922,
+        718
+      ],
+      "primary_palm": [
+        297.0803738317757,
+        336.8421052631579
+      ],
+      "secondary_palm": [
+        394.17943925233646,
+        294.5657894736842
+      ],
+      "core_or_eye": [
+        313.6785046728972,
+        379.11842105263156
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8299065420560747,
+          0.8289473684210527
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          34,
+          181
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "IDLE",
+      "state": "idle",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.3071187759336099,
+        0.62021484375
+      ],
+      "secondary_anchor": [
+        0.6977437759336099,
+        0.78556640625
+      ],
+      "core_anchor": [
+        0.49351659751037347,
+        0.73369140625
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:idle:left:wand",
+      "source": "art/source/player_combat_043/moonkip_left_mixed.png",
+      "source_sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f",
+      "source_bounds": [
+        28,
+        13,
+        510,
+        513
+      ],
+      "source_primary": [
+        150,
+        298
+      ],
+      "source_secondary": [
+        391,
+        400
+      ],
+      "primary_palm": [
+        157.24481327800828,
+        317.55
+      ],
+      "secondary_palm": [
+        357.2448132780083,
+        402.21
+      ],
+      "core_or_eye": [
+        252.68049792531122,
+        375.65
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8298755186721992,
+          0.83
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          56,
+          81
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "HURT",
+      "state": "hurt",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.2865209858786611,
+        0.63671875
+      ],
+      "secondary_anchor": [
+        0.5444438088389121,
+        0.7727705792682926
+      ],
+      "core_anchor": [
+        0.42927072437238495,
+        0.7436166158536586
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:hurt:left:wand",
+      "source": "art/source/player_combat_043/moonkip_left_mixed.png",
+      "source_sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f",
+      "source_bounds": [
+        560,
+        552,
+        1038,
+        962
+      ],
+      "source_primary": [
+        668,
+        757
+      ],
+      "source_secondary": [
+        827,
+        841
+      ],
+      "primary_palm": [
+        146.69874476987448,
+        326.0
+      ],
+      "secondary_palm": [
+        278.755230125523,
+        395.6585365853658
+      ],
+      "core_or_eye": [
+        219.7866108786611,
+        380.7317073170732
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8305439330543933,
+          0.8292682926829268
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          57,
+          156
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ANTICIPATE",
+      "state": "windup",
+      "facing": "left_only",
+      "weapon_types": [
+        "wand"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.23477503765060243,
+        0.6132670454545455
+      ],
+      "secondary_anchor": [
+        0.4605374623493976,
+        0.7813636363636364
+      ],
+      "core_anchor": [
+        0.39629612198795183,
+        0.7666666666666667
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:windup:left:wand",
+      "source": "art/source/player_combat_043/moonkip_windup_left.png",
+      "source_sha256": "5bcc4d308856a40c8bbb4e6817c93b90ee4f95328f165f11bd8c66b0e506ff9f",
+      "source_bounds": [
+        377,
+        228,
+        1041,
+        1053
+      ],
+      "source_primary": [
+        420,
+        666
+      ],
+      "source_secondary": [
+        666,
+        849
+      ],
+      "primary_palm": [
+        120.20481927710844,
+        313.9927272727273
+      ],
+      "secondary_palm": [
+        235.79518072289156,
+        400.0581818181818
+      ],
+      "core_or_eye": [
+        202.90361445783134,
+        392.53333333333336
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.46987951807228917,
+          0.4703030303030303
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          100,
+          108
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.json",
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ANTICIPATE",
+      "facing": "right_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.36328125,
+        0.69022265625
+      ],
+      "secondary_anchor": [
+        0.657294921875,
+        0.794095703125
+      ],
+      "core_anchor": [
+        0.604478515625,
+        0.695505859375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:windup:right:wand",
+      "contract_slot_id": "pose:moonkip:windup:right:orb",
+      "state": "windup",
+      "reused_body": true,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_windup_orb_right.json",
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ATTACK",
+      "facing": "right_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.9022890625,
+        0.769091796875
+      ],
+      "secondary_anchor": [
+        0.391724609375,
+        0.76380859375
+      ],
+      "core_anchor": [
+        0.6875,
+        0.67578125
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:strike_or_cast:right:wand",
+      "contract_slot_id": "pose:moonkip:strike_or_cast:right:orb",
+      "state": "strike_or_cast",
+      "reused_body": true,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_orb_right.json",
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "RECOVER",
+      "facing": "right_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.745267578125,
+        0.845291015625
+      ],
+      "secondary_anchor": [
+        0.512875,
+        0.7748671875
+      ],
+      "core_anchor": [
+        0.629072265625,
+        0.623458984375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_right_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:recovery:right:wand",
+      "contract_slot_id": "pose:moonkip:recovery:right:orb",
+      "state": "recovery",
+      "reused_body": true,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_recovery_orb_right.json",
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ATTACK",
+      "facing": "left_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.1113828125,
+        0.760892578125
+      ],
+      "secondary_anchor": [
+        0.486328125,
+        0.779296875
+      ],
+      "core_anchor": [
+        0.280396484375,
+        0.665822265625
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:strike_or_cast:left:wand",
+      "contract_slot_id": "pose:moonkip:strike_or_cast:left:orb",
+      "state": "strike_or_cast",
+      "reused_body": true,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_orb_left.json",
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "RECOVER",
+      "facing": "left_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.25390625,
+        0.8203125
+      ],
+      "secondary_anchor": [
+        0.48046875,
+        0.884765625
+      ],
+      "core_anchor": [
+        0.370267578125,
+        0.62618359375
+      ],
+      "feet_baseline": 58.0,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_recovery_wand_left_grip_front.png",
+      "draw_depth": "back",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "master_artist_slot_id": "pose:moonkip:recovery:left:wand",
+      "contract_slot_id": "pose:moonkip:recovery:left:orb",
+      "state": "recovery",
+      "reused_body": true,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_recovery_orb_left.json",
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "IDLE",
+      "state": "idle",
+      "facing": "right_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.505669546436285,
+        0.7112880608974359
+      ],
+      "secondary_anchor": [
+        0.7518898488120951,
+        0.7971087072649573
+      ],
+      "core_anchor": [
+        0.6044816414686824,
+        0.7485309829059829
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:idle:right:orb",
+      "source": "art/source/player_combat_043/moonkip_right.png",
+      "source_sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768",
+      "source_bounds": [
+        31,
+        28,
+        494,
+        496
+      ],
+      "source_primary": [
+        266,
+        337
+      ],
+      "source_secondary": [
+        418,
+        390
+      ],
+      "primary_palm": [
+        258.90280777537794,
+        364.1794871794872
+      ],
+      "secondary_palm": [
+        384.9676025917927,
+        408.11965811965814
+      ],
+      "core_or_eye": [
+        309.4946004319654,
+        383.2478632478632
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8293736501079914,
+          0.8290598290598291
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          64,
+          108
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_idle_orb_right.json",
+      "reused_body": true,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "HURT",
+      "state": "hurt",
+      "facing": "right_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.580235105140187,
+        0.6578947368421053
+      ],
+      "secondary_anchor": [
+        0.7698817172897197,
+        0.5753238075657895
+      ],
+      "core_anchor": [
+        0.6126533294392523,
+        0.740465666118421
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_right_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:hurt:right:orb",
+      "source": "art/source/player_combat_043/moonkip_right.png",
+      "source_sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768",
+      "source_bounds": [
+        488,
+        581,
+        1023,
+        961
+      ],
+      "source_primary": [
+        805,
+        769
+      ],
+      "source_secondary": [
+        922,
+        718
+      ],
+      "primary_palm": [
+        297.0803738317757,
+        336.8421052631579
+      ],
+      "secondary_palm": [
+        394.17943925233646,
+        294.5657894736842
+      ],
+      "core_or_eye": [
+        313.6785046728972,
+        379.11842105263156
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8299065420560747,
+          0.8289473684210527
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          34,
+          181
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_orb_right.json",
+      "reused_body": true,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "IDLE",
+      "state": "idle",
+      "facing": "left_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.3071187759336099,
+        0.62021484375
+      ],
+      "secondary_anchor": [
+        0.6977437759336099,
+        0.78556640625
+      ],
+      "core_anchor": [
+        0.49351659751037347,
+        0.73369140625
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:idle:left:orb",
+      "source": "art/source/player_combat_043/moonkip_left_mixed.png",
+      "source_sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f",
+      "source_bounds": [
+        28,
+        13,
+        510,
+        513
+      ],
+      "source_primary": [
+        150,
+        298
+      ],
+      "source_secondary": [
+        391,
+        400
+      ],
+      "primary_palm": [
+        157.24481327800828,
+        317.55
+      ],
+      "secondary_palm": [
+        357.2448132780083,
+        402.21
+      ],
+      "core_or_eye": [
+        252.68049792531122,
+        375.65
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8298755186721992,
+          0.83
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          56,
+          81
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_idle_orb_left.json",
+      "reused_body": true,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "HURT",
+      "state": "hurt",
+      "facing": "left_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.2865209858786611,
+        0.63671875
+      ],
+      "secondary_anchor": [
+        0.5444438088389121,
+        0.7727705792682926
+      ],
+      "core_anchor": [
+        0.42927072437238495,
+        0.7436166158536586
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_hurt_wand_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:hurt:left:orb",
+      "source": "art/source/player_combat_043/moonkip_left_mixed.png",
+      "source_sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f",
+      "source_bounds": [
+        560,
+        552,
+        1038,
+        962
+      ],
+      "source_primary": [
+        668,
+        757
+      ],
+      "source_secondary": [
+        827,
+        841
+      ],
+      "primary_palm": [
+        146.69874476987448,
+        326.0
+      ],
+      "secondary_palm": [
+        278.755230125523,
+        395.6585365853658
+      ],
+      "core_or_eye": [
+        219.7866108786611,
+        380.7317073170732
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.8305439330543933,
+          0.8292682926829268
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          57,
+          156
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_hurt_orb_left.json",
+      "reused_body": true,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    },
+    {
+      "actor": "moonkip",
+      "phase": "ANTICIPATE",
+      "state": "windup",
+      "facing": "left_only",
+      "weapon_types": [
+        "orb"
+      ],
+      "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left.png",
+      "body_rect": [
+        -96,
+        -128,
+        192,
+        192
+      ],
+      "primary_anchor": [
+        0.23477503765060243,
+        0.6132670454545455
+      ],
+      "secondary_anchor": [
+        0.4605374623493976,
+        0.7813636363636364
+      ],
+      "core_anchor": [
+        0.39629612198795183,
+        0.7666666666666667
+      ],
+      "feet_baseline": 58,
+      "supports_two_hand": false,
+      "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_windup_wand_left_grip_front.png",
+      "draw_depth": "front",
+      "weapon_overrides": {},
+      "wardrobe_requires": {},
+      "baked_weapon": "",
+      "bow_primary_contact": false,
+      "contract_slot_id": "pose:moonkip:windup:left:orb",
+      "source": "art/source/player_combat_043/moonkip_windup_left.png",
+      "source_sha256": "5bcc4d308856a40c8bbb4e6817c93b90ee4f95328f165f11bd8c66b0e506ff9f",
+      "source_bounds": [
+        377,
+        228,
+        1041,
+        1053
+      ],
+      "source_primary": [
+        420,
+        666
+      ],
+      "source_secondary": [
+        666,
+        849
+      ],
+      "primary_palm": [
+        120.20481927710844,
+        313.9927272727273
+      ],
+      "secondary_palm": [
+        235.79518072289156,
+        400.0581818181818
+      ],
+      "core_or_eye": [
+        202.90361445783134,
+        392.53333333333336
+      ],
+      "uniform_transform": {
+        "scale_xy": [
+          0.46987951807228917,
+          0.4703030303030303
+        ],
+        "rounding": "single uniform intended scale; integer target dimensions",
+        "offset": [
+          100,
+          108
+        ]
+      },
+      "canvas": [
+        512,
+        512
+      ],
+      "baseline_y": 496,
+      "pivot": [
+        256,
+        341.3333333333333
+      ],
+      "identity_authority": [
+        "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+      ],
+      "native_validated": true,
+      "production_status": "canon_validated_runtime",
+      "mirroring_allowed": false,
+      "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_windup_orb_left.json",
+      "reused_body": true,
+      "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+    }
+  ],
+  "authority": "Dedicated Gloomlet and original hooded Moonkip; exact native acceptance required. Movement/defeat/victory remain open."
+}

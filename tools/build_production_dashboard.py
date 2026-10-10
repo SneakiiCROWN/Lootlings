@@ -27,6 +27,8 @@ def build():
     canon = read('docs/production/CANON_REGISTRY.json')
     counts = read(str((CONT / 'CONTINUOUS_PRODUCTION_COUNTS.json').relative_to(ROOT)))
     receipt=read(str((CONT/'REGIONAL_RESIDENT_INSTALLATION_0441.json').relative_to(ROOT)))
+    player_receipt=CONT/'PLAYER_COMBAT_INSTALLATION_0443.json'
+    if player_receipt.exists():receipt=read(str(player_receipt.relative_to(ROOT)))
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'
     evidence = read(evidence_path)
@@ -166,8 +168,9 @@ def build():
             'art/reference/phase4e_handoff/REFERENCE_STATUS.json','art/approved_missing_canon_references.json','art/npc_identity_authorities.json',
             'art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json','art/hoard_dragon_identity_authority.json',
             str((CONT/'CONTINUOUS_PRODUCTION_COUNTS.json').relative_to(ROOT)),str((CONT/'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT))]
+    if player_receipt.exists():inputs.append(str(player_receipt.relative_to(ROOT)))
     return dict(schema_version=1, quality_policy='All seven stages required. Tests/export/file existence do not grant artistic or player-experience acceptance. Old LIVE_FINAL/LIVE_BETA labels are reclassified pending evidence.',
-                denominators='Frozen delivery contracts, individual runtime files, and broad requirement records are distinct. No whole-game completion percentage is asserted.',
+                denominators='Frozen delivery contracts, requested artist-file requirements (including verified compatible reuse), distinct newly created physical files, and broad requirement records are separate. Per-batch receipts give physical file counts. No whole-game completion percentage is asserted.',
                 counts=dict(required_contracts=counts['installed_contracts']+counts['remaining_contracts'], installed_contract_closures=counts['installed_contracts'], remaining_contracts=counts['remaining_contracts'],
                             required_artist_files=counts['installed_artist_files']+counts['remaining_artist_files'], installed_artist_files=counts['installed_artist_files'], remaining_artist_files=counts['remaining_artist_files'],
                             current_reviewed_runtime_png_cells=len({e['asset'] for e in evidence['entries'] if e.get('asset') and e['asset'].endswith('.png') and e['stages'].get('gameplay_visual_reviewed')}),
@@ -188,7 +191,7 @@ def build():
 HTML='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lootlings production dashboard</title>
 <style>body{background:#101c2e;color:#e9eef4;font:15px system-ui;margin:0;padding:24px}h1{color:#ffd88b}section{background:#18293e;border:1px solid #456077;border-radius:12px;padding:20px;margin:18px 0}p{line-height:1.6}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid #365064;vertical-align:top}th{color:#ffd88b}input,select,button{background:#243d56;color:white;border:1px solid #6c8ca7;padding:12px;border-radius:7px;margin:5px}a{color:#9cdbff}.scroll{overflow:auto;max-height:650px}.stats{display:flex;gap:18px;flex-wrap:wrap}.stat{padding:14px;background:#24364a;border-radius:9px}.note{color:#b8cbd9}</style>
 <h1>Lootlings · complete registered scope & quality</h1><p id="policy"></p><div class="stats" id="stats"></div>
-<section><h2>Frozen delivery contracts</h2><p class="note">Installed closures are delivery evidence, not automatic professional acceptance. Artist files include required sidecars and layers, not just frames.</p><div id="contracts"></div></section>
+<section><h2>Frozen delivery contracts</h2><p class="note">Installed closures are delivery evidence, not automatic professional acceptance. Artist-file totals count requested body/layer/sidecar requirements, including verified reuse. Per-batch receipts separately count new physical files.</p><div id="contracts"></div></section>
 <section><h2>Every registered family</h2><div class="scroll" id="families"></div></section>
 <section><h2>Runtime quality stages / requirements</h2><p>Stage order: canon approval → created → integrated → functional test → gameplay visual review → player-experience review → production acceptance. A dot means unverified, not necessarily failed.</p><input id="search" aria-label="Search identity, region, state or screen" placeholder="Search identity, region, state or screen"><select id="family" aria-label="Family"></select><select id="status" aria-label="Quality status"></select><p id="matched"></p><div class="scroll" id="records"></div><button id="more">Show next 250</button></section>
 <section><h2>Remaining exact contracts</h2><input id="debtsearch" aria-label="Search remaining contracts" placeholder="Search character, family, state, weapon"><p id="debtcount"></p><div class="scroll" id="debt"></div></section>

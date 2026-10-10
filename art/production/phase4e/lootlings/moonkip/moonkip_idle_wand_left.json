@@ -1,0 +1,93 @@
+{
+  "actor": "moonkip",
+  "phase": "IDLE",
+  "state": "idle",
+  "facing": "left_only",
+  "weapon_types": [
+    "wand"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.3071187759336099,
+    0.62021484375
+  ],
+  "secondary_anchor": [
+    0.6977437759336099,
+    0.78556640625
+  ],
+  "core_anchor": [
+    0.49351659751037347,
+    0.73369140625
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": false,
+  "contract_slot_id": "pose:moonkip:idle:left:wand",
+  "source": "art/source/player_combat_043/moonkip_left_mixed.png",
+  "source_sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f",
+  "source_bounds": [
+    28,
+    13,
+    510,
+    513
+  ],
+  "source_primary": [
+    150,
+    298
+  ],
+  "source_secondary": [
+    391,
+    400
+  ],
+  "primary_palm": [
+    157.24481327800828,
+    317.55
+  ],
+  "secondary_palm": [
+    357.2448132780083,
+    402.21
+  ],
+  "core_or_eye": [
+    252.68049792531122,
+    375.65
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8298755186721992,
+      0.83
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      56,
+      81
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_left.json",
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

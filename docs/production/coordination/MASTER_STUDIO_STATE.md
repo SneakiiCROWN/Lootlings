@@ -1,12 +1,7 @@
 # Lootlings shared production state
 
-Active writer: Codex, live `C:\Users\Snkii\Documents\lootlings`, branch `codex/phase4e-gamefeel`.
-Verified base: pushed 0.4.41 `741ff4a`. Current candidate: 0.4.42 cohesive item cards. Resolve the saved milestone with `git log`; an exported candidate is not a public release or final acceptance.
+Single active writer: Codex; live `C:\Users\Snkii\Documents\lootlings`, branch `codex/phase4e-gamefeel`. Base pushed 0.4.42 `6a15b57`; current tested candidate 0.4.43. Resolve latest saved/pushed SHA through Git, never infer a checkpoint from an export.
 
-191 installed exact delivery closures; 3083 remaining. 419 installed artist files; 8076 remaining. These are frozen delivery denominators, not whole-game quality percentages.
+216 installed exact contracts /3058 remaining. 494 fulfilled frozen artist-file requirements /8001 remaining, including verified reuse; new physical files are separately counted per receipt. Current pass closes25 contracts with15 new bodies,15 grip layers,25 sidecars. No whole animation family or professional acceptance is asserted.
 
-The sole coverage dashboard is [PRODUCTION_DASHBOARD.html](../PRODUCTION_DASHBOARD.html), with [machine-readable data](../PRODUCTION_DASHBOARD.json) and [seven-stage evidence](../QUALITY_ACCEPTANCE_EVIDENCE.json). Regenerate with the established tools; do not manually edit generated inventories.
-
-48 newly integrated keyframes cover three creatures and two residents. Locomotion, full multi-frame continuity, missing player grips/poses and broad artistic acceptance remain open. Approved title music, original branding, six companion authorities and winged four-legged Hoard Dragon remain preserved.
-
-Owner's pre-existing `project.godot` edits and supplied untracked references are retained; do not reset or clean them. No parallel writers have been launched in this run.
+Sole dashboard: [coverage and quality](../PRODUCTION_DASHBOARD.html). Current [report](../quality-evidence/0.4.43/REPORT.md) and [receipt](../full-completion/continuous-production/PLAYER_COMBAT_INSTALLATION_0443.json). Original canon, title music, branding, winged quadruped Dragon, companions and save/gameplay compatibility remain preserved. Owner's pre-existing project configuration and references remain untouched. No parallel writers launched.

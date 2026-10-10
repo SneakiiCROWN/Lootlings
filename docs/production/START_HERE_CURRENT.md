@@ -1,6 +1,6 @@
 Latest continuation: [live coverage and seven-stage quality dashboard](PRODUCTION_DASHBOARD.html). The dashboard is generated from the current registries, frozen delivery contracts, runtime reflection and explicit native-review evidence. Older completion labels do not grant professional acceptance.
 
-Current continuation: [0.4.36 winged-canon combat family pass](full-completion/continuous-production/COMBAT_FAMILY_PASS.md). Twelve native-reviewed boss cells are installed; exact remaining counts stay explicit.
+Current continuation: [0.4.43 real player combat bodies and rewards](quality-evidence/0.4.43/REPORT.md).25 new exact delivery closures; full motion/family/device professional acceptance remains open.
 
 IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES, THE CURRENT AUTHORITIES WIN.
 
@@ -8,7 +8,11 @@ IF AN OLDER DOCUMENT CONFLICTS WITH THIS FILE OR THE LINKED CURRENT AUTHORITIES,
 
 Branch `codex/phase4e-gamefeel`, repository `SneakiiCROWN/Lootlings`. **Owner-authorized completion sprint; Phase4E art gates remain open.** Older `main` does not override this production branch.
 
-## CURRENT — 0.4.42 cohesive item-card continuation
+## CURRENT — 0.4.43 player combat bodies and connected rewards
+
+Gloomlet Bow, Moonkip Wand/Orb:25 new native-reviewed contracts;108 selected stationary/action probes81→0 reference fallback incidents.15 new bodies,15 grip layers,25 sidecars;55 new physical artist files fulfil75 requested file requirements with20 verified reuse references. Compact single-find rewards and unchanged connected purchase/Spinner/combat/return routes verified in source and actual exported Windows PCK.3,058 contracts /8,001 file requirements remain. [Current report](quality-evidence/0.4.43/REPORT.md). Full animation continuity and physical Android/perceptual audio/professional acceptance remain open.
+
+## Previous — 0.4.42 cohesive item-card continuation
 
 Pushed 0.4.41 checkpoint `741ff4a` preserves 48 new canon-checked creature/resident keyframes. The next connected pass reuses approved cool crystal and warm gold frames across Shop, Stash, Pack Peddler, perks and rewards; one persistent selection tick clears immediately on changes and stays distinct from keyboard focus. Merchant artwork now follows its own card instead of drifting into later rows. Native three-viewport and compiled-PCK touch tests preserve purchase costs, modal input, equipment and return navigation.
 

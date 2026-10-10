@@ -11,3 +11,5 @@ Latest 0.4.42 [item-card captures/logs](../quality-evidence/0.4.42/) show approv
 - Player opposite-facing weapon reference fallbacks, missing grips and locomotion remain prominent production gaps.
 
 Automation and packaged-resource checks do not grant final artistic approval. Physical Android listening/performance and independent owner acceptance remain pending.
+
+0.4.43 native source/exported review: dedicated Gloomlet and hooded Moonkip, both views, complete silhouettes, source-pixel palms/foreground layers, resting face clearance and compact reward cards. Rejected wrong-facing/malformed/clipped source cells are logged. Full continuity, movement and physical-device professional acceptance remain open.

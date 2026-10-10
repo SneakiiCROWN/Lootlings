@@ -1,0 +1,93 @@
+{
+  "actor": "gloomlet",
+  "phase": "IMPACT",
+  "state": "follow_through",
+  "facing": "right_only",
+  "weapon_types": [
+    "bow"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.8783160412524851,
+    0.7176733993902439
+  ],
+  "secondary_anchor": [
+    0.3313090208747515,
+    0.5611804496951219
+  ],
+  "core_anchor": [
+    0.680499037027833,
+    0.7830221036585366
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": true,
+  "contract_slot_id": "pose:gloomlet:follow_through:right:bow",
+  "source": "art/source/player_combat_043/gloomlet_right_initial.png",
+  "source_sha256": "0e722351edaf59297766d98babb6d8ab1358996a793a8ef4359884cb8b44c5a7",
+  "source_bounds": [
+    1020,
+    79,
+    1523,
+    489
+  ],
+  "source_primary": [
+    1492,
+    343
+  ],
+  "source_secondary": [
+    1174,
+    252
+  ],
+  "primary_palm": [
+    449.69781312127236,
+    367.44878048780487
+  ],
+  "secondary_palm": [
+    169.63021868787277,
+    287.3243902439024
+  ],
+  "core_or_eye": [
+    348.4155069582505,
+    400.90731707317076
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8807157057654076,
+      0.8804878048780488
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      34,
+      135
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_follow_through_bow_right.json",
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

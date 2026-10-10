@@ -1,0 +1,45 @@
+{
+  "actor": "moonkip",
+  "phase": "ATTACK",
+  "facing": "left_only",
+  "weapon_types": [
+    "orb"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.1113828125,
+    0.760892578125
+  ],
+  "secondary_anchor": [
+    0.486328125,
+    0.779296875
+  ],
+  "core_anchor": [
+    0.280396484375,
+    0.665822265625
+  ],
+  "feet_baseline": 58.0,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_wand_left_grip_front.png",
+  "draw_depth": "back",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "master_artist_slot_id": "pose:moonkip:strike_or_cast:left:wand",
+  "contract_slot_id": "pose:moonkip:strike_or_cast:left:orb",
+  "state": "strike_or_cast",
+  "reused_body": true,
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_strike_or_cast_orb_left.json",
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

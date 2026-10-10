@@ -175,7 +175,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	# Exact extracted idles do not stand in for missing action/movement views.
 	if authored.is_empty():
 		# A source strike is valid at commit, not an invented recovery pose.
-		var source_phase: String = "RECOVER" if g.attack_anim > 0.0 and g.attack_anim < .10 else str(action.phase)
+		var source_phase: String = "HURT" if hurt else "RECOVER" if g.attack_anim > 0.0 and g.attack_anim < .10 else str(action.phase)
 		# A committed action remains that exact authored action while its root
 		# approaches the combat lane. Only an idle export needs a stationary root;
 		# it must never pretend to be a missing movement animation.
@@ -267,6 +267,12 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 		bow_forward = Vector2(facing,0).rotated(-angle)/weapon_scale
 		support = secondary
 		support_status = "authored_bow_draw"
+	elif subtype == "bow" and authored.get("bow_primary_contact",false):
+		# Neutral/released poses hold the handle; the open rear paw no longer
+		# pulls the string. Keep the canonical bow axis and independent body.
+		angle = float(authored.get("bow_rest_angle",.65)) * (1 if facing > 0 else -1)
+		bow_forward = Vector2(facing,0).rotated(-angle)/weapon_scale
+		support_status = "authored_bow_primary"
 	if sprite_rig:
 		if stance.handling == "two_hand":
 			# Keep the support arm anatomical on long polearm follow-through.

@@ -308,6 +308,7 @@ var merchant_continue_button: Button
 var boss_reward_panel: Panel
 var boss_reward_heading: Label
 var boss_reward_footer: Label
+var boss_reward_leave_button: Button
 var boss_reward_buttons: Array[Button] = []
 var boss_reward_icons: Array = []
 var boss_reward_visuals: Array[Dictionary] = []
@@ -1551,10 +1552,10 @@ func build_boss_reward_ui() -> void:
 		boss_reward_panel.add_child(button)
 		boss_reward_buttons.append(button)
 		var icon := ItemIcon.new()
-		icon.position = Vector2(33, 120 + i * 130)
+		icon.position = Vector2(8, 8)
 		icon.size = Vector2(88, 88)
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		boss_reward_panel.add_child(icon)
+		button.add_child(icon)
 		boss_reward_icons.append(icon)
 		var kicker := make_label(button, "", 13, Rect2(124, 9, 246, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9c9ff"))
 		var title := make_label(button, "", 18, Rect2(124, 30, 246, 26), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff1cd"))
@@ -1564,7 +1565,7 @@ func build_boss_reward_ui() -> void:
 			label.clip_text = true
 		boss_reward_visuals.append({"kicker":kicker, "name":title, "effects":effects})
 	boss_reward_footer = make_label(boss_reward_panel, "Choose one reward to carry home.", 14, Rect2(24, 510, 392, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#b9c8e5"))
-	make_action_button(boss_reward_panel,"KEEP CURRENT / LEAVE FINDS",Vector2(25,552),Vector2(390,54),Color("#172442"),Color("#9aafc5"),skip_boss_rewards)
+	boss_reward_leave_button = make_action_button(boss_reward_panel,"KEEP CURRENT / LEAVE FINDS",Vector2(25,552),Vector2(390,54),Color("#172442"),Color("#9aafc5"),skip_boss_rewards)
 
 func build_hoard_chest_ui() -> void:
 	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
@@ -2763,6 +2764,11 @@ func eject_hoard_loot() -> void:
 
 func show_boss_reward() -> void:
 	state = "boss_reward"
+	# A single wave find should not occupy a three-reward wall of empty space.
+	var unused_rows := 3 - clampi(boss_reward_options.size(), 1, 3)
+	boss_reward_panel.size.y = 630 - unused_rows * 130
+	boss_reward_footer.position.y = 510 - unused_rows * 130
+	boss_reward_leave_button.position.y = 552 - unused_rows * 130
 	pause_button.visible = false
 	boss_reward_panel.visible = true
 	help_label.visible = false

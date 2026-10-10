@@ -1,16 +1,18 @@
 {
-  "batch": "regional-residents-041",
+  "batch": "player-combat-043",
   "writer": "Codex",
   "status": "VERIFIED_BETA",
-  "authoritative_receipt": "../full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json",
+  "authoritative_receipt": "../full-completion/continuous-production/PLAYER_COMBAT_INSTALLATION_0443.json",
   "runtime_manifests": [
-    "../../../art/production_enemy_manifest.json",
-    "../../../art/production_npc_manifest.json"
+    "../../../art/production/phase4e/player_batch_043_manifest.json"
   ],
   "evidence": "../QUALITY_ACCEPTANCE_EVIDENCE.json",
-  "closed_delivery_contracts": 48,
-  "runtime_png_cells": 48,
-  "sidecars": 48,
+  "closed_delivery_contracts": 25,
+  "new_body_png": 15,
+  "new_grip_png": 15,
+  "new_sidecars": 25,
+  "new_physical_artist_files": 55,
+  "fulfilled_artist_file_requirements": 75,
   "completed_multiframe_animation_families": 0,
   "production_quality_accepted": false
 }

@@ -1,0 +1,94 @@
+{
+  "actor": "moonkip",
+  "phase": "IDLE",
+  "state": "idle",
+  "facing": "right_only",
+  "weapon_types": [
+    "orb"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.505669546436285,
+    0.7112880608974359
+  ],
+  "secondary_anchor": [
+    0.7518898488120951,
+    0.7971087072649573
+  ],
+  "core_anchor": [
+    0.6044816414686824,
+    0.7485309829059829
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/moonkip/moonkip_idle_wand_right_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": false,
+  "contract_slot_id": "pose:moonkip:idle:right:orb",
+  "source": "art/source/player_combat_043/moonkip_right.png",
+  "source_sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768",
+  "source_bounds": [
+    31,
+    28,
+    494,
+    496
+  ],
+  "source_primary": [
+    266,
+    337
+  ],
+  "source_secondary": [
+    418,
+    390
+  ],
+  "primary_palm": [
+    258.90280777537794,
+    364.1794871794872
+  ],
+  "secondary_palm": [
+    384.9676025917927,
+    408.11965811965814
+  ],
+  "core_or_eye": [
+    309.4946004319654,
+    383.2478632478632
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8293736501079914,
+      0.8290598290598291
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      64,
+      108
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Moonkip_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/moonkip/moonkip_idle_orb_right.json",
+  "reused_body": true,
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}

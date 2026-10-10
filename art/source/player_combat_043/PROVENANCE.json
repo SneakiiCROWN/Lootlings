@@ -1,0 +1,39 @@
+{
+  "generator": "Built-in imagegen; dedicated original character sheets supplied as references",
+  "prompt_constraints": "Exact dedicated identity; independent right/left weaponless complete bodies; idle, release, follow-through, recovery, hurt; no baked weapons, floor, text or effects; closed primary handle palm / released rear Bow hand; padded complete silhouettes. Follow-up correction required true left windup and padded ear clearance.",
+  "sources": [
+    {
+      "path": "art/source/player_combat_043/gloomlet_left.png",
+      "sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63"
+    },
+    {
+      "path": "art/source/player_combat_043/gloomlet_right_fixed.png",
+      "sha256": "a1ec1d1b67081b62db0c968f432c5d7392d4fc28f3a51e66c68d955836da2534"
+    },
+    {
+      "path": "art/source/player_combat_043/gloomlet_right_initial.png",
+      "sha256": "0e722351edaf59297766d98babb6d8ab1358996a793a8ef4359884cb8b44c5a7"
+    },
+    {
+      "path": "art/source/player_combat_043/moonkip_left_mixed.png",
+      "sha256": "e97d366a3ac7e3e21902415100a7d5d60855e17d4d1447bfba320b104d7d7a9f"
+    },
+    {
+      "path": "art/source/player_combat_043/moonkip_right.png",
+      "sha256": "862e9c96567b65b0785211c796994fdea4cf70ec3ab43e540d5f5da8a083c768"
+    },
+    {
+      "path": "art/source/player_combat_043/moonkip_windup_left.png",
+      "sha256": "5bcc4d308856a40c8bbb4e6817c93b90ee4f95328f165f11bd8c66b0e506ff9f"
+    }
+  ],
+  "decisions": [
+    "Moonkip mixed left windup/cast actually face right: rejected for left slots; accepted padded left windup replaces the missing Wand/Orb anticipation.",
+    "Moonkip mixed left recovery has three feet: rejected, no recovery contract closed from that candidate.",
+    "Corrected Gloomlet right follow-through touches source edge: rejected; valid earlier independent follow-through retained.",
+    "First standalone Moonkip windup ear touches canvas edge: rejected and padded correction used.",
+    "Native review caught resting Wand and lowered Bow overlapping faces: runtime angles corrected and retested.",
+    "Movement, Moonkip separate follow-through, defeat/victory, additional weapons and full animation continuity remain open."
+  ],
+  "extraction": "Native Godot copies exact connected source RGBA pixels and source palm foreground; uniform intended scale, integer target rounding; no anatomy redraw or mirror."
+}

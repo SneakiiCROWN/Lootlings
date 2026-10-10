@@ -1,0 +1,94 @@
+{
+  "actor": "gloomlet",
+  "phase": "HURT",
+  "state": "hurt",
+  "facing": "left_only",
+  "weapon_types": [
+    "bow"
+  ],
+  "asset_path": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.png",
+  "body_rect": [
+    -96,
+    -128,
+    192,
+    192
+  ],
+  "primary_anchor": [
+    0.4810871138996139,
+    0.733374931619256
+  ],
+  "secondary_anchor": [
+    0.2902388996138996,
+    0.48425533369803064
+  ],
+  "core_anchor": [
+    0.4656129343629344,
+    0.693859409190372
+  ],
+  "feet_baseline": 58,
+  "supports_two_hand": false,
+  "foreground_layer": "res://art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left_grip_front.png",
+  "draw_depth": "front",
+  "weapon_overrides": {},
+  "wardrobe_requires": {},
+  "baked_weapon": "",
+  "bow_primary_contact": true,
+  "contract_slot_id": "pose:gloomlet:hurt:left:bow",
+  "source": "art/source/player_combat_043/gloomlet_left.png",
+  "source_sha256": "00872672e6b986a1a81dc54dae1fb134237355f8312e5faea76dde4fa694fb63",
+  "source_bounds": [
+    517,
+    513,
+    1035,
+    970
+  ],
+  "source_primary": [
+    765,
+    833
+  ],
+  "source_secondary": [
+    654,
+    688
+  ],
+  "primary_palm": [
+    246.3166023166023,
+    375.4879649890591
+  ],
+  "secondary_palm": [
+    148.6023166023166,
+    247.9387308533917
+  ],
+  "core_or_eye": [
+    238.3938223938224,
+    355.2560175054705
+  ],
+  "uniform_transform": {
+    "scale_xy": [
+      0.8803088803088803,
+      0.8796498905908097
+    ],
+    "rounding": "single uniform intended scale; integer target dimensions",
+    "offset": [
+      28,
+      94
+    ]
+  },
+  "canvas": [
+    512,
+    512
+  ],
+  "baseline_y": 496,
+  "pivot": [
+    256,
+    341.3333333333333
+  ],
+  "identity_authority": [
+    "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png"
+  ],
+  "native_validated": true,
+  "production_status": "canon_validated_runtime",
+  "mirroring_allowed": false,
+  "metadata_path": "art/production/phase4e/lootlings/gloomlet/gloomlet_hurt_bow_left.json",
+  "bow_rest_angle": -0.45,
+  "visual_review": "Dedicated identity, source anatomy, alpha, native both views and modular weapon contact reviewed; full motion family / physical device acceptance remain open."
+}
