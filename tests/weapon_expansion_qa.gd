@@ -20,6 +20,7 @@ func prepare(weapon_type: String, sequence: int = 0) -> void:
 	game.enemy_variant_id = ""
 	game.player_x = game.target_player_x()
 	game.attack_sequence = sequence
+	game.combat_presentation.contacts.clear()
 	game.crit_chance = 0.0
 	game.rng.seed = 777
 	game.inventory.equipped.Weapon.effects = {}
@@ -44,10 +45,10 @@ func run_qa() -> void:
 	assert(is_equal_approx(opening / (10000.0 - game.enemy_hp), 1.30))
 	prepare("claws")
 	game.resolve_player_attack(false)
-	assert(game.floating_texts.size() >= 2)
+	assert(game.combat_presentation.contacts.size() == 2 and game.enemy_hp < 10000.0, "Expected two real hits; readable damage labels deliberately share one lane")
 	prepare("crossbow", 2)
 	game.resolve_player_attack(false)
-	assert(game.floating_texts.size() >= 2)
+	assert(game.combat_presentation.contacts.size() == 2 and game.enemy_hp < 10000.0, "Expected two real hits; readable damage labels deliberately share one lane")
 	prepare("sling", 2)
 	game.enemy_attack_clock = 3.0
 	game.resolve_player_attack(false)

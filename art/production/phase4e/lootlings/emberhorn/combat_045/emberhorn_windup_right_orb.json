@@ -1,0 +1,89 @@
+{
+  "actor": "emberhorn",
+  "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:emberhorn:windup:right:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "ANTICIPATE",
+  "primary_anchor": [
+    0.469219603825137,
+    0.515127144607843
+  ],
+  "primary_palm": [
+    240.24043715847,
+    263.745098039216
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.469219603825137,
+    0.515127144607843
+  ],
+  "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+  "source_bounds": [
+    17.0,
+    52.0,
+    383.0,
+    460.0
+  ],
+  "source_primary": [
+    186.0,
+    254.0
+  ],
+  "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+  "state": "windup",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "orb": {
+      "angle": 3.14159265358979,
+      "grip": [
+        -0.219999998807907,
+        0.779999971389771
+      ],
+      "held_path": "res://art/sprites/weapons/orb_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        64.0,
+        64.0
+      ],
+      "socket": [
+        0.699999988079071,
+        0.430000007152557
+      ]
+    }
+  },
+  "weapon_types": [
+    "orb"
+  ]
+}

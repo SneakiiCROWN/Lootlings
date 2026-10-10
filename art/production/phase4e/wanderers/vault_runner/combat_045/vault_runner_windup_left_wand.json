@@ -1,0 +1,107 @@
+{
+  "actor": "vault_runner",
+  "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+  "baked_weapon": "",
+  "baseline_y": 1008.0,
+  "body_rect": [
+    -80.0,
+    -149.6,
+    160.0,
+    220.0
+  ],
+  "canvas": [
+    768.0,
+    1024.0
+  ],
+  "contract_slot_id": "pose:vault_runner:windup:left:wand",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 66.9625,
+  "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/sprites/wanderers/beta/vault_runner_idle.png"
+  ],
+  "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left_wand.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "ANTICIPATE",
+  "primary_anchor": [
+    0.706337832840237,
+    0.216269573434125
+  ],
+  "primary_palm": [
+    542.467455621302,
+    221.460043196544
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.706337832840237,
+    0.216269573434125
+  ],
+  "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+  "source_bounds": [
+    36.0,
+    524.0,
+    374.0,
+    987.0
+  ],
+  "source_primary": [
+    284.0,
+    595.0
+  ],
+  "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+  "state": "windup",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+  "wardrobe_requires": {
+    "accessories": "utility_belt",
+    "armour_accents": "brass",
+    "back_item": "coat_tails",
+    "face": "runner",
+    "facial_hair": "none",
+    "footwear": "runner_boots",
+    "gloves": "runner_bracers",
+    "hair_colour": "dark",
+    "hair_style": "short_curls",
+    "headwear": "none",
+    "jewellery": "runner_relic",
+    "lower_outfit": "runner_trousers",
+    "makeup": "natural",
+    "markings": "none",
+    "skin_tone": "umber",
+    "style": "practical_explorer",
+    "upper_outfit": "scavenger_coat"
+  },
+  "weapon_overrides": {
+    "wand": {
+      "angle": 0.35,
+      "grip": [
+        0.419999986886978,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/wand_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        75.0,
+        93.0
+      ],
+      "socket": [
+        0.600000023841858,
+        0.100000001490116
+      ]
+    }
+  },
+  "weapon_types": [
+    "wand"
+  ]
+}

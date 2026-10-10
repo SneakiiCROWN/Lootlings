@@ -54,6 +54,8 @@ def build():
     if batch.exists():export_rows += [r for r in json.loads(batch.read_text())['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
     motion=ROOT/'art/production/phase4e/player_motion_044_manifest.json'
     if motion.exists():export_rows += [r for r in json.loads(motion.read_text())['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
+    combat=ROOT/'art/production/phase4e/player_combat_045_manifest.json'
+    if combat.exists():export_rows += [r for r in json.loads(combat.read_text(encoding='utf-8-sig'))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime']
     for path in ['art/production_pose_manifest.json','art/production/phase4e/runtime_manifest.json','art/production/phase4e/reuse_manifest.json','art/production/phase4e/extraction_manifest.json']:
         export_rows+=read(path)['entries']
     for category,filename,constant in [('lootling','lootling_catalog.gd','ENTRIES'),('wanderer','wanderer_catalog.gd','PRESETS')]:
@@ -124,6 +126,7 @@ def build():
     inputs.append('art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json')
     if batch.exists():inputs.append('art/production/phase4e/player_batch_043_manifest.json')
     if motion.exists():inputs.append('art/production/phase4e/player_motion_044_manifest.json')
+    if combat.exists():inputs.append('art/production/phase4e/player_combat_045_manifest.json')
     inputs+=['art/production_npc_manifest.json','art/npc_identity_authorities.json']
     approved_file='art/approved_missing_canon_references.json'
     if (ROOT/approved_file).exists():

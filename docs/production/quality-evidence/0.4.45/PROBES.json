@@ -1,0 +1,1250 @@
+{
+	"complete_fluid_animation": false,
+	"physical_device_tested": false,
+	"probes": [
+		{
+			"fallback": false,
+			"primary": "(-40.32224, -103.7288)",
+			"projectile": "(-30.11058, -159.0599)",
+			"slot_id": "pose:vault_runner:windup:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-40.32224, -103.7288)",
+			"projectile": "(-110.2231, -78.9429)",
+			"slot_id": "pose:vault_runner:windup:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(64.35213, -105.4519)",
+			"projectile": "(113.0642, -132.7612)",
+			"slot_id": "pose:vault_runner:strike_or_cast:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(64.35213, -105.4519)",
+			"projectile": "(113.2283, -141.149)",
+			"slot_id": "pose:vault_runner:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-18.80823, -61.48286)",
+			"projectile": "(37.38373, -61.09324)",
+			"slot_id": "pose:vault_runner:recovery:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-18.80823, -61.48286)",
+			"projectile": "(-79.48329, -39.63029)",
+			"slot_id": "pose:vault_runner:recovery:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-30.51292, -104.5989)",
+			"projectile": "(-69.85177, -154.7856)",
+			"slot_id": "pose:vault_runner:hurt:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-30.51292, -104.5989)",
+			"projectile": "(-99.54332, -76.21889)",
+			"slot_id": "pose:vault_runner:hurt:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.01405, -102.0207)",
+			"projectile": "(22.72635, -157.7181)",
+			"slot_id": "pose:vault_runner:windup:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.01405, -102.0207)",
+			"projectile": "(102.8389, -77.60111)",
+			"slot_id": "pose:vault_runner:windup:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-68.31268, -98.56976)",
+			"projectile": "(-117.4836, -126.1643)",
+			"slot_id": "pose:vault_runner:strike_or_cast:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-68.31268, -98.56976)",
+			"projectile": "(-117.6476, -134.5522)",
+			"slot_id": "pose:vault_runner:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.25374, -55.02882)",
+			"projectile": "(-41.13436, -54.75117)",
+			"slot_id": "pose:vault_runner:recovery:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.25374, -55.02882)",
+			"projectile": "(75.73266, -33.28822)",
+			"slot_id": "pose:vault_runner:recovery:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.6424, -105.0493)",
+			"projectile": "(73.00388, -155.0317)",
+			"slot_id": "pose:vault_runner:hurt:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.6424, -105.0493)",
+			"projectile": "(102.6954, -76.46503)",
+			"slot_id": "pose:vault_runner:hurt:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-5.909836, -29.0956)",
+			"projectile": "(-62.33258, -11.6128)",
+			"slot_id": "pose:emberhorn:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(77.09427, -7.958755)",
+			"projectile": "(116.5168, -37.87289)",
+			"slot_id": "pose:emberhorn:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-13.73452, 3.079117)",
+			"projectile": "(-61.50317, 19.24174)",
+			"slot_id": "pose:emberhorn:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-9.728195, 2.296677)",
+			"projectile": "(-39.86095, -37.81763)",
+			"slot_id": "pose:emberhorn:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-9.728195, 2.296677)",
+			"projectile": "(-63.02035, 23.46441)",
+			"slot_id": "pose:emberhorn:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(14.13718, -27.66547)",
+			"projectile": "(70.47842, -9.774416)",
+			"slot_id": "pose:emberhorn:windup:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-74.64393, -6.987595)",
+			"projectile": "(-114.1382, -36.73736)",
+			"slot_id": "pose:emberhorn:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(19.02095, 5.189926)",
+			"projectile": "(66.72243, 21.51358)",
+			"slot_id": "pose:emberhorn:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.61929, 1.873993)",
+			"projectile": "(45.76705, -37.85677)",
+			"slot_id": "pose:emberhorn:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.61929, 1.873993)",
+			"projectile": "(68.92645, 23.42527)",
+			"slot_id": "pose:emberhorn:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-39.52119, -33.82417)",
+			"projectile": "(-94.98402, -15.16653)",
+			"slot_id": "pose:mosskin:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(73.02975, -0.950005)",
+			"projectile": "(111.8374, -29.99118)",
+			"slot_id": "pose:mosskin:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-0.1875, 11.12997)",
+			"projectile": "(-46.56054, 26.37078)",
+			"slot_id": "pose:mosskin:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-23.27153, 3.577026)",
+			"projectile": "(-52.74034, -34.61249)",
+			"slot_id": "pose:mosskin:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-23.27153, 3.577026)",
+			"projectile": "(-75.30591, 25.09821)",
+			"slot_id": "pose:mosskin:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(45.19119, -27.80059)",
+			"projectile": "(100.3468, -8.867854)",
+			"slot_id": "pose:mosskin:windup:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-78.66667, -2.087204)",
+			"projectile": "(-117.384, -31.50905)",
+			"slot_id": "pose:mosskin:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(1.324112, 18.3083)",
+			"projectile": "(47.47662, 33.58057)",
+			"slot_id": "pose:mosskin:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-22.13279, 4.709747)",
+			"projectile": "(7.358323, -36.43137)",
+			"slot_id": "pose:mosskin:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-22.13279, 4.709747)",
+			"projectile": "(29.9239, 23.27933)",
+			"slot_id": "pose:mosskin:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(62.59491, -17.17713)",
+			"projectile": "(68.72034, -64.51826)",
+			"slot_id": "pose:glimmerfin:windup:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(62.59491, -17.17713)",
+			"projectile": "(95.52435, -42.09537)",
+			"slot_id": "pose:glimmerfin:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(60.81735, 4.577072)",
+			"projectile": "(103.0338, 1.63942)",
+			"slot_id": "pose:glimmerfin:recovery:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(60.81735, 4.577072)",
+			"projectile": "(102.0133, -20.26543)",
+			"slot_id": "pose:glimmerfin:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(48.90559, 1.687668)",
+			"projectile": "(19.16165, -41.18607)",
+			"slot_id": "pose:glimmerfin:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(48.90559, 1.687668)",
+			"projectile": "(83.69312, -21.26471)",
+			"slot_id": "pose:glimmerfin:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-63.29427, 2.118378)",
+			"projectile": "(-105.4342, -0.894033)",
+			"slot_id": "pose:glimmerfin:recovery:left:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-63.29427, 2.118378)",
+			"projectile": "(-104.4137, -22.79889)",
+			"slot_id": "pose:glimmerfin:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-44.29688, -0.255219)",
+			"projectile": "(-14.43646, -42.8255)",
+			"slot_id": "pose:glimmerfin:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-44.29688, -0.255219)",
+			"projectile": "(-78.96793, -22.90414)",
+			"slot_id": "pose:glimmerfin:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1080, 2340)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-40.32224, -103.7288)",
+			"projectile": "(-30.11058, -159.0599)",
+			"slot_id": "pose:vault_runner:windup:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-40.32224, -103.7288)",
+			"projectile": "(-110.2231, -78.9429)",
+			"slot_id": "pose:vault_runner:windup:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(64.35213, -105.4519)",
+			"projectile": "(113.0642, -132.7612)",
+			"slot_id": "pose:vault_runner:strike_or_cast:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(64.35213, -105.4519)",
+			"projectile": "(113.2283, -141.149)",
+			"slot_id": "pose:vault_runner:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-18.80823, -61.48286)",
+			"projectile": "(37.38373, -61.09324)",
+			"slot_id": "pose:vault_runner:recovery:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-18.80823, -61.48286)",
+			"projectile": "(-79.48329, -39.63029)",
+			"slot_id": "pose:vault_runner:recovery:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-30.51292, -104.5989)",
+			"projectile": "(-69.85177, -154.7856)",
+			"slot_id": "pose:vault_runner:hurt:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-30.51292, -104.5989)",
+			"projectile": "(-99.54332, -76.21889)",
+			"slot_id": "pose:vault_runner:hurt:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.01405, -102.0207)",
+			"projectile": "(22.72635, -157.7181)",
+			"slot_id": "pose:vault_runner:windup:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.01405, -102.0207)",
+			"projectile": "(102.8389, -77.60111)",
+			"slot_id": "pose:vault_runner:windup:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-68.31268, -98.56976)",
+			"projectile": "(-117.4836, -126.1643)",
+			"slot_id": "pose:vault_runner:strike_or_cast:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-68.31268, -98.56976)",
+			"projectile": "(-117.6476, -134.5522)",
+			"slot_id": "pose:vault_runner:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.25374, -55.02882)",
+			"projectile": "(-41.13436, -54.75117)",
+			"slot_id": "pose:vault_runner:recovery:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.25374, -55.02882)",
+			"projectile": "(75.73266, -33.28822)",
+			"slot_id": "pose:vault_runner:recovery:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.6424, -105.0493)",
+			"projectile": "(73.00388, -155.0317)",
+			"slot_id": "pose:vault_runner:hurt:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.6424, -105.0493)",
+			"projectile": "(102.6954, -76.46503)",
+			"slot_id": "pose:vault_runner:hurt:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-5.909836, -29.0956)",
+			"projectile": "(-62.33258, -11.6128)",
+			"slot_id": "pose:emberhorn:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(77.09427, -7.958755)",
+			"projectile": "(116.5168, -37.87289)",
+			"slot_id": "pose:emberhorn:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-13.73452, 3.079117)",
+			"projectile": "(-61.50317, 19.24174)",
+			"slot_id": "pose:emberhorn:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-9.728195, 2.296677)",
+			"projectile": "(-39.86095, -37.81763)",
+			"slot_id": "pose:emberhorn:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-9.728195, 2.296677)",
+			"projectile": "(-63.02035, 23.46441)",
+			"slot_id": "pose:emberhorn:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(14.13718, -27.66547)",
+			"projectile": "(70.47842, -9.774416)",
+			"slot_id": "pose:emberhorn:windup:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-74.64393, -6.987595)",
+			"projectile": "(-114.1382, -36.73736)",
+			"slot_id": "pose:emberhorn:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(19.02095, 5.189926)",
+			"projectile": "(66.72243, 21.51358)",
+			"slot_id": "pose:emberhorn:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.61929, 1.873993)",
+			"projectile": "(45.76705, -37.85677)",
+			"slot_id": "pose:emberhorn:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.61929, 1.873993)",
+			"projectile": "(68.92645, 23.42527)",
+			"slot_id": "pose:emberhorn:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-39.52119, -33.82417)",
+			"projectile": "(-94.98402, -15.16653)",
+			"slot_id": "pose:mosskin:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(73.02975, -0.950005)",
+			"projectile": "(111.8374, -29.99118)",
+			"slot_id": "pose:mosskin:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-0.1875, 11.12997)",
+			"projectile": "(-46.56054, 26.37078)",
+			"slot_id": "pose:mosskin:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-23.27153, 3.577026)",
+			"projectile": "(-52.74034, -34.61249)",
+			"slot_id": "pose:mosskin:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-23.27153, 3.577026)",
+			"projectile": "(-75.30591, 25.09821)",
+			"slot_id": "pose:mosskin:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(45.19119, -27.80059)",
+			"projectile": "(100.3468, -8.867854)",
+			"slot_id": "pose:mosskin:windup:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-78.66667, -2.087204)",
+			"projectile": "(-117.384, -31.50905)",
+			"slot_id": "pose:mosskin:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(1.324112, 18.3083)",
+			"projectile": "(47.47662, 33.58057)",
+			"slot_id": "pose:mosskin:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-22.13279, 4.709747)",
+			"projectile": "(7.358323, -36.43137)",
+			"slot_id": "pose:mosskin:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-22.13279, 4.709747)",
+			"projectile": "(29.9239, 23.27933)",
+			"slot_id": "pose:mosskin:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(62.59491, -17.17713)",
+			"projectile": "(68.72034, -64.51826)",
+			"slot_id": "pose:glimmerfin:windup:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(62.59491, -17.17713)",
+			"projectile": "(95.52435, -42.09537)",
+			"slot_id": "pose:glimmerfin:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(60.81735, 4.577072)",
+			"projectile": "(103.0338, 1.63942)",
+			"slot_id": "pose:glimmerfin:recovery:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(60.81735, 4.577072)",
+			"projectile": "(102.0133, -20.26543)",
+			"slot_id": "pose:glimmerfin:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(48.90559, 1.687668)",
+			"projectile": "(19.16165, -41.18607)",
+			"slot_id": "pose:glimmerfin:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(48.90559, 1.687668)",
+			"projectile": "(83.69312, -21.26471)",
+			"slot_id": "pose:glimmerfin:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-63.29427, 2.118378)",
+			"projectile": "(-105.4342, -0.894033)",
+			"slot_id": "pose:glimmerfin:recovery:left:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-63.29427, 2.118378)",
+			"projectile": "(-104.4137, -22.79889)",
+			"slot_id": "pose:glimmerfin:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-44.29688, -0.255219)",
+			"projectile": "(-14.43646, -42.8255)",
+			"slot_id": "pose:glimmerfin:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-44.29688, -0.255219)",
+			"projectile": "(-78.96793, -22.90414)",
+			"slot_id": "pose:glimmerfin:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1200, 1920)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-40.32224, -103.7288)",
+			"projectile": "(-30.11058, -159.0599)",
+			"slot_id": "pose:vault_runner:windup:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-40.32224, -103.7288)",
+			"projectile": "(-110.2231, -78.9429)",
+			"slot_id": "pose:vault_runner:windup:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(64.35213, -105.4519)",
+			"projectile": "(113.0642, -132.7612)",
+			"slot_id": "pose:vault_runner:strike_or_cast:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(64.35213, -105.4519)",
+			"projectile": "(113.2283, -141.149)",
+			"slot_id": "pose:vault_runner:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-18.80823, -61.48286)",
+			"projectile": "(37.38373, -61.09324)",
+			"slot_id": "pose:vault_runner:recovery:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-18.80823, -61.48286)",
+			"projectile": "(-79.48329, -39.63029)",
+			"slot_id": "pose:vault_runner:recovery:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-30.51292, -104.5989)",
+			"projectile": "(-69.85177, -154.7856)",
+			"slot_id": "pose:vault_runner:hurt:right:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-30.51292, -104.5989)",
+			"projectile": "(-99.54332, -76.21889)",
+			"slot_id": "pose:vault_runner:hurt:right:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.01405, -102.0207)",
+			"projectile": "(22.72635, -157.7181)",
+			"slot_id": "pose:vault_runner:windup:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.01405, -102.0207)",
+			"projectile": "(102.8389, -77.60111)",
+			"slot_id": "pose:vault_runner:windup:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-68.31268, -98.56976)",
+			"projectile": "(-117.4836, -126.1643)",
+			"slot_id": "pose:vault_runner:strike_or_cast:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-68.31268, -98.56976)",
+			"projectile": "(-117.6476, -134.5522)",
+			"slot_id": "pose:vault_runner:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.25374, -55.02882)",
+			"projectile": "(-41.13436, -54.75117)",
+			"slot_id": "pose:vault_runner:recovery:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.25374, -55.02882)",
+			"projectile": "(75.73266, -33.28822)",
+			"slot_id": "pose:vault_runner:recovery:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.6424, -105.0493)",
+			"projectile": "(73.00388, -155.0317)",
+			"slot_id": "pose:vault_runner:hurt:left:wand",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(33.6424, -105.0493)",
+			"projectile": "(102.6954, -76.46503)",
+			"slot_id": "pose:vault_runner:hurt:left:orb",
+			"source": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-5.909836, -29.0956)",
+			"projectile": "(-62.33258, -11.6128)",
+			"slot_id": "pose:emberhorn:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(77.09427, -7.958755)",
+			"projectile": "(116.5168, -37.87289)",
+			"slot_id": "pose:emberhorn:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-13.73452, 3.079117)",
+			"projectile": "(-61.50317, 19.24174)",
+			"slot_id": "pose:emberhorn:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-9.728195, 2.296677)",
+			"projectile": "(-39.86095, -37.81763)",
+			"slot_id": "pose:emberhorn:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-9.728195, 2.296677)",
+			"projectile": "(-63.02035, 23.46441)",
+			"slot_id": "pose:emberhorn:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(14.13718, -27.66547)",
+			"projectile": "(70.47842, -9.774416)",
+			"slot_id": "pose:emberhorn:windup:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-74.64393, -6.987595)",
+			"projectile": "(-114.1382, -36.73736)",
+			"slot_id": "pose:emberhorn:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(19.02095, 5.189926)",
+			"projectile": "(66.72243, 21.51358)",
+			"slot_id": "pose:emberhorn:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.61929, 1.873993)",
+			"projectile": "(45.76705, -37.85677)",
+			"slot_id": "pose:emberhorn:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(15.61929, 1.873993)",
+			"projectile": "(68.92645, 23.42527)",
+			"slot_id": "pose:emberhorn:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-39.52119, -33.82417)",
+			"projectile": "(-94.98402, -15.16653)",
+			"slot_id": "pose:mosskin:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(73.02975, -0.950005)",
+			"projectile": "(111.8374, -29.99118)",
+			"slot_id": "pose:mosskin:strike_or_cast:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-0.1875, 11.12997)",
+			"projectile": "(-46.56054, 26.37078)",
+			"slot_id": "pose:mosskin:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-23.27153, 3.577026)",
+			"projectile": "(-52.74034, -34.61249)",
+			"slot_id": "pose:mosskin:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-23.27153, 3.577026)",
+			"projectile": "(-75.30591, 25.09821)",
+			"slot_id": "pose:mosskin:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(45.19119, -27.80059)",
+			"projectile": "(100.3468, -8.867854)",
+			"slot_id": "pose:mosskin:windup:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-78.66667, -2.087204)",
+			"projectile": "(-117.384, -31.50905)",
+			"slot_id": "pose:mosskin:strike_or_cast:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(1.324112, 18.3083)",
+			"projectile": "(47.47662, 33.58057)",
+			"slot_id": "pose:mosskin:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-22.13279, 4.709747)",
+			"projectile": "(7.358323, -36.43137)",
+			"slot_id": "pose:mosskin:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-22.13279, 4.709747)",
+			"projectile": "(29.9239, 23.27933)",
+			"slot_id": "pose:mosskin:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(62.59491, -17.17713)",
+			"projectile": "(68.72034, -64.51826)",
+			"slot_id": "pose:glimmerfin:windup:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(62.59491, -17.17713)",
+			"projectile": "(95.52435, -42.09537)",
+			"slot_id": "pose:glimmerfin:windup:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(60.81735, 4.577072)",
+			"projectile": "(103.0338, 1.63942)",
+			"slot_id": "pose:glimmerfin:recovery:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(60.81735, 4.577072)",
+			"projectile": "(102.0133, -20.26543)",
+			"slot_id": "pose:glimmerfin:recovery:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(48.90559, 1.687668)",
+			"projectile": "(19.16165, -41.18607)",
+			"slot_id": "pose:glimmerfin:hurt:right:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(48.90559, 1.687668)",
+			"projectile": "(83.69312, -21.26471)",
+			"slot_id": "pose:glimmerfin:hurt:right:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-63.29427, 2.118378)",
+			"projectile": "(-105.4342, -0.894033)",
+			"slot_id": "pose:glimmerfin:recovery:left:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-63.29427, 2.118378)",
+			"projectile": "(-104.4137, -22.79889)",
+			"slot_id": "pose:glimmerfin:recovery:left:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-44.29688, -0.255219)",
+			"projectile": "(-14.43646, -42.8255)",
+			"slot_id": "pose:glimmerfin:hurt:left:wand",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"fallback": false,
+			"primary": "(-44.29688, -0.255219)",
+			"projectile": "(-78.96793, -22.90414)",
+			"slot_id": "pose:glimmerfin:hurt:left:orb",
+			"source": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+			"support": "not_required",
+			"viewport": "(1920, 1080)"
+		}
+	],
+	"three_viewports": true,
+	"total_probes": 138
+}

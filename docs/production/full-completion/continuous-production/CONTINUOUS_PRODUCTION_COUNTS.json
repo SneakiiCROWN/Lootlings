@@ -1,20 +1,20 @@
 {
-  "installed_contracts": 340,
-  "installed_artist_files": 860,
+  "installed_contracts": 386,
+  "installed_artist_files": 998,
   "installed_by_category": {
-    "playable_lootlings": 130,
+    "playable_lootlings": 160,
     "companions": 58,
     "Home": 3,
     "bosses": 12,
     "enemies": 71,
     "npcs": 18,
-    "wanderers": 48
+    "wanderers": 64
   },
-  "remaining_contracts": 2934,
-  "remaining_artist_files": 7635,
+  "remaining_contracts": 2888,
+  "remaining_artist_files": 7497,
   "remaining_by_category": {
-    "playable_lootlings": 1326,
-    "wanderers": 807,
+    "playable_lootlings": 1296,
+    "wanderers": 791,
     "enemies": 252,
     "bosses": 356,
     "npcs": 28,
@@ -31,5 +31,5 @@
   "latest_enemy_revision": "36 Bell Bat/Rime Pup/Coal Pup exact combat state/facing cells installed; 72 PNG/sidecar artist files.",
   "latest_npc_revision": "12 Patch/Ilex rest/inspect/talk cells, both independently authored views; 24 PNG/sidecar artist files; left bodies live beside Hub stations. Route/work/sit still open.",
   "artist_file_count_unit": "Frozen artist-file requirements fulfilled, including verified reuse. Not unique newly authored physical files. See per-batch receipts.",
-  "latest_player_revision": "0.4.44: all twelve actors, alternating movement (Wand/Orb), victory (Wand/Orb except Astrologer Wand), defeat (Orb). 118 exact state/view/weapon deliveries; 96 body PNG, 96 grip PNG, 166 sidecars. Basic keyframes, not completed fluid families."
+  "latest_player_revision": "0.4.45: Vault Runner, Emberhorn, Mosskin and Glimmerfin Wand/Orb anticipation, attack, recovery and hurt deliveries. 46 missing contracts; 29 independent bodies, 29 co-registered hand masks, 46 sidecars (104 physical files). Optional Orb masks are delivered but not drawn over levitated weapons. No fluid-family acceptance."
 }

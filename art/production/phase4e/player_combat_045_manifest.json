@@ -1,0 +1,4387 @@
+{
+  "entries": [
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:windup:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.247986012747875,
+        0.208505306603774
+      ],
+      "primary_palm": [
+        190.453257790368,
+        213.509433962264
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.247986012747875,
+        0.208505306603774
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        40.0,
+        24.0,
+        393.0,
+        501.0
+      ],
+      "source_primary": [
+        120.0,
+        105.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": 0.35,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:windup:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.247986012747875,
+        0.208505306603774
+      ],
+      "primary_palm": [
+        190.453257790368,
+        213.509433962264
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.247986012747875,
+        0.208505306603774
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        40.0,
+        24.0,
+        393.0,
+        501.0
+      ],
+      "source_primary": [
+        120.0,
+        105.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:strike_or_cast:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.902200746628131,
+        0.200673378661088
+      ],
+      "primary_palm": [
+        692.890173410405,
+        205.489539748954
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.902200746628131,
+        0.200673378661088
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        437.0,
+        28.0,
+        783.0,
+        506.0
+      ],
+      "source_primary": [
+        764.0,
+        106.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": 1.1,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:strike_or_cast:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.902200746628131,
+        0.200673378661088
+      ],
+      "primary_palm": [
+        692.890173410405,
+        205.489539748954
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.902200746628131,
+        0.200673378661088
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        437.0,
+        28.0,
+        783.0,
+        506.0
+      ],
+      "source_primary": [
+        764.0,
+        106.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:recovery:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.382448563664596,
+        0.400532449429461
+      ],
+      "primary_palm": [
+        293.72049689441,
+        410.145228215768
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.382448563664596,
+        0.400532449429461
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        818.0,
+        24.0,
+        1140.0,
+        506.0
+      ],
+      "source_primary": [
+        934.0,
+        208.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": 1.45,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:recovery:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.382448563664596,
+        0.400532449429461
+      ],
+      "primary_palm": [
+        293.72049689441,
+        410.145228215768
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.382448563664596,
+        0.400532449429461
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        818.0,
+        24.0,
+        1140.0,
+        506.0
+      ],
+      "source_primary": [
+        934.0,
+        208.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:hurt:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.309294237869198,
+        0.204550365691489
+      ],
+      "primary_palm": [
+        237.537974683544,
+        209.459574468085
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.309294237869198,
+        0.204550365691489
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        1187.0,
+        36.0,
+        1503.0,
+        506.0
+      ],
+      "source_primary": [
+        1272.0,
+        108.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:hurt:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.309294237869198,
+        0.204550365691489
+      ],
+      "primary_palm": [
+        237.537974683544,
+        209.459574468085
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.309294237869198,
+        0.204550365691489
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        1187.0,
+        36.0,
+        1503.0,
+        506.0
+      ],
+      "source_primary": [
+        1272.0,
+        108.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:windup:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.706337832840237,
+        0.216269573434125
+      ],
+      "primary_palm": [
+        542.467455621302,
+        221.460043196544
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.706337832840237,
+        0.216269573434125
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        36.0,
+        524.0,
+        374.0,
+        987.0
+      ],
+      "source_primary": [
+        284.0,
+        595.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": 0.35,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:windup:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.706337832840237,
+        0.216269573434125
+      ],
+      "primary_palm": [
+        542.467455621302,
+        221.460043196544
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.706337832840237,
+        0.216269573434125
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        36.0,
+        524.0,
+        374.0,
+        987.0
+      ],
+      "source_primary": [
+        284.0,
+        595.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:strike_or_cast:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.0730457988980716,
+        0.23195564516129
+      ],
+      "primary_palm": [
+        56.099173553719,
+        237.522580645161
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.0730457988980716,
+        0.23195564516129
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        400.0,
+        525.0,
+        763.0,
+        990.0
+      ],
+      "source_primary": [
+        418.0,
+        606.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": 1.1,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:strike_or_cast:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.0730457988980716,
+        0.23195564516129
+      ],
+      "primary_palm": [
+        56.099173553719,
+        237.522580645161
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.0730457988980716,
+        0.23195564516129
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        400.0,
+        525.0,
+        763.0,
+        990.0
+      ],
+      "source_primary": [
+        418.0,
+        606.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:recovery:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.595335820895522,
+        0.429869040464744
+      ],
+      "primary_palm": [
+        457.217910447761,
+        440.185897435897
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.595335820895522,
+        0.429869040464744
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        800.0,
+        521.0,
+        1135.0,
+        989.0
+      ],
+      "source_primary": [
+        1004.0,
+        706.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": 1.45,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:recovery:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.595335820895522,
+        0.429869040464744
+      ],
+      "primary_palm": [
+        457.217910447761,
+        440.185897435897
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.595335820895522,
+        0.429869040464744
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        800.0,
+        521.0,
+        1135.0,
+        989.0
+      ],
+      "source_primary": [
+        1004.0,
+        706.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:hurt:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.710264952452452,
+        0.202503355589207
+      ],
+      "primary_palm": [
+        545.483483483484,
+        207.363436123348
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.710264952452452,
+        0.202503355589207
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        1178.0,
+        535.0,
+        1511.0,
+        989.0
+      ],
+      "source_primary": [
+        1425.0,
+        590.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "asset_path": "res://art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 1008.0,
+      "body_rect": [
+        -80.0,
+        -149.6,
+        160.0,
+        220.0
+      ],
+      "canvas": [
+        768.0,
+        1024.0
+      ],
+      "contract_slot_id": "pose:vault_runner:hurt:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 66.9625,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/sprites/wanderers/beta/vault_runner_idle.png"
+      ],
+      "metadata_path": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.710264952452452,
+        0.202503355589207
+      ],
+      "primary_palm": [
+        545.483483483484,
+        207.363436123348
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.710264952452452,
+        0.202503355589207
+      ],
+      "source": "art/source/player_combat_045/vault_runner_wand_actions.png",
+      "source_bounds": [
+        1178.0,
+        535.0,
+        1511.0,
+        989.0
+      ],
+      "source_primary": [
+        1425.0,
+        590.0
+      ],
+      "source_sha256": "7fb5fabb2110a9bc2804f4afa87bb21aee9a2aea24ade74684af52209afb754b",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {
+        "accessories": "utility_belt",
+        "armour_accents": "brass",
+        "back_item": "coat_tails",
+        "face": "runner",
+        "facial_hair": "none",
+        "footwear": "runner_boots",
+        "gloves": "runner_bracers",
+        "hair_colour": "dark",
+        "hair_style": "short_curls",
+        "headwear": "none",
+        "jewellery": "runner_relic",
+        "lower_outfit": "runner_trousers",
+        "makeup": "natural",
+        "markings": "none",
+        "skin_tone": "umber",
+        "style": "practical_explorer",
+        "upper_outfit": "scavenger_coat"
+      },
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:windup:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.469219603825137,
+        0.515127144607843
+      ],
+      "primary_palm": [
+        240.24043715847,
+        263.745098039216
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.469219603825137,
+        0.515127144607843
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        17.0,
+        52.0,
+        383.0,
+        460.0
+      ],
+      "source_primary": [
+        186.0,
+        254.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:strike_or_cast:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.901532667064439,
+        0.62521484375
+      ],
+      "primary_palm": [
+        461.584725536993,
+        320.11
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.901532667064439,
+        0.62521484375
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        394.0,
+        61.0,
+        813.0,
+        461.0
+      ],
+      "source_primary": [
+        786.0,
+        305.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:recovery:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.428466041021672,
+        0.68270371835443
+      ],
+      "primary_palm": [
+        219.374613003096,
+        349.544303797468
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.428466041021672,
+        0.68270371835443
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        820.0,
+        69.0,
+        1143.0,
+        464.0
+      ],
+      "source_primary": [
+        949.0,
+        334.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:hurt:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.44933230377907,
+        0.678628516624041
+      ],
+      "primary_palm": [
+        230.058139534884,
+        347.457800511509
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.44933230377907,
+        0.678628516624041
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        1158.0,
+        81.0,
+        1502.0,
+        472.0
+      ],
+      "source_primary": [
+        1307.0,
+        340.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:hurt:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.44933230377907,
+        0.678628516624041
+      ],
+      "primary_palm": [
+        230.058139534884,
+        347.457800511509
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.44933230377907,
+        0.678628516624041
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        1158.0,
+        81.0,
+        1502.0,
+        472.0
+      ],
+      "source_primary": [
+        1307.0,
+        340.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:windup:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.573631180362117,
+        0.522575677219321
+      ],
+      "primary_palm": [
+        293.699164345404,
+        267.558746736292
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.573631180362117,
+        0.522575677219321
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        18.0,
+        549.0,
+        377.0,
+        932.0
+      ],
+      "source_primary": [
+        231.0,
+        729.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:strike_or_cast:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.111229529747596,
+        0.630272927545692
+      ],
+      "primary_palm": [
+        56.9495192307692,
+        322.699738903394
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.111229529747596,
+        0.630272927545692
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        378.0,
+        552.0,
+        794.0,
+        935.0
+      ],
+      "source_primary": [
+        409.0,
+        781.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:recovery:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.599067467485549,
+        0.693697512919897
+      ],
+      "primary_palm": [
+        306.722543352601,
+        355.173126614987
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.599067467485549,
+        0.693697512919897
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        804.0,
+        554.0,
+        1150.0,
+        941.0
+      ],
+      "source_primary": [
+        1022.0,
+        816.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:hurt:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.581350446428571,
+        0.676427083333333
+      ],
+      "primary_palm": [
+        297.651428571429,
+        346.330666666667
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.581350446428571,
+        0.676427083333333
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        1171.0,
+        568.0,
+        1521.0,
+        943.0
+      ],
+      "source_primary": [
+        1383.0,
+        810.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "asset_path": "res://art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:emberhorn:hurt:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Emberhorn_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.581350446428571,
+        0.676427083333333
+      ],
+      "primary_palm": [
+        297.651428571429,
+        346.330666666667
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.581350446428571,
+        0.676427083333333
+      ],
+      "source": "art/source/player_combat_045/emberhorn_wand_actions.png",
+      "source_bounds": [
+        1171.0,
+        568.0,
+        1521.0,
+        943.0
+      ],
+      "source_primary": [
+        1383.0,
+        810.0
+      ],
+      "source_sha256": "9216d947c57d85a5796ddab2cffdb7dcfd864d256e4e85617e2f6d5d23c20629",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:windup:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.294160487288136,
+        0.49049912084399
+      ],
+      "primary_palm": [
+        150.610169491525,
+        251.135549872123
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.294160487288136,
+        0.49049912084399
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        23.0,
+        72.0,
+        377.0,
+        463.0
+      ],
+      "source_primary": [
+        95.0,
+        220.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:strike_or_cast:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.880363343253968,
+        0.66171875
+      ],
+      "primary_palm": [
+        450.746031746032,
+        338.8
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.880363343253968,
+        0.66171875
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        388.0,
+        73.0,
+        829.0,
+        463.0
+      ],
+      "source_primary": [
+        801.0,
+        307.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:recovery:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.4990234375,
+        0.724635278514589
+      ],
+      "primary_palm": [
+        255.5,
+        371.01326259947
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.4990234375,
+        0.724635278514589
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        832.0,
+        87.0,
+        1184.0,
+        464.0
+      ],
+      "source_primary": [
+        1008.0,
+        340.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:hurt:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.378794137084592,
+        0.685296997389034
+      ],
+      "primary_palm": [
+        193.942598187311,
+        350.872062663185
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.378794137084592,
+        0.685296997389034
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        1196.0,
+        81.0,
+        1527.0,
+        464.0
+      ],
+      "source_primary": [
+        1300.0,
+        320.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:hurt:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.378794137084592,
+        0.685296997389034
+      ],
+      "primary_palm": [
+        193.942598187311,
+        350.872062663185
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.378794137084592,
+        0.685296997389034
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        1196.0,
+        81.0,
+        1527.0,
+        464.0
+      ],
+      "source_primary": [
+        1300.0,
+        320.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:windup:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.735370818661972,
+        0.521871899801587
+      ],
+      "primary_palm": [
+        376.50985915493,
+        267.198412698413
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.735370818661972,
+        0.521871899801587
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        13.0,
+        572.0,
+        368.0,
+        950.0
+      ],
+      "source_primary": [
+        310.0,
+        723.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:strike_or_cast:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ATTACK",
+      "primary_anchor": [
+        0.0902777777777778,
+        0.655795784883721
+      ],
+      "primary_palm": [
+        46.2222222222222,
+        335.767441860465
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.0902777777777778,
+        0.655795784883721
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        363.0,
+        559.0,
+        831.0,
+        946.0
+      ],
+      "source_primary": [
+        389.0,
+        787.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "strike_or_cast",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:recovery:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.506896432522124,
+        0.76202245308311
+      ],
+      "primary_palm": [
+        259.530973451327,
+        390.155495978552
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.506896432522124,
+        0.76202245308311
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        835.0,
+        575.0,
+        1174.0,
+        948.0
+      ],
+      "source_primary": [
+        1008.0,
+        843.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:hurt:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.384725055637982,
+        0.691196621400524
+      ],
+      "primary_palm": [
+        196.979228486647,
+        353.892670157068
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.384725055637982,
+        0.691196621400524
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        1190.0,
+        573.0,
+        1527.0,
+        955.0
+      ],
+      "source_primary": [
+        1300.0,
+        814.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:mosskin:hurt:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.384725055637982,
+        0.691196621400524
+      ],
+      "primary_palm": [
+        196.979228486647,
+        353.892670157068
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.384725055637982,
+        0.691196621400524
+      ],
+      "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+      "source_bounds": [
+        1190.0,
+        573.0,
+        1527.0,
+        955.0
+      ],
+      "source_primary": [
+        1300.0,
+        814.0
+      ],
+      "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 3.14159265358979,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:windup:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.826015177292264,
+        0.577202418341709
+      ],
+      "primary_palm": [
+        422.919770773639,
+        295.527638190955
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.826015177292264,
+        0.577202418341709
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        24.0,
+        52.0,
+        373.0,
+        450.0
+      ],
+      "source_primary": [
+        351.0,
+        267.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": 0.35,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:windup:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "primary_anchor": [
+        0.826015177292264,
+        0.577202418341709
+      ],
+      "primary_palm": [
+        422.919770773639,
+        295.527638190955
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.826015177292264,
+        0.577202418341709
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        24.0,
+        52.0,
+        373.0,
+        450.0
+      ],
+      "source_primary": [
+        351.0,
+        267.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "windup",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:recovery:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.816757110778443,
+        0.690505586139896
+      ],
+      "primary_palm": [
+        418.179640718563,
+        353.538860103627
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.816757110778443,
+        0.690505586139896
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        816.0,
+        64.0,
+        1150.0,
+        450.0
+      ],
+      "source_primary": [
+        1131.0,
+        320.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": 1.45,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:recovery:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.816757110778443,
+        0.690505586139896
+      ],
+      "primary_palm": [
+        418.179640718563,
+        353.538860103627
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.816757110778443,
+        0.690505586139896
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        816.0,
+        64.0,
+        1150.0,
+        450.0
+      ],
+      "source_primary": [
+        1131.0,
+        320.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:hurt:right:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.754716651119403,
+        0.675456574675325
+      ],
+      "primary_palm": [
+        386.414925373134,
+        345.833766233766
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.754716651119403,
+        0.675456574675325
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        1169.0,
+        67.0,
+        1504.0,
+        452.0
+      ],
+      "source_primary": [
+        1456.0,
+        315.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:hurt:right:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "right_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.754716651119403,
+        0.675456574675325
+      ],
+      "primary_palm": [
+        386.414925373134,
+        345.833766233766
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.754716651119403,
+        0.675456574675325
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        1169.0,
+        67.0,
+        1504.0,
+        452.0
+      ],
+      "source_primary": [
+        1456.0,
+        315.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:recovery:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.170342377832861,
+        0.677699937027708
+      ],
+      "primary_palm": [
+        87.2152974504249,
+        346.982367758186
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.170342377832861,
+        0.677699937027708
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        811.0,
+        545.0,
+        1164.0,
+        942.0
+      ],
+      "source_primary": [
+        834.0,
+        806.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": 1.45,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:recovery:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "RECOVER",
+      "primary_anchor": [
+        0.170342377832861,
+        0.677699937027708
+      ],
+      "primary_palm": [
+        87.2152974504249,
+        346.982367758186
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.170342377832861,
+        0.677699937027708
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        811.0,
+        545.0,
+        1164.0,
+        942.0
+      ],
+      "source_primary": [
+        834.0,
+        806.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "recovery",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:hurt:left:wand",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left_grip_front.png",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left_wand.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.269287109375,
+        0.665337385770235
+      ],
+      "primary_palm": [
+        137.875,
+        340.65274151436
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.269287109375,
+        0.665337385770235
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        1198.0,
+        560.0,
+        1518.0,
+        943.0
+      ],
+      "source_primary": [
+        1250.0,
+        801.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "wand": {
+          "angle": -0.65,
+          "grip": [
+            0.419999986886978,
+            0.720000028610229
+          ],
+          "held_path": "res://art/sprites/weapons/wand_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            75.0,
+            93.0
+          ],
+          "socket": [
+            0.600000023841858,
+            0.100000001490116
+          ]
+        }
+      },
+      "weapon_types": [
+        "wand"
+      ]
+    },
+    {
+      "actor": "glimmerfin",
+      "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+      "baked_weapon": "",
+      "baseline_y": 496.0,
+      "body_rect": [
+        -96.0,
+        -128.0,
+        192.0,
+        192.0
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "contract_slot_id": "pose:glimmerfin:hurt:left:orb",
+      "core_anchor": [
+        0.5,
+        0.55
+      ],
+      "draw_depth": "front",
+      "facing": "left_only",
+      "feet_baseline": 58.0,
+      "foreground_layer": "",
+      "fps": 0.0,
+      "frame_count": 1.0,
+      "frame_index": 0.0,
+      "identity_authority": [
+        "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+      ],
+      "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left_orb.json",
+      "mirroring_allowed": false,
+      "native_validated": true,
+      "phase": "HURT",
+      "primary_anchor": [
+        0.269287109375,
+        0.665337385770235
+      ],
+      "primary_palm": [
+        137.875,
+        340.65274151436
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.269287109375,
+        0.665337385770235
+      ],
+      "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+      "source_bounds": [
+        1198.0,
+        560.0,
+        1518.0,
+        943.0
+      ],
+      "source_primary": [
+        1250.0,
+        801.0
+      ],
+      "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+      "state": "hurt",
+      "supports_two_hand": false,
+      "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+      "wardrobe_requires": {},
+      "weapon_overrides": {
+        "orb": {
+          "angle": 0.0,
+          "grip": [
+            -0.219999998807907,
+            0.779999971389771
+          ],
+          "held_path": "res://art/sprites/weapons/orb_held.png",
+          "secondary_grip": [
+            0,
+            0
+          ],
+          "size": [
+            64.0,
+            64.0
+          ],
+          "socket": [
+            0.699999988079071,
+            0.430000007152557
+          ]
+        }
+      },
+      "weapon_types": [
+        "orb"
+      ]
+    }
+  ],
+  "production_quality_accepted": false
+}

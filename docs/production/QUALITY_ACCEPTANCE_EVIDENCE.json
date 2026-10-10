@@ -5654,6 +5654,1202 @@
         "resident_art_catalog.gd": "8f1f00797dc73a77b21300371118840940c01e0fb75e0686a0ddf17cab0c532d",
         "art/production_npc_manifest.json": "1445e5c69107facb55cfbe99e9c99809ba4262686811abf1c3378ea32506112c"
       }
+    },
+    {
+      "slot_id": "pose:emberhorn:hurt:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+      "asset_sha256": "346f52b38af167b9dc9fca8bb56597ad200ba8853ef158ebd6ce367db1109ff8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:hurt:left:wand",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_left.png",
+      "asset_sha256": "346f52b38af167b9dc9fca8bb56597ad200ba8853ef158ebd6ce367db1109ff8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:hurt:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+      "asset_sha256": "4c07b4d8272acf1d4cf7bcffd4c78f303948c0c9114479a478d5b4432a7ddc85",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:hurt:right:wand",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_hurt_right.png",
+      "asset_sha256": "4c07b4d8272acf1d4cf7bcffd4c78f303948c0c9114479a478d5b4432a7ddc85",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:recovery:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_left.png",
+      "asset_sha256": "a676ac3b81942fe9005650786c5929ae75901d42501dd7d608c0bd3dfecf85b8",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:recovery:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_recovery_right.png",
+      "asset_sha256": "39287b02e6e120575cc61cbf6878420f5fb0b0a07cb5fa2285f6fcc85500cc2d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_left.png",
+      "asset_sha256": "24565ff79aacff9ba26a9c03169a52c93d4005e2809d94030d128d7434e7a527",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:strike_or_cast:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_strike_or_cast_right.png",
+      "asset_sha256": "6da4a2790c977534887123ee30f54110cefc7362c1e2c9851d2e7a0197054ef4",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:windup:left:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_left.png",
+      "asset_sha256": "01733fd6805c557b4c917efc2435f7c6691abcbb0d26eba4f07263f7457e6bdc",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:emberhorn:windup:right:orb",
+      "asset": "art/production/phase4e/lootlings/emberhorn/combat_045/emberhorn_windup_right.png",
+      "asset_sha256": "dca2ea45859e5665b023b4303bfe3234fe68deebabac58f6009445c5fcb85540",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:hurt:left:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+      "asset_sha256": "41b6fb992a9a384c7521b7c767407701b04be235fece9a707878e5aaf9af8928",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:hurt:left:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_left.png",
+      "asset_sha256": "41b6fb992a9a384c7521b7c767407701b04be235fece9a707878e5aaf9af8928",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:hurt:right:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+      "asset_sha256": "ddbdabc5b031080bef50c671c45a50368d96e341f3e5302bf7c1af282bbf6a4c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:hurt:right:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_hurt_right.png",
+      "asset_sha256": "ddbdabc5b031080bef50c671c45a50368d96e341f3e5302bf7c1af282bbf6a4c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:left:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+      "asset_sha256": "77d01df0dac544b4c319732c437592ccbde8c00d91c5f0eed57db7ba6a9c3b6e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:left:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+      "asset_sha256": "77d01df0dac544b4c319732c437592ccbde8c00d91c5f0eed57db7ba6a9c3b6e",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:right:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+      "asset_sha256": "0944f1e4f69f60e0901acbfba138ea3561beeec20fd515af9cdb0397f068a456",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:recovery:right:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_right.png",
+      "asset_sha256": "0944f1e4f69f60e0901acbfba138ea3561beeec20fd515af9cdb0397f068a456",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:windup:right:orb",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+      "asset_sha256": "b51dbce963111bdc863124b93037bd1130bdd0aee494bbc3d0d42d3ffcf9bcec",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:glimmerfin:windup:right:wand",
+      "asset": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_windup_right.png",
+      "asset_sha256": "b51dbce963111bdc863124b93037bd1130bdd0aee494bbc3d0d42d3ffcf9bcec",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:hurt:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+      "asset_sha256": "99fb1779f6925d4679d943e765784726a8be82c3958b7a6dc0b2174b80b7cae6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:hurt:left:wand",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+      "asset_sha256": "99fb1779f6925d4679d943e765784726a8be82c3958b7a6dc0b2174b80b7cae6",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:hurt:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+      "asset_sha256": "a10f5b5af1573a24c37cf7413564fd144bb7ef30faec9681b3f719d399946be5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:hurt:right:wand",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_right.png",
+      "asset_sha256": "a10f5b5af1573a24c37cf7413564fd144bb7ef30faec9681b3f719d399946be5",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:recovery:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_left.png",
+      "asset_sha256": "c48a07f737602a221b2acab9608c5198c59ee4ea3b9aadd53d610a0afa45132a",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:recovery:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_recovery_right.png",
+      "asset_sha256": "0b7cf79760666a3a653385a05aab81dd557dead07f142823eb81072e8f64076d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:strike_or_cast:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_left.png",
+      "asset_sha256": "4e3cdb3971cd809019f74dadd67302b01bb05fdaab268f015ba5d24282d2b831",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:strike_or_cast:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_strike_or_cast_right.png",
+      "asset_sha256": "4cf244cec973e24ba1062b643aeeb113902981212a96fb4e45588375a6464326",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:windup:left:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_left.png",
+      "asset_sha256": "c92c791bd541089069887de22eede72211e6cf6a5b703913dda3b552fb478aad",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:mosskin:windup:right:orb",
+      "asset": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right.png",
+      "asset_sha256": "d248ed8caa28eb23d2ee579c194224b8e14522730f733c037179021d59f9bca2",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:hurt:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+      "asset_sha256": "a42cf18bb548260d4512ddbba73be4173f1c9993ee81fb941fa95f084b518be4",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:hurt:left:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_left.png",
+      "asset_sha256": "a42cf18bb548260d4512ddbba73be4173f1c9993ee81fb941fa95f084b518be4",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:hurt:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+      "asset_sha256": "e99ff68c58d6241979447e4035af6bb69c1dca905b547aa8c91a312e3f772313",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:hurt:right:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_hurt_right.png",
+      "asset_sha256": "e99ff68c58d6241979447e4035af6bb69c1dca905b547aa8c91a312e3f772313",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:recovery:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+      "asset_sha256": "035299f8e8c0fe4ae7dba2926a0f6250cbec2d5f72ed7b626d2bb4e2e9080809",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:recovery:left:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_left.png",
+      "asset_sha256": "035299f8e8c0fe4ae7dba2926a0f6250cbec2d5f72ed7b626d2bb4e2e9080809",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:recovery:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+      "asset_sha256": "1d510d5cb1784d5e54675382ff7b7e44762d5a7c1a94311c2ccd7b9543d14e79",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:recovery:right:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_recovery_right.png",
+      "asset_sha256": "1d510d5cb1784d5e54675382ff7b7e44762d5a7c1a94311c2ccd7b9543d14e79",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:strike_or_cast:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+      "asset_sha256": "6d0e62f32a24ef2ef6c0074e29d63ab4da15e8a431eb54bb3747a59823bbc10d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:strike_or_cast:left:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_left.png",
+      "asset_sha256": "6d0e62f32a24ef2ef6c0074e29d63ab4da15e8a431eb54bb3747a59823bbc10d",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:strike_or_cast:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+      "asset_sha256": "38c7dd0b84456b9002e2a3218e2120db0d346b12bbcba399ecabff74cea3f196",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:strike_or_cast:right:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_strike_or_cast_right.png",
+      "asset_sha256": "38c7dd0b84456b9002e2a3218e2120db0d346b12bbcba399ecabff74cea3f196",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:windup:left:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+      "asset_sha256": "449c8a44f661f7424f2d18fec21641e2e92a25ef29071c5fdd9e4657784833fb",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:windup:left:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_left.png",
+      "asset_sha256": "449c8a44f661f7424f2d18fec21641e2e92a25ef29071c5fdd9e4657784833fb",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:windup:right:orb",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+      "asset_sha256": "b70365e764bdf7c76bd600a88e53910fb885400cbf5dc323784ebc9fda305311",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
+    },
+    {
+      "slot_id": "pose:vault_runner:windup:right:wand",
+      "asset": "art/production/phase4e/wanderers/vault_runner/combat_045/vault_runner_windup_right.png",
+      "asset_sha256": "b70365e764bdf7c76bd600a88e53910fb885400cbf5dc323784ebc9fda305311",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.45/combat_batch_045_native_qa.log",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_0.png",
+        "docs/production/quality-evidence/0.4.45/REVIEW_PAGE_1.png"
+      ],
+      "limitations": "Combat keyframes only. Full continuity, other weapon families, owner/device/artistic acceptance open.",
+      "defects": [],
+      "dependencies_sha256": {
+        "weapon_fit_catalog.gd": "9c44f83c1e814a0fe7939adb0f2a279df9512ce00eab67524f6a138feffd0654",
+        "authored_pose_manifest.gd": "1084839858941528cc98aa38b7e29db1a3f19db752885702b2aeeadfbab5e754",
+        "art/production/phase4e/player_combat_045_manifest.json": "e3a8095af0a7ca792f14eadb560d1bdf876edcfd2e20d2994e27ab874bf77a8a"
+      }
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

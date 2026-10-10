@@ -1,0 +1,89 @@
+{
+  "actor": "glimmerfin",
+  "asset_path": "res://art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:glimmerfin:recovery:left:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Glimmerfin_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/glimmerfin/combat_045/glimmerfin_recovery_left_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "RECOVER",
+  "primary_anchor": [
+    0.170342377832861,
+    0.677699937027708
+  ],
+  "primary_palm": [
+    87.2152974504249,
+    346.982367758186
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.170342377832861,
+    0.677699937027708
+  ],
+  "source": "art/source/player_combat_045/glimmerfin_wand_actions.png",
+  "source_bounds": [
+    811.0,
+    545.0,
+    1164.0,
+    942.0
+  ],
+  "source_primary": [
+    834.0,
+    806.0
+  ],
+  "source_sha256": "c8f89b678d1f18b03aed29b384c6a124c01518bcc3bfd7fb6199749b96b095bc",
+  "state": "recovery",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "orb": {
+      "angle": 0.0,
+      "grip": [
+        -0.219999998807907,
+        0.779999971389771
+      ],
+      "held_path": "res://art/sprites/weapons/orb_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        64.0,
+        64.0
+      ],
+      "socket": [
+        0.699999988079071,
+        0.430000007152557
+      ]
+    }
+  },
+  "weapon_types": [
+    "orb"
+  ]
+}

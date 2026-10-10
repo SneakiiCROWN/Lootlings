@@ -1,0 +1,19 @@
+{
+  "actor": "dew_hexer",
+  "installed": false,
+  "source_authority": "art/reference/phase4e_handoff/chatgpt_generated_candidates/regional_candidates/batch01_verdant_marshes.png",
+  "rejected_sheets": [
+    {
+      "source": "dew_hexer_rejected_alpha.png",
+      "cells": 12,
+      "reason": "Saturated red/green/yellow matte contamination and noisy edges persist; visually unsuitable for gameplay. Original source is preserved; no runtime bodies or closures installed."
+    },
+    {
+      "source": "dew_hexer_correction_rejected_alpha.png",
+      "cells": 12,
+      "reason": "Saturated red/green/yellow matte contamination and noisy edges persist; visually unsuitable for gameplay. Original source is preserved; no runtime bodies or closures installed."
+    }
+  ],
+  "remaining_contracts": 12,
+  "next_correction": "Fresh canon-based source with clean straight-alpha edges and generous gutters; never substitute another mage identity."
+}

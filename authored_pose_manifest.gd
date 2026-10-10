@@ -26,6 +26,12 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 			if motion is Dictionary:
 				for row in motion.get("entries",[]):
 					if (row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime") or (OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_MOTION_BATCH_PREVIEW")=="1"):extracted_rows.append(row)
+		var new_combat_path:="res://art/production/phase4e/player_combat_045_manifest.json"
+		if FileAccess.file_exists(new_combat_path):
+			var combat:Variant=JSON.parse_string(FileAccess.get_file_as_string(new_combat_path))
+			if combat is Dictionary:
+				for row in combat.get("entries",[]):
+					if (row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime") or (OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_COMBAT_BATCH_PREVIEW")=="1"):extracted_rows.append(row)
 		var bow_slice: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/lootlings/gloomlet/bow/bow_slice_manifest.json"))
 		if bow_slice is Dictionary:
 			for row in bow_slice.get("entries",[]):
@@ -36,15 +42,17 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 			if int(row.get("frame_count",1))>1 and int(row.get("frame_index",0))!=posmod(int(floor(clock*float(row.get("fps",6)))),int(row.frame_count)):continue
 			# Canvas commands retain RIDs, not this local Texture2D reference.
 			# Keep source textures alive across frames, not just QA sampling.
-			if not extracted_resolved.has(row.asset_path):
+			var cache_key:String=str(row.asset_path)+":"+subtype+":"+phase+":"+str(row.facing)
+			if not extracted_resolved.has(cache_key):
 				var result := resolve(row)
 				result.baked_weapon = row.get("baked_weapon","")
 				result.extracted_idle = phase == "IDLE"
 				result.extracted_pose = true
+				result.combat_batch_045=str(row.get("source","")).begins_with("art/source/player_combat_045/")
 				result.motion_phase = phase if phase in ["MOVE","VICTORY","DEFEAT"] else ""
 				result.frame_index = int(row.get("frame_index",0))
-				extracted_resolved[row.asset_path] = result
-			return extracted_resolved[row.asset_path]
+				extracted_resolved[cache_key] = result
+			return extracted_resolved[cache_key]
 	return {}
 const PHASE_KEYS := {"IDLE":"IDLE","WINDUP":"ANTICIPATE","ANTICIPATE":"ANTICIPATE","STRIKE":"ATTACK","CAST":"ATTACK","ATTACK":"ATTACK","IMPACT":"IMPACT","RECOVER":"RECOVER","HURT":"HURT"}
 

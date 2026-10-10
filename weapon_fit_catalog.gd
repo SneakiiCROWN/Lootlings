@@ -172,6 +172,11 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	authored = authored.get("resolved_phases",{}).get(str(action.phase),authored)
 	var opposite_art_required: bool = float(g.combat_facing()) < 0 and authored.get("facing_support","") == "right_only"
 	if opposite_art_required: authored = {}
+	# Newly delivered exact phases override a legacy ready pose only for their
+	# registered actor/view/weapon/state. Existing accepted phases stay intact.
+	var delivered_phase:String="HURT" if hurt else "RECOVER" if g.attack_anim>0.0 and g.attack_anim<.10 else str(action.phase)
+	var delivered:Dictionary=Authored.extracted_phase(str(actor.id),subtype,delivered_phase,float(g.combat_facing()))
+	if delivered.get("combat_batch_045",false):authored=delivered
 	# Exact extracted idles do not stand in for missing action/movement views.
 	if authored.is_empty():
 		# A source strike is valid at commit, not an invented recovery pose.
@@ -242,7 +247,7 @@ static func sample(g, hurt: bool = false) -> Dictionary:
 	var secondary: Variant = authored.get("secondary_hand",actor.secondary_hand)
 	var handling: Dictionary = HANDLING_OVERRIDES.get(str(actor.handling),{}).get(subtype,{})
 	var angle := float(handling.get("angle",geometry.angle))+float(handling.get("angle_offset",0.0))
-	if not authored.get("motion_phase","").is_empty():angle=float(geometry.angle)
+	if not authored.get("motion_phase","").is_empty() or authored.get("combat_batch_045",false):angle=float(geometry.angle)
 	var release_angle := float(handling.get("release",stance.release))
 	if subtype=="staff": release_angle=.22
 	elif subtype in ["daggers","claws"]: release_angle*=1.18

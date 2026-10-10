@@ -1,0 +1,89 @@
+{
+  "actor": "mosskin",
+  "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:mosskin:hurt:left:wand",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "left_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left_grip_front.png",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_hurt_left_wand.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "HURT",
+  "primary_anchor": [
+    0.384725055637982,
+    0.691196621400524
+  ],
+  "primary_palm": [
+    196.979228486647,
+    353.892670157068
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.384725055637982,
+    0.691196621400524
+  ],
+  "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+  "source_bounds": [
+    1190.0,
+    573.0,
+    1527.0,
+    955.0
+  ],
+  "source_primary": [
+    1300.0,
+    814.0
+  ],
+  "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+  "state": "hurt",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "wand": {
+      "angle": -0.65,
+      "grip": [
+        0.419999986886978,
+        0.720000028610229
+      ],
+      "held_path": "res://art/sprites/weapons/wand_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        75.0,
+        93.0
+      ],
+      "socket": [
+        0.600000023841858,
+        0.100000001490116
+      ]
+    }
+  },
+  "weapon_types": [
+    "wand"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "actor": "mosskin",
+  "asset_path": "res://art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right.png",
+  "baked_weapon": "",
+  "baseline_y": 496.0,
+  "body_rect": [
+    -96.0,
+    -128.0,
+    192.0,
+    192.0
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "contract_slot_id": "pose:mosskin:windup:right:orb",
+  "core_anchor": [
+    0.5,
+    0.55
+  ],
+  "draw_depth": "front",
+  "facing": "right_only",
+  "feet_baseline": 58.0,
+  "foreground_layer": "",
+  "fps": 0.0,
+  "frame_count": 1.0,
+  "frame_index": 0.0,
+  "identity_authority": [
+    "art/reference/canonical/characters/Mosskin_CharacterSheet_Canonical.png"
+  ],
+  "metadata_path": "art/production/phase4e/lootlings/mosskin/combat_045/mosskin_windup_right_orb.json",
+  "mirroring_allowed": false,
+  "native_validated": true,
+  "phase": "ANTICIPATE",
+  "primary_anchor": [
+    0.294160487288136,
+    0.49049912084399
+  ],
+  "primary_palm": [
+    150.610169491525,
+    251.135549872123
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.294160487288136,
+    0.49049912084399
+  ],
+  "source": "art/source/player_combat_045/mosskin_wand_actions.png",
+  "source_bounds": [
+    23.0,
+    72.0,
+    377.0,
+    463.0
+  ],
+  "source_primary": [
+    95.0,
+    220.0
+  ],
+  "source_sha256": "ff9bd01308541205a8f5412bdc2a64f28051c182758a8a8fae5ca9d13d44c61e",
+  "state": "windup",
+  "supports_two_hand": false,
+  "visual_review": "Dedicated canon and all 46 actual native pose/contact views reviewed. 138 exact source/facing/weapon/phase/geometry probes across phone, tablet and desktop. Basic combat keyframes only; fluid continuity, physical-device and professional family acceptance remain open.",
+  "wardrobe_requires": {},
+  "weapon_overrides": {
+    "orb": {
+      "angle": 3.14159265358979,
+      "grip": [
+        -0.219999998807907,
+        0.779999971389771
+      ],
+      "held_path": "res://art/sprites/weapons/orb_held.png",
+      "secondary_grip": [
+        0,
+        0
+      ],
+      "size": [
+        64.0,
+        64.0
+      ],
+      "socket": [
+        0.699999988079071,
+        0.430000007152557
+      ]
+    }
+  },
+  "weapon_types": [
+    "orb"
+  ]
+}
