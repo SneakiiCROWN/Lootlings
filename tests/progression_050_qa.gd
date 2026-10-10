@@ -18,6 +18,7 @@ func review() -> void:
  var game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame;game.set_process(false);game.show_hideout()
  game.gold=100000;game.meta_shards=82;game.meta_power=33;assert(game.save_hideout_economy())
  for id in Upgrades.DEFINITIONS:
+  if Upgrades.diamonds(id):continue
   var price_total:=0
   for price in Upgrades.DEFINITIONS[id][2]:
    var before:int=game.gold;game.buy_gold_upgrade(id);price_total+=price

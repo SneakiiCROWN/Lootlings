@@ -1,0 +1,9 @@
+# Rare-currency implementation slice
+
+Three optional Diamond specializations are installed in Training. Three ranks each: Heart Prism +6/+10/+12 HP (60/110/180 Diamonds); Keen Prism +1/+1.75/+2.25 percentage points critical chance (80/140/220); Aegis Prism +2/+3/+4 starting Ward (50/90/150). Existing Power, six Lootcoin upgrades, balances and equipment stats retain their previous effects. The starting crit cap adds 2.25% expected damage at the ordinary 2x crit multiplier; this is not a replacement for Power.
+
+Regular victorious runs with at least eight kills earn one Rift Sigil. Two Sigils enter an optional eight-room Prism Rift after Treasure Ruins. Its existing encounters use wave +4, capped at 20; ordinary routes remain free. A qualified clear awards an additional 250 Lootcoins, 20 Diamonds and one Sigil. Two regular clears fund the first entry; thereafter a successful player needs one ordinary clear between Rift visits. Empty/short routes and losses cannot earn Sigils. No paid purchases or daily requirement.
+
+New currency receipts, entry cost, bonuses and Diamond rank purchases use the existing four-store recovery journal. Entry costs occur at actual run start, not confirmation or cancelled previews. Interrupted non-resumable entries refund once at startup; settled entries clear in the payout snapshot. Rift reseeding is disabled to preserve elite difficulty.
+
+Automated evidence covers legacy wallets, rank caps, run bonuses, insufficient funds, failed saves, duplicate payouts and interruption after each journal write. Native touch evidence covers named purchases, cancel without entry payment, branching room selection, combat entry and controlled victory settlement on phone/tablet/desktop. These fixtures exercise settlement; they are not evidence of a human full-clear balance playtest or professional artistic acceptance. Mythical loot and dedicated elite loot pools are still outstanding in this slice.

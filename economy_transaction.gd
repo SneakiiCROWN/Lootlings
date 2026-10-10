@@ -9,7 +9,7 @@ static func commit(game, stop_after: int=-1) -> Error:
 	if FileAccess.file_exists(PATH) and recover()!=OK:return ERR_BUSY
 	var writes := {}
 	var stages := {
-		"user://lootlings_save.cfg":func(path):return preload("res://meta_store.gd").save_progress(path,game.meta_shards,game.meta_power,game.gold,game.gold_upgrades),
+		"user://lootlings_save.cfg":func(path):return preload("res://meta_store.gd").save_progress(path,game.meta_shards,game.meta_power,game.gold,game.gold_upgrades,game.rift_progress),
 		"user://lootlings_inventory.cfg":func(path):return game.inventory.save(path),
 		"user://lootlings_hideout_shop.cfg":func(path):return game.hideout_shop.save(path),
 		"user://contracts.cfg":func(path):return game.contracts.save(path)

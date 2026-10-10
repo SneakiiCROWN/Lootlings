@@ -837,7 +837,7 @@ func request_gold_upgrade(upgrade_id: String) -> void:
 	var rank: int=int(gold_upgrades.get(upgrade_id,0))
 	if rank>=data[2].size():return
 	var game=get_parent()
-	game.touch_ux.request("Improve %s?" % data[0],"Rank %d → %d. %s. Costs %d Lootcoins." % [rank,rank+1,data[1],data[2][rank]],func(): gold_upgrade_requested.emit(upgrade_id))
+	game.touch_ux.request("Improve %s?" % data[0],"Rank %d → %d. %s. Costs %d %s." % [rank,rank+1,data[1],data[2][rank],preload("res://permanent_upgrade_catalog.gd").currency(upgrade_id)],func(): gold_upgrade_requested.emit(upgrade_id))
 
 func build_shop() -> void:
 	shop_content = Control.new()
@@ -875,7 +875,7 @@ func build_shop() -> void:
 	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 610, 137, 76), Color("#3f315f"), Color("#c99cff"), 12)
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
 	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 610, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
-	shop_expansion_button.pressed.connect(func(): safe_action(shop_expansion_button,"Spend Scrap to permanently add stash space.",func(): shop_expansion_requested.emit()))
+	shop_expansion_button.pressed.connect(func(): safe_action(shop_expansion_button,"Spend Lootcoins to permanently add stash space.",func(): shop_expansion_requested.emit()))
 	for utility in [shop_gold_cache_button,shop_cache_button,shop_expansion_button]:
 		utility.clip_text = true
 		utility.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -885,7 +885,7 @@ func build_shop() -> void:
 		utility.set_meta("ui_intent","utility")
 		LootlingsUI.apply_button(utility,Color("#192944"),Color("#7087ae"))
 	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 696, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
-	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Scrap to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
+	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Lootcoins to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
 	# Static accepted luggage art illustrates capacity; it is not a new loot roll.
 	shop_expansion_button.icon=LootlingsUI.icon("res://art/production/phase4e/props/courier_cache.png")
 	shop_expansion_button.expand_icon=true;shop_expansion_button.add_theme_constant_override("icon_max_width",28)
@@ -1334,23 +1334,26 @@ func refresh_upgrades() -> void:
 	upgrade_button.expand_icon = true
 	upgrade_button.add_theme_constant_override("icon_max_width", 20)
 	upgrade_button.disabled = shards < cost or power >= 100
-	gold_upgrade_wallet.text="IMPROVEMENTS • %s LOOTCOINS" % preload("res://display_numbers.gd").compact(gold)
+	gold_upgrade_wallet.text="IMPROVEMENTS • %s COINS • %s DIAMONDS" % [preload("res://display_numbers.gd").compact(gold),preload("res://display_numbers.gd").compact(shards)]
 	var definitions:Dictionary=preload("res://permanent_upgrade_catalog.gd").DEFINITIONS
 	for upgrade_id in gold_upgrade_buttons:
 		var rank := int(gold_upgrades.get(upgrade_id, 0))
 		var data: Array = definitions[upgrade_id]
 		var button: Button = gold_upgrade_buttons[upgrade_id]
-		if rank >= 5:
-			button.text = "%s  •  RANK 5/5  •  MAXED" % data[0]
+		var cap: int = data[2].size()
+		var diamond_purchase: bool = preload("res://permanent_upgrade_catalog.gd").diamonds(upgrade_id)
+		var wallet: int = shards if diamond_purchase else gold
+		if rank >= cap:
+			button.text = "%s  •  RANK %d/%d  •  MAXED" % [data[0],cap,cap]
 			button.disabled = true
 		else:
 			var price: int = data[2][rank]
-			button.text = "%s  •  RANK %d/5\n%s     %d LOOTCOINS" % [data[0], rank, data[1], price]
-			button.icon = LootlingsUI.icon("currency_gold")
+			button.text = "%s  •  RANK %d/%d\n%s     %d %s" % [data[0], rank, cap, data[1], price,preload("res://permanent_upgrade_catalog.gd").currency(upgrade_id).to_upper()]
+			button.icon = LootlingsUI.icon("currency_star_shard" if diamond_purchase else "currency_gold")
 			button.expand_icon = true
 			button.add_theme_constant_override("icon_max_width", 18)
-			button.disabled = gold < price
-			if button.disabled:button.text += " · need %d more" % (price-gold)
+			button.disabled = wallet < price
+			if button.disabled:button.text += " · need %d more" % (price-wallet)
 
 func refresh_shop() -> void:
 	if current_inventory == null or current_shop == null or shop_scrap_label == null:

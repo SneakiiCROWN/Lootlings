@@ -1,6 +1,8 @@
 extends RefCounted
 const Catalog=preload("res://phase4b_catalog.gd")
 const SpinCatalog=preload("res://relic_spin_catalog.gd")
+var rift_pending := false
+var rift_active := false
 var game
 var progress=preload("res://endgame_progress.gd").new()
 var rng:=RandomNumberGenerator.new()
@@ -33,6 +35,10 @@ var spinner_from_home:=false
 var mode_tabs: Array[Button]=[]
 func configure(target) -> void:
 	game=target; progress.load_progress(); progress.recover(game)
+	# Combat runs are not resumable: refund an interrupted optional entry once.
+	if not game.rift_progress.entry.is_empty():
+		game.rift_progress.sigils=mini(999999,int(game.rift_progress.sigils)+2);game.rift_progress.entry=""
+		game.save_hideout_economy()
 	game.hideout_ui.endgame_progress=progress
 	panel=game.make_panel(Rect2(28,150,424,625),Color("#101a32f5")); panel.visible=false; panel.z_index=80
 	preload("res://lootlings_ui.gd").apply_material(panel,"hoard")
@@ -44,7 +50,7 @@ func configure(target) -> void:
 			if tab=="REGIONS":panel.visible=false;game.show_hideout();game.hideout_ui.show_campaign()
 			else:show_modes("siege" if tab=="SIEGE" else "dungeons"))
 		b.add_theme_font_size_override("font_size",13);mode_tabs.append(b)
-	for index in range(5):
+	for index in range(6):
 		var b: Button=game.make_action_button(panel,"",Vector2(24,240+index*72),Vector2(376,60),Color("#172442"),Color("#78e4ff"),func(): choose(index))
 		b.add_theme_font_size_override("font_size",14); b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; b.clip_text=true; buttons.append(b)
 		game.touch_ux.register_button(b)
@@ -100,26 +106,31 @@ func show_modes(tab: String="siege") -> void:
 	if game.state not in ["hideout","mode_menu"] or game.presentation_director.travel_active or game.presentation_director.vignette.active: return
 	mode_tab=tab
 	var context: String="Highest Siege round %d • best score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault farms Mossglass.\nRelic Route offers branching encounters."
-	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ REGIONS" if mode_parent=="campaign" else "‹ HUB"])
+	open("mode_menu","DUNGEONS" if tab=="dungeons" else "RELIC SIEGE","%s\nCrownroot fragments %d / %d\n%s\nOwned gear stays yours. Run enhancements expire.%s" % [context,progress.data.red_fragments,Catalog.RED_TARGET,progress.target_text(),"\nReward reserved: make room in Gear." if not progress.data.pending.is_empty() else ""],["RELIC SIEGE • endless survival","ROOTGLASS VAULT / TARGETED LOOT","RELIC ROUTE • choose your path","TRACK / FORGE GRAVEBLOOM STAFF","‹ REGIONS" if mode_parent=="campaign" else "‹ HUB","PRISM RIFT • 2 SIGILS"])
 	buttons[1].disabled=not game.campaign.available("mossglass_wilds")
 	buttons[2].disabled=not "act_i" in game.campaign.completed
 	if buttons[1].disabled:buttons[1].text="ROOTGLASS VAULT • LOCKED"
 	if buttons[2].disabled:buttons[2].text="RELIC ROUTE • LOCKED"
 	buttons[3].text="FORGE GRAVEBLOOM • 24 FRAGMENTS" if progress.data.red_fragments>=Catalog.RED_TARGET else "TRACK GRAVEBLOOM • 24 FRAGMENTS TO FORGE"
+	buttons[5].visible=tab=="dungeons"
+	buttons[5].disabled=not "act_i" in game.campaign.completed or int(game.rift_progress.sigils)<2
+	buttons[5].text="PRISM RIFT • %d / 2 SIGILS" % int(game.rift_progress.sigils)
+	if not "act_i" in game.campaign.completed:buttons[5].text="PRISM RIFT • CLEAR TREASURE RUINS"
 	buttons[0].visible=tab=="siege"; buttons[1].visible=tab=="dungeons"; buttons[2].visible=tab=="dungeons"
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
 	mode_art.position.y=126;mode_art.size.y=118
-	detail.position=Vector2(24,258); detail.size=Vector2(376,122)
+	detail.position=Vector2(24,258); detail.size=Vector2(376,84)
 	for button in mode_tabs:
 		game.hideout_ui.apply_display_button_style(button,Color("#b8a476"),button.text==("SIEGE" if tab=="siege" else "DUNGEONS"))
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
 	if tab=="dungeons" and buttons[1].disabled and buttons[2].disabled:mode_line="Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nClear Treasure Ruins to unlock both routes."
-	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET]
+	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return.\nRift Sigils: %d • earn one per clear (8+ foes)." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET,int(game.rift_progress.sigils)]
 	if not progress.data.pending.is_empty(): detail.text+="\nReward saved: make room in Gear."
 	var visible_index:=0
-	for button in buttons:
+	for index in [0,1,2,5,3,4]:
+		var button: Button=buttons[index]
 		if button.visible:
-			button.position=Vector2(24,388+visible_index*58); button.size.y=50; visible_index+=1
+			button.position=Vector2(24,354+visible_index*54); button.size.y=50; visible_index+=1
 			var primary: bool=button==buttons[0] or (tab=="dungeons" and button==buttons[1])
 			button.set_meta("ui_intent","primary" if primary else "secondary")
 			preload("res://lootlings_ui.gd").apply_button(button,Color("#172442"),Color("#d4ad65"))
@@ -130,6 +141,18 @@ func choose(index: int) -> void:
 	match game.state:
 		"mode_menu":
 			if index==4: close_modes(); return
+			if index==5:
+				if not "act_i" in game.campaign.completed or game.rift_progress.sigils<2:return
+				game.touch_ux.request("Enter the Prism Rift?","Costs 2 Rift Sigils when combat begins. Eight harder branching rooms. Clear with at least eight foes defeated: +250 Lootcoins, +20 Diamonds, +1 Sigil, plus guardian loot. Defeat gives no bonus. Regular dungeons remain free.",func():
+					panel.visible=false;game.state="hideout";siege=false;targeted=false;rift_pending=true;game.expedition_tier=0;game.campaign_id="act_i"
+					game.dungeon.setup(int(Time.get_ticks_msec()),"act_i")
+					for layer in game.dungeon.map:
+						for room in layer:
+							room.wave=mini(20,int(room.wave)+4)
+							if room.kind=="Combat":room.kind="Risk";room.title="RIFT PATROL"
+					game.request_start_run())
+				return
+			rift_pending=false
 			if index==3:
 				progress.track("gravebloom_staff")
 				if progress.forge_red():

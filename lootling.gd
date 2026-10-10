@@ -253,6 +253,7 @@ var tap_buffer_timer := 0.0
 var tap_input_cooldown := 0.0
 var tap_buffer_flash := 0.0
 var tap_tutorial_seen := false
+var rift_progress := preload("res://rift_progress.gd").defaults()
 var meta_shards := 0
 var meta_power := 0
 var gold := 0
@@ -1243,12 +1244,14 @@ func buy_gold_upgrade(upgrade_id: String) -> void:
 	var costs: Dictionary={}
 	for id in preload("res://permanent_upgrade_catalog.gd").DEFINITIONS:costs[id]=preload("res://permanent_upgrade_catalog.gd").DEFINITIONS[id][2]
 	var rank := int(gold_upgrades[upgrade_id])
-	if rank >= 5:
+	if rank >= costs[upgrade_id].size():
 		return
+	var diamond_purchase: bool = preload("res://permanent_upgrade_catalog.gd").diamonds(upgrade_id)
 	var price: int = costs[upgrade_id][rank]
-	if gold < price:
+	if (meta_shards if diamond_purchase else gold) < price:
 		return
-	gold -= price
+	if diamond_purchase:meta_shards -= price
+	else:gold -= price
 	gold_upgrades[upgrade_id] = rank + 1
 	if not save_hideout_economy():return
 	refresh_hideout()
@@ -1256,7 +1259,7 @@ func buy_gold_upgrade(upgrade_id: String) -> void:
 	hideout_ui.play_shrine_upgrade()
 	hideout_ui.request_dialogue("shrine_upgrade", "Relic Keeper")
 	play_audio_event("shop_purchase")
-	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":"gold", "price":price, "upgrade_id":upgrade_id, "rank":rank + 1})
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "shop_purchase", {"currency":preload("res://permanent_upgrade_catalog.gd").currency(upgrade_id), "price":price, "upgrade_id":upgrade_id, "rank":rank + 1})
 
 func evolve_owned_weapon(stash_index: int) -> void:
 	if state != "hideout":
@@ -1418,7 +1421,7 @@ func start_dungeon() -> void:
 	request_start_run()
 
 func reseed_route() -> void:
-	if state != "route" or dungeon.depth >= 0: return
+	if state != "route" or dungeon.depth >= 0 or retention.rift_active: return
 	dungeon.setup(dungeon.seed_value + 1, dungeon.region_id)
 	rng.seed = dungeon.seed_value
 	loot_system.rng.seed = dungeon.seed_value ^ 0x6c00
@@ -1435,7 +1438,7 @@ func show_route_choices() -> void:
 	help_label.visible = false
 	if pause_button != null: pause_button.visible = false
 	route_panel.visible = true
-	route_reseed_button.visible = dungeon.depth < 0
+	route_reseed_button.visible = dungeon.depth < 0 and not retention.rift_active
 	route_subtitle.text = "STOP %d / 8 • SEED %d" % [dungeon.depth + 2, dungeon.seed_value]
 	var options: Array = dungeon.choices()
 	for index in range(route_buttons.size()):
@@ -1615,6 +1618,12 @@ func fit_label_font(label: Label, text_value: String, max_width: float, preferre
 	return fitted_size
 
 func start_run() -> void:
+	if retention.rift_pending and dungeon.active:
+		var token: String="entry:%d:%d" % [Time.get_unix_time_from_system(),Time.get_ticks_usec()]
+		if not preload("res://rift_progress.gd").enter(self,token):
+			retention.rift_pending=false;retention.rift_active=false;dungeon.active=false;show_hideout();return
+		retention.rift_pending=false;retention.rift_active=true
+	else:retention.rift_active=false;retention.rift_pending=false
 	combat_companion.initialized=false
 	combat_companion.reaction_timer=0
 	forced_facing_test = 0
@@ -1670,19 +1679,19 @@ func start_run() -> void:
 	var meta_bonus := 1.0 + float(meta_power) * 0.05
 	equipment_hp_bonus = inventory.effect_total("max_hp")
 	player_max_hp = maxf(40.0, 100.0 * meta_bonus + equipment_hp_bonus + int(gold_upgrades.get("bedroll", 0)) * 4.0)
-	player_max_hp += int(character_trait.hp)
+	player_max_hp += int(character_trait.hp) + preload("res://permanent_upgrade_catalog.gd").heart(int(gold_upgrades.get("heartprism",0)))
 	player_hp = player_max_hp
 	base_damage = 11.0 * meta_bonus + int(gold_upgrades.get("whetstone", 0)) * 0.6
 	coins = 0 if retention.siege else int(gold_upgrades.get("pouch", 0)) * 8
 	attack_interval = 0.85
 	attack_clock = 0.3
-	crit_chance = 0.08
+	crit_chance = 0.08 + preload("res://permanent_upgrade_catalog.gd").keen(int(gold_upgrades.get("keenprism",0)))
 	crit_mult = 2.0
 	multi_hits = 1
 	splash_ratio = 0.0
 	life_steal = 0.0
 	armor = preload("res://permanent_upgrade_catalog.gd").armour(int(gold_upgrades.get("wardweave",0)))
-	player_ward = float(gold_upgrades.get("hearthward",0))
+	player_ward = float(gold_upgrades.get("hearthward",0)) + preload("res://permanent_upgrade_catalog.gd").aegis(int(gold_upgrades.get("aegisprism",0)))
 	frenzy = 0.0
 	tap_mult = 0.65
 	tap_buffer_timer = 0.0
@@ -3346,13 +3355,15 @@ func end_run(victory: bool) -> void:
 	result_summary.text += "\n\nRELIC RANK %d  •  %s +%d\n%s" % [expedition_progress.rank(),Phase4.FARMS[campaign_id].material,expedition_progress.run_materials,"\n".join(expedition_progress.run_finds)]
 	result_summary.scroll_to_line(0)
 	hideout_ui.last_home_facts={"mode":"siege" if retention.siege else "dungeon" if retention.targeted else "region","region":campaign_id,"round":wave,"boss":enemy_name,"outcome":"victory" if victory else "defeat","event":"boss_defeated" if victory else "early_defeat" if wave<=5 else "returning","low_health":"yes" if victory and player_hp/player_max_hp<.2 else "no","enemy":enemy_name,"character":Avatar.preset_id(profile) if Avatar.is_wanderer(profile) else str(profile.get("current_lootling_id","relic_beast"))}
+	var rift_line: String=preload("res://rift_progress.gd").settle(self,str(retention.progress.data.session),victory,total_kills,retention.rift_active)
+	if not rift_line.is_empty():result_summary.text+="\n"+rift_line
 	retention.finish(victory)
 	if retention.siege:
 		result_title.text="SIEGE EXTRACTED" if victory else "SIEGE ENDED"
 		result_summary.text=result_summary.text.replace("RUN SCRIP","SIEGE EMBERS").replace("Wave reached  %d / %d" % [wave,RUN_LAST_WAVE],"Round reached  %d" % wave)
 	refresh_result_loot()
 	if dungeon.active:
-		result_title.text = ("ROOTGLASS VAULT CLEARED!" if retention.targeted else "RELIC ROUTE CLEARED!") if victory else "ROUTE ENDED"
+		result_title.text = ("PRISM RIFT CLEARED!" if retention.rift_active else "ROOTGLASS VAULT CLEARED!" if retention.targeted else "RELIC ROUTE CLEARED!") if victory else "ROUTE ENDED"
 		result_summary.text = result_summary.text.replace("Wave reached  %d / %d" % [wave, RUN_LAST_WAVE], "Rooms entered  %d / 8 • Seed %d" % [dungeon.depth + 1, dungeon.seed_value])
 	if presentation_director != null:
 		presentation_director.present_card(result_panel, Color("#ffe178") if victory else Color("#ff8995"), 0.34)
@@ -3426,6 +3437,7 @@ func refresh_result_loot() -> void:
 
 func load_meta() -> void:
 	var progress := MetaStore.load_progress(SAVE_PATH)
+	rift_progress = progress.rift.duplicate(true)
 	meta_shards = progress.shards
 	meta_power = progress.power
 	gold = progress.gold
@@ -3509,7 +3521,7 @@ func skip_upgrade() -> void:
 	else:state="playing"
 
 func save_meta() -> void:
-	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades)
+	MetaStore.save_progress(SAVE_PATH, meta_shards, meta_power, gold, gold_upgrades, rift_progress)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
