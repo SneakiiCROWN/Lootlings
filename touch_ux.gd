@@ -232,7 +232,7 @@ func close_dialog() -> void:
 	pending = Callable()
 	block_mouse_until = Time.get_ticks_msec()+160
 
-func request(title: String, detail: String, action: Callable) -> void:
+func request(title: String, detail: String, action: Callable, comparison: Dictionary = {}) -> void:
 	if is_instance_valid(dialog): return
 	game.play_audio_event("menu_open")
 	pending = action
@@ -264,8 +264,13 @@ func request(title: String, detail: String, action: Callable) -> void:
 	body.size = Vector2(388,196)
 	body.add_theme_font_size_override("normal_font_size",18)
 	panel.add_child(body)
-	game.make_action_button(panel,"BACK",Vector2(22,328),Vector2(180,58),Color("#263b58"),Color("#79a9d9"),close_dialog)
-	confirm_button = game.make_action_button(panel,"CONFIRM",Vector2(230,328),Vector2(180,58),Color("#285c4c"),Color("#69e6b0"),func():
+	var action_y:=328
+	if not comparison.is_empty():
+		panel.position.y=120;panel.size.y=626;body.size.y=422;action_y=548
+		preload("res://quick_comparison.gd").install(body,game,comparison,game.inventory.equipped_item(str(comparison.get("slot","Weapon"))))
+		body.set_meta("hoard_preview",true)
+	game.make_action_button(panel,"BACK",Vector2(22,action_y),Vector2(180,58),Color("#263b58"),Color("#79a9d9"),close_dialog)
+	confirm_button = game.make_action_button(panel,"CONFIRM",Vector2(230,action_y),Vector2(180,58),Color("#285c4c"),Color("#69e6b0"),func():
 		if Time.get_ticks_msec()-dialog_opened < 180: return
 		var callback := pending
 		close_dialog()

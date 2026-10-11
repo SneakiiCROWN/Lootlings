@@ -1258,6 +1258,7 @@ func buy_hideout_offer(index: int) -> void:
 		hideout_ui.show_shop_message("STASH FULL\nNo Lootcoins was spent.", "#ff9b8f")
 		return
 	if not save_hideout_economy():return
+	contextual_guide.observe_success("shop")
 	hideout_ui.show_shop_message("PURCHASED\n%s was sent to your Stash." % purchased.get("name", "Equipment"), "#69e6b0")
 	hideout_ui.play_shop_purchase(index, ItemCatalog.rarity_color(purchased.get("rarity", "COMMON")))
 	hideout_ui.request_dialogue("shop_purchase", "Salvager")
@@ -1359,6 +1360,7 @@ func buy_gold_upgrade(upgrade_id: String) -> void:
 	else:gold -= price
 	gold_upgrades[upgrade_id] = rank + 1
 	if not save_hideout_economy():return
+	contextual_guide.observe_success("upgrades")
 	refresh_hideout()
 	hideout_ui.show_upgrades()
 	hideout_ui.play_shrine_upgrade()
@@ -1374,6 +1376,7 @@ func evolve_owned_weapon(stash_index: int) -> void:
 		return
 	gold = result.gold
 	if not save_hideout_economy():return
+	contextual_guide.observe_success("forge")
 	play_audio_event("shop_purchase")
 
 	hideout_ui.queue_dialogue_context("forge_evolved")
@@ -1668,9 +1671,9 @@ func build_boss_reward_ui() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		button.add_child(icon)
 		boss_reward_icons.append(icon)
-		var kicker := make_label(button, "", 13, Rect2(124, 9, 246, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9c9ff"))
-		var title := make_label(button, "", 18, Rect2(124, 30, 246, 26), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff1cd"))
-		var effects := make_label(button, "", 14, Rect2(124, 56, 246, 48), HORIZONTAL_ALIGNMENT_LEFT, Color("#e0e9ff"))
+		var kicker := make_label(button, "", 13, Rect2(112, 6, 266, 23), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9c9ff"))
+		var title := make_label(button, "", 16, Rect2(112, 27, 266, 38), HORIZONTAL_ALIGNMENT_LEFT, Color("#fff1cd"))
+		var effects := make_label(button, "", 13, Rect2(112, 66, 266, 36), HORIZONTAL_ALIGNMENT_LEFT, Color("#e0e9ff"))
 		for label in [kicker, title, effects]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
@@ -2954,7 +2957,8 @@ func show_boss_reward() -> void:
 		visuals.kicker.text = "%s  •  %s" % [str(item.rarity), ItemCatalog.display_slot(item.get("slot", "Relic")).to_upper()]
 		visuals.kicker.add_theme_color_override("font_color", ItemCatalog.rarity_color(item.rarity).lightened(0.25))
 		visuals.name.text = str(item.name)
-		fit_label_font(visuals.name, str(item.name), 242.0, 18, 14)
+		fit_label_font(visuals.name, str(item.name), 260.0, 16, 12)
+		boss_reward_buttons[i].text = "" # Child labels must not inflate the card or hide its name.
 		# The catalog limit reserves an extra signature line; this compact card
 		# keeps the same two headline effects as the original reward contract.
 		visuals.effects.text = "\n".join(ItemCatalog.describe_headline_effects(item, 1).split("\n").slice(0, 2))
@@ -2981,7 +2985,7 @@ func boss_reward_card_text(item: Dictionary) -> String:
 func inspect_boss_reward(index: int) -> void:
 	if state != "boss_reward" or index < 0 or index >= boss_reward_options.size(): return
 	var item: Dictionary = boss_reward_options[index]
-	touch_ux.request(str(item.name),"NEW ITEM: %s\nCOST: FREE\n%s\n\n%s\n\nTake this find to inspect? Equipping stays optional. Other finds stay behind." % [item.name,ItemCatalog.describe_headline_effects(item,4),build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))],choose_boss_reward.bind(index))
+	touch_ux.request(str(item.name),"NEW ITEM: %s\nCOST: FREE\n%s\n\n%s\n\nTake this find to inspect? Equipping stays optional. Other finds stay behind." % [item.name,ItemCatalog.describe_headline_effects(item,4),build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))],choose_boss_reward.bind(index),item)
 
 func inspect_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
@@ -3107,6 +3111,7 @@ func accept_item_equip() -> void:
 		item_compare.text="[color=#ff7d88]"+status_message+"[/color]\n"+build_item_comparison(current_item,inventory.equipped_item(str(current_item.get("slot",""))))
 		item_compare.call_deferred("scroll_to_line",0)
 		return
+	contextual_guide.observe_success("equipment")
 	var item_name: String = current_item.get("name", "Loot")
 	if not item_name in run_kept_loot:
 		run_kept_loot.append(item_name)

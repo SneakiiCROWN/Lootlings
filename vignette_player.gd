@@ -78,6 +78,9 @@ func play(entry: Dictionary, settings: Dictionary, playback_mode: String, callba
 	subtitles = bool(settings.get("cinematic_subtitles", true))
 	background = load(str(entry.background))
 	actor = load(str(entry.actor)) if not str(entry.actor).is_empty() and ResourceLoader.exists(str(entry.actor)) else null
+	if actor!=null and entry.has("actor_region"):
+		var atlas:=AtlasTexture.new();atlas.atlas=actor
+		var rect:Array=entry.actor_region;atlas.region=Rect2(rect[0],rect[1],rect[2],rect[3]);actor=atlas
 	title.text = str(entry.name).to_upper()
 	category.text = "%s • %s" % [str(entry.category).to_upper(), "ARCHIVE REPLAY" if mode == "replay" else "STORY PREVIEW" if mode == "preview" else "DISCOVERED MEMORY"]
 	status.text = str(entry.category).to_upper()

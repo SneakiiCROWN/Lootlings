@@ -13,7 +13,7 @@ const RESIDENTS := {
 }
 const BOSS_ENTRIES := {
 	"grump_knight":{"name":"Grump Knight", "region":"act_i", "art":"res://art/sprites/enemies/grump_knight.png", "epithet":"The Unpaid Gatekeeper", "line":"The old toll is unpaid. He intends to collect it from someone still breathing."},
-	"hoard_dragon":{"name":"The Hoard Dragon", "region":"act_i", "art":"res://art/sprites/enemies/hoard_dragon.png", "epithet":"Keeper of the Count", "line":"The dragon counts treasure in coins, and trespassers in bones."},
+	"hoard_dragon":{"name":"The Hoard Dragon", "region":"act_i", "art":"res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png", "epithet":"Keeper of the Count", "line":"The dragon counts treasure in coins, and trespassers in bones."},
 	"verdant_mirror":{"name":"The Verdant Mirror", "region":"mossglass_wilds", "art":"res://art/sprites/enemies/beta/verdant_mirror.png", "epithet":"Warden of the Stolen Spring", "line":"Its roots hold the forest spring. Downstream, the gardens are dying."},
 	"furnace_regent":{"name":"The Furnace Regent", "region":"cinder_crown", "art":"res://art/sprites/enemies/beta/furnace_regent.png", "epithet":"Crowned by Tribute", "line":"Every debt feeds the furnace. It accepts no refunds."}
 }
@@ -98,6 +98,12 @@ static func entry(id: String, profile: Dictionary = {}) -> Dictionary:
 			elif key == "grump_knight": result.background = "res://art/backgrounds/salvage_warrens_arena.png"
 			result.actor = boss.art
 			result.actor_kind = "boss"
+			if key=="hoard_dragon":
+				var approved:Dictionary=preload("res://boss_art_manifest.gd").select_frame("act_i","idle","",-1)
+				if not approved.is_empty():
+					result.actor=approved.asset_path;result.actor_region=approved.content_rect
+					# Intentional framed memory using the same accepted runtime identity.
+					result.actor_kind="portrait";result.status="Accepted idle export reused for framed memory; no new animation closure"
 			result.duration = 5.0
 			result.lines = [boss.epithet, boss.line]
 			if key in REGIONAL_BOSS_IDS.values():

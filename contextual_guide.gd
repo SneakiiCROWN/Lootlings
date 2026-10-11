@@ -73,7 +73,8 @@ func _process(_delta:float) -> void:
 		if persist()!=OK:practised_ids.erase("combat")
 	chip.visible=enabled and not context in read_ids and game.state in ["playing","personal_home"] or enabled and not context in read_ids and game.state=="hideout" and game.hideout_ui.current_screen=="home"
 	if game.startup_ui.visible or (is_instance_valid(game.debug_panel) and game.debug_panel.visible) or game.touch_ux!=null and is_instance_valid(game.touch_ux.dialog):chip.visible=false
-	if not panel.visible:
+	# A hidden suggestion must never be adopted by a disposable confirmation dialog.
+	if not panel.visible and chip.visible:
 		var target:Control=game.input_surface()
 		if target==null:target=game
 		if chip.get_parent()!=target:chip.reparent(target);chip.position=Vector2(350,802)
@@ -88,7 +89,7 @@ func open(id:String="") -> void:
 	refresh()
 func refresh() -> void:
 	var id:String=picker.get_item_metadata(picker.selected)
-	body.text=TOPICS[id][1]+("\n\nRead before · available to replay." if id in read_ids else "\n\nOptional. No purchase or reward is required.")+("\nFirst strike practised." if id in practised_ids else "")
+	body.text=TOPICS[id][1]+("\n\nRead before · available to replay." if id in read_ids else "\n\nOptional. No purchase or reward is required.")+("\nPractised in game." if id in practised_ids else "")
 	body.scroll_to_line(0)
 func acknowledge() -> void:
 	var id:String=picker.get_item_metadata(picker.selected)
@@ -102,3 +103,9 @@ func close() -> void:
 
 func _exit_tree() -> void:
 	if is_instance_valid(chip):chip.queue_free()
+
+# Called only after an existing gameplay action has succeeded and saved.
+func observe_success(id:String) -> void:
+	if not enabled or not TOPICS.has(id) or not id in read_ids or id in practised_ids:return
+	practised_ids.append(id)
+	if persist()!=OK:practised_ids.erase(id)

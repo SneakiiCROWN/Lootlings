@@ -62,8 +62,8 @@ func configure(target) -> void:
 	# Control hit testing follows tree order, independently of visual z_index.
 	# Keep the blocking world veil behind the machine controls for real mouse clicks.
 	panel.get_parent().move_child(dimmer,panel.get_index())
-	chase=game.make_label(panel,"",13,Rect2(24,92,376,38),HORIZONTAL_ALIGNMENT_CENTER,Color("#ff9baa")); chase.visible=false
-	chase_bar=preload("res://relic_chase_meter.gd").new(); chase_bar.position=Vector2(24,132); chase_bar.size=Vector2(376,8); chase_bar.max_value=Catalog.RED_TARGET*SpinCatalog.SPARK_TARGET; panel.add_child(chase_bar); chase_bar.visible=false
+	chase=game.make_label(panel,"",13,Rect2(24,84,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#ff9baa")); chase.visible=false
+	chase_bar=preload("res://relic_chase_meter.gd").new(); chase_bar.position=Vector2(24,148); chase_bar.size=Vector2(376,8); chase_bar.max_value=Catalog.RED_TARGET*SpinCatalog.SPARK_TARGET; panel.add_child(chase_bar); chase_bar.visible=false
 	pool_panel=game.make_panel(Rect2(28,110,424,690),Color("#081226")); pool_panel.z_index=82; pool_panel.visible=false
 	preload("res://lootlings_ui.gd").apply_material(pool_panel,"hoard")
 	game.make_label(pool_panel,"THE REWARD POOL",22,Rect2(20,20,384,40),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
@@ -270,7 +270,7 @@ func close_spinner() -> void:
 
 func update_chase() -> void:
 	chase.visible=true; chase_bar.visible=true
-	chase.text="GRAVEBLOOM • %d / 24 Crownroot fragments\nSPARKS %d / 12 • each earned spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
+	chase.text="GRAVEBLOOM STAFF • %d / 24 fragments\nCROWNROOT SPARKS • %d / 12" % [progress.data.red_fragments,progress.data.spin_sparks]
 	chase_bar.value=mini(Catalog.RED_TARGET,progress.data.red_fragments)*SpinCatalog.SPARK_TARGET+progress.data.spin_sparks
 
 func begin() -> void:
@@ -341,7 +341,7 @@ func show_spinner(message: String="") -> void:
 	panel.position=Vector2(28,110); panel.size=Vector2(424,690); title.position.y=8
 	var top_line: Label=game.make_label(panel,"",14,Rect2(24,70,376,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#e7edff")) if not panel.has_node("Wallet") else panel.get_node("Wallet")
 	top_line.name="Wallet";top_line.position.y=54;top_line.text=wallet_text();top_line.visible=true
-	update_chase(); machine.position=Vector2(24,154); machine.size=Vector2(376,224)
+	update_chase(); machine.position=Vector2(24,166); machine.size=Vector2(376,224)
 	detail.position=Vector2(24,394); detail.size=Vector2(376,130); detail.add_theme_font_size_override("normal_font_size",16)
 	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
 	detail.text=message if not message.is_empty() else "[center]Useful spoils on every spin.\nEpic + Legendary bundles get a full reveal.\n12 sparks earn 1 Crownroot fragment.\n24 fragments forge the Gravebloom Staff.[/center]"
