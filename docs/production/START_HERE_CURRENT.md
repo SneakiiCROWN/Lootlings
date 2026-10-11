@@ -1,6 +1,6 @@
-# Current - 0.4.52 isolated owner testing and truthful completion views
+# Current — 0.4.53 no-PIN hush access and seeded free perk offers
 
-Source milestone 09b9325 pushed. Existing F1 menu now touch-accessible in a separate owner Android app with on-device PIN and isolated saves. Normal Android owner access disabled. Art closures this pass: 0; 2757 remain. Exact queue 7289 paths versus legacy 7178-file ledger: 111 discrepancy OPEN. See [current report](quality-evidence/0.4.52/REPORT.md) and [owner instructions](OWNER_TEST_ACCESS.md). Export reports and compiled native evidence are in the same evidence folder. Professional whole-game and physical-device acceptance remain open.
+Source checkpoint 9f6809a pushed. Windows and separate normal/owner Android candidates exported; five fixtures pass against the actual Windows PCK. Seven taps and hold unlocks existing F1; compact SHH icon reopens isolated test tools. No PIN or networking. Free perk offers use seeded rarity selection and avoid capped/obsolete offers. Full Run Scrip retirement and combat-cohort balance remain open. Art closures 0; 2757 contracts remain. Physical S23 and professional whole-game acceptance pending. See [current report](quality-evidence/0.4.53/REPORT.md), [delivery](quality-evidence/0.4.53/DELIVERY.json) and [owner instructions](OWNER_TEST_ACCESS.md).
 
 # Current — 0.4.48 canonical services, named loot and region atmosphere
 

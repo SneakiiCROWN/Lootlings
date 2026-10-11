@@ -1,0 +1,836 @@
+{
+  "version": "0.4.53",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.53-hush-perks-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "38a6f462d0588c9da14b19b2b7ea177b7da28318b9008a8854e241c48c4705df"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.53-hush-perks-candidate.pck",
+      "bytes": 282937620,
+      "sha256": "324c80f62350970fad5c0cb834d0387f5f84fa50e3ff53898b53c97837aa175f"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.53-normal-candidate-debug.apk",
+      "bytes": 303970425,
+      "sha256": "6f36b866e3ef0e3aefd4f54eb6ca8420cd3e98ad008ba60cde42fd10f5d2b0d8"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.53-owner-test-debug.apk",
+      "bytes": 303970425,
+      "sha256": "4c6002bba1ce460cde4f0b4f2c19a848e05d913e72d346e9f349eb8778d9e487"
+    }
+  ],
+  "compiled_native_fixtures": [
+    {
+      "fixture": "owner_boundary_052_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.53-hush-perks-candidate.pck",
+      "pack_sha256": "324c80f62350970fad5c0cb834d0387f5f84fa50e3ff53898b53c97837aa175f",
+      "fixture_sha256": "97f7176f4d1f164ac1a0fffb96a3541ad9e953f7ee70e8cd044758b9293c7a00",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "owner_access_053_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.53-hush-perks-candidate.pck",
+      "pack_sha256": "324c80f62350970fad5c0cb834d0387f5f84fa50e3ff53898b53c97837aa175f",
+      "fixture_sha256": "ef9144ad8f1f36b92a4ad806288493c69ec432b8bdf6b9b8a9536464443ffdaf",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "perk_offers_053_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.53-hush-perks-candidate.pck",
+      "pack_sha256": "324c80f62350970fad5c0cb834d0387f5f84fa50e3ff53898b53c97837aa175f",
+      "fixture_sha256": "17f9c408ec9b1fc3d9d5d60696e3c3e11e88848b7979a987ad32ed61bb854562",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "input_transition_049_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.53-hush-perks-candidate.pck",
+      "pack_sha256": "324c80f62350970fad5c0cb834d0387f5f84fa50e3ff53898b53c97837aa175f",
+      "fixture_sha256": "5c027903e50f0dd4ffb3ff81f2231ac263635fe95c60bcf818643fc6acc05001",
+      "saves": "isolated",
+      "copied_game_code": false
+    },
+    {
+      "fixture": "equipment_feedback_050_native_qa",
+      "exit": 0,
+      "errors": [],
+      "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.53-hush-perks-candidate.pck",
+      "pack_sha256": "324c80f62350970fad5c0cb834d0387f5f84fa50e3ff53898b53c97837aa175f",
+      "fixture_sha256": "d7b4ae8bf48bc6479de669349bea3902e03dd1a25d2498151d9e74158fb6b13b",
+      "saves": "isolated",
+      "copied_game_code": false
+    }
+  ],
+  "android_reports": {
+    "normal-candidate": {
+      "apk": "builds\\android\\Lootlings-0.4.53-normal-candidate-debug.apk",
+      "bytes": 303970425,
+      "sha256": "6f36b866e3ef0e3aefd4f54eb6ca8420cd3e98ad008ba60cde42fd10f5d2b0d8",
+      "engine": "4.7.2.stable",
+      "template": "official Android debug Perfetto",
+      "architecture": "arm64-v8a",
+      "min_sdk": 24,
+      "target_sdk": 36,
+      "signed": true,
+      "zipalign_16k": true,
+      "offline_no_permissions": true,
+      "contains_manifest_and_test_monitor": true,
+      "source_test_reference_art_excluded": true,
+      "contains_motion_and_safe_area_modules": true,
+      "final_imported_poses": {
+        "greatsword_ready": {
+          "source_sha256": "ea6d34711ab369c28abde49c4adb09ce66ac7920abaeb9f4cc140c43e6e2c568",
+          "imported_sha256": "f39c5435e938c06363ba517b2a5bce1c37dcb27d516e0ed7ce8aaa745d8ed7ee",
+          "runtime_size_limit": 768,
+          "matches_local_import": true
+        },
+        "greatsword_strike": {
+          "source_sha256": "08687f852a19080af18c60012c66c938733336e2da26708c0cbe99a8a7d53a58",
+          "imported_sha256": "b394156ed2c4fa2a82803d58b0221dce4c5dbc44cb7632fe2e442954082e11ea",
+          "runtime_size_limit": 768,
+          "matches_local_import": true
+        }
+      },
+      "mobile_gesture_owner_exported": true,
+      "current_pcm_audio_assets": 470,
+      "audio_license_manifest_exported": true,
+      "version_code": 64,
+      "version_name": "0.4.53-normal-candidate",
+      "splash_theme_patch": {
+        "color": "#0d182d",
+        "replaced_background_values": 2,
+        "original_verified_template_preserved": true
+      },
+      "final_imported_bow": {
+        "source_sha256": "7b9a1dcf3eecb3765fc2671b8d6e2b2df580b6a0a2e9f2844f0dbc7f160a4642",
+        "imported_sha256": "1d1526f66acddb957191a66efbfe7927fba71d35fab3473d16aa6d309fb7b5c8",
+        "runtime_size_limit": 512,
+        "matches_local_import": true
+      },
+      "final_imported_residents": {
+        "patch": {
+          "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+          "imported_sha256": "af2ab2dba50c0c510580e5e48a67b642f691039372698bec667c54c6697403ed",
+          "matches_local_import": true,
+          "authored_state": "canonical_station_panel"
+        },
+        "ilex": {
+          "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+          "imported_sha256": "2c864ca136f295d7fde2c19f32974fa5e3f80f4716749985d6fc49ffa57ca160",
+          "matches_local_import": true,
+          "authored_state": "canonical_station_panel"
+        },
+        "sera": {
+          "source_sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+          "imported_sha256": "4224962e6cac3bd0ce51c7ee0403772e99dba9bc745b8e507b25a4dc405b58e3",
+          "matches_local_import": true,
+          "authored_state": "idle"
+        }
+      },
+      "final_imported_companion_previews": {
+        "stonekith": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "puffnest": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "auricub": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "pixrask": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "lunarwisp": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "breezewyn": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        }
+      },
+      "current_extracted_canonical_assets": {
+        "emberhorn_happy": "1aaf00d72967a298e56e48f705475ff1260c348c6ff672b90f38aaf0e255cbeb",
+        "emberhorn_cheeky": "aeb4fd558c4d84f5fc32934b907a6db33483a2e354553a39b4460e46771848d6",
+        "emberhorn_angry": "c7201f9ea4fbdadbfc8d79e34d4d7cea30fba48196a4f28cc0dcaae13e30f25c",
+        "emberhorn_excited": "0da7e11dcd1c9aad82b1ab8f5f33da760ffbd3ca6ade8354f205397e9b201ed2",
+        "emberhorn_sad": "f9d2b65737cd67e7a92bfee372694b51ce03675e5054d37cfcaa31975a0cc7a3",
+        "emberhorn_curious": "6ff9e57b7b6288f3998c60442504f7244c4c0906cfcf9e1f2a27867b2c5d9922",
+        "emberhorn_surprised": "cdefb3ab647aebe56e695899a6a35640ca4e8715be2f5c502b60476869e62b1c",
+        "emberhorn_determined": "ee7d6ab9a4264978f69469a1f7f79d24d77a55481f0874dd461f9192eb2724df",
+        "emberhorn_idle_right": "704ece8cb03e059b536b0e999bbbdcf8895b8e3a22b6597ffa48c702bf035806",
+        "emberhorn_idle_left": "2dabe3440a12916aff17bbd06fb06fce0b3eaec529ba7859d9c8e4164e6015d9",
+        "mosskin_happy": "abab825fa26d1558ddde52b46c46dbbd08a0a0725975d8a2077ccb57b7be20ec",
+        "mosskin_cheeky": "7dce05955a3d9eac2524877a0c1d3f47e834ab51f4cf68d4819f81bf4700f974",
+        "mosskin_angry": "a74abd818f8f4b956eed1216621a2c8f127b3701402d994d0d2a0a719822654a",
+        "mosskin_excited": "799d4abdbbfda22071a4a1bfc72e783987f2c0a075b0c810d354e88e881b9906",
+        "mosskin_sad": "b6fffd899eed9a37cd5b0cdadd30d90d0b241336218a4661ce3134a8f2a65332",
+        "mosskin_curious": "f99e8ec1f93ed550dba45afe0476d083f2607a6e1e9abff58223b4a0018757be",
+        "mosskin_surprised": "e275ed51744ae3595cc39e4739050cbc9b4cea2e19b2d2bdecdf9c8cb941ad3b",
+        "mosskin_determined": "37df2eea1de0c081a8478b359363e08ae7b12b62bf42268ae3caea9bd25512c8",
+        "mosskin_idle_right": "f7eba1d0e489366a4cdc3e4857e1aa6b328e5da816a08b7f862c8cdadb90808b",
+        "mosskin_idle_left": "02d3418e6fbd74fc6a468540ee191a2213a2fab8264caa4810fd0eb5f305daae",
+        "moonkip_happy": "28530304ced14b8b0afb378c1c503c0b6b21ebe1457d3378e9d89854f80da201",
+        "moonkip_cheeky": "c378c31ee6839b83b6dd6d317903ce1960e96eff4ab451358b408013cafef22e",
+        "moonkip_angry": "8516f7dcf328b04503da8ac7d18776db103671428d01f2e2d114ee2353f1aca8",
+        "moonkip_excited": "579960c1a844eabd3258b333c7a3f5b0ffdc3f06b8c0b60270863b7abb3012dd",
+        "moonkip_sad": "a880fbc67b8905cb44658b13c2dfc58b438ee3078c4acba068a5b1f1e0a210bc",
+        "moonkip_curious": "f78ba11b8b42314a82bc61913cfe6209447942b8096960a994955ba34b194436",
+        "moonkip_surprised": "a60d28a0eaf9c8661ff6f1201dfb4fb35972a67e455ed63582ed31db3a77ee35",
+        "moonkip_determined": "5285323a1a0e19e12111c660ac52e1d57794315d14f7e1d966d1c1a5e9a44bb2",
+        "moonkip_idle_right": "07defa10b9a9a8f28e9a264bd8dbf1fbd36ce5a9141c591ed96987b44fbe13f2",
+        "pebblewyrm_happy": "bffcc153af2242ae08d230097ada9a6f56d4b49ac8670207daeec6a0b5bcb959",
+        "pebblewyrm_cheeky": "d4967ca34e86729e95276900205551b8b52935aa12db93fa798a19f09625225c",
+        "pebblewyrm_angry": "52255e42bfcac5fa65fe85c78b72bb920a408471aff12e1ddb68c82f7d628c5a",
+        "pebblewyrm_excited": "8cbdc543343dc407bd41f4e07f012728daad4d79d99cb285c944cd93694b70ef",
+        "pebblewyrm_sad": "7e8978820986a843d6e51d3787211022ce8be99245ff3303f8eecb3e9f19b923",
+        "pebblewyrm_curious": "3fda75641d0b5cb62e14519f991c85532640b15d5f4b929b4057a2e317bba7a7",
+        "pebblewyrm_surprised": "2523aa2c6b4b5234b6aa42949711604a2839edfb594ae02ad175c49da9c713d7",
+        "pebblewyrm_determined": "abfa12c92492d9b5fb700ddf1ccb2963d029ed49771453cfe1574a322e1297a0",
+        "pebblewyrm_idle_right": "a9ab0757938694b10c704eb961446628e674f9874bb67a274e7a2d960cef0360",
+        "glimmerfin_happy": "b1c1f200724cbbd33c5fe4a331c5a6da0b1da81087f0db5fe0834ecd8481efb5",
+        "glimmerfin_cheeky": "36f0d41ef05ae1d1480c9e840829b04072b29a5c86ef0db01e40a50d6e7463ee",
+        "glimmerfin_angry": "659a9ddbb4721d12f2f9014982f22d52508f69ce0a3ca76516afe89873a81798",
+        "glimmerfin_excited": "b7051661e86e1b81d6e524ac8cc46ba869ae8aa9922b8dbe1c8e509e15f8bc56",
+        "glimmerfin_sad": "d25bde68270953d82bd3b70d2a2024069d906ce876b1053f335048545ef11c87",
+        "glimmerfin_curious": "14e97ac2e7d6cf4e89a2be7f98087439cc35c4cac2277ed9f6f590d461da6583",
+        "glimmerfin_surprised": "520f125ad770ddf5a634a1f2330a522635e6e6e8aa949a1147fd9ca2b34cab75",
+        "glimmerfin_determined": "1a4b9abefb74dc8c19137976b5ed5cdf1f01441f19fe1bd180806434598dd872",
+        "glimmerfin_idle_right": "04148f2f9e349c0a75588354b2c660b41db18223cfcc52ba6a2976015d263714",
+        "gloomlet_happy": "b37e6350845b4a56a22546122629bec0216e8dad82dd22e7200f242641f3f91a",
+        "gloomlet_cheeky": "65834d916bc97d70732baefcd0b850797b94f7588b09807fce0ce2a3cc0feaeb",
+        "gloomlet_angry": "8e26a74a4132912937a0eb9c2042ba293e0f1df3f5b944af932f8c2c5986c9f2",
+        "gloomlet_excited": "987c5676dfd812e319883f14c5cd174287e1ddde56095c3636308c1747fffab4",
+        "gloomlet_sad": "1de69b085efde3d90a8e80ef24bff66834e77f6e542a8233412ac062a4dc4853",
+        "gloomlet_curious": "bae1a82a5e2fe7dce721acefbec0c0d140a98edf62f8b69ae0f00f7fe802eddf",
+        "gloomlet_surprised": "ce568854d78fcb2ed64a473bf15355509dfe505cbe4894ab8eec6fc97427297f",
+        "gloomlet_determined": "bbcf9cf791e067b4d6d57f7cc6773804bb5ee4bdd9553f18ac362dc5b4df8142",
+        "gloomlet_idle_right": "c9d9990309de18a3a7cb45fa687918d90fd2075cf9f2f91a3690e77839c961ec",
+        "relic_beast_idle_right": "2c0bf31ab2f0313e9664b01aff923e9e600377dc545bb5ff83d2082383df8a24",
+        "gloomlet_windup_right": "1410a880119958a072111c17f9d937df47011d390894a8322059a6812bd1cb86",
+        "bow": "678e3fdc15837933201a1c5b32a776f9a5922564fdfa888791bc331c6d758966",
+        "claws": "68524dfb5ffc2706897d3500fd9f6af2cede54d64513a67039dafb4fa9d33e30",
+        "crossbow": "ce0394d1d071b32d24c5a28b8a82323941d2247defb91fd93892b4f21381cba7",
+        "daggers": "e7d87ec75a218a0444417b9f31e60e07d2133c164f1b8b63036cdecae701102f",
+        "greatsword": "a5828fa9695ed6c74021a06d756d3e80539501d74a29ecaed25b12030cb8c8da",
+        "greataxe": "b63cb87ae060d680c0a8af6989ec385d59741d321aa4cc34907301cc52d35727",
+        "maul": "7cfa35e4ace171214a62a2d9576dc96b056b2f7b7bf86351d27358a7957316bd",
+        "orb": "eb58a2ac75428eaaffacf6ad4a72caf760f6e2b41c2fc0f0714c691e048d49ef",
+        "sling": "6df7c2c3705cef791f67c03c91a5fcb3c801256c4d2a571e4623833aaea292db",
+        "spear": "e61786736bd12a4431a6be460c2748a7a972bc5d9f78067133655ed5b4b26905",
+        "staff": "3026c18a524b915043c8e4a3830e47d1fa8654ae2d53fcd88840f6c01b95726d",
+        "wand": "e8ee75dca617eb0eb32057e3198a3cca1aec17057100d4895d89749dd1a6fe6a",
+        "core_fire": "3d909afdaf0c0f5349237530c71e8b572715f8111e8ba2976a4ad205de4ff8c5",
+        "core_lightning": "75dccac5388f8ed59a7a536dc174c9b63e6fca05f43081f00edacdc8bbcdc2a8",
+        "gear_rune": "20a0216f14a94074b27fd4ec2bf23a64c85337a608ccbd17808345631aa496b6",
+        "rune_fire": "04e36a418b884a033851c41423bb61607beda8fe977e035cb5daf890a672c863",
+        "rune_frost": "3ba53f7156ad070461b6beccf4325891f7fef55295e35ad5f800c4a3f2c6a16a",
+        "rune_poison": "8540bfb24fa8b4b074dd8ee9b017c5d69a98e6510f8cc4508c6d311e5fe2a147",
+        "rune_lightning": "70011e61a159477609956960eccd238f3e9fc1d99934f74714c176b2e933ed3d",
+        "rune_arcane": "1819052784ede70bf8e9209eb563ce0dc02d39a20a3c2ec9a79f2a2f508a5aa6",
+        "fire_arc": "b2464ebcfdf922c2db02be3ec9f11c88bc51ef49cffc4db2e5d2cf44ff0c773c",
+        "frost_burst": "71ee426314653068114f53e8b4cb60cbd9f967eedc063317915c20c0a0b52ce6",
+        "shadow_seal": "810d02c2325b48859c09000dc708a7701662c9643f4e03683ab417230acb9830",
+        "shadow_orb": "58e46befbb90c146502ba056dbc81417719cc7c4853c230d0c09afb0173e7f28",
+        "crystal_ward": "34994f3255523862e7d1ba559033f8713e4c4b924d8a8d81b7e85e8d9e3cb8d2",
+        "treasure_burst": "018d76cf04965967a1d5ea36289660546c1e19392f5157755cd8937dd21b57ff",
+        "red_pillar": "2a507e98b345fca4820326937e28ecbec4e38e33cc05cb3408268710814a3753",
+        "nature_vines": "a7065c744f09d2b8c9cf8734ca76d29805d167afbbe4e8bb589041cd42e4b551",
+        "recipe_scroll": "53f25513aae02b01ba208500a06804d35a49f2adccfa9c1955f9d5797719a96d",
+        "treasure_key": "fb477986c3800280114c4d786c2e91548731c7746416166ac6ccbd64fa305ab2",
+        "reward_crown": "129a19e084cd8f443086f28c4b2b4bf0cbd379685b0474145fd332b014575aab",
+        "forge_station": "9cd318a6b2e972dfb63e8b32e9b3072404b460f92ba37e8eb672e4163beef855",
+        "merchant_cart": "91489ae6d1664d769bf81cc4be43a6c7222a1cc2fc1df23c6892ae83d86258a8",
+        "emberhorn_windup_right": "faa33934768530b2655b5104cd25fcc811d75002e5574d844fc64a87fb033b49",
+        "emberhorn_strike_right": "731b31d9aa55dafccfb2df0ac347530f8811561a4e70eb8ac7000284d0ad3cd4",
+        "moonkip_windup_right": "77788fe85c26797322308cbd755c9a3742fca7a912dcc367ad7911abf5fc8023",
+        "moonkip_strike_right": "1d2985227f696b0f0c01dd8c45b407953646b677b35c1845211b08c8dc846ec0",
+        "pebblewyrm_windup_right": "8f8863e975a1e92c4699e9862392b719c4c0811061473c47bc0e30a5c3bd6368",
+        "glimmerfin_windup_right": "0df8a06f0d2cce49921edf59836b5982969ab48f0babb37300ec240116efaddd",
+        "glimmerfin_cast_right": "79bf8764f27ea41b462844d870490032c49a0786a80315d58848670d6c654f98",
+        "gloomlet_strike_right": "2eef69fffc2edfac2c0d333b20d86c547d628f2c2b3cb5f14466fda34ed7330a",
+        "azure_ring": "36c51758b575d2eda6f25944b2cdd69cf59a34dd877f9602191976c098de7448",
+        "obsidian_ring": "189a178ab604c6bfd030b2259b43a26f83eb34fa80617d98d0e541d9dfa81af5",
+        "verdant_amulet": "14847de5475edf09b76babd2dee6eac6c940efded928d242c5b3c370e63b2b67",
+        "ward_orbit": "4fee891afd3e223d8224049e939609eebe93852595b2a1f4f2bdb47ef1510671",
+        "gold_hoard": "b34a25a2fd83ad7b396ae54d745436223b2d0949de9a2c5729228e64a0acabf4",
+        "star_shards": "9c54183c815820494555fedf345ac9b3ec176d1706e06ff83dba80b6735fac53",
+        "trail_map": "147a1e62a542e11d0b6ba3a772254740143a36e2f61d3c91810c3042359ce3e5",
+        "quiet_camp": "b950d0411499ce663cc8fcabf435091933e439991e93b46070806a0dbab73225",
+        "vault_portal": "425bc7f27a886d51c71f783acf2c382efc55783a58a60a5b70e7181cb9389699",
+        "brass_torch": "2738c43aac577c8cdc7f18a60fb7c5ead90013afb0d9e6cf6a88ef0e7b45b44f",
+        "lightning_contact": "b16cd417a4146459166c100c0f623f72596d5c690db3c3606c691d94e70cf9d2",
+        "poison_contact": "32e1e6e60577ad04c63ef1f350b7127638cbb86ede46e856f227dd56bff93166",
+        "frost_projectile": "a526da8f44ffc01bdee6f4081d2baf0b49bde88f5cd6bdeb9ced2a12458fef43",
+        "memory_hourglass": "08d1b765552ab07af1414fcfa4a100385787a4f1c45dc7f99c0e82680cfcd741",
+        "fault_seal": "3e03b9e3b5b55784441281f61574fb9bb63fbaabea832d007ac9c690cc23505f",
+        "courier_cache": "87bd3d185e28e5d2d7efa0eb8562675ed952745be0ae1be245bad31786352875",
+        "trophy_dais": "9ba15f2e4be4440946418ac34aa4ac4eb9e86ee900b75ce5b90698913ec71642",
+        "contract_banner": "c8dba07b5d6da141606a00bb36ae640297302c3949243c7633ebc01a7adab427",
+        "fire_missile": "7ad9977b1917589e0e0ae7eeaec4560ed60fc5644206dc41a26339311b601c3b",
+        "arcane_comet": "3dffcdf8c89be71e396c42cfcc710568a65b578305e041311038ed5fe7aab33e",
+        "healing_wreath": "4886564aa701988f6772ff6b875d4d7571ba39f7f19488ec2e5c370230e16e20",
+        "gold_pillar": "7864afd34bcb3c3a85144d67ba9e508c2497e0a84710919a594f9d0400871718",
+        "moonkip_impact_right": "f0b1c2d1b54f512dcf93961577712264661a5c94212099d58b93cda2d436eca0",
+        "emberhorn_impact_right": "4c9eeaffef2b57213c924cfc9aceaa2dbb7ac58a0b6c7aceb0aab632d6ea556c",
+        "gloomlet_impact_right": "81eb3cc4fb43bf9eb9ea46f05d965e6e9b21ba72c16d1e1e2277056404185c23",
+        "glimmerfin_impact_right": "68712df4e9f481f520b72015638cf61f0e393fa63a274cea887e1bc4c16b6a53"
+      },
+      "extracted_canonical_count": 125,
+      "reused_canonical_bodies": {
+        "vault_runner": "aba336ddeb444a275aa99b39efe757a30c86a07834b7d1f5aff3d199bea7a5aa",
+        "ruin_warden": "e2cd05f368664e2c8dc376f498fb86b8cc84ea5665112c727b121fc929c941e2",
+        "nightstage_drifter": "a81366ef7d91ab6a1c64084cbac450e7f58fa96dff2de005d57374cbae427c36",
+        "velvet_astrologer": "c027cf5bc86c7f370d1e2baabbc6e743b3b10955cf22adfd70d641baedfba49b",
+        "ashtrail_hunter": "870843f18bce07f9c6f22ebf4a146e9248f609d307c3748615c315c0e9d8b1b2"
+      },
+      "source_derived_home_props": {
+        "home_gate": "314742afc05a570f5134156b91dc89df736637c6af78c01829653f27b2f51432",
+        "home_shrine": "096e671710e705be2a9fd69ef68b193301a1424133244be22b8deb8a4029a493"
+      },
+      "accepted_home_imports": {
+        "art/production/phase4e/regions/personal_home_interior.png": "95d04b5c13b11c3b2fa39d0105d9d27aa1ab15e403c74d4a5f0bdd132e0128bf",
+        "art/production/phase4e/props/home_companion_cushion.png": "ebf3a63ac4205ead2137933f0d2825011caf0a739c677aeba624295da2f51444",
+        "art/production/phase4e/props/home_companion_cushion_front.png": "cdf5bbab14b2788918fde49813740ad5b52e2c51703df87e374785e4decbad2f",
+        "art/production/phase4e/props/home_companion_ledge.png": "b4f32207b8f6b3da5251e3e34883632af63827d16ecf8e2bb45dfae29976aa12",
+        "art/production/phase4e/props/home_companion_ledge_front.png": "f6d65625d413a5a4ca30a99ad2c11acb719ff0e4b77f3d9cf69b5cc9baa07f5f"
+      },
+      "licensed_score_imports": {
+        "home": {
+          "source_sha256": "87a99f62e901b8365f1b868cd53bc015d2bf9f887e4c8a89a4fad11a36a62c16",
+          "imported_sha256": "ba1f917fa856c3e2e449974de396a0b6c49ee0079a3380f89bde45a2e794eb52",
+          "license": "CC0-1.0"
+        },
+        "title": {
+          "source_sha256": "b4c3e932f43483b09f2a14accc46a2bdeb5b7d2f4beafc0ad1644fcf092e7298",
+          "imported_sha256": "766a9465ccfa019df3c992ea70d36cfc21c46b7e61857d132018c3b31cd44023",
+          "license": "CC0-1.0"
+        },
+        "hideout": {
+          "source_sha256": "07069ece85e0edf531e2add88ca9974ec0aa7370a39312244d26de6f01250e12",
+          "imported_sha256": "97862dd62e6e671dc75b9b10cb85486f253a955f3e444526c7c4a49345a1995c",
+          "license": "CC0-1.0"
+        },
+        "outer_ruins": {
+          "source_sha256": "aa8b2f6d0d4642a210a7117e396e40464bf85f469c5709f84d18d0e3a3c234dc",
+          "imported_sha256": "ef0024dcf901bbdbab45353a4a1c3941620d881bfcc60bc75c4bbaafad6a0993",
+          "license": "CC0-1.0"
+        },
+        "salvage_warrens": {
+          "source_sha256": "4d16aae7990d63326d748422d6767a9abd2f491a0bff5a6d6207671bb519cf94",
+          "imported_sha256": "213e589a21e5f16417fcd5a7be87cc11085dc2c2a1bf8dad504c0666df91ff59",
+          "license": "CC0-1.0"
+        },
+        "hoard_depths": {
+          "source_sha256": "1f7f99d3499ba918a95fe56488ead5add03331d603e17126279cbf9bcdb24d65",
+          "imported_sha256": "ca47db2544a9d7ac55d41dc7191d4e2906e89af75456976b39e7345d8704a6ee",
+          "license": "CC0-1.0"
+        },
+        "boss": {
+          "source_sha256": "ae533fd103cb2339dcc810801fcae7f43e2e87ceec23689cd3b1bc8f24b48f5d",
+          "imported_sha256": "66ac963c2ee87a9cb47e92203ce5aade39b5e2bf7207020f8fdd624c25fd73fd",
+          "license": "CC0-1.0"
+        },
+        "mossglass_wilds": {
+          "source_sha256": "affee8ea651ac18b5def59388049406c95e271ef2fc223097605a17527175644",
+          "imported_sha256": "7d0ecf55df5077742521a9a430ba2428e40bcd245c1934eb590042bc76a5e02f",
+          "license": "CC0-1.0"
+        },
+        "frostbell_hollows": {
+          "source_sha256": "a6447abfc4dc19559a314eb5bff88832bcb56c1d8020cc0ae2997b41f502ea4f",
+          "imported_sha256": "69dc00ed1e91e4cd932d488ee7f38df5869fd0572529d8c1009bd7d4fec91e5c",
+          "license": "CC0-1.0"
+        },
+        "nullglass_expanse": {
+          "source_sha256": "25c81bee74c37dc91f0895fa68db72b026c028c65d951634d07cd4ae0b325fa2",
+          "imported_sha256": "e1b2c282be29f33a489280ac0c1c04afe37bb8d12c493fa5bd318a823137915c",
+          "license": "CC0-1.0"
+        },
+        "sunken_gearworks": {
+          "source_sha256": "3fe9b3ae55e09fae716de94305c01d771c329408ddf796359c04d5a339c97483",
+          "imported_sha256": "3e4d5d85961aa7b0c08349844f145f198d7d772c27a9ac5eb444ae8ab1f38c89",
+          "license": "CC0-1.0"
+        }
+      },
+      "device_validated": false,
+      "debug_only": true,
+      "owner_test_build": false,
+      "application_id": "com.sneakiicrown.lootlings"
+    },
+    "owner-test": {
+      "apk": "builds\\android\\Lootlings-0.4.53-owner-test-debug.apk",
+      "bytes": 303970425,
+      "sha256": "4c6002bba1ce460cde4f0b4f2c19a848e05d913e72d346e9f349eb8778d9e487",
+      "engine": "4.7.2.stable",
+      "template": "official Android debug Perfetto",
+      "architecture": "arm64-v8a",
+      "min_sdk": 24,
+      "target_sdk": 36,
+      "signed": true,
+      "zipalign_16k": true,
+      "offline_no_permissions": true,
+      "contains_manifest_and_test_monitor": true,
+      "source_test_reference_art_excluded": true,
+      "contains_motion_and_safe_area_modules": true,
+      "final_imported_poses": {
+        "greatsword_ready": {
+          "source_sha256": "ea6d34711ab369c28abde49c4adb09ce66ac7920abaeb9f4cc140c43e6e2c568",
+          "imported_sha256": "f39c5435e938c06363ba517b2a5bce1c37dcb27d516e0ed7ce8aaa745d8ed7ee",
+          "runtime_size_limit": 768,
+          "matches_local_import": true
+        },
+        "greatsword_strike": {
+          "source_sha256": "08687f852a19080af18c60012c66c938733336e2da26708c0cbe99a8a7d53a58",
+          "imported_sha256": "b394156ed2c4fa2a82803d58b0221dce4c5dbc44cb7632fe2e442954082e11ea",
+          "runtime_size_limit": 768,
+          "matches_local_import": true
+        }
+      },
+      "mobile_gesture_owner_exported": true,
+      "current_pcm_audio_assets": 470,
+      "audio_license_manifest_exported": true,
+      "version_code": 64,
+      "version_name": "0.4.53-owner-test",
+      "splash_theme_patch": {
+        "color": "#0d182d",
+        "replaced_background_values": 2,
+        "original_verified_template_preserved": true
+      },
+      "final_imported_bow": {
+        "source_sha256": "7b9a1dcf3eecb3765fc2671b8d6e2b2df580b6a0a2e9f2844f0dbc7f160a4642",
+        "imported_sha256": "1d1526f66acddb957191a66efbfe7927fba71d35fab3473d16aa6d309fb7b5c8",
+        "runtime_size_limit": 512,
+        "matches_local_import": true
+      },
+      "final_imported_residents": {
+        "patch": {
+          "source_sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de",
+          "imported_sha256": "af2ab2dba50c0c510580e5e48a67b642f691039372698bec667c54c6697403ed",
+          "matches_local_import": true,
+          "authored_state": "canonical_station_panel"
+        },
+        "ilex": {
+          "source_sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158",
+          "imported_sha256": "2c864ca136f295d7fde2c19f32974fa5e3f80f4716749985d6fc49ffa57ca160",
+          "matches_local_import": true,
+          "authored_state": "canonical_station_panel"
+        },
+        "sera": {
+          "source_sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300",
+          "imported_sha256": "4224962e6cac3bd0ce51c7ee0403772e99dba9bc745b8e507b25a4dc405b58e3",
+          "matches_local_import": true,
+          "authored_state": "idle"
+        }
+      },
+      "final_imported_companion_previews": {
+        "stonekith": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "puffnest": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "auricub": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "pixrask": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "lunarwisp": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        },
+        "breezewyn": {
+          "cells": [
+            "idle:right",
+            "idle:left",
+            "move:right",
+            "move:left",
+            "reaction:right",
+            "reaction:left",
+            "perch_rest:right",
+            "perch_rest:left",
+            "perch_interact:right",
+            "perch_interact:left"
+          ],
+          "matches_local_import": true,
+          "equippable": true,
+          "perch_ready": true
+        }
+      },
+      "current_extracted_canonical_assets": {
+        "emberhorn_happy": "1aaf00d72967a298e56e48f705475ff1260c348c6ff672b90f38aaf0e255cbeb",
+        "emberhorn_cheeky": "aeb4fd558c4d84f5fc32934b907a6db33483a2e354553a39b4460e46771848d6",
+        "emberhorn_angry": "c7201f9ea4fbdadbfc8d79e34d4d7cea30fba48196a4f28cc0dcaae13e30f25c",
+        "emberhorn_excited": "0da7e11dcd1c9aad82b1ab8f5f33da760ffbd3ca6ade8354f205397e9b201ed2",
+        "emberhorn_sad": "f9d2b65737cd67e7a92bfee372694b51ce03675e5054d37cfcaa31975a0cc7a3",
+        "emberhorn_curious": "6ff9e57b7b6288f3998c60442504f7244c4c0906cfcf9e1f2a27867b2c5d9922",
+        "emberhorn_surprised": "cdefb3ab647aebe56e695899a6a35640ca4e8715be2f5c502b60476869e62b1c",
+        "emberhorn_determined": "ee7d6ab9a4264978f69469a1f7f79d24d77a55481f0874dd461f9192eb2724df",
+        "emberhorn_idle_right": "704ece8cb03e059b536b0e999bbbdcf8895b8e3a22b6597ffa48c702bf035806",
+        "emberhorn_idle_left": "2dabe3440a12916aff17bbd06fb06fce0b3eaec529ba7859d9c8e4164e6015d9",
+        "mosskin_happy": "abab825fa26d1558ddde52b46c46dbbd08a0a0725975d8a2077ccb57b7be20ec",
+        "mosskin_cheeky": "7dce05955a3d9eac2524877a0c1d3f47e834ab51f4cf68d4819f81bf4700f974",
+        "mosskin_angry": "a74abd818f8f4b956eed1216621a2c8f127b3701402d994d0d2a0a719822654a",
+        "mosskin_excited": "799d4abdbbfda22071a4a1bfc72e783987f2c0a075b0c810d354e88e881b9906",
+        "mosskin_sad": "b6fffd899eed9a37cd5b0cdadd30d90d0b241336218a4661ce3134a8f2a65332",
+        "mosskin_curious": "f99e8ec1f93ed550dba45afe0476d083f2607a6e1e9abff58223b4a0018757be",
+        "mosskin_surprised": "e275ed51744ae3595cc39e4739050cbc9b4cea2e19b2d2bdecdf9c8cb941ad3b",
+        "mosskin_determined": "37df2eea1de0c081a8478b359363e08ae7b12b62bf42268ae3caea9bd25512c8",
+        "mosskin_idle_right": "f7eba1d0e489366a4cdc3e4857e1aa6b328e5da816a08b7f862c8cdadb90808b",
+        "mosskin_idle_left": "02d3418e6fbd74fc6a468540ee191a2213a2fab8264caa4810fd0eb5f305daae",
+        "moonkip_happy": "28530304ced14b8b0afb378c1c503c0b6b21ebe1457d3378e9d89854f80da201",
+        "moonkip_cheeky": "c378c31ee6839b83b6dd6d317903ce1960e96eff4ab451358b408013cafef22e",
+        "moonkip_angry": "8516f7dcf328b04503da8ac7d18776db103671428d01f2e2d114ee2353f1aca8",
+        "moonkip_excited": "579960c1a844eabd3258b333c7a3f5b0ffdc3f06b8c0b60270863b7abb3012dd",
+        "moonkip_sad": "a880fbc67b8905cb44658b13c2dfc58b438ee3078c4acba068a5b1f1e0a210bc",
+        "moonkip_curious": "f78ba11b8b42314a82bc61913cfe6209447942b8096960a994955ba34b194436",
+        "moonkip_surprised": "a60d28a0eaf9c8661ff6f1201dfb4fb35972a67e455ed63582ed31db3a77ee35",
+        "moonkip_determined": "5285323a1a0e19e12111c660ac52e1d57794315d14f7e1d966d1c1a5e9a44bb2",
+        "moonkip_idle_right": "07defa10b9a9a8f28e9a264bd8dbf1fbd36ce5a9141c591ed96987b44fbe13f2",
+        "pebblewyrm_happy": "bffcc153af2242ae08d230097ada9a6f56d4b49ac8670207daeec6a0b5bcb959",
+        "pebblewyrm_cheeky": "d4967ca34e86729e95276900205551b8b52935aa12db93fa798a19f09625225c",
+        "pebblewyrm_angry": "52255e42bfcac5fa65fe85c78b72bb920a408471aff12e1ddb68c82f7d628c5a",
+        "pebblewyrm_excited": "8cbdc543343dc407bd41f4e07f012728daad4d79d99cb285c944cd93694b70ef",
+        "pebblewyrm_sad": "7e8978820986a843d6e51d3787211022ce8be99245ff3303f8eecb3e9f19b923",
+        "pebblewyrm_curious": "3fda75641d0b5cb62e14519f991c85532640b15d5f4b929b4057a2e317bba7a7",
+        "pebblewyrm_surprised": "2523aa2c6b4b5234b6aa42949711604a2839edfb594ae02ad175c49da9c713d7",
+        "pebblewyrm_determined": "abfa12c92492d9b5fb700ddf1ccb2963d029ed49771453cfe1574a322e1297a0",
+        "pebblewyrm_idle_right": "a9ab0757938694b10c704eb961446628e674f9874bb67a274e7a2d960cef0360",
+        "glimmerfin_happy": "b1c1f200724cbbd33c5fe4a331c5a6da0b1da81087f0db5fe0834ecd8481efb5",
+        "glimmerfin_cheeky": "36f0d41ef05ae1d1480c9e840829b04072b29a5c86ef0db01e40a50d6e7463ee",
+        "glimmerfin_angry": "659a9ddbb4721d12f2f9014982f22d52508f69ce0a3ca76516afe89873a81798",
+        "glimmerfin_excited": "b7051661e86e1b81d6e524ac8cc46ba869ae8aa9922b8dbe1c8e509e15f8bc56",
+        "glimmerfin_sad": "d25bde68270953d82bd3b70d2a2024069d906ce876b1053f335048545ef11c87",
+        "glimmerfin_curious": "14e97ac2e7d6cf4e89a2be7f98087439cc35c4cac2277ed9f6f590d461da6583",
+        "glimmerfin_surprised": "520f125ad770ddf5a634a1f2330a522635e6e6e8aa949a1147fd9ca2b34cab75",
+        "glimmerfin_determined": "1a4b9abefb74dc8c19137976b5ed5cdf1f01441f19fe1bd180806434598dd872",
+        "glimmerfin_idle_right": "04148f2f9e349c0a75588354b2c660b41db18223cfcc52ba6a2976015d263714",
+        "gloomlet_happy": "b37e6350845b4a56a22546122629bec0216e8dad82dd22e7200f242641f3f91a",
+        "gloomlet_cheeky": "65834d916bc97d70732baefcd0b850797b94f7588b09807fce0ce2a3cc0feaeb",
+        "gloomlet_angry": "8e26a74a4132912937a0eb9c2042ba293e0f1df3f5b944af932f8c2c5986c9f2",
+        "gloomlet_excited": "987c5676dfd812e319883f14c5cd174287e1ddde56095c3636308c1747fffab4",
+        "gloomlet_sad": "1de69b085efde3d90a8e80ef24bff66834e77f6e542a8233412ac062a4dc4853",
+        "gloomlet_curious": "bae1a82a5e2fe7dce721acefbec0c0d140a98edf62f8b69ae0f00f7fe802eddf",
+        "gloomlet_surprised": "ce568854d78fcb2ed64a473bf15355509dfe505cbe4894ab8eec6fc97427297f",
+        "gloomlet_determined": "bbcf9cf791e067b4d6d57f7cc6773804bb5ee4bdd9553f18ac362dc5b4df8142",
+        "gloomlet_idle_right": "c9d9990309de18a3a7cb45fa687918d90fd2075cf9f2f91a3690e77839c961ec",
+        "relic_beast_idle_right": "2c0bf31ab2f0313e9664b01aff923e9e600377dc545bb5ff83d2082383df8a24",
+        "gloomlet_windup_right": "1410a880119958a072111c17f9d937df47011d390894a8322059a6812bd1cb86",
+        "bow": "678e3fdc15837933201a1c5b32a776f9a5922564fdfa888791bc331c6d758966",
+        "claws": "68524dfb5ffc2706897d3500fd9f6af2cede54d64513a67039dafb4fa9d33e30",
+        "crossbow": "ce0394d1d071b32d24c5a28b8a82323941d2247defb91fd93892b4f21381cba7",
+        "daggers": "e7d87ec75a218a0444417b9f31e60e07d2133c164f1b8b63036cdecae701102f",
+        "greatsword": "a5828fa9695ed6c74021a06d756d3e80539501d74a29ecaed25b12030cb8c8da",
+        "greataxe": "b63cb87ae060d680c0a8af6989ec385d59741d321aa4cc34907301cc52d35727",
+        "maul": "7cfa35e4ace171214a62a2d9576dc96b056b2f7b7bf86351d27358a7957316bd",
+        "orb": "eb58a2ac75428eaaffacf6ad4a72caf760f6e2b41c2fc0f0714c691e048d49ef",
+        "sling": "6df7c2c3705cef791f67c03c91a5fcb3c801256c4d2a571e4623833aaea292db",
+        "spear": "e61786736bd12a4431a6be460c2748a7a972bc5d9f78067133655ed5b4b26905",
+        "staff": "3026c18a524b915043c8e4a3830e47d1fa8654ae2d53fcd88840f6c01b95726d",
+        "wand": "e8ee75dca617eb0eb32057e3198a3cca1aec17057100d4895d89749dd1a6fe6a",
+        "core_fire": "3d909afdaf0c0f5349237530c71e8b572715f8111e8ba2976a4ad205de4ff8c5",
+        "core_lightning": "75dccac5388f8ed59a7a536dc174c9b63e6fca05f43081f00edacdc8bbcdc2a8",
+        "gear_rune": "20a0216f14a94074b27fd4ec2bf23a64c85337a608ccbd17808345631aa496b6",
+        "rune_fire": "04e36a418b884a033851c41423bb61607beda8fe977e035cb5daf890a672c863",
+        "rune_frost": "3ba53f7156ad070461b6beccf4325891f7fef55295e35ad5f800c4a3f2c6a16a",
+        "rune_poison": "8540bfb24fa8b4b074dd8ee9b017c5d69a98e6510f8cc4508c6d311e5fe2a147",
+        "rune_lightning": "70011e61a159477609956960eccd238f3e9fc1d99934f74714c176b2e933ed3d",
+        "rune_arcane": "1819052784ede70bf8e9209eb563ce0dc02d39a20a3c2ec9a79f2a2f508a5aa6",
+        "fire_arc": "b2464ebcfdf922c2db02be3ec9f11c88bc51ef49cffc4db2e5d2cf44ff0c773c",
+        "frost_burst": "71ee426314653068114f53e8b4cb60cbd9f967eedc063317915c20c0a0b52ce6",
+        "shadow_seal": "810d02c2325b48859c09000dc708a7701662c9643f4e03683ab417230acb9830",
+        "shadow_orb": "58e46befbb90c146502ba056dbc81417719cc7c4853c230d0c09afb0173e7f28",
+        "crystal_ward": "34994f3255523862e7d1ba559033f8713e4c4b924d8a8d81b7e85e8d9e3cb8d2",
+        "treasure_burst": "018d76cf04965967a1d5ea36289660546c1e19392f5157755cd8937dd21b57ff",
+        "red_pillar": "2a507e98b345fca4820326937e28ecbec4e38e33cc05cb3408268710814a3753",
+        "nature_vines": "a7065c744f09d2b8c9cf8734ca76d29805d167afbbe4e8bb589041cd42e4b551",
+        "recipe_scroll": "53f25513aae02b01ba208500a06804d35a49f2adccfa9c1955f9d5797719a96d",
+        "treasure_key": "fb477986c3800280114c4d786c2e91548731c7746416166ac6ccbd64fa305ab2",
+        "reward_crown": "129a19e084cd8f443086f28c4b2b4bf0cbd379685b0474145fd332b014575aab",
+        "forge_station": "9cd318a6b2e972dfb63e8b32e9b3072404b460f92ba37e8eb672e4163beef855",
+        "merchant_cart": "91489ae6d1664d769bf81cc4be43a6c7222a1cc2fc1df23c6892ae83d86258a8",
+        "emberhorn_windup_right": "faa33934768530b2655b5104cd25fcc811d75002e5574d844fc64a87fb033b49",
+        "emberhorn_strike_right": "731b31d9aa55dafccfb2df0ac347530f8811561a4e70eb8ac7000284d0ad3cd4",
+        "moonkip_windup_right": "77788fe85c26797322308cbd755c9a3742fca7a912dcc367ad7911abf5fc8023",
+        "moonkip_strike_right": "1d2985227f696b0f0c01dd8c45b407953646b677b35c1845211b08c8dc846ec0",
+        "pebblewyrm_windup_right": "8f8863e975a1e92c4699e9862392b719c4c0811061473c47bc0e30a5c3bd6368",
+        "glimmerfin_windup_right": "0df8a06f0d2cce49921edf59836b5982969ab48f0babb37300ec240116efaddd",
+        "glimmerfin_cast_right": "79bf8764f27ea41b462844d870490032c49a0786a80315d58848670d6c654f98",
+        "gloomlet_strike_right": "2eef69fffc2edfac2c0d333b20d86c547d628f2c2b3cb5f14466fda34ed7330a",
+        "azure_ring": "36c51758b575d2eda6f25944b2cdd69cf59a34dd877f9602191976c098de7448",
+        "obsidian_ring": "189a178ab604c6bfd030b2259b43a26f83eb34fa80617d98d0e541d9dfa81af5",
+        "verdant_amulet": "14847de5475edf09b76babd2dee6eac6c940efded928d242c5b3c370e63b2b67",
+        "ward_orbit": "4fee891afd3e223d8224049e939609eebe93852595b2a1f4f2bdb47ef1510671",
+        "gold_hoard": "b34a25a2fd83ad7b396ae54d745436223b2d0949de9a2c5729228e64a0acabf4",
+        "star_shards": "9c54183c815820494555fedf345ac9b3ec176d1706e06ff83dba80b6735fac53",
+        "trail_map": "147a1e62a542e11d0b6ba3a772254740143a36e2f61d3c91810c3042359ce3e5",
+        "quiet_camp": "b950d0411499ce663cc8fcabf435091933e439991e93b46070806a0dbab73225",
+        "vault_portal": "425bc7f27a886d51c71f783acf2c382efc55783a58a60a5b70e7181cb9389699",
+        "brass_torch": "2738c43aac577c8cdc7f18a60fb7c5ead90013afb0d9e6cf6a88ef0e7b45b44f",
+        "lightning_contact": "b16cd417a4146459166c100c0f623f72596d5c690db3c3606c691d94e70cf9d2",
+        "poison_contact": "32e1e6e60577ad04c63ef1f350b7127638cbb86ede46e856f227dd56bff93166",
+        "frost_projectile": "a526da8f44ffc01bdee6f4081d2baf0b49bde88f5cd6bdeb9ced2a12458fef43",
+        "memory_hourglass": "08d1b765552ab07af1414fcfa4a100385787a4f1c45dc7f99c0e82680cfcd741",
+        "fault_seal": "3e03b9e3b5b55784441281f61574fb9bb63fbaabea832d007ac9c690cc23505f",
+        "courier_cache": "87bd3d185e28e5d2d7efa0eb8562675ed952745be0ae1be245bad31786352875",
+        "trophy_dais": "9ba15f2e4be4440946418ac34aa4ac4eb9e86ee900b75ce5b90698913ec71642",
+        "contract_banner": "c8dba07b5d6da141606a00bb36ae640297302c3949243c7633ebc01a7adab427",
+        "fire_missile": "7ad9977b1917589e0e0ae7eeaec4560ed60fc5644206dc41a26339311b601c3b",
+        "arcane_comet": "3dffcdf8c89be71e396c42cfcc710568a65b578305e041311038ed5fe7aab33e",
+        "healing_wreath": "4886564aa701988f6772ff6b875d4d7571ba39f7f19488ec2e5c370230e16e20",
+        "gold_pillar": "7864afd34bcb3c3a85144d67ba9e508c2497e0a84710919a594f9d0400871718",
+        "moonkip_impact_right": "f0b1c2d1b54f512dcf93961577712264661a5c94212099d58b93cda2d436eca0",
+        "emberhorn_impact_right": "4c9eeaffef2b57213c924cfc9aceaa2dbb7ac58a0b6c7aceb0aab632d6ea556c",
+        "gloomlet_impact_right": "81eb3cc4fb43bf9eb9ea46f05d965e6e9b21ba72c16d1e1e2277056404185c23",
+        "glimmerfin_impact_right": "68712df4e9f481f520b72015638cf61f0e393fa63a274cea887e1bc4c16b6a53"
+      },
+      "extracted_canonical_count": 125,
+      "reused_canonical_bodies": {
+        "vault_runner": "aba336ddeb444a275aa99b39efe757a30c86a07834b7d1f5aff3d199bea7a5aa",
+        "ruin_warden": "e2cd05f368664e2c8dc376f498fb86b8cc84ea5665112c727b121fc929c941e2",
+        "nightstage_drifter": "a81366ef7d91ab6a1c64084cbac450e7f58fa96dff2de005d57374cbae427c36",
+        "velvet_astrologer": "c027cf5bc86c7f370d1e2baabbc6e743b3b10955cf22adfd70d641baedfba49b",
+        "ashtrail_hunter": "870843f18bce07f9c6f22ebf4a146e9248f609d307c3748615c315c0e9d8b1b2"
+      },
+      "source_derived_home_props": {
+        "home_gate": "314742afc05a570f5134156b91dc89df736637c6af78c01829653f27b2f51432",
+        "home_shrine": "096e671710e705be2a9fd69ef68b193301a1424133244be22b8deb8a4029a493"
+      },
+      "accepted_home_imports": {
+        "art/production/phase4e/regions/personal_home_interior.png": "95d04b5c13b11c3b2fa39d0105d9d27aa1ab15e403c74d4a5f0bdd132e0128bf",
+        "art/production/phase4e/props/home_companion_cushion.png": "ebf3a63ac4205ead2137933f0d2825011caf0a739c677aeba624295da2f51444",
+        "art/production/phase4e/props/home_companion_cushion_front.png": "cdf5bbab14b2788918fde49813740ad5b52e2c51703df87e374785e4decbad2f",
+        "art/production/phase4e/props/home_companion_ledge.png": "b4f32207b8f6b3da5251e3e34883632af63827d16ecf8e2bb45dfae29976aa12",
+        "art/production/phase4e/props/home_companion_ledge_front.png": "f6d65625d413a5a4ca30a99ad2c11acb719ff0e4b77f3d9cf69b5cc9baa07f5f"
+      },
+      "licensed_score_imports": {
+        "home": {
+          "source_sha256": "87a99f62e901b8365f1b868cd53bc015d2bf9f887e4c8a89a4fad11a36a62c16",
+          "imported_sha256": "ba1f917fa856c3e2e449974de396a0b6c49ee0079a3380f89bde45a2e794eb52",
+          "license": "CC0-1.0"
+        },
+        "title": {
+          "source_sha256": "b4c3e932f43483b09f2a14accc46a2bdeb5b7d2f4beafc0ad1644fcf092e7298",
+          "imported_sha256": "766a9465ccfa019df3c992ea70d36cfc21c46b7e61857d132018c3b31cd44023",
+          "license": "CC0-1.0"
+        },
+        "hideout": {
+          "source_sha256": "07069ece85e0edf531e2add88ca9974ec0aa7370a39312244d26de6f01250e12",
+          "imported_sha256": "97862dd62e6e671dc75b9b10cb85486f253a955f3e444526c7c4a49345a1995c",
+          "license": "CC0-1.0"
+        },
+        "outer_ruins": {
+          "source_sha256": "aa8b2f6d0d4642a210a7117e396e40464bf85f469c5709f84d18d0e3a3c234dc",
+          "imported_sha256": "ef0024dcf901bbdbab45353a4a1c3941620d881bfcc60bc75c4bbaafad6a0993",
+          "license": "CC0-1.0"
+        },
+        "salvage_warrens": {
+          "source_sha256": "4d16aae7990d63326d748422d6767a9abd2f491a0bff5a6d6207671bb519cf94",
+          "imported_sha256": "213e589a21e5f16417fcd5a7be87cc11085dc2c2a1bf8dad504c0666df91ff59",
+          "license": "CC0-1.0"
+        },
+        "hoard_depths": {
+          "source_sha256": "1f7f99d3499ba918a95fe56488ead5add03331d603e17126279cbf9bcdb24d65",
+          "imported_sha256": "ca47db2544a9d7ac55d41dc7191d4e2906e89af75456976b39e7345d8704a6ee",
+          "license": "CC0-1.0"
+        },
+        "boss": {
+          "source_sha256": "ae533fd103cb2339dcc810801fcae7f43e2e87ceec23689cd3b1bc8f24b48f5d",
+          "imported_sha256": "66ac963c2ee87a9cb47e92203ce5aade39b5e2bf7207020f8fdd624c25fd73fd",
+          "license": "CC0-1.0"
+        },
+        "mossglass_wilds": {
+          "source_sha256": "affee8ea651ac18b5def59388049406c95e271ef2fc223097605a17527175644",
+          "imported_sha256": "7d0ecf55df5077742521a9a430ba2428e40bcd245c1934eb590042bc76a5e02f",
+          "license": "CC0-1.0"
+        },
+        "frostbell_hollows": {
+          "source_sha256": "a6447abfc4dc19559a314eb5bff88832bcb56c1d8020cc0ae2997b41f502ea4f",
+          "imported_sha256": "69dc00ed1e91e4cd932d488ee7f38df5869fd0572529d8c1009bd7d4fec91e5c",
+          "license": "CC0-1.0"
+        },
+        "nullglass_expanse": {
+          "source_sha256": "25c81bee74c37dc91f0895fa68db72b026c028c65d951634d07cd4ae0b325fa2",
+          "imported_sha256": "e1b2c282be29f33a489280ac0c1c04afe37bb8d12c493fa5bd318a823137915c",
+          "license": "CC0-1.0"
+        },
+        "sunken_gearworks": {
+          "source_sha256": "3fe9b3ae55e09fae716de94305c01d771c329408ddf796359c04d5a339c97483",
+          "imported_sha256": "3e4d5d85961aa7b0c08349844f145f198d7d772c27a9ac5eb444ae8ab1f38c89",
+          "license": "CC0-1.0"
+        }
+      },
+      "device_validated": false,
+      "debug_only": true,
+      "owner_test_build": true,
+      "application_id": "com.sneakiicrown.lootlings.owner"
+    }
+  },
+  "physical_device_tested": false,
+  "whole_game_professional_acceptance": false,
+  "new_art_contracts_closed": 0
+}
