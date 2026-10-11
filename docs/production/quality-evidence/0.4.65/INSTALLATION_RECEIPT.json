@@ -1,0 +1,18 @@
+{
+  "version": "0.4.65",
+  "kind": "Named-loadout balance diagnostics and live perk/Stash readability",
+  "verified_contracts_closed": 0,
+  "new_runtime_png": 0,
+  "new_physical_artist_files": 0,
+  "remaining_contracts": 2757,
+  "professionally_approved": false,
+  "physical_device_tested": false,
+  "physical_device_status": "S23 DEFERRED by owner",
+  "other_installed_features": [
+    "All perk names and multiline effects now fit their real native cards; capped live gains agree with applied effects; no RNG or combat-value changes.",
+    "Stash comparison shrinks underlying list frame, scrolls the selected row into view and exposes the complete item identity.",
+    "102 real named-loadout campaign routes across 12 actors, three policies, three rarities and ten regions; 184 separate stationary damage measurements. Balance remains PARTIALLY TESTED."
+  ],
+  "quality_note": "Source native four-size screenshots and transaction/formula tests pass. Exact-export verification pending at source checkpoint; no blanket artistic acceptance.",
+  "exported_version": "Pending"
+}

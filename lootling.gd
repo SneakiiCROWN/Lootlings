@@ -872,9 +872,9 @@ func build_overlay_ui() -> void:
 	upgrade_title = make_label(upgrade_panel, "LEVEL UP!", 30, Rect2(20, 18, 396, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	for i in range(3):
 		var button := Button.new()
-		button.position = Vector2(25, 86 + i * 115)
-		button.size = Vector2(386, 96)
-		button.custom_minimum_size = Vector2(386, 96)
+		button.position = Vector2(25, 76 + i * 114)
+		button.size = Vector2(386, 110)
+		button.custom_minimum_size = Vector2(386, 110)
 		button.add_theme_font_size_override("font_size", 16)
 		button.add_theme_color_override("font_color", Color("#f8fbff"))
 		button.add_theme_color_override("font_hover_color", Color.WHITE)
@@ -892,9 +892,9 @@ func build_overlay_ui() -> void:
 		button.add_child(icon)
 		var core_icon := LootlingsUI.add_icon(button, Rect2(80, 8, 16, 16), "core_neutral")
 		var rarity_icon := LootlingsUI.add_icon(button, Rect2(338, 29, 28, 28), "rarity_common")
-		var kicker := make_label(button, "", 10, Rect2(102, 9, 264, 16), HORIZONTAL_ALIGNMENT_LEFT, Color("#b9a5d5"))
-		var name_label := make_label(button, "", 17, Rect2(80, 28, 248, 25), HORIZONTAL_ALIGNMENT_LEFT, Color.WHITE)
-		var effect := make_label(button, "", 14, Rect2(80, 54, 286, 40), HORIZONTAL_ALIGNMENT_LEFT, Color("#c9d6e9"))
+		var kicker := make_label(button, "", 10, Rect2(102, 4, 250, 20), HORIZONTAL_ALIGNMENT_LEFT, Color("#b9a5d5"))
+		var name_label := make_label(button, "", 17, Rect2(80, 24, 248, 32), HORIZONTAL_ALIGNMENT_LEFT, Color.WHITE)
+		var effect := make_label(button, "", 14, Rect2(80, 56, 286, 52), HORIZONTAL_ALIGNMENT_LEFT, Color("#c9d6e9"))
 		effect.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		for label in [kicker, name_label, effect]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -3045,7 +3045,7 @@ func inspect_upgrade(index: int) -> void:
 	upgrade_take_button.add_theme_font_size_override("font_size",15)
 	upgrade_take_button.disabled = false
 	var up: Dictionary=selected_upgrades[index]
-	upgrade_compare.text="CURRENT: %d stacks / %s\nNEW PERK: %s / stacks %d to %d\nCOST: FREE / %s" % [int(upgrade_counts.get(up.id,0)),build.short_summary(),up.name,int(upgrade_counts.get(up.id,0)),int(upgrade_counts.get(up.id,0))+1,up.desc]
+	upgrade_compare.text="[b]%s[/b] · COST: FREE\n%s\nOwned ranks %d → %d · %s" % [up.name,preload("res://perk_presentation.gd").effect(self,up),int(upgrade_counts.get(up.id,0)),int(upgrade_counts.get(up.id,0))+1,build.short_summary()]
 	for i in range(upgrade_buttons.size()):
 		LootlingsUI.apply_selection(upgrade_buttons[i],i==index)
 
@@ -3368,37 +3368,40 @@ func show_upgrade_choices() -> void:
 	var pool:Array=preload("res://perk_offer_catalog.gd").offers(rng,UPGRADES,{"crit":crit_chance,"life_steal":life_steal,"execute":execute_ratio},debug_perk_rarity)
 	for i in range(3):
 		selected_upgrades.append(pool[i])
-		var up: Dictionary = pool[i]
-		var stacks := int(upgrade_counts.get(up.id, 0))
-		LootlingsUI.apply_selection(upgrade_buttons[i],false)
-		upgrade_buttons[i].text = format_upgrade_card(up, stacks)
-		apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
-		LootlingsUI.apply_rarity_card(upgrade_buttons[i], GameCatalog.rarity_color(up.rarity))
-		# Keep the Button's complete semantic text for accessibility/tests; its
-		# visible layers give rarity, name and effect distinct hierarchy.
-		for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
-			upgrade_buttons[i].add_theme_color_override(state_color, Color.TRANSPARENT)
-		var tags: Array = up.get("tags", [])
-		upgrade_visuals[i].kicker.text = "%s  /  %s%s" % [str(tags[0]).to_upper() if not tags.is_empty() else "UTILITY", up.rarity, "  /  STACK ×%d" % stacks if stacks > 0 else ""]
-		upgrade_visuals[i].kicker.add_theme_color_override("font_color", GameCatalog.rarity_color(up.rarity).lightened(0.20))
-		upgrade_visuals[i].name.text = str(up.name).to_upper()
-		upgrade_visuals[i].effect.text = str(up.desc)
-		if not tags.is_empty():upgrade_visuals[i].kicker.text += "  /  CORE %d > %d" % [build.count(str(tags[0])),build.count(str(tags[0]))+tags.size()]
-		upgrade_visuals[i].core.texture = LootlingsUI.icon("core_%s" % (str(tags[0]).to_lower() if not tags.is_empty() else "neutral"))
-		upgrade_visuals[i].rarity.texture = LootlingsUI.icon("rarity_%s" % str(up.rarity).to_lower())
-		# Only the exact supplied production upgrade texture fills this socket.
-		var icon_path := "res://art/ui/icons/upgrades/%s.png" % up.id
-		upgrade_visuals[i].icon.texture = load(icon_path) if ResourceLoader.exists(icon_path) else null
+		refresh_upgrade_card(i,pool[i])
 	upgrade_title.text = "LEVEL %d - PICK ONE" % level
 	upgrade_panel.visible = true
 	if presentation_director != null:
 		presentation_director.present_card(upgrade_panel, build.color(), 0.27)
 
+func refresh_upgrade_card(i: int, up: Dictionary) -> void:
+	var stacks := int(upgrade_counts.get(up.id, 0))
+	LootlingsUI.apply_selection(upgrade_buttons[i],false)
+	upgrade_buttons[i].text = ""
+	upgrade_buttons[i].tooltip_text = format_upgrade_card(up, stacks)
+	apply_button_style(upgrade_buttons[i], Color("#202d52"), GameCatalog.rarity_color(up.rarity))
+	LootlingsUI.apply_rarity_card(upgrade_buttons[i], GameCatalog.rarity_color(up.rarity))
+	# Child labels own the visible text; the tooltip retains full details
+	# without invisible Button text inflating the mobile minimum size.
+	for state_color in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
+		upgrade_buttons[i].add_theme_color_override(state_color, Color.TRANSPARENT)
+	var tags: Array = up.get("tags", [])
+	upgrade_visuals[i].kicker.text = "%s  /  %s%s" % [str(tags[0]).to_upper() if not tags.is_empty() else "UTILITY", up.rarity, "  /  STACK ×%d" % stacks if stacks > 0 else ""]
+	upgrade_visuals[i].kicker.add_theme_color_override("font_color", GameCatalog.rarity_color(up.rarity).lightened(0.20))
+	upgrade_visuals[i].name.text = str(up.name).to_upper()
+	upgrade_visuals[i].effect.text = preload("res://perk_presentation.gd").effect(self,up)
+
+	upgrade_visuals[i].core.texture = LootlingsUI.icon("core_%s" % (str(tags[0]).to_lower() if not tags.is_empty() else "neutral"))
+	upgrade_visuals[i].rarity.texture = LootlingsUI.icon("rarity_%s" % str(up.rarity).to_lower())
+	# Only the exact supplied production upgrade texture fills this socket.
+	var icon_path := "res://art/ui/icons/upgrades/%s.png" % up.id
+	upgrade_visuals[i].icon.texture = load(icon_path) if ResourceLoader.exists(icon_path) else null
+
 func format_upgrade_card(up: Dictionary, stacks: int) -> String:
 	var tags: Array = up.get("tags", [])
 	var tag: String = str(tags[0]).to_upper() if not tags.is_empty() else "UTILITY"
 	var stack_line := "\nSTACK  ×%d" % stacks if stacks > 0 else ""
-	return "[%s]   %s   •   %s\n%s  —  %s%s" % [up.get("icon", "UP"), up.get("name", "UPGRADE"), up.get("rarity", "COMMON"), tag, up.get("desc", ""), stack_line]
+	return "[%s]   %s   •   %s\n%s  —  %s%s" % [up.get("icon", "UP"), up.get("name", "UPGRADE"), up.get("rarity", "COMMON"), tag, preload("res://perk_presentation.gd").effect(self,up), stack_line]
 
 func choose_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size():

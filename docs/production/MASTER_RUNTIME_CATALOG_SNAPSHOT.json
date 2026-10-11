@@ -5248,7 +5248,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "b9c494c644003ab5cd4d18eba57e88edbd18616d6bef466afba2120953c439cb"
+    "source_sha256": "b5106a97b5079fee1d42481f4e637b33f22fd4e341992a250877e867b5a20284"
   },
   "home_catalog.gd": {
     "constants": {
@@ -7278,6 +7278,7 @@
       "leave_merchant",
       "add_xp",
       "show_upgrade_choices",
+      "refresh_upgrade_card",
       "format_upgrade_card",
       "choose_upgrade",
       "apply_upgrade_effect",
@@ -7323,7 +7324,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "0dd24301db12c42eeb89fea1a722dd7b9228bf776315a14b3b480add21a445d6"
+    "source_sha256": "cf68b249c816888e417bea86612172e73473c7ab4c992a4256edfa6033c9f81c"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7845,6 +7846,13 @@
       "offers"
     ],
     "source_sha256": "5932dd6061487a8c4bfcfb2613159ee5756f96bc50b61d21abfb213e3ce1b82b"
+  },
+  "perk_presentation.gd": {
+    "constants": {},
+    "methods": [
+      "effect"
+    ],
+    "source_sha256": "8afeee0c9c01ebca0d1a22853b81feefd6b88f5976079bf726bcf394e9d5eadf"
   },
   "permanent_upgrade_catalog.gd": {
     "constants": {

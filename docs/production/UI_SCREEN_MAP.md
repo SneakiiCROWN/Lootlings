@@ -87,6 +87,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:lootling.gd:show_merchant | show_merchant / show_merchant | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:refresh_merchant_ui | refresh_merchant_ui / refresh_merchant_ui | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_upgrade_choices | show_upgrade_choices / show_upgrade_choices | LIVE_BETA | lootling.gd |
+| screen:lootling.gd:refresh_upgrade_card | refresh_upgrade_card / refresh_upgrade_card | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:refresh_hideout | refresh_hideout / refresh_hideout | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:refresh_result_loot | refresh_result_loot / refresh_result_loot | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:draw_background | draw_background / draw_background | LIVE_BETA | lootling.gd |

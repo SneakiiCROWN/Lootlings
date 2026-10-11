@@ -406,7 +406,7 @@ func build_stash() -> void:
 	stash_detail_panel.add_child(stash_detail_icon)
 	stash_detail_name = make_label(stash_detail_panel, "", 20, Rect2(110, 12, 312, 50), HORIZONTAL_ALIGNMENT_LEFT, Color("#e5edff"))
 	stash_detail_name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	stash_detail_identity = make_label(stash_detail_panel, "", 13, Rect2(110, 66, 312, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#dbe7ff"))
+	stash_detail_identity = make_label(stash_detail_panel, "", 13, Rect2(110, 64, 312, 32), HORIZONTAL_ALIGNMENT_LEFT, Color("#dbe7ff"))
 	stash_detail = RichTextLabel.new()
 	stash_detail.position = Vector2(18, 96)
 	stash_detail.size = Vector2(404, 266)
@@ -424,7 +424,9 @@ func build_stash() -> void:
 
 func close_stash_detail() -> void:
 	stash_detail_panel.visible=false; stash_equip_button.visible=false; stash_scrap_button.visible=false
-	if stash_scroll!=null: stash_scroll.size.y=569
+	if stash_scroll!=null:
+		stash_scroll.size.y=569
+		stash_scroll.get_parent().size.y=593
 	selected_entry = -1
 	if stash_list != null:
 		for child in stash_list.get_children():
@@ -1306,6 +1308,9 @@ func select_entry(entry_index: int) -> void:
 	stash_opened_at=Time.get_ticks_msec()
 	stash_detail_panel.visible=true; stash_equip_button.visible=true; stash_scrap_button.visible=true
 	stash_scroll.size.y=68
+	stash_scroll.get_parent().size.y=80
+	if entry_index < stash_list.get_child_count():
+		stash_scroll.call_deferred("ensure_control_visible",stash_list.get_child(entry_index))
 	if entry_index < stash_list.get_child_count():
 		pulse_control(stash_list.get_child(entry_index), Color("#72c8ff"))
 	var entry: Dictionary = entries[entry_index]
