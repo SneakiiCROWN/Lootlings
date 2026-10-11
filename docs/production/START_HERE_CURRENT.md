@@ -1,6 +1,6 @@
 # Current — 0.4.62 connected comparison and recovery continuation
 
-Live source e298a2e secured; next shared equipment checkpoint uses fixed two-column comparisons across rewards/services with independent full-detail scrolling. Wrap-first combat labels, scrollable dialogue, optional18-topic reading guide and journaled local backups are installed and tested. See [report](quality-evidence/0.4.62/REPORT.md) and [continuation](CONTINUATION_062.md). Exports/physical acceptance must be checked in the delivery receipt. No new art closures:2757contracts/7178artistrequirements remain. Preserve owner files and all rollback builds.
+Source9ca2a2f pushed; Windows and normal/owner Android0.4.62/code73 exported and checked. Five exact-PCK native fixtures pass; physical acceptance remains pending. The shared equipment checkpoint uses fixed two-column comparisons across rewards/services with independent full-detail scrolling. Wrap-first combat labels, scrollable dialogue, optional18-topic reading guide and journaled local backups are installed and tested. See [report](quality-evidence/0.4.62/REPORT.md) and [continuation](CONTINUATION_062.md). Exports/physical acceptance must be checked in the delivery receipt. No new art closures:2757contracts/7178artistrequirements remain. Preserve owner files and all rollback builds.
 
 # Current — 0.4.61 Issue 6 connected presentation
 

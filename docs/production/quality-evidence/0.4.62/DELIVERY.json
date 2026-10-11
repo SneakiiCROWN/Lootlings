@@ -1,0 +1,59 @@
+{
+  "version": "0.4.62",
+  "android_code": 73,
+  "branch": "codex/phase4e-gamefeel",
+  "baseline_checkpoint": "272d307",
+  "source_checkpoint": "9ca2a2f",
+  "prior_source_checkpoint": "e298a2e",
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.62-candidate.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.62-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "9047e4184b858452620f2b5035e5a75f07c0206152f447e0b1aea0383f008e98"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.62-candidate.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.62-candidate.pck",
+      "bytes": 284210060,
+      "sha256": "9dd0e9ebe730b182b11dbaf27d8504a77924910a9f20d9581a46a500dc4d7635"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.62-normal-candidate-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.62-normal-candidate-debug.apk",
+      "bytes": 305238910,
+      "sha256": "fe254afaffdf89f4b7338a3545a21c407005f2b8602fe954d7a1d4b34568c7f8"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.62-owner-test-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.62-owner-test-debug.apk",
+      "bytes": 305243006,
+      "sha256": "a08b6e3dbb85e4c6d35cf3d069bd6daabbcfe5270886e518499ee41a64f7ac48"
+    }
+  ],
+  "application_ids": [
+    "com.sneakiicrown.lootlings",
+    "com.sneakiicrown.lootlings.owner"
+  ],
+  "compiled_fixtures": 5,
+  "actual_exe_startup_pass": true,
+  "android_signature_alignment_static_resources_verified": true,
+  "android_runtime_tested": false,
+  "physical_device_tested": false,
+  "physical_device_status": "S23 deferred; owner photos from unknown APK",
+  "professionally_approved": false,
+  "verified_contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "remaining_artist_file_requirements": 7178,
+  "master_missing_delivery_cells": 2592,
+  "unregistered_dependencies": 50,
+  "title_music_unchanged": true,
+  "owner_uncommitted_project_preserved": true,
+  "known_open": [
+    "Full contextual action tutorial practice",
+    "Advanced save migration/fault matrices and physical Android picker recovery",
+    "Named boss-hoard selection and Spark/progress label polish",
+    "Missing canonical body/weapon animation exports and dragon reveal continuity",
+    "Large-text/accessibility presentation and whole-game professional acceptance"
+  ]
+}

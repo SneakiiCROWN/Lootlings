@@ -779,7 +779,7 @@
       "restore_focus",
       "persist"
     ],
-    "source_sha256": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474"
+    "source_sha256": "e8cc2d01c3023b8a956d52c3c27423bfd507ae7768b96af359548de4d6cfd079"
   },
   "approved_missing_runtime_art.gd": {
     "constants": {},
@@ -1341,6 +1341,30 @@
       "grounded_texture"
     ],
     "source_sha256": "82ea6da42e2ef1cec81fad82cb4882a275d67fef09732a5ff660dafe3ce47cc1"
+  },
+  "backup_menu.gd": {
+    "constants": {
+      "Backup": {
+        "resource_path": "res://offline_backup.gd"
+      },
+      "Scope": {
+        "resource_path": "res://save_scope.gd"
+      }
+    },
+    "methods": [
+      "configure",
+      "button",
+      "open",
+      "close",
+      "refresh",
+      "create_backup",
+      "select_backup",
+      "preview",
+      "request_restore",
+      "choose_file",
+      "selected_file"
+    ],
+    "source_sha256": "31fafa3877eaa3fee2ba3880989cd91c1df8cba8fb79cdce20f152154e50cada"
   },
   "beta_art_catalog.gd": {
     "constants": {
@@ -2217,7 +2241,7 @@
       "step",
       "draw"
     ],
-    "source_sha256": "1ce5bd172157e2d1e44456c9f6c199cc251f1b13250ef217befea03c33caaa4b"
+    "source_sha256": "18be0d9a8fbe3724db1b791e266e2aa7c23c7cfe1d934c6e34349ba8d9315ee9"
   },
   "combat_presentation.gd": {
     "constants": {
@@ -2233,10 +2257,11 @@
       "step",
       "health_ratio",
       "attack_cue",
+      "enemy_name_layout",
       "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "d44c16dc5cae2f05c06afd6bab17b9de44387c3eb6a375bb42da459d4f60f4b6"
+    "source_sha256": "a02c898422591b3777a0aa64131fa3b07a90f3ccc29ae2b87129cb8f6eb86bad"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -3262,6 +3287,97 @@
     ],
     "source_sha256": "024de82bce3154ac77f2fe4aa0be6897bc299c9e25dd9709d43d3dd3aaa75beb"
   },
+  "contextual_guide.gd": {
+    "constants": {
+      "PATH": "user://lootlings_tutorials.cfg",
+      "TOPICS": {
+        "archive": [
+          "Stories worth keeping",
+          "The Archive holds memories, trophies and discoveries. Story replays can be skipped and never grant duplicate rewards. Character choices keep their established traits and identities."
+        ],
+        "boss": [
+          "Read the warning",
+          "The foe's attack cue fills before it strikes. Bosses have distinct attacks and recovery openings. Watch the named cue, choose upgrades that keep you alive, and strike during the opening."
+        ],
+        "combat": [
+          "Your first strike",
+          "Tap ATTACK or the arena for an extra strike. Auto-attacks continue between taps. Menus and the HUD never attack. In a group encounter, tap a foe to choose your target."
+        ],
+        "comfort": [
+          "Make it yours",
+          "Settings let you mix music, effects and ambience separately, reduce story motion, and customise combat numbers. Guides are optional: disable contextual suggestions below, or replay any topic here whenever you like."
+        ],
+        "currencies": [
+          "Three treasures, three purposes",
+          "Lootcoins pay for gear and everyday permanent improvements. Rarer Loot Diamonds buy capped Shrine Prisms. Earned Rift Sigils open optional elite Prism Rifts; ordinary dungeons remain free. Scrap is crafting material, not another coin wallet."
+        ],
+        "dungeons": [
+          "Choose your expedition",
+          "Read the destination, difficulty and reward pool before entering. Ordinary dungeons are free. Targeted routes help you pursue a particular family of loot; they do not guarantee every rare item."
+        ],
+        "equipment": [
+          "Compare before you swap",
+          "Read CURRENT versus INSPECTING, including gained and lost effects. Equip swaps gear, Keep stores the find, and Scrap converts it into crafting material. Make room in a full stash first. Leaving a find behind is allowed."
+        ],
+        "forge": [
+          "Keep the good parts",
+          "The Forge uses existing gear and Scrap for upgrades or recipes. Select a recipe or item and read its requirements and outcome before confirming. A higher rarity alone does not tell you how a weapon fits your build."
+        ],
+        "health": [
+          "HP and Ward",
+          "HP is your health; the amber trail shows recent damage. Ward absorbs incoming damage before HP. Armour reduces damage. Healing restores HP, while XP leads to a run upgrade."
+        ],
+        "home": [
+          "Your own little den",
+          "Use the actual stash, preparation area and displays. Decor changes use Apply or Cancel. Companions can follow you or stay Home; they are cosmetic and never change combat stats."
+        ],
+        "relic": [
+          "The Relic Engine",
+          "Use earned spins, read the possible rewards, and let the reels reveal the recorded outcome. Skipping the animation never changes the prize or pays it twice. Crownroot progress and Gravebloom dungeon rewards are different systems."
+        ],
+        "return": [
+          "Another trip, wiser paws",
+          "Defeat is a reason to adjust your build, not to lose your saved collection. Return to the Hub, inspect equipment and permanent upgrades, then try again. Abandoning an unfinished run can lose unsecured run rewards."
+        ],
+        "rewards": [
+          "Bring it home",
+          "Inspect loot before choosing what to keep. Currency rewards are secured through the existing save receipts. Rarity colours are a clue; signatures and full equipment comparisons explain what an item actually does."
+        ],
+        "rift": [
+          "An optional harder path",
+          "Elite Prism Rift entry costs 2 earned Sigils. A qualified victory grants the disclosed Lootcoins, Diamonds and a Sigil. Mythical Shiny discoveries are rare earned rewards with guaranteed progress; entry is not a purchase of Mythical gear."
+        ],
+        "shop": [
+          "Patch's shelves",
+          "Lootcoins buy permanent gear and supplies at the Hub shop. Inspect a row, compare it, then confirm its price. Buying and equipping are separate decisions. The Pack Peddler during a run offers a free supply choice and one redraw."
+        ],
+        "siege": [
+          "Hold the line",
+          "Siege is a separate repeatable mode. Read checkpoint choices and its mode rewards. Secured progression and the current run's choices are distinct. Return safely when your build needs a different plan."
+        ],
+        "upgrades": [
+          "Power that stays",
+          "Shrine improvements persist between expeditions. Read the cost, benefit and rank cap before buying. Run-level perks last for this expedition; they are a different choice. No purchase is required to continue."
+        ],
+        "welcome": [
+          "A way home",
+          "Tap the glowing Gate to begin an expedition. Home is your personal den; the Hub is where you meet people and prepare. You can explore at your own pace."
+        ]
+      }
+    },
+    "methods": [
+      "configure",
+      "persist",
+      "topic",
+      "_process",
+      "open",
+      "refresh",
+      "acknowledge",
+      "close",
+      "_exit_tree"
+    ],
+    "source_sha256": "2423e6263db2a59b4e6b74c3916570e4e47c0102ab31eef576d21f19f805540e"
+  },
   "contract_system.gd": {
     "constants": {
       "TEMPLATES": [
@@ -3453,11 +3569,29 @@
           999999999.0,
           1.0
         ],
+        "sigils": [
+          "Rift Sigils (saved)",
+          0.0,
+          999999.0,
+          1.0
+        ],
         "ward": [
           "Ward",
           0.0,
           1000000.0,
           1.0
+        ],
+        "wave": [
+          "Wave (test jump)",
+          1.0,
+          15.0,
+          1.0
+        ],
+        "xp": [
+          "XP this level (run)",
+          0.0,
+          1000000.0,
+          0.1
         ]
       }
     },
@@ -3480,7 +3614,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "7a093f10e5fb69058e3051f0bf7688c3b8b476f17f6346cecd7dca18056d6bc9"
+    "source_sha256": "d70c5745066da44579c723ed66793698f00a1805e5d8cfae485f9b2c9a6e7d30"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -4338,7 +4472,7 @@
       "text",
       "signature_description"
     ],
-    "source_sha256": "8f6eff29163065603eef50d180f5c6c80b704258c09b6836aa8b3bc5cd940b4b"
+    "source_sha256": "ca862036718ded9bedec5887f699cda2d0b57c2a823b15384ffb796c56c2dc61"
   },
   "expedition_event_catalog.gd": {
     "constants": {
@@ -5113,7 +5247,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "d7775afa3f8d0e98720d76259deb8349774255e01b7a05abffeaf9f8af08677c"
+    "source_sha256": "b9c494c644003ab5cd4d18eba57e88edbd18616d6bef466afba2120953c439cb"
   },
   "home_catalog.gd": {
     "constants": {
@@ -7187,7 +7321,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "21e9465c0e6944a2c9fddfbae95ca42a1269bc6278a8651ec01af8eecb58c105"
+    "source_sha256": "9009313fa652f4aa01aef2ef59dc3017c880fce6e9278f28c9e9654d24791b88"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7632,6 +7766,39 @@
       "texture"
     ],
     "source_sha256": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb"
+  },
+  "offline_backup.gd": {
+    "constants": {
+      "JOURNAL": "user://lootlings_restore.cfg",
+      "STORES": {
+        "campaign.cfg": "campaign",
+        "contracts.cfg": "contracts",
+        "endgame.cfg": "endgame",
+        "expedition_progress.cfg": "expedition",
+        "lootlings_achievements.cfg": "achievements",
+        "lootlings_hideout_shop.cfg": "shop",
+        "lootlings_inventory.cfg": "inventory",
+        "lootlings_profile.cfg": "profile",
+        "lootlings_save.cfg": "progress",
+        "lootlings_settings.cfg": "audio",
+        "lootlings_tutorials.cfg": "guide"
+      },
+      "Safe": {
+        "resource_path": "res://safe_config.gd"
+      },
+      "Scope": {
+        "resource_path": "res://save_scope.gd"
+      }
+    },
+    "methods": [
+      "snapshot",
+      "validate",
+      "save_bundle",
+      "read_bundle",
+      "restore",
+      "recover"
+    ],
+    "source_sha256": "a29c4e1a3a17b5b77d33c915ec3948dddab9562fa01d816acab0d601c9b74e13"
   },
   "owner_test_access.gd": {
     "constants": {
@@ -8631,6 +8798,31 @@
     ],
     "source_sha256": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9"
   },
+  "quick_comparison.gd": {
+    "constants": {
+      "Compare": {
+        "resource_path": "res://equipment_comparison.gd"
+      },
+      "KEYS": [
+        "Base strike power",
+        "Auto-attack delay",
+        "Critical chance",
+        "Maximum HP",
+        "Incoming damage factor"
+      ],
+      "UI": {
+        "resource_path": "res://lootlings_ui.gd"
+      }
+    },
+    "methods": [
+      "install",
+      "reset",
+      "refresh",
+      "_process",
+      "_draw"
+    ],
+    "source_sha256": "0a9aa72fbebcfd41a2e1c676d4f3b992d713efd0d11124ab13ba382d854c261b"
+  },
   "region_audio.gd": {
     "constants": {
       "CUES": {
@@ -9516,7 +9708,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "54d0ac53e74401044ea6a3ff5c70227ce0703f8a97c618755561ff039ed6ccda"
+    "source_sha256": "7b5284c53d1d7fa7d749e12b93a64708586b822010bd970ffe2b955985504ccb"
   },
   "station_presentation.gd": {
     "constants": {},
