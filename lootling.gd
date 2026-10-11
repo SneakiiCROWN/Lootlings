@@ -2606,7 +2606,9 @@ func update_elemental_damage(delta: float) -> void:
 			# Burn resolves first. Poison cannot leech HP that the tick never
 			# removed, including damage beyond the target's remaining health.
 			var poison_removed := minf(poison_damage,maxf(0.0,enemy_hp-(total_dot-poison_damage)))
+			var hp_before_siphon := player_hp
 			player_hp = minf(player_max_hp, player_hp + poison_removed * siphon_ratio)
+			preload("res://combat_numbers.gd").add(self,player_hp-hp_before_siphon,"heal",true)
 	if total_dot > 0.0:
 		var burn_removed := minf(burn_damage,maxf(0,hp_before_dot))
 		preload("res://combat_numbers.gd").add(self,burn_removed,"Fire_tick")
@@ -3770,6 +3772,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		lane = "proc"
 	var lane_count := 0
 	for item in floating_texts:
+		if item.has("number_kind"): continue
 		if is_dot and item.text.get_slice(" ", 0) == prefix and item.life > 0.28:
 			return
 		if item.get("lane", "damage") == lane:

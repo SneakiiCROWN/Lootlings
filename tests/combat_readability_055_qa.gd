@@ -31,4 +31,6 @@ func review() -> void:
  assert(preload("res://item_catalog.gd").describe_effects({"effects":{"max_hp":.4,"crit":.003,"armor":0}}).contains("0.4 max HP"))
  assert(not preload("res://item_catalog.gd").describe_effects({"effects":{"armor":0}}).contains("armour"))
  assert(g.build_item_comparison({"name":"A","effects":{"attack_slow":.1}},{"name":"B","effects":{}}).contains("more attack delay"))
+ g.floating_texts.clear();Numbers.add(g,4,"Fire");g.add_float("ROOT GUARD BROKEN",Vector2(300,400),Color.WHITE,17)
+ assert(g.floating_texts.any(func(x):return x.text=="ROOT GUARD BROKEN"))
  g.free();print("COMBAT READABILITY 055 PASS: resolved damage, aggregate receipts, capped healing, armour/ward/HP accounting, bounded rendering, no RNG mutation and fractional comparison.");quit()

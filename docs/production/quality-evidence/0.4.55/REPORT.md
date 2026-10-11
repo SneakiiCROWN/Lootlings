@@ -1,8 +1,8 @@
 # 0.4.55 connected combat, merchant and equipment readability
 
-Installed in the live project. Final exports and compiled acceptance are pending.
+Installed and verified in the live project. Source milestone 5792f50 is pushed; final corrected Windows and regular/owner Android candidates are exported and verified. Five fixtures pass against the exact final compiled game pack. The actual Windows executable started successfully using isolated saves.
 
-Combat receipts now label normal/critical/heavy and elemental hits, burn/poison ticks, actual capped attack lifesteal, Ward absorption, armour mitigation and HP damage. Repeated same-kind hits within 0.26 seconds aggregate; numbers retain target serials, have at most three slots per actor/eight overall and appear below faces/nameplates. This is presentation only: original damage, hitboxes, RNG, loot and economy are preserved. The final fade is brief and reduced-motion disables drift. This does not yet cover every special-proc or healing source.
+Combat receipts now label normal/critical/heavy and elemental hits, burn/poison ticks, actual capped attack lifesteal and poison siphon, Ward absorption, armour mitigation and HP damage. Repeated same-kind hits within 0.26 seconds aggregate; numbers retain target serials, have at most three slots per actor/eight overall and appear below faces/nameplates. This is presentation only: original damage, hitboxes, RNG, loot and economy are preserved. The final fade is brief and reduced-motion disables drift. This does not yet cover every special-proc or healing source.
 
 XP uses compact large totals and fitted text beside the Ward lane. Pack Peddler uses the existing canonical body keyframes with 0.18-second transitions and a brief inspection reaction. These are transitions between keyframes, not a fluid animation family. Native review found a cramped comparison panel. Its larger view uses shorter offer rows while keeping item art readable and actions away from the former Attack area. Initial geometry failed the touch regression and was corrected before accepting any export.
 
@@ -17,3 +17,13 @@ During development, a string arithmetic grouping error was fixed before acceptan
 Changed gameplay/presentation files: combat_numbers.gd (new), lootling.gd, item_catalog.gd, travelling_merchant_view.gd, dialogue_director.gd and contextual_dialogue.gd. Export presets and targeted tests accompany the existing master dashboard. No canonical source image was edited.
 
 Outstanding next connected work: verify additional special-proc/heal receipts and enemy/boss warnings, expand Forge/Stash/shared-dialogue UX, improve spinner audiovisual review, finish missing exact weapon-contact/animation families and expand deterministic late-game balance cohorts. No broad re-audit or accepted-art regeneration is needed.
+
+## Final delivery
+
+Windows: builds/windows/Lootlings-0.4.55-readability-candidate.exe and adjacent .pck. File/product version 0.4.55.0. Actual PE icons at all six exported sizes are pixel-identical to corresponding original approved ICO frames. Executable startup passed; route fixtures use the exact PCK in the desktop Godot engine, as the export template does not permit external script overrides.
+
+Regular Android: builds/android/Lootlings-0.4.55-normal-candidate-debug.apk, com.sneakiicrown.lootlings. Owner: builds/android/Lootlings-0.4.55-owner-test-debug.apk, com.sneakiicrown.lootlings.owner. Both version code 66, signed debug arm64, 16-KB aligned, offline permission checks, original imported branding and licensed audio verified. Owner feature excluded from regular app; distinct app storage and existing no-PIN owner sandbox remain. Android-device gameplay is not tested.
+
+Compiled fixtures: damage/mitigation/healing accounting and notice independence; native combat/merchant review at three sizes; touch-transition ownership; no-PIN secret access and save isolation; equipment feedback and actor contact routes. See COMPILED_NATIVE_RESULTS.json, native-compiled/ and native-routes/. No new whole-game balance or professional acceptance claim. Final notice correction prevents existing guard/proc messages being suppressed by new typed receipts.
+
+Title music remains byte-identical. Owner project.godot remains 4 additions/11 deletions, unstaged. Owner references and unrelated local changes are preserved. DELIVERY.json records exact build sizes, hashes, source fingerprints and package evidence.
