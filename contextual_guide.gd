@@ -77,7 +77,10 @@ func _process(_delta:float) -> void:
 	if not panel.visible and chip.visible:
 		var target:Control=game.input_surface()
 		if target==null:target=game
-		if chip.get_parent()!=target:chip.reparent(target);chip.position=Vector2(350,802)
+		if chip.get_parent()!=target:chip.reparent(target)
+		# Hub footer already owns Home / Character / Main menu. Keep optional
+		# help below the header, above the portal, without intercepting that dock.
+		chip.position=Vector2(350,58) if game.state=="hideout" else Vector2(350,802)
 	if panel.visible:chip.hide()
 	if game.state=="playing" and chip.visible:game.help_label.size.x=320
 	else:game.help_label.size.x=440

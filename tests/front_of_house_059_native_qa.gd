@@ -17,7 +17,10 @@ func review() -> void:
   title.name_edit.text="Rowan";title.nickname_edit.text="Crystal Scout";await tap(named_button(title.profile_content,"SAVE PROFILE"));assert(title.current_screen=="lootling_select")
   await tap(title.selector_confirm);await create_timer(1).timeout
   if game.presentation_director.vignette.active:game.presentation_director.vignette.finish();await process_frame
-  assert(game.state=="hideout" and not title.visible);game.set_process(false);await capture("first_profile_hub")
+  assert(game.state=="hideout" and not title.visible);game.set_process(false);game.contextual_guide._process(0)
+  assert(game.contextual_guide.chip.position==Vector2(350,58))
+  assert(not game.contextual_guide.chip.get_global_rect().intersects(game.hideout_ui.hub_navigation.buttons.title.get_global_rect()))
+  await capture("first_profile_hub")
   game.show_personal_home();await tap(game.personal_home.buttons.character);assert(game.personal_profile_return)
   await tap(named_button(title.profile_content,"SETTINGS"));assert(title.current_screen=="settings" and title.settings_return_screen=="profile")
   title.setting_sliders.ui.value=.37;title.cinematic_toggles.cinematic_reduced_motion.button_pressed=true

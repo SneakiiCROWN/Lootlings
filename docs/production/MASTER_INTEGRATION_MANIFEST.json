@@ -108,7 +108,7 @@
     "companion_catalog.gd": "9b92065490bc13c13b0da2360af8fd85bad80e53e0e51858a1dca086dbd2ca50",
     "companion_presentation.gd": "e8161fcb29bf17e16ba2a649991279a7eaa1c1d9f55d3f6365c51a8f1c21bd9a",
     "contextual_dialogue.gd": "024de82bce3154ac77f2fe4aa0be6897bc299c9e25dd9709d43d3dd3aaa75beb",
-    "contextual_guide.gd": "0a986d896244ac45bbdb54578c25956104cdc383c761817e24e6dd9e6a4caf85",
+    "contextual_guide.gd": "bab15c6893e9b24aa73ee2594e92642a797b893de8d3af6462ae35b1dbe5f45b",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
     "creature_renderer.gd": "7579f88c6f26661a5171d23cfef49ef0fb56dc3d33efb555ea7bae4d5dec37db",
     "currency_schema.gd": "8bf45ef6d3af57a228f6ffeebb766d342721f24c5a00a131521bba211121518a",
@@ -321942,7 +321942,7 @@
       }
     },
     {
-      "slot_id": "label:contextual_guide.gd:92:0:5ab91ec1",
+      "slot_id": "label:contextual_guide.gd:95:0:5ab91ec1",
       "game_id": "contextual_guide_gd",
       "category": "player_text",
       "subject": "contextual_guide.gd",
@@ -321969,13 +321969,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 92,
+        "line": 95,
         "text": "\\n\\nRead before · available to replay.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:contextual_guide.gd:92:1:839b4941",
+      "slot_id": "label:contextual_guide.gd:95:1:839b4941",
       "game_id": "contextual_guide_gd",
       "category": "player_text",
       "subject": "contextual_guide.gd",
@@ -322002,13 +322002,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 92,
+        "line": 95,
         "text": "\\n\\nOptional. No purchase or reward is required.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:contextual_guide.gd:92:2:00c7f62c",
+      "slot_id": "label:contextual_guide.gd:95:2:00c7f62c",
       "game_id": "contextual_guide_gd",
       "category": "player_text",
       "subject": "contextual_guide.gd",
@@ -322035,13 +322035,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 92,
+        "line": 95,
         "text": "\\nPractised in game.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:contextual_guide.gd:98:0:f6a6b53a",
+      "slot_id": "label:contextual_guide.gd:101:0:f6a6b53a",
       "game_id": "contextual_guide_gd",
       "category": "player_text",
       "subject": "contextual_guide.gd",
@@ -322068,7 +322068,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 98,
+        "line": 101,
         "text": "Could not save guide progress. Your game progress is unchanged. You can return with Back.",
         "dynamic_template": true
       }

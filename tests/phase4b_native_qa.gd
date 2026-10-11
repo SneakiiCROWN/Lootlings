@@ -21,9 +21,10 @@ func review() -> void:
 		await super.tap(game.retention.buttons[0]); assert(game.state=="result")
 		await capture("siege_result"); await tap(game.retention.spinner_button); await capture("spinner")
 		var wallet: int=game.retention.progress.data.spin_wallet
-		await tap(game.retention.buttons[0]); await tap(game.retention.buttons[0]); assert(game.retention.progress.data.spin_wallet==wallet-140)
+		await tap(game.retention.buttons[0]); await tap(game.retention.buttons[0]); assert(game.retention.progress.data.spin_wallet==wallet)
+		while game.retention.spin_busy: await create_timer(.1).timeout
 		await capture("spinner_reward"); await tap(game.retention.buttons[1]); assert(game.state=="result" and game.attack_sequence==attacks)
-		game.show_hideout(); game.campaign.finish("act_i"); game.retention.show_modes(); await capture("dungeon_offer"); await tap(game.retention.buttons[1]); await create_timer(1).timeout
+		game.show_hideout(); game.campaign.finish("act_i"); game.retention.show_modes("dungeons"); await capture("dungeon_offer"); await tap(game.retention.buttons[1]); await create_timer(1).timeout
 		assert(game.state=="route" and game.retention.targeted and game.campaign_id=="mossglass_wilds"); await capture("target_dungeon_route")
 		game.show_hideout(); game.hideout_ui.show_phase4("archive"); await process_frame
 		await swipe(game.hideout_ui.phase4_list.get_child(0)); game.touch_ux.inertia=null; await process_frame
@@ -32,18 +33,17 @@ func review() -> void:
 		await tap(game.retention.buttons[3]); assert(game.inventory.stash.any(func(item): return item.id=="gravebloom_staff" and item.rarity=="RED"))
 		game.show_hideout(); assert(not game.retention.siege and not game.retention.targeted)
 		game.hideout_ui.show_home(); await capture("ordinary_return")
-		var begin: Button
-		for child in game.hideout_ui.home_content.get_children():
-			if child is Button and child.text=="BEGIN EXPEDITION": begin=child
-		assert(begin!=null); await tap(begin); await process_frame
+		await tap(game.hideout_ui.hub_navigation.buttons.gate); await process_frame
 		assert(game.state=="hideout" and game.hideout_ui.current_screen=="campaign"); await capture("ordinary_destinations")
 		var region: Button=game.hideout_ui.campaign_list.get_child(0)
-		await tap(region); await create_timer(1).timeout
+		await tap(region); await process_frame
+		assert(game.hideout_ui.region_sheet.visible)
+		await tap(game.hideout_ui.region_depart); await create_timer(1).timeout
 		assert(game.state=="playing" and not game.retention.siege and not game.dungeon.active and game.coins==0)
 		game.set_process(false); print("PHASE4B DESKTOP MONITORS "+JSON.stringify({"viewport":str(size),"fps":Performance.get_monitor(Performance.TIME_FPS),"texture_bytes":Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED),"static_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)})); game.pause_run(); await capture("ordinary_pause"); game.resume_run(); assert(game.state=="playing")
 		game.end_run(false); var paid: int=game.gold; game.state="relic_spinner"; game.end_run(false); assert(game.gold==paid)
 		game.free(); await process_frame
-	print("PHASE4B NATIVE PASS: phone/tablet modes, Siege boss/extraction, spinner one charge/tap isolation, target dungeon, tracked source, Archive, RED forge")
+	print("PHASE4B NATIVE PASS: phone/tablet modes, Siege boss/extraction, retired paid-spinner wallet unchanged/tap isolation, target dungeon, tracked source, Archive, RED forge")
 	quit()
 
 # Use a human-duration finger contact in the existing window-to-viewport coordinate contract.
