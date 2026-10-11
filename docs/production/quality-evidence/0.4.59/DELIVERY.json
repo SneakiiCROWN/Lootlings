@@ -1,0 +1,42 @@
+{
+  "version": "0.4.59",
+  "source_checkpoint": "13438f2",
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.59-front-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "faa07c767b44337346decb4dbe9fb2644a9c0b5c625bd7caa429eea371ae23de"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.59-front-candidate.pck",
+      "bytes": 283135524,
+      "sha256": "fc169de888886584baa0b8ed0ceaec564e399f014f747af7bd1dff5ea36a37f8"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.59-normal-candidate-debug.apk",
+      "bytes": 304167835,
+      "sha256": "82cfa05e688272d48197b12608c9bcdb2f45bd9041a4f93a2133db11d30da25c"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.59-owner-test-debug.apk",
+      "bytes": 304171931,
+      "sha256": "8128f70d6c9cd53bfa6a43f65da9d573e8e0266cbf9f54d7d36bb940fb565111"
+    }
+  ],
+  "compiled_fixtures": 8,
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "title_music_unchanged": true,
+  "physical_device_tested": false,
+  "professionally_approved": false,
+  "verified_contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "save_refused_write_injected": true,
+  "journal_restart_boundaries": 4,
+  "actual_os_process_kill_tested": false,
+  "known_open": [
+    "Physical S23 failed legacy unlock: next P0 whole-wordmark and backup route NOT in this build.",
+    "Complete four-slot equipment comparison and full-stash/save acceptance.",
+    "START-only menu and progressive onboarding, comfort audio, offline backup.",
+    "Missing animation/content, 50 registration gaps and 111-path discrepancy; commercial release HOLD."
+  ]
+}

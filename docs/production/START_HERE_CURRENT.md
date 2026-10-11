@@ -1,3 +1,7 @@
+# Current — 0.4.59 connected front-of-house
+
+Source 13438f2 pushed; eight exact-pack fixtures, native three-layout routes and representative visual checks, actual Windows startup/original icon, regular/owner Android code 70 packages verified. Nested settings Back/save/profile return and modal ownership fixed; reduced-motion transitions; hoard banner clear of reward icons; refused wallet write and simulated journal recovery tested. **Legacy owner unlock remains physically defective**: Issue #5 P0 whole-wordmark hold/backup route, movable SHH, complete comparison and save safety are next. No new tutorial or pose closures: 2757 remain. Commercial release HOLD. See [report](quality-evidence/0.4.59/REPORT.md) and [delivery](quality-evidence/0.4.59/DELIVERY.json).
+
 # Current — 0.4.58 chest, hoard and outcome continuation
 
 Real hoard caption slots, one-time ejection, direct world-chest interaction, Mythical jackpot profile/audio and intentional canonical result portraits. Source/native checks pass, including 576 Mythical layout/selector combinations (all remain missing authored outcomes) and preserved Moonkip Orb art. Source checkpoint db40f25 pushed; nine exact compiled-pack fixtures, actual Windows startup/original icon pixels and regular/owner Android code 69 packages verified. Physical Android and professional artistic acceptance remain open. No new art closures: 2757 remain. See [report](quality-evidence/0.4.58/REPORT.md).
