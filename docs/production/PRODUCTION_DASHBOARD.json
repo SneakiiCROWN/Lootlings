@@ -287287,7 +287287,8 @@
     "other_installed_features": [
       "All perk names and multiline effects now fit their real native cards; capped live gains agree with applied effects; no RNG or combat-value changes.",
       "Stash comparison shrinks underlying list frame, scrolls the selected row into view and exposes the complete item identity.",
-      "102 real named-loadout campaign routes across 12 actors, three policies, three rarities and ten regions; 184 separate stationary damage measurements. Balance remains PARTIALLY TESTED."
+      "102 real named-loadout campaign routes across 12 actors, three policies, three rarities and ten regions; 184 separate stationary damage measurements. Balance remains PARTIALLY TESTED.",
+      "GUIDE no longer overlaps Hub Main menu; native world stations/Home/dialogue/decor and current mode-confirmation routes pass."
     ],
     "quality_note": "Source native four-size screenshots and transaction/formula tests pass. Exact-export verification pending at source checkpoint; no blanket artistic acceptance.",
     "exported_version": "Pending"
@@ -287307,8 +287308,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "9a8367fd4047cb388070a4343b931f59ba5725e1c3a344e8ed57aa5c066de500",
-    "docs/production/CANON_REGISTRY.json": "3fbadd0445f892a5b6a5edbb7812e0772da9b7f44ad4c367a6c11fb993040a97",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "286fbe3b33417d126a3e3f32251b64815b36d8348d9afd36ebe8223021555a84",
+    "docs/production/CANON_REGISTRY.json": "d4b4c24edc1a5741d1e63045ce887b4ee8a8be4989e705c477e9908bdb81ab3f",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -287318,7 +287319,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.65/INSTALLATION_RECEIPT.json": "84267fc9d2a6b77387c1ee24f27b6e319eb5c3ea2b86385caa195d229a5d0d90",
+    "docs/production/quality-evidence/0.4.65/INSTALLATION_RECEIPT.json": "2ce5b323209309a5ada6db80e6bd7f317e0ca68c689b7cc4aebf7def15da2b9b",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {

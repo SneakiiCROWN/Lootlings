@@ -6,6 +6,7 @@ func _initialize() -> void:
 func review() -> void:
 	var game=load("res://main.tscn").instantiate();root.add_child(game);game.set_process(false)
 	game.start_run();game.set_process(false)
+	assert(game.build.count("Physical")==0 and Presentation.effect(game,{"id":"heavy"}).contains("Unlock heavy every 5 attacks"))
 	for id in ["damage","speed","crit","execute","vamp","regen","armor","multi","tap","heavy","splash"]:
 		var up: Dictionary=game.UPGRADES.filter(func(u):return u.id==id)[0]
 		var rng_state: int=game.rng.state
