@@ -21,12 +21,16 @@ static func name_lines(font: Font, text: String, width: float, font_size: int) -
 			lines.append(line);line=word
 		else:line=candidate
 	if not line.is_empty():lines.append(line)
-	# Runtime authored names are short words; unusually long imported names
-	# must still remain within the fixed two-line HUD rather than cover combat.
-	if lines.size()>2:lines=[lines[0]," ".join(lines.slice(1))]
-	for index in range(lines.size()):
-		while font.get_string_size(lines[index],HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x>width and lines[index].length()>1:
-			lines[index]=lines[index].trim_suffix("…").left(lines[index].trim_suffix("…").length()-1)+"…"
+	# Preserve names, including long words; grow the HUD by actual line count.
+	var fitted: Array[String] = []
+	for entry in lines:
+		var chunk := ""
+		for character in entry:
+			if not chunk.is_empty() and font.get_string_size(chunk + character, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > width:
+				fitted.append(chunk); chunk = ""
+			chunk += character
+		if not chunk.is_empty(): fitted.append(chunk)
+	lines = fitted
 	return lines
 
 func reset() -> void:
@@ -136,7 +140,7 @@ static func cue_label_rect(g) -> Rect2:
 	var text:String=g.enemy_name.to_upper()
 	var size:int=17
 	while size>14 and g.body_font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x>width-2:size-=1
-	var extra:float=18.0 if name_lines(g.body_font,text,width-2,size).size()>1 else 0.0
+	var extra:float=18.0 * max(0,name_lines(g.body_font,text,width-2,size).size()-1)
 	return Rect2(x,370+extra,width,22)
 static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: Rect2 = Rect2()) -> void:
 	if label_rect.size==Vector2.ZERO:label_rect=cue_label_rect(g)

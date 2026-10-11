@@ -10,7 +10,9 @@ static func defaults() -> Dictionary:
 		"ui_muted":false, "ambience_muted":false,
 		"cinematic_first_time":true, "cinematic_repeat_boss":true,
 		"cinematic_auto_skip":true, "cinematic_reduced_motion":false,
-		"cinematic_subtitles":true,"reward_announcements":false
+		"cinematic_subtitles":true,"reward_announcements":false,
+		"combat_text_mode":"Standard", "combat_text_size":"Normal",
+		"combat_crit_emphasis":true, "combat_aggregate":true
 	}
 
 static func load_settings(path: String) -> Dictionary:
@@ -38,5 +40,9 @@ static func sanitize(value: Dictionary) -> Dictionary:
 		var candidate=value.get(key,result[key])
 		if key in CHANNELS:
 			if (candidate is float or candidate is int) and is_finite(float(candidate)):result[key]=clampf(float(candidate),0,1)
+		elif key=="combat_text_mode":
+			if candidate in ["Off","Minimal","Standard","Expressive"]: result[key]=candidate
+		elif key=="combat_text_size":
+			if candidate in ["Small","Normal","Large"]: result[key]=candidate
 		elif typeof(candidate)==typeof(result[key]):result[key]=candidate
 	return result

@@ -134,7 +134,7 @@ func _draw() -> void:
 	# A tiny nameplate cannot use the menu's ornate nine-slice: its oversized
 	# corners previously crushed together over the rarity text.
 	draw_style_box(plinth_style,Rect2(center.x-84,size.y-28,168,24))
-	draw_string(ThemeDB.fallback_font,Vector2(10,size.y-10),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,11,tint.lightened(.2))
+	draw_string(preload("res://lootlings_typography.gd").body(),Vector2(10,size.y-10),status,HORIZONTAL_ALIGNMENT_CENTER,size.x-20,11,tint.lightened(.2))
 func reel_turns(reel: int) -> float:
 	var fraction: float=clampf(elapsed/maxf(.1,reel_seconds-(2-reel)*.08),0,1) if stage=="rolling" else 1.0
 	return (14+reel)*(1-pow(1-fraction,3))

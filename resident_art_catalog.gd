@@ -64,8 +64,8 @@ static func draw(home, speaker: String, bounds: Rect2, activity: String="rest", 
 		var image_bounds:=Rect2(bounds.position+Vector2(9,9),Vector2(bounds.size.x-18,bounds.size.y-42))
 		UI.draw_icon(home.get_canvas_item(),entry.texture,image_bounds)
 		var caption: String="PATCH" if entry.id=="patch" else "ILEX"
-		home.draw_string(ThemeDB.fallback_font,Vector2(bounds.position.x+6,bounds.end.y-24),caption,HORIZONTAL_ALIGNMENT_CENTER,bounds.size.x-12,11,Color("#ffe3ac"))
-		home.draw_string(ThemeDB.fallback_font,Vector2(bounds.position.x+6,bounds.end.y-11),"FORGE" if entry.id=="patch" else "NOTES",HORIZONTAL_ALIGNMENT_CENTER,bounds.size.x-12,9,Color("#dcb973"))
+		home.draw_string(preload("res://lootlings_typography.gd").body(),Vector2(bounds.position.x+6,bounds.end.y-24),caption,HORIZONTAL_ALIGNMENT_CENTER,bounds.size.x-12,11,Color("#ffe3ac"))
+		home.draw_string(preload("res://lootlings_typography.gd").body(),Vector2(bounds.position.x+6,bounds.end.y-11),"FORGE" if entry.id=="patch" else "NOTES",HORIZONTAL_ALIGNMENT_CENTER,bounds.size.x-12,9,Color("#dcb973"))
 	else:
 		var reduced:bool=home.get_parent().audio_settings.get("cinematic_reduced_motion",false)
 		var key:String="resident_transition_"+entry.id

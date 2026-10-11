@@ -195,6 +195,8 @@ var plague_power := 0
 var selected_upgrades: Array = []
 var upgrade_counts := {}
 var floating_texts: Array = []
+var combat_number_pool: Array = []
+var combat_number_allocations := 0
 var particles: Array = []
 var reward_pickups: Array = []
 var loot_drops: Array = []
@@ -361,8 +363,9 @@ func _ready() -> void:
 		var notice:=Label.new();notice.text="Your saved purchase could not be recovered.\nYour files have been retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
 	rng.randomize()
 	visual_rng.randomize()
-	title_font = ThemeDB.fallback_font
-	body_font = ThemeDB.fallback_font
+	preload("res://lootlings_typography.gd").install(self)
+	title_font = preload("res://lootlings_typography.gd").heading()
+	body_font = preload("res://lootlings_typography.gd").body()
 	build_overlay_ui()
 	load_meta()
 	profile = ProfileStore.load_profile(PROFILE_SAVE_PATH)
@@ -1674,6 +1677,7 @@ func make_label(parent: Node, text_value: String, size_value: int, rect: Rect2, 
 	label.size = rect.size
 	label.horizontal_alignment = alignment
 	label.add_theme_font_size_override("font_size", size_value)
+	preload("res://lootlings_typography.gd").label(label,size_value)
 	label.add_theme_color_override("font_color", color)
 	parent.add_child(label)
 	return label
@@ -1781,7 +1785,7 @@ func start_run() -> void:
 	wildfire_power = 0
 	venom_power = 0
 	plague_power = 0
-	floating_texts.clear()
+	preload("res://combat_numbers.gd").clear(self)
 	particles.clear()
 	reward_pickups.clear()
 	loot_drops.clear()
@@ -2347,10 +2351,10 @@ func resolve_player_attack(is_tap: bool) -> void:
 		enemy_trait_opening_used = true
 		damage_enemy(damage, is_crit, is_tap, is_heavy and hit_index == 0)
 		if enemy_alive and enemy_serial == aoe_origin and is_crit and inventory.effect_total("crit_lightning") > 0.0:
-			deal_elemental_hit(base_damage * inventory.effect_total("crit_lightning"), "Lightning")
+			deal_elemental_hit(base_damage * inventory.effect_total("crit_lightning"), "Lightning", true)
 		if enemy_alive and enemy_serial == aoe_origin and is_crit and inventory.has_signature("first_crit_spark") and not enemy_first_crit_used:
 			enemy_first_crit_used = true
-			deal_elemental_hit(base_damage * 0.42, "Lightning")
+			deal_elemental_hit(base_damage * 0.42, "Lightning", true)
 		if hit_count > 1 and hit_index < hit_count - 1:
 			add_particles(Vector2(337, 475), Color("#d6a8ff"), 3)
 	var lightning_count: int = build.count("Lightning")
@@ -2599,7 +2603,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		# Poison damage/audio/status identity and the four-hit rule stay intact.
 		element_flash_identity = "Nature"
 
-func deal_elemental_hit(amount: float, identity: String) -> void:
+func deal_elemental_hit(amount: float, identity: String, critical: bool = false) -> void:
 	if not enemy_alive:
 		return
 	play_audio_event({"Fire":"magic_fire","Lightning":"magic_lightning","Poison":"magic_poison"}.get(identity,"heavy_hit"))
@@ -2613,7 +2617,7 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 	element_flash = 0.24
 	element_flash_color = color
 	element_flash_identity = identity
-	preload("res://combat_numbers.gd").add(self,resolved_damage,identity)
+	preload("res://combat_numbers.gd").add(self,resolved_damage,identity,false,critical)
 	add_particles(Vector2(350, 455), color, 9)
 	carried_shockwave += amount * 0.18 if build.count("Lightning") >= 5 else 0.0
 	if enemy_hp <= 0.0:
@@ -3683,10 +3687,11 @@ func update_effects(delta: float) -> void:
 	update_attack_projectiles(delta)
 	for item in floating_texts:
 		item.life -= delta
-		if item.has("number_kind"): item.age += delta
-		if not audio_settings.get("cinematic_reduced_motion",false): item.pos.y -= 42.0 * delta
+		if item.has("number_kind"): preload("res://combat_numbers.gd").step(self,item,delta)
+		elif not audio_settings.get("cinematic_reduced_motion",false): item.pos.y -= 42.0 * delta
 	for i in range(floating_texts.size() - 1, -1, -1):
 		if floating_texts[i].life <= 0.0:
+			preload("res://combat_numbers.gd").recycle(self,floating_texts[i])
 			floating_texts.remove_at(i)
 	for particle in particles:
 		particle.life -= delta
@@ -3951,7 +3956,7 @@ func draw_arena(shake: Vector2) -> void:
 		while enemy_name_size > 14 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
 			enemy_name_size -= 1
 		var name_lines:=combat_presentation.name_lines(body_font,display_enemy_name,enemy_hud_width-2,enemy_name_size)
-		var name_extra:=18.0 if name_lines.size()>1 else 0.0
+		var name_extra:float=18.0 * maxi(0,name_lines.size()-1)
 		draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(enemy_hud_x-10,enemy_hud_y-26,enemy_hud_width+20,64+name_extra))
 		for line in range(name_lines.size()):draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y+line*18), name_lines[line], HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, enemy_name_size, Color("#f4f7ff"))
 		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12+name_extra, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
@@ -4082,6 +4087,9 @@ func draw_effects() -> void:
 		var buffer_ratio := tap_buffer_flash / 0.18
 		draw_arc(Vector2(player_x + 12, 468), 22.0 + (1.0 - buffer_ratio) * 12.0, -0.6, 4.8, 22, Color(0.55, 0.92, 1.0, buffer_ratio * 0.72), 2.5)
 	for item in floating_texts:
+		if item.has("number_kind"):
+			preload("res://combat_numbers.gd").draw(self,item)
+			continue
 		var alpha: float = clampf(item.life / minf(.22,item.max_life), 0.0, 1.0)
 		var color: Color = item.color
 		color.a = alpha

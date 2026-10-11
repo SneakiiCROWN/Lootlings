@@ -38,6 +38,9 @@ var profile_id_label: Label
 var support_panel: Panel
 var setting_sliders := {}
 var setting_mutes := {}
+var combat_preferences: Panel
+var combat_choices := {}
+var combat_toggles := {}
 var cinematic_preferences: Panel
 var cinematic_toggles := {}
 var presentation
@@ -230,8 +233,9 @@ func build_settings() -> void:
 		mute.add_theme_font_size_override("font_size", 12)
 		panel.add_child(mute)
 		setting_mutes[channel] = mute
-	var story_settings := make_button(panel, "STORY & MOTION", Rect2(42, 590, 216, 48), Color("#17294b"), Color("#c99cff"), 14)
+	var story_settings := make_button(panel, "STORY", Rect2(26, 590, 114, 48), Color("#17294b"), Color("#c99cff"), 14)
 	story_settings.pressed.connect(func(): cinematic_preferences.visible = true)
+	make_button(panel,"COMBAT TEXT",Rect2(154,590,116,48),Color("#17294b"),Color("#72c8ff"),12).pressed.connect(func():combat_preferences.show())
 	support_panel = make_panel(settings_content,Rect2(28,75,424,710),Color("#0b1430ff"),Color("#72c8ff"))
 	support_panel.visible = false
 	if preload("res://owner_test_access.gd").enabled():
@@ -243,7 +247,7 @@ func build_settings() -> void:
 	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
 	support_back.pressed.connect(func(): support_panel.visible = false)
-	var support := make_button(panel,"SUPPORT",Rect2(270,590,112,48),Color("#17294b"),Color("#72c8ff"),14)
+	var support := make_button(panel,"SUPPORT",Rect2(284,590,114,48),Color("#17294b"),Color("#72c8ff"),14)
 	support.pressed.connect(func(): support_panel.visible = true)
 	var back := make_button(panel, "SAVE & RETURN", Rect2(42, 638, 340, 54), Color("#49346b"), Color("#d19cff"), 18)
 	back.pressed.connect(save_settings)
@@ -264,6 +268,30 @@ func build_settings() -> void:
 		index += 1
 	make_label(cinematic_preferences,"Every story moment can be skipped.\nArchive replays never grant rewards.",14,Rect2(26,478,372,46),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
 	make_button(cinematic_preferences,"DONE",Rect2(42,544,340,52),Color("#17294b"),Color("#72c8ff"),17).pressed.connect(func(): cinematic_preferences.visible = false)
+
+
+	combat_preferences = make_panel(settings_content,Rect2(28,75,424,710),Color("#0b1430ff"),Color("#72c8ff"))
+	combat_preferences.visible = false
+	make_label(combat_preferences,"COMBAT TEXT",26,Rect2(24,24,376,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+	make_label(combat_preferences,"Your hits. Your style.\nColours and words identify each damage type.",16,Rect2(28,80,368,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	var choices := {"combat_text_mode":["Off","Minimal","Standard","Expressive"],"combat_text_size":["Small","Normal","Large"]}
+	var row := 0
+	for key in choices:
+		make_label(combat_preferences,"AMOUNT OF FEEDBACK" if row==0 else "NUMBER SIZE",14,Rect2(28,160+row*108,368,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#c9d8f0"))
+		var choice := OptionButton.new()
+		choice.position=Vector2(28,190+row*108);choice.size=Vector2(368,56)
+		choice.add_theme_font_size_override("font_size",18)
+		for value in choices[key]:choice.add_item(value)
+		combat_preferences.add_child(choice);combat_choices[key]=choice
+		row+=1
+	for key in {"combat_crit_emphasis":"Emphasise critical hits","combat_aggregate":"Combine rapid repeated hits"}:
+		var toggle := CheckButton.new()
+		toggle.text="Emphasise critical hits" if key=="combat_crit_emphasis" else "Combine rapid repeated hits"
+		toggle.position=Vector2(28,380 if key=="combat_crit_emphasis" else 444);toggle.size=Vector2(368,56)
+		toggle.add_theme_font_size_override("font_size",17)
+		combat_preferences.add_child(toggle);combat_toggles[key]=toggle
+	make_label(combat_preferences,"Minimal keeps critical and defensive feedback.\nReduced motion in Story also stops text movement.\nChanges apply with Save & Return.",14,Rect2(28,522,368,88),HORIZONTAL_ALIGNMENT_CENTER,Color("#c9d8f0"))
+	make_button(combat_preferences,"DONE",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),17).pressed.connect(func():combat_preferences.hide())
 
 func build_lootling_select() -> void:
 	lootling_content=Control.new(); lootling_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); lootling_content.visible=false; add_child(lootling_content)
@@ -504,6 +532,7 @@ func show_settings() -> void:
 	current_screen = "settings"
 	refresh_settings()
 	cinematic_preferences.visible = false
+	combat_preferences.hide()
 	set_screen(settings_content)
 
 func save_profile() -> void:
@@ -532,6 +561,8 @@ func save_settings() -> void:
 		settings[channel] = float(setting_sliders[channel].value)
 		settings[channel + "_muted"] = bool(setting_mutes[channel].button_pressed)
 	for key in cinematic_toggles: settings[key] = bool(cinematic_toggles[key].button_pressed)
+	for key in combat_choices: settings[key]=combat_choices[key].get_item_text(combat_choices[key].selected)
+	for key in combat_toggles: settings[key]=combat_toggles[key].button_pressed
 	settings_changed.emit(settings.duplicate(true))
 	ui_event.emit("menu_close")
 	if settings_return_screen in ["profile", "profile_create"]: show_profile(settings_return_screen=="profile_create")
@@ -541,6 +572,7 @@ func handle_settings_back() -> bool:
 	if current_screen != "settings": return false
 	if support_panel.visible: support_panel.hide()
 	elif cinematic_preferences.visible: cinematic_preferences.hide()
+	elif combat_preferences.visible: combat_preferences.hide()
 	else: save_settings()
 	return true
 
@@ -549,6 +581,7 @@ func input_surface() -> Control:
 	if current_screen == "settings":
 		if support_panel.is_visible_in_tree(): return support_panel
 		if cinematic_preferences.is_visible_in_tree(): return cinematic_preferences
+		if combat_preferences.is_visible_in_tree(): return combat_preferences
 	return self
 
 func refresh_profile() -> void:
@@ -569,6 +602,11 @@ func refresh_settings() -> void:
 		setting_sliders[channel].value = float(settings.get(channel, 0.8))
 		setting_mutes[channel].button_pressed = bool(settings.get(channel + "_muted", false))
 	for key in cinematic_toggles: cinematic_toggles[key].button_pressed = bool(settings.get(key, SettingsStore.defaults()[key]))
+	for key in combat_choices:
+		var choice:OptionButton=combat_choices[key]
+		for index in range(choice.item_count):
+			if choice.get_item_text(index)==settings.get(key,SettingsStore.defaults()[key]):choice.select(index)
+	for key in combat_toggles:combat_toggles[key].button_pressed=bool(settings.get(key,true))
 
 func set_screen(active: Control) -> void:
 	var screens := [boot_content, title_content, profile_content, settings_content, lootling_content, wanderer_content]
@@ -654,6 +692,7 @@ func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignm
 	label.size = rect.size
 	label.horizontal_alignment = alignment
 	label.add_theme_font_size_override("font_size", font_size)
+	preload("res://lootlings_typography.gd").label(label,font_size)
 	label.add_theme_color_override("font_color", color)
 	parent.add_child(label)
 	return label

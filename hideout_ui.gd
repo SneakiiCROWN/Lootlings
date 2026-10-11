@@ -1863,7 +1863,7 @@ func draw_shop_scene() -> void:
 	var plaque := Rect2(330,90,112,102)
 	draw_style_box(LootlingsUI.material_style("leather"),plaque)
 	LootlingsUI.draw_icon(get_canvas_item(),RESIDENT_PORTRAITS.Salvager,Rect2(340,96,92,72))
-	draw_string(ThemeDB.fallback_font,Vector2(338,182),"PATCH · SHOP",HORIZONTAL_ALIGNMENT_CENTER,96,11,Color("#ffe3ac"))
+	draw_string(preload("res://lootlings_typography.gd").body(),Vector2(338,182),"PATCH · SHOP",HORIZONTAL_ALIGNMENT_CENTER,96,11,Color("#ffe3ac"))
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
 			if current_shop.stock[index].is_empty():
@@ -1924,6 +1924,7 @@ func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignm
 	label.size = rect.size
 	label.horizontal_alignment = alignment
 	label.add_theme_font_size_override("font_size", font_size)
+	preload("res://lootlings_typography.gd").label(label,font_size)
 	label.add_theme_color_override("font_color", color)
 	parent.add_child(label)
 	return label
