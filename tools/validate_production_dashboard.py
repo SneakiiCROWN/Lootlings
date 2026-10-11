@@ -4,7 +4,10 @@ from build_production_dashboard import ROOT, OUT, STAGES, build
 
 def validate():
     actual=json.loads((OUT/'PRODUCTION_DASHBOARD.json').read_text(encoding='utf-8'))
-    assert actual==build(), 'Dashboard stale; rebuild from current registries and quality evidence'
+    expected=build()
+    from build_feature_completeness import build as feature_view
+    expected['feature_completeness']=feature_view(expected)
+    assert actual==expected, 'Dashboard stale; rebuild from current registries and quality evidence'
     c=actual['counts']
     assert sum(r['required'] for r in actual['contract_families'])==c['required_contracts']
     assert sum(r['remaining'] for r in actual['contract_families'])==len(actual['remaining_contracts'])==c['remaining_contracts']

@@ -1,0 +1,115 @@
+{
+  "exe": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.54-earned-showcase-candidate.exe",
+  "approved_source": "art/ui/brand/lootlings_icon.png",
+  "actual_pe_group": 2147484000,
+  "checks": [
+    {
+      "size": [
+        16,
+        16
+      ],
+      "mean_rgb_error": 0.072
+    },
+    {
+      "size": [
+        32,
+        32
+      ],
+      "mean_rgb_error": 0.085
+    },
+    {
+      "size": [
+        48,
+        48
+      ],
+      "mean_rgb_error": 0.093
+    },
+    {
+      "size": [
+        64,
+        64
+      ],
+      "mean_rgb_error": 0.106
+    },
+    {
+      "size": [
+        128,
+        128
+      ],
+      "mean_rgb_error": 0.179
+    },
+    {
+      "size": [
+        256,
+        256
+      ],
+      "mean_rgb_error": 0.0
+    }
+  ],
+  "passed": true,
+  "approved_ico": "art/ui/brand/lootlings_windows.ico",
+  "approved_ico_sha256": "5ef3ee6383cbe0e0fb204828603bbd18a451b071fbd38d41c2b0709d6ece8da3",
+  "all_six_exported_sizes_pixel_identical_to_approved_ico": true,
+  "source_sizes": [
+    [
+      16,
+      16
+    ],
+    [
+      24,
+      24
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      64,
+      64
+    ],
+    [
+      128,
+      128
+    ],
+    [
+      192,
+      192
+    ],
+    [
+      256,
+      256
+    ]
+  ],
+  "exported_sizes": [
+    [
+      16,
+      16
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      64,
+      64
+    ],
+    [
+      128,
+      128
+    ],
+    [
+      256,
+      256
+    ]
+  ],
+  "file_version": "0.4.54.0",
+  "product_version": "0.4.54.0"
+}

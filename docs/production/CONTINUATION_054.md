@@ -1,6 +1,6 @@
 # 0.4.54 connected economy and canonical showcase pass
 
-Working source verified in the live project; exports pending at this source checkpoint.
+Source checkpoint dd3272e is pushed. Final Windows and separate normal/owner Android 0.4.54 candidates are exported and verified. Seven native fixtures pass against the exact exported Windows PCK; phone, tablet and desktop screenshots were inspected. Android signing, package IDs, code 65, arm64, 16-KB alignment, offline permissions and imported branding/audio checks pass. Physical Android gameplay and professional whole-game acceptance remain pending.
 
 Normal-run Run Scrip is retired from kills, the HUD, results, optional events and roadside supply choices. The combat HUD displays actual persistent Lootcoins. Normal kills retain XP and established permanent reward settlement; no old temporary balance becomes permanent money. XP wisps replace normal coin pickups. Siege Embers remain the established, separately labelled mode fuel; their services and rewards are preserved.
 
@@ -14,8 +14,32 @@ Character selection now shows one full-aspect character with left/right swipes, 
 
 Actual combat comparison: 40 Act-I runs, five actor/weapon/core pairs, four matched seeds and identical tap policy. Core-aware heuristic: 11/20 wins, mean wave 15.00, mean damage taken 382.54. Random choices: 13/20 wins, mean wave 14.85, mean damage 411.72. The heuristic takes less damage but wins fewer runs; this is an unresolved balance result, not proof of expert superiority. Later regions, dungeon/Siege balance, multiple equipment tiers, human expert strategy and broader perk eligibility remain outstanding.
 
+Final compiled-pack cohort: core-aware 13/20 wins, mean wave 14.95, mean damage 345.15; random 13/20 wins, mean wave 14.90, mean damage 393.30. The source cohort above and compiled cohort differ despite matched seeds; frame-timed simulation is not fully deterministic. These limited Act-I results do not establish expert superiority or full-game balance. Both raw cohorts are retained.
+
 Native migration/selector/input/owner tests passed three layouts. Native review fixed clipped merchant instructions and stale paid-spin wording. Existing sprite edge quality, full animation continuity, broader UI/dialogue/HP feedback, world/art/audio production and professional acceptance remain open. No physical S23 test. Approved title music, branding, owner project.godot changes and reference packs preserved.
 
 Frozen remaining art backlog: 2757 contracts. Exact queued artist requirements 7289 versus legacy 7178: discrepancy 111 remains open. Sampled player fallbacks remain 55. No new generated sheets or fluid animation family claimed. The master reflects runtime records separately from art closures; retired UI fields can reduce record counts without closing art contracts.
 
 Test harness correction: a standalone process-death reader was mistakenly invoked without its writer; that invalid test failed. The dedicated writer/kill/restart orchestrator subsequently passed. A pre-0.4.50 RED skip assertion also failed because it contradicted the approved all-tier skip policy; the current one-time-payout/skip assertion passes. These failures are not hidden as passing evidence.
+
+
+## Exported delivery and acceptance limits
+
+- Windows: `builds/windows/Lootlings-0.4.54-earned-showcase-candidate.exe` plus adjacent `.pck`; executable metadata 0.4.54.0. Actual embedded icons at 16, 32, 48, 64, 128 and 256 pixels are pixel-identical to the corresponding original approved `art/ui/brand/lootlings_windows.ico` frames. No branding redesign. The executable opened successfully. Its template rejects external script overrides; route evidence therefore uses the exact exported PCK in the desktop Godot engine, not an instrumented EXE.
+- Regular Android: `builds/android/Lootlings-0.4.54-normal-candidate-debug.apk`, `com.sneakiicrown.lootlings`, version code 65. Normal package excludes the owner feature.
+- Owner Android: `builds/android/Lootlings-0.4.54-owner-test-debug.apk`, `com.sneakiicrown.lootlings.owner`, version code 65, owner_test feature. Distinct app storage plus existing owner sandbox; no PIN and no network access. Seven taps and hold, F1 and discreet SHH shortcut remain. This preserves the player's normal saves; it does not copy normal-app saves into the owner package.
+- Seven compiled-pack fixtures: owner boundary, retirement/migration, native free-supply/event/results/spinner, all twelve character showcases, touch transition fencing, secret owner access and the 40-run combat cohort. See COMPILED_NATIVE_RESULTS.json and DELIVERY.json for exact hashes. Controlled process-death source tests cover thirteen boundaries with two cold restarts each.
+- Native review evidence is in native-compiled/, including all twelve characters and connected normal-run screens at phone, tablet and desktop sizes. Selected item effects can still require detail selection to read in full. Existing sprite edges and other screens are not globally artistically approved.
+- Approved title track is byte-identical (SHA-256 7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7); its source/licence and player settings are preserved. No new soundtrack or generated art was installed in this connected gameplay pass.
+
+## Exact implementation families
+
+Gameplay/economy: lootling.gd, shop_system.gd, expedition_event_catalog.gd, endgame_progress.gd, meta_store.gd, permanent_upgrade_catalog.gd, retention_runtime.gd, relic_spin_catalog.gd. Supporting player text: affix_catalog.gd, dialogue_catalog.gd, dungeon_catalog.gd, pickup_presentation.gd. Selection: startup_ui.gd, touch_ux.gd and new showcase_art.gd. Tests and export presets are checkpointed alongside the single generated quality dashboard. See source commit dd3272e for the full changed-file list.
+
+The failed first Android attempt was a generated-registry freshness check, corrected by regenerating from unchanged source authorities. No canonical image was edited. A separate Windows API icon-enumeration probe was inconclusive because it omitted named resources; the existing PE parser succeeded and all six exported sizes were compared pixel-for-pixel to the original ICO. An initial byte-payload comparison incorrectly assumed the eight-frame source ICO and six-frame export had identical encodings; decoded pixels establish the actual match.
+
+## Next coordinated production pass
+
+Continue the recorded missing playable weapon-contact and animation families alongside enemy/NPC/world integration and connected HUD/dialogue/menu presentation. Reuse accepted sources and close only exact native-verified contracts. Expand perk-policy cohorts into later regions, equipment tiers and dungeon/Siege routes before claiming balance acceptance. No extra broad audit, no regeneration of accepted art, no owner-phone dependency.
+
+Dashboard delivery correction: literal family coverage queries avoid a runtime regular-expression failure; the validator now includes the same feature-completeness view as the generated dashboard. Rebuilt and validated totals remain 3274 required / 517 installed / 2757 remaining art contracts. No requirement was deleted.

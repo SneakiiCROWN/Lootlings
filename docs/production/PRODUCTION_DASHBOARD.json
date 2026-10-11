@@ -284901,7 +284901,11 @@
       "No-PIN SHH owner menu and isolated saves retained."
     ],
     "professionally_approved": false,
-    "physical_device_tested": false
+    "physical_device_tested": false,
+    "exported_version": "0.4.54",
+    "compiled_native_fixtures_passed": 7,
+    "source_checkpoint": "dd3272e",
+    "balance_accepted": false
   },
   "current_batch_corrections": [
     "Two initial Relic Beast release cells hide the second glove; rejected and replaced together.",
@@ -284919,7 +284923,7 @@
   ],
   "input_sha256": {
     "docs/production/MASTER_INTEGRATION_MANIFEST.json": "f5dcb8c0652129f4dbb7cf89434fbd38f49fbcfff16d389c8a4c309498e2d60a",
-    "docs/production/CANON_REGISTRY.json": "8b1c0e0ff5f8d86c4106423b64668ea5a9f4e03d1711e28526b9d13d0ef25a8a",
+    "docs/production/CANON_REGISTRY.json": "1d201fda10b8a2981ce1fc59abd8adf873b74725f2495893d0c81aaa8e306301",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -284929,7 +284933,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.54/INSTALLATION_RECEIPT.json": "0652555d294e1986404a01b3e7906c34faac3f8781e0021f671a507870086478"
+    "docs/production/quality-evidence/0.4.54/INSTALLATION_RECEIPT.json": "32db4b98affc4bdb735f0c1cae40e3405030c9f29454c7d9fba02eb82e17fae0"
   },
   "feature_completeness": {
     "schema_version": 1,

@@ -184,7 +184,8 @@ def build():
         'Branding / splash / store':r'brand|logo|splash|title|store|icon'}
     domain_coverage=[]
     for name, pattern in domains.items():
-        matches=[r['id'] for r in rows if re.search(pattern,' '.join(str(r.get(k) or '') for k in ['id','family','identity','name','implementation']),re.I)]
+        terms=pattern.casefold().split('|')
+        matches=[r['id'] for r in rows if any(term in ' '.join(str(r.get(k) or '') for k in ['id','family','identity','name','implementation']).casefold() for term in terms)]
         domain_coverage.append(dict(domain=name, registered_requirement_records=len(matches), records=matches,
                                     completeness='Registered scope only; dynamic/unregistered dependencies and unspecified variants remain coverage gaps.'))
     inputs=['docs/production/MASTER_INTEGRATION_MANIFEST.json','docs/production/CANON_REGISTRY.json', evidence_path,
