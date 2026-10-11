@@ -24,7 +24,11 @@ func run_qa() -> void:
 	game.profile.display_name = "Memory QA"
 	game.audio_settings = Settings.defaults()
 	game.show_hideout()
-	assert(Catalog.ids().size() == 33)
+	var ids:Array=Catalog.ids()
+	var unique:Dictionary={}
+	for id in ids:unique[id]=true
+	assert(ids.size()>=33 and ids.size()==unique.size())
+	for required in ["boss/hoard_dragon","character/gloomlet","resident/patch"]:assert(required in ids)
 	for id in Catalog.ids():
 		var entry := Catalog.entry(id,game.profile)
 		assert(not entry.is_empty() and entry.lines.size() >= 2)

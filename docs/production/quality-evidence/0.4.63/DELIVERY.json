@@ -1,0 +1,42 @@
+{
+  "version": "0.4.63",
+  "android_code": 74,
+  "branch": "codex/phase4e-gamefeel",
+  "baseline": "b87188c",
+  "source_checkpoint": "6aa6eaf4",
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.63-candidate.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.63-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "30295341dde353e23e04ac5a969cc7aa7c0493b1ea2aa6969b98a05781daa9c6"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.63-candidate.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.63-candidate.pck",
+      "bytes": 284211788,
+      "sha256": "b939dde5c05ebbeec64c80269a76f3277705ad585033cf5d1185f426d215389d"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.63-owner-test-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.63-owner-test-debug.apk",
+      "bytes": 305243006,
+      "sha256": "aae4759d4f4c0fecc525d3ceed8bd85790a6ad4f63902da9f1e297dee66cb21a"
+    }
+  ],
+  "owner_package": "com.sneakiicrown.lootlings.owner",
+  "compiled_fixtures": 6,
+  "normal_android_exported": false,
+  "owner_android_static_verified": true,
+  "android_runtime_tested": false,
+  "physical_device_tested": false,
+  "professional_acceptance": false,
+  "contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "remaining_artist_requirements": 7178,
+  "new_features_registered": [
+    "loot_gremlin",
+    "annual_seasons"
+  ],
+  "new_features_runtime_installed": false
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "authority": "Owner pasted addendum 0176f1cf-d9a0-47f5-b27d-74992897f046,2026-10-12",
+  "accounting": "Additional gameplay features, separate from frozen art contracts. Registration is not runtime completion.",
+  "features": [
+    {
+      "id": "loot_gremlin",
+      "name": "Rare Loot Gremlin",
+      "status": "owner-approved feature; missing canonical creature/runtime slice",
+      "priority": 1,
+      "implemented": false,
+      "production_accepted": false,
+      "reuse": [
+        "loot_system.gd",
+        "affix_catalog.gd",
+        "enemy_encounter.gd",
+        "equipment_comparison.gd",
+        "economy_transaction.gd",
+        "safe_config.gd"
+      ],
+      "requirements": [
+        "rare normal-run seeded encounter",
+        "recognisable intro, taunt/panic, fair escape and combat",
+        "same-tier above-average bounded roll or useful existing utility; not guaranteed best gear",
+        "Gremlin-Touched modifier, not rarity or currency",
+        "durable once-only defeat/overflow/reward receipt",
+        "spawn/reward seeded fairness simulations",
+        "candidate identity approval, both facings, sack, entrance/flee/hurt/defeat, anchors and contacts",
+        "native and exact-pack complete spawn-to-persistent-loot route"
+      ],
+      "gates": [
+        "Finish0.4.63 delivery first",
+        "No existing approved Loot Gremlin identity located in current registries; candidate art requires canon approval",
+        "No generic runtime substitute",
+        "Must not claim offline save abuse is impossible"
+      ]
+    },
+    {
+      "id": "annual_seasons",
+      "name": "Annual seasonal events",
+      "status": "owner-approved feature; lifecycle and content missing",
+      "priority": 2,
+      "implemented": false,
+      "production_accepted": false,
+      "events": [
+        {
+          "id": "haunted_hoard",
+          "name": "Haunted Hoard",
+          "duration_days": 14,
+          "priority": 1
+        },
+        {
+          "id": "frostfall_festival",
+          "name": "Frostfall Festival",
+          "duration_days": 14,
+          "priority": 2
+        },
+        {
+          "id": "great_egg_heist",
+          "name": "The Great Egg Heist",
+          "duration_days": "7–10",
+          "priority": 3
+        },
+        {
+          "id": "riftfire_celebration",
+          "name": "Riftfire Celebration",
+          "duration_days": 7,
+          "priority": 4
+        }
+      ],
+      "requirements": [
+        "shared offline calendar windows, annual/year/leap/Easter/timezone/backward-clock cases",
+        "non-destructive expiry preserving gear and retained event materials",
+        "temporary shops, encounters, dialogue and decoration using canonical variants",
+        "one fully playable Halloween event before other holidays",
+        "Gremlin also available outside seasons",
+        "save fault, duplicates, overflow and normal-gameplay regressions"
+      ],
+      "gates": [
+        "After Gremlin slice and current critical fixes",
+        "No new permanent currency, paid tokens, passes or exclusive permanent power",
+        "No tamper-proof offline-clock claims",
+        "No event enabled until gameplay/content dependencies pass"
+      ]
+    }
+  ]
+}

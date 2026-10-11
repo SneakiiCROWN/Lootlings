@@ -3374,9 +3374,10 @@
       "refresh",
       "acknowledge",
       "close",
-      "_exit_tree"
+      "_exit_tree",
+      "observe_success"
     ],
-    "source_sha256": "2423e6263db2a59b4e6b74c3916570e4e47c0102ab31eef576d21f19f805540e"
+    "source_sha256": "0a986d896244ac45bbdb54578c25956104cdc383c761817e24e6dd9e6a4caf85"
   },
   "contract_system.gd": {
     "constants": {
@@ -7321,7 +7322,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "9009313fa652f4aa01aef2ef59dc3017c880fce6e9278f28c9e9654d24791b88"
+    "source_sha256": "15828518a713ddf0886026491eb7e5f3f83125375cb5bea93154a4c0c4ec74cc"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9404,7 +9405,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "8c2dbfdfe5222c82ffcb828f8e736be5d7856a24f4933b89abcb5ca780375cb1"
+    "source_sha256": "695f756f6f2bdcc8487f45d58dec2ca36ed658e438479d63d6a40d74ab84b95f"
   },
   "reward_reveal_catalog.gd": {
     "constants": {
@@ -9740,7 +9741,7 @@
       "request",
       "set_slider_value"
     ],
-    "source_sha256": "4f3c6be5a8e8d1de8aede8e661d46586361773776b38c94f30da36bf614faf6b"
+    "source_sha256": "58da0bdfa30fffc05de03861f807a64e6a02d9c548beda56283649783a8042f3"
   },
   "travelling_merchant_view.gd": {
     "constants": {
@@ -9782,7 +9783,7 @@
           "region": "act_i"
         },
         "hoard_dragon": {
-          "art": "res://art/sprites/enemies/hoard_dragon.png",
+          "art": "res://art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
           "epithet": "Keeper of the Count",
           "line": "The dragon counts treasure in coins, and trespassers in bones.",
           "name": "The Hoard Dragon",
@@ -9868,7 +9869,7 @@
       "entry",
       "available"
     ],
-    "source_sha256": "7695dc6d64bd057c6558cd6a2cb3acb4e77d4a36abacd4e9b41776384f0c5d1e"
+    "source_sha256": "ed83ff4a44cd08851df6f50897328b83af698757535bda961af877361d05e0bb"
   },
   "vignette_player.gd": {
     "constants": {
@@ -9888,7 +9889,7 @@
       "actor_extent",
       "_draw"
     ],
-    "source_sha256": "69970bc6839ae27f62608d12a23ed5342990c83f8c8a9b1c36c8046e9152b6e9"
+    "source_sha256": "cf4a857da2efc46162acebc64f5b03f3a9ed86be0cabfe088a330f5664a5ee59"
   },
   "voice_identity.gd": {
     "constants": {

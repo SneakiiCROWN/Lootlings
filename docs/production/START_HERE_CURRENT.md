@@ -1,3 +1,7 @@
+# Current —0.4.63 named rewards, spinner and observed practice
+
+Source6aa6eaf4 pushed; owner Android/code74 and Windows exported. Shared Hoard preview, named cards, separate Sparks/fragments, winged dragon framed memory and four added optional observed-practice topics. See [report](quality-evidence/0.4.63/REPORT.md), [delivery](quality-evidence/0.4.63/DELIVERY.json) and [continuation](CONTINUATION_063.md). New Gremlin/seasons registered in sole dashboard; not installed.0artclosures;2757contracts remain. Physical S23 deferred.
+
 # Current — 0.4.62 connected comparison and recovery continuation
 
 Source9ca2a2f pushed; Windows and normal/owner Android0.4.62/code73 exported and checked. Five exact-PCK native fixtures pass; physical acceptance remains pending. The shared equipment checkpoint uses fixed two-column comparisons across rewards/services with independent full-detail scrolling. Wrap-first combat labels, scrollable dialogue, optional18-topic reading guide and journaled local backups are installed and tested. See [report](quality-evidence/0.4.62/REPORT.md) and [continuation](CONTINUATION_062.md). Exports/physical acceptance must be checked in the delivery receipt. No new art closures:2757contracts/7178artistrequirements remain. Preserve owner files and all rollback builds.
