@@ -77,7 +77,7 @@ const POOLS := {
 	"travel":[
 		{"speaker": "Mascot", "text": "Small paws. Large sword. The staircase has filed a complaint.", "weight": 2.0},
 		{"speaker": "Archivist", "text": "A named windup means an attack is coming. Keep your eyes on the foe, not the coin shower.", "weight": 2.0},
-		{"speaker": "Salvager", "text": "Spend Run Scrip at roadside merchants. Unspent Scrip expires when the expedition ends.", "weight": 2.0},
+		{"speaker": "Salvager", "text": "The Pack Peddler offers one free supply choice each stop. You can redraw the offers once.", "weight": 2.0},
 		{"speaker": "Relic Keeper", "text": "Healing and armour keep ambitious builds alive. Power without a way home is a poor bargain.", "weight": 2.0},
 		{"speaker": "Archivist", "text": "Tap the arena for extra strikes. Menus and the HUD are safe to touch.", "weight": 2.0},
 		{"speaker": "Mascot", "text": "If a corridor feels suspiciously generous, check whether it has teeth.", "weight": 2.0}

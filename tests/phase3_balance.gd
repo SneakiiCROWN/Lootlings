@@ -95,6 +95,7 @@ func simulate(weapon: String, core: String, sample: int, campaign: String, actor
 					for index in range(game.selected_upgrades.size()):
 						if core in game.selected_upgrades[index].tags:
 							choice = index; break
+				if has_method("choose_offer"):choice=int(call("choose_offer",game,core))
 				upgrades.append(game.selected_upgrades[choice].id)
 				game.choose_upgrade(choice); decisions += 1
 			"item":

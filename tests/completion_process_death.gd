@@ -27,7 +27,7 @@ func exercise() -> void:
 		assert(game.gold==321 and game.meta_shards==17 and game.inventory.scrap==333 and game.inventory.stash.filter(func(item):return item.get("serial",0)==8888).size()==1 and game.hideout_shop.stock[0].is_empty())
 		assert(game.contracts.offer(0).event=="boss" and game.contracts.claim(0)==0);assert(not FileAccess.file_exists(preload("res://economy_transaction.gd").PATH));print("PROCESS_DEATH_RECOVERY_PASS economy");game.free();await process_frame;quit();return
 	if writer:
-		p.data.spin_wallet=777;p.data.free_spins=2;p.data.pending=[{"receipt":"process-death:"+kind,"kind":kind,"region":"act_i","amount":3,"actor":"relic_beast","family":"greatsword"}]
+		p.data.spin_wallet=0;p.data.legacy_spins=3;p.data.wallet_retired=true;p.data.free_spins=2;p.data.pending=[{"receipt":"process-death:"+kind,"kind":kind,"region":"act_i","amount":3,"actor":"relic_beast","family":"greatsword"}]
 		if kind=="item":p.data.pending[0].item=preload("res://item_catalog.gd").create_item("bonebow","EPIC",7733)
 		assert(game.inventory.save(game.INVENTORY_SAVE_PATH)==OK and game.expedition_progress.save()==OK and p.save()==OK)
 		if after:
@@ -36,7 +36,7 @@ func exercise() -> void:
 		# Harness kills this exact disposable process after the ready marker.
 		await create_timer(600).timeout;quit(3);return
 	# Game startup already invokes production recovery. Repeating it must be inert.
-	p.recover(game);assert(p.data.pending.is_empty() and p.data.spin_wallet==777 and p.data.free_spins==2)
+	p.recover(game);assert(p.data.pending.is_empty() and p.data.spin_wallet==0 and p.data.legacy_spins==3 and p.data.free_spins==2)
 	if kind=="item":assert(game.inventory.stash.filter(func(item):return item.get("serial",0)==7733).size()==1)
 	elif kind=="material":assert(game.expedition_progress.data.materials.act_i==3)
 	elif kind=="mastery":assert(game.expedition_progress.data.actors.relic_beast==3 and game.expedition_progress.data.weapons.greatsword==3)

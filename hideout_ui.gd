@@ -827,6 +827,7 @@ func build_upgrades() -> void:
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;utility_panel.add_child(scroll)
 	var rows:=VBoxContainer.new();rows.size_flags_horizontal=Control.SIZE_EXPAND_FILL;rows.add_theme_constant_override("separation",8);scroll.add_child(rows)
 	for upgrade_id in preload("res://permanent_upgrade_catalog.gd").DEFINITIONS:
+		if upgrade_id=="pouch":continue # Legacy definition remains for exact refunds.
 		var button := make_button(rows,"",Rect2(0,0,368,48),Color("#25304a"),Color("#d1a85a"),12)
 		button.custom_minimum_size=Vector2(0,48)
 		button.pressed.connect(request_gold_upgrade.bind(upgrade_id))

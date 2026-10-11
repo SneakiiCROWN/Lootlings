@@ -3,7 +3,7 @@ extends RefCounted
 const DEFINITIONS={
  "bedroll":["STURDY BEDROLL","+4 starting HP",[250,450,700,1000,1400]],
  "whetstone":["RELIC WHETSTONE","+0.6 starting damage",[300,525,800,1150,1600]],
- "pouch":["FIELD POUCH","+8 starting Run Scrip",[225,400,650,950,1300]],
+ "pouch":["FIELD POUCH","Retired; purchased ranks refunded",[225,400,650,950,1300]],
  "wardweave":["WARDWEAVE LINING","Diminishing armour - up to 3%",[600,950,1400,2000,2800]],
  "hearthward":["HEARTHWARD CHARM","+1 starting Ward - up to 5",[450,750,1150,1600,2200]],
  "mending":["MENDING THREAD","Diminishing regen - up to 0.15 HP/s",[900,1400,2100,3000,4200]],

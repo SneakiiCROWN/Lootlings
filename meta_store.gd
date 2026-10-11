@@ -5,6 +5,7 @@ static func load_progress(path: String) -> Dictionary:
 	var config := ConfigFile.new()
 	if preload("res://safe_config.gd").load_config(config, path, "progress") != OK:
 		return result
+	retire_field_pouch(config,path)
 	var balances:Dictionary=preload("res://currency_schema.gd").balances(config)
 	result.shards=balances.shards;result.gold=balances.gold
 	result.power = clampi(preload("res://safe_config.gd").int_value(config.get_value("progress", "power", 0)), 0, 100)
@@ -29,3 +30,24 @@ static func save_progress(path: String, shards: int, power: int, gold: int = 0, 
 	config.set_value("progress", "rift", preload("res://rift_progress.gd").sanitize(rift))
 	preload("res://currency_schema.gd").write_names(config,gold,shards)
 	return preload("res://safe_config.gd").save_config(config, path)
+
+static func retire_field_pouch(config: ConfigFile, path: String) -> Error:
+	var upgrades = config.get_value("progress","gold_upgrades",{})
+	if not upgrades is Dictionary:return OK
+	var rank: int=clampi(preload("res://safe_config.gd").int_value(upgrades.get("pouch",0)),0,5)
+	if rank==0:return OK
+	var refund: int=0
+	for i in range(rank):refund+=int(preload("res://permanent_upgrade_catalog.gd").DEFINITIONS.pouch[2][i])
+	var balance: Dictionary=preload("res://currency_schema.gd").balances(config)
+	# Preserve the investment when the wallet cannot yet fit the exact refund.
+	if balance.gold>999999999-refund:return ERR_OUT_OF_MEMORY
+	var migrated:=ConfigFile.new()
+	if migrated.parse(config.encode_to_text())!=OK:return ERR_FILE_CORRUPT
+	var ranks: Dictionary=upgrades.duplicate(true);ranks.pouch=0
+	migrated.set_value("progress","gold_upgrades",ranks)
+	migrated.set_value("progress","field_pouch_refund",refund)
+	preload("res://currency_schema.gd").write_names(migrated,balance.gold+refund,balance.shards)
+	migrated.set_value("progress","gold",balance.gold+refund)
+	var result: Error=preload("res://safe_config.gd").save_config(migrated,path)
+	if result==OK:config.parse(migrated.encode_to_text())
+	return result

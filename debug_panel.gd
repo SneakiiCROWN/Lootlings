@@ -90,7 +90,7 @@ func build_ui() -> void:
 	])
 	add_section(list, "RESOURCES  •  SAVE", [
 		["+500 GOLD", "gold", 500], ["+100 SCRAP", "scrap", 100], ["+100 SHARDS", "shards", 100],
-		["+250 SCRIP", "scrip", 250], ["+LEVEL XP", "xp", null], ["", "noop", null]
+		["+1 EARNED SPIN", "earned_spin", 1], ["+LEVEL XP", "xp", null], ["", "noop", null]
 	])
 	add_section(list, "FORCED LOOT", [
 		["COMMON", "drop", "COMMON"], ["RARE", "drop", "RARE"], ["EPIC", "drop", "EPIC"],

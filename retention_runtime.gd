@@ -212,8 +212,7 @@ func choose(index: int) -> void:
 				spin_reward=progress.data.pending.back().duplicate(true)
 				if spin_reward.kind=="blueprint" and preload("res://phase4_catalog.gd").FARMS[progress.data.region].items.all(func(id): return int(game.expedition_progress.data.fragments.get(id,0))>=3):
 					spin_reward.display_name=preload("res://phase4_catalog.gd").FARMS[progress.data.region].material; spin_reward.display_amount=2; spin_reward.converted=true
-				spin_message=("FREE / no Scrip spent.\n" if using_free else "")+progress.recover(game)+"\n"+("+1 Crownroot fragment!" if progress.data.spin_sparks==0 else "+1 Crownroot spark.")
-				if not using_free:game.coins=int(progress.data.spin_wallet)
+				spin_message=("No currency charged.\n" if using_free else "")+progress.recover(game)+"\n"+("+1 Crownroot fragment!" if progress.data.spin_sparks==0 else "+1 Crownroot spark.")
 				panel.get_node("Wallet").text=wallet_text()
 				start_reveal(prior>0 or machine.stage=="settled")
 			else: close_spinner()
@@ -271,7 +270,7 @@ func close_spinner() -> void:
 
 func update_chase() -> void:
 	chase.visible=true; chase_bar.visible=true
-	chase.text="GRAVEBLOOM • %d / 24 Crownroot fragments\nSPARKS %d / 12 • paid and earned spins advance" % [progress.data.red_fragments,progress.data.spin_sparks]
+	chase.text="GRAVEBLOOM • %d / 24 Crownroot fragments\nSPARKS %d / 12 • each earned spin advances" % [progress.data.red_fragments,progress.data.spin_sparks]
 	chase_bar.value=mini(Catalog.RED_TARGET,progress.data.red_fragments)*SpinCatalog.SPARK_TARGET+progress.data.spin_sparks
 
 func begin() -> void:
@@ -326,9 +325,9 @@ func finish(victory: bool) -> void:
 		game.result_summary.text+="\n\nKEEPSAKES\n"+", ".join(secured_names)+"\n"+delivery
 	if victory and ((siege and game.wave>=20) or targeted): game.result_summary.text+="\nCrownroot fragments %d / %d" % [progress.data.red_fragments,Catalog.RED_TARGET]
 	if victory and (not siege or extracted):progress.earn_spin("extraction")
-	spinner_button.disabled=game.total_kills<10 and int(progress.data.get("free_spins",0))==0
+	spinner_button.disabled=int(progress.data.get("free_spins",0))+int(progress.data.get("legacy_spins",0))==0
 	spinner_button.text="FREE EARNED SPIN / NOW OR LATER" if int(progress.data.get("free_spins",0))>0 else "RELIC ENGINE"
-	game.result_summary.text+="\n\nEARNED SPINS: %d stored. Spin now or later at the Hub.\nFree spins never charge Scrip." % int(progress.data.get("free_spins",0))
+	game.result_summary.text+="\n\nEARNED SPINS: %d stored. Spin now or later at the Hub.\nNo currency charged." % int(progress.data.get("free_spins",0))
 	if not red_drop.is_empty(): call_deferred("present_red_drop",red_drop,delivery)
 func present_red_drop(reward: Dictionary, delivery: String) -> void:
 	if game.state!="result": return
@@ -338,10 +337,10 @@ func show_spinner(message: String="") -> void:
 	if spin_busy: return
 	if game.state=="result": spinner_from_modes=false
 	var spins: int=progress.data.spins
-	open("relic_spinner","RELIC ENGINE","",["%s • %s" % ["FAST SPIN" if spins>0 else "SPIN","COMPLETE" if spins>=3 else str(Catalog.SPIN_COSTS[spins])],"‹ RESULTS","","POOL & ODDS","FORGE GRAVEBLOOM"])
+	open("relic_spinner","RELIC ENGINE","",["EARNED SPIN","‹ RESULTS","","POOL & ODDS","FORGE GRAVEBLOOM"])
 	panel.position=Vector2(28,110); panel.size=Vector2(424,690); title.position.y=8
 	var top_line: Label=game.make_label(panel,"",14,Rect2(24,70,376,32),HORIZONTAL_ALIGNMENT_CENTER,Color("#e7edff")) if not panel.has_node("Wallet") else panel.get_node("Wallet")
-	top_line.name="Wallet"; top_line.position.y=54; top_line.text="%d %s  •  %d spins remaining" % [progress.data.spin_wallet,"Embers" if siege else "Scrip",3-spins]; top_line.visible=true
+	top_line.name="Wallet";top_line.position.y=54;top_line.text=wallet_text();top_line.visible=true
 	update_chase(); machine.position=Vector2(24,154); machine.size=Vector2(376,224)
 	detail.position=Vector2(24,394); detail.size=Vector2(376,130); detail.add_theme_font_size_override("normal_font_size",16)
 	detail.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
@@ -352,7 +351,6 @@ func show_spinner(message: String="") -> void:
 	buttons[2].visible=false; buttons[4].visible=progress.data.red_fragments>=Catalog.RED_TARGET
 	buttons[4].position=Vector2(24,476); buttons[4].size=Vector2(376,48); buttons[4].disabled=not progress.data.pending.is_empty()
 	if buttons[4].visible: detail.size.y=76
-	buttons[0].disabled=spins>=3 or (spins<3 and progress.data.spin_wallet<Catalog.SPIN_COSTS[spins])
 	buttons[1].disabled=false
 	buttons[0].disabled=not can_spin();buttons[0].text=spin_text(false)
 	for index in [0,1,2,3,4]:
@@ -362,16 +360,16 @@ func show_spinner(message: String="") -> void:
 	buttons[1].text="‹ HUB" if spinner_from_home else "LATER / RESULTS" if not spinner_from_modes else "LATER / MODES"
 
 func can_spin() -> bool:
-	if not progress.data.pending.is_empty():return false
-	if int(progress.data.get("free_spins",0))>0:return true
-	return not spinner_from_home and not spinner_from_modes and progress.data.spins<3 and progress.data.spin_wallet>=Catalog.SPIN_COSTS[mini(2,progress.data.spins)]
-func spin_text(quick: bool) -> String:
+	if not progress.data.pending.is_empty() or not progress.data.quarantined_rewards.is_empty():return false
+	return int(progress.data.get("free_spins",0))+int(progress.data.get("legacy_spins",0))>0
+func spin_text(_quick: bool) -> String:
 	if not progress.data.pending.is_empty():return "REWARD DELIVERY PENDING"
-	if int(progress.data.get("free_spins",0))>0:return "FREE SPIN / %d EARNED" % progress.data.free_spins
-	if spinner_from_home or spinner_from_modes:return "EARN SPINS ON EXPEDITIONS"
-	return "SPINS COMPLETE" if progress.data.spins>=3 else "%s / %d %s" % ["FAST SPIN" if quick else "SPIN",Catalog.SPIN_COSTS[progress.data.spins],"EMBERS" if siege else "SCRIP"]
+	var count: int=int(progress.data.get("free_spins",0))+int(progress.data.get("legacy_spins",0))
+	return "FREE SPIN / %d EARNED" % count if count>0 else "EARN SPINS ON EXPEDITIONS"
 func wallet_text() -> String:
-	return "%d FREE EARNED / %d %s" % [int(progress.data.get("free_spins",0)),progress.data.spin_wallet,"EMBERS" if siege else "SCRIP"]
+	var count: int=int(progress.data.get("free_spins",0))
+	var legacy: int=int(progress.data.get("legacy_spins",0))
+	return "%d EARNED / %d SAVED LEGACY SPINS" % [count,legacy] if legacy>0 else "%d EARNED %s / NO CURRENCY COST" % [count,"SPIN" if count==1 else "SPINS"]
 func show_earned_spinner() -> void:
 	if game.state!="hideout":return
 	spinner_from_home=true;spinner_from_modes=false;game.state="result";show_spinner()

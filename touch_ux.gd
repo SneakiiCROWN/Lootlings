@@ -122,7 +122,11 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if game == null: return
 	if is_instance_valid(game.owner_test_access) and game.owner_test_access.observe(event):get_viewport().set_input_as_handled();return
+	if event is InputEventScreenTouch and event.index!=0 and is_instance_valid(game.startup_ui):game.startup_ui.showcase_cancelled=true
 	if not pointer_gate(event):return
+	if is_instance_valid(game.startup_ui) and game.startup_ui.observe_showcase(event):
+		block_mouse_until=Time.get_ticks_msec()+300
+		get_viewport().set_input_as_handled();return
 	if event is InputEventMouseButton or event is InputEventMouseMotion:
 		if event.device == -1 and Time.get_ticks_msec() < block_mouse_until:
 			get_viewport().set_input_as_handled()

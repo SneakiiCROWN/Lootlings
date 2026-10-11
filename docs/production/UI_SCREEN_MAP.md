@@ -120,6 +120,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:startup_ui.gd:build_profile | build_profile / build_profile | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:build_settings | build_settings / build_settings | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:build_lootling_select | build_lootling_select / build_lootling_select | LIVE_BETA | startup_ui.gd |
+| screen:startup_ui.gd:refresh_showcase_page | refresh_showcase_page / refresh_showcase_page | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:refresh_selector | refresh_selector / refresh_selector | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:show_lootling_select | show_lootling_select / show_lootling_select | LIVE_BETA | startup_ui.gd |
 | screen:startup_ui.gd:build_wanderer_select | build_wanderer_select / build_wanderer_select | LIVE_BETA | startup_ui.gd |

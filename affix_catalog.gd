@@ -7,7 +7,7 @@ const AFFIXES := {
 	"dragonbane":{"name":"Dragonbane", "slots":["Weapon", "Relic"], "effects":{"boss_damage":0.10}, "text":"Built to worry enormous things."},
 	"stout":{"name":"Stout", "slots":["Armour", "Relic"], "effects":{"max_hp":12.0}, "text":"A little harder to flatten."},
 	"warded":{"name":"Warded", "slots":["Armour", "Relic"], "effects":{"armor":0.025}, "text":"A quiet ward softens incoming blows."},
-	"prospector":{"name":"Prospector's", "slots":["Relic", "Rune"], "effects":{"coin_mult":0.10}, "text":"Loose Run Scrip has nowhere to hide."},
+	"prospector":{"name":"Prospector's", "slots":["Relic", "Rune"], "effects":{"coin_mult":0.10}, "text":"Discoveries grant bonus expedition XP."},
 	"executioner":{"name":"Mercifully Sharp", "slots":["Weapon", "Rune"], "effects":{"execute":0.025}, "text":"Ends a wavering foe cleanly."},
 	"emberbound":{"name":"Emberbound", "slots":["Weapon", "Rune", "Relic"], "effects":{"fire_damage":0.09}, "text":"Burning relics answer more fiercely."},
 	"venomous":{"name":"Venomous", "slots":["Rune", "Relic"], "effects":{"poison_duration":0.16}, "text":"Poison clings to its target."},

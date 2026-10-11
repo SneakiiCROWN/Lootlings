@@ -16,11 +16,11 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 8260,
-    "total_launch_scope_slots": 7019,
+    "total_records": 8256,
+    "total_launch_scope_slots": 7015,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4428,
+      "LIVE_BETA": 4424,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -32,7 +32,7 @@
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4427,
+      "LIVE_BETA": 4423,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "8340975135879d1fc2ea5ac57ff86123a3bd6497a70a131b233c2b306845c96d",
+    "export_presets.cfg": "489686c835583dcd954b81ab03a60f337cd179950d6d6db6ed5f78540bbd6c8c",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -81,7 +81,7 @@
     "achievement_manager.gd": "da89d219ec2158a30018120de0fe4cbc8aa0bdca76ef94c0d1335e07eb642152",
     "action_pose_catalog.gd": "8e5aea3c7d45f3799ed5c49b2c5171642148f563048829e43aadfec48e64a737",
     "actor_identity_corrections.gd": "a097a88735df133fa0451b69d770135ec978479f685f0f8d81976b71772b6be4",
-    "affix_catalog.gd": "51c79ebce9a0881b93c59bbd2c9f83c7727084b551d1377453261d64381a8e39",
+    "affix_catalog.gd": "14ebb6597d8c7afe8b14a329f2d925d95ceaf335a35c2067c356a30823e00f25",
     "analytics_logger.gd": "cdb40da79323b41c030916977e159c0e6eccf5e3529b4c7836503040be55692e",
     "approved_missing_runtime_art.gd": "7ba37458ca1d52db49d05f2449b8a196a6e3cb50f4d4ebbd7c517b7367b6e746",
     "app_lifecycle.gd": "ed3fd777b2e2e492c66ffca49b864820409f169cfbe8321bc1700829edf20474",
@@ -96,7 +96,7 @@
     "boss_presentation.gd": "352143e8ed76c21548e4048edcf608db380351574b021896c5095229623cfc4c",
     "build_system.gd": "8e15cb5f043291a44caf3bda6156dc788de6e9fea950e1ad2bcb36d2f4d791d7",
     "campaign_system.gd": "04d4894b580ea6a8d9458b6548f85b835603151e46a75360ab59d5eb5faabd7b",
-    "character_traits.gd": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097",
+    "character_traits.gd": "9adcf83b246cb5a5056b90b33ccb45594fde23c748866d294e79ef84fc4d953b",
     "chest_catalog.gd": "4bf50445f8512c96ad0d645b5425cd04ade3afe4831bb1ea7eef07fe580834bb",
     "combat_controls.gd": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68",
     "combat_presentation.gd": "8f41165f4040b74ad54ef8bd7bb40bd49e1d4cfe8d0d271f7d2ca580d1399224",
@@ -109,49 +109,49 @@
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
     "creature_renderer.gd": "7579f88c6f26661a5171d23cfef49ef0fb56dc3d33efb555ea7bae4d5dec37db",
     "currency_schema.gd": "8bf45ef6d3af57a228f6ffeebb766d342721f24c5a00a131521bba211121518a",
-    "debug_panel.gd": "23d2906d444ef1ef833e90e8bd75624cef122287fe80dc41528da879506a255e",
-    "dialogue_director.gd": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f",
+    "debug_panel.gd": "a67bf24d7afc7aeb90648394c8effd3c69d4811271e7649a2500a462d4cab86a",
+    "dialogue_director.gd": "5d59a95dbd9526bad6eefd007cdc23d5222635ac5dda5562f83e316a0d1dbae6",
     "display_numbers.gd": "0f928175102bf7d5638caa52ed55a63a418d6e3e04b27ed5121c1e402ee312ef",
-    "dungeon_route.gd": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2",
+    "dungeon_route.gd": "9f3bcaaad82b07fd842e4622242ea695ea26d662747c9ff9322c7c27038d6f3c",
     "economy_transaction.gd": "72e10bb994a0b0d8e0abefb502314a1c1004827019ac5274cc704558d5f9474b",
-    "endgame_progress.gd": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8",
+    "endgame_progress.gd": "2e3aead4313c5a220d5400ca6afa18cbe734cd14096256328992ba3e95aa1896",
     "enemy_art_manifest.gd": "b160c8fef248802da1a54f2653215d2fbfef6a52702d3f6f3729e320fd460079",
     "enemy_encounter.gd": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7",
     "enemy_motion.gd": "8e76aab8a63a08de78431f82f7b9030d3342325387fbc3629d7a668faeb88542",
     "enemy_variant_catalog.gd": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25",
-    "expedition_event_catalog.gd": "08602a2c8221b1eb2c31b4277e083b5cd6ea9b04fa6035dab454701274e1816f",
+    "expedition_event_catalog.gd": "5dc4f148185ef2b25fddde3f2042b79796fa7d0332f0b56fc740e9b4dd6851db",
     "expedition_progress.gd": "d6313001329ca5ad569acf8bad69e65c1eb08038e15df5de324d8114b5fbdae8",
     "field_notes_catalog.gd": "085211ae22263dad99b98cbf2da76513a339eb6c77d0be842cf3311fcae76c01",
     "forge_system.gd": "d27077eb3e7fa0b24ba266aa1a53b7590b9b61edea40b9593f760dbeda8a5831",
-    "game_catalog.gd": "d47f5bcca5fcf99318d51234ed0765e478dbdc0084fdf9636f7d6c40631615a7",
+    "game_catalog.gd": "e2ad866ab7c2acbed30448424ced6b97d2c3180ebd44fbc6a8ca7ce04391144a",
     "hideout_shop_system.gd": "0110d80f43eab21f1bd2a22c2640c5cd990c46455cef0f6a771c3408261381e1",
-    "hideout_ui.gd": "cb3836e24334fea15ea173d778dd75fc148c6d1ca98c3b381ca976cfad05fba3",
+    "hideout_ui.gd": "b679581e8600a3249feef3004118fd9050ac3c3a11d11e03995cb8724190787e",
     "home_catalog.gd": "f9d7e86d825de2fa877bd16c1da39818367f541517786c6f326d065eb75ff609",
     "home_runtime_art.gd": "bdc814c8a86d2f6b780788e53a11b894906ca8f4d8ea9e466b8be46078048cb7",
     "hub_navigation.gd": "ae687cb952c1847b4fa7da3181391716262881079c7b67de30bf30b5ca5f1c93",
     "impact_presentation.gd": "971b99da2f24858d27e4bd36876c3674a3ea8bcd1776cbdac4c5781b675245a6",
-    "inventory_system.gd": "6bebfa96c22f25a931fdb691f481af0989bcee700b433918fd52baa03af50fc1",
-    "item_catalog.gd": "20a5234b1048e45d710ee953f20b71af3c7b8e447cd52d31c6228827ed19f88e",
+    "inventory_system.gd": "e3799f21d587006de6d20d7d295a1eb6111eb27a1b5e86083104921b83cd645a",
+    "item_catalog.gd": "b42a645c595de39e0f36e67bf2c09bff3f2266e1d3cf146f07e5226e649878e8",
     "item_icon.gd": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "28cd309e77d727420e0e80eaa485d25f0059c6f5fdd2f5c57dd5834e8ec68bdc",
+    "lootling.gd": "10b052f870d7f3615647493fb65db93aaa2ecbcd5501601c9d588f2c80fac049",
     "lootlings_ui.gd": "91a64f650aaaed793a701df21fe5fc0a00574c0c81075e5cf71cdfac2f07fa3a",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
     "loot_system.gd": "69524d4ded62c7d7fb8de7edbc59a442a7f71b6ddd49c3f5bd9d74691a0ce07e",
-    "meta_store.gd": "baeecc512bb18462e2edf4e0cbdfeb20e6339809e23494b04385c9611ebf79b6",
+    "meta_store.gd": "e1f25bce0ba0d60ca56502c9fa8c8651214892b2c8fe7c8eb64f5699e64d2bfa",
     "mobile_test_monitor.gd": "bb75ac54d810a937d27d7f3625c8e728a1d3fc52e7b6475f7500a93b6a4722b8",
     "mythical_chase_view.gd": "187b5a372f57b1d66fa784be40a23db3b429c435c83b52fa88dca36ff2489896",
     "mythical_collection.gd": "56ff7394cc8804acb69331b8b429cfa81b756d38ea412798726edd82ee354c16",
     "named_item_art.gd": "77d363a7152c47fa68a204c33378e8abf8fe321c49cdb75655caf0e74d8d64fb",
     "owner_test_access.gd": "4506836ce89b77e9823f82c1968097cfdedb31a36cf90572d54a9ed5f8e067df",
     "perk_offer_catalog.gd": "5932dd6061487a8c4bfcfb2613159ee5756f96bc50b61d21abfb213e3ce1b82b",
-    "permanent_upgrade_catalog.gd": "8e802308e3cea21e48f00c9ad13f6db0b5af23dccccd0ced64ecb62331d23863",
+    "permanent_upgrade_catalog.gd": "b089d560b8de548bd8a453f6d140be13468947df1f6a4107eb585ad100fa6c3a",
     "personal_home.gd": "da2b727e359cf7bd0fdee518610539a0038d17c21bc601730fa3ea7eaff5ee9b",
-    "phase3_item_catalog.gd": "24e796e46e727e08aab4737bb5d9c99710cccaf908e23ae8437b42dfd40b5e47",
+    "phase3_item_catalog.gd": "e54e8eed6e9b0d2b93fc227ba6b07b26e6a42acd8bb9a295b4d98e1f7f3030b8",
     "phase4b_catalog.gd": "a6c31156a1984e3768185a0c30f707098506476d73d7b23b08ebf5d23d9b9849",
     "phase4e_extracted_art.gd": "3fb5d695b9122fb05a748042062df1e35b2ea05d1edfb7344935e151b8a47f84",
     "phase4_catalog.gd": "69d2ac77265342b29471ec34778d85032c1be918650239a32294fad5cd9b0467",
-    "pickup_presentation.gd": "f66e211a9ee5ae5de3adc0fd9480a4f2273cb172b65e249c737764e28e933701",
+    "pickup_presentation.gd": "5741e8eb14d12740a3cf5cb4bf56f1e19965b984e2a98b145d533e5ae7937f34",
     "presentation_director.gd": "034999fad57fdbc0c8751c6040b029961bf761c138ca88f954312f3427e3ae78",
     "profile_store.gd": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1",
     "projectile_presentation.gd": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9",
@@ -162,22 +162,23 @@
     "relic_greatsword_motion.gd": "9aa65ee1c96323957d62c96a60fe3c1d67281e2dde492839b7b97842077685af",
     "relic_machine.gd": "3392dd8235e828314d650d1237f00580a4b6b22ad046a895a0b38c17a47e6bd3",
     "relic_reveal_fx.gd": "16c09aa522fc91dae56a43f5fbc84a9f4ea913095e2665c401404b949ed67570",
-    "relic_spin_catalog.gd": "9448e392e2664ff0e20f55a1f3fddc3f43ddf9ebc49709d57432a14c1662e5a1",
+    "relic_spin_catalog.gd": "ba821b93f4f9b3ba6eff255ce9ffd6d81f582b78397365a8a02d922256833295",
     "resident_art_catalog.gd": "169a9a130029b6a5dec45b4b86e2b9d2e0bb5600b6d2f130aedf3ebfa589a666",
     "resident_sprite_rig.gd": "018675b14fad2964b875ca99389cafa752cf5eb869a94f6440e0ddf2208908e7",
     "responsive_backdrop.gd": "da2a4a7e005445b87e8f8b986216c6429400563dad8bea390b79e3b7ec94e52b",
     "result_actor_view.gd": "30394619a98adab02673a909139dcf9cd64e2558437b93f3526feb0ad7bcdca7",
-    "retention_runtime.gd": "cc712438a1841b155ceedeeb78b44f5238355d0ccda0ce35c575c43eedb7f796",
+    "retention_runtime.gd": "8c2dbfdfe5222c82ffcb828f8e736be5d7856a24f4933b89abcb5ca780375cb1",
     "reward_reveal_catalog.gd": "e06fc82ad65408af2c80d0a3c29a6b63952ba2e433a07a86cc1f562fa49ac453",
     "rift_progress.gd": "64eb57f559ffd77bef7ce501f748153e3755765add212f80046aaa7d6dc6dde5",
     "safe_area_layout.gd": "ec4903109000585f9da2cde52d6b7377098e69234e5d6ede8afe4d953ea3cc3d",
     "safe_config.gd": "57cea8148e26a75522212ee5b4e442698cd100891c69dd2d2e10907ac995f6fb",
     "save_scope.gd": "4773643627da8cdac0d90c7447506804e8d360c93ff9e5cec7271c89559264e7",
     "settings_store.gd": "c7fa1e1bb0b195c761e680a8b9e19dae50eb5227d338e3ca5749cefaab618434",
-    "shop_system.gd": "018776ac3b00b06e3209dcf653e2129c904d7726dcd12d2bec03096393623911",
-    "startup_ui.gd": "9c015aa030b8d9d6b8637a294cb8b218aebbb196541d561050c1c0730f70c818",
+    "shop_system.gd": "b0c6a0e831830a9d09e1b03c3dc6bd7689b502e213478315c90636761999e04b",
+    "showcase_art.gd": "014f7cd972444a15014ceff104099fa63ef7e8bdefa2b858f0329432634185ed",
+    "startup_ui.gd": "448aae707c54920df2ce0014bbabde8da6e9eac919fb9469af970925018d12b6",
     "station_presentation.gd": "66abc58cf23ca587eae457c676a74adf7d8861b1afb1820c022ad7897b73b150",
-    "touch_ux.gd": "21f0974ab9373a1c1ca15a22e296e890a0e48307bcb0dd64d364babe68cbe88b",
+    "touch_ux.gd": "4f3c6be5a8e8d1de8aede8e661d46586361773776b38c94f30da36bf614faf6b",
     "travelling_merchant_view.gd": "d25cee30842ef521744cad22f9e19ea4f4029d1929202129d6f231306f9c8a43",
     "ui_surface_style.gd": "722177f70bf5f2be4c5e901ca1ff08e9c441711c3ece9b071019cac935794e65",
     "vignette_catalog.gd": "7695dc6d64bd057c6558cd6a2cb3acb4e77d4a36abacd4e9b41776384f0c5d1e",
@@ -263572,7 +263573,7 @@
         "constant": "ITEMS",
         "key": "hoarders_locket",
         "actual_definition": {
-          "desc": "More Run Scrip from kills. Spend the proceeds before the expedition ends.",
+          "desc": "Learn from every find. Its old treasure bonus now grants expedition XP.",
           "effects": {
             "coin_mult": 0.35
           },
@@ -263611,7 +263612,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "More Run Scrip from kills. Spend the proceeds before the expedition ends.",
+        "text": "Learn from every find. Its old treasure bonus now grants expedition XP.",
         "owner": "content:item_catalog.gd:ITEMS:hoarders_locket"
       }
     },
@@ -264323,7 +264324,7 @@
         "constant": "ITEMS",
         "key": "ruinweave_coat",
         "actual_definition": {
-          "desc": "Vault-thread reinforcement protects the wearer and keeps scavenged Scrip close.",
+          "desc": "Vault-thread reinforcement protects the wearer and keeps useful discoveries close.",
           "effects": {
             "armor": 0.045,
             "coin_mult": 0.08,
@@ -264364,7 +264365,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Vault-thread reinforcement protects the wearer and keeps scavenged Scrip close.",
+        "text": "Vault-thread reinforcement protects the wearer and keeps useful discoveries close.",
         "owner": "content:item_catalog.gd:ITEMS:ruinweave_coat"
       }
     },
@@ -266784,7 +266785,7 @@
         "constant": "ITEMS",
         "key": "gilded_debt",
         "actual_definition": {
-          "desc": "More Run Scrip and stronger hits. Incoming damage rises 15%. Read the terms.",
+          "desc": "Bonus expedition XP and stronger hits. Incoming damage rises 15%. Read the terms.",
           "effects": {
             "coin_mult": 0.35,
             "damage_mult": 0.18,
@@ -266825,7 +266826,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "More Run Scrip and stronger hits. Incoming damage rises 15%. Read the terms.",
+        "text": "Bonus expedition XP and stronger hits. Incoming damage rises 15%. Read the terms.",
         "owner": "content:item_catalog.gd:ITEMS:gilded_debt"
       }
     },
@@ -271089,7 +271090,7 @@
         "constant": "ITEMS",
         "key": "gilded_debt",
         "actual_definition": {
-          "desc": "More Run Scrip and stronger hits. Incoming damage rises 15%. Read the terms.",
+          "desc": "Bonus expedition XP and stronger hits. Incoming damage rises 15%. Read the terms.",
           "effects": {
             "coin_mult": 0.35,
             "damage_mult": 0.18,
@@ -271130,7 +271131,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "More Run Scrip and stronger hits. Incoming damage rises 15%. Read the terms.",
+        "text": "Bonus expedition XP and stronger hits. Incoming damage rises 15%. Read the terms.",
         "owner": "content:phase3_item_catalog.gd:ITEMS:gilded_debt"
       }
     },
@@ -279123,45 +279124,13 @@
         "constant": "UPGRADES",
         "key": "greed",
         "actual_definition": {
-          "desc": "+25% Run Scrip, +15% XP",
+          "desc": "+15% XP",
           "icon": "LOOT",
           "id": "greed",
           "name": "RELIC MAGNET",
           "rarity": "RARE",
           "tags": []
         }
-      }
-    },
-    {
-      "slot_id": "text:content:game_catalog.gd:UPGRADES:greed:0",
-      "game_id": "greed",
-      "category": "player_text",
-      "subject": "greed",
-      "state": "authored text",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "game_catalog",
-      "implementation_file": "game_catalog.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "text": "+25% Run Scrip, +15% XP",
-        "owner": "content:game_catalog.gd:UPGRADES:greed"
       }
     },
     {
@@ -280086,7 +280055,7 @@
             "Relic",
             "Rune"
           ],
-          "text": "Loose Run Scrip has nowhere to hide."
+          "text": "Discoveries grant bonus expedition XP."
         }
       }
     },
@@ -280118,7 +280087,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Loose Run Scrip has nowhere to hide.",
+        "text": "Discoveries grant bonus expedition XP.",
         "owner": "content:affix_catalog.gd:AFFIXES:prospector"
       }
     },
@@ -287429,9 +287398,9 @@
               "risk": 1.2
             },
             {
-              "desc": "Gain 20 Run Scrip. No curse.",
+              "desc": "Gain 20 XP. No curse.",
               "name": "Break the contract",
-              "scrip": 20
+              "xp": 20
             }
           ],
           "line": "A courier coffer offers treasure today. The scarred latch explains the terms.",
@@ -287499,7 +287468,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Gain 20 Run Scrip. No curse.",
+        "text": "Gain 20 XP. No curse.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:cursed_coffer"
       }
     },
@@ -287608,9 +287577,9 @@
               "xp": 30
             },
             {
-              "desc": "Gain 35 Run Scrip. Preserve the page.",
+              "desc": "Gain 45 XP. Preserve the page.",
               "name": "Recover the metal seal",
-              "scrip": 35
+              "xp": 45
             }
           ],
           "line": "A name survives beneath a Crown correction. Ilex left room in her ledger.",
@@ -287710,7 +287679,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Gain 35 Run Scrip. Preserve the page.",
+        "text": "Gain 45 XP. Preserve the page.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:ink_witness"
       }
     },
@@ -287845,15 +287814,15 @@
         "actual_definition": {
           "choices": [
             {
-              "desc": "Spend 45 Run Scrip for 12 ward.",
-              "name": "Buy the lantern",
-              "scrip": -45,
+              "desc": "Gain 12 Ward; the next foe deals 10% more damage.",
+              "name": "Carry the lantern",
+              "risk": 1.1,
               "ward": 12
             },
             {
-              "desc": "Gain 20 Run Scrip.",
-              "name": "Sell the dented bracket",
-              "scrip": 20
+              "desc": "Gain 20 XP.",
+              "name": "Study the dented bracket",
+              "xp": 20
             }
           ],
           "line": "Merrow has a spare lantern and absolutely no explanation for the teeth marks.",
@@ -287889,12 +287858,12 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Spend 45 Run Scrip for 12 ward.",
+        "text": "Gain 12 Ward; the next foe deals 10% more damage.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:lantern_bargain"
       }
     },
     {
-      "slot_id": "text:content:expedition_event_catalog.gd:EVENTS:lantern_bargain:2",
+      "slot_id": "text:content:expedition_event_catalog.gd:EVENTS:lantern_bargain:1",
       "game_id": "lantern_bargain",
       "category": "player_text",
       "subject": "lantern_bargain",
@@ -287921,7 +287890,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Gain 20 Run Scrip.",
+        "text": "Carry the lantern",
         "owner": "content:expedition_event_catalog.gd:EVENTS:lantern_bargain"
       }
     },
@@ -287953,7 +287922,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Sell the dented bracket",
+        "text": "Study the dented bracket",
         "owner": "content:expedition_event_catalog.gd:EVENTS:lantern_bargain"
       }
     },
@@ -288478,15 +288447,15 @@
         "actual_definition": {
           "choices": [
             {
-              "desc": "Spend 25 Run Scrip, recover 25 HP.",
+              "desc": "Recover 25 HP; the next foe deals 10% more damage.",
               "hp": 25,
               "name": "Trade for repairs",
-              "scrip": -25
+              "risk": 1.1
             },
             {
-              "desc": "Gain 25 Run Scrip.",
+              "desc": "Gain 25 XP.",
               "name": "Collect the useful bits",
-              "scrip": 25
+              "xp": 25
             }
           ],
           "line": "Patch's discarded warranty reads: valid until the first interesting noise.",
@@ -288522,7 +288491,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Spend 25 Run Scrip, recover 25 HP.",
+        "text": "Recover 25 HP; the next foe deals 10% more damage.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:patch_warranty"
       }
     },
@@ -288555,38 +288524,6 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "text": "Trade for repairs",
-        "owner": "content:expedition_event_catalog.gd:EVENTS:patch_warranty"
-      }
-    },
-    {
-      "slot_id": "text:content:expedition_event_catalog.gd:EVENTS:patch_warranty:2",
-      "game_id": "patch_warranty",
-      "category": "player_text",
-      "subject": "patch_warranty",
-      "state": "authored text",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "expedition_event_catalog",
-      "implementation_file": "expedition_event_catalog.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "text": "Gain 25 Run Scrip.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:patch_warranty"
       }
     },
@@ -288721,9 +288658,9 @@
         "actual_definition": {
           "choices": [
             {
-              "desc": "Spend 40 Run Scrip for a run upgrade.",
+              "desc": "Lose 8 HP. Choose one free run perk.",
+              "hp": -8,
               "name": "Leave a useful offering",
-              "scrip": -40,
               "upgrade": true
             },
             {
@@ -288765,7 +288702,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Spend 40 Run Scrip for a run upgrade.",
+        "text": "Lose 8 HP. Choose one free run perk.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:promise_shrine"
       }
     },
@@ -288970,9 +288907,9 @@
               "name": "Break the seal"
             },
             {
-              "desc": "Gain 25 Run Scrip. Leave the dangerous seal alone.",
+              "desc": "Gain 25 XP. Leave the dangerous seal alone.",
               "name": "Pick the quiet latch",
-              "scrip": 25
+              "xp": 25
             }
           ],
           "line": "Three hinges. Two warnings. One promise of something worth the trouble.",
@@ -289040,7 +288977,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Gain 25 Run Scrip. Leave the dangerous seal alone.",
+        "text": "Gain 25 XP. Leave the dangerous seal alone.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:sealed_cache"
       }
     },
@@ -289418,10 +289355,10 @@
         "actual_definition": {
           "choices": [
             {
-              "desc": "Spend 180 Run Scrip for one Epic+ item.",
+              "desc": "Lose 15 HP for one Epic+ item.",
+              "hp": -15,
               "loot": "EPIC",
-              "name": "Commission a road find",
-              "scrip": -180
+              "name": "Commission a road find"
             },
             {
               "desc": "Recover 12 HP. No payment.",
@@ -289462,7 +289399,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Spend 180 Run Scrip for one Epic+ item.",
+        "text": "Lose 15 HP for one Epic+ item.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:wandering_smith"
       }
     },
@@ -289661,16 +289598,16 @@
         "actual_definition": {
           "choices": [
             {
-              "desc": "Lose 8 HP, gain 45 Run Scrip.",
+              "desc": "Lose 8 HP, gain 45 XP.",
               "hp": -8,
               "name": "Lift the sign",
-              "scrip": 45
+              "xp": 45
             },
             {
-              "desc": "Spend 30 Run Scrip, recover 18 HP.",
+              "desc": "Recover 18 HP; the next foe deals 10% more damage.",
               "hp": 18,
               "name": "Share supplies",
-              "scrip": -30
+              "risk": 1.1
             }
           ],
           "line": "A Compact courier is pinned beneath a fallen sign. Their satchel is intact.",
@@ -289706,7 +289643,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Lose 8 HP, gain 45 Run Scrip.",
+        "text": "Lose 8 HP, gain 45 XP.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:wounded_courier"
       }
     },
@@ -289738,7 +289675,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Spend 30 Run Scrip, recover 18 HP.",
+        "text": "Recover 18 HP; the next foe deals 10% more damage.",
         "owner": "content:expedition_event_catalog.gd:EVENTS:wounded_courier"
       }
     },
@@ -320455,6 +320392,38 @@
       "evidence": null
     },
     {
+      "slot_id": "screen:startup_ui.gd:refresh_showcase_page",
+      "game_id": "refresh_showcase_page",
+      "category": "ui",
+      "subject": "refresh_showcase_page",
+      "state": "refresh_showcase_page",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": "Single active screen/input owner; decorative art ignores input; portrait scroll/release protection",
+      "runtime_system": "startup_ui",
+      "implementation_file": "startup_ui.gd",
+      "dependency": [
+        "touch_ux.gd",
+        "safe_area_layout.gd"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
+    },
+    {
       "slot_id": "screen:startup_ui.gd:refresh_selector",
       "game_id": "refresh_selector",
       "category": "ui",
@@ -323676,40 +323645,7 @@
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1079:0:c1ee9845",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1079,
-        "text": "No recovered pages",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1080:0:2810f6fa",
+      "slot_id": "label:hideout_ui.gd:1080:0:c1ee9845",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323737,12 +323673,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1080,
+        "text": "No recovered pages",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1081:0:2810f6fa",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1081,
         "text": "Bring this story home from your travels.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1099:0:918160aa",
+      "slot_id": "label:hideout_ui.gd:1100:0:918160aa",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323769,13 +323738,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1099,
+        "line": 1100,
         "text": "[color=#b99de6]%s • PAGE %d / %d[/color]\\n\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1109:0:cc4128fb",
+      "slot_id": "label:hideout_ui.gd:1110:0:cc4128fb",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323802,13 +323771,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1109,
+        "line": 1110,
         "text": "%d / %d RECOVERED  •  TAP A BADGE FOR DETAILS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1135:0:65bdece2",
+      "slot_id": "label:hideout_ui.gd:1136:0:65bdece2",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323835,13 +323804,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1135,
+        "line": 1136,
         "text": "[center][color=#9fb3d8]No trophies in this collection yet.[/color][/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1182:0:c41560ef",
+      "slot_id": "label:hideout_ui.gd:1183:0:c41560ef",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323868,13 +323837,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1182,
+        "line": 1183,
         "text": "[center][font_size=22][color=%s][img=28x28]%s[/img]  %s[/color][/font_size]\\n[color=#b99de6]%s COLLECTION[/color]\\n\\n%s\\n\\n%s[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1193:0:f31d1ffc",
+      "slot_id": "label:hideout_ui.gd:1194:0:f31d1ffc",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323901,13 +323870,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1193,
+        "line": 1194,
         "text": "[center]%s %s Lootcoins   %s %s Scrap   %s %s Diamonds[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1193:1:fbaab420",
+      "slot_id": "label:hideout_ui.gd:1194:1:fbaab420",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323934,13 +323903,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1193,
+        "line": 1194,
         "text": "currency_gold",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1193:3:574363a7",
+      "slot_id": "label:hideout_ui.gd:1194:3:574363a7",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -323967,13 +323936,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1193,
+        "line": 1194,
         "text": "currency_scrap",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1193:5:fbfd0d95",
+      "slot_id": "label:hideout_ui.gd:1194:5:fbfd0d95",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324000,13 +323969,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1193,
+        "line": 1194,
         "text": "currency_star_shard",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1197:0:ead53368",
+      "slot_id": "label:hideout_ui.gd:1198:0:ead53368",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324033,13 +324002,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1197,
+        "line": 1198,
         "text": "Weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1197:1:ead53368",
+      "slot_id": "label:hideout_ui.gd:1198:1:ead53368",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324066,13 +324035,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1197,
+        "line": 1198,
         "text": "Weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1197:2:6ae99955",
+      "slot_id": "label:hideout_ui.gd:1198:2:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324099,13 +324068,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1197,
+        "line": 1198,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1197:3:9113115b",
+      "slot_id": "label:hideout_ui.gd:1198:3:9113115b",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324132,13 +324101,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1197,
+        "line": 1198,
         "text": "No weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1203:0:7b20b508",
+      "slot_id": "label:hideout_ui.gd:1204:0:7b20b508",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324165,13 +324134,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1203,
+        "line": 1204,
         "text": "[center]%s\\n%s • open GEAR for your full loadout[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1217:0:fc9f08c2",
+      "slot_id": "label:hideout_ui.gd:1218:0:fc9f08c2",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324198,13 +324167,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1217,
+        "line": 1218,
         "text": "STASH  •  %d / %d STORED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1253:0:01690268",
+      "slot_id": "label:hideout_ui.gd:1254:0:01690268",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324231,13 +324200,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1253,
+        "line": 1254,
         "text": "YOUR NEXT TREASURE AWAITS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1253:1:6b42874e",
+      "slot_id": "label:hideout_ui.gd:1254:1:6b42874e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324264,13 +324233,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1253,
+        "line": 1254,
         "text": "ALL",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1253:2:6c369a4d",
+      "slot_id": "label:hideout_ui.gd:1254:2:6c369a4d",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324297,13 +324266,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1253,
+        "line": 1254,
         "text": "NO ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1253:3:a0d35352",
+      "slot_id": "label:hideout_ui.gd:1254:3:a0d35352",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324330,13 +324299,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1253,
+        "line": 1254,
         "text": " GEAR YET",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1260:0:2e399298",
+      "slot_id": "label:hideout_ui.gd:1261:0:2e399298",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324363,13 +324332,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1260,
+        "line": 1261,
         "text": "Find equipment beyond the Gate, then return here to compare, equip or salvage it.\\nYour equipped gear appears above.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1260:1:6b42874e",
+      "slot_id": "label:hideout_ui.gd:1261:1:6b42874e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324396,13 +324365,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1260,
+        "line": 1261,
         "text": "ALL",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1260:2:8268f89a",
+      "slot_id": "label:hideout_ui.gd:1261:2:8268f89a",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324429,46 +324398,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1260,
+        "line": 1261,
         "text": "Try another category, or find more equipment on an expedition.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1278:0:e715d42c",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1278,
-        "text": "EMPTY CATEGORY",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1279:0:993cd80e",
+      "slot_id": "label:hideout_ui.gd:1279:0:e715d42c",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324496,12 +324432,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1279,
-        "text": "Find gear during an expedition",
+        "text": "EMPTY CATEGORY",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1280:0:f40ae478",
+      "slot_id": "label:hideout_ui.gd:1280:0:993cd80e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324529,12 +324465,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1280,
+        "text": "Find gear during an expedition",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1281:0:f40ae478",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1281,
         "text": "[center][color=#8fa4ce]No %s equipment found.[/color][/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1303:0:6ae99955",
+      "slot_id": "label:hideout_ui.gd:1304:0:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324561,13 +324530,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1303,
+        "line": 1304,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1303:1:bc7819b3",
+      "slot_id": "label:hideout_ui.gd:1304:1:bc7819b3",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324594,13 +324563,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1303,
+        "line": 1304,
         "text": "Unknown",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1307:0:089331a2",
+      "slot_id": "label:hideout_ui.gd:1308:0:089331a2",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324627,13 +324596,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1307,
+        "line": 1308,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1310:0:342cbb5b",
+      "slot_id": "label:hideout_ui.gd:1311:0:342cbb5b",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324660,46 +324629,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1310,
+        "line": 1311,
         "text": "[color=#69e6b0]CURRENTLY EQUIPPED[/color]\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1314:0:1e5a19cd",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1314,
-        "text": "EQUIPPED",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1315:0:51da9110",
+      "slot_id": "label:hideout_ui.gd:1315:0:1e5a19cd",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324727,12 +324663,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1315,
+        "text": "EQUIPPED",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1316:0:51da9110",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1316,
         "text": "SALVAGE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1318:0:cde8e347",
+      "slot_id": "label:hideout_ui.gd:1319:0:cde8e347",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324759,46 +324728,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1318,
+        "line": 1319,
         "text": "[b]Owned gear · free to equip[/b]\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1322:0:df39feda",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1322,
-        "text": "EQUIP",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1323:0:30c4aa22",
+      "slot_id": "label:hideout_ui.gd:1323:0:df39feda",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324826,78 +324762,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1323,
+        "text": "EQUIP",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1324:0:30c4aa22",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1324,
         "text": "SALVAGE  +%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1329:0:e37a2ab6",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1329,
-        "text": "[center]LEVEL %d  •  TOTAL +%d%%\\nDamage + Max HP every run\\n%s %d LOOT DIAMONDS[/center]",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1329:1:fbfd0d95",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1329,
-        "text": "currency_star_shard",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1330:0:35b2f8d1",
+      "slot_id": "label:hideout_ui.gd:1330:0:e37a2ab6",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324925,12 +324828,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1330,
-        "text": "POWER +5%%\\nCOST %d DIAMONDS",
+        "text": "[center]LEVEL %d  •  TOTAL +%d%%\\nDamage + Max HP every run\\n%s %d LOOT DIAMONDS[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1331:0:25cffccd",
+      "slot_id": "label:hideout_ui.gd:1330:1:fbfd0d95",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1330,
+        "text": "currency_star_shard",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1331:0:35b2f8d1",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324958,12 +324894,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1331,
-        "text": "POWER MAXED\\nRANK 100 / 100",
+        "text": "POWER +5%%\\nCOST %d DIAMONDS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1332:0:71f9488d",
+      "slot_id": "label:hideout_ui.gd:1332:0:25cffccd",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -324991,12 +324927,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1332,
+        "text": "POWER MAXED\\nRANK 100 / 100",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1333:0:71f9488d",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1333,
         "text": "POWER +5%%\\nNEED %d MORE DIAMONDS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1337:0:8a8f7aa0",
+      "slot_id": "label:hideout_ui.gd:1338:0:8a8f7aa0",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325023,13 +324992,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1337,
+        "line": 1338,
         "text": "IMPROVEMENTS • %s COINS • %s DIAMONDS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1347:0:9088d83c",
+      "slot_id": "label:hideout_ui.gd:1348:0:9088d83c",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325056,13 +325025,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1347,
+        "line": 1348,
         "text": "%s  •  RANK %d/%d  •  MAXED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1351:0:40e24c35",
+      "slot_id": "label:hideout_ui.gd:1352:0:40e24c35",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325089,13 +325058,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1351,
+        "line": 1352,
         "text": "%s  •  RANK %d/%d\\n%s     %d %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1361:0:b691bbe9",
+      "slot_id": "label:hideout_ui.gd:1362:0:b691bbe9",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325122,13 +325091,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1361,
+        "line": 1362,
         "text": "[center]%s %s LOOTCOINS • %s %s SCRAP • %d/%d STASH[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1361:1:fbaab420",
+      "slot_id": "label:hideout_ui.gd:1362:1:fbaab420",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325155,13 +325124,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1361,
+        "line": 1362,
         "text": "currency_gold",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1361:3:574363a7",
+      "slot_id": "label:hideout_ui.gd:1362:3:574363a7",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325188,13 +325157,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1361,
+        "line": 1362,
         "text": "currency_scrap",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1363:0:0252ae33",
+      "slot_id": "label:hideout_ui.gd:1364:0:0252ae33",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325221,13 +325190,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1363,
+        "line": 1364,
         "text": "SCAVENGED CACHE\\n%d LOOTCOINS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1368:0:11543f2f",
+      "slot_id": "label:hideout_ui.gd:1369:0:11543f2f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325254,13 +325223,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1368,
+        "line": 1369,
         "text": "SOLD OUT\\nREFRESHES AFTER RUN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1377:0:c8ae748c",
+      "slot_id": "label:hideout_ui.gd:1378:0:c8ae748c",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325287,13 +325256,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1377,
+        "line": 1378,
         "text": "%s\\n%s · %d Lootcoins",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1377:1:6ae99955",
+      "slot_id": "label:hideout_ui.gd:1378:1:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325320,13 +325289,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1377,
+        "line": 1378,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1377:2:bc7819b3",
+      "slot_id": "label:hideout_ui.gd:1378:2:bc7819b3",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325353,13 +325322,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1377,
+        "line": 1378,
         "text": "Unknown",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1377:3:f147fc3f",
+      "slot_id": "label:hideout_ui.gd:1378:3:f147fc3f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325386,13 +325355,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1377,
+        "line": 1378,
         "text": "rarity",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1377:4:e4636d46",
+      "slot_id": "label:hideout_ui.gd:1378:4:e4636d46",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325419,13 +325388,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1377,
+        "line": 1378,
         "text": "COMMON",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1377:5:2097c337",
+      "slot_id": "label:hideout_ui.gd:1378:5:2097c337",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325452,13 +325421,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1377,
+        "line": 1378,
         "text": "price",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1385:0:15e42727",
+      "slot_id": "label:hideout_ui.gd:1386:0:15e42727",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325485,13 +325454,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1385,
+        "line": 1386,
         "text": "STASH EXPANSION\\n%d → %d SLOTS\\n%d LOOTCOINS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1385:1:317e18d2",
+      "slot_id": "label:hideout_ui.gd:1386:1:317e18d2",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325518,13 +325487,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1385,
+        "line": 1386,
         "text": "STASH EXPANSION\\nMAXIMUM 24 SLOTS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1387:0:ab7d3eb8",
+      "slot_id": "label:hideout_ui.gd:1388:0:ab7d3eb8",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325551,13 +325520,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1387,
+        "line": 1388,
         "text": "REROLL ONCE  •  %d LOOTCOINS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1387:1:b081ff70",
+      "slot_id": "label:hideout_ui.gd:1388:1:b081ff70",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325584,13 +325553,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1387,
+        "line": 1388,
         "text": "REROLL USED THIS RUN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1393:0:ba240d7e",
+      "slot_id": "label:hideout_ui.gd:1394:0:ba240d7e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325617,13 +325586,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1393,
+        "line": 1394,
         "text": "CLAIM REVEALED ITEM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1393:1:c32246c5",
+      "slot_id": "label:hideout_ui.gd:1394:1:c32246c5",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325650,13 +325619,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1393,
+        "line": 1394,
         "text": "MYSTERY CACHE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1395:0:ba240d7e",
+      "slot_id": "label:hideout_ui.gd:1396:0:ba240d7e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325683,13 +325652,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1395,
+        "line": 1396,
         "text": "CLAIM REVEALED ITEM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1395:1:6a907455",
+      "slot_id": "label:hideout_ui.gd:1396:1:6a907455",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325716,13 +325685,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1395,
+        "line": 1396,
         "text": "SCAVENGED CACHE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:0:d99adc0d",
+      "slot_id": "label:hideout_ui.gd:1398:0:d99adc0d",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325749,13 +325718,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "[center][color=#ffe178]%s REVEAL[/color]\\n[font_size=20][color=#%s]%s[/color][/font_size]\\n%s  •  %s\\n%s[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:1:6a907455",
+      "slot_id": "label:hideout_ui.gd:1398:1:6a907455",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325782,13 +325751,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "SCAVENGED CACHE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:2:c32246c5",
+      "slot_id": "label:hideout_ui.gd:1398:2:c32246c5",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325815,13 +325784,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "MYSTERY CACHE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:3:6ae99955",
+      "slot_id": "label:hideout_ui.gd:1398:3:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325848,13 +325817,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:4:bc7819b3",
+      "slot_id": "label:hideout_ui.gd:1398:4:bc7819b3",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325881,13 +325850,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "Unknown",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:5:f147fc3f",
+      "slot_id": "label:hideout_ui.gd:1398:5:f147fc3f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325914,13 +325883,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "rarity",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:6:e4636d46",
+      "slot_id": "label:hideout_ui.gd:1398:6:e4636d46",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325947,13 +325916,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "COMMON",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:7:462854f9",
+      "slot_id": "label:hideout_ui.gd:1398:7:462854f9",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -325980,13 +325949,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1397:8:ecdda59a",
+      "slot_id": "label:hideout_ui.gd:1398:8:ecdda59a",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326013,13 +325982,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1397,
+        "line": 1398,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1400:0:ffc41647",
+      "slot_id": "label:hideout_ui.gd:1401:0:ffc41647",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326046,13 +326015,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1400,
+        "line": 1401,
         "text": "CACHE OPENED\\nREFRESHES AFTER RUN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1403:0:fd22c9a3",
+      "slot_id": "label:hideout_ui.gd:1404:0:fd22c9a3",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326079,13 +326048,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1403,
+        "line": 1404,
         "text": "MYSTERY CACHE\\nREVEAL 1 ITEM\\n%d SCRAP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1406:0:cfcc5d20",
+      "slot_id": "label:hideout_ui.gd:1407:0:cfcc5d20",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326112,13 +326081,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1406,
+        "line": 1407,
         "text": "GOLD CACHE OPENED\\nREFRESHES AFTER RUN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1409:0:622741e6",
+      "slot_id": "label:hideout_ui.gd:1410:0:622741e6",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326145,13 +326114,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1409,
+        "line": 1410,
         "text": "[center][color=#ff9b8f]STASH FULL[/color]\\nScrap or equip stored gear to make room.\\nNothing will be overwritten.[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1411:0:c606420d",
+      "slot_id": "label:hideout_ui.gd:1412:0:c606420d",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326178,46 +326147,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1411,
+        "line": 1412,
         "text": "[center][color=#ffe39a]Choose gear • pay with Lootcoins[/color]\\nStock refreshes after a completed run.[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1419:0:0da4f016",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1419,
-        "text": "[b]Choose an item above[/b]\\nCompare it with your equipped gear, then buy with Lootcoins. Purchases go to your stash.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1420:0:eb1d28f0",
+      "slot_id": "label:hideout_ui.gd:1420:0:0da4f016",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326245,12 +326181,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1420,
+        "text": "[b]Choose an item above[/b]\\nCompare it with your equipped gear, then buy with Lootcoins. Purchases go to your stash.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1421:0:eb1d28f0",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1421,
         "text": "CHOOSE\\nAN ITEM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1427:0:6f3bc7e5",
+      "slot_id": "label:hideout_ui.gd:1428:0:6f3bc7e5",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326277,13 +326246,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1427,
+        "line": 1428,
         "text": "[b][color=#%s]%s[/color][/b]\\n%s · %s\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1427:1:6ae99955",
+      "slot_id": "label:hideout_ui.gd:1428:1:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326310,13 +326279,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1427,
+        "line": 1428,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1427:2:bc7819b3",
+      "slot_id": "label:hideout_ui.gd:1428:2:bc7819b3",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326343,13 +326312,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1427,
+        "line": 1428,
         "text": "Unknown",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1427:3:462854f9",
+      "slot_id": "label:hideout_ui.gd:1428:3:462854f9",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326376,13 +326345,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1427,
+        "line": 1428,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1427:4:ecdda59a",
+      "slot_id": "label:hideout_ui.gd:1428:4:ecdda59a",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326409,13 +326378,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1427,
+        "line": 1428,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1429:0:e65611b7",
+      "slot_id": "label:hideout_ui.gd:1430:0:e65611b7",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326442,13 +326411,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1429,
+        "line": 1430,
         "text": "BUY\\n%d SCRAP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1429:1:2097c337",
+      "slot_id": "label:hideout_ui.gd:1430:1:2097c337",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326475,46 +326444,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1429,
+        "line": 1430,
         "text": "price",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1432:0:fcee478f",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1432,
-        "text": "CLAIM\\nYOUR CACHE",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:1433:0:39b4a5c1",
+      "slot_id": "label:hideout_ui.gd:1433:0:fcee478f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326542,12 +326478,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1433,
+        "text": "CLAIM\\nYOUR CACHE",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:1434:0:39b4a5c1",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1434,
         "text": "STASH\\nIS FULL",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1434:0:2097c337",
+      "slot_id": "label:hideout_ui.gd:1435:0:2097c337",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326574,13 +326543,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1434,
+        "line": 1435,
         "text": "price",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1434:1:6ec9e0af",
+      "slot_id": "label:hideout_ui.gd:1435:1:6ec9e0af",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326607,13 +326576,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1434,
+        "line": 1435,
         "text": "NEED %d\\nMORE LOOTCOINS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1434:2:2097c337",
+      "slot_id": "label:hideout_ui.gd:1435:2:2097c337",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326640,13 +326609,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1434,
+        "line": 1435,
         "text": "price",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1437:0:e11a2da1",
+      "slot_id": "label:hideout_ui.gd:1438:0:e11a2da1",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326673,13 +326642,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1437,
+        "line": 1438,
         "text": "[center][color=%s]%s[/color][/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:0:eb2057cb",
+      "slot_id": "label:hideout_ui.gd:1650:0:eb2057cb",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326706,13 +326675,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "Salvager",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:1:23510732",
+      "slot_id": "label:hideout_ui.gd:1650:1:23510732",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326739,13 +326708,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "OPEN FORGE  ›",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:2:52b7362e",
+      "slot_id": "label:hideout_ui.gd:1650:2:52b7362e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326772,13 +326741,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "forge",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:3:abd8d21e",
+      "slot_id": "label:hideout_ui.gd:1650:3:abd8d21e",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326805,13 +326774,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "OPEN SHOP  ›",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:4:8f30eb6d",
+      "slot_id": "label:hideout_ui.gd:1650:4:8f30eb6d",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326838,13 +326807,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "Relic Keeper",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:5:237f6739",
+      "slot_id": "label:hideout_ui.gd:1650:5:237f6739",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326871,13 +326840,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "OPEN SHRINE  ›",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:6:4b413d03",
+      "slot_id": "label:hideout_ui.gd:1650:6:4b413d03",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326904,13 +326873,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "Archivist",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:7:e162db1b",
+      "slot_id": "label:hideout_ui.gd:1650:7:e162db1b",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326937,13 +326906,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "OPEN ARCHIVE  ›",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:8:e0489488",
+      "slot_id": "label:hideout_ui.gd:1650:8:e0489488",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -326970,13 +326939,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "Mascot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:9:9101b4a0",
+      "slot_id": "label:hideout_ui.gd:1650:9:9101b4a0",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327003,13 +326972,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "CHARACTER  ›",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1649:10:ff3dbb42",
+      "slot_id": "label:hideout_ui.gd:1650:10:ff3dbb42",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327036,13 +327005,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1649,
+        "line": 1650,
         "text": "CONTINUE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:1856:0:a42e8eda",
+      "slot_id": "label:hideout_ui.gd:1857:0:a42e8eda",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327069,13 +327038,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1856,
+        "line": 1857,
         "text": "PATCH · SHOP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:0:a3f47c95",
+      "slot_id": "label:hideout_ui.gd:2076:0:a3f47c95",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327102,13 +327071,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "CURRENT • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:1:5c5d6a24",
+      "slot_id": "label:hideout_ui.gd:2076:1:5c5d6a24",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327135,13 +327104,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "USE • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:2:395d3b4c",
+      "slot_id": "label:hideout_ui.gd:2076:2:395d3b4c",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327168,13 +327137,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:3:20048f9f",
+      "slot_id": "label:hideout_ui.gd:2076:3:20048f9f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327201,13 +327170,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "Equipped weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:4:c29dac5a",
+      "slot_id": "label:hideout_ui.gd:2076:4:c29dac5a",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327234,13 +327203,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "scroll",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:5:885d7bf8",
+      "slot_id": "label:hideout_ui.gd:2076:5:885d7bf8",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327267,13 +327236,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "Recovered plans",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:6:1f5bbe7f",
+      "slot_id": "label:hideout_ui.gd:2076:6:1f5bbe7f",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327300,13 +327269,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "trophy",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:7:8dffc634",
+      "slot_id": "label:hideout_ui.gd:2076:7:8dffc634",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327333,13 +327302,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "Trophy stand",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:8:71f8e797",
+      "slot_id": "label:hideout_ui.gd:2076:8:71f8e797",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327366,13 +327335,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "none",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2075:9:cf836688",
+      "slot_id": "label:hideout_ui.gd:2076:9:cf836688",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327399,46 +327368,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2075,
+        "line": 2076,
         "text": "Clear shelf",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2079:0:a40315b5",
-      "game_id": "hideout_ui_gd",
-      "category": "player_text",
-      "subject": "hideout_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "hideout_ui",
-      "implementation_file": "hideout_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 2079,
-        "text": "No companion equipped. Companions are cosmetic; they give no combat advantage.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:hideout_ui.gd:2080:1:cf368476",
+      "slot_id": "label:hideout_ui.gd:2080:0:a40315b5",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327466,12 +327402,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 2080,
+        "text": "No companion equipped. Companions are cosmetic; they give no combat advantage.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:hideout_ui.gd:2081:1:cf368476",
+      "game_id": "hideout_ui_gd",
+      "category": "player_text",
+      "subject": "hideout_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "hideout_ui",
+      "implementation_file": "hideout_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 2081,
         "text": "No companions are available yet. Your slot is ready. Companions never change combat stats.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2081:0:6b9af882",
+      "slot_id": "label:hideout_ui.gd:2082:0:6b9af882",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327498,13 +327467,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2081,
+        "line": 2082,
         "text": "Equipped: ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2081:2:6ae99955",
+      "slot_id": "label:hideout_ui.gd:2082:2:6ae99955",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327531,13 +327500,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2081,
+        "line": 2082,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2081:3:163ee286",
+      "slot_id": "label:hideout_ui.gd:2082:3:163ee286",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327564,13 +327533,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2081,
+        "line": 2082,
         "text": " • cosmetic only",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2083:0:b791ca20",
+      "slot_id": "label:hideout_ui.gd:2084:0:b791ca20",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327597,13 +327566,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2083,
+        "line": 2084,
         "text": "CHOOSE A COMPANION FIRST",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2083:1:40832288",
+      "slot_id": "label:hideout_ui.gd:2084:1:40832288",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327630,13 +327599,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2083,
+        "line": 2084,
         "text": "FOLLOWING YOU · STAY HOME",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2083:2:04ad07f9",
+      "slot_id": "label:hideout_ui.gd:2084:2:04ad07f9",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327663,13 +327632,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2083,
+        "line": 2084,
         "text": "STAYING HOME · FOLLOW ME",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2087:0:a5315c46",
+      "slot_id": "label:hideout_ui.gd:2088:0:a5315c46",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327696,13 +327665,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2087,
+        "line": 2088,
         "text": "Meet the collection • not available yet",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2087:1:4d7a10de",
+      "slot_id": "label:hideout_ui.gd:2088:1:4d7a10de",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327729,13 +327698,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2087,
+        "line": 2088,
         "text": "%d companions ready • unlock with relics",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2092:0:1e5a19cd",
+      "slot_id": "label:hideout_ui.gd:2093:0:1e5a19cd",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327762,13 +327731,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2092,
+        "line": 2093,
         "text": "EQUIPPED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2092:1:df39feda",
+      "slot_id": "label:hideout_ui.gd:2093:1:df39feda",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327795,13 +327764,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2092,
+        "line": 2093,
         "text": "EQUIP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2092:2:da6bac29",
+      "slot_id": "label:hideout_ui.gd:2093:2:da6bac29",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327828,13 +327797,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2092,
+        "line": 2093,
         "text": "LOCKED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:hideout_ui.gd:2092:3:e5c6b060",
+      "slot_id": "label:hideout_ui.gd:2093:3:e5c6b060",
       "game_id": "hideout_ui_gd",
       "category": "player_text",
       "subject": "hideout_ui.gd",
@@ -327861,7 +327830,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2092,
+        "line": 2093,
         "text": "NOT YET AVAILABLE",
         "dynamic_template": true
       }
@@ -327966,73 +327935,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:603:0:80e69ea0",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 603,
-        "text": "HOARD CONQUERED!",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:603:1:628283b0",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 603,
-        "text": "EXPEDITION ENDED",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:607:0:1fafa35e",
+      "slot_id": "label:lootling.gd:607:0:80e69ea0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328060,12 +327963,78 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 607,
+        "text": "HOARD CONQUERED!",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:607:1:628283b0",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 607,
+        "text": "EXPEDITION ENDED",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:611:0:1fafa35e",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 611,
         "text": "DEVELOPMENT PREVIEW\\nNo rewards, stock refresh, or save changes.\\n\\nWave reached  %d / %d\\nEnemies  %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:849:0:8b81ad0e",
+      "slot_id": "label:lootling.gd:853:0:8b81ad0e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328092,13 +328061,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 849,
+        "line": 853,
         "text": "RETURN TO HIDEOUT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:884:0:ee55d0db",
+      "slot_id": "label:lootling.gd:888:0:ee55d0db",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328125,13 +328094,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 884,
+        "line": 888,
         "text": "Ⅱ  PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:950:0:b735d59d",
+      "slot_id": "label:lootling.gd:954:0:2420bb92",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328158,13 +328127,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 950,
-        "text": "%s\\n\\nHP %.0f / %.0f  •  %d RUN SCRIP",
+        "line": 954,
+        "text": "%s\\n\\nHP %.0f / %.0f / WARD %.0f",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:953:0:13f697fb",
+      "slot_id": "label:lootling.gd:957:0:13f697fb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328191,46 +328160,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 953,
+        "line": 957,
         "text": "%s\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:955:0:2de711ac",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 955,
-        "text": "KEEP MOVING\\nLeave everything as it is.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:959:0:9d42a39e",
+      "slot_id": "label:lootling.gd:959:0:2de711ac",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328258,12 +328194,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 959,
-        "text": "ChoiceTitle",
+        "text": "KEEP MOVING\\nLeave everything as it is.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:960:0:abb256dc",
+      "slot_id": "label:lootling.gd:963:0:9d42a39e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328290,7 +328226,40 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 960,
+        "line": 963,
+        "text": "ChoiceTitle",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:964:0:abb256dc",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 964,
         "text": "ChoiceDetail",
         "dynamic_template": true
       }
@@ -328824,7 +328793,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:2837:0:6a9fef6e",
+      "slot_id": "label:lootling.gd:2840:0:6a9fef6e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328851,13 +328820,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2837,
+        "line": 2840,
         "text": "WAVE FINDS — PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2837:1:6e688269",
+      "slot_id": "label:lootling.gd:2840:1:6e688269",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328884,13 +328853,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2837,
+        "line": 2840,
         "text": "BOSS HOARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2839:0:c497c9c1",
+      "slot_id": "label:lootling.gd:2842:0:c497c9c1",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328917,13 +328886,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2839,
+        "line": 2842,
         "text": "One find from this wave. The rest stay in the ruins.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2839:1:4dc26b13",
+      "slot_id": "label:lootling.gd:2842:1:4dc26b13",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328950,13 +328919,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2839,
+        "line": 2842,
         "text": "Choose one reward to carry home.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2851:0:3b8d5b98",
+      "slot_id": "label:lootling.gd:2854:0:3b8d5b98",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -328983,13 +328952,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2851,
+        "line": 2854,
         "text": "%s  •  %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2851:1:462854f9",
+      "slot_id": "label:lootling.gd:2854:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329016,13 +328985,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2851,
+        "line": 2854,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2851:2:6867e600",
+      "slot_id": "label:lootling.gd:2854:2:6867e600",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329049,13 +329018,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2851,
+        "line": 2854,
         "text": "Relic",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2857:0:ef7e6794",
+      "slot_id": "label:lootling.gd:2860:0:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329082,13 +329051,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2857,
+        "line": 2860,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2857:1:ef7e6794",
+      "slot_id": "label:lootling.gd:2860:1:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329115,13 +329084,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2857,
+        "line": 2860,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2887:0:e3bab90b",
+      "slot_id": "label:lootling.gd:2890:0:cd0d8d6a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329148,13 +329117,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2887,
-        "text": "[b]NEW ITEM: %s[/b]\\n%d RUN SCRIP / equip only if you choose\\n%s",
+        "line": 2890,
+        "text": "[b]NEW ITEM: %s[/b]\\nFREE / one supply choice this stop\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2887:1:462854f9",
+      "slot_id": "label:lootling.gd:2890:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329181,13 +329150,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2887,
+        "line": 2890,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2887:2:ead53368",
+      "slot_id": "label:lootling.gd:2890:2:ead53368",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329214,13 +329183,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2887,
+        "line": 2890,
         "text": "Weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2888:0:148be80c",
+      "slot_id": "label:lootling.gd:2891:0:06f3f651",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329247,13 +329216,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2888,
-        "text": "BUY %d — ENDS THIS STOP",
+        "line": 2891,
+        "text": "TAKE FREE / ENDS THIS STOP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2903:0:0d2cee9c",
+      "slot_id": "label:lootling.gd:2906:0:0d2cee9c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329280,13 +329249,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2903,
+        "line": 2906,
         "text": "TAKE PERK / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2907:0:3d0a6ba5",
+      "slot_id": "label:lootling.gd:2910:0:3d0a6ba5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329313,13 +329282,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2907,
+        "line": 2910,
         "text": "CURRENT: %d stacks / %s\\nNEW PERK: %s / stacks %d to %d\\nCOST: FREE / %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2944:0:b23e7e58",
+      "slot_id": "label:lootling.gd:2947:0:b23e7e58",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329346,13 +329315,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2944,
+        "line": 2947,
         "text": "%s\\n%s\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2944:1:deb80331",
+      "slot_id": "label:lootling.gd:2947:1:deb80331",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329379,13 +329348,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2944,
+        "line": 2947,
         "text": "desc",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2948:0:5c18f8eb",
+      "slot_id": "label:lootling.gd:2951:0:5c18f8eb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329412,13 +329381,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2948,
+        "line": 2951,
         "text": "KEEP IN STASH\\n%d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2949:0:5fde04be",
+      "slot_id": "label:lootling.gd:2952:0:5fde04be",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329445,13 +329414,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2949,
+        "line": 2952,
         "text": "SCRAP  +%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3118:0:ed059f21",
+      "slot_id": "label:lootling.gd:3122:0:ed059f21",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329478,13 +329447,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3118,
+        "line": 3122,
         "text": "RELIC ROUTE • MERCHANT ROOM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3118:1:520d7b36",
+      "slot_id": "label:lootling.gd:3122:1:520d7b36",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329511,13 +329480,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3118,
+        "line": 3122,
         "text": "ROADSIDE STOP  •  BETWEEN WAVES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3132:0:9f888007",
+      "slot_id": "label:lootling.gd:3136:0:9f888007",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329544,13 +329513,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3132,
+        "line": 3136,
         "text": "SELECT AN OFFER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3133:0:119bed34",
+      "slot_id": "label:lootling.gd:3137:0:7f107003",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329577,13 +329546,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3133,
-        "text": "Inspect an offer. One purchase ends this stop.",
+        "line": 3137,
+        "text": "Choose one free supply. You may redraw once before taking it.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3134:0:e5d5cd32",
+      "slot_id": "label:lootling.gd:3138:0:e5d5cd32",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329610,13 +329579,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3134,
+        "line": 3138,
         "text": "PACK PEDDLER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3135:0:a7e24318",
+      "slot_id": "label:lootling.gd:3139:0:a7e24318",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329643,13 +329612,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3135,
+        "line": 3139,
         "text": " • PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3137:0:9a1dca47",
+      "slot_id": "label:lootling.gd:3141:0:18559f3d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329676,79 +329645,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3137,
-        "text": "[center]%s  %s RUN SCRIP[/center]",
+        "line": 3141,
+        "text": "[center]ONE FREE SUPPLY CHOICE[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3137:1:2c2ef4d6",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3137,
-        "text": "currency_run_scrip",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3142:0:b93e34c2",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3142,
-        "text": "SOLD • IN GOOD PAWS\\nThe peddler is packing the receipts.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3146:0:a276cade",
+      "slot_id": "label:lootling.gd:3146:0:b93e34c2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329776,12 +329679,45 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 3146,
+        "text": "SOLD • IN GOOD PAWS\\nThe peddler is packing the receipts.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3150:0:a276cade",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3150,
         "text": "SOLD • IN GOOD PAWS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3147:0:1fc287f0",
+      "slot_id": "label:lootling.gd:3151:0:1fc287f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329808,13 +329744,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3147,
+        "line": 3151,
         "text": "Nothing left but the receipt.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3161:0:526d5d47",
+      "slot_id": "label:lootling.gd:3165:0:cf8e49c7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329841,13 +329777,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3161,
-        "text": "%s%s  •  %d SCRIP\\n%s%s  [%s]\\n%s%s",
+        "line": 3165,
+        "text": "%s%s / FREE\\n%s%s [%s]\\n%s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3161:1:462854f9",
+      "slot_id": "label:lootling.gd:3165:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329874,13 +329810,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3161,
+        "line": 3165,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3161:2:ecdda59a",
+      "slot_id": "label:lootling.gd:3165:2:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329907,13 +329843,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3161,
+        "line": 3165,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3169:0:eb995721",
+      "slot_id": "label:lootling.gd:3173:0:d03ad6d0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329940,13 +329876,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3169,
-        "text": "%s  •  %s  •  %d SCRIP",
+        "line": 3173,
+        "text": "%s / %s / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3169:1:71c77258",
+      "slot_id": "label:lootling.gd:3173:1:71c77258",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329973,13 +329909,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3169,
+        "line": 3173,
         "text": "PREMIUM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3169:2:5c0a4fc7",
+      "slot_id": "label:lootling.gd:3173:2:5c0a4fc7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330006,13 +329942,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3169,
+        "line": 3173,
         "text": "premium",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3169:3:462854f9",
+      "slot_id": "label:lootling.gd:3173:3:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330039,13 +329975,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3169,
+        "line": 3173,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3169:4:ecdda59a",
+      "slot_id": "label:lootling.gd:3173:4:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330072,13 +330008,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3169,
+        "line": 3173,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3175:0:a74032f4",
+      "slot_id": "label:lootling.gd:3178:0:b1b7cf2a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330105,13 +330041,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3175,
-        "text": "REROLL  %d",
+        "line": 3178,
+        "text": "REDRAW / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3240:0:9afc3c93",
+      "slot_id": "label:lootling.gd:3178:1:06f3c483",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330138,13 +330074,46 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3240,
+        "line": 3178,
+        "text": "REDRAW USED",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:3231:0:9afc3c93",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 3231,
         "text": "CURRENT: %s\\nChoose a new perk to compare. FREE, or keep your current build.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3243:0:86597834",
+      "slot_id": "label:lootling.gd:3234:0:86597834",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330171,13 +330140,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3243,
+        "line": 3234,
         "text": "SELECT A CARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3261:0:408ab24d",
+      "slot_id": "label:lootling.gd:3252:0:408ab24d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330204,13 +330173,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3261,
+        "line": 3252,
         "text": "%s  /  %s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3261:1:caa4ad3d",
+      "slot_id": "label:lootling.gd:3252:1:caa4ad3d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330237,13 +330206,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3261,
+        "line": 3252,
         "text": "UTILITY",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3261:2:cd7cff17",
+      "slot_id": "label:lootling.gd:3252:2:cd7cff17",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330270,13 +330239,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3261,
+        "line": 3252,
         "text": "  /  STACK ×%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3271:0:e8634078",
+      "slot_id": "label:lootling.gd:3262:0:e8634078",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330303,13 +330272,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3271,
+        "line": 3262,
         "text": "LEVEL %d - PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3388:0:80e69ea0",
+      "slot_id": "label:lootling.gd:3378:0:80e69ea0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330336,13 +330305,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3388,
+        "line": 3378,
         "text": "HOARD CONQUERED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3388:1:628283b0",
+      "slot_id": "label:lootling.gd:3378:1:628283b0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330369,13 +330338,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3388,
+        "line": 3378,
         "text": "EXPEDITION ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3410:0:aa11de5a",
+      "slot_id": "label:lootling.gd:3400:0:aa11de5a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330402,13 +330371,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3410,
+        "line": 3400,
         "text": "SIEGE EXTRACTED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3410:1:106840bc",
+      "slot_id": "label:lootling.gd:3400:1:106840bc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330435,13 +330404,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3410,
+        "line": 3400,
         "text": "SIEGE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3411:0:4943fd98",
+      "slot_id": "label:lootling.gd:3401:0:556a9f43",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330468,13 +330437,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3411,
-        "text": "RUN SCRIP",
+        "line": 3401,
+        "text": "Wave reached %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3411:1:eb10c001",
+      "slot_id": "label:lootling.gd:3401:1:7636e2f5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330501,13 +330470,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3411,
-        "text": "SIEGE EMBERS",
+        "line": 3401,
+        "text": "Round reached %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3411:2:c6f00561",
+      "slot_id": "label:lootling.gd:3404:0:6d91faaa",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330534,79 +330503,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3411,
-        "text": "Wave reached  %d / %d",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3411:3:7ac2a5ca",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3411,
-        "text": "Round reached  %d",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:3414:0:6d91faaa",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 3414,
+        "line": 3404,
         "text": "PRISM RIFT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3414:1:d3c6e300",
+      "slot_id": "label:lootling.gd:3404:1:d3c6e300",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330633,13 +330536,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3414,
+        "line": 3404,
         "text": "ROOTGLASS VAULT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3414:2:84089e35",
+      "slot_id": "label:lootling.gd:3404:2:84089e35",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330666,13 +330569,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3414,
+        "line": 3404,
         "text": "RELIC ROUTE CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3414:3:7f403abb",
+      "slot_id": "label:lootling.gd:3404:3:7f403abb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330699,13 +330602,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3414,
+        "line": 3404,
         "text": "ROUTE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3415:0:c6f00561",
+      "slot_id": "label:lootling.gd:3405:0:556a9f43",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330732,13 +330635,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3415,
-        "text": "Wave reached  %d / %d",
+        "line": 3405,
+        "text": "Wave reached %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3415:1:49e79ce8",
+      "slot_id": "label:lootling.gd:3405:1:49e79ce8",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330765,13 +330668,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3415,
+        "line": 3405,
         "text": "Rooms entered  %d / 8 • Seed %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3483:0:6ae99955",
+      "slot_id": "label:lootling.gd:3474:0:6ae99955",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330798,13 +330701,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3483,
+        "line": 3474,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3483:1:e8fef4b9",
+      "slot_id": "label:lootling.gd:3474:1:e8fef4b9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330831,13 +330734,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3483,
+        "line": 3474,
         "text": "Loot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3884:0:d5954590",
+      "slot_id": "label:lootling.gd:3876:0:d5954590",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330864,13 +330767,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3884,
+        "line": 3876,
         "text": "EMBERS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3884:1:5c83506e",
+      "slot_id": "label:lootling.gd:3876:1:081f2640",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330897,13 +330800,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3884,
-        "text": "SCRIP",
+        "line": 3876,
+        "text": "LOOTCOINS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3893:0:e4fbbd8b",
+      "slot_id": "label:lootling.gd:3885:0:e4fbbd8b",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330930,13 +330833,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3893,
+        "line": 3885,
         "text": "WARD %.0f",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3981:0:089331a2",
+      "slot_id": "label:lootling.gd:3973:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330963,13 +330866,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3981,
+        "line": 3973,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3982:0:e29764e7",
+      "slot_id": "label:lootling.gd:3974:0:e29764e7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330996,13 +330899,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3982,
+        "line": 3974,
         "text": "DETAILS: PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4108:0:56d441fc",
+      "slot_id": "label:lootling.gd:4100:0:56d441fc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331029,7 +330932,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4108,
+        "line": 4100,
         "text": "COMBO ×%d",
         "dynamic_template": true
       }
@@ -332454,7 +332357,7 @@
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:217:0:b60862f4",
+      "slot_id": "label:retention_runtime.gd:216:0:b60862f4",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332481,13 +332384,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 217,
+        "line": 216,
         "text": "Wallet",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:226:0:bdc2b922",
+      "slot_id": "label:retention_runtime.gd:225:0:bdc2b922",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332514,13 +332417,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 226,
+        "line": 225,
         "text": "REVEAL NOW",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:228:0:5dd2fbf9",
+      "slot_id": "label:retention_runtime.gd:227:0:5dd2fbf9",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332547,13 +332450,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 228,
+        "line": 227,
         "text": "The seals are turning…\\nReward reserved. Nothing is lost if you leave.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:228:1:c64d5e3e",
+      "slot_id": "label:retention_runtime.gd:227:1:c64d5e3e",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332580,13 +332483,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 228,
+        "line": 227,
         "text": "default_color",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:242:0:ca6da9ce",
+      "slot_id": "label:retention_runtime.gd:241:0:ca6da9ce",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332613,13 +332516,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 242,
+        "line": 241,
         "text": "[center][b]%s\\n%s%s[/b]\\n%s[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:242:1:acb09026",
+      "slot_id": "label:retention_runtime.gd:241:1:acb09026",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332646,13 +332549,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 242,
+        "line": 241,
         "text": "YOU WON! • GRAVEBLOOM RELIC",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:242:2:bb4e68e7",
+      "slot_id": "label:retention_runtime.gd:241:2:bb4e68e7",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332679,13 +332582,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 242,
+        "line": 241,
         "text": "RED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:242:3:72fbe433",
+      "slot_id": "label:retention_runtime.gd:241:3:72fbe433",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332712,13 +332615,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 242,
+        "line": 241,
         "text": "YOU WON! • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:242:4:0dde0981",
+      "slot_id": "label:retention_runtime.gd:241:4:0dde0981",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332745,13 +332648,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 242,
+        "line": 241,
         "text": " × %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:242:5:3a7d9767",
+      "slot_id": "label:retention_runtime.gd:241:5:3a7d9767",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332778,13 +332681,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 242,
+        "line": 241,
         "text": "item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:274:0:31bf58e4",
+      "slot_id": "label:retention_runtime.gd:273:0:eb32554a",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332811,13 +332714,46 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 274,
-        "text": "GRAVEBLOOM • %d / 24 Crownroot fragments\\nSPARKS %d / 12 • paid and earned spins advance",
+        "line": 273,
+        "text": "GRAVEBLOOM • %d / 24 Crownroot fragments\\nSPARKS %d / 12 • each earned spin advances",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:305:0:d1c7bef2",
+      "slot_id": "label:retention_runtime.gd:304:0:d1c7bef2",
+      "game_id": "retention_runtime_gd",
+      "category": "player_text",
+      "subject": "retention_runtime.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "retention_runtime",
+      "implementation_file": "retention_runtime.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 304,
+        "text": "NEW BOOST / hits %d to %d / %d Embers",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:retention_runtime.gd:305:0:a6d60631",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332845,12 +332781,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 305,
-        "text": "NEW BOOST / hits %d to %d / %d Embers",
+        "text": "NEW BOOST / leech %.1f to %.1f%%\\narmour %.1f to %.1f%% / %d Embers",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:306:0:a6d60631",
+      "slot_id": "label:retention_runtime.gd:306:0:7dcb6821",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332878,45 +332814,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 306,
-        "text": "NEW BOOST / leech %.1f to %.1f%%\\narmour %.1f to %.1f%% / %d Embers",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:retention_runtime.gd:307:0:7dcb6821",
-      "game_id": "retention_runtime_gd",
-      "category": "player_text",
-      "subject": "retention_runtime.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "retention_runtime",
-      "implementation_file": "retention_runtime.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 307,
         "text": "HEAL / HP %.0f to %.0f / %d Embers",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:325:0:d9bcf8b3",
+      "slot_id": "label:retention_runtime.gd:324:0:d9bcf8b3",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332943,13 +332846,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 325,
+        "line": 324,
         "text": "\\nNone",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:325:1:ef7e6794",
+      "slot_id": "label:retention_runtime.gd:324:1:ef7e6794",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -332976,13 +332879,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 325,
+        "line": 324,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:325:2:d3bc9a37",
+      "slot_id": "label:retention_runtime.gd:324:2:d3bc9a37",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333009,13 +332912,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 325,
+        "line": 324,
         "text": ", ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:330:0:2fe533ca",
+      "slot_id": "label:retention_runtime.gd:329:0:2fe533ca",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333042,13 +332945,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 330,
+        "line": 329,
         "text": "FREE EARNED SPIN / NOW OR LATER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:330:1:c9505efb",
+      "slot_id": "label:retention_runtime.gd:329:1:c9505efb",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333075,13 +332978,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 330,
+        "line": 329,
         "text": "free_spins",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:330:2:fdaf15ff",
+      "slot_id": "label:retention_runtime.gd:329:2:fdaf15ff",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333108,13 +333011,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 330,
+        "line": 329,
         "text": "RELIC ENGINE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:344:0:b60862f4",
+      "slot_id": "label:retention_runtime.gd:343:0:b60862f4",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333141,13 +333044,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 344,
+        "line": 343,
         "text": "Wallet",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:344:1:88c150f4",
+      "slot_id": "label:retention_runtime.gd:347:0:a311a637",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333174,112 +333077,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 344,
-        "text": "%d %s  •  %d spins remaining",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:retention_runtime.gd:344:2:f95951bd",
-      "game_id": "retention_runtime_gd",
-      "category": "player_text",
-      "subject": "retention_runtime.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "retention_runtime",
-      "implementation_file": "retention_runtime.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 344,
-        "text": "Embers",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:retention_runtime.gd:344:3:24bd811f",
-      "game_id": "retention_runtime_gd",
-      "category": "player_text",
-      "subject": "retention_runtime.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "retention_runtime",
-      "implementation_file": "retention_runtime.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 344,
-        "text": "Scrip",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:retention_runtime.gd:348:0:a311a637",
-      "game_id": "retention_runtime_gd",
-      "category": "player_text",
-      "subject": "retention_runtime.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "retention_runtime",
-      "implementation_file": "retention_runtime.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 348,
+        "line": 347,
         "text": "[center]Useful spoils on every spin.\\nEpic + Legendary bundles get a full reveal.\\n12 sparks earn 1 Crownroot fragment.\\n24 fragments forge the Gravebloom Staff.[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:350:0:8f47b16b",
+      "slot_id": "label:retention_runtime.gd:349:0:8f47b16b",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333306,13 +333110,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 350,
+        "line": 349,
         "text": "‹ MODES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:350:1:def96d5b",
+      "slot_id": "label:retention_runtime.gd:349:1:def96d5b",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333339,13 +333143,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 350,
+        "line": 349,
         "text": "‹ RESULTS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:362:0:22ab572f",
+      "slot_id": "label:retention_runtime.gd:360:0:22ab572f",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333372,13 +333176,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 362,
+        "line": 360,
         "text": "‹ HUB",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:362:1:ee24ed40",
+      "slot_id": "label:retention_runtime.gd:360:1:ee24ed40",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333405,13 +333209,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 362,
+        "line": 360,
         "text": "LATER / RESULTS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:362:2:c10bed9c",
+      "slot_id": "label:retention_runtime.gd:360:2:c10bed9c",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333438,13 +333242,46 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 362,
+        "line": 360,
         "text": "LATER / MODES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:retention_runtime.gd:378:0:22ab572f",
+      "slot_id": "label:retention_runtime.gd:376:0:22ab572f",
+      "game_id": "retention_runtime_gd",
+      "category": "player_text",
+      "subject": "retention_runtime.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "retention_runtime",
+      "implementation_file": "retention_runtime.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 376,
+        "text": "‹ HUB",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:retention_runtime.gd:378:0:637223be",
       "game_id": "retention_runtime_gd",
       "category": "player_text",
       "subject": "retention_runtime.gd",
@@ -333472,111 +333309,12 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 378,
-        "text": "‹ HUB",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:retention_runtime.gd:380:0:637223be",
-      "game_id": "retention_runtime_gd",
-      "category": "player_text",
-      "subject": "retention_runtime.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "retention_runtime",
-      "implementation_file": "retention_runtime.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 380,
         "text": "[center][b]Your earned spins are stored here.[/b]\\nEarn them from bosses, elites, 30 kills, secrets or extraction.\\nReturn to the Hub and enter the Gate. No currency is charged.[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:214:0:3701471b",
-      "game_id": "startup_ui_gd",
-      "category": "player_text",
-      "subject": "startup_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "startup_ui",
-      "implementation_file": "startup_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 214,
-        "text": "%d%%",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:startup_ui.gd:215:0:3701471b",
-      "game_id": "startup_ui_gd",
-      "category": "player_text",
-      "subject": "startup_ui.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "startup_ui",
-      "implementation_file": "startup_ui.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 215,
-        "text": "%d%%",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:startup_ui.gd:219:0:89646612",
+      "slot_id": "label:startup_ui.gd:219:0:3701471b",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333604,12 +333342,78 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 219,
+        "text": "%d%%",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:startup_ui.gd:220:0:3701471b",
+      "game_id": "startup_ui_gd",
+      "category": "player_text",
+      "subject": "startup_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "startup_ui",
+      "implementation_file": "startup_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 220,
+        "text": "%d%%",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:startup_ui.gd:224:0:89646612",
+      "game_id": "startup_ui_gd",
+      "category": "player_text",
+      "subject": "startup_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "startup_ui",
+      "implementation_file": "startup_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 224,
         "text": "MUTE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:306:0:089331a2",
+      "slot_id": "label:startup_ui.gd:300:0:f4cfa89d",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333636,13 +333440,46 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 306,
+        "line": 300,
+        "text": "%d / %d\\nSWIPE TO EXPLORE",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:startup_ui.gd:343:0:089331a2",
+      "game_id": "startup_ui_gd",
+      "category": "player_text",
+      "subject": "startup_ui.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "startup_ui",
+      "implementation_file": "startup_ui.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 343,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:308:0:75e97fa7",
+      "slot_id": "label:startup_ui.gd:345:0:75e97fa7",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333669,13 +333506,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 308,
+        "line": 345,
         "text": "CHOOSE %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:399:0:70128901",
+      "slot_id": "label:startup_ui.gd:438:0:70128901",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333702,13 +333539,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 399,
+        "line": 438,
         "text": " • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:403:0:491f9fdf",
+      "slot_id": "label:startup_ui.gd:442:0:491f9fdf",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333735,13 +333572,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 403,
+        "line": 442,
         "text": "Affinity: ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:403:1:1da5e866",
+      "slot_id": "label:startup_ui.gd:442:1:1da5e866",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333768,13 +333605,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 403,
+        "line": 442,
         "text": " • any weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:443:0:70128901",
+      "slot_id": "label:startup_ui.gd:482:0:70128901",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333801,13 +333638,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 443,
+        "line": 482,
         "text": " • ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:452:0:df9c2553",
+      "slot_id": "label:startup_ui.gd:491:0:df9c2553",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333834,13 +333671,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 452,
+        "line": 491,
         "text": "WELCOME, TREASURE SEEKER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:452:1:04c45a95",
+      "slot_id": "label:startup_ui.gd:491:1:04c45a95",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333867,13 +333704,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 452,
+        "line": 491,
         "text": "YOUR LOOTLINGS PROFILE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:496:0:586e05ed",
+      "slot_id": "label:startup_ui.gd:535:0:586e05ed",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333900,13 +333737,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 496,
+        "line": 535,
         "text": "display_name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:497:0:a3901dfc",
+      "slot_id": "label:startup_ui.gd:536:0:a3901dfc",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333933,13 +333770,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 497,
+        "line": 536,
         "text": "lootling_nickname",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:499:0:f6a7f641",
+      "slot_id": "label:startup_ui.gd:538:0:f6a7f641",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333966,13 +333803,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 499,
+        "line": 538,
         "text": "ACCOUNT INFO  •  SUPPORT ID …%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:500:0:3928f11d",
+      "slot_id": "label:startup_ui.gd:539:0:3928f11d",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -333999,13 +333836,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 500,
+        "line": 539,
         "text": "CURRENT AVATAR • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:501:0:abe500ca",
+      "slot_id": "label:startup_ui.gd:540:0:abe500ca",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -334032,7 +333869,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 501,
+        "line": 540,
         "text": " • RUIN ROOKIE",
         "dynamic_template": true
       }
@@ -428411,6 +428248,8 @@
           "begin",
           "earn_spin",
           "free_spin",
+          "reserve_spin",
+          "migrate_legacy_wallet",
           "track",
           "target_text",
           "queue_item",
@@ -429647,7 +429486,8 @@
       "evidence": {
         "methods": [
           "load_progress",
-          "save_progress"
+          "save_progress",
+          "retire_field_pouch"
         ]
       }
     },
@@ -430997,8 +430837,42 @@
           "generate_stock",
           "price_for",
           "reroll_cost",
+          "can_reroll",
           "reroll",
           "take"
+        ]
+      }
+    },
+    {
+      "slot_id": "system:showcase_art.gd",
+      "game_id": "showcase_art_gd",
+      "category": "runtime_system",
+      "subject": "showcase_art.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "showcase_art.gd",
+      "implementation_file": "showcase_art.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "texture"
         ]
       }
     },
@@ -431040,6 +430914,8 @@
           "build_lootling_select",
           "add_roster_tabs",
           "add_roster_strip",
+          "refresh_showcase_page",
+          "observe_showcase",
           "cycle_lootling",
           "refresh_selector",
           "show_lootling_select",

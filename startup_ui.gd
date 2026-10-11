@@ -68,6 +68,11 @@ var title_personality: Label
 var identity_panel: Panel
 var wanderer_personality: Label
 var wanderer_weapon: Label
+var showcase_pages: Dictionary={}
+var showcase_finger: int=-1
+var showcase_start:=Vector2.ZERO
+var showcase_screen: String=""
+var showcase_cancelled: bool=false
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -276,29 +281,61 @@ func add_roster_tabs(parent: Control, human: bool) -> void:
 	make_button(parent,"WANDERERS",Rect2(246,20,210,48),Color("#293a46") if human else Color("#17294b"),Color("#e2b563") if human else Color("#7087ae"),15).pressed.connect(show_wanderer_select)
 
 func add_roster_strip(parent: Control, human: bool, point: Vector2) -> void:
-	var scroll:=ScrollContainer.new(); scroll.position=point; scroll.size=Vector2(396,122); scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED; scroll.scroll_deadzone=12; parent.add_child(scroll)
-	var row:=GridContainer.new(); row.columns=2; row.add_theme_constant_override("h_separation",8); row.add_theme_constant_override("v_separation",8); scroll.add_child(row)
+	# One character showcase; no small, vertically clipped roster grid.
+	var previous:=make_button(parent,"<",Rect2(point+Vector2(0,16),Vector2(52,56)),Color("#17294b"),Color("#d1a85a"),24)
+	var next:=make_button(parent,">",Rect2(point+Vector2(344,16),Vector2(52,56)),Color("#17294b"),Color("#d1a85a"),24)
+	previous.name="PreviousWanderer" if human else "PreviousLootling"
+	next.name="NextWanderer" if human else "NextLootling"
+	previous.tooltip_text="Previous character";next.tooltip_text="Next character"
+	previous.pressed.connect(func(): cycle_wanderer(-1) if human else cycle_lootling(-1))
+	next.pressed.connect(func(): cycle_wanderer(1) if human else cycle_lootling(1))
+	var page:=make_label(parent,"",14,Rect2(point+Vector2(60,19),Vector2(276,50)),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9cba8"))
+	page.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	showcase_pages["wanderer" if human else "lootling"]=page
+
+func refresh_showcase_page(human: bool) -> void:
 	var ids: Array=WandererCatalog.selectable_ids() if human else LootlingCatalog.selectable_ids()
-	for id in ids:
-		var button:=make_button(row,"",Rect2(0,0,190,82),Color("#17294b"),Color("#7087ae"),12); button.custom_minimum_size=Vector2(190,82)
-		if human:wanderer_roster_buttons[id]=button
-		else:lootling_roster_buttons[id]=button
-		var portrait:=TextureRect.new(); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.texture=WandererCatalog.runtime_texture(id) if human else LootlingCatalog.runtime_texture(id); portrait.position=Vector2(8,5); portrait.size=Vector2(60,70); portrait.custom_minimum_size=Vector2(60,70); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; button.add_child(portrait)
-		var name_label:=make_label(button,str(WandererCatalog.definition(id).display_name) if human else str(LootlingCatalog.definition(id).display_name),12,Rect2(72,14,110,55),HORIZONTAL_ALIGNMENT_CENTER,Color("#d9e5ff")); name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; name_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		button.pressed.connect(func():
-			if human: selected_wanderer=id; refresh_wanderer_selector()
-			else: selected_lootling_id=id; refresh_selector()
-		)
+	var id: String=selected_wanderer if human else selected_lootling_id
+	var page: Label=showcase_pages["wanderer" if human else "lootling"]
+	page.text="%d / %d\nSWIPE TO EXPLORE" % [ids.find(id)+1,ids.size()]
+	if not settings.get("cinematic_reduced_motion",false):
+		var portrait: TextureRect=wanderer_portrait if human else selector_portrait
+		portrait.modulate.a=.75
+		create_tween().tween_property(portrait,"modulate:a",1.0,.14)
+
+func observe_showcase(event: InputEvent) -> bool:
+	var game=get_parent()
+	if not visible or current_screen not in ["lootling_select","wanderer_select"] or (game.input_surface()!=null and game.input_surface()!=self):
+		showcase_finger=-1;return false
+	if event is InputEventScreenTouch:
+		if event.index!=0:
+			showcase_cancelled=true;return false
+		var point: Vector2=get_global_transform_with_canvas().affine_inverse()*event.position
+		if event.pressed:
+			if not Rect2(76,129,328,270).has_point(point):return false
+			showcase_finger=0;showcase_start=point;showcase_screen=current_screen;showcase_cancelled=false
+			return true
+		if showcase_finger==event.index:
+			showcase_finger=-1
+			var delta: Vector2=point-showcase_start
+			if not event.canceled and not showcase_cancelled and showcase_screen==current_screen and absf(delta.x)>=52 and absf(delta.x)>absf(delta.y)*1.5:
+				if current_screen=="lootling_select":cycle_lootling(1 if delta.x<0 else -1)
+				else:cycle_wanderer(1 if delta.x<0 else -1)
+			return true
+	if event is InputEventScreenDrag and event.index==showcase_finger:return true
+	return false
 
 func cycle_lootling(direction: int) -> void:
 	var ids := LootlingCatalog.selectable_ids()
 	selected_lootling_id = ids[posmod(ids.find(selected_lootling_id) + direction, ids.size())]
 	refresh_selector()
+	ui_event.emit("ui_press")
 
 func refresh_selector() -> void:
+	refresh_showcase_page(false)
 	refresh_roster_selection(lootling_roster_buttons,selected_lootling_id)
 	var entry := LootlingCatalog.definition(selected_lootling_id)
-	selector_portrait.texture = LootlingCatalog.runtime_texture(selected_lootling_id)
+	selector_portrait.texture = preload("res://showcase_art.gd").texture(selected_lootling_id)
 	selector_portrait.modulate = LootlingCatalog.presentation_tint(selected_lootling_id)
 	selector_name.text = str(entry.display_name).to_upper()
 	selector_lore.text = str(entry.personality)
@@ -384,10 +421,12 @@ func cycle_wanderer(direction: int) -> void:
 		return
 	selected_wanderer = ids[posmod(ids.find(selected_wanderer) + direction, ids.size())]
 	refresh_wanderer_selector()
+	ui_event.emit("ui_press")
 
 func refresh_wanderer_selector() -> void:
+	refresh_showcase_page(true)
 	refresh_roster_selection(wanderer_roster_buttons,selected_wanderer)
-	wanderer_portrait.texture = WandererCatalog.runtime_texture(selected_wanderer)
+	wanderer_portrait.texture = preload("res://showcase_art.gd").texture(selected_wanderer,true)
 	var ids := WandererCatalog.selectable_ids()
 	wanderer_name.text = str(WandererCatalog.definition(selected_wanderer).display_name).to_upper()
 	wanderer_confirm.disabled = wanderer_portrait.texture == null

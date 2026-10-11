@@ -19,7 +19,7 @@ func generate_stock(loot_system, wave: int, preferred_family: String = "") -> vo
 	stock.clear()
 	var style_roll: float = loot_system.rng.randf()
 	discount = .85 if style_roll < .20 else 1.0
-	stock_style = "PATCHED PRICES • 15% OFF" if style_roll < .20 else "RELIC FINDER • RARE+ WEAPON" if style_roll > .85 else "ROADSIDE GOODS"
+	stock_style = "PATCHED & POLISHED" if style_roll < .20 else "RELIC FINDER • RARE+ WEAPON" if style_roll > .85 else "ROADSIDE GOODS"
 	if style_roll >= .65 and style_roll <= .85: stock_style = "RUNE COLLECTOR"
 	var minimum := "RARE" if wave >= 11 else "COMMON"
 	if style_roll > .85: minimum = "RARE"
@@ -28,19 +28,21 @@ func generate_stock(loot_system, wave: int, preferred_family: String = "") -> vo
 		var premium := wave >= 11 and stock.size() == 2
 		var item: Dictionary = loot_system.generate_shop_item_for_slot(slot, "EPIC" if premium else minimum if slot == "Weapon" else "COMMON",preferred_family if slot == "Weapon" else "")
 		item.premium = premium
-		item.price = maxi(1,roundi(price_for(item, wave)*discount))
+		item.price = 0 # One free supply choice; never debits permanent currency.
 		stock.append(item)
 	if wave >= 11: stock_style += " • PREMIUM FIND"
 
-func price_for(item: Dictionary, wave: int) -> int:
-	# One purchase per stop; rarity and reroll costs create alternatives.
-	return [58, 108, 185, 320][ItemCatalog.rarity_rank(item.get("rarity", "COMMON"))] + wave * 6 + (90 if item.get("premium",false) else 0)
+func price_for(_item: Dictionary, _wave: int) -> int:
+	return 0 # Bounded free supply; permanent shops retain their own prices.
 
-func reroll_cost(wave: int) -> int:
-	return 18 + wave * 3 + rerolls * 18
+func reroll_cost(_wave: int) -> int:
+	return 0 # Compatibility API: redraw is limited by can_reroll(), not currency.
+
+func can_reroll() -> bool:
+	return not purchase_taken and rerolls < 1
 
 func reroll(loot_system, wave: int) -> void:
-	if purchase_taken: return
+	if not can_reroll(): return
 	rerolls += 1
 	generate_stock(loot_system, wave, preferred_family)
 

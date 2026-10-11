@@ -6,7 +6,7 @@ static func draw_reward(g, pickup: Dictionary) -> void:
 	if pop <= .01: return
 	var pos: Vector2 = pickup.pos
 	if pickup.kind == "coin":
-		# These pickups are Run Scrip, not permanent Gold. Use its real icon.
+		# Siege-only Ember pickups; normal expeditions show XP wisps.
 		UI.draw_icon(g.get_canvas_item(),UI.icon("currency_run_scrip"),Rect2(pos-Vector2(13,13)*pop,Vector2(26,26)*pop))
 	else:
 		# Experience is a memory wisp, visually distinct from spendable Star Shards.

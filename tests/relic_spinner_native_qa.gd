@@ -10,7 +10,7 @@ func review() -> void:
 		game.app_lifecycle.platform_notifications_enabled=false; game.audio_settings.cinematic_first_time=false
 		folder="res://.godot_test_data/spinner/%dx%d/" % [viewport_size.x,viewport_size.y]; DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		for rarity in Spin.TIERS:
-			game.start_run(); game.set_process(false); game.coins=1000; game.total_kills=20
+			game.start_run(); game.set_process(false); game.coins=0; game.total_kills=20;game.retention.progress.data.free_spins=1;game.retention.progress.data.legacy_spins=0
 			var natural_red: bool=rarity=="RED" and viewport_size.x==1600
 			if natural_red:
 				var red_rng:=RandomNumberGenerator.new()
@@ -35,7 +35,7 @@ func review() -> void:
 			if not game.retention.spin_busy or game.retention.machine.rarity!=rarity:
 				print("SPINNER TAP DIAGNOSTIC "+JSON.stringify({"viewport":str(viewport_size),"expected":rarity,"actual":game.retention.machine.rarity,"state":game.state,"wallet":game.retention.progress.data.spin_wallet,"pending":game.retention.progress.data.pending,"button_disabled":game.retention.buttons[0].disabled}))
 				await capture("failed_tap"); push_error("Native spinner tap failed"); quit(1); return
-			await tap(game.retention.buttons[0]); assert(game.retention.progress.data.spins==0 if rarity=="RED" else game.retention.progress.data.spins==1)
+			await tap(game.retention.buttons[0]); assert(game.retention.progress.data.free_spins==1 if rarity=="RED" else game.retention.progress.data.free_spins==0)
 			if rarity=="COMMON": await capture("rolling")
 			if rarity=="RED":
 				game.app_lifecycle.suspend(); var paused_elapsed: float=game.retention.machine.elapsed
@@ -72,7 +72,7 @@ func review() -> void:
 				await capture("fast_skip")
 			await tap(game.retention.buttons[1]); assert(game.state=="result" and not game.retention.dimmer.visible)
 		# Native reduced-motion premium still retains its timing/card with no shake/punch.
-		game.audio_settings.cinematic_reduced_motion=true; game.coins=1000; game.total_kills=20; game.retention.progress.data.red_fragments=24; game.retention.progress.save()
+		game.audio_settings.cinematic_reduced_motion=true; game.coins=0; game.total_kills=20;game.retention.progress.data.free_spins=1;game.retention.progress.data.legacy_spins=0; game.retention.progress.data.red_fragments=24; game.retention.progress.save()
 		game.retention.show_spinner(); await create_timer(.22).timeout; await tap(game.retention.buttons[4]); assert(game.retention.machine.reduced_motion)
 		while game.retention.spin_busy: await process_frame
 		await capture("reduced_red"); await sample_performance("spinner_settled",false)

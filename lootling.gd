@@ -487,9 +487,13 @@ func debug_action(action: String, payload) -> String:
 		"shards":
 			meta_shards += int(payload); save_meta(); refresh_hideout()
 			return "Added %d Loot Diamonds and saved." % int(payload)
-		"scrip":
-			debug_ensure_run(); coins += int(payload)
-			return "Added %d run-only Scrip." % int(payload)
+		"earned_spin":
+			var before: int=int(retention.progress.data.get("free_spins",0))
+			retention.progress.data.free_spins=mini(retention.progress.FREE_BANK_CAP,before+1)
+			if retention.progress.save()!=OK:
+				retention.progress.data.free_spins=before
+				return "Could not save test spin."
+			return "Added one saved test spin."
 		"xp":
 			debug_ensure_run(); add_xp(maxf(1.0, xp_needed - xp + 1.0))
 			return "Forced one run level-up."
@@ -947,11 +951,11 @@ func show_expedition_event() -> void:
 	event_seen.append(event_id)
 	var data: Dictionary = ExpeditionEvents.EVENTS[event_id]
 	event_title.text = data.title
-	event_line.text = "%s\n\nHP %.0f / %.0f  •  %d RUN SCRIP" % [data.line,player_hp,player_max_hp,coins]
+	event_line.text = "%s\n\nHP %.0f / %.0f / WARD %.0f" % [data.line,player_hp,player_max_hp,player_ward]
 	for index in range(2):
 		var choice: Dictionary = ExpeditionEvents.choices_for(event_id,wave)[index]
 		event_buttons[index].text = "%s\n%s" % [str(choice.name).to_upper(),choice.desc]
-		event_buttons[index].disabled = coins + int(choice.get("scrip",0)) < 0 or player_hp + float(choice.get("hp",0)) <= 0
+		event_buttons[index].disabled = player_hp + float(choice.get("hp",0)) <= 0
 	event_buttons[2].text = "KEEP MOVING\nLeave everything as it is."
 	event_buttons[2].disabled = false
 	for button in event_buttons:
@@ -967,17 +971,13 @@ func choose_expedition_event(index: int) -> void:
 	if state != "event" or index < 0 or index > 2 or event_id.is_empty(): return
 	var choice: Dictionary = {} if index == 2 else ExpeditionEvents.choices_for(event_id,wave)[index]
 	var secret_found: bool=index!=2 and event_id=="secret_bell"
-	var scrip := int(choice.get("scrip",0))
 	var hp := float(choice.get("hp",0))
-	if coins+scrip < 0 or player_hp+hp <= 0: return
+	if player_hp+hp <= 0: return
 	if index != 2: expedition_progress.record_event(event_id,float(choice.get("risk",1.0)) > 1.0)
 	# Leave decision state before rewards; a second tap cannot repeat payment.
 	state = "playing"; event_panel.visible = false; event_id = ""
 	if secret_found:retention.progress.earn_spin("secret")
 	pause_button.visible = true
-	coins += scrip
-	if scrip > 0: run_coins_earned += scrip
-	else: run_coins_spent -= scrip
 	player_hp = minf(player_max_hp,player_hp+hp)
 	player_ward = minf(15,player_ward+float(choice.get("ward",0)))
 	event_risk = float(choice.get("risk",1.0)); event_power = float(choice.get("power",1.0))
@@ -1276,7 +1276,7 @@ func use_gold_cache() -> void:
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"scavenged_cache", "currency":"gold", "price":hideout_shop.GOLD_CACHE_COST})
 
 func buy_gold_upgrade(upgrade_id: String) -> void:
-	if state != "hideout" or not upgrade_id in gold_upgrades:
+	if state != "hideout" or upgrade_id=="pouch" or not upgrade_id in gold_upgrades:
 		return
 	var costs: Dictionary={}
 	for id in preload("res://permanent_upgrade_catalog.gd").DEFINITIONS:costs[id]=preload("res://permanent_upgrade_catalog.gd").DEFINITIONS[id][2]
@@ -1576,7 +1576,7 @@ func build_merchant_ui() -> void:
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
-	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 560), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","Costs %d Run Scrip. All three current offers will be replaced." % shop.reroll_cost(wave),reroll_merchant))
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 560), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","One free redraw per stop. All three current offers will be replaced.",reroll_merchant))
 	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 560), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
@@ -1721,7 +1721,7 @@ func start_run() -> void:
 	player_max_hp += int(character_trait.hp) + preload("res://permanent_upgrade_catalog.gd").heart(int(gold_upgrades.get("heartprism",0)))
 	player_hp = player_max_hp
 	base_damage = 11.0 * meta_bonus + int(gold_upgrades.get("whetstone", 0)) * 0.6
-	coins = 0 if retention.siege else int(gold_upgrades.get("pouch", 0)) * 8
+	coins = 0 # No normal expedition wallet.
 	attack_interval = 0.85
 	attack_clock = 0.3
 	crit_chance = 0.08 + preload("res://permanent_upgrade_catalog.gd").keen(int(gold_upgrades.get("keenprism",0)))
@@ -2625,7 +2625,7 @@ func kill_enemy() -> void:
 	elif enemy_is_miniboss or not enemy_variant_id.is_empty():retention.progress.earn_spin("elite")
 	if total_kills>=30:retention.progress.earn_spin("milestone")
 	if str(character_trait.get("perk","")) == "scavenger" and total_kills % 5 == 0:
-		coins += 8; run_coins_earned += 8
+		add_xp(8)
 	if str(character_trait.get("perk","")) == "advance": carried_shockwave += base_damage*.10
 	contracts.record("kill")
 	expedition_progress.record_kill(CharacterTraits.actor_id(profile),str(inventory.equipped_item("Weapon").get("weapon_type","greatsword")),enemy_name,enemy_variant_id,enemy_is_miniboss,enemy_is_boss)
@@ -2658,9 +2658,12 @@ func kill_enemy() -> void:
 		add_float("POP -%.0f" % blast_damage, Vector2(180, 423), enemy_variant_color, 16)
 		add_particles(Vector2(345, 455), enemy_variant_color, 12)
 	var reward := int(round((5.0 + (mini(15,wave) if retention.siege else wave) * 1.8) * coin_reward_mult * (1.0 + inventory.effect_total("coin_mult")) * (4.0 if enemy_is_boss else 2.0 if enemy_is_miniboss else 1.0) * enemy_reward_multiplier))
-	coins += reward
-	run_coins_earned += reward
+	if retention.siege:
+		coins += reward
+		run_coins_earned += reward
+	else:reward=0
 	var xp_reward := (13.0 + (mini(15,wave) if retention.siege else wave) * 2.2) * xp_reward_mult * (2.6 if enemy_is_boss else 1.8 if enemy_is_miniboss else 1.0) * enemy_xp_multiplier
+	if not retention.siege:xp_reward*=1.0+minf(.25,maxf(0.0,inventory.effect_total("coin_mult")*.25))
 	var fire_count: int = build.count("Fire")
 	if fire_count >= 3 or wildfire_power > 0:
 		var explosion := base_damage * (0.45 * fire_count + wildfire_power * 0.5)
@@ -2685,8 +2688,8 @@ func kill_enemy() -> void:
 		play_audio_event("equipment_drop")
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "gear_drop", {"wave":wave, "boss":enemy_is_boss, "miniboss":enemy_is_miniboss})
 	add_xp(xp_reward)
-	if not enemy_is_boss:
-		add_float("+%d SCRIP" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
+	if retention.siege and not enemy_is_boss:
+		add_float("+%d EMBERS" % reward, Vector2(346, 355), Color("#ffd65a"), 18)
 	add_particles(Vector2(365, 470), Color("#ffd65a"), 32 if enemy_is_boss else 22 if enemy_is_miniboss else 16)
 	add_reward_burst(reward, xp_reward)
 	status_message = "MINIBOSS DEFEATED" if enemy_is_miniboss else ""
@@ -2884,9 +2887,9 @@ func inspect_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
 	var item: Dictionary = shop.stock[index]
 	merchant_selection = index; selection_msec = Time.get_ticks_msec()
-	merchant_detail.text = "[b]NEW ITEM: %s[/b]\n%d RUN SCRIP / equip only if you choose\n%s" % [item.name,int(item.price),build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
-	merchant_buy_button.text = "BUY %d — ENDS THIS STOP" % int(item.price)
-	merchant_buy_button.disabled = coins < int(item.price)
+	merchant_detail.text = "[b]NEW ITEM: %s[/b]\nFREE / one supply choice this stop\n%s" % [item.name,build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
+	merchant_buy_button.text = "TAKE FREE / ENDS THIS STOP"
+	merchant_buy_button.disabled = shop.purchase_taken
 	for i in range(merchant_buttons.size()):
 		LootlingsUI.apply_selection(merchant_buttons[i],i==index)
 
@@ -2895,7 +2898,7 @@ func buy_selected_merchant() -> void:
 	var index := merchant_selection
 	if state!="merchant" or index>=shop.stock.size():return
 	var item:Dictionary=shop.stock[index]
-	touch_ux.request("Buy %s?" % item.name,"Pay %d Run Scrip. This ends the merchant stop. Equipping remains optional." % int(item.price),func():merchant_selection=-1;buy_merchant_item(index))
+	touch_ux.request("Take %s?" % item.name,"FREE. Choose one item this stop. Equipping remains optional.",func():merchant_selection=-1;buy_merchant_item(index))
 
 func inspect_upgrade(index: int) -> void:
 	if state != "upgrade" or index < 0 or index >= selected_upgrades.size(): return
@@ -3002,9 +3005,10 @@ func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 	return result + "\n".join(changes)
 
 func format_effect_delta(key: String, amount: float) -> String:
+	if key=="coin_mult":return "%+.1f%% EXPEDITION XP / %+.0f%% SIEGE EMBERS" % [amount*25.0,amount*100.0]
 	var labels := {
 		"damage_mult":"DAMAGE", "attack_speed":"ATTACK RATE", "attack_slow":"ATTACK RATE",
-		"crit":"CRIT CHANCE", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"RUN SCRIP",
+		"crit":"CRIT CHANCE", "max_hp":"MAX HP", "armor":"ARMOUR", "coin_mult":"EXPEDITION XP",
 		"execute":"EXECUTE", "fire_damage":"BURN POWER", "crit_lightning":"CRIT SPARK",
 		"poison_bonus":"POISON STACK", "poison_duration":"POISON TIME", "boss_damage":"BOSS DAMAGE",
 		"heavy_bonus":"HEAVY POWER", "kill_explosion":"KILL BURST", "low_health_damage":"LOW-HP POWER"
@@ -3130,11 +3134,11 @@ func refresh_merchant_ui() -> void:
 	merchant_selection = -1
 	merchant_buy_button.disabled = true
 	merchant_buy_button.text = "SELECT AN OFFER"
-	merchant_detail.text = "Inspect an offer. One purchase ends this stop."
+	merchant_detail.text = "Choose one free supply. You may redraw once before taking it."
 	merchant_title.text = "PACK PEDDLER"
 	merchant_subtitle.text = shop.stock_style + " • PICK ONE"
 	merchant_subtitle.add_theme_font_size_override("font_size",11)
-	merchant_coin_label.text = "[center]%s  %s RUN SCRIP[/center]" % [LootlingsUI.inline_icon("currency_run_scrip", 20), preload("res://display_numbers.gd").compact(coins)]
+	merchant_coin_label.text = "[center]ONE FREE SUPPLY CHOICE[/center]"
 	for i in range(merchant_buttons.size()):
 		var button := merchant_buttons[i]
 		LootlingsUI.apply_selection(button,false)
@@ -3158,7 +3162,7 @@ func refresh_merchant_ui() -> void:
 		var headline := ItemCatalog.describe_headline_effects(item, 1).replace("\n", "  •  ")
 		if headline.length() > 43:
 			headline = headline.left(42) + "…"
-		button.text = "%s%s  •  %d SCRIP\n%s%s  [%s]\n%s%s" % [indent, ItemCatalog.display_slot(item.get("slot", "Item")), price, indent, item.name, item.rarity, indent, headline]
+		button.text = "%s%s / FREE\n%s%s [%s]\n%s%s" % [indent,ItemCatalog.display_slot(item.get("slot","Item")),indent,item.name,item.rarity,indent,headline]
 		button.tooltip_text = "%s\n%s" % [item.name, ItemCatalog.describe_headline_effects(item, 2)]
 		button.disabled = shop.purchase_taken
 		apply_button_style(button, Color("#202d52"), ItemCatalog.rarity_color(item.rarity))
@@ -3166,14 +3170,13 @@ func refresh_merchant_ui() -> void:
 		# Keep the semantic button text, but render its information in an icon-safe lane.
 		for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_disabled_color", "font_shadow_color"]:
 			button.add_theme_color_override(state_name, Color.TRANSPARENT)
-		merchant_visuals[i].kicker.text = "%s  •  %s  •  %d SCRIP" % ["PREMIUM" if item.get("premium",false) else ItemCatalog.display_slot(item.get("slot", "Item")), item.rarity, price]
+		merchant_visuals[i].kicker.text = "%s / %s / FREE" % ["PREMIUM" if item.get("premium",false) else ItemCatalog.display_slot(item.get("slot","Item")),item.rarity]
 		merchant_visuals[i].name.text = str(item.name)
 		merchant_visuals[i].effect.text = headline
 		for label in merchant_visuals[i].values():
 			label.modulate = Color("#a1a9bb") if button.disabled else Color.WHITE
-	var reroll_price := shop.reroll_cost(wave)
-	merchant_reroll_button.text = "REROLL  %d" % reroll_price
-	merchant_reroll_button.disabled = shop.purchase_taken or coins < reroll_price
+	merchant_reroll_button.text = "REDRAW / FREE" if shop.can_reroll() else "REDRAW USED"
+	merchant_reroll_button.disabled = not shop.can_reroll()
 
 func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dictionary) -> void:
 	category_icon.visible = true
@@ -3186,13 +3189,8 @@ func apply_merchant_thumbnail(button: Button, category_icon: Control, item: Dict
 func buy_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size():
 		return
-	var price := int(shop.stock[index].get("price", 0))
-	if coins < price:
-		return
-	coins -= price
-	run_coins_spent += price
 	play_audio_event("shop_purchase")
-	AnalyticsLogger.log_event(ANALYTICS_PATH, "scrip_spent", {"amount":price, "source":"pack_peddler"})
+	AnalyticsLogger.log_event(ANALYTICS_PATH,"free_supply_choice",{"source":"pack_peddler"})
 	var bought: Dictionary = shop.take(index)
 	merchant_panel.visible = false
 	return_to_merchant = true
@@ -3201,16 +3199,9 @@ func buy_merchant_item(index: int) -> void:
 	show_next_item()
 
 func reroll_merchant() -> void:
-	if state != "merchant" or shop.purchase_taken:
-		return
-	var price := shop.reroll_cost(wave)
-	if coins < price:
-		return
-	coins -= price
-	run_coins_spent += price
+	if state != "merchant" or not shop.can_reroll():return
 	play_audio_event("ui_press")
-	AnalyticsLogger.log_event(ANALYTICS_PATH, "scrip_spent", {"amount":price, "source":"pack_peddler_reroll"})
-	shop.reroll(loot_system, wave)
+	shop.reroll(loot_system,wave)
 	refresh_merchant_ui()
 
 func leave_merchant() -> void:
@@ -3334,7 +3325,6 @@ func apply_upgrade_effect(up: Dictionary) -> void:
 		"execute": execute_ratio = minf(0.35, execute_ratio + 0.12)
 		"regen": regen_per_second += 1.5
 		"greed":
-			coin_reward_mult += 0.25
 			xp_reward_mult += 0.15
 		"heavy": heavy_power += 1
 		"storm": storm_power += 1
@@ -3408,18 +3398,18 @@ func end_run(victory: bool) -> void:
 		retention.call_deferred("present_red_drop",mythical_deliveries[0],"Saved to Gear. A prismatic keepsake!")
 	if retention.siege:
 		result_title.text="SIEGE EXTRACTED" if victory else "SIEGE ENDED"
-		result_summary.text=result_summary.text.replace("RUN SCRIP","SIEGE EMBERS").replace("Wave reached  %d / %d" % [wave,RUN_LAST_WAVE],"Round reached  %d" % wave)
+		result_summary.text=result_summary.text.replace("Wave reached %d / %d" % [wave,RUN_LAST_WAVE],"Round reached %d" % wave)
 	refresh_result_loot()
 	if dungeon.active:
 		result_title.text = ("PRISM RIFT CLEARED!" if retention.rift_active else "ROOTGLASS VAULT CLEARED!" if retention.targeted else "RELIC ROUTE CLEARED!") if victory else "ROUTE ENDED"
-		result_summary.text = result_summary.text.replace("Wave reached  %d / %d" % [wave, RUN_LAST_WAVE], "Rooms entered  %d / 8 • Seed %d" % [dungeon.depth + 1, dungeon.seed_value])
+		result_summary.text = result_summary.text.replace("Wave reached %d / %d" % [wave, RUN_LAST_WAVE], "Rooms entered  %d / 8 • Seed %d" % [dungeon.depth + 1, dungeon.seed_value])
 	if presentation_director != null:
 		presentation_director.present_card(result_panel, Color("#ffe178") if victory else Color("#ff8995"), 0.34)
 	play_audio_event("victory" if victory else "defeat")
 	if audio_manager != null:
 		audio_manager.set_music("VICTORY" if victory else "DEFEAT")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "gold_earned", {"amount":run_gold_earned, "source":"run_result", "victory":victory})
-	AnalyticsLogger.log_event(ANALYTICS_PATH, "run_end", {"victory":victory, "wave":wave, "kills":total_kills, "gold":run_gold_earned, "scrip_earned":run_coins_earned, "scrip_spent":run_coins_spent})
+	AnalyticsLogger.log_event(ANALYTICS_PATH, "run_end", {"victory":victory, "wave":wave, "kills":total_kills, "gold":run_gold_earned, "siege_embers_earned":run_coins_earned, "siege_embers_spent":run_coins_spent})
 	if victory:
 		hideout_ui.queue_dialogue_context("boss_defeated")
 	elif wave <= 5:
@@ -3431,16 +3421,17 @@ func end_run(victory: bool) -> void:
 			add_particles(Vector2(80 + burst * 105, 260 + (burst % 2) * 70), Color("#ffd766") if burst % 2 == 0 else Color("#81e6ff"), 18)
 
 func format_result_summary(victory: bool, reached_wave: int, kills: int, earned: int, spent: int, left: int, scrap_gained: int, shards_gained: int, notable_loot: String, gold_gained: int = 0) -> String:
-	return "%s\nWave reached  %d / %d  •  Enemies  %d\n\nRUN SCRIP\nEarned     %d\nSpent      %d\nAt finish  %d\n\nRUN REWARDS\nLootcoins +%d  •  Scrap +%d  •  Diamonds +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT", reached_wave, RUN_LAST_WAVE, kills, earned, spent, left, gold_gained, scrap_gained, shards_gained, notable_loot]
+	var summary: String="%s\nWave reached %d / %d / Enemies %d\n\nRUN REWARDS\nLootcoins +%d / Scrap +%d / Diamonds +%d\n\nNOTABLE LOOT\n%s" % ["VICTORY" if victory else "DEFEAT",reached_wave,RUN_LAST_WAVE,kills,gold_gained,scrap_gained,shards_gained,notable_loot]
+	if retention.siege:summary+="\n\nSIEGE EMBERS\nEarned %d / used %d / left %d\nExpedition-only; not permanent Lootcoins." % [earned,spent,left]
+	return summary
 
 func style_result_summary(summary: String) -> String:
 	var styled := summary
 	for resource in ["Lootcoins", "Scrap", "Diamonds"]:
 		var icon_name: String = {"Lootcoins":"gold", "Scrap":"scrap", "Diamonds":"star_shard"}[resource]
 		styled = styled.replace("%s +" % resource, "%s %s +" % [LootlingsUI.inline_icon("currency_%s" % icon_name), resource])
-	for heading in ["RUN SCRIP", "RUN REWARDS", "NOTABLE LOOT"]:
+	for heading in ["SIEGE EMBERS", "RUN REWARDS", "NOTABLE LOOT"]:
 		styled = styled.replace(heading, "[font_size=12][color=#dabb79]%s[/color][/font_size]" % heading)
-	styled = styled.replace("[font_size=12][color=#dabb79]RUN SCRIP", "[font_size=12][color=#dabb79]%s RUN SCRIP" % LootlingsUI.inline_icon("currency_run_scrip"))
 	return "[center]%s[/center]" % styled
 
 func buy_meta_power() -> void:
@@ -3763,7 +3754,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	var lane := "damage"
 	if text_value.begins_with("-") or text_value.begins_with("WARD −"):
 		lane = "player"
-	elif text_value.contains("SCRIP") or text_value.contains("LOOT") or text_value.contains("HOARD"):
+	elif text_value.contains("EMBERS") or text_value.contains("LOOT") or text_value.contains("HOARD"):
 		lane = "reward"
 	elif is_dot or prefix in ["WARD"]:
 		lane = "secondary"
@@ -3798,7 +3789,7 @@ func add_particles(pos: Vector2, color: Color, count: int) -> void:
 
 func add_reward_burst(coin_reward: int, xp_reward: float) -> void:
 	var coin_cap := 7 if enemy_is_boss else 4 if enemy_is_miniboss else 3
-	var coin_count := mini(coin_cap, maxi(3, int(coin_reward / 7) + 3))
+	var coin_count := mini(coin_cap, maxi(3, int(coin_reward / 7) + 3)) if retention.siege else 0
 	for i in range(coin_count):
 		var start := Vector2(360, 490) + Vector2(visual_rng.randf_range(-24, 24), visual_rng.randf_range(-18, 20))
 		reward_pickups.append({"kind":"coin", "start":start, "pos":start, "target":Vector2(420, 35), "vel":Vector2(visual_rng.randf_range(-130.0, 85.0), visual_rng.randf_range(-230.0, -120.0)), "delay":0.16 + i * 0.035, "life":0.72, "max_life":0.72})
@@ -3877,11 +3868,12 @@ func draw_hud() -> void:
 	if retention.targeted: location_line="ROOTGLASS VAULT • %s" % ("CHOOSE PATH" if dungeon.depth<0 else "ROOM %02d" % (dungeon.depth+1))
 	draw_string(body_font, Vector2(60, 52), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 11, Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
-	var scrip_center := Vector2(353, 29)
-	var scrip_radius := 10.0 + coin_pulse * 3.0
-	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon("currency_run_scrip"), Rect2(scrip_center - Vector2.ONE * scrip_radius, Vector2.ONE * scrip_radius * 2))
-	draw_string(body_font, Vector2(370, 36), preload("res://display_numbers.gd").compact(coins), HORIZONTAL_ALIGNMENT_LEFT, 80, 18 + int(coin_pulse * 3.0), Color("#fff2a0") if coin_pulse > 0.0 else Color("#ffe078"))
-	draw_string(body_font, Vector2(334, 51), "EMBERS" if retention.siege else "SCRIP", HORIZONTAL_ALIGNMENT_CENTER, 132, 11, Color("#9fddff"))
+	var resource_center := Vector2(353,29)
+	var resource_radius := 10.0+coin_pulse*3.0
+	LootlingsUI.draw_icon(get_canvas_item(),LootlingsUI.icon("currency_run_scrip" if retention.siege else "currency_gold"),Rect2(resource_center-Vector2.ONE*resource_radius,Vector2.ONE*resource_radius*2))
+	var hud_value: int=coins if retention.siege else gold
+	draw_string(body_font,Vector2(370,36),preload("res://display_numbers.gd").compact(hud_value),HORIZONTAL_ALIGNMENT_LEFT,80,18,Color("#ffe078"))
+	draw_string(body_font,Vector2(334,51),"EMBERS" if retention.siege else "LOOTCOINS",HORIZONTAL_ALIGNMENT_CENTER,132,11,Color("#9fddff"))
 	# A readable, named progression track; Ward has its own blue protection lane.
 	var xp_width := 294.0 if player_ward > 0 else 444.0
 	var xp_caption := "XP %d / %d  ·  NEXT LV %d" % [int(xp), int(xp_needed), level+1]

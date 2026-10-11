@@ -23,12 +23,14 @@ func _initialize() -> void:
 	for wave in [6,11]:
 		for sample in range(2000):
 			loot.rng.seed = hash("shop:%d:%d" % [wave,sample])
-			shop.generate_stock(loot,wave)
+			shop.begin_visit(loot,wave)
 			var total := 0
 			var cheapest := 999999
 			for item in shop.stock:
-				assert(item.price >= Items.scrap_value(item))
+				assert(item.price == 0) # Roadside gear is a bounded free choice, not a permanent-currency shop.
 				total += item.price; cheapest = mini(cheapest,item.price)
+			assert(shop.can_reroll());shop.reroll(loot,wave);assert(not shop.can_reroll());var offers: Array=shop.stock.duplicate(true);shop.reroll(loot,wave);assert(shop.stock==offers)
+			assert(not shop.take(0).is_empty() and shop.take(0).is_empty())
 			budgets.append({"wave":wave,"sample":sample,"cheapest":cheapest,"total":total,"reroll":shop.reroll_cost(wave)})
 	# Persistent buy -> salvage never prints currency. Cache expected salvage
 	# is an intentional sink, not a profitable repeated lottery.

@@ -21,7 +21,7 @@ const ITEMS := [
 	{"id":"moonbite_daggers", "name":"Moonbite Daggers", "slot":"Weapon", "family":"ROGUE", "weapon_type":"daggers", "icon":"DAGGERS", "evolution_path":["Moonfangs", "Night's Receipt"], "desc":"Quick blades for critical hits and finishing wounded foes. Subtlety optional.", "effects":{"crit":0.09, "execute":0.05}},
 	{"id":"mossguard_harness", "name":"Mossguard Harness", "slot":"Armour", "icon":"GUARD", "desc":"Living bark cushions hits and grows vitality.", "effects":{"max_hp":32.0, "armor":0.07}},
 	{"id":"ironpaw_plate", "name":"Ironpaw Plate", "slot":"Armour", "icon":"PLATE", "desc":"Heavy plating trades speed for force.", "effects":{"max_hp":48.0, "damage_mult":0.12, "attack_slow":0.10}},
-	{"id":"hoarders_locket", "name":"Hoarder's Locket", "slot":"Relic", "icon":"LOCKET", "desc":"More Run Scrip from kills. Spend the proceeds before the expedition ends.", "effects":{"coin_mult":0.35}},
+	{"id":"hoarders_locket", "name":"Hoarder's Locket", "slot":"Relic", "icon":"LOCKET", "desc":"Learn from every find. Its old treasure bonus now grants expedition XP.", "effects":{"coin_mult":0.35}},
 	{"id":"cursed_ring", "name":"Definitely Not Cursed Ring", "slot":"Relic", "icon":"RING", "desc":"Strength at low health costs maximum HP. The inscription says probably.", "effects":{"low_health_damage":0.48, "max_hp":-12.0}},
 	{"id":"ember_pop", "name":"Ember Pop Rune", "slot":"Rune", "icon":"FIRE", "desc":"An ember sealed in old kiln-glass. Strengthens burns and blasts on kills.", "effects":{"fire_damage":0.28, "kill_explosion":0.30}},
 	{"id":"stormspark", "name":"Stormspark Rune", "slot":"Rune", "icon":"SPARK", "desc":"Critical hits call a lightning spark.", "effects":{"crit_lightning":0.55}},
@@ -29,7 +29,7 @@ const ITEMS := [
 	{"id":"ground_slam", "name":"Ground Slam Rune", "slot":"Rune", "icon":"SLAM", "desc":"A deep-earth seal that lends weight to heavy strikes against guardians.", "effects":{"boss_damage":0.30, "heavy_bonus":0.35}},
 	{"id":"sunken_cleaver", "name":"Sunken Cleaver", "slot":"Weapon", "family":"VANGUARD", "weapon_type":"greatsword", "icon":"BLADE", "desc":"A salt-dark blade that lands like an anchor.", "effects":{"damage_mult":0.17, "boss_damage":0.08}},
 	{"id":"crooked_longbow", "name":"Crooked Longbow", "slot":"Weapon", "family":"RANGER", "weapon_type":"bow", "projectile":"arrow", "icon":"BOW", "evolution_path":["Ruin Longbow", "Starstring"], "desc":"Ugly, eager and remarkably accurate.", "effects":{"attack_speed":0.09, "crit":0.05}},
-	{"id":"ruinweave_coat", "name":"Ruinweave Coat", "slot":"Armour", "icon":"GUARD", "desc":"Vault-thread reinforcement protects the wearer and keeps scavenged Scrip close.", "effects":{"max_hp":25.0, "armor":0.045, "coin_mult":0.08}},
+	{"id":"ruinweave_coat", "name":"Ruinweave Coat", "slot":"Armour", "icon":"GUARD", "desc":"Vault-thread reinforcement protects the wearer and keeps useful discoveries close.", "effects":{"max_hp":25.0, "armor":0.045, "coin_mult":0.08}},
 	{"id":"dragon_scale_patch", "name":"Dragon-Scale Patch", "slot":"Armour", "icon":"PLATE", "desc":"A salvaged guardian scale, bound over the heart for the next hunt.", "effects":{"max_hp":38.0, "boss_damage":0.08}},
 	{"id":"lucky_bell", "name":"Suspicious Lucky Bell", "slot":"Relic", "icon":"LOCKET", "desc":"Rings when treasure is pretending not to exist.", "effects":{"coin_mult":0.20, "crit":0.025}},
 	{"id":"relic_magnet_charm", "name":"Relic Magnet Charm", "slot":"Relic", "icon":"RING", "desc":"Tugs loose relic energy into useful patterns.", "effects":{"attack_speed":0.04, "crit_lightning":0.18}},
@@ -124,7 +124,7 @@ static func describe_effects(item: Dictionary) -> String:
 	if effects.has("crit"): parts.append("%+.0f%% crit" % (effects.crit * 100.0))
 	if effects.has("max_hp"): parts.append("%+.0f max HP" % effects.max_hp)
 	if effects.has("armor"): parts.append("%+.0f%% armour" % (effects.armor * 100.0))
-	if effects.has("coin_mult"): parts.append("%+.0f%% Run Scrip" % (effects.coin_mult * 100.0))
+	if effects.has("coin_mult"): parts.append("%+.1f%% expedition XP / %+.0f%% Siege Embers" % [effects.coin_mult * 25.0,effects.coin_mult * 100.0])
 	if effects.has("execute"): parts.append("%+.0f%% execute threshold" % (effects.execute * 100.0))
 	if effects.has("repeat_every"): parts.append("repeat every %d attacks" % effects.repeat_every)
 	if effects.has("crit_lightning"): parts.append("crits spark lightning")

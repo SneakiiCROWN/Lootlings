@@ -1,0 +1,119 @@
+[
+  {
+    "second_cold_restart": "PASS",
+    "kind": "material",
+    "kill_boundary": "before_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "material",
+    "kill_boundary": "after_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "item",
+    "kill_boundary": "before_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "item",
+    "kill_boundary": "after_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "mastery",
+    "kill_boundary": "before_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "mastery",
+    "kill_boundary": "after_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "blueprint",
+    "kill_boundary": "before_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "blueprint",
+    "kill_boundary": "after_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "economy",
+    "kill_boundary": "baseline_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "BASELINE UNSAFE OFFER REPLAY",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "economy",
+    "kill_boundary": "before_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "economy",
+    "kill_boundary": "mid_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "economy",
+    "kill_boundary": "after_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  },
+  {
+    "second_cold_restart": "PASS",
+    "kind": "economy",
+    "kill_boundary": "last_destination",
+    "process_terminated": true,
+    "restart_recovery": "PASS",
+    "duplicate_delivery": "NONE",
+    "legacy_spin_entitlements_and_free_spins": "PRESERVED"
+  }
+]

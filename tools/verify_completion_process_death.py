@@ -24,6 +24,6 @@ for kind in ['material','item','mastery','blueprint','economy']:
   recovered=subprocess.run(command,env=env,capture_output=True,timeout=30);text=recovered.stdout.decode('utf-8',errors='replace')+recovered.stderr.decode('utf-8',errors='replace');(out/(name+'-restart.log')).write_text(text,encoding='utf-8')
   assert recovered.returncode==0 and 'PROCESS_DEATH_RECOVERY_PASS' in text and 'ERROR:' not in text,(name,text)
   again=subprocess.run(command,env=env,capture_output=True,timeout=30);again_text=again.stdout.decode('utf-8',errors='replace')+again.stderr.decode('utf-8',errors='replace');(out/(name+'-second-restart.log')).write_text(again_text,encoding='utf-8');assert again.returncode==0 and 'PROCESS_DEATH_RECOVERY_PASS' in again_text and 'ERROR:' not in again_text,(name,again_text)
-  results.append({'second_cold_restart':'PASS','kind':kind,'kill_boundary':stage+'_destination','process_terminated':True,'restart_recovery':'PASS','duplicate_delivery':'BASELINE UNSAFE OFFER REPLAY' if stage=='baseline' else 'NONE','wallet_and_free_spins':'PRESERVED'})
+  results.append({'second_cold_restart':'PASS','kind':kind,'kill_boundary':stage+'_destination','process_terminated':True,'restart_recovery':'PASS','duplicate_delivery':'BASELINE UNSAFE OFFER REPLAY' if stage=='baseline' else 'NONE','legacy_spin_entitlements_and_free_spins':'PRESERVED'})
   print(name,'PASS',flush=True)
 (out/'results.json').write_text(json.dumps(results,indent=2)+'\n');print(out)

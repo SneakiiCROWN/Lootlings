@@ -9,7 +9,7 @@ const ROOMS := {
 	"Combat":{"icon":"res://art/ui/icons/upgrades/damage.png", "desc":"Three foes. Choose targets; clear the patrol.", "title":"PATROL CHAMBER"},
 	"Elite":{"icon":"variant_armoured", "desc":"One tough guardian. Guaranteed equipment.", "title":"RELIC GUARDIAN"},
 	"Treasure":{"icon":"res://art/production/phase4e/items/treasure_key.png", "desc":"Open a Relic Chest. One guaranteed item.", "title":"SEALED TREASURY"},
-	"Merchant":{"icon":"res://art/production/phase4e/props/merchant_cart.png", "desc":"Spend your Run Scrip. Existing shop tradeoffs.", "title":"PACK PEDDLER"},
+	"Merchant":{"icon":"res://art/production/phase4e/props/merchant_cart.png", "desc":"Choose one free supply. One redraw per stop.", "title":"PACK PEDDLER"},
 	"Shrine":{"icon":"res://art/production/phase4e/props/home_shrine.png", "desc":"Choose one free run upgrade. No permanent stats.", "title":"RELIC SHRINE"},
 	"Risk":{"icon":"res://art/production/phase4e/props/brass_torch.png", "desc":"A stronger three-foe patrol. Ordinary drop rules.", "title":"CURSED CROSSING"},
 	"Rest":{"icon":"res://art/production/phase4e/props/quiet_camp.png", "desc":"Recover 22% of maximum HP. No currency cost.", "title":"QUIET CAMP"},

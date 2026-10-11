@@ -168,6 +168,7 @@ static func sanitize_saved_item(record: Variant, expected_slot: String = "") -> 
 		var value = item.effects[key]
 		if not (value is int or value is float) or not is_finite(float(value)): return {}
 	var defaults := ItemCatalog.definition(item.id)
+	if str(item.get("desc","")).contains("Scrip") and not defaults.is_empty():item.desc=defaults.get("desc",item.get("desc",""))
 	for key in ["name","desc","rarity","family","weapon_type","signature"]:
 		if item.has(key) and not item[key] is String: item[key] = str(defaults.get(key,""))
 	if item.has("signature_hooks"):

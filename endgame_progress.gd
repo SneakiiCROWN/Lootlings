@@ -8,7 +8,7 @@ const PATH="user://endgame.cfg"
 const FREE_BANK_CAP:=12
 const FREE_RUN_CAP:=3
 func load_progress() -> void:
-	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
+	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[],"legacy_spins":0,"wallet_retired":false},false)
 	var loaded: Dictionary=provider.load_snapshot(PATH,"endgame")
 	for key in data:
 		if loaded.has(key) and typeof(loaded[key])==typeof(data[key]): data[key]=loaded[key]
@@ -23,6 +23,9 @@ func load_progress() -> void:
 	data.free_spins=clampi(Safe.int_value(data.free_spins),0,FREE_BANK_CAP)
 	data.free_run_grants=clampi(Safe.int_value(data.free_run_grants),0,FREE_RUN_CAP)
 	data.earned_receipts=data.earned_receipts.filter(func(value):return value is String and value.length()<240).slice(-128)
+	data.legacy_spins=clampi(Safe.int_value(data.legacy_spins),0,3)
+	if loaded.is_empty():data.wallet_retired=true
+	else:migrate_legacy_wallet()
 static func valid_reward(value) -> bool:
 	if not value is Dictionary or not value.get("receipt",null) is String or value.receipt.is_empty(): return false
 	var kind: String=str(value.get("kind",""))
@@ -32,12 +35,13 @@ static func valid_reward(value) -> bool:
 	return kind!="mastery" or (value.get("actor",null) is String and value.get("actor") in preload("res://lootling_catalog.gd").ENTRIES.keys()+preload("res://wanderer_catalog.gd").PRESETS.keys() and value.get("family",null) is String and value.get("family") in preload("res://weapon_catalog.gd").FAMILIES)
 func save() -> Error: return provider.save_snapshot(PATH,"endgame",data)
 func begin(region: String) -> void:
-	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
+	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[],"legacy_spins":0,"wallet_retired":false},false)
+	if migrate_legacy_wallet()!=OK:return
 	data.session="run:%d:%d" % [Time.get_unix_time_from_system(),Time.get_ticks_usec()]
 	data.spins=0; data.spin_wallet=0; data.region=region; data.free_run_grants=0; save()
 
 func earn_spin(reason: String) -> bool:
-	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[]},false)
+	data.merge({"free_spins":0,"free_run_grants":0,"earned_receipts":[],"legacy_spins":0,"wallet_retired":false},false)
 	if data.session.is_empty() or reason not in ["boss","elite","milestone","secret","extraction"]:return false
 	var receipt: String="earned:%s:%s" % [data.session,reason]
 	if receipt in data.earned_receipts or data.free_spins>=FREE_BANK_CAP or data.free_run_grants>=FREE_RUN_CAP:return false
@@ -48,19 +52,40 @@ func earn_spin(reason: String) -> bool:
 	return true
 
 func free_spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
-	if int(data.get("free_spins",0))<=0:return "No earned spins stored."
+	return reserve_spin(rng,actor,family,false)
+
+func reserve_spin(rng: RandomNumberGenerator, actor: String, family: String, legacy: bool) -> String:
+	var key: String="legacy_spins" if legacy else "free_spins"
+	if int(data.get(key,0))<=0:return "No earned spins stored."
 	if not data.pending.is_empty() or not data.quarantined_rewards.is_empty():return "Recover the reserved reward first."
 	var before:=data.duplicate(true);var rng_before: int=rng.state
 	var reward:=Catalog.spin_reward(rng)
 	data.delivery_serial+=1
 	reward.receipt="earned-spin:%d:%s" % [data.delivery_serial,data.session]
 	reward.region=data.region;reward.actor=actor;reward.family=family
-	data.free_spins-=1;data.pending.append(reward)
-	data.spin_sparks+=1
+	data[key]-=1
+	if legacy:data.spins+=1
+	data.pending.append(reward);data.spin_sparks+=1
 	if data.spin_sparks>=preload("res://relic_spin_catalog.gd").SPARK_TARGET:
 		data.spin_sparks=0;data.red_fragments=mini(999999,int(data.red_fragments)+1)
-	if save()!=OK:data=before;rng.state=rng_before;return "Could not save; your free spin is retained."
-	return "FREE earned spin / no Scrip spent."
+	if save()!=OK:data=before;rng.state=rng_before;return "Could not save; your earned spin is retained."
+	return "Earned spin / no currency charged."
+
+func migrate_legacy_wallet() -> Error:
+	if data.get("wallet_retired",false):return OK
+	var before:=data.duplicate(true)
+	var wallet: int=int(data.spin_wallet)
+	var count: int=0
+	for index in range(int(data.spins),3):
+		var cost: int=Catalog.SPIN_COSTS[index]
+		if wallet<cost:break
+		wallet-=cost;count+=1
+	# Preserve exactly the old affordable, unclaimed spins, separately from the bank cap.
+	data.legacy_spins=count;data.spin_wallet=0;data.wallet_retired=true
+	var result: Error=save()
+	if result!=OK:data=before
+	return result
+
 func track(id: String) -> bool:
 	if Items.definition(id).is_empty(): return false
 	var old: String=data.tracked; data.tracked=id
@@ -84,22 +109,13 @@ func forge_red() -> bool:
 	var before:=data.duplicate(true); data.red_fragments-=Catalog.RED_TARGET; queue_item("gravebloom_staff","RED")
 	if save()!=OK: data=before; return false
 	return true
-func settle(wallet: int, kills: int) -> void:
-	data.spin_wallet=wallet if kills>=10 else 0; data.spins=0; save()
+func settle(_wallet: int, _kills: int) -> void:
+	# New runs earn spins through existing milestone receipts, never currency conversion.
+	if migrate_legacy_wallet()!=OK:return
+	data.spin_wallet=0;data.spins=0;save()
 func spin(rng: RandomNumberGenerator, actor: String, family: String) -> String:
-	if not data.pending.is_empty() or not data.quarantined_rewards.is_empty(): return "Recover the reserved reward first."
-	if data.spins>=3: return "Three spins complete."
-	var cost: int=Catalog.SPIN_COSTS[data.spins]
-	if data.spin_wallet<cost: return "Needs %d leftover currency." % cost
-	var before:=data.duplicate(true); var reward:=Catalog.spin_reward(rng)
-	reward.receipt="spin:%s:%d" % [data.session,data.spins]; reward.region=data.region; reward.actor=actor; reward.family=family
-	data.spin_wallet-=cost; data.spins+=1; data.pending.append(reward)
-	# Debit, reserved reward and guaranteed chase progress share one atomic snapshot.
-	data.spin_sparks+=1
-	if data.spin_sparks>=preload("res://relic_spin_catalog.gd").SPARK_TARGET:
-		data.spin_sparks=0; data.red_fragments=mini(999999,int(data.red_fragments)+1)
-	if save()!=OK: data=before; return "Could not save; no currency spent."
-	return "Found %d %s. Remaining %d." % [reward.amount,reward.kind,data.spin_wallet]
+	if int(data.get("free_spins",0))>0:return free_spin(rng,actor,family)
+	return reserve_spin(rng,actor,family,true)
 func recover(game) -> String:
 	if not data.quarantined_rewards.is_empty():return "A reserved reward needs support review. Its record is retained."
 	if not data.pending.is_empty() and save()!=OK: return "Reward reserved until saving returns."

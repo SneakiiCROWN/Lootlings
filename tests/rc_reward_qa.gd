@@ -15,9 +15,9 @@ func review() -> void:
 		var purchases := 0
 		while purchases < 6 and game.state == "merchant" and not game.shop.stock.is_empty():
 			game.buy_merchant_item(0); purchases += 1; game.accept_item_scrap()
-		print("RC BASELINE: one merchant visit permits %d purchases; first reroll %d Scrip" % [purchases,game.shop.reroll_cost(6)])
+		print("RC BASELINE: one merchant visit permits %d purchases; first redraw cost %d" % [purchases,game.shop.reroll_cost(6)])
 		game.free(); quit(); return
-	# Reroll is an alternative before the one paid choice; duplicate requests
+	# Reroll is an alternative before the one free choice; duplicate requests
 	# during disposition cannot charge again, even with effectively unlimited money.
 	var first_reroll: int = game.shop.reroll_cost(6)
 	var coins: int = game.coins
@@ -28,7 +28,7 @@ func review() -> void:
 	game.buy_merchant_item(1); game.reroll_merchant(); assert(game.coins == paid)
 	game.accept_item_scrap(); assert(game.state == "playing" and game.shop.purchase_taken)
 	assert(game.shop.take(0).is_empty())
-	# A genuinely new stop restores its one choice and reroll ladder.
+	# A genuinely new stop restores its one choice and limited redraw.
 	game.wave = 11; game.show_merchant(); assert(not game.shop.purchase_taken and game.shop.rerolls == 0)
 	game.leave_merchant()
 	# Multiple recovered finds from a wave are alternatives, never a queue of
@@ -45,5 +45,5 @@ func review() -> void:
 	game.prepare_hoard_chest(); game.show_boss_reward(); assert(not game.normal_loot_choice)
 	assert(game.boss_reward_heading.text == "BOSS HOARD")
 	game.free(); await process_frame
-	print("RC REWARD QA PASSED: one purchase/stop, one wave find, reroll/duplicate/next-stop/boss boundaries")
+	print("RC REWARD QA PASSED: one free choice/stop, one wave find, reroll/duplicate/next-stop/boss boundaries")
 	quit()

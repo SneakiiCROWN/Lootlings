@@ -2,7 +2,7 @@ extends RefCounted
 
 # Run-only identities. No save-schema changes or weapon restrictions.
 const TRAITS := {
-	"relic_beast":{"name":"Pocket Promise", "text":"Each fifth foe leaves 8 extra Run Scrip. Any weapon; no combat penalty.", "starter":"scrapfang_blade", "hp":0, "move":1.0, "perk":"scavenger"},
+	"relic_beast":{"name":"Pocket Promise", "text":"Each fifth foe grants 8 extra XP. Any weapon; no combat penalty.", "starter":"scrapfang_blade", "hp":0, "move":1.0, "perk":"scavenger"},
 	"emberhorn":{"name":"Rescue Furnace", "text":"Every fourth attack kindles a short burn. 10 less HP; burns reward steady pressure.", "starter":"scrap_axe", "hp":-10, "move":1.0, "perk":"kindle"},
 	"mosskin":{"name":"Patient Shelter", "text":"Recover 2 HP after each nonfatal enemy hit. 15 more HP; approach 15% slower.", "starter":"glimmerstaff", "hp":15, "move":0.85, "perk":"shelter"},
 	"moonkip":{"name":"Moonlit Opening", "text":"Each foe's first hit deals 25% more damage. 12 less HP; approach 15% faster.", "starter":"moonbite_daggers", "hp":-12, "move":1.15, "perk":"opening"},

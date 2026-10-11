@@ -475,7 +475,7 @@
             "Relic",
             "Rune"
           ],
-          "text": "Loose Run Scrip has nowhere to hide."
+          "text": "Discoveries grant bonus expedition XP."
         },
         "quickened": {
           "effects": {
@@ -758,7 +758,7 @@
       "apply",
       "descriptions"
     ],
-    "source_sha256": "51c79ebce9a0881b93c59bbd2c9f83c7727084b551d1377453261d64381a8e39"
+    "source_sha256": "14ebb6597d8c7afe8b14a329f2d925d95ceaf335a35c2067c356a30823e00f25"
   },
   "analytics_logger.gd": {
     "constants": {
@@ -2059,7 +2059,7 @@
           "name": "Pocket Promise",
           "perk": "scavenger",
           "starter": "scrapfang_blade",
-          "text": "Each fifth foe leaves 8 extra Run Scrip. Any weapon; no combat penalty."
+          "text": "Each fifth foe grants 8 extra XP. Any weapon; no combat penalty."
         },
         "ruin_warden": {
           "hp": 8,
@@ -2091,7 +2091,7 @@
       "actor_id",
       "definition"
     ],
-    "source_sha256": "2142f12dca1affd8a6a8022aa2be32e40063405cae254caa31c829d3fc14f097"
+    "source_sha256": "9adcf83b246cb5a5056b90b33ccb45594fde23c748866d294e79ef84fc4d953b"
   },
   "chest_catalog.gd": {
     "constants": {
@@ -3382,7 +3382,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "23d2906d444ef1ef833e90e8bd75624cef122287fe80dc41528da879506a255e"
+    "source_sha256": "a67bf24d7afc7aeb90648394c8effd3c69d4811271e7649a2500a462d4cab86a"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -3714,7 +3714,7 @@
           },
           {
             "speaker": "Salvager",
-            "text": "Spend Run Scrip at roadside merchants. Unspent Scrip expires when the expedition ends.",
+            "text": "The Pack Peddler offers one free supply choice each stop. You can redraw the offers once.",
             "weight": 2.0
           },
           {
@@ -3789,7 +3789,7 @@
       "choose",
       "recent_contains"
     ],
-    "source_sha256": "db256030d008071508ebc61143afaa1de1ca920bdbc57cef57e63b598b70c21f"
+    "source_sha256": "5d59a95dbd9526bad6eefd007cdc23d5222635ac5dda5562f83e316a0d1dbae6"
   },
   "display_numbers.gd": {
     "constants": {},
@@ -3850,7 +3850,7 @@
           "title": "RELIC GUARDIAN"
         },
         "Merchant": {
-          "desc": "Spend your Run Scrip. Existing shop tradeoffs.",
+          "desc": "Choose one free supply. One redraw per stop.",
           "icon": "res://art/production/phase4e/props/merchant_cart.png",
           "title": "PACK PEDDLER"
         },
@@ -3882,7 +3882,7 @@
       "choose",
       "reward_caps"
     ],
-    "source_sha256": "b8185f0f7e687f1b6ce18b0f5fd8d9b4a9925064ab4a7ddbd233dd1e41c73df2"
+    "source_sha256": "9f3bcaaad82b07fd842e4622242ea695ea26d662747c9ff9322c7c27038d6f3c"
   },
   "economy_transaction.gd": {
     "constants": {
@@ -3925,6 +3925,8 @@
       "begin",
       "earn_spin",
       "free_spin",
+      "reserve_spin",
+      "migrate_legacy_wallet",
       "track",
       "target_text",
       "queue_item",
@@ -3934,7 +3936,7 @@
       "spin",
       "recover"
     ],
-    "source_sha256": "89de0c2dc93d5e92726e4c1a9dab4cf273af26ae2d5c0fc1c9108cecbc132cd8"
+    "source_sha256": "2e3aead4313c5a220d5400ca6afa18cbe734cd14096256328992ba3e95aa1896"
   },
   "enemy_art_manifest.gd": {
     "constants": {},
@@ -4235,9 +4237,9 @@
               "risk": 1.2
             },
             {
-              "desc": "Gain 20 Run Scrip. No curse.",
+              "desc": "Gain 20 XP. No curse.",
               "name": "Break the contract",
-              "scrip": 20
+              "xp": 20
             }
           ],
           "line": "A courier coffer offers treasure today. The scarred latch explains the terms.",
@@ -4252,9 +4254,9 @@
               "xp": 30
             },
             {
-              "desc": "Gain 35 Run Scrip. Preserve the page.",
+              "desc": "Gain 45 XP. Preserve the page.",
               "name": "Recover the metal seal",
-              "scrip": 35
+              "xp": 45
             }
           ],
           "line": "A name survives beneath a Crown correction. Ilex left room in her ledger.",
@@ -4263,15 +4265,15 @@
         "lantern_bargain": {
           "choices": [
             {
-              "desc": "Spend 45 Run Scrip for 12 ward.",
-              "name": "Buy the lantern",
-              "scrip": -45,
+              "desc": "Gain 12 Ward; the next foe deals 10% more damage.",
+              "name": "Carry the lantern",
+              "risk": 1.1,
               "ward": 12
             },
             {
-              "desc": "Gain 20 Run Scrip.",
-              "name": "Sell the dented bracket",
-              "scrip": 20
+              "desc": "Gain 20 XP.",
+              "name": "Study the dented bracket",
+              "xp": 20
             }
           ],
           "line": "Merrow has a spare lantern and absolutely no explanation for the teeth marks.",
@@ -4314,15 +4316,15 @@
         "patch_warranty": {
           "choices": [
             {
-              "desc": "Spend 25 Run Scrip, recover 25 HP.",
+              "desc": "Recover 25 HP; the next foe deals 10% more damage.",
               "hp": 25,
               "name": "Trade for repairs",
-              "scrip": -25
+              "risk": 1.1
             },
             {
-              "desc": "Gain 25 Run Scrip.",
+              "desc": "Gain 25 XP.",
               "name": "Collect the useful bits",
-              "scrip": 25
+              "xp": 25
             }
           ],
           "line": "Patch's discarded warranty reads: valid until the first interesting noise.",
@@ -4331,9 +4333,9 @@
         "promise_shrine": {
           "choices": [
             {
-              "desc": "Spend 40 Run Scrip for a run upgrade.",
+              "desc": "Lose 8 HP. Choose one free run perk.",
+              "hp": -8,
               "name": "Leave a useful offering",
-              "scrip": -40,
               "upgrade": true
             },
             {
@@ -4354,9 +4356,9 @@
               "name": "Break the seal"
             },
             {
-              "desc": "Gain 25 Run Scrip. Leave the dangerous seal alone.",
+              "desc": "Gain 25 XP. Leave the dangerous seal alone.",
               "name": "Pick the quiet latch",
-              "scrip": 25
+              "xp": 25
             }
           ],
           "line": "Three hinges. Two warnings. One promise of something worth the trouble.",
@@ -4382,10 +4384,10 @@
         "wandering_smith": {
           "choices": [
             {
-              "desc": "Spend 180 Run Scrip for one Epic+ item.",
+              "desc": "Lose 15 HP for one Epic+ item.",
+              "hp": -15,
               "loot": "EPIC",
-              "name": "Commission a road find",
-              "scrip": -180
+              "name": "Commission a road find"
             },
             {
               "desc": "Recover 12 HP. No payment.",
@@ -4399,16 +4401,16 @@
         "wounded_courier": {
           "choices": [
             {
-              "desc": "Lose 8 HP, gain 45 Run Scrip.",
+              "desc": "Lose 8 HP, gain 45 XP.",
               "hp": -8,
               "name": "Lift the sign",
-              "scrip": 45
+              "xp": 45
             },
             {
-              "desc": "Spend 30 Run Scrip, recover 18 HP.",
+              "desc": "Recover 18 HP; the next foe deals 10% more damage.",
               "hp": 18,
               "name": "Share supplies",
-              "scrip": -30
+              "risk": 1.1
             }
           ],
           "line": "A Compact courier is pinned beneath a fallen sign. Their satchel is intact.",
@@ -4420,7 +4422,7 @@
       "choices_for",
       "roll"
     ],
-    "source_sha256": "08602a2c8221b1eb2c31b4277e083b5cd6ea9b04fa6035dab454701274e1816f"
+    "source_sha256": "5dc4f148185ef2b25fddde3f2042b79796fa7d0332f0b56fc740e9b4dd6851db"
   },
   "expedition_progress.gd": {
     "constants": {
@@ -4693,7 +4695,7 @@
           ]
         },
         {
-          "desc": "+25% Run Scrip, +15% XP",
+          "desc": "+15% XP",
           "icon": "LOOT",
           "id": "greed",
           "name": "RELIC MAGNET",
@@ -4706,7 +4708,7 @@
       "rarity_color",
       "display_name"
     ],
-    "source_sha256": "d47f5bcca5fcf99318d51234ed0765e478dbdc0084fdf9636f7d6c40631615a7"
+    "source_sha256": "e2ad866ab7c2acbed30448424ced6b97d2c3180ebd44fbc6a8ca7ce04391144a"
   },
   "hideout_shop_system.gd": {
     "constants": {
@@ -4996,7 +4998,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "cb3836e24334fea15ea173d778dd75fc148c6d1ca98c3b381ca976cfad05fba3"
+    "source_sha256": "b679581e8600a3249feef3004118fd9050ac3c3a11d11e03995cb8724190787e"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5354,7 +5356,7 @@
       "load",
       "sanitize_saved_item"
     ],
-    "source_sha256": "6bebfa96c22f25a931fdb691f481af0989bcee700b433918fd52baa03af50fc1"
+    "source_sha256": "e3799f21d587006de6d20d7d295a1eb6111eb27a1b5e86083104921b83cd645a"
   },
   "item_catalog.gd": {
     "constants": {
@@ -5473,7 +5475,7 @@
           "slot": "Armour"
         },
         {
-          "desc": "More Run Scrip from kills. Spend the proceeds before the expedition ends.",
+          "desc": "Learn from every find. Its old treasure bonus now grants expedition XP.",
           "effects": {
             "coin_mult": 0.35
           },
@@ -5568,7 +5570,7 @@
           "weapon_type": "bow"
         },
         {
-          "desc": "Vault-thread reinforcement protects the wearer and keeps scavenged Scrip close.",
+          "desc": "Vault-thread reinforcement protects the wearer and keeps useful discoveries close.",
           "effects": {
             "armor": 0.045,
             "coin_mult": 0.08,
@@ -5897,7 +5899,7 @@
           "slot": "Rune"
         },
         {
-          "desc": "More Run Scrip and stronger hits. Incoming damage rises 15%. Read the terms.",
+          "desc": "Bonus expedition XP and stronger hits. Incoming damage rises 15%. Read the terms.",
           "effects": {
             "coin_mult": 0.35,
             "damage_mult": 0.18,
@@ -6463,7 +6465,7 @@
       "describe_effects",
       "describe_headline_effects"
     ],
-    "source_sha256": "20a5234b1048e45d710ee953f20b71af3c7b8e447cd52d31c6228827ed19f88e"
+    "source_sha256": "b42a645c595de39e0f36e67bf2c09bff3f2266e1d3cf146f07e5226e649878e8"
   },
   "item_icon.gd": {
     "constants": {
@@ -6847,7 +6849,7 @@
           ]
         },
         {
-          "desc": "+25% Run Scrip, +15% XP",
+          "desc": "+15% XP",
           "icon": "LOOT",
           "id": "greed",
           "name": "RELIC MAGNET",
@@ -7055,7 +7057,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "28cd309e77d727420e0e80eaa485d25f0059c6f5fdd2f5c57dd5834e8ec68bdc"
+    "source_sha256": "10b052f870d7f3615647493fb65db93aaa2ecbcd5501601c9d588f2c80fac049"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7322,9 +7324,10 @@
     "constants": {},
     "methods": [
       "load_progress",
-      "save_progress"
+      "save_progress",
+      "retire_field_pouch"
     ],
-    "source_sha256": "baeecc512bb18462e2edf4e0cbdfeb20e6339809e23494b04385c9611ebf79b6"
+    "source_sha256": "e1f25bce0ba0d60ca56502c9fa8c8651214892b2c8fe7c8eb64f5699e64d2bfa"
   },
   "mobile_test_monitor.gd": {
     "constants": {
@@ -7590,7 +7593,7 @@
         ],
         "pouch": [
           "FIELD POUCH",
-          "+8 starting Run Scrip",
+          "Retired; purchased ranks refunded",
           [
             225,
             400,
@@ -7634,7 +7637,7 @@
       "keen",
       "aegis"
     ],
-    "source_sha256": "8e802308e3cea21e48f00c9ad13f6db0b5af23dccccd0ced64ecb62331d23863"
+    "source_sha256": "b089d560b8de548bd8a453f6d140be13468947df1f6a4107eb585ad100fa6c3a"
   },
   "personal_home.gd": {
     "constants": {
@@ -7786,7 +7789,7 @@
           "slot": "Rune"
         },
         {
-          "desc": "More Run Scrip and stronger hits. Incoming damage rises 15%. Read the terms.",
+          "desc": "Bonus expedition XP and stronger hits. Incoming damage rises 15%. Read the terms.",
           "effects": {
             "coin_mult": 0.35,
             "damage_mult": 0.18,
@@ -7865,7 +7868,7 @@
       ]
     },
     "methods": [],
-    "source_sha256": "24e796e46e727e08aab4737bb5d9c99710cccaf908e23ae8437b42dfd40b5e47"
+    "source_sha256": "e54e8eed6e9b0d2b93fc227ba6b07b26e6a42acd8bb9a295b4d98e1f7f3030b8"
   },
   "phase4_catalog.gd": {
     "constants": {
@@ -8378,7 +8381,7 @@
       "draw_reward",
       "draw_item"
     ],
-    "source_sha256": "f66e211a9ee5ae5de3adc0fd9480a4f2273cb172b65e249c737764e28e933701"
+    "source_sha256": "5741e8eb14d12740a3cf5cb4bf56f1e19965b984e2a98b145d533e5ae7937f34"
   },
   "presentation_director.gd": {
     "constants": {
@@ -8943,7 +8946,7 @@
       "reward_name",
       "pool_text"
     ],
-    "source_sha256": "9448e392e2664ff0e20f55a1f3fddc3f43ddf9ebc49709d57432a14c1662e5a1"
+    "source_sha256": "ba821b93f4f9b3ba6eff255ce9ffd6d81f582b78397365a8a02d922256833295"
   },
   "resident_art_catalog.gd": {
     "constants": {
@@ -9056,7 +9059,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "cc712438a1841b155ceedeeb78b44f5238355d0ccda0ce35c575c43eedb7f796"
+    "source_sha256": "8c2dbfdfe5222c82ffcb828f8e736be5d7856a24f4933b89abcb5ca780375cb1"
   },
   "reward_reveal_catalog.gd": {
     "constants": {
@@ -9226,10 +9229,22 @@
       "generate_stock",
       "price_for",
       "reroll_cost",
+      "can_reroll",
       "reroll",
       "take"
     ],
-    "source_sha256": "018776ac3b00b06e3209dcf653e2129c904d7726dcd12d2bec03096393623911"
+    "source_sha256": "b0c6a0e831830a9d09e1b03c3dc6bd7689b502e213478315c90636761999e04b"
+  },
+  "showcase_art.gd": {
+    "constants": {
+      "Poses": {
+        "resource_path": "res://authored_pose_manifest.gd"
+      }
+    },
+    "methods": [
+      "texture"
+    ],
+    "source_sha256": "014f7cd972444a15014ceff104099fa63ef7e8bdefa2b858f0329432634185ed"
   },
   "startup_ui.gd": {
     "constants": {
@@ -9274,6 +9289,8 @@
       "build_lootling_select",
       "add_roster_tabs",
       "add_roster_strip",
+      "refresh_showcase_page",
+      "observe_showcase",
       "cycle_lootling",
       "refresh_selector",
       "show_lootling_select",
@@ -9306,7 +9323,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "9c015aa030b8d9d6b8637a294cb8b218aebbb196541d561050c1c0730f70c818"
+    "source_sha256": "448aae707c54920df2ce0014bbabde8da6e9eac919fb9469af970925018d12b6"
   },
   "station_presentation.gd": {
     "constants": {},
@@ -9338,7 +9355,7 @@
       "request",
       "set_slider_value"
     ],
-    "source_sha256": "21f0974ab9373a1c1ca15a22e296e890a0e48307bcb0dd64d364babe68cbe88b"
+    "source_sha256": "4f3c6be5a8e8d1de8aede8e661d46586361773776b38c94f30da36bf614faf6b"
   },
   "travelling_merchant_view.gd": {
     "constants": {
