@@ -1,0 +1,52 @@
+[
+  {
+    "apk": "builds/android/Lootlings-0.4.61-normal-candidate-debug.apk",
+    "fonts": [
+      {
+        "font": "nunitosans",
+        "imported_font_matches_local": true,
+        "original_licence_matches": true,
+        "imported_sha256": "9f39e84676ac64d2cbb31b97f877b051beb0c26aa3c71bcb54419d2624fd873d"
+      },
+      {
+        "font": "cinzel",
+        "imported_font_matches_local": true,
+        "original_licence_matches": true,
+        "imported_sha256": "96d1c0b67b41d7f1ed24444cda30c88d6e6341581d59260026c4f830afff963c"
+      },
+      {
+        "font": "notosanssymbols2",
+        "imported_font_matches_local": true,
+        "original_licence_matches": true,
+        "imported_sha256": "c2f7d8e05a673ad2e27a7039c80671dae5d1a6c81617562c6d45f2c07dce380c"
+      }
+    ],
+    "font_sources_packaged": true,
+    "physical_test": false
+  },
+  {
+    "apk": "builds/android/Lootlings-0.4.61-owner-test-debug.apk",
+    "fonts": [
+      {
+        "font": "nunitosans",
+        "imported_font_matches_local": true,
+        "original_licence_matches": true,
+        "imported_sha256": "9f39e84676ac64d2cbb31b97f877b051beb0c26aa3c71bcb54419d2624fd873d"
+      },
+      {
+        "font": "cinzel",
+        "imported_font_matches_local": true,
+        "original_licence_matches": true,
+        "imported_sha256": "96d1c0b67b41d7f1ed24444cda30c88d6e6341581d59260026c4f830afff963c"
+      },
+      {
+        "font": "notosanssymbols2",
+        "imported_font_matches_local": true,
+        "original_licence_matches": true,
+        "imported_sha256": "c2f7d8e05a673ad2e27a7039c80671dae5d1a6c81617562c6d45f2c07dce380c"
+      }
+    ],
+    "font_sources_packaged": true,
+    "physical_test": false
+  }
+]

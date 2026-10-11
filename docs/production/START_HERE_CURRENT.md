@@ -1,3 +1,13 @@
+# Current — 0.4.61 Issue 6 connected presentation
+
+Source `a47ec01` pushed. Local licensed typography with corrected numeric font weight axes; semantic resolved damage feedback with saved preferences and bounded pack lanes; canonical masked HUD crest; quieter shared gear rows; START-only title; ten precise bounded fields in the existing owner panel; opt-in saved audio presets and no routine menu click on ATTACK. Original title track, art, gameplay maths and saves preserved.
+
+Seven/eight native layout variants and six exact Windows-pack fixtures pass. Standalone Windows startup passes; both Android code-72 packages, original branding and imported fonts/licences verified. Physical S23 deferred by owner, not a gate. Production quality remains HOLD; Android execution and exhaustive artistic/player acceptance remain open. No new sprite art or closures: **2,757 contracts / 7,178 artist requirements remain**.
+
+[Report](quality-evidence/0.4.61/REPORT.md), [delivery paths/hashes](quality-evidence/0.4.61/DELIVERY.json), [next connected work](CONTINUATION_061.md). Preserve newer owner files and the existing uncommitted project.godot/relic_chase_meter.gd/run_exported_native.py changes.
+
+## Prior checkpoint history
+
 # Current — 0.4.60 P0 owner access and equipment previews
 
 Source checkpoint 0e8f2db pushed; whole-wordmark two-second owner unlock, Support backup to existing F1 panel, saved hold-drag SHH and reset/hide/relock. Four-slot complete effect/signature previews use actual combat formulas; Forge/Shop share the comparison; Shop label now correctly names Lootcoins. Refused Equip/Keep/Scrap persistence preserves the find and restores inventory before reward mutations; new comparisons reset to the top. Native and compiled checks, fresh-process owner preferences, and actual process termination at four injected persisted journal boundaries pass. No power-loss or physical S23 claim. Builds and hashes: [delivery](quality-evidence/0.4.60/DELIVERY.json); [report](quality-evidence/0.4.60/REPORT.md).

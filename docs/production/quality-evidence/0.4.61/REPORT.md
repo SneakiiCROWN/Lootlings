@@ -30,3 +30,8 @@ Desktop warmed 120-frame three-enemy samples follow 120 warmup frames. See BATCH
 Art contracts: 0 new closures; 517 / 3,274 installed, 2,757 outstanding. Artist requirements remain separate: 1,317 / 8,495 installed; 7,178 outstanding. Three new licensed font files are not character-frame contracts. No new sprite art or audio recordings; no rejected artwork installed. Whole-game professional status remains HOLD.
 
 Build packaging and exact exported-code evidence are added after the source checkpoint. 0.4.60 rollback binaries are never overwritten. Source project.godot owner patch remains uncommitted and is preserved alongside delivery evidence.
+
+## Exported candidate delivery
+Source `a47ec01` pushed. Six native fixtures passed against the exact Windows PCK: combat/settings, presentation/owner fields, typography/semantic feedback, front-of-house, equipment comparison and existing owner access. The real Windows executable starts for 120 frames and exits cleanly; external diagnostic scripts are not supported by that standalone template. Regular and separate owner Android code-72 debug packages pass signing, alignment and original icon/adaptive/monochrome/splash pixel checks. All three imported fonts and their original OFL licences are present byte-for-byte. This is packaged/static Android evidence, not on-device gameplay acceptance.
+
+All four 0.4.60 rollback files retain their original SHA-256. See DELIVERY.json for exact new paths/hashes, COMPILED_NATIVE_QA.json for fixture identities and WINDOWS_STARTUP.json for executable evidence. Native phone/tablet layouts run on the Windows GPU. Physical S23 remains explicitly deferred.

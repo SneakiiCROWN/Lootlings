@@ -1,0 +1,61 @@
+{
+  "version": "0.4.61",
+  "android_code": 72,
+  "source_checkpoint": "a47ec01",
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.61-issue6-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "f27f518b8147d84c00c5ffefa33183233c818610e8a34c98b59b21af393a2ad2"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.61-issue6-candidate.pck",
+      "bytes": 284184540,
+      "sha256": "6e8a92d3439b68affa8eed08401a3811d6bf7c3e872c454e86ae1d7f71561a9b"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.61-normal-candidate-debug.apk",
+      "bytes": 305213744,
+      "sha256": "11cd3c0fb2aa999de9b1c12782991f4c8d6ae91b6cfabc4019c5512cd0344fe9"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.61-owner-test-debug.apk",
+      "bytes": 305213744,
+      "sha256": "096cfd8646088781dcf4ac5b8b91ae40e72208cb86a7afd8469b0d3a70d2f195"
+    }
+  ],
+  "compiled_fixtures": 6,
+  "actual_exe_startup_pass": true,
+  "standalone_external_fixture_supported": false,
+  "android_signature_alignment_static_resources_verified": true,
+  "android_runtime_tested": false,
+  "physical_device_tested": false,
+  "physical_device_status": "S23 deferred by owner; not a development gate",
+  "professionally_approved": false,
+  "verified_contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "remaining_artist_file_requirements": 7178,
+  "unregistered_dependencies": 50,
+  "title_music_unchanged": true,
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "rollback_builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.60-p0-candidate.exe",
+      "unchanged": true
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.60-p0-candidate.pck",
+      "unchanged": true
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.60-normal-candidate-debug.apk",
+      "unchanged": true
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.60-owner-test-debug.apk",
+      "unchanged": true
+    }
+  ],
+  "owner_uncommitted_project_preserved": true,
+  "known_open": "Functionally tested and representative native visual review; wider artistic/player acceptance remains HOLD. No animation/art contracts were fabricated. Remaining Issue 6 scope is explicit in REPORT.md."
+}

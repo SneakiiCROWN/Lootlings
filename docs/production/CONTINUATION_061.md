@@ -1,0 +1,7 @@
+# Continue the live 0.4.61 production
+
+Runtime checkpoint a47ec01 on codex/phase4e-gamefeel; do not recreate this pass. Issue 6 remains open. Only three licensed font files were added; no art contracts closed. Use the single production dashboard and current quality-evidence report.
+
+Next priority: finish Batch A name fitting extremes and boss/native feedback placement; root enemy labels currently shrink before wrapping and need a verified wrap-first refinement. Keep damage receipts clear of long names/attack tells and validate real boss combat. Then complete Batch B merchant/dialogue composition and empty/disabled states, Batch C precise Sigil/XP/wave controls using existing owner tools, and remaining D1 graphics/UI-scale/haptic preferences. D2 contextual, saved first-use onboarding is not implemented; reuse the existing combat help and presentation systems. D3 offline backups/migrations/fault matrices and D4 campaign/ending/postgame remain open. Follow Issue 6 order; do not create another audit or duplicate system.
+
+Owner deferred S23 testing; keep development moving with isolated native/exact-pack tests and Windows exports. Android packages are signed debug candidates with static verification, not physical acceptance. Preserve 0.4.60 rollback hashes, approved title track, canon, economy and isolated owner saves. Broader Issue 5 animation and body/world/audio backlog remains active. Visually reviewed/functionally working is separate from professional acceptance.

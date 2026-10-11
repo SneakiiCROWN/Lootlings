@@ -285499,21 +285499,6 @@
       "reason": "dynamic resource pattern: per-variant resolution/registration required"
     },
     {
-      "implementation": "lootlings_typography.gd",
-      "resource": "art/fonts/cinzel.ttf",
-      "reason": "runtime literal not registered in current accepted manifests"
-    },
-    {
-      "implementation": "lootlings_typography.gd",
-      "resource": "art/fonts/notosanssymbols2.ttf",
-      "reason": "runtime literal not registered in current accepted manifests"
-    },
-    {
-      "implementation": "lootlings_typography.gd",
-      "resource": "art/fonts/nunitosans.ttf",
-      "reason": "runtime literal not registered in current accepted manifests"
-    },
-    {
       "implementation": "lootlings_ui.gd",
       "resource": "art/production/phase4e/hud/",
       "reason": "directory/prefix lookup: variant coverage needs explicit resolution"
@@ -285834,7 +285819,7 @@
   ],
   "latest_runtime_integration": {
     "version": "0.4.61",
-    "source_checkpoint": "pending source commit",
+    "source_checkpoint": "a47ec01",
     "kind": "Issue 6 typography/combat feedback and connected presentation",
     "verified_contracts_closed": 0,
     "new_runtime_png": 0,
@@ -285853,7 +285838,9 @@
       "Existing owner panel: ten real fields with Set/Add/Remove, paired numeric/slider bounds, live God ON/OFF, catalogue search and resetting tab scroll.",
       "Saved opt-in audio mix presets and manual Custom values; Attack no longer layers a menu click."
     ],
-    "quality_note": "Functionally tested and representative native visual review; wider artistic/player acceptance remains HOLD. No animation/art contracts were fabricated. Remaining Issue 6 scope is explicit in REPORT.md."
+    "quality_note": "Functionally tested and representative native visual review; wider artistic/player acceptance remains HOLD. No animation/art contracts were fabricated. Remaining Issue 6 scope is explicit in REPORT.md.",
+    "compiled_native_fixtures": 6,
+    "exported_version": "0.4.61"
   },
   "current_batch_corrections": [
     "Two initial Relic Beast release cells hide the second glove; rejected and replaced together.",
@@ -285871,7 +285858,7 @@
   ],
   "input_sha256": {
     "docs/production/MASTER_INTEGRATION_MANIFEST.json": "09c95b4e28619504e667e1be0de7dd1ad6c37fb2723f7303b9dd6dc39a4e8510",
-    "docs/production/CANON_REGISTRY.json": "1dc5c09f516a3ba28ac01b965a4b75fa296ec72f55313875475d8d503063d45f",
+    "docs/production/CANON_REGISTRY.json": "8826973450b5dd314cb0462b9544a7e1106894424871eccfbd03edc45ea1818f",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -285881,7 +285868,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.61/INSTALLATION_RECEIPT.json": "ec6a114f90c5a726158eea3b1bf14eff6a9f1dc2184a43a997faec9caceda0c0"
+    "docs/production/quality-evidence/0.4.61/INSTALLATION_RECEIPT.json": "b8b7a7edd8f448b8a71f10f096c344298459d7f384830112640bad34dd272587"
   },
   "feature_completeness": {
     "schema_version": 1,
@@ -306403,21 +306390,6 @@
         "implementation": "lootling_catalog.gd",
         "resource": "art/sprites/lootlings/%s_idle.png",
         "reason": "dynamic resource pattern: per-variant resolution/registration required"
-      },
-      {
-        "implementation": "lootlings_typography.gd",
-        "resource": "art/fonts/cinzel.ttf",
-        "reason": "runtime literal not registered in current accepted manifests"
-      },
-      {
-        "implementation": "lootlings_typography.gd",
-        "resource": "art/fonts/notosanssymbols2.ttf",
-        "reason": "runtime literal not registered in current accepted manifests"
-      },
-      {
-        "implementation": "lootlings_typography.gd",
-        "resource": "art/fonts/nunitosans.ttf",
-        "reason": "runtime literal not registered in current accepted manifests"
       },
       {
         "implementation": "lootlings_ui.gd",
