@@ -16,5 +16,8 @@
     "Owner wallet adds/removes are clamped, persisted and rolled back on save failure; reset wallet/trophies require confirmation. Existing architecture retained."
   ],
   "audio_changed": false,
-  "economy_formulas_changed": false
+  "economy_formulas_changed": false,
+  "source_checkpoint": "3bb6256",
+  "compiled_native_fixtures_passed": 9,
+  "exported_version": "0.4.57"
 }

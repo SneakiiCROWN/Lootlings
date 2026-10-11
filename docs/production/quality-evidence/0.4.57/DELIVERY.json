@@ -1,0 +1,42 @@
+{
+  "version": "0.4.57",
+  "source_checkpoint": "3bb6256",
+  "compiled_fixtures": 9,
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.57-economy-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "a1ed8ce15e043cc4ac0abcff4e6d73426fbc878d2b8ef6a7d1a3d2ccb1c808f5"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.57-economy-candidate.pck",
+      "bytes": 283132420,
+      "sha256": "802d71c53c22c081ad140fd6cabcdaf91aa822f23dde50035095f26bb5890894"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.57-normal-candidate-debug.apk",
+      "bytes": 304167835,
+      "sha256": "fc029c6213d152881faddd61b480f5853c90da7ee60db0b617908a5c9e7c6032"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.57-owner-test-debug.apk",
+      "bytes": 304167835,
+      "sha256": "1beb197179700931edbf6f52206c27f82aa581dd4722b8b4ce68924b6d99a056"
+    }
+  ],
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "title_music_unchanged": true,
+  "physical_device_tested": false,
+  "professionally_approved": false,
+  "installed_runtime_icons": 2,
+  "verified_contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "known_open": [
+    "Full fluid body/weapon/boss animation continuity.",
+    "Hoard ejection missing visual_slot; direct boss drops already set it.",
+    "Some screens use inherited environmental proxies and incomplete outcome art.",
+    "Full artistic/balance acceptance; 111-path ledger discrepancy.",
+    "Physical Android gameplay deferred."
+  ],
+  "save_failure_fault_injected": false
+}

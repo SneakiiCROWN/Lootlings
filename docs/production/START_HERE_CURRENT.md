@@ -1,6 +1,6 @@
 # Current — 0.4.57 currency and isolated owner wallet
 
-Source checks and native phone/tablet/desktop currency routes pass. Two transparent icons installed using original economy motifs; mastery retains a separate symbol; Shrine rows fit their frame. Existing guarded F1/owner SHH menu gains saved add/remove/reset controls. No currency mechanics changed. Builds being verified; no physical or professional artistic acceptance claim. See [report](quality-evidence/0.4.57/REPORT.md). 0 frozen art contracts closed; 2757 remain.
+Source checks and native phone/tablet/desktop currency routes pass. Two transparent icons installed using original economy motifs; mastery retains a separate symbol; Shrine rows fit their frame. Existing guarded F1/owner SHH menu gains saved add/remove/reset controls. No currency mechanics changed. Nine compiled fixtures, actual Windows startup/icons and both Android code 68 packages verified; no physical or professional artistic acceptance claim. See [report](quality-evidence/0.4.57/REPORT.md). 0 frozen art contracts closed; 2757 remain.
 
 # Current — 0.4.56 encounter and hoard clarity
 
