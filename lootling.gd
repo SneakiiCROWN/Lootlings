@@ -1980,7 +1980,14 @@ func spawn_single_enemy() -> void:
 			# Two weighted patterns retain the local role budget; the third trades
 			# a caster for a scrapper. Never stack three casters or tanks.
 			var pattern := rng.randf()
-			if pattern < 0.65: wave_composition.shuffle()
+			if pattern < 0.65:
+				# Sound variation uses the global RNG. Encounter order must use
+				# the seeded combat stream, so audio cannot alter the enemies.
+				for i in range(wave_composition.size() - 1, 0, -1):
+					var other := rng.randi_range(0, i)
+					var role = wave_composition[i]
+					wave_composition[i] = wave_composition[other]
+					wave_composition[other] = role
 			elif pattern < 0.82: wave_composition = ["skirmisher","skirmisher","tank"]
 		enemy_archetype = str(wave_composition[clampi(wave_kills,0,2)])
 		if dungeon.active and not dungeon.room.is_empty():
