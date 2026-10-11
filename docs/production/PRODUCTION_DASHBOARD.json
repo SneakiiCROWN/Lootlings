@@ -285352,7 +285352,10 @@
     "new_audio_files": 0,
     "canonical_images_changed": false,
     "generated_assets": 0,
-    "quality_note": "576 Mythical actor/weapon/facing/outcome cases still use portraits; these are not authored pose closures. Compatible Moonkip Orb outcome explicitly regression-checked."
+    "quality_note": "576 Mythical actor/weapon/facing/outcome cases still use portraits; these are not authored pose closures. Compatible Moonkip Orb outcome explicitly regression-checked.",
+    "source_checkpoint": "db40f25",
+    "compiled_native_fixtures_passed": 9,
+    "exported_version": "0.4.58"
   },
   "current_batch_corrections": [
     "Two initial Relic Beast release cells hide the second glove; rejected and replaced together.",
@@ -285380,7 +285383,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.58/INSTALLATION_RECEIPT.json": "d55534c552fb9b131ea2cce995d967c64d22c6d0b7abaa83397fb09aee84fd13"
+    "docs/production/quality-evidence/0.4.58/INSTALLATION_RECEIPT.json": "dc9255fd66d8617d8fcca0678270b0d653053ba808d030bdca140abc637c3509"
   },
   "feature_completeness": {
     "schema_version": 1,

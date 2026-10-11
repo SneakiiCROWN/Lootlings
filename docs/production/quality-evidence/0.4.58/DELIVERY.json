@@ -1,0 +1,43 @@
+{
+  "version": "0.4.58",
+  "source_checkpoint": "db40f25",
+  "compiled_fixtures": 9,
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.58-reward-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "ca2e35ca7da5f30583a3868762b98ff8b1827714a2d62f7d31d578320ca1f17b"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.58-reward-candidate.pck",
+      "bytes": 283134564,
+      "sha256": "e0db665d58cf24502d1650b03587cd967a3447953b6d28b640bc5ef2a0397194"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.58-normal-candidate-debug.apk",
+      "bytes": 304167835,
+      "sha256": "de07f08cb082b347faf6f8990c2806986e34bb6bbadd90d9c0b8ff1eb3cd8b46"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.58-owner-test-debug.apk",
+      "bytes": 304167835,
+      "sha256": "4b71e473ed6d885ce2fc9f1cfeb06d9431b1e46e265550703c30a374c5a6053d"
+    }
+  ],
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "title_music_unchanged": true,
+  "physical_device_tested": false,
+  "professionally_approved": false,
+  "new_runtime_icons": 0,
+  "economy_milestone_runtime_icons": 2,
+  "verified_contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "save_failure_fault_injected": false,
+  "known_open": [
+    "Full fluid body/weapon/boss animation continuity; 576 tested Mythical outcome combinations still use framed canonical portraits.",
+    "Hoard announcement briefly overlaps reward icon space; overall artistic acceptance remains open.",
+    "Inherited environmental proxies and regional content gaps.",
+    "50 registration gaps and 111-path ledger discrepancy.",
+    "Physical Android gameplay deferred."
+  ]
+}

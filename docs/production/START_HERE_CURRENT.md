@@ -1,6 +1,6 @@
 # Current — 0.4.58 chest, hoard and outcome continuation
 
-Real hoard caption slots, one-time ejection, direct world-chest interaction, Mythical jackpot profile/audio and intentional canonical result portraits. Source/native checks pass, including 576 Mythical layout/selector combinations (all remain missing authored outcomes) and preserved Moonkip Orb art. Final build checks pending; verified 0.4.57 candidates remain available. No new art closures: 2757 remain. See [report](quality-evidence/0.4.58/REPORT.md).
+Real hoard caption slots, one-time ejection, direct world-chest interaction, Mythical jackpot profile/audio and intentional canonical result portraits. Source/native checks pass, including 576 Mythical layout/selector combinations (all remain missing authored outcomes) and preserved Moonkip Orb art. Source checkpoint db40f25 pushed; nine exact compiled-pack fixtures, actual Windows startup/original icon pixels and regular/owner Android code 69 packages verified. Physical Android and professional artistic acceptance remain open. No new art closures: 2757 remain. See [report](quality-evidence/0.4.58/REPORT.md).
 
 # Current — 0.4.57 currency and isolated owner wallet
 
