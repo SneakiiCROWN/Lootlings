@@ -515,15 +515,22 @@ func debug_action(action: String, payload) -> String:
 			if is_instance_valid(owner_test_access):owner_test_access.relock();return "SHH hidden. Repeat the title gesture to unlock."
 			return "SHH is available only in the owner build."
 		"sigils":
-			rift_progress.sigils+=maxi(0,int(payload));save_meta();return "Added test Rift Sigils."
+			return debug_adjust_value({"field":"sigils", "operation":"add", "amount":maxi(0,int(payload))})
 		"ward":
 			player_ward+=maxf(0,float(payload));return "Added test Ward."
 		"item_id":
 			if not str(payload) in ItemCatalog.ITEMS.map(func(item):return item.id):return "Unknown item."
 			if inventory.stash.size()>=inventory.stash_capacity:return "Test stash full; make room first."
-			var item:Dictionary=ItemCatalog.create_item(str(payload),"MYTHICAL SHINY" if str(payload) in preload("res://mythical_collection.gd").IDS else "LEGENDARY",rng.randi());inventory.stash.append(item);inventory.save(INVENTORY_SAVE_PATH);refresh_hideout();return "Granted %s to test stash." % item.name
+			var rng_before := rng.state
+			var stash_before: Array = inventory.stash.duplicate(true)
+			var item:Dictionary=ItemCatalog.create_item(str(payload),"MYTHICAL SHINY" if str(payload) in preload("res://mythical_collection.gd").IDS else "LEGENDARY",rng.randi())
+			inventory.stash.append(item)
+			if inventory.save(INVENTORY_SAVE_PATH) != OK:
+				inventory.stash = stash_before; rng.state = rng_before
+				return "Could not save test gear. Unchanged."
+			refresh_hideout();return "Granted %s to test stash." % item.name
 		"save_test":
-			app_lifecycle.persist();return "Saved isolated test progress."
+			return "Saved isolated test progress." if app_lifecycle.persist() == OK else "Could not save test progress. Retry after checking storage."
 		"load_test":
 			preload("res://save_scope.gd").switch_profile(get_tree(),true);return "Reloading isolated test profile."
 		"modes":
@@ -548,8 +555,7 @@ func debug_action(action: String, payload) -> String:
 		"gold":
 			return debug_wallet_change(int(payload),0)
 		"scrap":
-			inventory.scrap += int(payload); inventory.save(INVENTORY_SAVE_PATH); refresh_hideout()
-			return "Added %d Scrap and saved." % int(payload)
+			return debug_adjust_value({"field":"scrap", "operation":"add", "amount":int(payload)})
 		"shards":
 			return debug_wallet_change(0,int(payload))
 		"wallet_reset":
@@ -1215,9 +1221,16 @@ func confirm_abandon_run() -> void:
 func equip_stash_item(index: int) -> void:
 	if state != "hideout":
 		return
+	var equipment_before: Dictionary = inventory.equipped.duplicate(true)
+	var stash_before: Array = inventory.stash.duplicate(true)
 	if inventory.equip_from_stash(index):
+		if inventory.save(INVENTORY_SAVE_PATH) != OK:
+			inventory.equipped = equipment_before
+			inventory.stash = stash_before
+			show_stash_save_error()
+			return
 		award_current_weapon_family()
-		inventory.save(INVENTORY_SAVE_PATH)
+		contextual_guide.observe_success("equipment")
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 		hideout_ui.play_stash_feedback("equip")
 		play_audio_event("equip")
@@ -1226,12 +1239,24 @@ func equip_stash_item(index: int) -> void:
 func scrap_stash_item(index: int) -> void:
 	if state != "hideout":
 		return
+	var stash_before: Array = inventory.stash.duplicate(true)
+	var scrap_before: int = inventory.scrap
 	if inventory.scrap_from_stash(index) > 0:
-		inventory.save(INVENTORY_SAVE_PATH)
+		if inventory.save(INVENTORY_SAVE_PATH) != OK:
+			inventory.stash = stash_before
+			inventory.scrap = scrap_before
+			show_stash_save_error()
+			return
 		hideout_ui.configure(inventory, hideout_shop, meta_shards, meta_power, Callable(self, "build_item_comparison"), gold, profile, gold_upgrades, achievements)
 		hideout_ui.play_stash_feedback("scrap")
 		play_audio_event("scrap")
 		AnalyticsLogger.log_event(ANALYTICS_PATH, "scrap_earned", {"source":"stash"})
+
+func show_stash_save_error() -> void:
+	status_message = "Could not save. Your gear and Scrap are unchanged; try again."
+	var notice := "[color=#ff7d88]" + status_message + "[/color]\n"
+	hideout_ui.stash_detail.text = notice + hideout_ui.stash_detail.text.trim_prefix(notice)
+	hideout_ui.stash_detail.call_deferred("scroll_to_line", 0)
 
 func buy_hideout_offer(index: int) -> void:
 	if hideout_shop.requires_review():

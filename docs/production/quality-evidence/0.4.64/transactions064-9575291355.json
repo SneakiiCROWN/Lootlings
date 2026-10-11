@@ -1,0 +1,47 @@
+[
+  {
+    "name": "completion_economy_qa",
+    "exit": 0,
+    "seconds": 4.22,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "mythical_collection_050_qa",
+    "exit": 0,
+    "seconds": 32.32,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "offline_backup_062_qa",
+    "exit": 0,
+    "seconds": 6.24,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "owner_transactions_064_qa",
+    "exit": 1,
+    "seconds": 0.47,
+    "errors": [
+      "SCRIPT ERROR: Parse Error: Cannot infer the type of \"random_before\" variable because the value doesn't have a set type.",
+      "ERROR: Failed to load script \"res://tests/owner_transactions_064_qa.gd\" with error \"Parse error\"."
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "spinner_050_qa",
+    "exit": 0,
+    "seconds": 0.65,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "stash_transaction_064_qa",
+    "exit": 0,
+    "seconds": 4.1,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]
