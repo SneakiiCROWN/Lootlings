@@ -2447,6 +2447,12 @@ func delay_enemy(seconds: float) -> void:
 	enemy_control_budget -= accepted
 	enemy_attack_clock += accepted
 
+func restore_enemy_health(amount: float) -> void:
+	# Resolve the original cap first; presentation never reports overhealing.
+	var before := enemy_hp
+	enemy_hp = minf(enemy_max_hp, enemy_hp + amount)
+	preload("res://combat_numbers.gd").add(self, enemy_hp-before, "enemy_heal")
+
 func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if not enemy_alive:
 		return
@@ -2460,7 +2466,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 			match campaign_id:
 				"mossglass_wilds":
 					play_audio_event("verdant_"+{"THORN CAST":"thorn","ROOT SWEEP":"root","MIRROR CHARGE":"mirror","RECOVER":"recover"}.get(str(action.text),"recover"))
-					if action.text == "MIRROR CHARGE": enemy_hp = minf(enemy_max_hp,enemy_hp+minf(40,enemy_max_hp*.02))
+					if action.text == "MIRROR CHARGE": restore_enemy_health(minf(40,enemy_max_hp*.02))
 				"moonfen":
 					if action.text == "FEINT": player_x = maxf(PLAYER_HOME_X,player_x-12)
 				"frostbell_hollows":
@@ -2474,7 +2480,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 				"starfall_archive":
 					if action.text == "ERASE": tap_combo = 0
 				"nullglass_expanse":
-					if action.text == "REFRACT": enemy_hp = minf(enemy_max_hp,enemy_hp+minf(30,enemy_max_hp*.015))
+					if action.text == "REFRACT": restore_enemy_health(minf(30,enemy_max_hp*.015))
 				"skyhook_bastion":
 					if action.text == "REEL IN": player_x = maxf(PLAYER_HOME_X,player_x-10)
 				"first_hoard":
@@ -2489,16 +2495,14 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 			return
 	enemy_attack_count += 1
 	if enemy_variant_id == "regenerating" and enemy_attack_count % 3 == 0:
-		enemy_hp = minf(enemy_max_hp,enemy_hp+minf(12,enemy_max_hp*.025))
+		restore_enemy_health(minf(12,enemy_max_hp*.025))
 		add_float("REKNITTING",Vector2(310,370),enemy_variant_color,14)
 	if not enemy_is_boss and not enemy_is_miniboss:
 		play_audio_event({"skirmisher":"enemy_skirmisher", "tank":"enemy_tank", "hexer":"enemy_hexer"}.get(enemy_archetype, "enemy_skirmisher"))
 	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
 		play_audio_event("ward")
 		var ward := enemy_max_hp * 0.07
-		var hp_before_mend := enemy_hp
-		enemy_hp = minf(enemy_max_hp, enemy_hp + ward)
-		add_float("HEAL +%.0f" % (enemy_hp-hp_before_mend), Vector2(325, 410), Color("#d194ff"), 17)
+		restore_enemy_health(ward)
 		add_particles(Vector2(365, 465), Color("#b86cff"), 6)
 		return
 	if debug_enabled and debug_god_mode:
@@ -2527,7 +2531,7 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	combat_presentation.record_incoming(self,absorbed,damage)
 	player_hp -= damage
 	if enemy_variant_id == "leeching" and damage > 0:
-		enemy_hp = minf(enemy_max_hp,enemy_hp+minf(6,damage*.35))
+		restore_enemy_health(minf(6,damage*.35))
 	if perk == "shelter" and player_hp > 0: player_hp = minf(player_max_hp,player_hp+2)
 	survived_hits += 1
 	play_character_voice("hurt",true)
@@ -2752,6 +2756,7 @@ func spawn_item_drop() -> bool:
 			"relic_chest":enemy_is_miniboss and not enemy_is_boss,
 			"rarity":item.get("rarity", "COMMON"),
 			"boss_choice":enemy_is_boss,
+			"visual_slot":drop_index,
 			"pos":start_pos,
 			"vel":Vector2(launch_x, launch_y),
 			"pickup":(0.95 + drop_index * 0.10) if enemy_is_boss else 1.15,

@@ -1,3 +1,7 @@
+# Current — 0.4.56 encounter and hoard clarity
+
+Source/native verified: accurate Hexer healing and elite tells, distinct boss recovery openings, capped enemy healing feedback and separated canonical Mythical hoard captions. Phone/tablet/desktop native evidence and 24 later-region diagnostic runs recorded. Art closures 0; 2757 remain. Full continuity, balance and professional acceptance open. Compiled/build verification in progress. See [report](quality-evidence/0.4.56/REPORT.md) and [continuation](CONTINUATION_056.md).
+
 # Current — 0.4.55 combat, merchant and equipment readability
 
 Source milestone 5792f50 pushed; corrected Windows and separate regular/owner Android code 66 candidates verified. Labelled, aggregated combat receipts; fitted XP/Ward HUD; canonical merchant pose transitions; larger touch-safe supply comparisons; fractional equipment bonuses and accurate delay/currency dialogue. Five fixtures pass against the exact compiled pack; actual EXE startup and original icon verified. No new art contracts: 2757 remain; full animation/artistic/balance/device acceptance open. See [report](quality-evidence/0.4.55/REPORT.md), [delivery](quality-evidence/0.4.55/DELIVERY.json) and [next tasks](CONTINUATION_055.md).

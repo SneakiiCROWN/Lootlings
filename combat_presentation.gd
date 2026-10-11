@@ -100,12 +100,34 @@ func health_ratio(key: int) -> float:
 
 static func attack_cue(g) -> Dictionary:
 	var window := 0.70 if g.enemy_is_boss else 0.60 if g.enemy_is_miniboss or g.enemy_archetype == "tank" else 0.48 if g.enemy_archetype == "hexer" else 0.36
-	var ward: bool = not g.enemy_is_boss and not g.enemy_is_miniboss and g.enemy_archetype == "hexer" and (g.enemy_attack_count + 1) % 3 == 0
-	var label := "HOARD STRIKE" if g.enemy_is_boss else "HEAVY STRIKE" if g.enemy_is_miniboss or g.enemy_archetype == "tank" else "WARD" if ward else "HEX BOLT" if g.enemy_archetype == "hexer" else "QUICK STRIKE"
+	var special: bool = (g.enemy_attack_count + 1) % 3 == 0
+	var mend: bool = not g.enemy_is_boss and not g.enemy_is_miniboss and g.enemy_archetype == "hexer" and special
+	var label := "HEAVY STRIKE" if g.enemy_is_miniboss or g.enemy_archetype == "tank" else "MEND" if mend else "HEX BOLT" if g.enemy_archetype == "hexer" else "QUICK STRIKE"
+	var intent := "heal" if mend else "attack"
+	var accent := Color("#91e7ba") if mend else Color("#d197ff") if g.enemy_archetype == "hexer" else Color("#ffb86b")
+	var progress := clampf(1.0 - g.enemy_attack_clock / window, 0.0, 1.0)
+	var visible: bool = g.state == "playing" and g.enemy_alive and g.enemy_entry_anim <= 0.0 and g.enemy_attack_clock <= window
 	if g.enemy_is_boss or g.enemy_is_miniboss:
-		label = str(preload("res://boss_patterns.gd").next(g).text)
-	var accent := Color("#bca3ff") if ward else Color("#d197ff") if g.enemy_archetype == "hexer" and not g.enemy_is_boss and not g.enemy_is_miniboss else Color("#ffb86b")
-	return {"visible":g.state == "playing" and g.enemy_alive and g.enemy_entry_anim <= 0.0 and g.enemy_attack_clock <= window, "progress":clampf(1.0 - g.enemy_attack_clock / window, 0.0, 1.0), "label":label, "accent":accent}
+		var action: Dictionary = preload("res://boss_patterns.gd").next(g)
+		label = str(action.text)
+		if g.boss_recovery > 0:
+			label = "TAP OPENING"
+			intent = "opening"
+			visible = g.state == "playing" and g.enemy_alive and g.enemy_entry_anim <= 0.0
+			progress = clampf(g.boss_recovery / maxf(.001, minf(1.0, g.enemy_attack_interval * .65)), 0.0, 1.0)
+		elif bool(action.recovery):
+			intent = "recovery"
+		if intent in ["recovery", "opening"]: accent = Color("#91e7ba")
+	elif not mend:
+		match str(g.enemy_variant_id):
+			"overcharged":
+				if special: label = "SPARK SURGE"; accent = Color("#6ee8ff")
+			"frostbitten":
+				if special: label = "FROST STRIKE"; accent = Color("#9fe7ff")
+			"enraged":
+				if g.enemy_hp / maxf(1, g.enemy_max_hp) < .35: label = "RAGE STRIKE"; accent = Color("#ff8d70")
+			"leeching": label = "DRAIN STRIKE"; accent = Color("#d18abd")
+	return {"visible":visible, "progress":progress, "label":label, "accent":accent, "intent":intent}
 
 static func cue_label_rect(g) -> Rect2:
 	if g.enemy_is_boss:return Rect2(120,312,240,28)
@@ -128,4 +150,6 @@ static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: 
 		g.draw_arc(center, radius, -PI * 0.5, -PI * 0.5 + TAU * float(cue.progress), 32, accent, 3.0, true)
 	g.draw_rect(label_rect, Color("#081022e8"), true)
 	g.draw_line(label_rect.position, label_rect.position + Vector2(label_rect.size.x * float(cue.progress), 0), accent, 2.0)
-	g.draw_string(g.body_font, label_rect.position + Vector2(4, 19), str(cue.label), HORIZONTAL_ALIGNMENT_CENTER, label_rect.size.x - 8, 13, accent)
+	# Pack cards are narrower than solo HUDs. Fit full special-action names.
+	var font_size: int = preload("res://lootlings_ui.gd").fitted_font_size(g.body_font, str(cue.label), label_rect.size.x - 8, 13, 10)
+	g.draw_string(g.body_font, label_rect.position + Vector2(4, 18), str(cue.label), HORIZONTAL_ALIGNMENT_CENTER, label_rect.size.x - 8, font_size, accent)

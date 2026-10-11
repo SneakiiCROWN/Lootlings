@@ -1,9 +1,9 @@
 extends RefCounted
 # Typed, bounded presentation receipts. Amounts come from resolved gameplay only.
-const COLORS={"Physical":"#eef3ff","Fire":"#ffb46b","Ice":"#91e7ff","Lightning":"#dfbcff","Poison":"#a6ec80","Nature":"#b5e99b","heal":"#80e7b6","ward":"#91ddff","armour":"#c1c9df","incoming":"#ff9aa5"}
+const COLORS={"Physical":"#eef3ff","Fire":"#ffb46b","Ice":"#91e7ff","Lightning":"#dfbcff","Poison":"#a6ec80","Nature":"#b5e99b","enemy_heal":"#91e7ba","heal":"#80e7b6","ward":"#91ddff","armour":"#c1c9df","incoming":"#ff9aa5"}
 static func text(kind: String, amount: float, hits: int=1) -> String:
  var value := "<0.01" if amount<.01 else ("%.2f" if amount<1 else "%.1f" if amount<10 else "%.0f") % amount
- var label: String={"Physical":"HIT","critical":"CRIT!","heavy":"HEAVY","heal":"HP +","ward":"WARD BLOCK","armour":"ARMOUR BLOCK","incoming":"HP −","Fire_tick":"BURN","Poison_tick":"POISON"}.get(kind,kind.to_upper())
+ var label: String={"Physical":"HIT","critical":"CRIT!","heavy":"HEAVY","enemy_heal":"MEND +","heal":"HP +","ward":"WARD BLOCK","armour":"ARMOUR BLOCK","incoming":"HP −","Fire_tick":"BURN","Poison_tick":"POISON"}.get(kind,kind.to_upper())
  return "%s %s%s" % [label,value," ×%d" % hits if hits>1 else ""]
 static func add(g, amount: float, kind: String, player: bool=false) -> void:
  if amount<=0.0001:return

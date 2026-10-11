@@ -2196,6 +2196,7 @@
         "Physical": "#eef3ff",
         "Poison": "#a6ec80",
         "armour": "#c1c9df",
+        "enemy_heal": "#91e7ba",
         "heal": "#80e7b6",
         "incoming": "#ff9aa5",
         "ward": "#91ddff"
@@ -2205,7 +2206,7 @@
       "text",
       "add"
     ],
-    "source_sha256": "e98544ea6f78651440e5b29c41a8e58fa244c251fab8b252ea5c49a65d47db9f"
+    "source_sha256": "8e2a125a92e817cec98dfdcddb35db5e4eca209f1011a1584db95661e71f02db"
   },
   "combat_presentation.gd": {
     "constants": {
@@ -2224,7 +2225,7 @@
       "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "8f41165f4040b74ad54ef8bd7bb40bd49e1d4cfe8d0d271f7d2ca580d1399224"
+    "source_sha256": "3b585a28f5174a71eeb6ec741c9dea56db288fc417cacd56b5fe6842247108de"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -6997,6 +6998,7 @@
       "apply_weapon_evolution",
       "damage_enemy",
       "delay_enemy",
+      "restore_enemy_health",
       "perform_enemy_attack",
       "deal_elemental_hit",
       "update_elemental_damage",
@@ -7078,7 +7080,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "6534d32075fb9bc72c5a5c9baaea536940b9b02b15a1ab061d124c7e7eb2e40f"
+    "source_sha256": "086f231c1fef4f11fbc2613a60d48140b06666f7dfbfec59c792c88b11c7ffcb"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8400,9 +8402,10 @@
     },
     "methods": [
       "draw_reward",
-      "draw_item"
+      "draw_item",
+      "caption_rect"
     ],
-    "source_sha256": "5741e8eb14d12740a3cf5cb4bf56f1e19965b984e2a98b145d533e5ae7937f34"
+    "source_sha256": "01feb2c77a0ba340556d645cc71efa633cee83c5471d8327ccc23bf6a237c61e"
   },
   "presentation_director.gd": {
     "constants": {

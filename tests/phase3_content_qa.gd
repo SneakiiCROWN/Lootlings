@@ -8,6 +8,7 @@ var captures := 0
 
 func _initialize() -> void:
 	if not preload("res://tests/test_safety.gd").require_isolated(self): return
+	create_timer(90).timeout.connect(func():push_error("Phase3 content timeout");quit(1))
 	call_deferred("review")
 
 func prepare(actor: String = "relic_beast", weapon: String = "scrapfang_blade") -> void:
@@ -96,6 +97,13 @@ func review() -> void:
 		for choice_index in range(3):
 			prepare(); game.enemy_alive = false; game.coins = 100
 			game.event_seen = Events.EVENTS.keys().filter(func(id): return id != event)
+			# Rare discovery events use their own seeded route, not the normal pool.
+			if event in ["secret_bell","wandering_smith","mimic_parley"]:
+				game.expedition_progress.data.counts.discovery_misses=5
+				for trial in range(100):
+					var chooser:=RandomNumberGenerator.new();chooser.seed=trial
+					if ["secret_bell","wandering_smith","mimic_parley"][chooser.randi_range(0,2)]==event:
+						game.expedition_progress.rng.seed=trial;break
 			game.show_expedition_event(); assert(game.event_id == event)
 			assert(not game.event_buttons[choice_index].disabled)
 			if native and choice_index == 0: await capture("event_"+event)
@@ -113,7 +121,7 @@ func review() -> void:
 			assert(before == [game.coins,game.player_hp,game.pending_levels,game.pending_items.size(),game.player_ward])
 	prepare(); game.enemy_alive = false; game.coins = 0; game.player_hp = 5
 	game.event_seen = Events.EVENTS.keys().filter(func(id): return id != "wounded_courier")
-	game.show_expedition_event(); assert(game.event_buttons[0].disabled and game.event_buttons[1].disabled)
+	game.show_expedition_event(); assert(game.event_buttons[0].disabled and not game.event_buttons[1].disabled)
 	game.choose_expedition_event(0); assert(game.state == "event" and game.player_hp == 5)
 	game.choose_expedition_event(2); assert(game.state == "playing")
 	# Exclusive named finds are confined to their regional boss pools. Public

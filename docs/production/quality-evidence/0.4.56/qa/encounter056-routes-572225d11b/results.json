@@ -1,0 +1,32 @@
+[
+  {
+    "name": "completion_economy_qa",
+    "exit": 0,
+    "seconds": 1.84,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "phase3_content_qa",
+    "exit": 4294967295,
+    "seconds": 68.56,
+    "errors": [
+      "SCRIPT ERROR: Assertion failed."
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "region_routes_056_qa",
+    "exit": 0,
+    "seconds": 45.16,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "relic_spinner_qa",
+    "exit": 0,
+    "seconds": 2.49,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

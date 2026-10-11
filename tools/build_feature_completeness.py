@@ -14,6 +14,14 @@ def build(quality=None):
  listed_total=sum(files.values())
  discrepancy=listed_total-counts['remaining_artist_files']
  bundles=[dict(identity=k[0],state=k[1],facing=k[2],contracts=len(v),weapons=sorted({str(x.get('weapon_family')) for x in v}),slot_ids=[x['slot_id'] for x in v],canon=sorted({p for x in v for p in x.get('canonical_authority_files',[])}),status='Candidate shared source dependency; compatibility, grips and native selectors must be proven before reuse. Not a closed asset.') for k,v in sorted(groups.items())]
+ # Frozen requirements retain their original references; the live production
+ # view must follow explicit owner identity corrections rather than old exports.
+ dragon=read('art/hoard_dragon_identity_authority.json')
+ for bundle in bundles:
+  if bundle['identity']==dragon['region_id'] and any(p in dragon['superseded_runtime_assets'] for p in bundle['canon']):
+   bundle['original_requirement_references']=bundle['canon']
+   bundle['canon']=[dragon['canonical_source']]
+   bundle['canon_correction_authority']='art/hoard_dragon_identity_authority.json'
  quality=quality or read('docs/production/PRODUCTION_DASHBOARD.json');sample=read('docs/production/quality-evidence/0.4.51/CONTACT_MATRIX.json');sample=sample if isinstance(sample,list) else sample.get('cases',sample.get('records',[]))
  family_views=[]
  for entry in quality['requirement_families']:
