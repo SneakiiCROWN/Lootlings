@@ -1,6 +1,6 @@
 """Terminate disposable Godot processes at persisted economy journal boundaries."""
 from pathlib import Path
-import argparse,os,subprocess,time,json
+import argparse,os,subprocess,time,json,hashlib
 ROOT=Path(__file__).resolve().parents[1]
 def main():
  p=argparse.ArgumentParser();p.add_argument("--pack",default="builds/windows/Lootlings-0.4.60-p0-candidate.pck");a=p.parse_args()
@@ -33,5 +33,5 @@ def main():
   results.append(dict(boundary=cut,actual_os_process_tree_killed=True,persisted_barrier=True,fresh_process_recovery=True,consistent_gold=1000+cut,consistent_scrap=200+cut,idempotent=True))
   print("Actual process-cut recovery PASS",cut,flush=True)
  target=ROOT/"docs/production/quality-evidence/0.4.60/PROCESS_CUT_RECOVERY.json"
- target.write_text(json.dumps(dict(pack=str(pack),cases=results,scope="Actual OS termination at four injected persisted journal boundaries; disposable stores only, not power-loss/disk-durability simulation."),indent=2)+"\n",encoding="utf-8")
+ target.write_text(json.dumps(dict(pack=str(pack),pack_sha256=hashlib.sha256(pack.read_bytes()).hexdigest(),cases=results,scope="Actual OS termination at four injected persisted journal boundaries; disposable stores only, not power-loss/disk-durability simulation."),indent=2)+"\n",encoding="utf-8")
 if __name__=="__main__":main()

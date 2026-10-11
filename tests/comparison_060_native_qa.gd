@@ -22,7 +22,7 @@ func review() -> void:
    assert(is_equal_approx(projected["Base strike power"],game.base_damage*game.equipment_damage_multiplier()) and is_equal_approx(projected["Auto-attack delay"],game.current_attack_interval()) and is_equal_approx(projected["Critical chance"],game.effective_crit_chance()*100) and is_equal_approx(projected["Maximum HP"],game.player_max_hp))
    game.inventory.equipped=old_equipment;game.player_max_hp=old_max;game.equipment_hp_bonus=old_bonus;game.player_hp=hp;cases+=1
    if id in ["dawnweave","mirrorwake","ironpaw_plate","stormspark"]:
-    game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot))
+    game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot));assert(game.item_compare.get_v_scroll_bar().value<1)
     var attacks_before:int=game.attack_sequence
     await swipe(game.item_compare);game.touch_ux.inertia=null;await process_frame
     assert(game.state=="item" and game.attack_sequence==attacks_before)
@@ -39,6 +39,16 @@ func review() -> void:
   var saved:String=FileAccess.get_sha256(game.INVENTORY_SAVE_PATH);var inventory_before:String=JSON.stringify(game.inventory.equipped);var records_before:String=JSON.stringify(game.inventory.stash);var kept_before:String=JSON.stringify(game.run_kept_loot)
   Scope.transitioning=true;game.accept_item_equip();Scope.transitioning=false
   assert(game.inventory.scrap==scrap_before and game.state=="item" and JSON.stringify(game.inventory.equipped)==inventory_before and JSON.stringify(game.inventory.stash)==records_before and JSON.stringify(game.run_kept_loot)==kept_before and FileAccess.get_sha256(game.INVENTORY_SAVE_PATH)==saved)
+  var full_stash:Array=game.inventory.stash.duplicate(true)
+  game.inventory.stash.clear();game.inventory.save(game.INVENTORY_SAVE_PATH)
+  saved=FileAccess.get_sha256(game.INVENTORY_SAVE_PATH)
+  for action in ["keep","scrap"]:
+   Scope.transitioning=true
+   if action=="keep":game.accept_item_keep()
+   else:game.accept_item_scrap()
+   Scope.transitioning=false
+   assert(game.state=="item" and not game.current_item.is_empty() and game.inventory.stash.is_empty() and game.inventory.scrap==scrap_before and JSON.stringify(game.run_kept_loot)==kept_before and FileAccess.get_sha256(game.INVENTORY_SAVE_PATH)==saved and game.item_compare.text.contains("not been consumed"))
+  game.inventory.stash=full_stash
   game.show_hideout();game.hideout_ui.show_forge();await capture("forge_full_preview")
   game.gold=100000;game.refresh_hideout();game.hideout_ui.show_shop();await tap(game.hideout_ui.shop_offer_buttons[0])
   assert(game.hideout_ui.shop_buy_button.disabled and game.hideout_ui.shop_buy_button.text.contains("IS FULL"))

@@ -2940,6 +2940,7 @@ func inspect_merchant_item(index: int) -> void:
 	var item: Dictionary = shop.stock[index]
 	merchant_selection = index; selection_msec = Time.get_ticks_msec()
 	merchant_detail.text = "[b]IF EQUIPPED: %s[/b]\n%s" % [item.name,build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
+	merchant_detail.call_deferred("scroll_to_line",0)
 	merchant_buy_button.text = "TAKE FREE / ENDS THIS STOP"
 	merchant_buy_button.disabled = shop.purchase_taken
 	for i in range(merchant_buttons.size()):
@@ -2999,6 +3000,7 @@ func show_next_item() -> void:
 	item_description.text = "%s\n%s\n%s" % [ItemCatalog.display_identity(current_item), current_item.get("desc", ""), ItemCatalog.describe_headline_effects(current_item, 1)]
 	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
 	item_compare.text = build_item_comparison(current_item, equipped)
+	item_compare.call_deferred("scroll_to_line",0)
 	item_keep_button.disabled = inventory.stash.size() >= inventory.stash_capacity
 	item_keep_button.text = "KEEP IN STASH\n%d / %d" % [inventory.stash.size(), inventory.stash_capacity]
 	item_scrap_button.text = "SCRAP  +%d" % ItemCatalog.scrap_value(current_item)
@@ -3052,6 +3054,7 @@ func accept_item_equip() -> void:
 		inventory.equipped=equipment_before;inventory.stash=stash_before;inventory.scrap=scrap_before
 		status_message="Could not save gear. Your equipment is unchanged; try again."
 		item_compare.text="[color=#ff7d88]"+status_message+"[/color]\n"+build_item_comparison(current_item,inventory.equipped_item(str(current_item.get("slot",""))))
+		item_compare.call_deferred("scroll_to_line",0)
 		return
 	var item_name: String = current_item.get("name", "Loot")
 	if not item_name in run_kept_loot:
@@ -3076,16 +3079,25 @@ func accept_item_equip() -> void:
 	queue_loot_dialogue(current_item)
 	finish_item_decision()
 
+func show_loot_save_error() -> void:
+	status_message="Could not save this find. It has not been consumed; try again."
+	item_compare.text="[color=#ff7d88]"+status_message+"[/color]\n"+build_item_comparison(current_item,inventory.equipped_item(str(current_item.get("slot",""))))
+	item_compare.call_deferred("scroll_to_line",0)
+
 func accept_item_keep() -> void:
 	if state != "item" or current_item.is_empty():
 		return
+	var stash_before: Array=inventory.stash.duplicate(true)
 	if not inventory.keep(current_item):
+		return
+	if inventory.save(INVENTORY_SAVE_PATH)!=OK:
+		inventory.stash=stash_before
+		show_loot_save_error()
 		return
 	var kept_name: String = current_item.get("name", "Loot")
 	if not kept_name in run_kept_loot:
 		run_kept_loot.append(kept_name)
 		run_notable_items.append(current_item.duplicate(true))
-	inventory.save(INVENTORY_SAVE_PATH)
 	status_message = "%s sent to stash." % current_item.get("name", "Loot")
 	player_reward_flash = 0.55
 	player_reward_color = Color("#72c8ff")
@@ -3096,8 +3108,12 @@ func accept_item_keep() -> void:
 func accept_item_scrap() -> void:
 	if state != "item" or current_item.is_empty():
 		return
+	var scrap_before: int=inventory.scrap
 	var value := inventory.salvage(current_item)
-	inventory.save(INVENTORY_SAVE_PATH)
+	if inventory.save(INVENTORY_SAVE_PATH)!=OK:
+		inventory.scrap=scrap_before
+		show_loot_save_error()
+		return
 	status_message = "Loot scrapped for %d scrap." % value
 	player_reward_flash = 0.55
 	player_reward_color = Color("#ffbd69")

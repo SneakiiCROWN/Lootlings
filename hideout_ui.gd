@@ -1437,6 +1437,7 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	shop_buy_button.text = "BUY\n%d LOOTCOINS" % int(item.get("price", 0))
 	shop_detail.text+="\nCost: %d Lootcoins · Wallet: %d\n%s\n\n" % [int(item.get("price",0)),gold,"Remaining after purchase: %d Lootcoins" % (gold-int(item.get("price",0))) if gold>=int(item.get("price",0)) else "Save %d more Lootcoins first." % (int(item.get("price",0))-gold)]
 	shop_detail.text+="\n\n%s\nBought gear goes to your stash; equip it when ready.\n\n%s" % [comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon")))),item.get("desc","")]
+	shop_detail.call_deferred("scroll_to_line",0)
 	shop_buy_button.disabled = reveal_pending or gold < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
 	if reveal_pending:shop_buy_button.text="CLAIM\nYOUR CACHE"
 	elif current_inventory.stash.size() >= current_inventory.stash_capacity:shop_buy_button.text="STASH\nIS FULL"
