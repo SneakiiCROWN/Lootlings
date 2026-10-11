@@ -41,7 +41,7 @@ func review() -> void:
 		machine._process(.016); assert(machine.burst>.9,"Delayed lock must retain the rarity reveal")
 		machine.lock_result()
 		machine._process(3); assert(machine.stage=="settled")
-	assert(locks[0]==6 and completions[0]==6)
+	assert(locks[0]==preload("res://relic_spin_catalog.gd").TIERS.size() and completions[0]==preload("res://relic_spin_catalog.gd").TIERS.size())
 	var manifest=preload("res://authored_pose_manifest.gd")
 	var original_rows: Array=manifest.rows().duplicate(true)
 	var ready: Dictionary=original_rows.filter(func(row): return row.actor=="vault_runner" and row.stance=="heavy_two_hand" and row.phase=="READY" and row.facing=="right_only")[0]

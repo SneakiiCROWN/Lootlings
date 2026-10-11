@@ -22,7 +22,7 @@ const POOLS := {
 	],
 	"contract_complete":[
 		{"speaker": "Archivist", "text": "Contract complete. Claim your payment at Local Contracts; admiration is not legal tender.", "weight": 2.0},
-		{"speaker": "Salvager", "text": "You did the job. Collect the Gold before somebody invents a processing fee.", "weight": 2.0}
+		{"speaker": "Salvager", "text": "Job done. Claim your Lootcoins at Local Contracts before I start charging for congratulations.", "weight": 2.0}
 	],
 	"idle":[
 		{"speaker": "Salvager", "text": "I tested that hinge. It passed. The wall is appealing.", "weight": 2.0},
@@ -34,11 +34,11 @@ const POOLS := {
 		{"speaker": "Mascot", "text": "I packed provisions. Most of them are provisions for me.", "weight": 2.0}
 	],
 	"tapped":[
-		{"speaker": "Salvager", "text": "Need gear? Shop is to my right. Unsolicited repair advice is regrettably free.", "weight": 2.0},
+		{"speaker": "Salvager", "text": "Need gear? Tap the Shop station. Repair advice is free; the equipment has a price tag.", "weight": 2.0},
 		{"speaker": "Salvager", "text": "That lever is decorative. This warning is based on several experiments.", "weight": 2.0},
 		{"speaker": "Archivist", "text": "Trophies, notes and memories are in the Archive. Yes, we keep the embarrassing ones.", "weight": 2.0},
 		{"speaker": "Archivist", "text": "You may revise your plan. You may not revise the witness statement.", "weight": 2.0},
-		{"speaker": "Relic Keeper", "text": "The shrine spends Star Shards on permanent power. Gold pays for Hideout improvements.", "weight": 2.0},
+		{"speaker": "Relic Keeper", "text": "Loot Diamonds buy permanent power at the Shrine. Lootcoins pay for the other improvements.", "weight": 2.0},
 		{"speaker": "Relic Keeper", "text": "You are allowed to put the satchel down. That is not a defeat condition.", "weight": 2.0},
 		{"speaker": "Mascot", "text": "Point me at the ruins. I have a sword and a deeply unearned sense of readiness.", "weight": 2.0}
 	],
@@ -48,7 +48,7 @@ const POOLS := {
 		{"speaker": "Relic Keeper", "text": "The gate brought you home. That matters more than what was in your hands.", "weight": 2.0}
 	],
 	"early_defeat":[
-		{"speaker": "Salvager", "text": "Gold and Shards earned are yours. Try armour or healing upgrades before the next trip.", "weight": 2.0},
+		{"speaker": "Salvager", "text": "Your Lootcoins and Diamonds are safe. A little armour or healing makes the next trip less exciting for my repair bill.", "weight": 2.0},
 		{"speaker": "Archivist", "text": "A failed expedition is still evidence. The floor supplied most of it.", "weight": 2.0},
 		{"speaker": "Mascot", "text": "I have assessed the situation. The situation has a very hard floor.", "weight": 2.0}
 	],
@@ -76,7 +76,7 @@ const POOLS := {
 	],
 	"travel":[
 		{"speaker": "Mascot", "text": "Small paws. Large sword. The staircase has filed a complaint.", "weight": 2.0},
-		{"speaker": "Archivist", "text": "A named windup means an attack is coming. Keep your eyes on the foe, not the coin shower.", "weight": 2.0},
+		{"speaker": "Archivist", "text": "Watch the attack warning above the foe. Treasure can wait; claws rarely do.", "weight": 2.0},
 		{"speaker": "Salvager", "text": "The Pack Peddler offers one free supply choice each stop. You can redraw the offers once.", "weight": 2.0},
 		{"speaker": "Relic Keeper", "text": "Healing and armour keep ambitious builds alive. Power without a way home is a poor bargain.", "weight": 2.0},
 		{"speaker": "Archivist", "text": "Tap the arena for extra strikes. Menus and the HUD are safe to touch.", "weight": 2.0},
@@ -108,7 +108,7 @@ const POOLS := {
 	],
 	"first_visit":[
 		{"speaker": "Archivist", "text": "Begin Expedition takes you into the ruins. Gear, upgrades and the Archive can wait until you return.", "weight": 2.0},
-		{"speaker": "Salvager", "text": "Welcome home. Gold buys supplies; Scrap feeds the Forge. Keep both away from my lunch.", "weight": 2.0},
+		{"speaker": "Salvager", "text": "Welcome home. Lootcoins buy gear; Scrap feeds the Forge. Keep both away from my lunch.", "weight": 2.0},
 		{"speaker": "Relic Keeper", "text": "A safe gate, warm lanterns, people who remember your name. We start there.", "weight": 2.0}
 	],
 	"rare":[

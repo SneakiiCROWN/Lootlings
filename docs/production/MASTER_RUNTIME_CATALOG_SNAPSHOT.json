@@ -2186,6 +2186,27 @@
     ],
     "source_sha256": "a17ed94b0e855643084081be51db6b91718b8d838294e9871450d0fe17ea1d68"
   },
+  "combat_numbers.gd": {
+    "constants": {
+      "COLORS": {
+        "Fire": "#ffb46b",
+        "Ice": "#91e7ff",
+        "Lightning": "#dfbcff",
+        "Nature": "#b5e99b",
+        "Physical": "#eef3ff",
+        "Poison": "#a6ec80",
+        "armour": "#c1c9df",
+        "heal": "#80e7b6",
+        "incoming": "#ff9aa5",
+        "ward": "#91ddff"
+      }
+    },
+    "methods": [
+      "text",
+      "add"
+    ],
+    "source_sha256": "e98544ea6f78651440e5b29c41a8e58fa244c251fab8b252ea5c49a65d47db9f"
+  },
   "combat_presentation.gd": {
     "constants": {
       "CONTACT_LIMIT": 12
@@ -3058,7 +3079,7 @@
           "mode": "dungeon",
           "outcome": "victory",
           "speaker": "Archivist",
-          "text": "You cleared the Rootglass Vault. Bring the Crownroot to Sera before we catalogue it."
+          "text": "You cleared the Rootglass Vault. Crownroot fuels the Relic Engine; Gravebloom belongs at the Forge. I will keep the records straight."
         },
         {
           "category": "context",
@@ -3227,7 +3248,7 @@
       "_init",
       "choose"
     ],
-    "source_sha256": "3de3ac6394b611264e0e65855a5360fbc52e4c8920e6a862359acaf4c9cda4ed"
+    "source_sha256": "024de82bce3154ac77f2fe4aa0be6897bc299c9e25dd9709d43d3dd3aaa75beb"
   },
   "contract_system.gd": {
     "constants": {
@@ -3429,14 +3450,14 @@
           },
           {
             "speaker": "Salvager",
-            "text": "You did the job. Collect the Gold before somebody invents a processing fee.",
+            "text": "Job done. Claim your Lootcoins at Local Contracts before I start charging for congratulations.",
             "weight": 2.0
           }
         ],
         "early_defeat": [
           {
             "speaker": "Salvager",
-            "text": "Gold and Shards earned are yours. Try armour or healing upgrades before the next trip.",
+            "text": "Your Lootcoins and Diamonds are safe. A little armour or healing makes the next trip less exciting for my repair bill.",
             "weight": 2.0
           },
           {
@@ -3475,7 +3496,7 @@
           },
           {
             "speaker": "Salvager",
-            "text": "Welcome home. Gold buys supplies; Scrap feeds the Forge. Keep both away from my lunch.",
+            "text": "Welcome home. Lootcoins buy gear; Scrap feeds the Forge. Keep both away from my lunch.",
             "weight": 2.0
           },
           {
@@ -3667,7 +3688,7 @@
         "tapped": [
           {
             "speaker": "Salvager",
-            "text": "Need gear? Shop is to my right. Unsolicited repair advice is regrettably free.",
+            "text": "Need gear? Tap the Shop station. Repair advice is free; the equipment has a price tag.",
             "weight": 2.0
           },
           {
@@ -3687,7 +3708,7 @@
           },
           {
             "speaker": "Relic Keeper",
-            "text": "The shrine spends Star Shards on permanent power. Gold pays for Hideout improvements.",
+            "text": "Loot Diamonds buy permanent power at the Shrine. Lootcoins pay for the other improvements.",
             "weight": 2.0
           },
           {
@@ -3709,7 +3730,7 @@
           },
           {
             "speaker": "Archivist",
-            "text": "A named windup means an attack is coming. Keep your eyes on the foe, not the coin shower.",
+            "text": "Watch the attack warning above the foe. Treasure can wait; claws rarely do.",
             "weight": 2.0
           },
           {
@@ -3789,7 +3810,7 @@
       "choose",
       "recent_contains"
     ],
-    "source_sha256": "5d59a95dbd9526bad6eefd007cdc23d5222635ac5dda5562f83e316a0d1dbae6"
+    "source_sha256": "eeabe9b4896175ab1a523f5deb4a51a6afba36a0cd56b69fd8bf5767be79025b"
   },
   "display_numbers.gd": {
     "constants": {},
@@ -6465,7 +6486,7 @@
       "describe_effects",
       "describe_headline_effects"
     ],
-    "source_sha256": "b42a645c595de39e0f36e67bf2c09bff3f2266e1d3cf146f07e5226e649878e8"
+    "source_sha256": "4dda3da9e0f5a9541d3e229332e9916e7de2d7f733fd78480348c34979d62e98"
   },
   "item_icon.gd": {
     "constants": {
@@ -7057,7 +7078,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "10b052f870d7f3615647493fb65db93aaa2ecbcd5501601c9d588f2c80fac049"
+    "source_sha256": "08f7552f655c9e296354e4f836969a8ecf57c9e9fce87985f4d9e4b7c9be77eb"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9366,9 +9387,10 @@
     "methods": [
       "_ready",
       "_process",
-      "_draw"
+      "_draw",
+      "draw_body"
     ],
-    "source_sha256": "d25cee30842ef521744cad22f9e19ea4f4029d1929202129d6f231306f9c8a43"
+    "source_sha256": "163235d8da64b4677bfbf2379ee8b0f4ca52c23215747ff6f37b30d8386520b0"
   },
   "ui_surface_style.gd": {
     "constants": {},

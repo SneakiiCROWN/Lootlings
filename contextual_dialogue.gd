@@ -658,7 +658,7 @@ const LINES := [
   },
   {
     "speaker": "Archivist",
-    "text": "You cleared the Rootglass Vault. Bring the Crownroot to Sera before we catalogue it.",
+    "text": "You cleared the Rootglass Vault. Crownroot fuels the Relic Engine; Gravebloom belongs at the Forge. I will keep the records straight.",
     "category": "context",
     "mode": "dungeon",
     "outcome": "victory"

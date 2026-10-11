@@ -1549,8 +1549,8 @@ func build_merchant_ui() -> void:
 	merchant_coin_label = LootlingsUI.rich_label(merchant_panel, Rect2(146, 86, 258, 26), 16, Color("#ffe078"))
 	for i in range(3):
 		var button := Button.new()
-		button.position = Vector2(20, 136 + i * 96)
-		button.size = Vector2(384, 90)
+		button.position = Vector2(20, 136 + i * 80)
+		button.size = Vector2(384, 74)
 		button.add_theme_font_size_override("font_size", 15)
 		button.pressed.connect(inspect_merchant_item.bind(i))
 		merchant_panel.add_child(button)
@@ -1558,21 +1558,21 @@ func build_merchant_ui() -> void:
 		var icon := ItemIcon.new()
 		icon.name = "OfferIcon%d" % i
 		# Keep artwork attached to its offer; row spacing must not drift independently.
-		icon.position = Vector2(8, 13)
-		icon.size = Vector2(64, 64)
+		icon.position = Vector2(8, 9)
+		icon.size = Vector2(56, 56)
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		button.add_child(icon)
 		merchant_icons.append(icon)
-		var kicker := make_label(button, "", 11, Rect2(84, 10, 284, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#c7b18b"))
-		var title := make_label(button, "", 14, Rect2(84, 30, 284, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#edf0f7"))
-		var effect := make_label(button, "", 12, Rect2(84, 56, 284, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#bfcbe0"))
+		var kicker := make_label(button, "", 11, Rect2(76, 6, 292, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#c7b18b"))
+		var title := make_label(button, "", 14, Rect2(76, 26, 292, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#edf0f7"))
+		var effect := make_label(button, "", 12, Rect2(76, 50, 292, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#bfcbe0"))
 		for label in [kicker, title, effect]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
 	merchant_panel.size.y = 688
-	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,434,376,50),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
-	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,494),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,376,376,112),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,500),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
@@ -2411,18 +2411,11 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 		hit_stop_timer = maxf(hit_stop_timer, 0.014)
 	if audio_manager!=null:
 		audio_manager.play_contact(str(inventory.equipped_item("Weapon").get("weapon_type","greatsword")),preload("res://regional_enemy_presentation.gd").material(self),is_crit,is_heavy)
-	var text := ("%.0f!" if is_crit else "%.0f") % amount
-	var text_size := 29 if is_crit else 20
-	var text_color := Color("#fff178") if is_crit else Color.WHITE
-	if is_heavy:
-		text = ("%.0f!" if is_crit else "%.0f") % amount
-		text_size = 26 if is_crit else 22
-		text_color = build.color("Physical").lightened(0.25)
-	elif is_tap and not is_crit:
-		text = "%.0f" % amount
-	add_float(text, Vector2(300 + visual_rng.randf_range(-10, 10), 408), text_color, text_size)
+	preload("res://combat_numbers.gd").add(self,health_removed,"critical" if is_crit else "heavy" if is_heavy else "Physical")
 	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7)
+	var hp_before_leech := player_hp
 	player_hp = minf(player_max_hp, player_hp + health_removed * life_steal)
+	preload("res://combat_numbers.gd").add(self,player_hp-hp_before_leech,"heal",true)
 	if is_heavy and inventory.has_signature("burden_bell"): delay_enemy(.25)
 	if is_heavy and inventory.has_signature("aftershock_receipt") and delayed_hits.size() < 8:
 		delayed_hits.append({"time":.18,"serial":enemy_serial,"power":base_damage*.25})
@@ -2503,8 +2496,9 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	if enemy_archetype == "hexer" and not enemy_is_boss and not enemy_is_miniboss and enemy_attack_count % 3 == 0:
 		play_audio_event("ward")
 		var ward := enemy_max_hp * 0.07
+		var hp_before_mend := enemy_hp
 		enemy_hp = minf(enemy_max_hp, enemy_hp + ward)
-		add_float("WARD +%.0f" % ward, Vector2(325, 410), Color("#d194ff"), 17)
+		add_float("HEAL +%.0f" % (enemy_hp-hp_before_mend), Vector2(325, 410), Color("#d194ff"), 17)
 		add_particles(Vector2(365, 465), Color("#b86cff"), 6)
 		return
 	if debug_enabled and debug_god_mode:
@@ -2526,6 +2520,8 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 		attack_clock += 0.18
 		add_float("FROST DELAY", Vector2(150, 405), enemy_variant_color, 14)
 	play_character_voice("attack",false)
+	var armour_blocked := damage * minf(effective_armor,0.72) / maxf(.28,1.0-minf(effective_armor,0.72))
+	var hp_before_incoming := player_hp
 	var absorbed := minf(player_ward,damage)
 	player_ward -= absorbed; damage -= absorbed
 	combat_presentation.record_incoming(self,absorbed,damage)
@@ -2538,8 +2534,9 @@ func perform_enemy_attack(damage_scale: float = 1.0) -> void:
 	run_damage_taken += damage
 	player_flash = 0.13
 	screen_shake = 0.02 if damage<=0 else 0.08
-	if absorbed>0: add_float("WARD −%.0f" % absorbed,Vector2(150,402),Color("#9eeaff"),17)
-	if damage>0: add_float("-%.0f" % damage, Vector2(150, 432), Color("#ff7a84"), 19)
+	preload("res://combat_numbers.gd").add(self,armour_blocked,"armour",true)
+	preload("res://combat_numbers.gd").add(self,absorbed,"ward",true)
+	preload("res://combat_numbers.gd").add(self,minf(damage,maxf(0,hp_before_incoming)),"incoming",true)
 	add_particles(Vector2(170, 478), Color("#ff768c"), 5)
 	if player_hp <= 0.0 and inventory.has_signature("last_lantern") and not last_lantern_spent:
 		last_lantern_spent = true
@@ -2564,6 +2561,7 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 		return
 	play_audio_event({"Fire":"magic_fire","Lightning":"magic_lightning","Poison":"magic_poison"}.get(identity,"heavy_hit"))
 	amount *= enemy_hit_multiplier
+	var resolved_damage := minf(amount,maxf(0,enemy_hp))
 	enemy_hp -= amount
 	var color := build.color(identity)
 	enemy_flash = 0.08
@@ -2572,7 +2570,7 @@ func deal_elemental_hit(amount: float, identity: String) -> void:
 	element_flash = 0.24
 	element_flash_color = color
 	element_flash_identity = identity
-	add_float("%.0f" % amount, Vector2(324, 390), color, 19)
+	preload("res://combat_numbers.gd").add(self,resolved_damage,identity)
 	add_particles(Vector2(350, 455), color, 9)
 	carried_shockwave += amount * 0.18 if build.count("Lightning") >= 5 else 0.0
 	if enemy_hp <= 0.0:
@@ -2592,12 +2590,15 @@ func update_elemental_damage(delta: float) -> void:
 		return
 	dot_tick_clock += 0.4
 	var total_dot := 0.0
+	var burn_damage := 0.0
+	var poison_damage := 0.0
+	var hp_before_dot := enemy_hp
 	if enemy_burn_dps > 0.0:
-		var burn_damage := enemy_burn_dps * 0.4 * enemy_hit_multiplier
+		burn_damage = enemy_burn_dps * 0.4 * enemy_hit_multiplier
 		total_dot += burn_damage
 		add_particles(Vector2(360, 446), build.color("Fire"), 2)
 	if enemy_poison_stacks > 0:
-		var poison_damage := base_damage * 0.012 * build.count("Poison") * enemy_poison_stacks * enemy_hit_multiplier
+		poison_damage = base_damage * 0.012 * build.count("Poison") * enemy_poison_stacks * enemy_hit_multiplier
 		total_dot += poison_damage
 		add_particles(Vector2(375, 480), build.color("Poison"), 2)
 		if plague_power > 0:
@@ -2607,6 +2608,9 @@ func update_elemental_damage(delta: float) -> void:
 			var poison_removed := minf(poison_damage,maxf(0.0,enemy_hp-(total_dot-poison_damage)))
 			player_hp = minf(player_max_hp, player_hp + poison_removed * siphon_ratio)
 	if total_dot > 0.0:
+		var burn_removed := minf(burn_damage,maxf(0,hp_before_dot))
+		preload("res://combat_numbers.gd").add(self,burn_removed,"Fire_tick")
+		preload("res://combat_numbers.gd").add(self,minf(poison_damage,maxf(0,hp_before_dot-burn_removed)),"Poison_tick")
 		enemy_hp -= total_dot
 		if enemy_hp <= 0.0:
 			kill_enemy()
@@ -2887,7 +2891,7 @@ func inspect_merchant_item(index: int) -> void:
 	if state != "merchant" or shop.purchase_taken or index < 0 or index >= shop.stock.size(): return
 	var item: Dictionary = shop.stock[index]
 	merchant_selection = index; selection_msec = Time.get_ticks_msec()
-	merchant_detail.text = "[b]NEW ITEM: %s[/b]\nFREE / one supply choice this stop\n%s" % [item.name,build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
+	merchant_detail.text = "[b]IF EQUIPPED: %s[/b]\n%s" % [item.name,build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
 	merchant_buy_button.text = "TAKE FREE / ENDS THIS STOP"
 	merchant_buy_button.disabled = shop.purchase_taken
 	for i in range(merchant_buttons.size()):
@@ -2994,14 +2998,17 @@ func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
 		var gain := delta > 0.0
 		var arrow := "▲" if gain else "▼"
 		var change_color := "#69e6b0" if gain else "#ff7d88"
+		if key == "attack_slow":
+			changes.append("[color=%s]%s %.1f%% %s attack delay[/color]" % [change_color,arrow,absf(delta)*100.0,"less" if gain else "more"])
+			continue
 		if key == "incoming_mult":
-			changes.append("[color=%s]%s %.0f%% %s damage taken[/color]" % [change_color,arrow,absf(delta)*100.0,"less" if gain else "more"])
+			changes.append("[color=%s]%s %.1f%% %s damage taken[/color]" % [change_color,arrow,absf(delta)*100.0,"less" if gain else "more"])
 			continue
 		changes.append("[color=%s]%s %s[/color]" % [change_color, arrow, format_effect_delta(key, absf(delta)).replace("+", "-" if not gain else "+")])
 		if changes.size() >= 3:
 			break
 	if changes.is_empty():
-		changes.append("[color=#c7d4ee]• SIDEGRADE — DIFFERENT EFFECT PROFILE[/color]")
+		changes.append("[color=#c7d4ee]• SAME NUMERIC BONUSES — CHECK SIGNATURE[/color]")
 	return result + "\n".join(changes)
 
 func format_effect_delta(key: String, amount: float) -> String:
@@ -3015,8 +3022,8 @@ func format_effect_delta(key: String, amount: float) -> String:
 	}
 	var label: String = labels.get(key, key.replace("_", " ").to_upper())
 	if key == "max_hp" or key == "poison_bonus":
-		return "+%.0f %s" % [amount, label]
-	return "+%.0f%% %s" % [amount * 100.0, label]
+		return "+%s %s" % [preload("res://combat_numbers.gd").text("",amount).strip_edges(), label]
+	return "+%.1f%% %s" % [amount * 100.0, label]
 
 func inspect_item_equip() -> void:
 	if state != "item" or current_item.is_empty(): return
@@ -3642,7 +3649,8 @@ func update_effects(delta: float) -> void:
 	update_attack_projectiles(delta)
 	for item in floating_texts:
 		item.life -= delta
-		item.pos.y -= 42.0 * delta
+		if item.has("number_kind"): item.age += delta
+		if not audio_settings.get("cinematic_reduced_motion",false): item.pos.y -= 42.0 * delta
 	for i in range(floating_texts.size() - 1, -1, -1):
 		if floating_texts[i].life <= 0.0:
 			floating_texts.remove_at(i)
@@ -3778,8 +3786,8 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	pos.x += (-9.0 if lane_count % 2 == 0 else 9.0) * min(lane_count, 2)
 	var duration := 0.68 if size_value < 25 else 0.82
 	floating_texts.append({"text":text_value, "pos":pos, "color":color, "size":size_value, "life":duration, "max_life":duration, "lane":lane})
-	while floating_texts.size() > 3:
-		floating_texts.pop_front()
+	var notices: Array = floating_texts.filter(func(item): return not item.has("number_kind"))
+	while notices.size() > 3: floating_texts.erase(notices.pop_front())
 
 func add_particles(pos: Vector2, color: Color, count: int) -> void:
 	pos.y+=40
@@ -3876,13 +3884,13 @@ func draw_hud() -> void:
 	draw_string(body_font,Vector2(334,51),"EMBERS" if retention.siege else "LOOTCOINS",HORIZONTAL_ALIGNMENT_CENTER,132,11,Color("#9fddff"))
 	# A readable, named progression track; Ward has its own blue protection lane.
 	var xp_width := 294.0 if player_ward > 0 else 444.0
-	var xp_caption := "XP %d / %d  ·  NEXT LV %d" % [int(xp), int(xp_needed), level+1]
-	draw_string(body_font,Vector2(18,94),xp_caption,HORIZONTAL_ALIGNMENT_LEFT,xp_width,11,Color("#b8dded"))
+	var xp_caption := "XP %s / %s  ·  NEXT LV %d" % [preload("res://display_numbers.gd").compact(int(xp)), preload("res://display_numbers.gd").compact(int(xp_needed)), level+1]
+	draw_string(body_font,Vector2(18,94),xp_caption,HORIZONTAL_ALIGNMENT_LEFT,xp_width,LootlingsUI.fitted_font_size(body_font,xp_caption,xp_width,11,9),Color("#b8dded"))
 	draw_bar(Rect2(18,99,xp_width,8),xp/maxf(1,xp_needed),Color.BLACK,Color.WHITE,"",10)
 	if xp_counter_flash > 0:
 		draw_rect(Rect2(18,99,xp_width,8),Color(.45,.90,1,clampf(xp_counter_flash/.24,0,1)*.22))
 	if player_ward > 0:
-		draw_string(body_font,Vector2(332,94),"WARD %.0f" % player_ward,HORIZONTAL_ALIGNMENT_CENTER,130,11,Color("#b6ecff"))
+		draw_string(body_font,Vector2(332,94),"WARD %s" % preload("res://display_numbers.gd").compact(int(ceil(player_ward))),HORIZONTAL_ALIGNMENT_CENTER,130,11,Color("#b6ecff"))
 		LootlingsUI.draw_meter(get_canvas_item(),Rect2(332,99,130,8),player_ward/maxf(1,player_max_hp),"xp")
 	draw_bar(Rect2(60,57,402,19),player_hp/maxf(1,player_max_hp),Color.BLACK,Color.WHITE,"LV %d · HP %.0f / %.0f" % [level,maxf(0,player_hp),player_max_hp],12,combat_presentation.health_ratio(-1))
 	if player_hp > 0 and player_hp/player_max_hp <= .25:
@@ -4035,7 +4043,7 @@ func draw_effects() -> void:
 		var buffer_ratio := tap_buffer_flash / 0.18
 		draw_arc(Vector2(player_x + 12, 468), 22.0 + (1.0 - buffer_ratio) * 12.0, -0.6, 4.8, 22, Color(0.55, 0.92, 1.0, buffer_ratio * 0.72), 2.5)
 	for item in floating_texts:
-		var alpha: float = clampf(item.life / item.max_life, 0.0, 1.0)
+		var alpha: float = clampf(item.life / minf(.22,item.max_life), 0.0, 1.0)
 		var color: Color = item.color
 		color.a = alpha
 		var text_size: int = item.size
