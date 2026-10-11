@@ -39,7 +39,7 @@ func review_content() -> void:
 			game.attack_anim=.18;await capture("spell_"+identity.to_lower())
 		game.attack_projectiles.clear();game.projectile_impacts.clear();game.state="result";game.retention.show_spinner()
 		for tier in preload("res://relic_spin_catalog.gd").TIERS:
-			assert(preload("res://relic_spin_catalog.gd").icon_for("mastery")=="currency_star_shard")
+			assert(preload("res://relic_spin_catalog.gd").icon_for("mastery")=="core_neutral")
 			game.retention.machine.wind_up("mastery",tier,false);game.retention.machine.set_process(false);game.retention.machine.stage="reveal";game.retention.machine.burst=.85;game.retention.machine.queue_redraw()
 			game.retention.detail.text="[center]FORCED RARITY PREVIEW • no reward granted[/center]";await capture("spinner_"+tier.to_lower())
 		game.retention.machine.stop()

@@ -53,6 +53,7 @@ def build():
     if (ROOT/'docs/production/quality-evidence/0.4.54/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.54/INSTALLATION_RECEIPT.json'
     if (ROOT/'docs/production/quality-evidence/0.4.55/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.55/INSTALLATION_RECEIPT.json'
     if (ROOT/'docs/production/quality-evidence/0.4.56/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.56/INSTALLATION_RECEIPT.json'
+    if (ROOT/'docs/production/quality-evidence/0.4.57/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.57/INSTALLATION_RECEIPT.json'
     integration_pass=read(integration_path) if (ROOT/integration_path).exists() else None
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'

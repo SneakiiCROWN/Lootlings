@@ -1,6 +1,10 @@
+# Current — 0.4.57 currency and isolated owner wallet
+
+Source checks and native phone/tablet/desktop currency routes pass. Two transparent icons installed using original economy motifs; mastery retains a separate symbol; Shrine rows fit their frame. Existing guarded F1/owner SHH menu gains saved add/remove/reset controls. No currency mechanics changed. Builds being verified; no physical or professional artistic acceptance claim. See [report](quality-evidence/0.4.57/REPORT.md). 0 frozen art contracts closed; 2757 remain.
+
 # Current — 0.4.56 encounter and hoard clarity
 
-Source/native verified: accurate Hexer healing and elite tells, distinct boss recovery openings, capped enemy healing feedback and separated canonical Mythical hoard captions. Phone/tablet/desktop native evidence and 24 later-region diagnostic runs recorded. Art closures 0; 2757 remain. Full continuity, balance and professional acceptance open. Compiled/build verification in progress. See [report](quality-evidence/0.4.56/REPORT.md) and [continuation](CONTINUATION_056.md).
+Source/native verified: accurate Hexer healing and elite tells, distinct boss recovery openings, capped enemy healing feedback and separated canonical Mythical hoard captions. Phone/tablet/desktop native evidence and 24 later-region diagnostic runs recorded. Art closures 0; 2757 remain. Full continuity, balance and professional acceptance open. Seven final exact-pack fixtures, Windows startup/icons and regular/owner Android code 67 package checks pass; physical Android and artistic acceptance remain open. See [report](quality-evidence/0.4.56/REPORT.md) and [continuation](CONTINUATION_056.md).
 
 # Current — 0.4.55 combat, merchant and equipment readability
 

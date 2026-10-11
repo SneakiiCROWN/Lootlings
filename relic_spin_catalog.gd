@@ -20,7 +20,7 @@ static func roll(rng: RandomNumberGenerator) -> Dictionary:
 static func tier(rarity: String) -> int: return maxi(0,TIERS.find(rarity))
 static func color(rarity: String) -> Color: return COLORS[tier(rarity)]
 static func icon_for(kind: String) -> String:
-	return {"material":"currency_scrap","mastery":"currency_star_shard","blueprint":"gear_rune","item":"res://art/sprites/weapons/mage_staff.png"}.get(kind,"gear_charm")
+	return {"material":"currency_scrap","mastery":"core_neutral","blueprint":"gear_rune","item":"res://art/sprites/weapons/mage_staff.png"}.get(kind,"gear_charm")
 static func flat_style(fill: Color, edge: Color, radius: int=8) -> StyleBoxFlat:
 	var style:=StyleBoxFlat.new(); style.bg_color=fill; style.border_color=edge
 	style.set_border_width_all(1); style.set_corner_radius_all(radius)

@@ -526,7 +526,7 @@ func refresh_phase4() -> void:
 			preload("res://station_presentation.gd").paper_button(button)
 			var icon_name: String={"Mastery":"core","Characters":"res://art/sprites/relic_beast_base.png","Named gear":"res://art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune"}[category]
 			# Use verified canonical icons, with all decorative children ignoring touch.
-			if icon_name=="core": icon_name="currency_star_shard"
+			if icon_name=="core": icon_name="core_neutral"
 			if icon_name=="gear_weapon": icon_name="res://art/sprites/weapons/vanguard_hammer.png"
 			LootlingsUI.add_icon(button,Rect2(12,6,44,44),icon_name)
 			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#382e32")).mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -830,6 +830,8 @@ func build_upgrades() -> void:
 		if upgrade_id=="pouch":continue # Legacy definition remains for exact refunds.
 		var button := make_button(rows,"",Rect2(0,0,368,48),Color("#25304a"),Color("#d1a85a"),12)
 		button.custom_minimum_size=Vector2(0,48)
+		button.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		button.clip_text=true
 		button.pressed.connect(request_gold_upgrade.bind(upgrade_id))
 		gold_upgrade_buttons[upgrade_id] = button
 
@@ -876,6 +878,9 @@ func build_shop() -> void:
 	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 610, 137, 76), Color("#3f315f"), Color("#c99cff"), 12)
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
 	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 610, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
+	shop_expansion_button.icon=LootlingsUI.icon("currency_gold")
+	shop_expansion_button.expand_icon=true
+	shop_expansion_button.add_theme_constant_override("icon_max_width",20)
 	shop_expansion_button.pressed.connect(func(): safe_action(shop_expansion_button,"Spend Lootcoins to permanently add stash space.",func(): shop_expansion_requested.emit()))
 	for utility in [shop_gold_cache_button,shop_cache_button,shop_expansion_button]:
 		utility.clip_text = true

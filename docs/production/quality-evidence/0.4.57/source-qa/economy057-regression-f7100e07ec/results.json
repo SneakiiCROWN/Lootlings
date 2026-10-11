@@ -1,0 +1,75 @@
+[
+  {
+    "name": "completion_economy_qa",
+    "exit": 0,
+    "seconds": 2.23,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "currency_integration_049_qa",
+    "exit": 0,
+    "seconds": 1.94,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "currency_schema_049_qa",
+    "exit": 0,
+    "seconds": 4.61,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "economy_wallet_057_qa",
+    "exit": 0,
+    "seconds": 1.94,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "rc_save_qa",
+    "exit": 0,
+    "seconds": 0.37,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "relic_spinner_qa",
+    "exit": 0,
+    "seconds": 3.05,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "rift_currency_050_qa",
+    "exit": 0,
+    "seconds": 2.77,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "save_recovery_qa",
+    "exit": 0,
+    "seconds": 2.04,
+    "errors": [],
+    "expected_diagnostics": [
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag.",
+      "ERROR: ConfigFile parse error at user://recovery.cfg:0: Unexpected EOF while parsing simple tag."
+    ]
+  },
+  {
+    "name": "shop_currency_050_qa",
+    "exit": 0,
+    "seconds": 15.28,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "spinner_050_qa",
+    "exit": 0,
+    "seconds": 0.27,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

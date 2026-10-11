@@ -80,7 +80,8 @@ static func raw_item_texture(item: Dictionary) -> Texture2D:
 
 static func icon(name: String) -> Texture2D:
 	var path := name if name.begins_with("res://") else "res://art/ui/icons/%s.png" % name
-	if name in ["currency_gold","currency_star_shard"]: path="res://art/production/phase4e/items/%s.png" % ("gold_hoard" if name=="currency_gold" else "star_shards")
+	if name in ["currency_gold","lootcoins"]: path="res://art/ui/economy/lootcoin.png"
+	if name in ["currency_star_shard","loot_diamonds"]: path="res://art/ui/economy/lootdiamond.png"
 	if name in ["core_fire","core_lightning","gear_rune","rune_fire","rune_frost","rune_poison","rune_lightning","rune_arcane"]: path="res://art/production/phase4e/hud/"+name+".png"
 	if not icon_cache.has(path):
 		icon_cache[path] = load(path)

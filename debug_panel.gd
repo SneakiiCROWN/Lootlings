@@ -89,7 +89,7 @@ func build_ui() -> void:
 		["VICTORY", "victory", null], ["DEFEAT", "defeat", null], ["HOARD CHEST", "hoard", null]
 	])
 	add_section(list, "RESOURCES  •  SAVE", [
-		["+500 GOLD", "gold", 500], ["+100 SCRAP", "scrap", 100], ["+100 SHARDS", "shards", 100],
+		["+500 LOOTCOINS", "gold", 500], ["+100 SCRAP", "scrap", 100], ["+100 DIAMONDS", "shards", 100],
 		["+1 EARNED SPIN", "earned_spin", 1], ["+LEVEL XP", "xp", null], ["", "noop", null]
 	])
 	add_section(list, "FORCED LOOT", [
@@ -125,6 +125,10 @@ func build_ui() -> void:
 	add_section(list,"TEST PROGRESSION",[["+10 SIGILS","sigils",10],["+100 WARD","ward",100],["SAVE TEST","save_test",null],["RELOAD TEST","load_test",null],["MODES","modes",null],["SPINNER","spinner",null]])
 	amount=SpinBox.new();amount.min_value=1;amount.max_value=10000;amount.value=500;amount.custom_minimum_size=Vector2(406,52);section_groups["TEST PROGRESSION"].node.add_child(amount)
 	section_groups["TEST PROGRESSION"].node.add_child(make_button("ADD THIS MANY LOOTCOINS","gold_amount",null))
+	section_groups["TEST PROGRESSION"].node.add_child(make_button("REMOVE THIS MANY LOOTCOINS","coins_remove",null))
+	section_groups["TEST PROGRESSION"].node.add_child(make_button("ADD THIS MANY LOOT DIAMONDS","diamonds_add",null))
+	section_groups["TEST PROGRESSION"].node.add_child(make_button("REMOVE THIS MANY LOOT DIAMONDS","diamonds_remove",null))
+	section_groups["TEST PROGRESSION"].node.add_child(make_button("RESET TEST WALLET BALANCES","wallet_reset",null))
 	add_section(list,"ITEM CATALOG",[]);item_picker=OptionButton.new();item_picker.custom_minimum_size=Vector2(406,52)
 	for item in game.ItemCatalog.ITEMS:item_picker.add_item(str(item.name));item_picker.set_item_metadata(item_picker.item_count-1,item.id)
 	section_groups["ITEM CATALOG"].node.add_child(item_picker);section_groups["ITEM CATALOG"].node.add_child(make_button("GRANT SELECTED ITEM","catalog_item",null))
@@ -179,8 +183,13 @@ func run_action(action: String, payload) -> void:
 	if game == null:
 		return
 	if action == "reset":
-		game.touch_ux.request("RESET ISOLATED TEST PROFILE?","Deletes only this test profile. Normal saves and your owner PIN stay intact.",func():game.debug_action("reset",null));return
-	if action=="gold_amount":action="gold";payload=int(amount.value)
+		game.touch_ux.request("RESET ISOLATED TEST PROFILE?","Deletes only this test profile. Normal saves stay intact. No PIN is used.",func():game.debug_action("reset",null));return
+	if action=="wallet_reset":
+		game.touch_ux.request("RESET TEST WALLET?","Sets only isolated test Lootcoins and Loot Diamonds to zero. Equipment, upgrades, Sigils and normal saves remain intact.",func():status_label.text=game.debug_action("wallet_reset",null);refresh_info());return
+	if action=="achievement" and payload=="reset":
+		game.touch_ux.request("RESET TEST TROPHIES?","Clears only isolated test trophy progress. Normal saves remain intact.",func():status_label.text=game.debug_action("achievement","reset");refresh_info());return
+	if action in ["gold_amount","coins_remove"]:payload=int(amount.value)*(1 if action=="gold_amount" else -1);action="gold"
+	if action in ["diamonds_add","diamonds_remove"]:payload=int(amount.value)*(1 if action=="diamonds_add" else -1);action="shards"
 	if action=="catalog_item":action="item_id";payload=item_picker.get_item_metadata(item_picker.selected)
 	var message: String = game.debug_action(action, payload)
 	status_label.text = message

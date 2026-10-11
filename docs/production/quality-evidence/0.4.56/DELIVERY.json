@@ -1,0 +1,38 @@
+{
+  "version": "0.4.56",
+  "source_checkpoint": "2bca9b9",
+  "verified_checkpoint": "4f9881d",
+  "compiled_fixtures": 7,
+  "builds": [
+    {
+      "path": "builds\\windows\\Lootlings-0.4.56-encounter-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "f152f31a8370e6cef12ce10973b967d46eaf9a5b3af69db0d1f1ba3c61782386"
+    },
+    {
+      "path": "builds\\windows\\Lootlings-0.4.56-encounter-candidate.pck",
+      "bytes": 282946776,
+      "sha256": "629a353c69a5641c988c7e224654b6146c6fdcc39beb72849263565d594d9706"
+    },
+    {
+      "path": "builds\\android\\Lootlings-0.4.56-normal-candidate-debug.apk",
+      "bytes": 303978907,
+      "sha256": "2557d2444be86545fb4614979a78f9a07e1bf65f93f7d50ba4b3c7b90f994871"
+    },
+    {
+      "path": "builds\\android\\Lootlings-0.4.56-owner-test-debug.apk",
+      "bytes": 303983003,
+      "sha256": "6efd84248e5d76d0d48c1ff10dac022cfc9a3944c2e0caafd25b45436f367e67"
+    }
+  ],
+  "physical_android_tested": false,
+  "art_contracts_closed": 0,
+  "remaining_contracts": 2757,
+  "professional_acceptance": false,
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "compiled_cohort_wins": 22,
+  "compiled_cohort_runs": 24,
+  "source_cohort_wins": 19,
+  "balance_accepted": false,
+  "owner_project_settings_preserved": true
+}

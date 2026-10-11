@@ -1,0 +1,58 @@
+{
+  "version": "0.4.57",
+  "authority": "Owner economy/currency-art directive 74e843bf; existing approved Phase4E loot reference motifs",
+  "assets": [
+    {
+      "id": "lootcoin",
+      "reference": "art/production/phase4e/items/gold_hoard.png",
+      "reference_sha256": "8438c9009730868490b83b5351f7aa5efdaca537435fc373807c05aed6b74e4f",
+      "source": "art/source/economy057/lootcoin_generated.png",
+      "source_sha256": "de193ed7501faf234792bb3049291d6b0d78b4462bee0ee3abeaa205fd1b4cd7",
+      "runtime": "art/ui/economy/lootcoin.png",
+      "runtime_sha256": "09461333235b1c7f992bc660841f92cab148cc8dd8cf2c4638438fac11ba5cef",
+      "canvas": [
+        256,
+        256
+      ],
+      "transparent": true,
+      "meaning": "earned permanent currency",
+      "canon_direction": "Original aged-gold crystal/star coin engraving",
+      "processing": "Visible-alpha bounds plus 8px source gutter; original RGB/alpha retained; proportional Lanczos downscale, transparent 256px canvas",
+      "professional_acceptance": false
+    },
+    {
+      "id": "lootdiamond",
+      "reference": "art/production/phase4e/items/star_shards.png",
+      "reference_sha256": "478ff4518d4a860716289245a64fe0c974b1042587907a93d9266db6d77b493b",
+      "source": "art/source/economy057/lootdiamond_corrected.png",
+      "source_sha256": "80c7ed0973d5c2014b94280ba9590cf2514d6959e583fbce3ecaeab351bbaa0d",
+      "runtime": "art/ui/economy/lootdiamond.png",
+      "runtime_sha256": "6fc942854e795a198e8a84c3716320cdf317af38fed2af471a5f3ac71f8cf17d",
+      "canvas": [
+        256,
+        256
+      ],
+      "transparent": true,
+      "meaning": "earned permanent currency",
+      "canon_direction": "Original blue/violet crystal cluster in ornate aged-gold socket",
+      "processing": "Visible-alpha bounds plus 8px source gutter; original RGB/alpha retained; proportional Lanczos downscale, transparent 256px canvas",
+      "professional_acceptance": false
+    }
+  ],
+  "generated_candidates": 3,
+  "accepted_runtime_sprites": 2,
+  "rejected": [
+    {
+      "source": "art/source/economy057/quarantine/lootdiamond_floating_crystals.png",
+      "reason": "Added two detached floating crystals; corrected before runtime installation"
+    }
+  ],
+  "art_contract_closures": 0,
+  "monetisation": "No real-money purchase or premium currency system added.",
+  "aliases": {
+    "currency_gold": "lootcoin",
+    "lootcoins": "lootcoin",
+    "currency_star_shard": "lootdiamond",
+    "loot_diamonds": "lootdiamond"
+  }
+}

@@ -430,7 +430,21 @@ func current_weapon_family() -> String:
 	return inventory.weapon_family()
 
 func debug_snapshot() -> String:
-	return "STATE %s  •  WAVE %d  •  SEED %d\nHP %.0f/%.0f  •  %s  •  %s\nBUILD %s" % [state.to_upper(), wave, rng.seed, player_hp, player_max_hp, current_weapon_family(), "GOD ON" if debug_god_mode else "GOD OFF", build.short_summary()]
+	return "STATE %s  •  WAVE %d  •  SEED %d\nHP %.0f/%.0f  •  %s  •  %s\nBUILD %s" % [state.to_upper(), wave, rng.seed, player_hp, player_max_hp, current_weapon_family(), "GOD ON" if debug_god_mode else "GOD OFF", build.short_summary()]+"\nLOOTCOINS %d  •  LOOT DIAMONDS %d" % [gold,meta_shards]
+
+func debug_wallet_change(coins_delta: int, diamonds_delta: int, reset: bool=false) -> String:
+	if not debug_enabled or (not preload("res://save_scope.gd").active and OS.get_environment("LOOTLINGS_QA")!="1"):
+		return "Enter the isolated test profile first."
+	var before_coins := gold
+	var before_diamonds := meta_shards
+	gold = 0 if reset else clampi(gold+clampi(coins_delta,-999999999,999999999),0,999999999)
+	meta_shards = 0 if reset else clampi(meta_shards+clampi(diamonds_delta,-999999,999999),0,999999)
+	var result: Error = MetaStore.save_progress(SAVE_PATH,meta_shards,meta_power,gold,gold_upgrades,rift_progress)
+	if result != OK:
+		gold=before_coins;meta_shards=before_diamonds
+		return "Could not save test wallet. Balances unchanged."
+	refresh_hideout()
+	return "Test wallet saved: %d Lootcoins / %d Loot Diamonds." % [gold,meta_shards]
 
 func debug_action(action: String, payload) -> String:
 	if not debug_enabled:
@@ -445,8 +459,8 @@ func debug_action(action: String, payload) -> String:
 				if up.id in ["venom","plague","vamp"]:apply_upgrade_effect(up)
 			return "Applied existing Venom Coat, Plague Siphon and Toxic Fang to the test build."
 		"relock":
-			if is_instance_valid(owner_test_access):owner_test_access.relock();return "SSH hidden. Repeat the title gesture to unlock."
-			return "SSH is available only in the owner build."
+			if is_instance_valid(owner_test_access):owner_test_access.relock();return "SHH hidden. Repeat the title gesture to unlock."
+			return "SHH is available only in the owner build."
 		"sigils":
 			rift_progress.sigils+=maxi(0,int(payload));save_meta();return "Added test Rift Sigils."
 		"ward":
@@ -479,14 +493,14 @@ func debug_action(action: String, payload) -> String:
 			debug_show_result(action == "victory")
 			return "Previewing %s without rewards or saves." % action
 		"gold":
-			gold += int(payload); save_meta(); refresh_hideout()
-			return "Added %d Lootcoins and saved." % int(payload)
+			return debug_wallet_change(int(payload),0)
 		"scrap":
 			inventory.scrap += int(payload); inventory.save(INVENTORY_SAVE_PATH); refresh_hideout()
 			return "Added %d Scrap and saved." % int(payload)
 		"shards":
-			meta_shards += int(payload); save_meta(); refresh_hideout()
-			return "Added %d Loot Diamonds and saved." % int(payload)
+			return debug_wallet_change(0,int(payload))
+		"wallet_reset":
+			return debug_wallet_change(0,0,true)
 		"earned_spin":
 			var before: int=int(retention.progress.data.get("free_spins",0))
 			retention.progress.data.free_spins=mini(retention.progress.FREE_BANK_CAP,before+1)
