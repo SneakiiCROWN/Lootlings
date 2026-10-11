@@ -7,7 +7,8 @@ const RARITY_PROFILES := {
 	"RARE":{"anticipation":0.34, "silence":0.06, "particles":16, "shake":0.025, "intensity":0.75},
 	"EPIC":{"anticipation":0.62, "silence":0.10, "particles":34, "shake":0.075, "intensity":1.0},
 	"LEGENDARY":{"anticipation":0.82, "silence":0.12, "particles":48, "shake":0.11, "intensity":1.25},
-	"RED":{"anticipation":1.02, "silence":0.14, "particles":56, "shake":0.12, "intensity":1.4}
+	"RED":{"anticipation":1.02, "silence":0.14, "particles":56, "shake":0.12, "intensity":1.4},
+	"MYTHICAL SHINY":{"anticipation":1.12, "silence":0.14, "particles":56, "shake":0.12, "intensity":1.65}
 }
 
 const CHEST_PROFILES := {

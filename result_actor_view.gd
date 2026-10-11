@@ -8,7 +8,8 @@ func _process(_delta: float) -> void:
 func _draw() -> void:
  if game==null or game.state!="result":return
  var pose:=preload("res://weapon_fit_catalog.gd").sample(game,false)
- if pose.get("motion_phase","") not in ["VICTORY","DEFEAT"]:return
+ if pose.get("motion_phase","") not in ["VICTORY","DEFEAT"]:
+  draw_portrait();return
  var rect:Rect2=pose.body_rect
  var scale_value:float=minf(size.x/rect.size.x,size.y/rect.size.y)
  var transform:=Transform2D(0,Vector2.ONE*scale_value,0,Vector2(size.x*.5,size.y-float(pose.feet_baseline)*scale_value))
@@ -28,3 +29,18 @@ func draw_weapon(transform: Transform2D,pose: Dictionary) -> void:
  if texture==null:return
  draw_set_transform_matrix(transform*Transform2D(float(pose.weapon_rotation),Vector2(pose.weapon_scale),0,Vector2(pose.hand)))
  draw_texture_rect(texture,rect,false,Color.WHITE)
+
+func presentation_kind() -> String:
+ if game==null:return "none"
+ var pose:=preload("res://weapon_fit_catalog.gd").sample(game,false)
+ return "authored_outcome" if pose.get("motion_phase","") in ["VICTORY","DEFEAT"] else "canonical_portrait_pending_outcome"
+
+func draw_portrait() -> void:
+ # Intentional portrait presentation, never relabelled as an authored outcome.
+ var portrait:Texture2D=preload("res://avatar_presentation.gd").portrait(game.profile)
+ if portrait==null:return
+ var ui=preload("res://lootlings_ui.gd")
+ var frame:=Rect2(8,12,size.x-16,size.y-24)
+ ui.material_style("hoard").draw(get_canvas_item(),frame)
+ var fit:=Rect2(frame.position+Vector2(12,12),frame.size-Vector2(24,24))
+ ui.draw_icon(get_canvas_item(),portrait,fit)

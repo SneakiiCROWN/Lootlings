@@ -112,6 +112,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:personal_home.gd:refresh_decor_editor | refresh_decor_editor / refresh_decor_editor | LIVE_BETA | personal_home.gd |
 | screen:personal_home.gd:open_collection | open_collection / open_collection | LIVE_BETA | personal_home.gd |
 | screen:result_actor_view.gd:draw_weapon | draw_weapon / draw_weapon | LIVE_BETA | result_actor_view.gd |
+| screen:result_actor_view.gd:draw_portrait | draw_portrait / draw_portrait | LIVE_BETA | result_actor_view.gd |
 | screen:retention_runtime.gd:show_modes | show_modes / show_modes | LIVE_BETA | retention_runtime.gd |
 | screen:retention_runtime.gd:show_spinner | show_spinner / show_spinner | LIVE_BETA | retention_runtime.gd |
 | screen:retention_runtime.gd:show_earned_spinner | show_earned_spinner / show_earned_spinner | LIVE_BETA | retention_runtime.gd |

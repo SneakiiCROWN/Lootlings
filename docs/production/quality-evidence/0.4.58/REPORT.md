@@ -1,0 +1,15 @@
+# 0.4.58 connected chest, hoard and outcome continuation
+
+Continued after verified economy delivery e818312; preserves both currency sprites, exact title music, canonical bodies/poses, wallets, item identities, loot RNG and saves. No new images generated or art contracts closed; 2757 remain.
+
+Actual hoard ejection omitted visual_slot, while the old synthetic caption fixture supplied it manually. Corrected the actual spawning code and tested three real ejected rewards. Repeated ejection after completion is ignored. Direct boss-drop metadata remains intact. Mythical Shiny formerly fell through to the COMMON reveal profile; it now has a bounded intentional profile and the existing licensed spinner_jackpot fanfare. Matching fanfares are not double-played.
+
+The existing chest Button now covers the actual world chest with a small gold hint, retaining its release-owned touch fencing. Off-object taps/right clicks do not open it; keyboard tap action retained. Placement moves right to clear the Lootling. Existing landing/anticipation/release clocks remain. Reduced-motion suppresses landing/ejection shake. Result/spinner screens omit stale combat/drop effects without deleting items or changing reward ownership.
+
+Result actor view previously drew nothing when the equipped weapon had no exact VICTORY/DEFEAT view. It now shows an intentional framed existing canonical portrait. Existing compatible authored views render normally (Moonkip Orb explicitly rechecked). These portraits do not close missing outcome contracts. Existing owner victory preview now sets its matching outcome flag.
+
+Native checks: real landed chest, off-target rejection, deliberate object tap, one-time ejection, no extra RNG consumption, three caption lanes, jackpot playback event, reduced shake, 576 Mythical actor/weapon/facing/outcome cases across all twelve actors and phone/tablet/desktop. All 576 tested Mythical combinations lack compatible authored outcome views and remain portrait fallbacks. This is layout/selector testing, not 576 new animation assets or artistic approval. Representative native screenshots inspected; full artistic acceptance and physical S23 remain open.
+
+Targeted economy, wallet, spinner, encounter cues and touch-transition regressions pass. During implementation, native QA rejected an unsupported Button alignment property and an inserted Windows code-page label byte/carriage-return formatting. Replaced alignment with a child label, corrected UTF8/LF, then reran to zero errors. Failed runs preserved locally; no failed candidate was exported.
+
+Missing fluid weapon/body/boss continuity, canonical regional bodies/environments, 50 registration gaps and the 111-path file-ledger discrepancy remain on the single dashboard. No requirement removed or placeholder promoted to production-ready.

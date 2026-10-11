@@ -6625,6 +6625,7 @@
       "HOARD_CHEST_TEXTURE": {
         "resource_path": "res://art/sprites/rewards/hoard_chest.png"
       },
+      "HOARD_CHEST_X": 300.0,
       "HideoutShopSystem": {
         "resource_path": "res://hideout_shop_system.gd"
       },
@@ -7081,7 +7082,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "b2cf4f22568c35e6bf4a110e690e184f89461f4546c5c02ea182bdfb17ea4d8f"
+    "source_sha256": "eba58bf6c9c3107083baa1522aa15e5c0aa32ec8d92f3390d971095815202004"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9046,9 +9047,11 @@
       "_ready",
       "_process",
       "_draw",
-      "draw_weapon"
+      "draw_weapon",
+      "presentation_kind",
+      "draw_portrait"
     ],
-    "source_sha256": "30394619a98adab02673a909139dcf9cd64e2558437b93f3526feb0ad7bcdca7"
+    "source_sha256": "0b35d1f7b13b65708870dab5abc23c158dcb378221dac49cf42954f58728ce4a"
   },
   "retention_runtime.gd": {
     "constants": {
@@ -9157,6 +9160,13 @@
           "shake": 0.11,
           "silence": 0.12
         },
+        "MYTHICAL SHINY": {
+          "anticipation": 1.12,
+          "intensity": 1.65,
+          "particles": 56,
+          "shake": 0.12,
+          "silence": 0.14
+        },
         "RARE": {
           "anticipation": 0.34,
           "intensity": 0.75,
@@ -9177,7 +9187,7 @@
       "highest_rarity",
       "for_rewards"
     ],
-    "source_sha256": "e06fc82ad65408af2c80d0a3c29a6b63952ba2e433a07a86cc1f562fa49ac453"
+    "source_sha256": "046144ff32fc61a99fdca192e06935e3a22bbdd33857bfe4537cdb2e0126c36a"
   },
   "rift_progress.gd": {
     "constants": {

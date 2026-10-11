@@ -1,3 +1,7 @@
+# Current — 0.4.58 chest, hoard and outcome continuation
+
+Real hoard caption slots, one-time ejection, direct world-chest interaction, Mythical jackpot profile/audio and intentional canonical result portraits. Source/native checks pass, including 576 Mythical layout/selector combinations (all remain missing authored outcomes) and preserved Moonkip Orb art. Final build checks pending; verified 0.4.57 candidates remain available. No new art closures: 2757 remain. See [report](quality-evidence/0.4.58/REPORT.md).
+
 # Current — 0.4.57 currency and isolated owner wallet
 
 Source checks and native phone/tablet/desktop currency routes pass. Two transparent icons installed using original economy motifs; mastery retains a separate symbol; Shrine rows fit their frame. Existing guarded F1/owner SHH menu gains saved add/remove/reset controls. No currency mechanics changed. Nine compiled fixtures, actual Windows startup/icons and both Android code 68 packages verified; no physical or professional artistic acceptance claim. See [report](quality-evidence/0.4.57/REPORT.md). 0 frozen art contracts closed; 2757 remain.

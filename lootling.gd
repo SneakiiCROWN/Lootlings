@@ -44,6 +44,7 @@ const VANGUARD_WEAPON_TEXTURE = preload("res://art/sprites/weapons/vanguard_hamm
 const RANGER_WEAPON_TEXTURE = preload("res://art/sprites/weapons/ranger_bow.png")
 const MAGE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/mage_staff.png")
 const ROGUE_WEAPON_TEXTURE = preload("res://art/sprites/weapons/rogue_daggers.png")
+const HOARD_CHEST_X := 300.0
 const HOARD_CHEST_TEXTURE = preload("res://art/sprites/rewards/hoard_chest.png")
 const DESIGN_SIZE := Vector2(480.0, 854.0)
 const SAVE_PATH := "user://lootlings_save.cfg"
@@ -614,6 +615,7 @@ func debug_force_signature(id: String) -> void:
 	refresh_equipment_health()
 
 func debug_show_result(victory: bool) -> void:
+	run_won=victory
 	state = "result"
 	for panel in [upgrade_panel, item_panel, merchant_panel, boss_reward_panel]:
 		panel.visible = false
@@ -1625,7 +1627,14 @@ func build_boss_reward_ui() -> void:
 	boss_reward_leave_button = make_action_button(boss_reward_panel,"KEEP CURRENT / LEAVE FINDS",Vector2(25,552),Vector2(390,54),Color("#172442"),Color("#9aafc5"),skip_boss_rewards)
 
 func build_hoard_chest_ui() -> void:
-	hoard_chest_button = make_action_button(self, "TAP TO OPEN\nHOARD CHEST", Vector2(125, 577), Vector2(230, 72), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
+	hoard_chest_button = make_action_button(self, "OPEN HOARD CHEST", Vector2(HOARD_CHEST_X-115, 411), Vector2(230, 184), Color("#6b431d"), Color("#ffd36a"), open_hoard_chest)
+	for font_state in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:
+		hoard_chest_button.add_theme_color_override(font_state,Color.TRANSPARENT)
+	var chest_hint:=make_label(hoard_chest_button,"Open the chest  ›",16,Rect2(0,158,230,26),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe39a"))
+	chest_hint.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	hoard_chest_button.tooltip_text="Open this chest and reveal its three finds."
+	for state_name in ["normal","hover","pressed","focus","disabled"]:
+		hoard_chest_button.add_theme_stylebox_override(state_name,StyleBoxEmpty.new())
 	hoard_chest_button.visible = false
 
 func make_action_button(parent: Node, text_value: String, pos: Vector2, button_size: Vector2, fill: Color, border: Color, callback: Callable) -> Button:
@@ -2806,7 +2815,7 @@ func update_hoard_chest(delta: float) -> void:
 		if hoard_chest_timer <= 0.0:
 			hoard_chest_phase = "ready"
 			hoard_chest_y = 493.0
-			screen_shake = 0.10
+			screen_shake = 0.0 if audio_settings.get("cinematic_reduced_motion",false) else 0.10
 			play_audio_event("chest_land")
 			hoard_chest_button.visible = true
 	elif hoard_chest_phase == "windup" and hoard_chest_timer <= 0.0:
@@ -2828,26 +2837,28 @@ func open_hoard_chest() -> void:
 	play_audio_event("chest_windup")
 	award_achievement("ten_chests")
 	award_achievement("chest_50")
-	add_particles(Vector2(240, 492), Color("#ffd36a"), 16)
+	add_particles(Vector2(HOARD_CHEST_X, 492), Color("#ffd36a"), 16)
 	impact_flash = 0.14
 
 func eject_hoard_loot() -> void:
+	if state!="hoard_chest" or hoard_chest_phase!="silence":return
 	play_audio_event(str(hoard_reveal_profile.get("audio", "chest_open")))
-	add_particles(Vector2(240, 492), Color(hoard_reveal_profile.get("color", Color("#ffd36a"))), int(hoard_reveal_profile.get("particles", 42)))
-	screen_shake = float(hoard_reveal_profile.get("shake", 0.11))
+	add_particles(Vector2(HOARD_CHEST_X, 492), Color(hoard_reveal_profile.get("color", Color("#ffd36a"))), int(hoard_reveal_profile.get("particles", 42)))
+	screen_shake = 0.0 if audio_settings.get("cinematic_reduced_motion",false) else float(hoard_reveal_profile.get("shake", 0.11))
 	for drop_index in range(boss_reward_options.size()):
 		var item: Dictionary = boss_reward_options[drop_index]
 		loot_drops.append({
-			"item":item, "rarity":item.get("rarity", "EPIC"), "boss_choice":true,
-			"pos":Vector2(240, 474), "vel":Vector2([-155.0, -18.0, 128.0][drop_index], [-310.0, -355.0, -292.0][drop_index]),
+			"item":item, "rarity":item.get("rarity", "EPIC"), "boss_choice":true, "visual_slot":drop_index,
+			"pos":Vector2(HOARD_CHEST_X, 474), "vel":Vector2([-155.0, -18.0, 128.0][drop_index], [-310.0, -355.0, -292.0][drop_index]),
 			"pickup":0.92 + drop_index * 0.10, "bounces":0, "squash":0.0,
 			"color":ItemCatalog.rarity_color(item.get("rarity", "EPIC"))
 		})
 	hoard_chest_phase = ""
 	state = "playing"
 	spawn_clock = 1.2
-	add_float("THE HOARD OPENS", Vector2(165, 350), Color("#ffd36a"), 21)
-	play_audio_event("relic_red" if boss_reward_options.any(func(item): return item.get("rarity", "") == "RED") else "legendary_reveal" if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY") else "epic_reveal")
+	add_float("THE HOARD OPENS", Vector2(100, 350), Color("#ffd36a"), 21)
+	var fanfare: String=preload("res://relic_spin_catalog.gd").sound(RewardRevealCatalog.highest_rarity(boss_reward_options))
+	if fanfare!=str(hoard_reveal_profile.get("audio","chest_open")):play_audio_event(fanfare)
 	if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY"):
 		award_achievement("hoard_legendary")
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "chest_open", {"chest_id":"hoard_chest", "rolls":boss_reward_options.size()})
@@ -3612,7 +3623,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if debug_enabled and debug_panel != null and debug_panel.visible:
 		return
-	if state == "hoard_chest" and hoard_chest_phase == "ready" and ((event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed) or (event is InputEventKey and event.is_action_pressed("tap_attack"))):
+	if state == "hoard_chest" and hoard_chest_phase == "ready" and event is InputEventKey and not event.echo and event.is_action_pressed("tap_attack"):
 		open_hoard_chest()
 		get_viewport().set_input_as_handled()
 		return
@@ -4023,6 +4034,7 @@ func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value:
 		draw_string(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,font_size,Color.WHITE)
 
 func draw_effects() -> void:
+	if state in ["result","relic_spinner"]:return # Keep transient combat/drop receipts out of outcome panels.
 	if state == "hoard_chest":
 		draw_hoard_chest()
 	for drop in loot_drops:
@@ -4084,12 +4096,13 @@ func draw_attack_projectiles() -> void:
 	for effect in projectile_impacts: ProjectilePresentation.draw_impact(self,effect)
 
 func draw_hoard_chest() -> void:
-	var center := Vector2(240, hoard_chest_y)
-	var ready_pulse := (0.5 + 0.5 * sin(run_time * 5.0)) if hoard_chest_phase == "ready" else 0.0
+	var center := Vector2(HOARD_CHEST_X, hoard_chest_y)
+	var reduced: bool=audio_settings.get("cinematic_reduced_motion",false)
+	var ready_pulse := (0.35 if reduced else (0.5 + 0.5 * sin(run_time * 5.0))) if hoard_chest_phase == "ready" else 0.0
 	var anticipation := maxf(0.01, float(hoard_reveal_profile.get("anticipation", 0.62)))
 	var windup := 1.0 - clampf(hoard_chest_timer / anticipation, 0.0, 1.0) if hoard_chest_phase == "windup" else 0.0
 	var reveal_charge := windup if hoard_chest_phase == "windup" else 1.0 if hoard_chest_phase == "silence" else 0.0
-	var shake_amount := ready_pulse * 0.018 + reveal_charge * reveal_charge * 0.055
+	var shake_amount := 0.0 if reduced else ready_pulse * 0.018 + reveal_charge * reveal_charge * 0.055
 	draw_set_transform(center, sin(run_time * (18.0 + reveal_charge * 12.0)) * shake_amount, Vector2(1.0 + ready_pulse * 0.025 + reveal_charge * 0.06, 1.0 - ready_pulse * 0.018 - reveal_charge * 0.04))
 	draw_circle(Vector2(0, 37), 66 + ready_pulse * 10, Color(1.0, 0.72, 0.20, 0.08 + ready_pulse * 0.12))
 	draw_set_transform(center + Vector2(0, 58), 0.0, Vector2(1.0, 0.25))
