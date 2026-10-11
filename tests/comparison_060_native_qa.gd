@@ -29,11 +29,20 @@ func review() -> void:
     game.item_compare.get_v_scroll_bar().value=game.item_compare.get_v_scroll_bar().max_value
     await capture("comparison_"+str(item.slot)+"_all_effects")
   # Refused persistence cannot change gear, overflow salvage, HP or rewards.
-  game.current_item=game.ItemCatalog.create_item("tidestar","MYTHICAL SHINY",6060);game.state="item";game.inventory.save(game.INVENTORY_SAVE_PATH)
+  game.current_item=game.ItemCatalog.create_item("tidestar","MYTHICAL SHINY",6060);game.state="item"
+  game.inventory.equipped.Weapon=game.ItemCatalog.create_item("scrapfang_blade","RED",6061)
+  game.inventory.stash.clear()
+  for n in range(game.inventory.stash_capacity):game.inventory.stash.append(game.ItemCatalog.create_item("scrapfang_blade","RARE",7000+n))
+  assert(game.build_item_comparison(game.current_item,game.inventory.equipped.Weapon).contains("FULL STASH"))
+  var scrap_before:int=game.inventory.scrap
+  game.inventory.save(game.INVENTORY_SAVE_PATH)
   var saved:String=FileAccess.get_sha256(game.INVENTORY_SAVE_PATH);var inventory_before:String=JSON.stringify(game.inventory.equipped);var records_before:String=JSON.stringify(game.inventory.stash);var kept_before:String=JSON.stringify(game.run_kept_loot)
   Scope.transitioning=true;game.accept_item_equip();Scope.transitioning=false
-  assert(game.state=="item" and JSON.stringify(game.inventory.equipped)==inventory_before and JSON.stringify(game.inventory.stash)==records_before and JSON.stringify(game.run_kept_loot)==kept_before and FileAccess.get_sha256(game.INVENTORY_SAVE_PATH)==saved)
+  assert(game.inventory.scrap==scrap_before and game.state=="item" and JSON.stringify(game.inventory.equipped)==inventory_before and JSON.stringify(game.inventory.stash)==records_before and JSON.stringify(game.run_kept_loot)==kept_before and FileAccess.get_sha256(game.INVENTORY_SAVE_PATH)==saved)
   game.show_hideout();game.hideout_ui.show_forge();await capture("forge_full_preview")
-  game.gold=100000;game.refresh_hideout();game.hideout_ui.show_shop();await tap(game.hideout_ui.shop_offer_buttons[0]);assert(game.hideout_ui.shop_buy_button.text.contains("LOOTCOINS") and not game.hideout_ui.shop_buy_button.text.contains("SCRAP") and game.hideout_ui.shop_detail.text.contains("Remaining after purchase"));await capture("shop_full_preview")
+  game.gold=100000;game.refresh_hideout();game.hideout_ui.show_shop();await tap(game.hideout_ui.shop_offer_buttons[0])
+  assert(game.hideout_ui.shop_buy_button.disabled and game.hideout_ui.shop_buy_button.text.contains("IS FULL"))
+  await capture("shop_full_stash_block")
+  game.inventory.stash.clear();game.refresh_hideout();await tap(game.hideout_ui.shop_offer_buttons[0]);assert(game.hideout_ui.shop_buy_button.text.contains("LOOTCOINS") and not game.hideout_ui.shop_buy_button.text.contains("SCRAP") and game.hideout_ui.shop_detail.text.contains("Remaining after purchase"));await capture("shop_full_preview")
   game.free();await process_frame
  print("COMPARISON 060 NATIVE PASS: %d fixed-canon items across four slots and three layouts, complete untruncated effect keys/signatures, real formula-equivalent stat previews, no preview mutation/RNG, refused equip-save rollback. Visual/route/cost acceptance remains scoped." % cases);quit()

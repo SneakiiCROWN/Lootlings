@@ -29,7 +29,7 @@ static func text(game,found:Dictionary,equipped:Dictionary) -> String:
   var color:String="#c7d4ee" if absf(delta)<.00001 else "#69e6b0" if gain else "#ff7d88"
   var unit:String="s" if key=="Auto-attack delay" else "%" if key in ["Critical chance","Armour mitigation"] else "×" if key=="Incoming damage factor" else ""
   var delta_unit:String=" pp" if unit=="%" else unit
-  result+="[color=%s]%s: %.2f%s → %.2f%s | %+.2f%s %s[/color]\n" % [color,key,a,unit,b,unit,delta,delta_unit,"SAME" if absf(delta)<.00001 else "▲ BETTER" if gain else "▼ LOWER"]
+  result+="[color=%s]%s: %.2f%s → %.2f%s | %+.2f%s %s[/color]\n" % [color,key,a,unit,b,unit,delta,delta_unit,"SAME" if absf(delta)<.00001 else "▲ BETTER" if gain else "▼ WORSE"]
  result+="Caps: attack delay ≥ 0.16s · critical chance ≤ 85% · armour ≤ 72% · HP ≥ 40.\n\n[b]ALL ITEM EFFECT CHANGES[/b]\n"
  var keys:Array=found.get("effects",{}).keys()
  for key in equipped.get("effects",{}):

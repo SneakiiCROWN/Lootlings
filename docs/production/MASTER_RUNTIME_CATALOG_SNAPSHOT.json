@@ -3404,7 +3404,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "1b745cec35a16eccb8ac5734004c0d415756c2e5a6f01623fe44960956fabd2e"
+    "source_sha256": "dde5c1a34c2edc464a6592145108815d6c95f33ddc17174afc7bcccb482ba71b"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -4247,6 +4247,23 @@
     ],
     "source_sha256": "fe3b30737891014d7f5fb878a428a6d8bea877bfc1cced4a392750eaee84bb25"
   },
+  "equipment_comparison.gd": {
+    "constants": {
+      "Inventory": {
+        "resource_path": "res://inventory_system.gd"
+      },
+      "Items": {
+        "resource_path": "res://item_catalog.gd"
+      }
+    },
+    "methods": [
+      "stats",
+      "card",
+      "text",
+      "signature_description"
+    ],
+    "source_sha256": "8f6eff29163065603eef50d180f5c6c80b704258c09b6836aa8b3bc5cd940b4b"
+  },
   "expedition_event_catalog.gd": {
     "constants": {
       "EVENTS": {
@@ -5020,7 +5037,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "77cf018e551bc8902ab22b596d9f4063ac904221e596d98d1dec83f77b1cea9f"
+    "source_sha256": "4af9887c6019d137a64e64e09ef171e3aa03ed7638658ffe088ddabfb8a3dc1f"
   },
   "home_catalog.gd": {
     "constants": {
@@ -6990,6 +7007,7 @@
       "begin_special_intro",
       "finish_story_boss_intro",
       "_process",
+      "comparison_weapon_family",
       "current_attack_interval",
       "target_player_x",
       "request_tap_attack",
@@ -7082,7 +7100,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "5b6e74cdc9b1d7b8c0c1edfb10d2fddab9d9f9ce1681d3466223392347f9d9e9"
+    "source_sha256": "4426d8aa10882069dd55cdccef5a4efb05b8db9a38ae9c475492f117a9d53368"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7519,6 +7537,7 @@
   },
   "owner_test_access.gd": {
     "constants": {
+      "PREFS": "user://owner_sandbox/owner_tools.cfg",
       "Scope": {
         "resource_path": "res://save_scope.gd"
       }
@@ -7526,18 +7545,25 @@
     "methods": [
       "enabled",
       "configure",
+      "load_preferences",
+      "save_preferences",
+      "reset_position",
+      "hide_shortcut",
       "show_activation_title",
       "relock",
       "modal_active",
+      "clear_of_controls",
+      "clamped",
       "update_layout",
       "open_tools",
       "enter_sandbox",
+      "backup_open",
       "activate_secret",
       "activation_rect",
       "observe",
       "_process"
     ],
-    "source_sha256": "4506836ce89b77e9823f82c1968097cfdedb31a36cf90572d54a9ed5f8e067df"
+    "source_sha256": "e1babc2e6caba197d90135793723b4e07d2d5fec75061b2d87c0e7446c1bc95c"
   },
   "perk_offer_catalog.gd": {
     "constants": {
@@ -9361,7 +9387,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "5345845d3a662d451b78f2a7f03b7dd728460f80853a0cdcdf752181b0a35c51"
+    "source_sha256": "06e8e799d4ff88289933d3ac0d33b6a53816ecc06f2ffdbe4fffbec8fcc80f58"
   },
   "station_presentation.gd": {
     "constants": {},

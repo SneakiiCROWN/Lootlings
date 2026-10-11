@@ -44,17 +44,10 @@ def build():
     polearm_receipt=CONT/'POLEARM_INSTALLATION_0451.json'
     if polearm_receipt.exists():
         receipt=read(str(polearm_receipt.relative_to(ROOT)));player_receipt=polearm_receipt
-    integration_path='docs/production/quality-evidence/0.4.48/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.49/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.49/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.50/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.51/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.51/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.52/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.52/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.53/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.53/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.54/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.54/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.55/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.55/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.56/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.56/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.57/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.57/INSTALLATION_RECEIPT.json'
-    if (ROOT/'docs/production/quality-evidence/0.4.58/INSTALLATION_RECEIPT.json').exists():integration_path='docs/production/quality-evidence/0.4.58/INSTALLATION_RECEIPT.json'
+    # Latest versioned receipt; avoids silently retaining an older milestone.
+    receipts=list((OUT/'quality-evidence').glob('*/INSTALLATION_RECEIPT.json'))
+    receipts.sort(key=lambda path:tuple(int(part) for part in path.parent.name.split('.')))
+    integration_path=receipts[-1].relative_to(ROOT).as_posix() if receipts else ''
     integration_pass=read(integration_path) if (ROOT/integration_path).exists() else None
     remaining = read(str((CONT / 'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT)))
     evidence_path = 'docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json'

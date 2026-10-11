@@ -1,3 +1,6 @@
+<!-- Current production authority: 0.4.60 source 55cb414; see docs/production/START_HERE_CURRENT.md and quality-evidence/0.4.60/REPORT.md. Earlier dated entries below are history. -->
+Owner wordmark/backup/draggable SHH, complete four-slot formula previews, refused full-stash equip rollback, fresh-process owner preferences and actual process-cut journal recovery are the current continuation. Physical S23 and professional acceptance remain open. No new art closures.
+
 # Current authority — 2026-10-11
 
 Latest verified delivery: **0.4.58 / 09dc974**, branch codex/phase4e-gamefeel. Local 0.4.59 connected settings/navigation pass is being verified separately. Use [current production handoff](docs/production/START_HERE_CURRENT.md) and its versioned delivery receipts. Commercial release remains HOLD: physical S23, artistic/audio/balance/save gates and missing animation/content remain open. Latest frozen debt: 2757 contracts; 50 registration gaps; 111-path discrepancy.

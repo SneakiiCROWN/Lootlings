@@ -1,11 +1,11 @@
-# Owner testing - SHH, no PIN
+# Owner testing — SHH, no PIN
 
-Install Lootlings Owner Test, the separate com.sneakiicrown.lootlings.owner app. It starts with its own data; it never imports the regular Lootlings app save. Normal Android builds omit the owner feature.
+Install the separate Lootlings Owner Test app (com.sneakiicrown.lootlings.owner). Regular Android builds omit the owner feature. The owner app and its test sandbox retain separate saves.
 
-On the title screen tap the blue crystal INSIDE the second O of LOOTLINGS seven times quickly (less than 3 seconds between taps), then touch the same crystal an eighth time and hold for about one second before releasing. Unlocking enters the isolated test profile and opens the existing F1 menu. No PIN is registered or requested.
+On the visible title screen, hold anywhere on the painted LOOTLINGS wordmark for two seconds, then release. Short holds do not unlock. This replaces the physically unreliable seven-tap crystal gesture in 0.4.60; no PIN or networking is involved. Backup: Settings → Support → OWNER TOOLS, shown only in the owner test build.
 
-Close the panel to play. Tap the compact SHH hush-face button to reopen it throughout the session. It searches for space clear of labels and controls; it temporarily hides while confirmation/debug modals own input or no clear placement exists. Diagnostics > HIDE / RELOCK SHH hides it deliberately; repeat the title gesture to unlock. Windows F1 is retained.
+Unlock opens the existing F1 developer panel in the isolated sandbox. Windows F1 remains available. Close the panel to play. Tap the compact SHH button to reopen; hold it for one second, then drag. Its normalised preferred position is saved and constrained to the fitted safe game area. It avoids active controls and may temporarily relocate/hide where the preferred position would overlap them. Diagnostics offers RESET SHH POSITION, HIDE SHH and RELOCK SHH. The backup route restores a hidden shortcut.
 
-The four groups retain existing commands and add catalog/Mythical grants, numeric Lootcoins, Ward/Sigils, save/reload, rarity-forced perk offers and an existing poison-synergy preset. Closing the panel preserves the current scene within the sandbox. RETURN TO NORMAL PROFILE reloads the owner app's normal profile; it never transfers test data to the regular app. RESET affects explicit sandbox files only, behind confirmation.
+Existing four tabs and commands are retained, including grants, numeric wallets, Mythicals, Ward/Sigils, perks and save/reload. RETURN TO NORMAL PROFILE restores the owner app's normal profile; no test data transfers to the regular app. RESET remains sandbox-only and confirmation-protected.
 
-The hidden gesture is an Easter egg and convenience, not security against modification of a debug build. Native phone/tablet/desktop checks passed. Actual S23 Ultra touch/keyboard/audio verification remains pending; these are debug-signed candidates, not store releases.
+Three simulated layouts and exact exported Windows pack owner/normal boundaries pass. Hidden/unlocked/position preferences survived separate fresh processes. Actual S23 touch/audio acceptance is pending. These are debug-signed candidates, not store releases or security controls.

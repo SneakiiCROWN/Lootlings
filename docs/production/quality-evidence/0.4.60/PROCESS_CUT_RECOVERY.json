@@ -1,0 +1,41 @@
+{
+  "cases": [
+    {
+      "boundary": 0,
+      "actual_os_process_tree_killed": true,
+      "persisted_barrier": true,
+      "fresh_process_recovery": true,
+      "consistent_gold": 1000,
+      "consistent_scrap": 200,
+      "idempotent": true
+    },
+    {
+      "boundary": 1,
+      "actual_os_process_tree_killed": true,
+      "persisted_barrier": true,
+      "fresh_process_recovery": true,
+      "consistent_gold": 1001,
+      "consistent_scrap": 201,
+      "idempotent": true
+    },
+    {
+      "boundary": 2,
+      "actual_os_process_tree_killed": true,
+      "persisted_barrier": true,
+      "fresh_process_recovery": true,
+      "consistent_gold": 1002,
+      "consistent_scrap": 202,
+      "idempotent": true
+    },
+    {
+      "boundary": 3,
+      "actual_os_process_tree_killed": true,
+      "persisted_barrier": true,
+      "fresh_process_recovery": true,
+      "consistent_gold": 1003,
+      "consistent_scrap": 203,
+      "idempotent": true
+    }
+  ],
+  "scope": "Actual OS process termination at four injected persisted journal boundaries, disposable stores only. Not a power-loss/disk-durability simulation."
+}

@@ -1,3 +1,11 @@
+# Current — 0.4.60 P0 owner access and equipment previews
+
+Source checkpoint 55cb414 pushed; whole-wordmark two-second owner unlock, Support backup to existing F1 panel, saved hold-drag SHH and reset/hide/relock. Four-slot complete effect/signature previews use actual combat formulas; Forge/Shop share the comparison; Shop label now correctly names Lootcoins. Refused equip persistence restores full inventory before reward mutations. Native and compiled checks, fresh-process owner preferences, and actual process termination at four injected persisted journal boundaries pass. No power-loss or physical S23 claim. Builds and hashes: [delivery](quality-evidence/0.4.60/DELIVERY.json); [report](quality-evidence/0.4.60/REPORT.md).
+
+This is a tested candidate, not full professional acceptance. Shared comparison routes still need exhaustive equipment/scroll/usability review; campaign lifecycle, START-only title, progressive onboarding, comfort mixing and offline backup remain open. 0 art closures; 2757 remain. Preserve owner project.godot edits and reference files. Commercial release HOLD.
+
+## Prior checkpoint history
+
 # Current — 0.4.59 connected front-of-house
 
 Source 13438f2 pushed; eight exact-pack fixtures, native three-layout routes and representative visual checks, actual Windows startup/original icon, regular/owner Android code 70 packages verified. Nested settings Back/save/profile return and modal ownership fixed; reduced-motion transitions; hoard banner clear of reward icons; refused wallet write and simulated journal recovery tested. **Legacy owner unlock remains physically defective**: Issue #5 P0 whole-wordmark hold/backup route, movable SHH, complete comparison and save safety are next. No new tutorial or pose closures: 2757 remain. Commercial release HOLD. See [report](quality-evidence/0.4.59/REPORT.md) and [delivery](quality-evidence/0.4.59/DELIVERY.json).
