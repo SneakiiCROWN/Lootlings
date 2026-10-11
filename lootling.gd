@@ -367,6 +367,7 @@ func _ready() -> void:
 	title_font = preload("res://lootlings_typography.gd").heading()
 	body_font = preload("res://lootlings_typography.gd").body()
 	build_overlay_ui()
+	var crest=preload("res://hud_portrait_crest.gd").new();crest.game=self;add_child(crest)
 	load_meta()
 	profile = ProfileStore.load_profile(PROFILE_SAVE_PATH)
 	audio_settings = SettingsStore.load_settings(SETTINGS_SAVE_PATH)
@@ -450,11 +451,39 @@ func debug_wallet_change(coins_delta: int, diamonds_delta: int, reset: bool=fals
 	refresh_hideout()
 	return "Test wallet saved: %d Lootcoins / %d Loot Diamonds." % [gold,meta_shards]
 
+
+func debug_value(field:String) -> float:
+	return float({"hp":player_hp,"max_hp":player_max_hp,"damage":base_damage,"crit":crit_chance,"armor":armor,"ward":player_ward,"attack_interval":attack_interval,"gold":gold,"diamonds":meta_shards,"scrap":inventory.scrap}.get(field,0))
+
+func debug_adjust_value(request:Dictionary) -> String:
+	if not debug_enabled or (not preload("res://save_scope.gd").active and OS.get_environment("LOOTLINGS_QA")!="1"):return "Enter the isolated test profile first."
+	var field:String=request.get("field","")
+	var operation:String=request.get("operation","")
+	var amount:float=float(request.get("amount",0))
+	var bounds:Dictionary=preload("res://debug_panel.gd").VALUE_FIELDS
+	if not bounds.has(field) or operation not in ["set","add","remove"] or not is_finite(amount):return "Invalid test value."
+	var previous:=debug_value(field)
+	var next:=amount if operation=="set" else previous+amount*(1 if operation=="add" else -1)
+	next=clampf(next,bounds[field][1],minf(bounds[field][2],player_max_hp) if field=="hp" else bounds[field][2])
+	if field=="gold":return debug_wallet_change(int(next)-gold,0)
+	if field=="diamonds":return debug_wallet_change(0,int(next)-meta_shards)
+	if field=="scrap":
+		inventory.scrap=int(next)
+		if inventory.save(INVENTORY_SAVE_PATH)!=OK:inventory.scrap=int(previous);return "Could not save test Scrap. Unchanged."
+		refresh_hideout()
+	else:
+		var property:String={"hp":"player_hp","max_hp":"player_max_hp","damage":"base_damage","crit":"crit_chance","armor":"armor","ward":"player_ward","attack_interval":"attack_interval"}[field]
+		set(property,next)
+		if field=="max_hp":player_hp=minf(player_hp,player_max_hp)
+	return "%s: %s" % [bounds[field][0],str(debug_value(field))]
+
 func debug_action(action: String, payload) -> String:
 	if not debug_enabled:
 		return "Debug tools are disabled."
 	if not preload("res://save_scope.gd").active and OS.get_environment("LOOTLINGS_QA")!="1":return "Enter the isolated test profile first."
 	match action:
+		"exact_value":
+			return debug_adjust_value(payload)
 		"perk_offers":
 			debug_ensure_run();pending_levels=maxi(1,pending_levels);debug_perk_rarity=str(payload);show_upgrade_choices();debug_perk_rarity="";return "Test perk offers prepared. Close this menu to choose."
 		"synergy_poison":
@@ -1655,7 +1684,8 @@ func make_action_button(parent: Node, text_value: String, pos: Vector2, button_s
 	button.add_theme_font_size_override("font_size", 18)
 	apply_button_style(button, fill, border)
 	button.pressed.connect(callback)
-	button.pressed.connect(play_audio_event.bind("ui_press"))
+	# Weapon release/contact is the attack feedback; avoid a layered menu click.
+	if text_value!="ATTACK":button.pressed.connect(play_audio_event.bind("ui_press"))
 	parent.add_child(button)
 	return button
 
@@ -3907,9 +3937,8 @@ func draw_zone_ambient() -> void:
 				draw_circle(Vector2(mote_x, mote_y), 1.4, Color(0.58, 0.82, 1.0, 0.24))
 
 func draw_hud() -> void:
-	draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(0,0,480,86))
-	var portrait_expression := "sad" if player_flash>0 else "excited" if player_reward_flash>0 else "surprised" if special_intro_timer>0 else "cheeky" if crit_flash>0 else "angry" if attack_anim>0 else "determined"
-	LootlingsUI.draw_icon(get_canvas_item(), Avatar.portrait(profile,portrait_expression), Rect2(12, 17, 42, 42))
+	draw_rect(Rect2(0,0,480,110),Color("#091526f5"))
+	draw_line(Vector2(18,109),Vector2(462,109),Color("#ab8b4d99"),1.0)
 	var actor_name:=Avatar.display_name(profile).to_upper()
 	draw_string(title_font, Vector2(60, 36), actor_name, HORIZONTAL_ALIGNMENT_LEFT, 170, LootlingsUI.fitted_font_size(title_font,actor_name,170,18,12), Color("#ffe178"))
 	var hud_region: String = str(current_zone.get("short_name", {"outer_ruins":"TREASURE RUINS", "emberworks":"WARRENS", "hoard_depths":"HOARD DEPTHS"}.get(current_zone.get("id", ""), "RUINS"))).to_upper()
@@ -3928,16 +3957,16 @@ func draw_hud() -> void:
 	# A readable, named progression track; Ward has its own blue protection lane.
 	var xp_width := 294.0 if player_ward > 0 else 444.0
 	var xp_caption := "XP %s / %s  ·  NEXT LV %d" % [preload("res://display_numbers.gd").compact(int(xp)), preload("res://display_numbers.gd").compact(int(xp_needed)), level+1]
-	draw_string(body_font,Vector2(18,94),xp_caption,HORIZONTAL_ALIGNMENT_LEFT,xp_width,LootlingsUI.fitted_font_size(body_font,xp_caption,xp_width,11,9),Color("#b8dded"))
+	draw_string(body_font,Vector2(18,94),xp_caption,HORIZONTAL_ALIGNMENT_LEFT,xp_width,LootlingsUI.fitted_font_size(body_font,xp_caption,xp_width,12,11),Color("#b8dded"))
 	draw_bar(Rect2(18,99,xp_width,8),xp/maxf(1,xp_needed),Color.BLACK,Color.WHITE,"",10)
 	if xp_counter_flash > 0:
 		draw_rect(Rect2(18,99,xp_width,8),Color(.45,.90,1,clampf(xp_counter_flash/.24,0,1)*.22))
 	if player_ward > 0:
-		draw_string(body_font,Vector2(332,94),"WARD %s" % preload("res://display_numbers.gd").compact(int(ceil(player_ward))),HORIZONTAL_ALIGNMENT_CENTER,130,11,Color("#b6ecff"))
+		draw_string(body_font,Vector2(332,94),"WARD %s" % preload("res://display_numbers.gd").compact(int(ceil(player_ward))),HORIZONTAL_ALIGNMENT_CENTER,130,12,Color("#b6ecff"))
 		LootlingsUI.draw_meter(get_canvas_item(),Rect2(332,99,130,8),player_ward/maxf(1,player_max_hp),"xp")
-	draw_bar(Rect2(60,57,402,19),player_hp/maxf(1,player_max_hp),Color.BLACK,Color.WHITE,"LV %d · HP %.0f / %.0f" % [level,maxf(0,player_hp),player_max_hp],12,combat_presentation.health_ratio(-1))
+	draw_bar(Rect2(60,57,402,24),player_hp/maxf(1,player_max_hp),Color.BLACK,Color.WHITE,"LV %d · HP %.0f / %.0f" % [level,maxf(0,player_hp),player_max_hp],14,combat_presentation.health_ratio(-1))
 	if player_hp > 0 and player_hp/player_max_hp <= .25:
-		draw_rect(Rect2(60,57,402,19),Color("#ffa278"),false,1.5)
+		draw_rect(Rect2(60,57,402,24),Color("#ffa278"),false,1.5)
 
 func draw_arena(shake: Vector2) -> void:
 	if state=="playing":preload("res://regional_atmosphere.gd").draw(self,campaign_id,run_time,audio_settings.get("cinematic_reduced_motion",false))

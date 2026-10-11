@@ -13,6 +13,13 @@ var section_groups:Dictionary={}
 var tabs:OptionButton
 var amount:SpinBox
 var item_picker:OptionButton
+var item_search:LineEdit
+var value_picker:OptionButton
+var value_readout:Label
+var god_button:Button
+var value_slider:HSlider
+var section_scroll:ScrollContainer
+const VALUE_FIELDS={"hp":["HP",0.0,1000000.0,.1],"max_hp":["Maximum HP",1.0,1000000.0,1.0],"damage":["Attack power",1.0,1000000.0,1.0],"crit":["Critical chance",0.0,1.0,.01],"armor":["Armour fraction",0.0,.72,.01],"ward":["Ward",0.0,1000000.0,1.0],"attack_interval":["Auto-attack seconds",.12,8.0,.01],"gold":["Lootcoins",0.0,999999999.0,1.0],"diamonds":["Loot Diamonds",0.0,999999.0,1.0],"scrap":["Scrap",0.0,999999999.0,1.0]}
 
 static func allowed(debug_build: bool) -> bool:
 	return debug_build and (OS.get_name()!="Android" or preload("res://owner_test_access.gd").enabled())
@@ -72,6 +79,7 @@ func build_ui() -> void:
 	for title_value in ["RUN & COMBAT","GEAR & LOOT","PROGRESSION","DIAGNOSTICS"]:tabs.add_item(title_value)
 	tabs.item_selected.connect(filter_sections);panel.add_child(tabs)
 	var scroll := ScrollContainer.new()
+	section_scroll=scroll
 	scroll.position = Vector2(16, 296)
 	scroll.size = Vector2(424, 392)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -129,8 +137,26 @@ func build_ui() -> void:
 	section_groups["TEST PROGRESSION"].node.add_child(make_button("ADD THIS MANY LOOT DIAMONDS","diamonds_add",null))
 	section_groups["TEST PROGRESSION"].node.add_child(make_button("REMOVE THIS MANY LOOT DIAMONDS","diamonds_remove",null))
 	section_groups["TEST PROGRESSION"].node.add_child(make_button("RESET TEST WALLET BALANCES","wallet_reset",null))
+	value_picker=OptionButton.new();value_picker.custom_minimum_size=Vector2(406,52)
+	for key in VALUE_FIELDS:value_picker.add_item(VALUE_FIELDS[key][0]);value_picker.set_item_metadata(value_picker.item_count-1,key)
+	section_groups["TEST PROGRESSION"].node.add_child(value_picker)
+	value_picker.item_selected.connect(func(_index):refresh_value_bounds())
+	value_slider=HSlider.new();value_slider.custom_minimum_size=Vector2(406,48)
+	section_groups["TEST PROGRESSION"].node.add_child(value_slider)
+	value_slider.value_changed.connect(func(value):amount.value=value)
+	amount.value_changed.connect(func(value):value_slider.set_value_no_signal(value))
+	value_readout=make_label("",15,Color("#d9e5ff"));value_readout.custom_minimum_size=Vector2(406,44)
+	value_readout.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	section_groups["TEST PROGRESSION"].node.add_child(value_readout)
+	var exact_actions:=HBoxContainer.new();exact_actions.add_theme_constant_override("separation",8)
+	section_groups["TEST PROGRESSION"].node.add_child(exact_actions)
+	for operation in ["Set","Add","Remove"]:
+		var action_button:=make_button(operation.to_upper(),"exact_value",operation.to_lower());action_button.custom_minimum_size=Vector2(128,52);exact_actions.add_child(action_button)
+	refresh_value_bounds()
 	add_section(list,"ITEM CATALOG",[]);item_picker=OptionButton.new();item_picker.custom_minimum_size=Vector2(406,52)
-	for item in game.ItemCatalog.ITEMS:item_picker.add_item(str(item.name));item_picker.set_item_metadata(item_picker.item_count-1,item.id)
+	item_search=LineEdit.new();item_search.placeholder_text="Search equipment by name or identity";item_search.custom_minimum_size=Vector2(406,52)
+	section_groups["ITEM CATALOG"].node.add_child(item_search);item_search.text_changed.connect(filter_items)
+	filter_items("")
 	section_groups["ITEM CATALOG"].node.add_child(item_picker);section_groups["ITEM CATALOG"].node.add_child(make_button("GRANT SELECTED ITEM","catalog_item",null))
 	reset_button = make_button("RESET LOOTLINGS TEST SAVES", "reset", null)
 	reset_button.custom_minimum_size = Vector2(406, 52)
@@ -143,6 +169,8 @@ func build_ui() -> void:
 func filter_sections(index:int) -> void:
 	tabs.select(index)
 	for section in section_groups.values():section.node.visible=section.tab==index
+	section_scroll.scroll_vertical=0
+	section_scroll.set_deferred("scroll_vertical",0)
 func add_section(parent: VBoxContainer, heading: String, actions: Array) -> void:
 	var wrapper:=VBoxContainer.new();parent.add_child(wrapper);parent=wrapper
 	var tab:int=1 if heading in ["FORCED LOOT","WEAPON PRESENTATION","SIGNATURE LOOT","MYTHICAL SHINY","ITEM CATALOG"] else 2 if heading in ["RESOURCES  \u2022  SAVE","TROPHY QA","TEST PROGRESSION"] else 3 if heading=="TEST SPEED" else 0
@@ -173,6 +201,7 @@ func make_label(value: String, font_size: int, color: Color) -> Label:
 func make_button(value: String, action: String, payload) -> Button:
 	var button := Button.new()
 	button.text = value
+	if action=="god":god_button=button
 	button.set_meta("debug_action",action);button.set_meta("debug_payload",payload)
 	button.custom_minimum_size = Vector2(130, 52)
 	button.add_theme_font_size_override("font_size", 11)
@@ -192,7 +221,11 @@ func run_action(action: String, payload) -> void:
 		game.touch_ux.request("RESET TEST TROPHIES?","Clears only isolated test trophy progress. Normal saves remain intact.",func():status_label.text=game.debug_action("achievement","reset");refresh_info());return
 	if action in ["gold_amount","coins_remove"]:payload=int(amount.value)*(1 if action=="gold_amount" else -1);action="gold"
 	if action in ["diamonds_add","diamonds_remove"]:payload=int(amount.value)*(1 if action=="diamonds_add" else -1);action="shards"
-	if action=="catalog_item":action="item_id";payload=item_picker.get_item_metadata(item_picker.selected)
+	if action=="catalog_item":
+		if item_picker.selected<0:status_label.text="No matching equipment. Change the search first.";return
+		action="item_id";payload=item_picker.get_item_metadata(item_picker.selected)
+	if action=="exact_value":
+		payload={"field":value_picker.get_item_metadata(value_picker.selected),"operation":payload,"amount":amount.value}
 	var message: String = game.debug_action(action, payload)
 	status_label.text = message
 	refresh_info()
@@ -230,6 +263,23 @@ func refresh_info() -> void:
 	if game == null or info_label == null:
 		return
 	info_label.text = ("ISOLATED TEST PROFILE\n" if preload("res://save_scope.gd").active else "NORMAL PROFILE - COMMANDS LOCKED\n")+game.debug_snapshot()
+	if god_button!=null:god_button.text="GOD ON" if game.debug_god_mode else "GOD OFF"
+	if value_readout!=null:value_readout.text="Current: %s  •  range %s–%s" % [str(game.debug_value(str(value_picker.get_item_metadata(value_picker.selected)))),str(amount.min_value),str(amount.max_value)]
+
+func refresh_value_bounds() -> void:
+	var key:String=value_picker.get_item_metadata(value_picker.selected)
+	var field:Array=VALUE_FIELDS[key]
+	amount.min_value=field[1];amount.max_value=minf(field[2],game.player_max_hp) if key=="hp" else field[2];amount.step=field[3]
+	value_slider.min_value=amount.min_value;value_slider.max_value=amount.max_value;value_slider.step=amount.step
+	amount.value=game.debug_value(key)
+	value_slider.set_value_no_signal(amount.value)
+	refresh_info()
+
+func filter_items(query:String) -> void:
+	item_picker.clear()
+	for item in game.ItemCatalog.ITEMS:
+		if not query.is_empty() and not (str(item.name)+" "+str(item.id)).to_lower().contains(query.to_lower()):continue
+		item_picker.add_item(str(item.name));item_picker.set_item_metadata(item_picker.item_count-1,item.id)
 
 func _process(delta: float) -> void:
 	if not visible:

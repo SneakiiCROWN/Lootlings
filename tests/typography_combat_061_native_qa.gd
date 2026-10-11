@@ -17,7 +17,7 @@ func named_button(parent:Node,caption:String) -> Button:
 func review() -> void:
 	for viewport in [Vector2i(360,640),Vector2i(480,854),Vector2i(1080,2340),Vector2i(800,1280),Vector2i(1200,1920),Vector2i(1920,1080),Vector2i(2560,1440)]:
 		root.size=viewport
-		folder="res://docs/production/quality-evidence/0.4.61/screens/%dx%d/" % [viewport.x,viewport.y]
+		folder="res://.godot_test_data/issue6-061/screens/%dx%d/" % [viewport.x,viewport.y]
 		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame
 		game.set_process(false);game.app_lifecycle.platform_notifications_enabled=false
@@ -86,7 +86,7 @@ func review() -> void:
 		game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame
 		assert(game.audio_settings.combat_text_mode=="Expressive" and game.audio_settings.combat_text_size=="Large")
 		game.free();await process_frame
-	var file=FileAccess.open("res://docs/production/quality-evidence/0.4.61/BATCH_A_NATIVE.json",FileAccess.WRITE)
+	var file=FileAccess.open("res://.godot_test_data/issue6-061/BATCH_A_NATIVE.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(evidence,"  "));file.close()
 	print("BATCH A 061 NATIVE PASS: seven layouts, licensed shared fonts, unabridged enemy names, actual resolved hits, semantic critical elements, bounded recycled receipts, saved controls/restart, modal touch fencing and reduced motion. Artistic acceptance remains separate.")
 	quit()

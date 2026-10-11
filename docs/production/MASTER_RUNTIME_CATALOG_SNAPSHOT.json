@@ -2189,24 +2189,35 @@
   "combat_numbers.gd": {
     "constants": {
       "COLORS": {
-        "Fire": "#ffb46b",
-        "Ice": "#91e7ff",
-        "Lightning": "#dfbcff",
-        "Nature": "#b5e99b",
+        "Fire": "#ffad61",
+        "Frost": "#88e9ff",
+        "Ice": "#88e9ff",
+        "Lightning": "#8ff0ff",
+        "Nature": "#a6e596",
         "Physical": "#eef3ff",
-        "Poison": "#a6ec80",
+        "Poison": "#73e2aa",
+        "Shadow": "#c99cff",
+        "Void": "#c99cff",
         "armour": "#c1c9df",
+        "critical": "#ffe593",
         "enemy_heal": "#91e7ba",
         "heal": "#80e7b6",
+        "heavy": "#ff927f",
         "incoming": "#ff9aa5",
         "ward": "#91ddff"
-      }
+      },
+      "LIMIT": 8
     },
     "methods": [
       "text",
-      "add"
+      "recycle",
+      "discard",
+      "clear",
+      "add",
+      "step",
+      "draw"
     ],
-    "source_sha256": "8e2a125a92e817cec98dfdcddb35db5e4eca209f1011a1584db95661e71f02db"
+    "source_sha256": "1ce5bd172157e2d1e44456c9f6c199cc251f1b13250ef217befea03c33caaa4b"
   },
   "combat_presentation.gd": {
     "constants": {
@@ -2225,7 +2236,7 @@
       "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "3b585a28f5174a71eeb6ec741c9dea56db288fc417cacd56b5fe6842247108de"
+    "source_sha256": "d44c16dc5cae2f05c06afd6bab17b9de44387c3eb6a375bb42da459d4f60f4b6"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -3386,7 +3397,70 @@
     "source_sha256": "8bf45ef6d3af57a228f6ffeebb766d342721f24c5a00a131521bba211121518a"
   },
   "debug_panel.gd": {
-    "constants": {},
+    "constants": {
+      "VALUE_FIELDS": {
+        "armor": [
+          "Armour fraction",
+          0.0,
+          0.72,
+          0.01
+        ],
+        "attack_interval": [
+          "Auto-attack seconds",
+          0.12,
+          8.0,
+          0.01
+        ],
+        "crit": [
+          "Critical chance",
+          0.0,
+          1.0,
+          0.01
+        ],
+        "damage": [
+          "Attack power",
+          1.0,
+          1000000.0,
+          1.0
+        ],
+        "diamonds": [
+          "Loot Diamonds",
+          0.0,
+          999999.0,
+          1.0
+        ],
+        "gold": [
+          "Lootcoins",
+          0.0,
+          999999999.0,
+          1.0
+        ],
+        "hp": [
+          "HP",
+          0.0,
+          1000000.0,
+          0.1
+        ],
+        "max_hp": [
+          "Maximum HP",
+          1.0,
+          1000000.0,
+          1.0
+        ],
+        "scrap": [
+          "Scrap",
+          0.0,
+          999999999.0,
+          1.0
+        ],
+        "ward": [
+          "Ward",
+          0.0,
+          1000000.0,
+          1.0
+        ]
+      }
+    },
     "methods": [
       "allowed",
       "configure",
@@ -3401,10 +3475,12 @@
       "close",
       "_unhandled_input",
       "refresh_info",
+      "refresh_value_bounds",
+      "filter_items",
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "dde5c1a34c2edc464a6592145108815d6c95f33ddc17174afc7bcccb482ba71b"
+    "source_sha256": "7a093f10e5fb69058e3051f0bf7688c3b8b476f17f6346cecd7dca18056d6bc9"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -5037,7 +5113,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "fa998d0bcbb35562b93f049a3eefb862f4d7d65a03d67b9dc3c0f8e818856033"
+    "source_sha256": "d7775afa3f8d0e98720d76259deb8349774255e01b7a05abffeaf9f8af08677c"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5348,6 +5424,14 @@
       "refresh"
     ],
     "source_sha256": "ae687cb952c1847b4fa7da3181391716262881079c7b67de30bf30b5ca5f1c93"
+  },
+  "hud_portrait_crest.gd": {
+    "constants": {},
+    "methods": [
+      "_ready",
+      "_process"
+    ],
+    "source_sha256": "dfb4cd31234faef6890bdef8fdc61a77673b4ffd044d9b9412aa00a4ebf0c8e3"
   },
   "impact_presentation.gd": {
     "constants": {},
@@ -6927,6 +7011,8 @@
       "current_weapon_family",
       "debug_snapshot",
       "debug_wallet_change",
+      "debug_value",
+      "debug_adjust_value",
       "debug_action",
       "debug_ensure_run",
       "debug_jump_to_wave",
@@ -7101,7 +7187,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "be2bac6aa498cbf065d6f5a7c0fa606d3c8bb7e7199e77396b4eca6235c2ff59"
+    "source_sha256": "21e9465c0e6944a2c9fddfbae95ca42a1269bc6278a8651ec01af8eecb58c105"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7253,6 +7339,17 @@
     ],
     "source_sha256": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e"
   },
+  "lootlings_typography.gd": {
+    "constants": {},
+    "methods": [
+      "body",
+      "bold",
+      "heading",
+      "install",
+      "label"
+    ],
+    "source_sha256": "074d8157076bc321f4c2ff3ea980ad958abfe4871f799ee149ba59de2b5e4875"
+  },
   "lootlings_ui.gd": {
     "constants": {
       "ARMOUR_IDS": [
@@ -7362,7 +7459,7 @@
       "apply_selection",
       "inset_style"
     ],
-    "source_sha256": "36848219dd4f0ee89aa49d06e59f9674c5b8f934b666374a93c31381cebef8a3"
+    "source_sha256": "b6d1fbd3b1b1c38eb80658626c9682ea41ed374e278958db32ae79b386797a4e"
   },
   "meta_store.gd": {
     "constants": {},
@@ -8908,7 +9005,7 @@
       "draw_reels",
       "draw_seal"
     ],
-    "source_sha256": "3392dd8235e828314d650d1237f00580a4b6b22ad046a895a0b38c17a47e6bd3"
+    "source_sha256": "fbf76ee4533b5d65dbebc7661d431d5f832627717d1456b2d99f52bf23cf5a1b"
   },
   "relic_reveal_fx.gd": {
     "constants": {},
@@ -9028,7 +9125,7 @@
       "presentation",
       "draw"
     ],
-    "source_sha256": "169a9a130029b6a5dec45b4b86e2b9d2e0bb5600b6d2f130aedf3ebfa589a666"
+    "source_sha256": "0ca54c3b396c3d1899ee050262e5942ca147ba8e6f2b6668b48127f301c31a65"
   },
   "resident_sprite_rig.gd": {
     "constants": {
@@ -9265,6 +9362,36 @@
   },
   "settings_store.gd": {
     "constants": {
+      "AUDIO_PRESETS": {
+        "Balanced": {
+          "ambience": 0.62,
+          "master": 0.9,
+          "music": 0.58,
+          "sfx": 0.92,
+          "ui": 0.6
+        },
+        "Combat focus": {
+          "ambience": 0.42,
+          "master": 0.9,
+          "music": 0.42,
+          "sfx": 0.92,
+          "ui": 0.42
+        },
+        "Music forward": {
+          "ambience": 0.5,
+          "master": 0.9,
+          "music": 0.75,
+          "sfx": 0.65,
+          "ui": 0.42
+        },
+        "Quiet": {
+          "ambience": 0.4,
+          "master": 0.6,
+          "music": 0.42,
+          "sfx": 0.55,
+          "ui": 0.35
+        }
+      },
       "CHANNELS": [
         "master",
         "music",
@@ -9279,7 +9406,7 @@
       "save_settings",
       "sanitize"
     ],
-    "source_sha256": "c7fa1e1bb0b195c761e680a8b9e19dae50eb5227d338e3ca5749cefaab618434"
+    "source_sha256": "01fe7ce44a6b0bce97e23c5ccc2d2a1acffaf7186d23e7a531a10a99c83aefcc"
   },
   "shop_system.gd": {
     "constants": {
@@ -9378,6 +9505,7 @@
       "input_surface",
       "refresh_profile",
       "refresh_settings",
+      "apply_audio_preset",
       "set_screen",
       "_process",
       "_draw",
@@ -9388,7 +9516,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "06e8e799d4ff88289933d3ac0d33b6a53816ecc06f2ffdbe4fffbec8fcc80f58"
+    "source_sha256": "54d0ac53e74401044ea6a3ff5c70227ce0703f8a97c618755561ff039ed6ccda"
   },
   "station_presentation.gd": {
     "constants": {},

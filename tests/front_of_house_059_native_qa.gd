@@ -13,7 +13,7 @@ func review() -> void:
   game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame;game.set_process(false);game.app_lifecycle.platform_notifications_enabled=false;game.audio_settings.cinematic_first_time=false
   var title=game.startup_ui;var attacks:int=game.attack_sequence
   title.profile_exists=false;title.show_title();await create_timer(.3).timeout;await capture("title")
-  await tap(named_button(title.title_content,"ENTER THE HIDEOUT"));assert(title.current_screen=="profile_create")
+  await tap(named_button(title.title_content,"START"));assert(title.current_screen=="profile_create")
   title.name_edit.text="Rowan";title.nickname_edit.text="Crystal Scout";await tap(named_button(title.profile_content,"SAVE PROFILE"));assert(title.current_screen=="lootling_select")
   await tap(title.selector_confirm);await create_timer(1).timeout
   if game.presentation_director.vignette.active:game.presentation_director.vignette.finish();await process_frame
@@ -21,7 +21,7 @@ func review() -> void:
   game.show_personal_home();await tap(game.personal_home.buttons.character);assert(game.personal_profile_return)
   await tap(named_button(title.profile_content,"SETTINGS"));assert(title.current_screen=="settings" and title.settings_return_screen=="profile")
   title.setting_sliders.ui.value=.37;title.cinematic_toggles.cinematic_reduced_motion.button_pressed=true
-  await tap(named_button(title.settings_content,"STORY & MOTION"));assert(game.input_surface()==title.cinematic_preferences)
+  await tap(named_button(title.settings_content,"STORY"));assert(game.input_surface()==title.cinematic_preferences)
   # A backdrop control cannot activate through an accessibility modal.
   await tap(named_button(title.settings_content,"SUPPORT"));assert(not title.support_panel.visible)
   game.navigate_back();assert(not title.cinematic_preferences.visible and title.current_screen=="settings")

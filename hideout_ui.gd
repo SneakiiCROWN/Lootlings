@@ -397,7 +397,7 @@ func build_stash() -> void:
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
 	stash_detail_panel = make_panel(stash_content, Rect2(20, 477, 440, 186), Color("#0d1530dc"), Color("#c99a4e"))
-	LootlingsUI.apply_material(stash_detail_panel, "leather", 16)
+	stash_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	stash_detail_icon = ItemIcon.new()
 	stash_detail_icon.position = Vector2(18, 12)
 	stash_detail_icon.size = Vector2(54, 54)
@@ -449,7 +449,7 @@ func build_forge() -> void:
 	scroll.add_child(forge_list)
 	var forge_plate:=make_panel(forge_content, Rect2(28, 516, 424, 126), Color("#0b1229ec"), Color("#b39466"))
 	forge_plate.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
-	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 524, 384, 112), 14, Color("#ffe6ad"))
+	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 524, 384, 112), 16, Color("#ffe6ad"))
 	forge_detail.scroll_active=true
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 654, 370, 64), Color("#493052"), Color("#e2b563"), 19)
@@ -852,21 +852,21 @@ func build_shop() -> void:
 	var back := make_button(shop_content, "‹ HUB", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(shop_content, "PATCH’S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 11, Color("#d9e5ff"))
+	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
 	# The merchant cart is a world station in Hub; keep the selected shop view clear.
 	for index in range(3):
 		var offer_button := make_button(shop_content, "", Rect2(20, 196 + index * 84, 440, 76), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
 	shop_detail_panel = make_panel(shop_content, Rect2(20, 454, 440, 142), Color("#0d1530e6"), Color("#c99a4e"))
-	LootlingsUI.apply_material(shop_detail_panel, "salvage", 16)
+	shop_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(22, 16)
 	shop_detail.size = Vector2(268, 110)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = true
 	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
-	shop_detail.add_theme_font_size_override("normal_font_size", 14)
+	shop_detail.add_theme_font_size_override("normal_font_size", 16)
 	shop_detail.add_theme_font_size_override("bold_font_size", 16)
 	shop_detail.add_theme_font_size_override("italics_font_size", 14)
 	shop_detail.add_theme_font_size_override("bold_italics_font_size", 16)

@@ -38,6 +38,8 @@ var profile_id_label: Label
 var support_panel: Panel
 var setting_sliders := {}
 var setting_mutes := {}
+var audio_preset:OptionButton
+var refreshing_settings := false
 var combat_preferences: Panel
 var combat_choices := {}
 var combat_toggles := {}
@@ -141,7 +143,7 @@ func build_title() -> void:
 		index+=1
 	title_identity=make_label(title_content,"",16,Rect2(38,589,404,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	title_personality=make_label(title_content,"",12,Rect2(36,805,408,26),HORIZONTAL_ALIGNMENT_CENTER,Color("#d7e5ff"))
-	var play := make_button(title_content, "ENTER THE HIDEOUT", Rect2(68, 622, 344, 76), Color("#6f4b1fef"), Color("#ffda72"), 21)
+	var play := make_button(title_content, "START", Rect2(92, 644, 296, 72), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
 	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 722, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
 	profile_button.pressed.connect(func(): ui_event.emit("menu_open"); show_profile(false))
@@ -150,6 +152,11 @@ func build_title() -> void:
 	style_title_button(play,true)
 	style_title_button(profile_button,false)
 	style_title_button(settings_button,false)
+	# Accepted ensemble and original logo carry the title; roster/profile belong
+	# in their existing selection flows, not a second row of marketing controls.
+	for child in title_content.get_children():
+		if child!=title_wordmark and child!=play:child.hide()
+
 
 func build_profile() -> void:
 	profile_content = Control.new()
@@ -198,10 +205,14 @@ func build_settings() -> void:
 	var panel := make_panel(settings_content, Rect2(28, 75, 424, 710), Color("#0b1430f4"), Color("#c99cff"))
 	LootlingsUI.apply_material(panel, "relic")
 	make_label(panel, "AUDIO & ACCESSIBILITY", 23, Rect2(20, 24, 384, 46), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	audio_preset=OptionButton.new();audio_preset.position=Vector2(30,76);audio_preset.size=Vector2(366,48)
+	audio_preset.add_item("Custom")
+	for preset in SettingsStore.AUDIO_PRESETS:audio_preset.add_item(preset)
+	audio_preset.item_selected.connect(apply_audio_preset);panel.add_child(audio_preset)
 	var channels := SettingsStore.CHANNELS
 	for index in range(channels.size()):
 		var channel: String = channels[index]
-		var y := 92 + index * 103
+		var y := 137 + index * 89
 		make_label(panel, {"master":"MASTER", "music":"MUSIC", "sfx":"SOUND EFFECTS", "ui":"MENU SOUNDS", "ambience":"AMBIENCE"}[channel], 14, Rect2(30, y, 120, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9e5ff"))
 		var slider := HSlider.new()
 		slider.position = Vector2(30, y + 29)
@@ -222,7 +233,9 @@ func build_settings() -> void:
 		track.corner_radius_bottom_right = 5
 		slider.add_theme_stylebox_override("slider",track)
 		var percentage := make_label(panel,"",14,Rect2(205,y,82,24),HORIZONTAL_ALIGNMENT_RIGHT,Color("#ffe178"))
-		slider.value_changed.connect(func(value): percentage.text = "%d%%" % roundi(value*100))
+		slider.value_changed.connect(func(value):
+			percentage.text = "%d%%" % roundi(value*100)
+			if not refreshing_settings:audio_preset.select(0))
 		percentage.text = "%d%%" % roundi(slider.value*100)
 		panel.add_child(slider)
 		setting_sliders[channel] = slider
@@ -557,6 +570,7 @@ func save_profile() -> void:
 		show_title()
 
 func save_settings() -> void:
+	settings.audio_preset=audio_preset.get_item_text(audio_preset.selected)
 	for channel in SettingsStore.CHANNELS:
 		settings[channel] = float(setting_sliders[channel].value)
 		settings[channel + "_muted"] = bool(setting_mutes[channel].button_pressed)
@@ -598,6 +612,7 @@ func refresh_profile() -> void:
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
 		return
+	refreshing_settings=true
 	for channel in SettingsStore.CHANNELS:
 		setting_sliders[channel].value = float(settings.get(channel, 0.8))
 		setting_mutes[channel].button_pressed = bool(settings.get(channel + "_muted", false))
@@ -607,6 +622,17 @@ func refresh_settings() -> void:
 		for index in range(choice.item_count):
 			if choice.get_item_text(index)==settings.get(key,SettingsStore.defaults()[key]):choice.select(index)
 	for key in combat_toggles:combat_toggles[key].button_pressed=bool(settings.get(key,true))
+	for index in range(audio_preset.item_count):
+		if audio_preset.get_item_text(index)==settings.get("audio_preset","Custom"):audio_preset.select(index)
+	refreshing_settings=false
+
+func apply_audio_preset(index:int) -> void:
+	audio_preset.select(index)
+	var preset:String=audio_preset.get_item_text(index)
+	if not SettingsStore.AUDIO_PRESETS.has(preset):return
+	refreshing_settings=true
+	for channel in SettingsStore.CHANNELS:setting_sliders[channel].value=SettingsStore.AUDIO_PRESETS[preset][channel]
+	refreshing_settings=false
 
 func set_screen(active: Control) -> void:
 	var screens := [boot_content, title_content, profile_content, settings_content, lootling_content, wanderer_content]

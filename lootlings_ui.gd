@@ -258,14 +258,14 @@ static func apply_rarity_card(button: Button, accent: Color) -> void:
 	apply_selection(button, bool(button.get_meta("ui_selected", false)))
 
 static func rarity_card_style(accent: Color, state_name: String) -> StyleBox:
-	# Approved cool crystal frame for all unselected gear/reward cards;
-	# warm primary frame remains the persistent selected state.
-	# Duplicate script fields so rarity tint never contaminates the shared cache.
-	var source := skin_style("button_secondary_"+state_name,24)
-	var box := inset_style(source,source.content_margin_left) as TextureSkin
-	var rarity_tint := Color.WHITE.lerp(accent,.08)
-	box.tint *= rarity_tint
-	if state_name == "normal": box.tint *= Color(.88,.92,.98)
+	# Quiet repeated rows; reserve illustrated gold chrome for primary actions.
+	var box := StyleBoxFlat.new()
+	box.bg_color = Color({"normal":"#101e32f5","hover":"#20344bf8","pressed":"#0c182b","disabled":"#121a26"}.get(state_name,"#101e32f5"))
+	box.border_color = accent.lerp(Color("#59758e"),.55)
+	box.set_border_width_all(1)
+	box.border_width_left = 3
+	box.set_corner_radius_all(9)
+	box.content_margin_left = 12; box.content_margin_right = 12
 	return box
 
 static func apply_selection(button: Button, selected: bool) -> void:
@@ -287,8 +287,13 @@ static func apply_selection(button: Button, selected: bool) -> void:
 	button.set_meta("ui_intent","primary" if selected else "secondary")
 	for state_name in ["normal","hover","pressed","disabled"]:
 		var style := button_style(Color.WHITE,Color.WHITE,state_name,"primary" if selected else "secondary")
-		if not selected and button.has_meta("rarity_accent"):
+		if button.has_meta("rarity_accent"):
 			style = rarity_card_style(button.get_meta("rarity_accent"), state_name)
+			if selected:
+				style.border_color = GOLD_BRIGHT
+				style.set_border_width_all(2)
+				style.border_width_left = 5
+				style.bg_color = Color("#26364df8")
 		if button.has_meta("card_text_inset"):
 			style = inset_style(style,float(button.get_meta("card_text_inset")))
 		button.add_theme_stylebox_override(state_name, style)

@@ -1,10 +1,17 @@
 extends RefCounted
 
 const CHANNELS := ["master", "music", "sfx", "ui", "ambience"]
+const AUDIO_PRESETS := {
+	"Balanced":{"master":.90,"music":.58,"sfx":.92,"ui":.60,"ambience":.62},
+	"Music forward":{"master":.90,"music":.75,"sfx":.65,"ui":.42,"ambience":.50},
+	"Combat focus":{"master":.90,"music":.42,"sfx":.92,"ui":.42,"ambience":.42},
+	"Quiet":{"master":.60,"music":.42,"sfx":.55,"ui":.35,"ambience":.40}
+}
 
 static func defaults() -> Dictionary:
 	return {
 		"version":1,
+		"audio_preset":"Custom",
 		"master":0.90, "music":0.58, "sfx":0.92, "ui":0.84, "ambience":0.62,
 		"master_muted":false, "music_muted":false, "sfx_muted":false,
 		"ui_muted":false, "ambience_muted":false,
@@ -44,5 +51,7 @@ static func sanitize(value: Dictionary) -> Dictionary:
 			if candidate in ["Off","Minimal","Standard","Expressive"]: result[key]=candidate
 		elif key=="combat_text_size":
 			if candidate in ["Small","Normal","Large"]: result[key]=candidate
+		elif key=="audio_preset":
+			if candidate=="Custom" or AUDIO_PRESETS.has(candidate):result[key]=candidate
 		elif typeof(candidate)==typeof(result[key]):result[key]=candidate
 	return result

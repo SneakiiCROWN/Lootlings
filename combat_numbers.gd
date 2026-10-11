@@ -29,21 +29,27 @@ static func add(g, amount: float, kind: String, player: bool=false, critical: bo
  var local:Array=g.floating_texts.filter(func(x):return x.has("number_kind") and x.serial==serial)
  while local.size()>=3:discard(g,local.pop_front())
  var typed:Array=g.floating_texts.filter(func(x):return x.has("number_kind"))
- if typed.size()>=LIMIT:
+ var active_limit:int=4 if g.enemy_encounter.active else LIMIT
+ if typed.size()>=active_limit:
   typed.sort_custom(func(a,b):return int(a.priority)<int(b.priority) if a.priority!=b.priority else float(a.age)>float(b.age))
   if int(typed[0].priority)>priority:return
   discard(g,typed[0])
  var count:int=0
  while local.any(func(x):return int(x.get("slot",-1))==count):count+=1
+ var pack_row:int=0
+ var remaining:Array=g.floating_texts.filter(func(x):return x.has("number_kind"))
+ while remaining.any(func(x):return int(x.get("pack_row",-1))==pack_row):pack_row+=1
  var origin:Vector2=impact if impact.is_finite() else preload("res://weapon_fit_catalog.gd").world_position(g) if player else g.target_combat_visual_position()
  var pos:=Vector2(clampf(origin.x,85,395),clampf(origin.y+(34 if player else -48)+count*26,412,586 if player else 474))
+ # Tight packs get four separated lanes below feet, never a wall over faces.
+ if g.enemy_encounter.active:pos.y=clampf(origin.y+70+pack_row*27,548,634)
  var size_delta:int={"Small":-2,"Normal":0,"Large":3}.get(g.audio_settings.get("combat_text_size","Normal"),0)
  var emphasized:bool=critical and g.audio_settings.get("combat_crit_emphasis",true)
  var receipt:Dictionary
  if not g.combat_number_pool.is_empty():receipt=g.combat_number_pool.pop_back()
  else:receipt={};g.combat_number_allocations+=1
  var duration:=1.10 if emphasized else .90
- receipt.merge({"number_kind":kind,"slot":count,"serial":serial,"amount":amount,"hits":1,"age":0.0,"critical":critical,"emphasized":emphasized,"priority":priority,"text":text(kind,amount),"pos":pos,"origin":pos,"color":Color(COLORS.get(kind.trim_suffix("_tick"),"#eef3ff")),"size":(20 if emphasized else 16)+size_delta,"life":duration,"max_life":duration,"lane":"player" if player else "damage"})
+ receipt.merge({"number_kind":kind,"slot":count,"pack_row":pack_row,"serial":serial,"amount":amount,"hits":1,"age":0.0,"critical":critical,"emphasized":emphasized,"priority":priority,"text":text(kind,amount),"pos":pos,"origin":pos,"color":Color(COLORS.get(kind.trim_suffix("_tick"),"#eef3ff")),"size":((17 if emphasized else 14) if g.enemy_encounter.active else (20 if emphasized else 16))+size_delta,"life":duration,"max_life":duration,"lane":"player" if player else "damage"})
  g.floating_texts.append(receipt)
 static func step(g, item: Dictionary, delta: float) -> void:
  item.age+=delta
