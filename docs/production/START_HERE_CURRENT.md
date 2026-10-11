@@ -1,3 +1,7 @@
+# Current — 0.4.62 connected comparison and recovery continuation
+
+Live source e298a2e secured; next shared equipment checkpoint uses fixed two-column comparisons across rewards/services with independent full-detail scrolling. Wrap-first combat labels, scrollable dialogue, optional18-topic reading guide and journaled local backups are installed and tested. See [report](quality-evidence/0.4.62/REPORT.md) and [continuation](CONTINUATION_062.md). Exports/physical acceptance must be checked in the delivery receipt. No new art closures:2757contracts/7178artistrequirements remain. Preserve owner files and all rollback builds.
+
 # Current — 0.4.61 Issue 6 connected presentation
 
 Source `a47ec01` pushed. Local licensed typography with corrected numeric font weight axes; semantic resolved damage feedback with saved preferences and bounded pack lanes; canonical masked HUD crest; quieter shared gear rows; START-only title; ten precise bounded fields in the existing owner panel; opt-in saved audio presets and no routine menu click on ATTACK. Original title track, art, gameplay maths and saves preserved.

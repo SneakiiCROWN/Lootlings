@@ -20,7 +20,7 @@ static func text(game,found:Dictionary,equipped:Dictionary) -> String:
  var after=Inventory.new();after.equipped=before.equipped.duplicate(true);after.equipped[str(found.get("slot","Weapon"))]=found.duplicate(true)
  var old_stats:=stats(game,before);var new_stats:=stats(game,after)
  var current:=card(equipped,"CURRENTLY EQUIPPED");var inspected:=card(found,"INSPECTING")
- var result:String="[table=2][cell]%s[/cell][cell]%s[/cell][/table]" % [current,inspected] if game.get_window().size.x>game.get_window().size.y else current+"\n\n"+inspected
+ var result:String="[table=2][cell]%s[/cell][cell]%s[/cell][/table]" % [current,inspected]
  result+="\n\n[b]EFFECTIVE IF EQUIPPED[/b]\nCurrent encounter and health conditions; excludes untriggered procs.\n"
  for key in old_stats:
   var a:float=old_stats[key];var b:float=new_stats[key];var delta:float=b-a

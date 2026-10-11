@@ -1,0 +1,5 @@
+# Continue live 0.4.62
+
+Preserve owner project.godot, references, normal/owner saves and rollback builds. Secured source e298a2e adds wrap-first combat labels, scrollable dialogue, three existing owner control fields, optional saved Field Guide and eleven-store journaled offline backup/restore. The connected comparison checkpoint adds persistent simultaneous equipment comparisons on loot, free merchant, shop, stash and Forge, using existing combat formulas and effect lists. No new art closures:2757contracts/7178artistrequirements remain.
+
+Next: exact-pack build checks and delivery; repair named boss-hoard rewards and spinner Spark labels from current runtime; continue actual missing character/weapon animation cells and approved winged Hoard Dragon continuity. Keep professional/physical acceptance separate. Owner photos are48JPEGs from unknown APK. Device testing deferred. Reading guides do not imply completed guided practice; Android file-picker, actual power-loss/cloud recovery and advanced migration coverage remain open. Do not redo the source-tested work.

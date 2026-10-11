@@ -4,7 +4,7 @@ const Inv=preload("res://inventory_system.gd")
 const Scope=preload("res://save_scope.gd")
 func review() -> void:
  var cases:int=0
- for viewport in [Vector2i(1080,2340),Vector2i(1600,2560),Vector2i(1920,1080)]:
+ for viewport in [Vector2i(360,640),Vector2i(1080,2340),Vector2i(1600,2560),Vector2i(1920,1080)]:
   root.size=viewport;folder="res://.godot_test_data/compare060/%dx%d/" % [viewport.x,viewport.y];DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
   game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame;game.set_process(false);game.audio_settings.cinematic_first_time=false;game.app_lifecycle.platform_notifications_enabled=false;game.start_run();game.set_process(false);game.presentation_director.finish_travel();game.presentation_director.vignette.finish()
   for id in ["dawnweave","tidestar","aurora_thread","prismsong","hearthpearl","mirrorwake","bloomward","starfold","ironpaw_plate","stormspark"]:
@@ -22,11 +22,14 @@ func review() -> void:
    assert(is_equal_approx(projected["Base strike power"],game.base_damage*game.equipment_damage_multiplier()) and is_equal_approx(projected["Auto-attack delay"],game.current_attack_interval()) and is_equal_approx(projected["Critical chance"],game.effective_crit_chance()*100) and is_equal_approx(projected["Maximum HP"],game.player_max_hp))
    game.inventory.equipped=old_equipment;game.player_max_hp=old_max;game.equipment_hp_bonus=old_bonus;game.player_hp=hp;cases+=1
    if id in ["dawnweave","mirrorwake","ironpaw_plate","stormspark"]:
-    game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot));assert(game.item_compare.get_v_scroll_bar().value<1)
+    game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot));var quick=game.item_compare.get_meta("quick_comparison");var header_position:Vector2=quick.position;assert(quick.rows.size()==5 and quick.found.name==item.name)
+    assert(quick.position.y+quick.size.y<=game.item_compare.position.y)
+    assert(game.item_compare.get_v_scroll_bar().value<1)
     var attacks_before:int=game.attack_sequence
     await swipe(game.item_compare);game.touch_ux.inertia=null;await process_frame
     assert(game.state=="item" and game.attack_sequence==attacks_before)
     game.item_compare.get_v_scroll_bar().value=game.item_compare.get_v_scroll_bar().max_value
+    assert(quick.position==header_position and quick.visible)
     await capture("comparison_"+str(item.slot)+"_all_effects")
   # Refused persistence cannot change gear, overflow salvage, HP or rewards.
   game.current_item=game.ItemCatalog.create_item("tidestar","MYTHICAL SHINY",6060);game.state="item"
@@ -55,4 +58,4 @@ func review() -> void:
   await capture("shop_full_stash_block")
   game.inventory.stash.clear();game.refresh_hideout();await tap(game.hideout_ui.shop_offer_buttons[0]);assert(game.hideout_ui.shop_buy_button.text.contains("LOOTCOINS") and not game.hideout_ui.shop_buy_button.text.contains("SCRAP") and game.hideout_ui.shop_detail.text.contains("Remaining after purchase"));await capture("shop_full_preview")
   game.free();await process_frame
- print("COMPARISON 060 NATIVE PASS: %d fixed-canon items across four slots and three layouts, complete untruncated effect keys/signatures, real formula-equivalent stat previews, no preview mutation/RNG, refused equip-save rollback. Visual/route/cost acceptance remains scoped." % cases);quit()
+ print("COMPARISON 060 NATIVE PASS: %d fixed-canon items across four slots and four layouts, complete untruncated effect keys/signatures, real formula-equivalent stat previews, no preview mutation/RNG, refused equip-save rollback. Visual/route/cost acceptance remains scoped." % cases);quit()

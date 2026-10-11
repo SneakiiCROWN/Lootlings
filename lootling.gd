@@ -1480,15 +1480,15 @@ func build_item_ui() -> void:
 	item_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_description.clip_text = true
 	item_compare = RichTextLabel.new()
-	item_compare.position = Vector2(34, 210)
-	item_compare.size = Vector2(364, 205)
+	item_compare.position = Vector2(24, 70)
+	item_compare.size = Vector2(384, 345)
 	item_compare.bbcode_enabled = true
 	item_compare.fit_content = false
 	item_compare.scroll_active = true
 	item_compare.add_theme_font_size_override("normal_font_size", 14)
 	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
 	item_panel.add_child(item_compare)
-	LootlingsUI.add_divider(item_panel, Rect2(34, 197, 364, 9), "gold")
+	item_icon.visible=false;item_description.visible=false
 	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 432), Vector2(176, 58), Color("#295d50"), Color("#69e6b0"), inspect_item_equip)
 	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 432), Vector2(176, 58), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
@@ -1617,7 +1617,7 @@ func build_merchant_ui() -> void:
 	merchant_coin_label = LootlingsUI.rich_label(merchant_panel, Rect2(146, 86, 258, 26), 16, Color("#ffe078"))
 	for i in range(3):
 		var button := Button.new()
-		button.position = Vector2(20, 136 + i * 80)
+		button.position = Vector2(20, 120 + i * 76)
 		button.size = Vector2(384, 74)
 		button.add_theme_font_size_override("font_size", 15)
 		button.pressed.connect(inspect_merchant_item.bind(i))
@@ -1632,20 +1632,20 @@ func build_merchant_ui() -> void:
 		button.add_child(icon)
 		merchant_icons.append(icon)
 		var kicker := make_label(button, "", 11, Rect2(76, 6, 292, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#c7b18b"))
-		var title := make_label(button, "", 14, Rect2(76, 26, 292, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#edf0f7"))
-		var effect := make_label(button, "", 12, Rect2(76, 50, 292, 18), HORIZONTAL_ALIGNMENT_LEFT, Color("#bfcbe0"))
+		var title := make_label(button, "", 14, Rect2(76, 23, 292, 30), HORIZONTAL_ALIGNMENT_LEFT, Color("#edf0f7"))
+		var effect := make_label(button, "", 11, Rect2(76, 55, 292, 19), HORIZONTAL_ALIGNMENT_LEFT, Color("#bfcbe0"))
 		for label in [kicker, title, effect]:
 			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			label.clip_text = true
 		merchant_visuals.append({"kicker":kicker, "name":title, "effect":effect})
-	merchant_panel.size.y = 688
-	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,376,376,112),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
-	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,500),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
+	merchant_panel.position.y=68;merchant_panel.size.y = 766
+	merchant_detail = LootlingsUI.rich_label(merchant_panel,Rect2(24,354,376,270),13,Color("#c9d6e9"));merchant_detail.scroll_active=true
+	merchant_buy_button = make_action_button(merchant_panel,"SELECT AN OFFER",Vector2(20,634),Vector2(384,50),Color("#49346b"),Color("#ffe178"),buy_selected_merchant)
 	merchant_buy_button.set_meta("ui_intent","primary")
 	apply_button_style(merchant_buy_button,Color("#49346b"),Color("#ffe178"))
 	merchant_buy_button.disabled = true
-	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 560), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","One free redraw per stop. All three current offers will be replaced.",reroll_merchant))
-	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 560), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
+	merchant_reroll_button = make_action_button(merchant_panel, "REROLL", Vector2(20, 702), Vector2(180, 48), Color("#3e315c"), Color("#c89bff"), func(): touch_ux.request("Replace these offers?","One free redraw per stop. All three current offers will be replaced.",reroll_merchant))
+	merchant_continue_button = make_action_button(merchant_panel, "SKIP", Vector2(224, 702), Vector2(180, 48), Color("#295d50"), Color("#69e6b0"), leave_merchant)
 
 func build_boss_reward_ui() -> void:
 	boss_reward_panel = make_panel(Rect2(20, 115, 440, 630), Color("#17142ff8"))
@@ -2988,6 +2988,7 @@ func inspect_merchant_item(index: int) -> void:
 	var item: Dictionary = shop.stock[index]
 	merchant_selection = index; selection_msec = Time.get_ticks_msec()
 	merchant_detail.text = "[b]IF EQUIPPED: %s[/b]\n%s" % [item.name,build_item_comparison(item,inventory.equipped_item(str(item.get("slot","Weapon"))))]
+	preload("res://quick_comparison.gd").install(merchant_detail,self,item,inventory.equipped_item(str(item.get("slot","Weapon"))))
 	merchant_detail.call_deferred("scroll_to_line",0)
 	merchant_buy_button.text = "TAKE FREE / ENDS THIS STOP"
 	merchant_buy_button.disabled = shop.purchase_taken
@@ -3047,7 +3048,9 @@ func show_next_item() -> void:
 	item_icon.configure(current_item)
 	item_description.text = "%s\n%s\n%s" % [ItemCatalog.display_identity(current_item), current_item.get("desc", ""), ItemCatalog.describe_headline_effects(current_item, 1)]
 	var equipped: Dictionary = inventory.equipped_item(current_item.get("slot", ""))
+	item_title.text="LOOT COMPARISON"
 	item_compare.text = build_item_comparison(current_item, equipped)
+	preload("res://quick_comparison.gd").install(item_compare,self,current_item,equipped)
 	item_compare.call_deferred("scroll_to_line",0)
 	item_keep_button.disabled = inventory.stash.size() >= inventory.stash_capacity
 	item_keep_button.text = "KEEP IN STASH\n%d / %d" % [inventory.stash.size(), inventory.stash_capacity]
@@ -3221,6 +3224,7 @@ func refresh_merchant_ui() -> void:
 	merchant_selection = -1
 	merchant_buy_button.disabled = true
 	merchant_buy_button.text = "SELECT AN OFFER"
+	preload("res://quick_comparison.gd").reset(merchant_detail)
 	merchant_detail.text = "Choose one free supply. You may redraw once before taking it."
 	merchant_title.text = "PACK PEDDLER"
 	merchant_subtitle.text = shop.stock_style + " • PICK ONE"
@@ -3259,6 +3263,8 @@ func refresh_merchant_ui() -> void:
 			button.add_theme_color_override(state_name, Color.TRANSPARENT)
 		merchant_visuals[i].kicker.text = "%s / %s / FREE" % ["PREMIUM" if item.get("premium",false) else ItemCatalog.display_slot(item.get("slot","Item")),item.rarity]
 		merchant_visuals[i].name.text = str(item.name)
+		fit_label_font(merchant_visuals[i].name,str(item.name),286,14,11)
+		button.text = "" # Child labels carry the visible text without inflating the button minimum size.
 		merchant_visuals[i].effect.text = headline
 		for label in merchant_visuals[i].values():
 			label.modulate = Color("#a1a9bb") if button.disabled else Color.WHITE

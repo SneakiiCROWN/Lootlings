@@ -397,7 +397,7 @@ func build_stash() -> void:
 	stash_list.custom_minimum_size = Vector2(402, 0)
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
-	stash_detail_panel = make_panel(stash_content, Rect2(20, 477, 440, 186), Color("#0d1530dc"), Color("#c99a4e"))
+	stash_detail_panel = make_panel(stash_content, Rect2(20, 290, 440, 370), Color("#0d1530dc"), Color("#c99a4e"))
 	stash_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	stash_detail_icon = ItemIcon.new()
 	stash_detail_icon.position = Vector2(18, 12)
@@ -409,7 +409,7 @@ func build_stash() -> void:
 	stash_detail_identity = make_label(stash_detail_panel, "", 13, Rect2(110, 66, 312, 22), HORIZONTAL_ALIGNMENT_LEFT, Color("#dbe7ff"))
 	stash_detail = RichTextLabel.new()
 	stash_detail.position = Vector2(18, 96)
-	stash_detail.size = Vector2(404, 78)
+	stash_detail.size = Vector2(404, 266)
 	stash_detail.bbcode_enabled = true
 	stash_detail.scroll_active = true
 	stash_detail.add_theme_font_size_override("normal_font_size", 14)
@@ -441,16 +441,16 @@ func build_forge() -> void:
 	make_label(forge_content, "Two evolutions • new weapon behaviour\n+4% damage each • retains rarity and affixes", 14, Rect2(28, 126, 424, 48), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	var scroll := ScrollContainer.new()
 	scroll.position = Vector2(28, 180)
-	scroll.size = Vector2(424, 318)
+	scroll.size = Vector2(424, 150)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	forge_content.add_child(scroll)
 	forge_list = VBoxContainer.new()
 	forge_list.custom_minimum_size.x = 398
 	forge_list.add_theme_constant_override("separation", 10)
 	scroll.add_child(forge_list)
-	var forge_plate:=make_panel(forge_content, Rect2(28, 516, 424, 126), Color("#0b1229ec"), Color("#b39466"))
+	var forge_plate:=make_panel(forge_content, Rect2(28, 350, 424, 292), Color("#0b1229ec"), Color("#b39466"))
 	forge_plate.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
-	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 524, 384, 112), 16, Color("#ffe6ad"))
+	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 358, 384, 276), 16, Color("#ffe6ad"))
 	forge_detail.scroll_active=true
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 654, 370, 64), Color("#493052"), Color("#e2b563"), 19)
@@ -731,6 +731,7 @@ func show_forge() -> void:
 	refresh_forge()
 
 func refresh_forge() -> void:
+	preload("res://quick_comparison.gd").reset(forge_detail)
 	for child in forge_list.get_children():
 		forge_list.remove_child(child)
 		child.queue_free()
@@ -749,6 +750,7 @@ func refresh_forge() -> void:
 	select_forge_weapon(-1)
 
 func select_forge_recipe(weapon_type: String) -> void:
+	preload("res://quick_comparison.gd").reset(forge_detail)
 	forge_recipe = weapon_type
 	refresh_selection_styles(forge_list,"recipe:"+weapon_type)
 	forge_armed = false
@@ -789,6 +791,7 @@ func make_forge_card(item: Dictionary, text: String, accent: Color) -> Button:
 	return button
 
 func select_forge_weapon(index: int) -> void:
+	preload("res://quick_comparison.gd").reset(forge_detail)
 	forge_recipe = ""
 	forge_detail.add_theme_font_size_override("normal_font_size", 14)
 	forge_index = index
@@ -807,6 +810,7 @@ func select_forge_weapon(index: int) -> void:
 		forge_detail.text = "[center]" + ("%s\n%d Lootcoins + %d Scrap\n+4%% damage • permanent\n%s\nYou have %d Lootcoins / %d Scrap" % [next.name, next.gold, next.scrap, next.behaviour, gold, current_inventory.scrap]) + "[/center]"
 		forge_detail.scroll_active=true
 		forge_detail.text+="\n"+("After purchase: %d Lootcoins / %d Scrap" % [gold-int(next.gold),current_inventory.scrap-int(next.scrap)] if gold>=int(next.gold) and current_inventory.scrap>=int(next.scrap) else "Save up before purchasing this evolution.")+"\n\n"+comparison_callable.call(ForgeSystem.evolve(item),current_inventory.equipped_item("Weapon"))
+		preload("res://quick_comparison.gd").install(forge_detail,get_parent(),ForgeSystem.evolve(item),current_inventory.equipped_item("Weapon"))
 
 func build_upgrades() -> void:
 	upgrade_content = Control.new()
@@ -856,14 +860,14 @@ func build_shop() -> void:
 	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
 	# The merchant cart is a world station in Hub; keep the selected shop view clear.
 	for index in range(3):
-		var offer_button := make_button(shop_content, "", Rect2(20, 196 + index * 84, 440, 76), Color("#172442e8"), Color("#b7c0ca"), 12)
+		var offer_button := make_button(shop_content, "", Rect2(20, 110 + index * 72, 440, 64), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
-	shop_detail_panel = make_panel(shop_content, Rect2(20, 454, 440, 142), Color("#0d1530e6"), Color("#c99a4e"))
+	shop_detail_panel = make_panel(shop_content, Rect2(20, 326, 440, 362), Color("#0d1530e6"), Color("#c99a4e"))
 	shop_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	shop_detail = RichTextLabel.new()
-	shop_detail.position = Vector2(22, 16)
-	shop_detail.size = Vector2(268, 110)
+	shop_detail.position = Vector2(16, 8)
+	shop_detail.size = Vector2(408, 292)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = true
 	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
@@ -872,15 +876,15 @@ func build_shop() -> void:
 	shop_detail.add_theme_font_size_override("italics_font_size", 14)
 	shop_detail.add_theme_font_size_override("bold_italics_font_size", 16)
 	shop_detail_panel.add_child(shop_detail)
-	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(302, 30, 122, 82), Color("#6b4a1e"), Color("#ffd468"), 13)
+	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 306, 408, 48), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.set_meta("ui_intent", "primary")
 	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
-	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 610, 137, 76), Color("#5a3f20"), Color("#ffd36a"), 12)
+	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 700, 137, 64), Color("#5a3f20"), Color("#ffd36a"), 12)
 	shop_gold_cache_button.pressed.connect(func(): safe_action(shop_gold_cache_button,"Spend Lootcoins for one random item. Contents are not known before purchase.",func(): shop_gold_cache_requested.emit()))
-	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 610, 137, 76), Color("#3f315f"), Color("#c99cff"), 12)
+	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 700, 137, 64), Color("#3f315f"), Color("#c99cff"), 12)
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
-	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 610, 138, 76), Color("#21455b"), Color("#72c8ff"), 12)
+	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 700, 138, 64), Color("#21455b"), Color("#72c8ff"), 12)
 	shop_expansion_button.icon=LootlingsUI.icon("currency_gold")
 	shop_expansion_button.expand_icon=true
 	shop_expansion_button.add_theme_constant_override("icon_max_width",20)
@@ -893,17 +897,17 @@ func build_shop() -> void:
 		utility.size.x = 138 if utility == shop_expansion_button else 137
 		utility.set_meta("ui_intent","utility")
 		LootlingsUI.apply_button(utility,Color("#192944"),Color("#7087ae"))
-	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 696, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
+	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 774, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
 	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Lootcoins to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
 	# Static accepted luggage art illustrates capacity; it is not a new loot roll.
 	shop_expansion_button.icon=LootlingsUI.icon("res://art/production/phase4e/props/courier_cache.png")
 	shop_expansion_button.expand_icon=true;shop_expansion_button.add_theme_constant_override("icon_max_width",28)
-	shop_status_panel = make_panel(shop_content, Rect2(20, 758, 440, 76), Color("#0d1530dc"), Color("#8ea2c8"))
+	shop_status_panel = make_panel(shop_content, Rect2(20, 830, 440, 22), Color("#0d1530dc"), Color("#8ea2c8"))
 	LootlingsUI.apply_material(shop_status_panel, "salvage", 16)
 	LootlingsUI.add_divider(shop_status_panel, Rect2(28, 4, 384, 8), "salvage")
 	shop_status = RichTextLabel.new()
-	shop_status.position = Vector2(14, 10)
-	shop_status.size = Vector2(412, 56)
+	shop_status.position = Vector2(14, 0)
+	shop_status.size = Vector2(412, 22)
 	shop_status.bbcode_enabled = true
 	shop_status.fit_content = false
 	shop_status.scroll_active = true
@@ -1292,6 +1296,7 @@ func refresh_stash() -> void:
 	close_stash_detail()
 
 func select_entry(entry_index: int) -> void:
+	preload("res://quick_comparison.gd").reset(stash_detail)
 	if entry_index < 0 or entry_index >= entries.size():
 		return
 	selected_entry = entry_index
@@ -1300,7 +1305,7 @@ func select_entry(entry_index: int) -> void:
 		if row != null: LootlingsUI.apply_selection(row,index==entry_index)
 	stash_opened_at=Time.get_ticks_msec()
 	stash_detail_panel.visible=true; stash_equip_button.visible=true; stash_scrap_button.visible=true
-	stash_scroll.size.y=211
+	stash_scroll.size.y=68
 	if entry_index < stash_list.get_child_count():
 		pulse_control(stash_list.get_child(entry_index), Color("#72c8ff"))
 	var entry: Dictionary = entries[entry_index]
@@ -1325,6 +1330,7 @@ func select_entry(entry_index: int) -> void:
 	else:
 		var equipped: Dictionary = current_inventory.equipped_item(item.get("slot", ""))
 		stash_detail.text = "[b]Owned gear · free to equip[/b]\n" + comparison_callable.call(item, equipped)
+		preload("res://quick_comparison.gd").install(stash_detail,get_parent(),item,equipped)
 		stash_detail.tooltip_text = "%s\n%s" % [item.get("desc", ""), ItemCatalog.describe_effects(item)]
 		stash_equip_button.disabled = false
 		stash_scrap_button.disabled = false
@@ -1423,6 +1429,7 @@ func refresh_shop() -> void:
 		show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.")
 
 func refresh_shop_detail(reveal_pending: bool) -> void:
+	preload("res://quick_comparison.gd").reset(shop_detail)
 	if selected_shop_offer < 0 or selected_shop_offer >= current_shop.stock.size() or current_shop.stock[selected_shop_offer].is_empty():
 		shop_detail_panel.visible = true
 		shop_detail.text = "[b]Choose an item above[/b]\nCompare it with your equipped gear, then buy with Lootcoins. Purchases go to your stash."
@@ -1438,6 +1445,7 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	shop_buy_button.text = "BUY\n%d LOOTCOINS" % int(item.get("price", 0))
 	shop_detail.text+="\nCost: %d Lootcoins · Wallet: %d\n%s\n\n" % [int(item.get("price",0)),gold,"Remaining after purchase: %d Lootcoins" % (gold-int(item.get("price",0))) if gold>=int(item.get("price",0)) else "Save %d more Lootcoins first." % (int(item.get("price",0))-gold)]
 	shop_detail.text+="\n\n%s\nBought gear goes to your stash; equip it when ready.\n\n%s" % [comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon")))),item.get("desc","")]
+	preload("res://quick_comparison.gd").install(shop_detail,get_parent(),item,current_inventory.equipped_item(str(item.get("slot","Weapon"))))
 	shop_detail.call_deferred("scroll_to_line",0)
 	shop_buy_button.disabled = reveal_pending or gold < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
 	if reveal_pending:shop_buy_button.text="CLAIM\nYOUR CACHE"
@@ -1862,11 +1870,7 @@ func draw_shop_scene() -> void:
 	# Exact canonical visitor layered separately from the illustrated NPC merchant.
 	draw_hideout_light(Vector2(39, 160), 18.0, 0.035, 0.4)
 	draw_hideout_light(Vector2(443, 145), 20.0, 0.035, 2.2)
-	# Approved identity art is deliberately framed, never passed off as a body.
-	var plaque := Rect2(330,90,112,102)
-	draw_style_box(LootlingsUI.material_style("leather"),plaque)
-	LootlingsUI.draw_icon(get_canvas_item(),RESIDENT_PORTRAITS.Salvager,Rect2(340,96,92,72))
-	draw_string(preload("res://lootlings_typography.gd").body(),Vector2(338,182),"PATCH · SHOP",HORIZONTAL_ALIGNMENT_CENTER,96,11,Color("#ffe3ac"))
+	# Patch remains visible at the Hub cart; avoid duplicating a portrait over the wallet.
 	if current_shop != null:
 		for index in range(mini(3, current_shop.stock.size())):
 			if current_shop.stock[index].is_empty():
