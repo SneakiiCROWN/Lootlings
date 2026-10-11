@@ -19,7 +19,7 @@ var value_readout:Label
 var god_button:Button
 var value_slider:HSlider
 var section_scroll:ScrollContainer
-const VALUE_FIELDS={"hp":["HP",0.0,1000000.0,.1],"max_hp":["Maximum HP",1.0,1000000.0,1.0],"damage":["Attack power",1.0,1000000.0,1.0],"crit":["Critical chance",0.0,1.0,.01],"armor":["Armour fraction",0.0,.72,.01],"ward":["Ward",0.0,1000000.0,1.0],"attack_interval":["Auto-attack seconds",.12,8.0,.01],"gold":["Lootcoins",0.0,999999999.0,1.0],"diamonds":["Loot Diamonds",0.0,999999.0,1.0],"scrap":["Scrap",0.0,999999999.0,1.0]}
+const VALUE_FIELDS={"sigils":["Rift Sigils (saved)",0.0,999999.0,1.0],"xp":["XP this level (run)",0.0,1000000.0,.1],"wave":["Wave (test jump)",1.0,15.0,1.0],"hp":["HP",0.0,1000000.0,.1],"max_hp":["Maximum HP",1.0,1000000.0,1.0],"damage":["Attack power",1.0,1000000.0,1.0],"crit":["Critical chance",0.0,1.0,.01],"armor":["Armour fraction",0.0,.72,.01],"ward":["Ward",0.0,1000000.0,1.0],"attack_interval":["Auto-attack seconds",.12,8.0,.01],"gold":["Lootcoins",0.0,999999999.0,1.0],"diamonds":["Loot Diamonds",0.0,999999.0,1.0],"scrap":["Scrap",0.0,999999999.0,1.0]}
 
 static func allowed(debug_build: bool) -> bool:
 	return debug_build and (OS.get_name()!="Android" or preload("res://owner_test_access.gd").enabled())
@@ -269,7 +269,7 @@ func refresh_info() -> void:
 func refresh_value_bounds() -> void:
 	var key:String=value_picker.get_item_metadata(value_picker.selected)
 	var field:Array=VALUE_FIELDS[key]
-	amount.min_value=field[1];amount.max_value=minf(field[2],game.player_max_hp) if key=="hp" else field[2];amount.step=field[3]
+	amount.min_value=field[1];amount.max_value=minf(field[2],game.player_max_hp) if key=="hp" else maxf(0,game.xp_needed-.01) if key=="xp" else field[2];amount.step=field[3]
 	value_slider.min_value=amount.min_value;value_slider.max_value=amount.max_value;value_slider.step=amount.step
 	amount.value=game.debug_value(key)
 	value_slider.set_value_no_signal(amount.value)

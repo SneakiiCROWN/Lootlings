@@ -42,15 +42,21 @@ func restore_focus() -> void:
 	suspended = false
 	# Combat stays on the existing Pause screen until the player resumes.
 
-func persist() -> void:
-	if preload("res://economy_transaction.gd").recover()!=OK:return # Never overwrite a reserved interrupted purchase.
-	game.retention.progress.save()
-	game.expedition_progress.save()
-	game.save_meta()
-	game.inventory.save(game.INVENTORY_SAVE_PATH)
-	game.hideout_shop.save(game.HIDEOUT_SHOP_SAVE_PATH)
-	preload("res://profile_store.gd").save_profile(game.PROFILE_SAVE_PATH, game.profile)
-	preload("res://settings_store.gd").save_settings(game.SETTINGS_SAVE_PATH, game.audio_settings)
-	game.achievements.save_state()
-	game.campaign.save("user://campaign.cfg")
-	game.contracts.save("user://contracts.cfg")
+func persist() -> Error:
+	if FileAccess.file_exists(preload("res://save_scope.gd").path(preload("res://offline_backup.gd").JOURNAL)):return ERR_BUSY
+	if preload("res://economy_transaction.gd").recover()!=OK:return ERR_BUSY
+	var writes:Array=[
+		func():return game.retention.progress.save(),
+		func():return game.expedition_progress.save(),
+		func():return preload("res://meta_store.gd").save_progress(game.SAVE_PATH,game.meta_shards,game.meta_power,game.gold,game.gold_upgrades,game.rift_progress),
+		func():return game.inventory.save(game.INVENTORY_SAVE_PATH),
+		func():return game.hideout_shop.save(game.HIDEOUT_SHOP_SAVE_PATH),
+		func():return preload("res://profile_store.gd").save_profile(game.PROFILE_SAVE_PATH,game.profile),
+		func():return preload("res://settings_store.gd").save_settings(game.SETTINGS_SAVE_PATH,game.audio_settings),
+		func():return game.achievements.save_state(),
+		func():return game.campaign.save("user://campaign.cfg"),
+		func():return game.contracts.save("user://contracts.cfg")]
+	for write in writes:
+		var error:Error=write.call()
+		if error!=OK:return error
+	return OK

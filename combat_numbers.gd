@@ -45,17 +45,19 @@ static func add(g, amount: float, kind: String, player: bool=false, critical: bo
  if g.enemy_encounter.active:pos.y=clampf(origin.y+70+pack_row*27,548,634)
  var size_delta:int={"Small":-2,"Normal":0,"Large":3}.get(g.audio_settings.get("combat_text_size","Normal"),0)
  var emphasized:bool=critical and g.audio_settings.get("combat_crit_emphasis",true)
+ var min_y:float=548 if g.enemy_encounter.active else pos.y-16 if player else preload("res://combat_presentation.gd").cue_label_rect(g).end.y+30
+ pos.y=maxf(pos.y,min_y)
  var receipt:Dictionary
  if not g.combat_number_pool.is_empty():receipt=g.combat_number_pool.pop_back()
  else:receipt={};g.combat_number_allocations+=1
  var duration:=1.10 if emphasized else .90
- receipt.merge({"number_kind":kind,"slot":count,"pack_row":pack_row,"serial":serial,"amount":amount,"hits":1,"age":0.0,"critical":critical,"emphasized":emphasized,"priority":priority,"text":text(kind,amount),"pos":pos,"origin":pos,"color":Color(COLORS.get(kind.trim_suffix("_tick"),"#eef3ff")),"size":((17 if emphasized else 14) if g.enemy_encounter.active else (20 if emphasized else 16))+size_delta,"life":duration,"max_life":duration,"lane":"player" if player else "damage"})
+ receipt.merge({"min_y":min_y,"number_kind":kind,"slot":count,"pack_row":pack_row,"serial":serial,"amount":amount,"hits":1,"age":0.0,"critical":critical,"emphasized":emphasized,"priority":priority,"text":text(kind,amount),"pos":pos,"origin":pos,"color":Color(COLORS.get(kind.trim_suffix("_tick"),"#eef3ff")),"size":((17 if emphasized else 14) if g.enemy_encounter.active else (20 if emphasized else 16))+size_delta,"life":duration,"max_life":duration,"lane":"player" if player else "damage"})
  g.floating_texts.append(receipt)
 static func step(g, item: Dictionary, delta: float) -> void:
  item.age+=delta
  if not g.audio_settings.get("cinematic_reduced_motion",false):
   var speed:=23.0 if g.audio_settings.get("combat_text_mode","Standard")=="Expressive" else 15.0
-  item.pos.y=maxf(402,float(item.origin.y)-float(item.age)*speed)
+  item.pos.y=maxf(float(item.get("min_y",402)),float(item.origin.y)-float(item.age)*speed)
 static func draw(g, item: Dictionary) -> void:
  var alpha:=clampf(float(item.life)/.24,0,1)
  var font:Font=preload("res://lootlings_typography.gd").bold()

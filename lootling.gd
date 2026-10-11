@@ -290,6 +290,8 @@ var upgrade_visuals: Array[Dictionary] = []
 var hud_header_surface := LootlingsUI.skin_style("hud_header_9slice", 32)
 var hud_build_surface := LootlingsUI.skin_style("hud_build_ribbon_9slice", 32)
 var restart_button: Button
+var backup_menu
+var contextual_guide
 var help_label: Label
 var combat_controls: Control
 var upgrade_compare: RichTextLabel
@@ -361,6 +363,8 @@ func _ready() -> void:
 	if preload("res://economy_transaction.gd").recover()!=OK:
 		set_process(false)
 		var notice:=Label.new();notice.text="Your saved purchase could not be recovered.\nYour files have been retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
+	if preload("res://offline_backup.gd").recover()!=OK:
+		set_process(false);var notice:=Label.new();notice.text="Your interrupted restore needs recovery. Files are retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
 	rng.randomize()
 	visual_rng.randomize()
 	preload("res://lootlings_typography.gd").install(self)
@@ -397,6 +401,8 @@ func _ready() -> void:
 	add_child(touch_ux)
 	retention.configure(self)
 	touch_ux.configure(self)
+	backup_menu=preload("res://backup_menu.gd").new();add_child(backup_menu);backup_menu.configure(self)
+	contextual_guide=preload("res://contextual_guide.gd").new();add_child(contextual_guide);contextual_guide.configure(self)
 	combat_controls=preload("res://combat_controls.gd").new();add_child(combat_controls);combat_controls.configure(self)
 	if OS.has_feature("s23_test") or OS.get_environment("LOOTLINGS_MOBILE_TEST") == "1":
 		mobile_test_monitor = preload("res://mobile_test_monitor.gd").new()
@@ -453,7 +459,7 @@ func debug_wallet_change(coins_delta: int, diamonds_delta: int, reset: bool=fals
 
 
 func debug_value(field:String) -> float:
-	return float({"hp":player_hp,"max_hp":player_max_hp,"damage":base_damage,"crit":crit_chance,"armor":armor,"ward":player_ward,"attack_interval":attack_interval,"gold":gold,"diamonds":meta_shards,"scrap":inventory.scrap}.get(field,0))
+	return float({"sigils":rift_progress.sigils,"xp":xp,"wave":wave,"hp":player_hp,"max_hp":player_max_hp,"damage":base_damage,"crit":crit_chance,"armor":armor,"ward":player_ward,"attack_interval":attack_interval,"gold":gold,"diamonds":meta_shards,"scrap":inventory.scrap}.get(field,0))
 
 func debug_adjust_value(request:Dictionary) -> String:
 	if not debug_enabled or (not preload("res://save_scope.gd").active and OS.get_environment("LOOTLINGS_QA")!="1"):return "Enter the isolated test profile first."
@@ -465,6 +471,14 @@ func debug_adjust_value(request:Dictionary) -> String:
 	var previous:=debug_value(field)
 	var next:=amount if operation=="set" else previous+amount*(1 if operation=="add" else -1)
 	next=clampf(next,bounds[field][1],minf(bounds[field][2],player_max_hp) if field=="hp" else bounds[field][2])
+	if field=="sigils":
+		rift_progress.sigils=int(next)
+		if not save_hideout_economy():rift_progress.sigils=int(previous);return "Could not save test Sigils. Unchanged."
+		refresh_hideout();return "Rift Sigils saved: %d" % rift_progress.sigils
+	if field=="xp":
+		xp=clampf(next,0,maxf(0,xp_needed-.01));return "XP this level: %.1f / %.1f (no reward granted)" % [xp,xp_needed]
+	if field=="wave":
+		debug_jump_to_wave(int(next));return "Test wave: %d (session only)" % wave
 	if field=="gold":return debug_wallet_change(int(next)-gold,0)
 	if field=="diamonds":return debug_wallet_change(0,int(next)-meta_shards)
 	if field=="scrap":
@@ -3556,6 +3570,8 @@ func load_meta() -> void:
 	gold_upgrades = progress.get("gold_upgrades", {"bedroll":0, "whetstone":0, "pouch":0}).duplicate(true)
 
 func navigate_back() -> void:
+	if backup_menu!=null and backup_menu.panel.visible and not is_instance_valid(touch_ux.dialog):backup_menu.close();return
+	if contextual_guide!=null and contextual_guide.panel.visible:contextual_guide.close();return
 	if touch_ux != null and is_instance_valid(touch_ux.dialog):
 		touch_ux.close_dialog()
 		return
@@ -3600,6 +3616,8 @@ func navigate_back() -> void:
 		startup_ui.show_title()
 
 func input_surface() -> Control:
+	if contextual_guide!=null and contextual_guide.panel.visible:return contextual_guide.panel
+	if backup_menu!=null and backup_menu.panel.visible and not is_instance_valid(touch_ux.dialog):return backup_menu.panel
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog):return touch_ux.dialog
 	if is_instance_valid(debug_panel) and debug_panel.visible:return debug_panel
 	# The topmost confirmation owns input, including inside personal Home.
@@ -3976,16 +3994,14 @@ func draw_arena(shake: Vector2) -> void:
 		enemy_color = Color.WHITE
 	var special_entering := enemy_alive and (enemy_is_boss or enemy_is_miniboss) and enemy_entry_anim > 0.18
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
-		var display_enemy_name: String=enemy_name.to_upper()
-		var enemy_name_size := 17
+		var name_layout:=combat_presentation.enemy_name_layout(self)
+		var enemy_name_size:int=name_layout.font_size
 		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
 		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
 		var enemy_hud_y := 243.0 if enemy_is_boss else 294.0
 		if not enemy_is_boss: enemy_hud_x=clampf(target_combat_visual_position().x-enemy_hud_width*.5,16,480-enemy_hud_width-16)
-		while enemy_name_size > 14 and body_font.get_string_size(display_enemy_name, HORIZONTAL_ALIGNMENT_LEFT, -1, enemy_name_size).x > enemy_hud_width-2:
-			enemy_name_size -= 1
-		var name_lines:=combat_presentation.name_lines(body_font,display_enemy_name,enemy_hud_width-2,enemy_name_size)
-		var name_extra:float=18.0 * maxi(0,name_lines.size()-1)
+		var name_lines:Array=name_layout.lines
+		var name_extra:float=name_layout.extra
 		draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(enemy_hud_x-10,enemy_hud_y-26,enemy_hud_width+20,64+name_extra))
 		for line in range(name_lines.size()):draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y+line*18), name_lines[line], HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, enemy_name_size, Color("#f4f7ff"))
 		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12+name_extra, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))

@@ -222,7 +222,8 @@ var phase4_nav: Array[Button]=[]
 var stash_scroll: ScrollContainer
 var stash_opened_at := 0
 var speech_panel: Panel
-var speech_label: Label
+var speech_label: RichTextLabel
+var speech_name: Label
 var speech_timer := 4.5
 var speech_visible_timer := 0.0
 var dialogue
@@ -1591,7 +1592,8 @@ func build_dialogue_overlay() -> void:
 	speech_panel=make_panel(self,Rect2(20,599,440,224),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
 	speech_panel.visibility_changed.connect(func():speech_veil.visible=speech_panel.visible)
 	speech_portrait=TextureRect.new(); speech_portrait.position=Vector2(14,14); speech_portrait.size=Vector2(54,64); speech_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; speech_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; speech_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; speech_panel.add_child(speech_portrait)
-	speech_label=make_label(speech_panel,"",15,Rect2(82,15,304,146),HORIZONTAL_ALIGNMENT_LEFT,Color("#f3edda")); speech_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; speech_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	speech_name=make_label(speech_panel,"",17,Rect2(82,12,294,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6a0"))
+	speech_label=RichTextLabel.new();speech_label.position=Vector2(82,49);speech_label.size=Vector2(304,110);speech_label.scroll_active=true;speech_label.add_theme_font_size_override("normal_font_size",15);speech_label.add_theme_color_override("default_color",Color("#f3edda"));speech_panel.add_child(speech_label)
 	make_button(speech_panel,"×",Rect2(386,6,48,48),Color("#172442"),Color("#7087ae"),22).pressed.connect(dismiss_dialogue)
 	speech_role=make_button(speech_panel,"",Rect2(82,168,304,48),Color("#293a46"),Color("#d8bd7b"),14)
 	speech_role.pressed.connect(func():
@@ -1653,8 +1655,9 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 		voice_name=Avatar.display_name(profile)
 		line=home_dialogue.choose(facts.character,facts)
 	queued_dialogue_context=""; queued_dialogue_priority=-1
-	speech_label.text=voice_name+"
-"+line
+	speech_name.text=voice_name
+	speech_label.text=line
+	speech_label.scroll_to_line(0)
 	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile,"curious"))
 	speech_role.text={"Salvager":"OPEN FORGE  ›" if current_screen=="forge" else "OPEN SHOP  ›","Relic Keeper":"OPEN SHRINE  ›","Archivist":"OPEN ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
 	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE

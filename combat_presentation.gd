@@ -133,15 +133,21 @@ static func attack_cue(g) -> Dictionary:
 			"leeching": label = "DRAIN STRIKE"; accent = Color("#d18abd")
 	return {"visible":visible, "progress":progress, "label":label, "accent":accent, "intent":intent}
 
+static func enemy_name_layout(g) -> Dictionary:
+	var width:float=400.0 if g.enemy_is_boss else 195.0
+	var font_size:int=17
+	var lines:=name_lines(g.body_font,g.enemy_name.to_upper(),width-2,font_size)
+	# Wrap at the preferred size first. Shrink only exceptionally tall names.
+	while lines.size()>3 and font_size>14:
+		font_size-=1
+		lines=name_lines(g.body_font,g.enemy_name.to_upper(),width-2,font_size)
+	return {"lines":lines,"font_size":font_size,"extra":18.0*maxi(0,lines.size()-1)}
 static func cue_label_rect(g) -> Rect2:
-	if g.enemy_is_boss:return Rect2(120,312,240,28)
+	var layout:=enemy_name_layout(g)
+	if g.enemy_is_boss:return Rect2(120,338+layout.extra if not g.enemy_variant_id.is_empty() else 312+layout.extra,240,28)
 	var width:float=195.0
 	var x:float=clampf(g.target_combat_visual_position().x-width*.5,16,480-width-16)
-	var text:String=g.enemy_name.to_upper()
-	var size:int=17
-	while size>14 and g.body_font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x>width-2:size-=1
-	var extra:float=18.0 * max(0,name_lines(g.body_font,text,width-2,size).size()-1)
-	return Rect2(x,370+extra,width,22)
+	return Rect2(x,(397 if not g.enemy_variant_id.is_empty() else 370)+layout.extra,width,22)
 static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: Rect2 = Rect2()) -> void:
 	if label_rect.size==Vector2.ZERO:label_rect=cue_label_rect(g)
 	var cue := attack_cue(g)

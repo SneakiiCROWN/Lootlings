@@ -258,6 +258,8 @@ func build_settings() -> void:
 	profile_id_label = make_label(support_panel,"",14,Rect2(24,116,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
+	make_button(support_panel,"FIELD GUIDE · REPLAY HELP",Rect2(42,438,340,54),Color("#17294b"),Color("#72c8ff"),16).pressed.connect(func():get_parent().contextual_guide.open())
+	make_button(support_panel,"SAVES & BACKUPS",Rect2(42,508,340,54),Color("#17294b"),Color("#72c8ff"),16).pressed.connect(func():get_parent().backup_menu.open())
 	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
 	support_back.pressed.connect(func(): support_panel.visible = false)
 	var support := make_button(panel,"SUPPORT",Rect2(284,590,114,48),Color("#17294b"),Color("#72c8ff"),14)
