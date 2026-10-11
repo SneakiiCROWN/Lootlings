@@ -1,4 +1,4 @@
-<!-- Current production authority: 0.4.60 source 55cb414; see docs/production/START_HERE_CURRENT.md and quality-evidence/0.4.60/REPORT.md. Earlier dated entries below are history. -->
+<!-- Current production authority: 0.4.60 source 0e8f2db; see docs/production/START_HERE_CURRENT.md and quality-evidence/0.4.60/REPORT.md. Earlier dated entries below are history. -->
 Owner wordmark/backup/draggable SHH, complete four-slot formula previews, refused full-stash equip rollback, fresh-process owner preferences and actual process-cut journal recovery are the current continuation. Physical S23 and professional acceptance remain open. No new art closures.
 
 # Current authority — 2026-10-11

@@ -61,7 +61,14 @@ func review() -> void:
   for child in game.startup_ui.support_panel.find_children("*","Button",true,false):
    if child.text=="OWNER TOOLS":backup=child
   assert(backup!=null);await tap(backup);await process_frame;assert(panel.visible);panel.close();game.show_hideout();access.update_layout();assert(access.shortcut.visible)
-  var hub_state:String=game.state;await tap(game.owner_test_access.shortcut);assert(panel.visible and game.state==hub_state);panel.close();await capture("shh_hub")
+  var hub_state:String=game.state;await tap(game.owner_test_access.shortcut);assert(panel.visible and game.state==hub_state);panel.close()
+  for expected in [true,false]:
+   var key:=InputEventKey.new();key.keycode=KEY_F1;key.physical_keycode=KEY_F1;key.pressed=true
+   Input.parse_input_event(key);Input.flush_buffered_events();await process_frame
+   key=InputEventKey.new();key.keycode=KEY_F1;key.physical_keycode=KEY_F1;key.pressed=false
+   Input.parse_input_event(key);Input.flush_buffered_events();await process_frame
+   assert(panel.visible==expected and game.state==hub_state)
+  await capture("shh_hub")
   game.show_hideout();game.start_run();game.set_process(false);game.presentation_director.finish_travel();game.presentation_director.vignette.finish()
   var attack:Vector2=game.combat_controls.attack.get_global_rect().get_center();var balance:int=game.gold
   await finger(attack,true,1);panel.open();await finger(attack,false,1)

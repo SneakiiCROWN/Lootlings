@@ -1,0 +1,29 @@
+{
+  "runtime": [
+    "owner_test_access.gd",
+    "debug_panel.gd",
+    "startup_ui.gd",
+    "lootling.gd",
+    "hideout_ui.gd",
+    "equipment_comparison.gd",
+    "export_presets.cfg"
+  ],
+  "tests": [
+    "tests/owner_access_060_native_qa.gd",
+    "tests/comparison_060_native_qa.gd",
+    "tests/owner_access_053_native_qa.gd",
+    "tests/full_completion_ui_native_qa.gd"
+  ],
+  "tooling": [
+    "tools/run_save_process_cut_060.py",
+    "tools/save_process_cut_060.gd",
+    "tools/owner_preferences_restart_060.gd",
+    "tools/build_production_dashboard.py"
+  ],
+  "preserved_owner_files": [
+    "project.godot",
+    "relic_chase_meter.gd",
+    "tools/run_exported_native.py",
+    "all untracked canonical/source/handoff files"
+  ]
+}

@@ -1,4 +1,6 @@
 {
+  "pack": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.60-p0-candidate.pck",
+  "pack_sha256": "75ce7099594e09d68768646595b7790d6d659d4731146c07c01d73347e74cdd3",
   "cases": [
     {
       "boundary": 0,
@@ -37,5 +39,5 @@
       "idempotent": true
     }
   ],
-  "scope": "Actual OS process termination at four injected persisted journal boundaries, disposable stores only. Not a power-loss/disk-durability simulation."
+  "scope": "Actual OS termination at four injected persisted journal boundaries; disposable stores only, not power-loss/disk-durability simulation."
 }

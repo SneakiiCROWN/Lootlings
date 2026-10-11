@@ -1,0 +1,61 @@
+{
+  "version": "0.4.60",
+  "source_checkpoint": "0e8f2db",
+  "builds": [
+    {
+      "path": "builds/windows/Lootlings-0.4.60-p0-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "0dd53326ffd0aad4d88e5e530232473a71402d7de561bdb84ceec1c6a97e308e"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.60-p0-candidate.pck",
+      "bytes": 283142668,
+      "sha256": "75ce7099594e09d68768646595b7790d6d659d4731146c07c01d73347e74cdd3"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.60-normal-candidate-debug.apk",
+      "bytes": 304176186,
+      "sha256": "9cc25a84b9a2c4fae3bba4018de6f38ba95b7f7e1338ce0c44932b37256e4bf5"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.60-owner-test-debug.apk",
+      "bytes": 304176186,
+      "sha256": "3fcaaf2804f46059b83f1f4f49a03951626fb255d8cf2ae46f3111fd92481aa7"
+    }
+  ],
+  "compiled_fixtures": 8,
+  "actual_exe_startup_pass": true,
+  "fresh_process_owner_preferences_pass": true,
+  "actual_os_process_cut_boundaries": 4,
+  "power_loss_tested": false,
+  "physical_device_tested": false,
+  "professionally_approved": false,
+  "verified_contracts_closed": 0,
+  "new_runtime_art_files": 0,
+  "remaining_contracts": 2757,
+  "remaining_artist_file_requirements": 7178,
+  "unregistered_dependencies": 50,
+  "exact_path_count_discrepancy": 111,
+  "title_music_unchanged": true,
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "currency_assets": [
+    "art/ui/economy/lootcoin.png",
+    "art/ui/economy/lootdiamond.png"
+  ],
+  "known_open": [
+    "Physical S23 and exhaustive all-item/route equipment usability acceptance.",
+    "Complete lifecycle/campaign, corruption/torn-write/power-loss and migration coverage.",
+    "START-only title, saved progressive onboarding, comfort mixing and offline backup.",
+    "Missing authored animation/contact/body/world assets; NPC cohesion and constrained Shop/Forge details.",
+    "2757 contracts, 50 registration gaps and 111 exact-path discrepancy; commercial release HOLD."
+  ],
+  "owner_uncommitted_project_preserved": true,
+  "loot_decision_save_rollback": [
+    "Equip including full stash",
+    "Keep",
+    "Scrap"
+  ],
+  "new_comparison_scroll_resets": true,
+  "compiled_fixture_runs": 9,
+  "desktop_f1_actual_key_open_close_tested": true
+}
