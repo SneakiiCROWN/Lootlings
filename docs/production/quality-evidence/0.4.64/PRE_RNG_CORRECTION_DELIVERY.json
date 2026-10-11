@@ -1,0 +1,28 @@
+{
+  "version": "0.4.64",
+  "code": 75,
+  "source_checkpoint": "5510d3f2",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.64-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "31d987830726640e3de9c7dd135af8c153451ed297cc2a18711c1ae5857e172e"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.64-candidate.pck",
+      "bytes": 284212220,
+      "sha256": "17af38de474e519b9faf73890d343e254f60c1353a3c8dc430cf136da062f227"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.64-owner-test-debug.apk",
+      "bytes": 305243006,
+      "sha256": "6e737fdcf100ce971470675806bc3e9b841c2084e7b7b9c7aeb068f11e93739b"
+    }
+  ],
+  "compiled_native_fixtures": 11,
+  "source_seeded_routes": 84,
+  "compiled_seeded_routes": 40,
+  "professional_acceptance": false,
+  "physical_s23": "DEFERRED",
+  "normal_apk": "Not exported this pass; prior normal rollback retained"
+}

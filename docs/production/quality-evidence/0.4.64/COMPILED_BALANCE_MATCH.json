@@ -1,0 +1,20 @@
+{
+  "matched": true,
+  "runs": 40,
+  "fields": [
+    "actor",
+    "weapon",
+    "core",
+    "sample",
+    "selection_policy",
+    "won",
+    "wave",
+    "damage_taken",
+    "seconds",
+    "upgrades",
+    "foes",
+    "loot"
+  ],
+  "differences": [],
+  "scope": "Source headless vs exact compiled pack native, same0.05s step; not a frame-rate sweep."
+}

@@ -1,0 +1,22 @@
+{
+  "version": "0.4.64",
+  "source_checkpoint": "a87e77e5",
+  "kind": "Existing-game foundation save safety and seeded combat acceptance",
+  "verified_contracts_closed": 0,
+  "new_runtime_png": 0,
+  "new_physical_artist_files": 0,
+  "remaining_contracts": 2757,
+  "professionally_approved": false,
+  "physical_device_tested": false,
+  "physical_device_status": "S23 DEFERRED by owner",
+  "other_installed_features": [
+    "Stash equip/salvage failed writes roll back; selected item retained with visible retry and successful tutorial practice.",
+    "Owner grants, Scrap, Sigils and Save test report actual persistence; failed grant retains RNG and normal saves.",
+    "Encounter shuffle decoupled from audio/global RNG:64 seeds/128 spawns and40 source-vs-compiled routes match all observations; balance remains PARTIALLY TESTED.",
+    "13 actual-PCK fixtures pass: encounter RNG, save recovery, transactions, Mythicals, spinner, SHH, Stash/Forge/merchant/rewards/settings and existing economy sampling.",
+    "Four native layout screenshots reviewed; whole-game professional acceptance remains open."
+  ],
+  "quality_note": "No blanket balance or artistic acceptance. See REPORT.md and DELIVERY.json; heavy new art/Gremlin/events deferred behind foundations.",
+  "compiled_native_fixtures": 13,
+  "exported_version": "0.4.64"
+}

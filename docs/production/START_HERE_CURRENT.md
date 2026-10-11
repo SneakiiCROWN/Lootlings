@@ -1,3 +1,7 @@
+# Current —0.4.64 foundation save safety and deterministic encounters
+
+Sourcea87e77e5: Stash/owner failed-write rollback and encounter audio-RNG isolation. Owner/code75 and Windows exported;13 actual-PCK fixtures,40 matched post-correction source/compiled runs,64 random-isolation seeds. Balance, full artistic/UX/audio/performance and physical S23 acceptance remain open. Read [current report](quality-evidence/0.4.64/REPORT.md) and CONTINUATION_064.md. Latest owner directive places existing foundations ahead of heavy art/Gremlin/seasons.0 new art closures;2757 contracts/7178 artist requirements remain. Preserve owner edits/saves/canon/rollback builds.
+
 # Current —0.4.63 named rewards, spinner and observed practice
 
 Source6aa6eaf4 pushed; owner Android/code74 and Windows exported. Shared Hoard preview, named cards, separate Sparks/fragments, winged dragon framed memory and four added optional observed-practice topics. See [report](quality-evidence/0.4.63/REPORT.md), [delivery](quality-evidence/0.4.63/DELIVERY.json) and [continuation](CONTINUATION_063.md). New Gremlin/seasons registered in sole dashboard; not installed.0artclosures;2757contracts remain. Physical S23 deferred.

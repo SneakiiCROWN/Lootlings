@@ -97,7 +97,7 @@
     "installed_artist_files": 1317,
     "remaining_artist_files": 7178,
     "current_reviewed_runtime_png_cells": 304,
-    "registered_requirement_records": 8333,
+    "registered_requirement_records": 8334,
     "production_ready_records": 0
   },
   "contract_families": [
@@ -1129,17 +1129,17 @@
     },
     {
       "family": "ui",
-      "required_records": 132,
-      "launch_records": 132,
-      "installed_records": 132,
+      "required_records": 133,
+      "launch_records": 133,
+      "installed_records": 133,
       "production_ready": 0,
       "quality_counts": {
-        "installed_awaiting_visual_review": 132
+        "installed_awaiting_visual_review": 133
       },
       "stages": {
         "canon_reference_approved": 0,
         "created": 0,
-        "integrated": 132,
+        "integrated": 133,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -1322,7 +1322,7 @@
   "domain_coverage": [
     {
       "domain": "Playable Lootlings / classes / customization",
-      "registered_requirement_records": 3552,
+      "registered_requirement_records": 3553,
       "records": [
         "pose:relic_beast:idle:right:greataxe",
         "pose:relic_beast:idle:right:maul",
@@ -4097,6 +4097,7 @@
         "screen:lootling.gd:show_expedition_event",
         "screen:lootling.gd:build_hideout",
         "screen:lootling.gd:show_hideout",
+        "screen:lootling.gd:show_stash_save_error",
         "screen:lootling.gd:build_item_ui",
         "screen:lootling.gd:build_route_ui",
         "screen:lootling.gd:show_route_choices",
@@ -4142,104 +4143,104 @@
         "screen:startup_ui.gd:refresh_wanderer_lore",
         "label:lootling.gd:365:0:dbb437ae",
         "label:lootling.gd:367:0:fe7823dd",
-        "label:lootling.gd:675:0:80e69ea0",
-        "label:lootling.gd:675:1:628283b0",
-        "label:lootling.gd:679:0:1fafa35e",
-        "label:lootling.gd:921:0:8b81ad0e",
-        "label:lootling.gd:956:0:ee55d0db",
-        "label:lootling.gd:1022:0:2420bb92",
-        "label:lootling.gd:1025:0:13f697fb",
-        "label:lootling.gd:1027:0:2de711ac",
-        "label:lootling.gd:1031:0:9d42a39e",
-        "label:lootling.gd:1032:0:abb256dc",
-        "label:lootling.gd:1161:0:c4972fba",
-        "label:lootling.gd:1161:1:6ae99955",
-        "label:lootling.gd:1161:2:e41c1bbe",
-        "label:lootling.gd:1550:0:4b8e7a37",
-        "label:lootling.gd:1560:0:089331a2",
-        "label:lootling.gd:1609:0:0052f02c",
-        "label:lootling.gd:2559:0:14cc9e57",
-        "label:lootling.gd:2561:0:60d92e6f",
-        "label:lootling.gd:2563:0:b636872a",
-        "label:lootling.gd:2565:0:d896b990",
-        "label:lootling.gd:2567:0:479c9dc5",
-        "label:lootling.gd:2571:0:491cd481",
-        "label:lootling.gd:2573:0:1e88206f",
-        "label:lootling.gd:2575:0:338d68f0",
-        "label:lootling.gd:2577:0:084904bf",
-        "label:lootling.gd:2579:0:be8f4941",
-        "label:lootling.gd:2943:0:6a9fef6e",
-        "label:lootling.gd:2943:1:6e688269",
-        "label:lootling.gd:2945:0:c497c9c1",
-        "label:lootling.gd:2945:1:4dc26b13",
-        "label:lootling.gd:2957:0:3b8d5b98",
-        "label:lootling.gd:2957:1:462854f9",
-        "label:lootling.gd:2957:2:6867e600",
-        "label:lootling.gd:2964:0:ef7e6794",
-        "label:lootling.gd:2964:1:ef7e6794",
-        "label:lootling.gd:2994:0:c7d469d2",
-        "label:lootling.gd:2994:1:462854f9",
-        "label:lootling.gd:2994:2:ead53368",
-        "label:lootling.gd:2997:0:06f3f651",
-        "label:lootling.gd:3012:0:0d2cee9c",
-        "label:lootling.gd:3016:0:3d0a6ba5",
-        "label:lootling.gd:3053:0:b23e7e58",
-        "label:lootling.gd:3053:1:deb80331",
-        "label:lootling.gd:3055:0:1f258a54",
-        "label:lootling.gd:3060:0:5c18f8eb",
-        "label:lootling.gd:3061:0:5fde04be",
-        "label:lootling.gd:3111:0:8d69843a",
-        "label:lootling.gd:3111:1:7aae9fa0",
-        "label:lootling.gd:3111:2:462854f9",
-        "label:lootling.gd:3140:0:8d69843a",
-        "label:lootling.gd:3140:1:7aae9fa0",
-        "label:lootling.gd:3140:2:462854f9",
-        "label:lootling.gd:3217:0:ed059f21",
-        "label:lootling.gd:3217:1:520d7b36",
-        "label:lootling.gd:3231:0:9f888007",
-        "label:lootling.gd:3233:0:7f107003",
-        "label:lootling.gd:3234:0:e5d5cd32",
-        "label:lootling.gd:3235:0:a7e24318",
-        "label:lootling.gd:3237:0:18559f3d",
-        "label:lootling.gd:3242:0:b93e34c2",
-        "label:lootling.gd:3246:0:a276cade",
-        "label:lootling.gd:3247:0:1fc287f0",
-        "label:lootling.gd:3261:0:cf8e49c7",
-        "label:lootling.gd:3261:1:462854f9",
-        "label:lootling.gd:3261:2:ecdda59a",
-        "label:lootling.gd:3269:0:d03ad6d0",
-        "label:lootling.gd:3269:1:71c77258",
-        "label:lootling.gd:3269:2:5c0a4fc7",
-        "label:lootling.gd:3269:3:462854f9",
-        "label:lootling.gd:3269:4:ecdda59a",
-        "label:lootling.gd:3276:0:b1b7cf2a",
-        "label:lootling.gd:3276:1:06f3c483",
-        "label:lootling.gd:3329:0:9afc3c93",
-        "label:lootling.gd:3332:0:86597834",
-        "label:lootling.gd:3350:0:408ab24d",
-        "label:lootling.gd:3350:1:caa4ad3d",
-        "label:lootling.gd:3350:2:cd7cff17",
-        "label:lootling.gd:3360:0:e8634078",
-        "label:lootling.gd:3476:0:80e69ea0",
-        "label:lootling.gd:3476:1:628283b0",
-        "label:lootling.gd:3498:0:aa11de5a",
-        "label:lootling.gd:3498:1:106840bc",
-        "label:lootling.gd:3499:0:556a9f43",
-        "label:lootling.gd:3499:1:7636e2f5",
-        "label:lootling.gd:3502:0:6d91faaa",
-        "label:lootling.gd:3502:1:d3c6e300",
-        "label:lootling.gd:3502:2:84089e35",
-        "label:lootling.gd:3502:3:7f403abb",
-        "label:lootling.gd:3503:0:556a9f43",
-        "label:lootling.gd:3503:1:49e79ce8",
-        "label:lootling.gd:3572:0:6ae99955",
-        "label:lootling.gd:3572:1:e8fef4b9",
-        "label:lootling.gd:3985:0:d5954590",
-        "label:lootling.gd:3985:1:081f2640",
-        "label:lootling.gd:3994:0:56d73656",
-        "label:lootling.gd:4080:0:089331a2",
-        "label:lootling.gd:4081:0:e29764e7",
-        "label:lootling.gd:4212:0:56d441fc",
+        "label:lootling.gd:681:0:80e69ea0",
+        "label:lootling.gd:681:1:628283b0",
+        "label:lootling.gd:685:0:1fafa35e",
+        "label:lootling.gd:927:0:8b81ad0e",
+        "label:lootling.gd:962:0:ee55d0db",
+        "label:lootling.gd:1028:0:2420bb92",
+        "label:lootling.gd:1031:0:13f697fb",
+        "label:lootling.gd:1033:0:2de711ac",
+        "label:lootling.gd:1037:0:9d42a39e",
+        "label:lootling.gd:1038:0:abb256dc",
+        "label:lootling.gd:1167:0:c4972fba",
+        "label:lootling.gd:1167:1:6ae99955",
+        "label:lootling.gd:1167:2:e41c1bbe",
+        "label:lootling.gd:1575:0:4b8e7a37",
+        "label:lootling.gd:1585:0:089331a2",
+        "label:lootling.gd:1634:0:0052f02c",
+        "label:lootling.gd:2591:0:14cc9e57",
+        "label:lootling.gd:2593:0:60d92e6f",
+        "label:lootling.gd:2595:0:b636872a",
+        "label:lootling.gd:2597:0:d896b990",
+        "label:lootling.gd:2599:0:479c9dc5",
+        "label:lootling.gd:2603:0:491cd481",
+        "label:lootling.gd:2605:0:1e88206f",
+        "label:lootling.gd:2607:0:338d68f0",
+        "label:lootling.gd:2609:0:084904bf",
+        "label:lootling.gd:2611:0:be8f4941",
+        "label:lootling.gd:2975:0:6a9fef6e",
+        "label:lootling.gd:2975:1:6e688269",
+        "label:lootling.gd:2977:0:c497c9c1",
+        "label:lootling.gd:2977:1:4dc26b13",
+        "label:lootling.gd:2989:0:3b8d5b98",
+        "label:lootling.gd:2989:1:462854f9",
+        "label:lootling.gd:2989:2:6867e600",
+        "label:lootling.gd:2996:0:ef7e6794",
+        "label:lootling.gd:2996:1:ef7e6794",
+        "label:lootling.gd:3026:0:c7d469d2",
+        "label:lootling.gd:3026:1:462854f9",
+        "label:lootling.gd:3026:2:ead53368",
+        "label:lootling.gd:3029:0:06f3f651",
+        "label:lootling.gd:3044:0:0d2cee9c",
+        "label:lootling.gd:3048:0:3d0a6ba5",
+        "label:lootling.gd:3085:0:b23e7e58",
+        "label:lootling.gd:3085:1:deb80331",
+        "label:lootling.gd:3087:0:1f258a54",
+        "label:lootling.gd:3092:0:5c18f8eb",
+        "label:lootling.gd:3093:0:5fde04be",
+        "label:lootling.gd:3143:0:8d69843a",
+        "label:lootling.gd:3143:1:7aae9fa0",
+        "label:lootling.gd:3143:2:462854f9",
+        "label:lootling.gd:3172:0:8d69843a",
+        "label:lootling.gd:3172:1:7aae9fa0",
+        "label:lootling.gd:3172:2:462854f9",
+        "label:lootling.gd:3249:0:ed059f21",
+        "label:lootling.gd:3249:1:520d7b36",
+        "label:lootling.gd:3263:0:9f888007",
+        "label:lootling.gd:3265:0:7f107003",
+        "label:lootling.gd:3266:0:e5d5cd32",
+        "label:lootling.gd:3267:0:a7e24318",
+        "label:lootling.gd:3269:0:18559f3d",
+        "label:lootling.gd:3274:0:b93e34c2",
+        "label:lootling.gd:3278:0:a276cade",
+        "label:lootling.gd:3279:0:1fc287f0",
+        "label:lootling.gd:3293:0:cf8e49c7",
+        "label:lootling.gd:3293:1:462854f9",
+        "label:lootling.gd:3293:2:ecdda59a",
+        "label:lootling.gd:3301:0:d03ad6d0",
+        "label:lootling.gd:3301:1:71c77258",
+        "label:lootling.gd:3301:2:5c0a4fc7",
+        "label:lootling.gd:3301:3:462854f9",
+        "label:lootling.gd:3301:4:ecdda59a",
+        "label:lootling.gd:3308:0:b1b7cf2a",
+        "label:lootling.gd:3308:1:06f3c483",
+        "label:lootling.gd:3361:0:9afc3c93",
+        "label:lootling.gd:3364:0:86597834",
+        "label:lootling.gd:3382:0:408ab24d",
+        "label:lootling.gd:3382:1:caa4ad3d",
+        "label:lootling.gd:3382:2:cd7cff17",
+        "label:lootling.gd:3392:0:e8634078",
+        "label:lootling.gd:3508:0:80e69ea0",
+        "label:lootling.gd:3508:1:628283b0",
+        "label:lootling.gd:3530:0:aa11de5a",
+        "label:lootling.gd:3530:1:106840bc",
+        "label:lootling.gd:3531:0:556a9f43",
+        "label:lootling.gd:3531:1:7636e2f5",
+        "label:lootling.gd:3534:0:6d91faaa",
+        "label:lootling.gd:3534:1:d3c6e300",
+        "label:lootling.gd:3534:2:84089e35",
+        "label:lootling.gd:3534:3:7f403abb",
+        "label:lootling.gd:3535:0:556a9f43",
+        "label:lootling.gd:3535:1:49e79ce8",
+        "label:lootling.gd:3604:0:6ae99955",
+        "label:lootling.gd:3604:1:e8fef4b9",
+        "label:lootling.gd:4017:0:d5954590",
+        "label:lootling.gd:4017:1:081f2640",
+        "label:lootling.gd:4026:0:56d73656",
+        "label:lootling.gd:4112:0:089331a2",
+        "label:lootling.gd:4113:0:e29764e7",
+        "label:lootling.gd:4244:0:56d441fc",
         "label:lootlings_ui.gd:277:0:31f63f09",
         "asset:art/backgrounds/lootlings_hideout.png",
         "asset:art/production/phase4e/items/armour_inventory_v1/second_skin.png",
@@ -14777,7 +14778,7 @@
     },
     {
       "domain": "Menus / HUD / icons / interactions / shops",
-      "registered_requirement_records": 1081,
+      "registered_requirement_records": 1082,
       "records": [
         "pose:ruin_warden:idle:right:bow",
         "pose:ruin_warden:idle:right:crossbow",
@@ -15255,6 +15256,7 @@
         "screen:lootling.gd:show_expedition_event",
         "screen:lootling.gd:build_hideout",
         "screen:lootling.gd:show_hideout",
+        "screen:lootling.gd:show_stash_save_error",
         "screen:lootling.gd:build_item_ui",
         "screen:lootling.gd:build_route_ui",
         "screen:lootling.gd:show_route_choices",
@@ -17369,104 +17371,104 @@
         "label:hub_navigation.gd:87:1:ddd4980c",
         "label:lootling.gd:365:0:dbb437ae",
         "label:lootling.gd:367:0:fe7823dd",
-        "label:lootling.gd:675:0:80e69ea0",
-        "label:lootling.gd:675:1:628283b0",
-        "label:lootling.gd:679:0:1fafa35e",
-        "label:lootling.gd:921:0:8b81ad0e",
-        "label:lootling.gd:956:0:ee55d0db",
-        "label:lootling.gd:1022:0:2420bb92",
-        "label:lootling.gd:1025:0:13f697fb",
-        "label:lootling.gd:1027:0:2de711ac",
-        "label:lootling.gd:1031:0:9d42a39e",
-        "label:lootling.gd:1032:0:abb256dc",
-        "label:lootling.gd:1161:0:c4972fba",
-        "label:lootling.gd:1161:1:6ae99955",
-        "label:lootling.gd:1161:2:e41c1bbe",
-        "label:lootling.gd:1550:0:4b8e7a37",
-        "label:lootling.gd:1560:0:089331a2",
-        "label:lootling.gd:1609:0:0052f02c",
-        "label:lootling.gd:2559:0:14cc9e57",
-        "label:lootling.gd:2561:0:60d92e6f",
-        "label:lootling.gd:2563:0:b636872a",
-        "label:lootling.gd:2565:0:d896b990",
-        "label:lootling.gd:2567:0:479c9dc5",
-        "label:lootling.gd:2571:0:491cd481",
-        "label:lootling.gd:2573:0:1e88206f",
-        "label:lootling.gd:2575:0:338d68f0",
-        "label:lootling.gd:2577:0:084904bf",
-        "label:lootling.gd:2579:0:be8f4941",
-        "label:lootling.gd:2943:0:6a9fef6e",
-        "label:lootling.gd:2943:1:6e688269",
-        "label:lootling.gd:2945:0:c497c9c1",
-        "label:lootling.gd:2945:1:4dc26b13",
-        "label:lootling.gd:2957:0:3b8d5b98",
-        "label:lootling.gd:2957:1:462854f9",
-        "label:lootling.gd:2957:2:6867e600",
-        "label:lootling.gd:2964:0:ef7e6794",
-        "label:lootling.gd:2964:1:ef7e6794",
-        "label:lootling.gd:2994:0:c7d469d2",
-        "label:lootling.gd:2994:1:462854f9",
-        "label:lootling.gd:2994:2:ead53368",
-        "label:lootling.gd:2997:0:06f3f651",
-        "label:lootling.gd:3012:0:0d2cee9c",
-        "label:lootling.gd:3016:0:3d0a6ba5",
-        "label:lootling.gd:3053:0:b23e7e58",
-        "label:lootling.gd:3053:1:deb80331",
-        "label:lootling.gd:3055:0:1f258a54",
-        "label:lootling.gd:3060:0:5c18f8eb",
-        "label:lootling.gd:3061:0:5fde04be",
-        "label:lootling.gd:3111:0:8d69843a",
-        "label:lootling.gd:3111:1:7aae9fa0",
-        "label:lootling.gd:3111:2:462854f9",
-        "label:lootling.gd:3140:0:8d69843a",
-        "label:lootling.gd:3140:1:7aae9fa0",
-        "label:lootling.gd:3140:2:462854f9",
-        "label:lootling.gd:3217:0:ed059f21",
-        "label:lootling.gd:3217:1:520d7b36",
-        "label:lootling.gd:3231:0:9f888007",
-        "label:lootling.gd:3233:0:7f107003",
-        "label:lootling.gd:3234:0:e5d5cd32",
-        "label:lootling.gd:3235:0:a7e24318",
-        "label:lootling.gd:3237:0:18559f3d",
-        "label:lootling.gd:3242:0:b93e34c2",
-        "label:lootling.gd:3246:0:a276cade",
-        "label:lootling.gd:3247:0:1fc287f0",
-        "label:lootling.gd:3261:0:cf8e49c7",
-        "label:lootling.gd:3261:1:462854f9",
-        "label:lootling.gd:3261:2:ecdda59a",
-        "label:lootling.gd:3269:0:d03ad6d0",
-        "label:lootling.gd:3269:1:71c77258",
-        "label:lootling.gd:3269:2:5c0a4fc7",
-        "label:lootling.gd:3269:3:462854f9",
-        "label:lootling.gd:3269:4:ecdda59a",
-        "label:lootling.gd:3276:0:b1b7cf2a",
-        "label:lootling.gd:3276:1:06f3c483",
-        "label:lootling.gd:3329:0:9afc3c93",
-        "label:lootling.gd:3332:0:86597834",
-        "label:lootling.gd:3350:0:408ab24d",
-        "label:lootling.gd:3350:1:caa4ad3d",
-        "label:lootling.gd:3350:2:cd7cff17",
-        "label:lootling.gd:3360:0:e8634078",
-        "label:lootling.gd:3476:0:80e69ea0",
-        "label:lootling.gd:3476:1:628283b0",
-        "label:lootling.gd:3498:0:aa11de5a",
-        "label:lootling.gd:3498:1:106840bc",
-        "label:lootling.gd:3499:0:556a9f43",
-        "label:lootling.gd:3499:1:7636e2f5",
-        "label:lootling.gd:3502:0:6d91faaa",
-        "label:lootling.gd:3502:1:d3c6e300",
-        "label:lootling.gd:3502:2:84089e35",
-        "label:lootling.gd:3502:3:7f403abb",
-        "label:lootling.gd:3503:0:556a9f43",
-        "label:lootling.gd:3503:1:49e79ce8",
-        "label:lootling.gd:3572:0:6ae99955",
-        "label:lootling.gd:3572:1:e8fef4b9",
-        "label:lootling.gd:3985:0:d5954590",
-        "label:lootling.gd:3985:1:081f2640",
-        "label:lootling.gd:3994:0:56d73656",
-        "label:lootling.gd:4080:0:089331a2",
-        "label:lootling.gd:4081:0:e29764e7",
-        "label:lootling.gd:4212:0:56d441fc",
+        "label:lootling.gd:681:0:80e69ea0",
+        "label:lootling.gd:681:1:628283b0",
+        "label:lootling.gd:685:0:1fafa35e",
+        "label:lootling.gd:927:0:8b81ad0e",
+        "label:lootling.gd:962:0:ee55d0db",
+        "label:lootling.gd:1028:0:2420bb92",
+        "label:lootling.gd:1031:0:13f697fb",
+        "label:lootling.gd:1033:0:2de711ac",
+        "label:lootling.gd:1037:0:9d42a39e",
+        "label:lootling.gd:1038:0:abb256dc",
+        "label:lootling.gd:1167:0:c4972fba",
+        "label:lootling.gd:1167:1:6ae99955",
+        "label:lootling.gd:1167:2:e41c1bbe",
+        "label:lootling.gd:1575:0:4b8e7a37",
+        "label:lootling.gd:1585:0:089331a2",
+        "label:lootling.gd:1634:0:0052f02c",
+        "label:lootling.gd:2591:0:14cc9e57",
+        "label:lootling.gd:2593:0:60d92e6f",
+        "label:lootling.gd:2595:0:b636872a",
+        "label:lootling.gd:2597:0:d896b990",
+        "label:lootling.gd:2599:0:479c9dc5",
+        "label:lootling.gd:2603:0:491cd481",
+        "label:lootling.gd:2605:0:1e88206f",
+        "label:lootling.gd:2607:0:338d68f0",
+        "label:lootling.gd:2609:0:084904bf",
+        "label:lootling.gd:2611:0:be8f4941",
+        "label:lootling.gd:2975:0:6a9fef6e",
+        "label:lootling.gd:2975:1:6e688269",
+        "label:lootling.gd:2977:0:c497c9c1",
+        "label:lootling.gd:2977:1:4dc26b13",
+        "label:lootling.gd:2989:0:3b8d5b98",
+        "label:lootling.gd:2989:1:462854f9",
+        "label:lootling.gd:2989:2:6867e600",
+        "label:lootling.gd:2996:0:ef7e6794",
+        "label:lootling.gd:2996:1:ef7e6794",
+        "label:lootling.gd:3026:0:c7d469d2",
+        "label:lootling.gd:3026:1:462854f9",
+        "label:lootling.gd:3026:2:ead53368",
+        "label:lootling.gd:3029:0:06f3f651",
+        "label:lootling.gd:3044:0:0d2cee9c",
+        "label:lootling.gd:3048:0:3d0a6ba5",
+        "label:lootling.gd:3085:0:b23e7e58",
+        "label:lootling.gd:3085:1:deb80331",
+        "label:lootling.gd:3087:0:1f258a54",
+        "label:lootling.gd:3092:0:5c18f8eb",
+        "label:lootling.gd:3093:0:5fde04be",
+        "label:lootling.gd:3143:0:8d69843a",
+        "label:lootling.gd:3143:1:7aae9fa0",
+        "label:lootling.gd:3143:2:462854f9",
+        "label:lootling.gd:3172:0:8d69843a",
+        "label:lootling.gd:3172:1:7aae9fa0",
+        "label:lootling.gd:3172:2:462854f9",
+        "label:lootling.gd:3249:0:ed059f21",
+        "label:lootling.gd:3249:1:520d7b36",
+        "label:lootling.gd:3263:0:9f888007",
+        "label:lootling.gd:3265:0:7f107003",
+        "label:lootling.gd:3266:0:e5d5cd32",
+        "label:lootling.gd:3267:0:a7e24318",
+        "label:lootling.gd:3269:0:18559f3d",
+        "label:lootling.gd:3274:0:b93e34c2",
+        "label:lootling.gd:3278:0:a276cade",
+        "label:lootling.gd:3279:0:1fc287f0",
+        "label:lootling.gd:3293:0:cf8e49c7",
+        "label:lootling.gd:3293:1:462854f9",
+        "label:lootling.gd:3293:2:ecdda59a",
+        "label:lootling.gd:3301:0:d03ad6d0",
+        "label:lootling.gd:3301:1:71c77258",
+        "label:lootling.gd:3301:2:5c0a4fc7",
+        "label:lootling.gd:3301:3:462854f9",
+        "label:lootling.gd:3301:4:ecdda59a",
+        "label:lootling.gd:3308:0:b1b7cf2a",
+        "label:lootling.gd:3308:1:06f3c483",
+        "label:lootling.gd:3361:0:9afc3c93",
+        "label:lootling.gd:3364:0:86597834",
+        "label:lootling.gd:3382:0:408ab24d",
+        "label:lootling.gd:3382:1:caa4ad3d",
+        "label:lootling.gd:3382:2:cd7cff17",
+        "label:lootling.gd:3392:0:e8634078",
+        "label:lootling.gd:3508:0:80e69ea0",
+        "label:lootling.gd:3508:1:628283b0",
+        "label:lootling.gd:3530:0:aa11de5a",
+        "label:lootling.gd:3530:1:106840bc",
+        "label:lootling.gd:3531:0:556a9f43",
+        "label:lootling.gd:3531:1:7636e2f5",
+        "label:lootling.gd:3534:0:6d91faaa",
+        "label:lootling.gd:3534:1:d3c6e300",
+        "label:lootling.gd:3534:2:84089e35",
+        "label:lootling.gd:3534:3:7f403abb",
+        "label:lootling.gd:3535:0:556a9f43",
+        "label:lootling.gd:3535:1:49e79ce8",
+        "label:lootling.gd:3604:0:6ae99955",
+        "label:lootling.gd:3604:1:e8fef4b9",
+        "label:lootling.gd:4017:0:d5954590",
+        "label:lootling.gd:4017:1:081f2640",
+        "label:lootling.gd:4026:0:56d73656",
+        "label:lootling.gd:4112:0:089331a2",
+        "label:lootling.gd:4113:0:e29764e7",
+        "label:lootling.gd:4244:0:56d441fc",
         "label:lootlings_ui.gd:277:0:31f63f09",
         "label:mobile_test_monitor.gd:139:0:861ac9ae",
         "label:mobile_test_monitor.gd:145:0:d7eccf85",
@@ -161958,6 +161960,33 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "screen:lootling.gd:show_stash_save_error",
+      "family": "ui",
+      "identity": "show_stash_save_error",
+      "name": "show_stash_save_error",
+      "state": "show_stash_save_error",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "lootling.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "screen:lootling.gd:build_item_ui",
       "family": "ui",
       "identity": "build_item_ui",
@@ -170679,7 +170708,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:675:0:80e69ea0",
+      "id": "label:lootling.gd:681:0:80e69ea0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170706,7 +170735,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:675:1:628283b0",
+      "id": "label:lootling.gd:681:1:628283b0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170733,7 +170762,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:679:0:1fafa35e",
+      "id": "label:lootling.gd:685:0:1fafa35e",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170760,7 +170789,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:921:0:8b81ad0e",
+      "id": "label:lootling.gd:927:0:8b81ad0e",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170787,7 +170816,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:956:0:ee55d0db",
+      "id": "label:lootling.gd:962:0:ee55d0db",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170814,7 +170843,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1022:0:2420bb92",
+      "id": "label:lootling.gd:1028:0:2420bb92",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170841,7 +170870,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1025:0:13f697fb",
+      "id": "label:lootling.gd:1031:0:13f697fb",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170868,7 +170897,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1027:0:2de711ac",
+      "id": "label:lootling.gd:1033:0:2de711ac",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170895,7 +170924,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1031:0:9d42a39e",
+      "id": "label:lootling.gd:1037:0:9d42a39e",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170922,7 +170951,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1032:0:abb256dc",
+      "id": "label:lootling.gd:1038:0:abb256dc",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170949,7 +170978,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1161:0:c4972fba",
+      "id": "label:lootling.gd:1167:0:c4972fba",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -170976,7 +171005,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1161:1:6ae99955",
+      "id": "label:lootling.gd:1167:1:6ae99955",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171003,7 +171032,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1161:2:e41c1bbe",
+      "id": "label:lootling.gd:1167:2:e41c1bbe",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171030,7 +171059,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1550:0:4b8e7a37",
+      "id": "label:lootling.gd:1575:0:4b8e7a37",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171057,7 +171086,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1560:0:089331a2",
+      "id": "label:lootling.gd:1585:0:089331a2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171084,7 +171113,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:1609:0:0052f02c",
+      "id": "label:lootling.gd:1634:0:0052f02c",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171111,7 +171140,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2559:0:14cc9e57",
+      "id": "label:lootling.gd:2591:0:14cc9e57",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171138,7 +171167,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2561:0:60d92e6f",
+      "id": "label:lootling.gd:2593:0:60d92e6f",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171165,7 +171194,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2563:0:b636872a",
+      "id": "label:lootling.gd:2595:0:b636872a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171192,7 +171221,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2565:0:d896b990",
+      "id": "label:lootling.gd:2597:0:d896b990",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171219,7 +171248,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2567:0:479c9dc5",
+      "id": "label:lootling.gd:2599:0:479c9dc5",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171246,7 +171275,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2571:0:491cd481",
+      "id": "label:lootling.gd:2603:0:491cd481",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171273,7 +171302,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2573:0:1e88206f",
+      "id": "label:lootling.gd:2605:0:1e88206f",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171300,7 +171329,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2575:0:338d68f0",
+      "id": "label:lootling.gd:2607:0:338d68f0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171327,7 +171356,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2577:0:084904bf",
+      "id": "label:lootling.gd:2609:0:084904bf",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171354,7 +171383,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2579:0:be8f4941",
+      "id": "label:lootling.gd:2611:0:be8f4941",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171381,7 +171410,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2943:0:6a9fef6e",
+      "id": "label:lootling.gd:2975:0:6a9fef6e",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171408,7 +171437,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2943:1:6e688269",
+      "id": "label:lootling.gd:2975:1:6e688269",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171435,7 +171464,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2945:0:c497c9c1",
+      "id": "label:lootling.gd:2977:0:c497c9c1",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171462,7 +171491,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2945:1:4dc26b13",
+      "id": "label:lootling.gd:2977:1:4dc26b13",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171489,7 +171518,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2957:0:3b8d5b98",
+      "id": "label:lootling.gd:2989:0:3b8d5b98",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171516,7 +171545,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2957:1:462854f9",
+      "id": "label:lootling.gd:2989:1:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171543,7 +171572,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2957:2:6867e600",
+      "id": "label:lootling.gd:2989:2:6867e600",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171570,7 +171599,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2964:0:ef7e6794",
+      "id": "label:lootling.gd:2996:0:ef7e6794",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171597,7 +171626,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2964:1:ef7e6794",
+      "id": "label:lootling.gd:2996:1:ef7e6794",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171624,7 +171653,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2994:0:c7d469d2",
+      "id": "label:lootling.gd:3026:0:c7d469d2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171651,7 +171680,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2994:1:462854f9",
+      "id": "label:lootling.gd:3026:1:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171678,7 +171707,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2994:2:ead53368",
+      "id": "label:lootling.gd:3026:2:ead53368",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171705,7 +171734,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:2997:0:06f3f651",
+      "id": "label:lootling.gd:3029:0:06f3f651",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171732,7 +171761,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3012:0:0d2cee9c",
+      "id": "label:lootling.gd:3044:0:0d2cee9c",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171759,7 +171788,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3016:0:3d0a6ba5",
+      "id": "label:lootling.gd:3048:0:3d0a6ba5",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171786,7 +171815,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3053:0:b23e7e58",
+      "id": "label:lootling.gd:3085:0:b23e7e58",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171813,7 +171842,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3053:1:deb80331",
+      "id": "label:lootling.gd:3085:1:deb80331",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171840,7 +171869,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3055:0:1f258a54",
+      "id": "label:lootling.gd:3087:0:1f258a54",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171867,7 +171896,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3060:0:5c18f8eb",
+      "id": "label:lootling.gd:3092:0:5c18f8eb",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171894,7 +171923,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3061:0:5fde04be",
+      "id": "label:lootling.gd:3093:0:5fde04be",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171921,7 +171950,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3111:0:8d69843a",
+      "id": "label:lootling.gd:3143:0:8d69843a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171948,7 +171977,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3111:1:7aae9fa0",
+      "id": "label:lootling.gd:3143:1:7aae9fa0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -171975,7 +172004,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3111:2:462854f9",
+      "id": "label:lootling.gd:3143:2:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172002,7 +172031,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3140:0:8d69843a",
+      "id": "label:lootling.gd:3172:0:8d69843a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172029,7 +172058,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3140:1:7aae9fa0",
+      "id": "label:lootling.gd:3172:1:7aae9fa0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172056,7 +172085,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3140:2:462854f9",
+      "id": "label:lootling.gd:3172:2:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172083,7 +172112,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3217:0:ed059f21",
+      "id": "label:lootling.gd:3249:0:ed059f21",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172110,7 +172139,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3217:1:520d7b36",
+      "id": "label:lootling.gd:3249:1:520d7b36",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172137,7 +172166,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3231:0:9f888007",
+      "id": "label:lootling.gd:3263:0:9f888007",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172164,7 +172193,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3233:0:7f107003",
+      "id": "label:lootling.gd:3265:0:7f107003",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172191,7 +172220,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3234:0:e5d5cd32",
+      "id": "label:lootling.gd:3266:0:e5d5cd32",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172218,7 +172247,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3235:0:a7e24318",
+      "id": "label:lootling.gd:3267:0:a7e24318",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172245,7 +172274,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3237:0:18559f3d",
+      "id": "label:lootling.gd:3269:0:18559f3d",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172272,7 +172301,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3242:0:b93e34c2",
+      "id": "label:lootling.gd:3274:0:b93e34c2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172299,7 +172328,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3246:0:a276cade",
+      "id": "label:lootling.gd:3278:0:a276cade",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172326,7 +172355,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3247:0:1fc287f0",
+      "id": "label:lootling.gd:3279:0:1fc287f0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172353,7 +172382,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3261:0:cf8e49c7",
+      "id": "label:lootling.gd:3293:0:cf8e49c7",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172380,7 +172409,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3261:1:462854f9",
+      "id": "label:lootling.gd:3293:1:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172407,7 +172436,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3261:2:ecdda59a",
+      "id": "label:lootling.gd:3293:2:ecdda59a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172434,7 +172463,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3269:0:d03ad6d0",
+      "id": "label:lootling.gd:3301:0:d03ad6d0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172461,7 +172490,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3269:1:71c77258",
+      "id": "label:lootling.gd:3301:1:71c77258",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172488,7 +172517,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3269:2:5c0a4fc7",
+      "id": "label:lootling.gd:3301:2:5c0a4fc7",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172515,7 +172544,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3269:3:462854f9",
+      "id": "label:lootling.gd:3301:3:462854f9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172542,7 +172571,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3269:4:ecdda59a",
+      "id": "label:lootling.gd:3301:4:ecdda59a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172569,7 +172598,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3276:0:b1b7cf2a",
+      "id": "label:lootling.gd:3308:0:b1b7cf2a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172596,7 +172625,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3276:1:06f3c483",
+      "id": "label:lootling.gd:3308:1:06f3c483",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172623,7 +172652,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3329:0:9afc3c93",
+      "id": "label:lootling.gd:3361:0:9afc3c93",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172650,7 +172679,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3332:0:86597834",
+      "id": "label:lootling.gd:3364:0:86597834",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172677,7 +172706,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3350:0:408ab24d",
+      "id": "label:lootling.gd:3382:0:408ab24d",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172704,7 +172733,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3350:1:caa4ad3d",
+      "id": "label:lootling.gd:3382:1:caa4ad3d",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172731,7 +172760,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3350:2:cd7cff17",
+      "id": "label:lootling.gd:3382:2:cd7cff17",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172758,7 +172787,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3360:0:e8634078",
+      "id": "label:lootling.gd:3392:0:e8634078",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172785,7 +172814,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3476:0:80e69ea0",
+      "id": "label:lootling.gd:3508:0:80e69ea0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172812,7 +172841,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3476:1:628283b0",
+      "id": "label:lootling.gd:3508:1:628283b0",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172839,7 +172868,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3498:0:aa11de5a",
+      "id": "label:lootling.gd:3530:0:aa11de5a",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172866,7 +172895,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3498:1:106840bc",
+      "id": "label:lootling.gd:3530:1:106840bc",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172893,7 +172922,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3499:0:556a9f43",
+      "id": "label:lootling.gd:3531:0:556a9f43",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172920,7 +172949,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3499:1:7636e2f5",
+      "id": "label:lootling.gd:3531:1:7636e2f5",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172947,7 +172976,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3502:0:6d91faaa",
+      "id": "label:lootling.gd:3534:0:6d91faaa",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -172974,7 +173003,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3502:1:d3c6e300",
+      "id": "label:lootling.gd:3534:1:d3c6e300",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173001,7 +173030,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3502:2:84089e35",
+      "id": "label:lootling.gd:3534:2:84089e35",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173028,7 +173057,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3502:3:7f403abb",
+      "id": "label:lootling.gd:3534:3:7f403abb",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173055,7 +173084,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3503:0:556a9f43",
+      "id": "label:lootling.gd:3535:0:556a9f43",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173082,7 +173111,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3503:1:49e79ce8",
+      "id": "label:lootling.gd:3535:1:49e79ce8",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173109,7 +173138,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3572:0:6ae99955",
+      "id": "label:lootling.gd:3604:0:6ae99955",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173136,7 +173165,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3572:1:e8fef4b9",
+      "id": "label:lootling.gd:3604:1:e8fef4b9",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173163,7 +173192,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3985:0:d5954590",
+      "id": "label:lootling.gd:4017:0:d5954590",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173190,7 +173219,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3985:1:081f2640",
+      "id": "label:lootling.gd:4017:1:081f2640",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173217,7 +173246,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:3994:0:56d73656",
+      "id": "label:lootling.gd:4026:0:56d73656",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173244,7 +173273,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4080:0:089331a2",
+      "id": "label:lootling.gd:4112:0:089331a2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173271,7 +173300,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4081:0:e29764e7",
+      "id": "label:lootling.gd:4113:0:e29764e7",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173298,7 +173327,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4212:0:56d441fc",
+      "id": "label:lootling.gd:4244:0:56d441fc",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -287188,29 +287217,26 @@
     "system:world_interaction_feedback.gd"
   ],
   "latest_runtime_integration": {
-    "version": "0.4.61",
-    "source_checkpoint": "a47ec01",
-    "kind": "Issue 6 typography/combat feedback and connected presentation",
+    "version": "0.4.64",
+    "source_checkpoint": "a87e77e5",
+    "kind": "Existing-game foundation save safety and seeded combat acceptance",
     "verified_contracts_closed": 0,
     "new_runtime_png": 0,
     "new_physical_artist_files": 0,
-    "new_licensed_font_files": 3,
     "remaining_contracts": 2757,
     "professionally_approved": false,
     "physical_device_tested": false,
-    "physical_device_status": "S23 explicitly deferred by owner; not a production gate",
+    "physical_device_status": "S23 DEFERRED by owner",
     "other_installed_features": [
-      "Gamewide local Nunito Sans typography, Cinzel headings, symbol fallback; real numeric font-weight axes and fitting.",
-      "Resolved semantic damage receipts, actor placement, bounded priority/aggregation/recycling, quieter pack lanes, saved combat-text controls.",
-      "Masked canonical HUD portrait, larger HP/Ward/XP readings using the existing health trail.",
-      "Shared restrained gear rows, persistent selected/focus feedback; quieter Shop/Stash detail frames and larger service text.",
-      "START title composition retains the approved ensemble, original wordmark and exact approved title theme.",
-      "Existing owner panel: ten real fields with Set/Add/Remove, paired numeric/slider bounds, live God ON/OFF, catalogue search and resetting tab scroll.",
-      "Saved opt-in audio mix presets and manual Custom values; Attack no longer layers a menu click."
+      "Stash equip/salvage failed writes roll back; selected item retained with visible retry and successful tutorial practice.",
+      "Owner grants, Scrap, Sigils and Save test report actual persistence; failed grant retains RNG and normal saves.",
+      "Encounter shuffle decoupled from audio/global RNG:64 seeds/128 spawns and40 source-vs-compiled routes match all observations; balance remains PARTIALLY TESTED.",
+      "13 actual-PCK fixtures pass: encounter RNG, save recovery, transactions, Mythicals, spinner, SHH, Stash/Forge/merchant/rewards/settings and existing economy sampling.",
+      "Four native layout screenshots reviewed; whole-game professional acceptance remains open."
     ],
-    "quality_note": "Functionally tested and representative native visual review; wider artistic/player acceptance remains HOLD. No animation/art contracts were fabricated. Remaining Issue 6 scope is explicit in REPORT.md.",
-    "compiled_native_fixtures": 6,
-    "exported_version": "0.4.61"
+    "quality_note": "No blanket balance or artistic acceptance. See REPORT.md and DELIVERY.json; heavy new art/Gremlin/events deferred behind foundations.",
+    "compiled_native_fixtures": 13,
+    "exported_version": "0.4.64"
   },
   "current_batch_corrections": [
     "Two initial Relic Beast release cells hide the second glove; rejected and replaced together.",
@@ -287227,8 +287253,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "c9a38b0937f128d99691ce2143c8cb3fc595216c4166632fd85da1392e946768",
-    "docs/production/CANON_REGISTRY.json": "e303e3336023abbbd9d6a56419a57922106d08bd00de832b61489738e778c183",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "b55573232988872d70bf66bfdcab419e34433192d09065652b005ec37096db0f",
+    "docs/production/CANON_REGISTRY.json": "a3ce01b310b8554e6d891451c281f058cc6a3b3c79866a4e891483188081abc5",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -287238,7 +287264,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.61/INSTALLATION_RECEIPT.json": "b8b7a7edd8f448b8a71f10f096c344298459d7f384830112640bad34dd272587",
+    "docs/production/quality-evidence/0.4.64/INSTALLATION_RECEIPT.json": "82e78766d9562dbf076b50c9c16e3e50f75f916dfeef3e3a5a9ba1cf5e3c0384",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {
@@ -306106,9 +306132,9 @@
       },
       {
         "family": "ui",
-        "installed_records": 132,
+        "installed_records": 133,
         "missing_records": 0,
-        "visually_unfinished_or_unreviewed": 132,
+        "visually_unfinished_or_unreviewed": 133,
         "production_ready": 0,
         "fluid_animation_families": null,
         "acceptance": "Not feature-complete merely because records exist or tests pass."

@@ -15,7 +15,8 @@ Before the encounter RNG correction:84 actual seeded source combat routes: the o
 | Stash equip/salvage persistence | FIXED & VERIFIED | Four slots, save refusal, reload and native touch retry across four layouts |
 | Owner grant/Scrap/Sigils/save reporting | FIXED & VERIFIED | Failed writes roll back, successful writes reload; normal files unchanged |
 | Backup and reward transaction regressions | VERIFIED PASS | Existing scoped automated fixtures; simulated boundaries only |
-| Combat/perks/regional balance | PARTIALLY TESTED |84 seeded source runs; no balance approval or difficulty changes |
+| Combat/perks/regional balance | PARTIALLY TESTED | Pre-correction84 source runs retained; corrected40-route cohort matches compiled; no balance approval |
+| Encounter cosmetic RNG isolation | FIXED & VERIFIED |64 seeds/128 spawns; all40 source and compiled route observations match |
 | Stash visual/usability quality | NEEDS OWNER ACCEPTANCE | Four native sizes reviewed; not whole-game professional acceptance |
 | Full route, audio/accessibility/performance | PARTIALLY TESTED | Prior scoped evidence retained; full acceptance remains open |
 | Physical S23 | NEEDS OWNER ACCEPTANCE | DEFERRED by owner; never passed and not blocking development |
@@ -27,3 +28,9 @@ Art closures0;2757 contracts and7178 artist requirements remain. No generated or
 ## Encounter random-stream correction
 
 The first compiled matched cohort differed from source:13/20 expert and15/20 random, versus11/20 and13/20. Investigation found the encounter composition shuffle used the global RNG, also consumed by audio pitch/volume variation. Headless sound suppression therefore changed enemy order and subsequent combat outcomes. The shuffle now uses the existing seeded combat RNG with the same uniform permutation and weighted role budget. No sound, stats, loot probabilities, perk weights or save schema changed. Exact seeded sequences change intentionally to remove this cosmetic/gameplay coupling.64 seeds/128 spawns with differing global cosmetic consumption now match role order and combat-stream state. Source and compiled40-run cohorts are rerun after this correction; prior observations remain explicitly pre-correction evidence.
+
+## Final delivery and priorities
+
+Source checkpointa87e77e5 supersedes5510d3f2. Final0.4.64/code75 owner Android and Windows candidates exported.13 actual-PCK fixtures pass, actual standalone EXE120-frame startup passes, original Android launcher/adaptive/monochrome/splash and Windows16–256px icons checked against approved sources.15 rollback artifacts060–063 hash unchanged; title.ogg unchanged. No normal0.4.64 APK or Android runtime/device acceptance claimed. Final hashes/paths in DELIVERY.json. Native compiled Stash screenshots included separately.
+
+After correction, the40-route source and compiled observations match exactly (including encounters, loot and perks), with10/20 core-biased heuristic wins and17/20 random wins. These internal expert labels describe a heuristic, not expert human play. Moonkip1/4 and Vault Runner0/4 heuristic results are investigation targets, not proof of a character/weapon nerf or buff requirement. Add sustain-first and named-gear/build-level cohorts before changing balance. Existing compiled economy fixture samples10000 drop opportunities and4000 merchant inventories; free roadside costs are correctly zero. Persistent source/sink affordability, inflation and actual progression speed remain PARTIALLY TESTED. All initial mismatches are preserved as PRE_RNG_CORRECTION evidence; a test completing is not balance acceptance.

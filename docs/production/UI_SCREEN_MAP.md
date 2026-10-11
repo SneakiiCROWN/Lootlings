@@ -71,6 +71,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:lootling.gd:show_expedition_event | show_expedition_event / show_expedition_event | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_hideout | build_hideout / build_hideout | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_hideout | show_hideout / show_hideout | LIVE_BETA | lootling.gd |
+| screen:lootling.gd:show_stash_save_error | show_stash_save_error / show_stash_save_error | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_item_ui | build_item_ui / build_item_ui | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_route_ui | build_route_ui / build_route_ui | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_route_choices | show_route_choices / show_route_choices | LIVE_BETA | lootling.gd |

@@ -16,11 +16,11 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 8333,
-    "total_launch_scope_slots": 7089,
+    "total_records": 8334,
+    "total_launch_scope_slots": 7090,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4498,
+      "LIVE_BETA": 4499,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -32,7 +32,7 @@
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4497,
+      "LIVE_BETA": 4498,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "365132f720e382419149afcbbee9034969fe402e3c07186181ab8675de2dc138",
+    "export_presets.cfg": "d4c2402f2f78504e1913f5196c6bc8eadb3f530270a45375365892bbb3804c5e",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -139,7 +139,7 @@
     "item_catalog.gd": "4dda3da9e0f5a9541d3e229332e9916e7de2d7f733fd78480348c34979d62e98",
     "item_icon.gd": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
-    "lootling.gd": "15828518a713ddf0886026491eb7e5f3f83125375cb5bea93154a4c0c4ec74cc",
+    "lootling.gd": "0dd24301db12c42eeb89fea1a722dd7b9228bf776315a14b3b480add21a445d6",
     "lootlings_typography.gd": "074d8157076bc321f4c2ff3ea980ad958abfe4871f799ee149ba59de2b5e4875",
     "lootlings_ui.gd": "b6d1fbd3b1b1c38eb80658626c9682ea41ed374e278958db32ae79b386797a4e",
     "lootling_catalog.gd": "7186687ecb29122bd6f89c4a2b51704a53a0c7dc4ff778a1f683efe3b9925a7e",
@@ -318873,6 +318873,38 @@
       "evidence": null
     },
     {
+      "slot_id": "screen:lootling.gd:show_stash_save_error",
+      "game_id": "show_stash_save_error",
+      "category": "ui",
+      "subject": "show_stash_save_error",
+      "state": "show_stash_save_error",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": "Single active screen/input owner; decorative art ignores input; portrait scroll/release protection",
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [
+        "touch_ux.gd",
+        "safe_area_layout.gd"
+      ],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": null
+    },
+    {
       "slot_id": "screen:lootling.gd:build_item_ui",
       "game_id": "build_item_ui",
       "category": "ui",
@@ -329467,7 +329499,7 @@
       }
     },
     {
-      "slot_id": "label:lootling.gd:675:0:80e69ea0",
+      "slot_id": "label:lootling.gd:681:0:80e69ea0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329494,13 +329526,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 675,
+        "line": 681,
         "text": "HOARD CONQUERED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:675:1:628283b0",
+      "slot_id": "label:lootling.gd:681:1:628283b0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329527,13 +329559,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 675,
+        "line": 681,
         "text": "EXPEDITION ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:679:0:1fafa35e",
+      "slot_id": "label:lootling.gd:685:0:1fafa35e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329560,13 +329592,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 679,
+        "line": 685,
         "text": "DEVELOPMENT PREVIEW\\nNo rewards, stock refresh, or save changes.\\n\\nWave reached  %d / %d\\nEnemies  %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:921:0:8b81ad0e",
+      "slot_id": "label:lootling.gd:927:0:8b81ad0e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329593,13 +329625,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 921,
+        "line": 927,
         "text": "RETURN TO HIDEOUT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:956:0:ee55d0db",
+      "slot_id": "label:lootling.gd:962:0:ee55d0db",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329626,13 +329658,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 956,
+        "line": 962,
         "text": "Ⅱ  PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1022:0:2420bb92",
+      "slot_id": "label:lootling.gd:1028:0:2420bb92",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329659,79 +329691,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1022,
+        "line": 1028,
         "text": "%s\\n\\nHP %.0f / %.0f / WARD %.0f",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1025:0:13f697fb",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1025,
-        "text": "%s\\n%s",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:1027:0:2de711ac",
-      "game_id": "lootling_gd",
-      "category": "player_text",
-      "subject": "lootling.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon_family": null,
-      "status": "LIVE_BETA",
-      "launch_scope": true,
-      "canonical_source": null,
-      "source_crop": null,
-      "current_production_asset": null,
-      "target_production_path": null,
-      "dimensions": null,
-      "background": null,
-      "baseline": null,
-      "pivot_anchor": null,
-      "weapon_socket": null,
-      "support_hand_socket": null,
-      "layering_requirements": null,
-      "runtime_system": "lootling",
-      "implementation_file": "lootling.gd",
-      "dependency": [],
-      "blocker": null,
-      "priority": "P2",
-      "acceptance_status": "BETA / owner visual acceptance open",
-      "evidence": {
-        "line": 1027,
-        "text": "KEEP MOVING\\nLeave everything as it is.",
-        "dynamic_template": true
-      }
-    },
-    {
-      "slot_id": "label:lootling.gd:1031:0:9d42a39e",
+      "slot_id": "label:lootling.gd:1031:0:13f697fb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329759,12 +329725,78 @@
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
         "line": 1031,
+        "text": "%s\\n%s",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:1033:0:2de711ac",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1033,
+        "text": "KEEP MOVING\\nLeave everything as it is.",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:lootling.gd:1037:0:9d42a39e",
+      "game_id": "lootling_gd",
+      "category": "player_text",
+      "subject": "lootling.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "lootling",
+      "implementation_file": "lootling.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 1037,
         "text": "ChoiceTitle",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1032:0:abb256dc",
+      "slot_id": "label:lootling.gd:1038:0:abb256dc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329791,13 +329823,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1032,
+        "line": 1038,
         "text": "ChoiceDetail",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1161:0:c4972fba",
+      "slot_id": "label:lootling.gd:1167:0:c4972fba",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329824,13 +329856,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1161,
+        "line": 1167,
         "text": "[center]Base power %.0f • Auto attack %.2fs\\nCrit %d%% • Armour %.0f%% • Ward %.0f\\nRegen %.1f HP/s • Hit leech %.0f%%\\n\\n%s\\n\\n[color=#ffe178]%s[/color]\\n%s[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1161:1:6ae99955",
+      "slot_id": "label:lootling.gd:1167:1:6ae99955",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329857,13 +329889,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1161,
+        "line": 1167,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1161:2:e41c1bbe",
+      "slot_id": "label:lootling.gd:1167:2:e41c1bbe",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329890,13 +329922,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1161,
+        "line": 1167,
         "text": ")),str(character_trait.get(",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1550:0:4b8e7a37",
+      "slot_id": "label:lootling.gd:1575:0:4b8e7a37",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329923,13 +329955,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1550,
+        "line": 1575,
         "text": "STOP %d / 8 • SEED %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1560:0:089331a2",
+      "slot_id": "label:lootling.gd:1585:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329956,13 +329988,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1560,
+        "line": 1585,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:1609:0:0052f02c",
+      "slot_id": "label:lootling.gd:1634:0:0052f02c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -329989,13 +330021,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 1609,
+        "line": 1634,
         "text": "RELIC SHRINE • PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2559:0:14cc9e57",
+      "slot_id": "label:lootling.gd:2591:0:14cc9e57",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330022,13 +330054,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2559,
+        "line": 2591,
         "text": "MIRROR CHARGE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2561:0:60d92e6f",
+      "slot_id": "label:lootling.gd:2593:0:60d92e6f",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330055,13 +330087,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2561,
+        "line": 2593,
         "text": "FEINT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2563:0:b636872a",
+      "slot_id": "label:lootling.gd:2595:0:b636872a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330088,13 +330120,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2563,
+        "line": 2595,
         "text": "CHIME",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2565:0:d896b990",
+      "slot_id": "label:lootling.gd:2597:0:d896b990",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330121,13 +330153,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2565,
+        "line": 2597,
         "text": "PRESSURE RISE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2567:0:479c9dc5",
+      "slot_id": "label:lootling.gd:2599:0:479c9dc5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330154,13 +330186,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2567,
+        "line": 2599,
         "text": "TRIBUTE FLARE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2571:0:491cd481",
+      "slot_id": "label:lootling.gd:2603:0:491cd481",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330187,13 +330219,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2571,
+        "line": 2603,
         "text": "ERASE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2573:0:1e88206f",
+      "slot_id": "label:lootling.gd:2605:0:1e88206f",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330220,13 +330252,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2573,
+        "line": 2605,
         "text": "REFRACT",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2575:0:338d68f0",
+      "slot_id": "label:lootling.gd:2607:0:338d68f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330253,13 +330285,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2575,
+        "line": 2607,
         "text": "REEL IN",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2577:0:084904bf",
+      "slot_id": "label:lootling.gd:2609:0:084904bf",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330286,13 +330318,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2577,
+        "line": 2609,
         "text": "CLAIM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2579:0:be8f4941",
+      "slot_id": "label:lootling.gd:2611:0:be8f4941",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330319,13 +330351,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2579,
+        "line": 2611,
         "text": "TAIL SWEEP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2943:0:6a9fef6e",
+      "slot_id": "label:lootling.gd:2975:0:6a9fef6e",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330352,13 +330384,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2943,
+        "line": 2975,
         "text": "WAVE FINDS — PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2943:1:6e688269",
+      "slot_id": "label:lootling.gd:2975:1:6e688269",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330385,13 +330417,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2943,
+        "line": 2975,
         "text": "BOSS HOARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2945:0:c497c9c1",
+      "slot_id": "label:lootling.gd:2977:0:c497c9c1",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330418,13 +330450,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2945,
+        "line": 2977,
         "text": "One find from this wave. The rest stay in the ruins.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2945:1:4dc26b13",
+      "slot_id": "label:lootling.gd:2977:1:4dc26b13",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330451,13 +330483,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2945,
+        "line": 2977,
         "text": "Choose one reward to carry home.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2957:0:3b8d5b98",
+      "slot_id": "label:lootling.gd:2989:0:3b8d5b98",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330484,13 +330516,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2957,
+        "line": 2989,
         "text": "%s  •  %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2957:1:462854f9",
+      "slot_id": "label:lootling.gd:2989:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330517,13 +330549,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2957,
+        "line": 2989,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2957:2:6867e600",
+      "slot_id": "label:lootling.gd:2989:2:6867e600",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330550,13 +330582,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2957,
+        "line": 2989,
         "text": "Relic",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2964:0:ef7e6794",
+      "slot_id": "label:lootling.gd:2996:0:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330583,13 +330615,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2964,
+        "line": 2996,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2964:1:ef7e6794",
+      "slot_id": "label:lootling.gd:2996:1:ef7e6794",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330616,13 +330648,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2964,
+        "line": 2996,
         "text": "\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2994:0:c7d469d2",
+      "slot_id": "label:lootling.gd:3026:0:c7d469d2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330649,13 +330681,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2994,
+        "line": 3026,
         "text": "[b]IF EQUIPPED: %s[/b]\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2994:1:462854f9",
+      "slot_id": "label:lootling.gd:3026:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330682,13 +330714,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2994,
+        "line": 3026,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2994:2:ead53368",
+      "slot_id": "label:lootling.gd:3026:2:ead53368",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330715,13 +330747,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2994,
+        "line": 3026,
         "text": "Weapon",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:2997:0:06f3f651",
+      "slot_id": "label:lootling.gd:3029:0:06f3f651",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330748,13 +330780,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 2997,
+        "line": 3029,
         "text": "TAKE FREE / ENDS THIS STOP",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3012:0:0d2cee9c",
+      "slot_id": "label:lootling.gd:3044:0:0d2cee9c",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330781,13 +330813,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3012,
+        "line": 3044,
         "text": "TAKE PERK / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3016:0:3d0a6ba5",
+      "slot_id": "label:lootling.gd:3048:0:3d0a6ba5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330814,13 +330846,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3016,
+        "line": 3048,
         "text": "CURRENT: %d stacks / %s\\nNEW PERK: %s / stacks %d to %d\\nCOST: FREE / %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3053:0:b23e7e58",
+      "slot_id": "label:lootling.gd:3085:0:b23e7e58",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330847,13 +330879,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3053,
+        "line": 3085,
         "text": "%s\\n%s\\n%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3053:1:deb80331",
+      "slot_id": "label:lootling.gd:3085:1:deb80331",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330880,13 +330912,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3053,
+        "line": 3085,
         "text": "desc",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3055:0:1f258a54",
+      "slot_id": "label:lootling.gd:3087:0:1f258a54",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330913,13 +330945,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3055,
+        "line": 3087,
         "text": "LOOT COMPARISON",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3060:0:5c18f8eb",
+      "slot_id": "label:lootling.gd:3092:0:5c18f8eb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330946,13 +330978,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3060,
+        "line": 3092,
         "text": "KEEP IN STASH\\n%d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3061:0:5fde04be",
+      "slot_id": "label:lootling.gd:3093:0:5fde04be",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -330979,13 +331011,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3061,
+        "line": 3093,
         "text": "SCRAP  +%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3111:0:8d69843a",
+      "slot_id": "label:lootling.gd:3143:0:8d69843a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331012,13 +331044,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3111,
+        "line": 3143,
         "text": "[color=#ff7d88]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3111:1:7aae9fa0",
+      "slot_id": "label:lootling.gd:3143:1:7aae9fa0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331045,13 +331077,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3111,
+        "line": 3143,
         "text": "[/color]\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3111:2:462854f9",
+      "slot_id": "label:lootling.gd:3143:2:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331078,13 +331110,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3111,
+        "line": 3143,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3140:0:8d69843a",
+      "slot_id": "label:lootling.gd:3172:0:8d69843a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331111,13 +331143,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3140,
+        "line": 3172,
         "text": "[color=#ff7d88]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3140:1:7aae9fa0",
+      "slot_id": "label:lootling.gd:3172:1:7aae9fa0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331144,13 +331176,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3140,
+        "line": 3172,
         "text": "[/color]\\n",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3140:2:462854f9",
+      "slot_id": "label:lootling.gd:3172:2:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331177,13 +331209,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3140,
+        "line": 3172,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3217:0:ed059f21",
+      "slot_id": "label:lootling.gd:3249:0:ed059f21",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331210,13 +331242,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3217,
+        "line": 3249,
         "text": "RELIC ROUTE • MERCHANT ROOM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3217:1:520d7b36",
+      "slot_id": "label:lootling.gd:3249:1:520d7b36",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331243,13 +331275,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3217,
+        "line": 3249,
         "text": "ROADSIDE STOP  •  BETWEEN WAVES",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3231:0:9f888007",
+      "slot_id": "label:lootling.gd:3263:0:9f888007",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331276,13 +331308,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3231,
+        "line": 3263,
         "text": "SELECT AN OFFER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3233:0:7f107003",
+      "slot_id": "label:lootling.gd:3265:0:7f107003",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331309,13 +331341,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3233,
+        "line": 3265,
         "text": "Choose one free supply. You may redraw once before taking it.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3234:0:e5d5cd32",
+      "slot_id": "label:lootling.gd:3266:0:e5d5cd32",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331342,13 +331374,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3234,
+        "line": 3266,
         "text": "PACK PEDDLER",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3235:0:a7e24318",
+      "slot_id": "label:lootling.gd:3267:0:a7e24318",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331375,13 +331407,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3235,
+        "line": 3267,
         "text": " • PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3237:0:18559f3d",
+      "slot_id": "label:lootling.gd:3269:0:18559f3d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331408,13 +331440,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3237,
+        "line": 3269,
         "text": "[center]ONE FREE SUPPLY CHOICE[/center]",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3242:0:b93e34c2",
+      "slot_id": "label:lootling.gd:3274:0:b93e34c2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331441,13 +331473,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3242,
+        "line": 3274,
         "text": "SOLD • IN GOOD PAWS\\nThe peddler is packing the receipts.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3246:0:a276cade",
+      "slot_id": "label:lootling.gd:3278:0:a276cade",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331474,13 +331506,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3246,
+        "line": 3278,
         "text": "SOLD • IN GOOD PAWS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3247:0:1fc287f0",
+      "slot_id": "label:lootling.gd:3279:0:1fc287f0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331507,13 +331539,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3247,
+        "line": 3279,
         "text": "Nothing left but the receipt.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3261:0:cf8e49c7",
+      "slot_id": "label:lootling.gd:3293:0:cf8e49c7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331540,13 +331572,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3261,
+        "line": 3293,
         "text": "%s%s / FREE\\n%s%s [%s]\\n%s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3261:1:462854f9",
+      "slot_id": "label:lootling.gd:3293:1:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331573,13 +331605,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3261,
+        "line": 3293,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3261:2:ecdda59a",
+      "slot_id": "label:lootling.gd:3293:2:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331606,13 +331638,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3261,
+        "line": 3293,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3269:0:d03ad6d0",
+      "slot_id": "label:lootling.gd:3301:0:d03ad6d0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331639,13 +331671,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3269,
+        "line": 3301,
         "text": "%s / %s / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3269:1:71c77258",
+      "slot_id": "label:lootling.gd:3301:1:71c77258",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331672,13 +331704,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3269,
+        "line": 3301,
         "text": "PREMIUM",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3269:2:5c0a4fc7",
+      "slot_id": "label:lootling.gd:3301:2:5c0a4fc7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331705,13 +331737,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3269,
+        "line": 3301,
         "text": "premium",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3269:3:462854f9",
+      "slot_id": "label:lootling.gd:3301:3:462854f9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331738,13 +331770,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3269,
+        "line": 3301,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3269:4:ecdda59a",
+      "slot_id": "label:lootling.gd:3301:4:ecdda59a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331771,13 +331803,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3269,
+        "line": 3301,
         "text": "Item",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3276:0:b1b7cf2a",
+      "slot_id": "label:lootling.gd:3308:0:b1b7cf2a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331804,13 +331836,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3276,
+        "line": 3308,
         "text": "REDRAW / FREE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3276:1:06f3c483",
+      "slot_id": "label:lootling.gd:3308:1:06f3c483",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331837,13 +331869,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3276,
+        "line": 3308,
         "text": "REDRAW USED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3329:0:9afc3c93",
+      "slot_id": "label:lootling.gd:3361:0:9afc3c93",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331870,13 +331902,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3329,
+        "line": 3361,
         "text": "CURRENT: %s\\nChoose a new perk to compare. FREE, or keep your current build.",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3332:0:86597834",
+      "slot_id": "label:lootling.gd:3364:0:86597834",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331903,13 +331935,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3332,
+        "line": 3364,
         "text": "SELECT A CARD",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3350:0:408ab24d",
+      "slot_id": "label:lootling.gd:3382:0:408ab24d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331936,13 +331968,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3350,
+        "line": 3382,
         "text": "%s  /  %s%s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3350:1:caa4ad3d",
+      "slot_id": "label:lootling.gd:3382:1:caa4ad3d",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -331969,13 +332001,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3350,
+        "line": 3382,
         "text": "UTILITY",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3350:2:cd7cff17",
+      "slot_id": "label:lootling.gd:3382:2:cd7cff17",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332002,13 +332034,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3350,
+        "line": 3382,
         "text": "  /  STACK ×%d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3360:0:e8634078",
+      "slot_id": "label:lootling.gd:3392:0:e8634078",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332035,13 +332067,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3360,
+        "line": 3392,
         "text": "LEVEL %d - PICK ONE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3476:0:80e69ea0",
+      "slot_id": "label:lootling.gd:3508:0:80e69ea0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332068,13 +332100,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3476,
+        "line": 3508,
         "text": "HOARD CONQUERED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3476:1:628283b0",
+      "slot_id": "label:lootling.gd:3508:1:628283b0",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332101,13 +332133,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3476,
+        "line": 3508,
         "text": "EXPEDITION ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3498:0:aa11de5a",
+      "slot_id": "label:lootling.gd:3530:0:aa11de5a",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332134,13 +332166,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3498,
+        "line": 3530,
         "text": "SIEGE EXTRACTED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3498:1:106840bc",
+      "slot_id": "label:lootling.gd:3530:1:106840bc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332167,13 +332199,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3498,
+        "line": 3530,
         "text": "SIEGE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3499:0:556a9f43",
+      "slot_id": "label:lootling.gd:3531:0:556a9f43",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332200,13 +332232,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3499,
+        "line": 3531,
         "text": "Wave reached %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3499:1:7636e2f5",
+      "slot_id": "label:lootling.gd:3531:1:7636e2f5",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332233,13 +332265,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3499,
+        "line": 3531,
         "text": "Round reached %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3502:0:6d91faaa",
+      "slot_id": "label:lootling.gd:3534:0:6d91faaa",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332266,13 +332298,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3502,
+        "line": 3534,
         "text": "PRISM RIFT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3502:1:d3c6e300",
+      "slot_id": "label:lootling.gd:3534:1:d3c6e300",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332299,13 +332331,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3502,
+        "line": 3534,
         "text": "ROOTGLASS VAULT CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3502:2:84089e35",
+      "slot_id": "label:lootling.gd:3534:2:84089e35",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332332,13 +332364,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3502,
+        "line": 3534,
         "text": "RELIC ROUTE CLEARED!",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3502:3:7f403abb",
+      "slot_id": "label:lootling.gd:3534:3:7f403abb",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332365,13 +332397,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3502,
+        "line": 3534,
         "text": "ROUTE ENDED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3503:0:556a9f43",
+      "slot_id": "label:lootling.gd:3535:0:556a9f43",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332398,13 +332430,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3503,
+        "line": 3535,
         "text": "Wave reached %d / %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3503:1:49e79ce8",
+      "slot_id": "label:lootling.gd:3535:1:49e79ce8",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332431,13 +332463,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3503,
+        "line": 3535,
         "text": "Rooms entered  %d / 8 • Seed %d",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3572:0:6ae99955",
+      "slot_id": "label:lootling.gd:3604:0:6ae99955",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332464,13 +332496,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3572,
+        "line": 3604,
         "text": "name",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3572:1:e8fef4b9",
+      "slot_id": "label:lootling.gd:3604:1:e8fef4b9",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332497,13 +332529,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3572,
+        "line": 3604,
         "text": "Loot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3985:0:d5954590",
+      "slot_id": "label:lootling.gd:4017:0:d5954590",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332530,13 +332562,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3985,
+        "line": 4017,
         "text": "EMBERS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3985:1:081f2640",
+      "slot_id": "label:lootling.gd:4017:1:081f2640",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332563,13 +332595,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3985,
+        "line": 4017,
         "text": "LOOTCOINS",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:3994:0:56d73656",
+      "slot_id": "label:lootling.gd:4026:0:56d73656",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332596,13 +332628,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 3994,
+        "line": 4026,
         "text": "WARD %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4080:0:089331a2",
+      "slot_id": "label:lootling.gd:4112:0:089331a2",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332629,13 +332661,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4080,
+        "line": 4112,
         "text": "%s • %s",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4081:0:e29764e7",
+      "slot_id": "label:lootling.gd:4113:0:e29764e7",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332662,13 +332694,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4081,
+        "line": 4113,
         "text": "DETAILS: PAUSE",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:lootling.gd:4212:0:56d441fc",
+      "slot_id": "label:lootling.gd:4244:0:56d441fc",
       "game_id": "lootling_gd",
       "category": "player_text",
       "subject": "lootling.gd",
@@ -332695,7 +332727,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 4212,
+        "line": 4244,
         "text": "COMBO ×%d",
         "dynamic_template": true
       }
@@ -431735,6 +431767,7 @@
           "confirm_abandon_run",
           "equip_stash_item",
           "scrap_stash_item",
+          "show_stash_save_error",
           "buy_hideout_offer",
           "use_mystery_cache",
           "use_gold_cache",

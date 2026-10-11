@@ -1,0 +1,434 @@
+{
+  "runs": 40,
+  "keys": [
+    "actor",
+    "weapon",
+    "core",
+    "sample",
+    "selection_policy",
+    "won",
+    "wave",
+    "damage_taken",
+    "seconds",
+    "upgrades"
+  ],
+  "differences": [
+    {
+      "actor": "relic_beast",
+      "sample": 0,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 0,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 1,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 1,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 2,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 2,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 3,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "relic_beast",
+      "sample": 3,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 0,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 0,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 1,
+      "policy": "expert",
+      "different": [
+        "wave",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 1,
+      "policy": "random",
+      "different": [
+        "won",
+        "wave",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 2,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 2,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 3,
+      "policy": "expert",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "moonkip",
+      "sample": 3,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 0,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 0,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 1,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 1,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 2,
+      "policy": "expert",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 2,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 3,
+      "policy": "expert",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "gloomlet",
+      "sample": 3,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 0,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 0,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 1,
+      "policy": "expert",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 1,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 2,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 2,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 3,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "emberhorn",
+      "sample": 3,
+      "policy": "random",
+      "different": [
+        "wave",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 0,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 0,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 1,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 1,
+      "policy": "random",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 2,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 2,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 3,
+      "policy": "expert",
+      "different": [
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    },
+    {
+      "actor": "vault_runner",
+      "sample": 3,
+      "policy": "random",
+      "different": [
+        "won",
+        "damage_taken",
+        "seconds",
+        "upgrades"
+      ]
+    }
+  ],
+  "matched": false,
+  "scope": "Same fixed0.05s simulation; this is not a frame-rate sweep."
+}
