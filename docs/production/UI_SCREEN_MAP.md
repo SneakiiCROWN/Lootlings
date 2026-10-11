@@ -81,6 +81,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:lootling.gd:show_boss_reward | show_boss_reward / show_boss_reward | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_next_item | show_next_item / show_next_item | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_item_comparison | build_item_comparison / build_item_comparison | LIVE_BETA | lootling.gd |
+| screen:lootling.gd:show_loot_save_error | show_loot_save_error / show_loot_save_error | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:refresh_equipment_health | refresh_equipment_health / refresh_equipment_health | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_merchant | show_merchant / show_merchant | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:refresh_merchant_ui | refresh_merchant_ui / refresh_merchant_ui | LIVE_BETA | lootling.gd |
