@@ -459,6 +459,12 @@ func debug_action(action: String, payload) -> String:
 			for up in UPGRADES:
 				if up.id in ["venom","plague","vamp"]:apply_upgrade_effect(up)
 			return "Applied existing Venom Coat, Plague Siphon and Toxic Fang to the test build."
+		"shh_reset":
+			if is_instance_valid(owner_test_access):owner_test_access.reset_position();return "SHH position reset."
+			return "Owner build only."
+		"shh_hide":
+			if is_instance_valid(owner_test_access):owner_test_access.hide_shortcut();return "SHH hidden. Reopen from owner Settings > Support."
+			return "Owner build only."
 		"relock":
 			if is_instance_valid(owner_test_access):owner_test_access.relock();return "SHH hidden. Repeat the title gesture to unlock."
 			return "SHH is available only in the owner build."
@@ -1429,7 +1435,7 @@ func build_item_ui() -> void:
 	item_description.clip_text = true
 	item_compare = RichTextLabel.new()
 	item_compare.position = Vector2(34, 210)
-	item_compare.size = Vector2(364, 126)
+	item_compare.size = Vector2(364, 205)
 	item_compare.bbcode_enabled = true
 	item_compare.fit_content = false
 	item_compare.scroll_active = true
@@ -1437,14 +1443,14 @@ func build_item_ui() -> void:
 	item_compare.add_theme_color_override("default_color", Color("#dce6ff"))
 	item_panel.add_child(item_compare)
 	LootlingsUI.add_divider(item_panel, Rect2(34, 197, 364, 9), "gold")
-	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 357), Vector2(176, 64), Color("#295d50"), Color("#69e6b0"), inspect_item_equip)
-	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 357), Vector2(176, 64), Color("#29486b"), Color("#74caff"), accept_item_keep)
+	item_equip_button = make_action_button(item_panel, "EQUIP", Vector2(28, 432), Vector2(176, 58), Color("#295d50"), Color("#69e6b0"), inspect_item_equip)
+	item_keep_button = make_action_button(item_panel, "KEEP", Vector2(228, 432), Vector2(176, 58), Color("#29486b"), Color("#74caff"), accept_item_keep)
 	item_keep_button.add_theme_font_size_override("font_size", 15)
-	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 442), Vector2(376, 58), Color("#5a3828"), Color("#ffbd69"), func():
+	item_scrap_button = make_action_button(item_panel, "SCRAP", Vector2(28, 500), Vector2(376, 52), Color("#5a3828"), Color("#ffbd69"), func():
 		touch_ux.request("Salvage %s?" % current_item.get("name","Item"),"%s becomes %d Scrap. This cannot be undone." % [current_item.get("name","Item"),ItemCatalog.scrap_value(current_item)],accept_item_scrap)
 	)
 
-	make_action_button(item_panel,"KEEP CURRENT / LEAVE FIND",Vector2(28,530),Vector2(376,60),Color("#172442"),Color("#7087ae"),skip_item).add_theme_font_size_override("font_size",15)
+	make_action_button(item_panel,"KEEP CURRENT / LEAVE FIND",Vector2(28,563),Vector2(376,50),Color("#172442"),Color("#7087ae"),skip_item).add_theme_font_size_override("font_size",15)
 
 func build_route_ui() -> void:
 	route_panel = make_panel(Rect2(22, 184, 436, 534), Color("#0b1229fc"))
@@ -2185,18 +2191,24 @@ func _process(delta: float) -> void:
 	update_elemental_damage(delta)
 	queue_redraw()
 
-func current_attack_interval() -> float:
+func comparison_weapon_family(gear) -> String:
+	return debug_weapon_family_override if debug_enabled and not debug_weapon_family_override.is_empty() else gear.weapon_family()
+
+func current_attack_interval(gear: Variant=null, health: float=-1, max_health: float=-1) -> float:
+	var equipment=inventory if gear==null else gear
+	var hp:float=player_hp if health<0 else health
+	var hp_max:float=player_max_hp if max_health<0 else max_health
 	var result := attack_interval
-	match current_weapon_family():
+	match comparison_weapon_family(equipment):
 		"RANGER": result *= 0.78
 		"MAGE": result *= 0.95
 		"ROGUE": result *= 0.68
 		_: result *= 1.18
-	result *= 1.0 + inventory.effect_total("attack_slow")
-	result /= 1.0 + inventory.effect_total("attack_speed")
+	result *= 1.0 + equipment.effect_total("attack_slow")
+	result /= 1.0 + equipment.effect_total("attack_speed")
 	if frenzy > 0.0:
-		result /= 1.0 + frenzy * (1.0 - player_hp / player_max_hp)
-	if inventory.has_signature("desperate_rhythm") and player_hp / maxf(1.0, player_max_hp) < 0.40:
+		result /= 1.0 + frenzy * (1.0 - hp / hp_max)
+	if equipment.has_signature("desperate_rhythm") and hp / maxf(1.0, hp_max) < 0.40:
 		result /= 1.12
 	return maxf(0.16, result)
 
@@ -2225,17 +2237,21 @@ func request_tap_attack() -> void:
 		return
 	perform_player_attack(true)
 
-func effective_crit_chance() -> float:
-	var family_bonus := 0.10 if current_weapon_family() == "ROGUE" else 0.06 if current_weapon_family() == "RANGER" else 0.0
-	return minf(0.85, crit_chance + inventory.effect_total("crit") + family_bonus)
+func effective_crit_chance(gear: Variant=null) -> float:
+	var equipment=inventory if gear==null else gear
+	var family_bonus := 0.10 if comparison_weapon_family(equipment) == "ROGUE" else 0.06 if comparison_weapon_family(equipment) == "RANGER" else 0.0
+	return minf(0.85, crit_chance + equipment.effect_total("crit") + family_bonus)
 
-func equipment_damage_multiplier() -> float:
-	var result := 1.0 + inventory.effect_total("damage_mult")
-	if player_hp / player_max_hp < 0.4:
-		result += inventory.effect_total("low_health_damage")
+func equipment_damage_multiplier(gear: Variant=null, health: float=-1, max_health: float=-1) -> float:
+	var equipment=inventory if gear==null else gear
+	var hp:float=player_hp if health<0 else health
+	var hp_max:float=player_max_hp if max_health<0 else max_health
+	var result: float = 1.0 + equipment.effect_total("damage_mult")
+	if hp / hp_max < 0.4:
+		result += equipment.effect_total("low_health_damage")
 	if enemy_is_boss:
-		result += inventory.effect_total("boss_damage")
-	match current_weapon_family():
+		result += equipment.effect_total("boss_damage")
+	match comparison_weapon_family(equipment):
 		"VANGUARD": result *= 1.18
 		"RANGER": result *= 0.82
 		"MAGE": result *= 0.95
@@ -3002,46 +3018,7 @@ func play_rarity_audio(rarity: String) -> void:
 		_: play_audio_event("rarity_reveal")
 
 func build_item_comparison(found: Dictionary, equipped: Dictionary) -> String:
-	if equipped.is_empty():
-		return "[color=#8fa4ce]Currently equipped: empty slot[/color]\nEquipping adds this item’s effects:\n" + ItemCatalog.describe_headline_effects(found, 3)
-	var equipped_summary := ItemCatalog.describe_headline_effects(equipped, 1).replace("\n", "  •  ")
-	var result := "[color=#8fa4ce]CURRENTLY EQUIPPED[/color]  %s  [%s]\n%s\n[color=#ffd36a]CHANGE IF EQUIPPED[/color]\n" % [equipped.get("name", "Item"), equipped.get("rarity", "COMMON"), equipped_summary]
-	var found_effects: Dictionary = found.get("effects", {})
-	var equipped_effects: Dictionary = equipped.get("effects", {})
-	var keys: Array = found_effects.keys()
-	for key in equipped_effects.keys():
-		if not key in keys:
-			keys.append(key)
-	var changes: Array[String] = []
-	for key in keys:
-		if key == "repeat_every":
-			if found_effects.has(key) and not equipped_effects.has(key):
-				changes.append("[color=#69e6b0]▲ GAINS SPELL REPEAT[/color]")
-			elif equipped_effects.has(key) and not found_effects.has(key):
-				changes.append("[color=#ff7d88]▼ LOSES SPELL REPEAT[/color]")
-			continue
-		var found_value := float(found_effects.get(key, 0.0))
-		var equipped_value := float(equipped_effects.get(key, 0.0))
-		var delta := found_value - equipped_value
-		if key in ["attack_slow", "incoming_mult"]:
-			delta = -delta
-		if absf(delta) < 0.001:
-			continue
-		var gain := delta > 0.0
-		var arrow := "▲" if gain else "▼"
-		var change_color := "#69e6b0" if gain else "#ff7d88"
-		if key == "attack_slow":
-			changes.append("[color=%s]%s %.1f%% %s attack delay[/color]" % [change_color,arrow,absf(delta)*100.0,"less" if gain else "more"])
-			continue
-		if key == "incoming_mult":
-			changes.append("[color=%s]%s %.1f%% %s damage taken[/color]" % [change_color,arrow,absf(delta)*100.0,"less" if gain else "more"])
-			continue
-		changes.append("[color=%s]%s %s[/color]" % [change_color, arrow, format_effect_delta(key, absf(delta)).replace("+", "-" if not gain else "+")])
-		if changes.size() >= 3:
-			break
-	if changes.is_empty():
-		changes.append("[color=#c7d4ee]• SAME NUMERIC BONUSES — CHECK SIGNATURE[/color]")
-	return result + "\n".join(changes)
+	return preload("res://equipment_comparison.gd").text(self,found,equipped)
 
 func format_effect_delta(key: String, amount: float) -> String:
 	if key=="coin_mult":return "%+.1f%% EXPEDITION XP / %+.0f%% SIEGE EMBERS" % [amount*25.0,amount*100.0]
@@ -3067,14 +3044,21 @@ func inspect_item_equip() -> void:
 func accept_item_equip() -> void:
 	if state != "item" or current_item.is_empty():
 		return
+	var equipment_before: Dictionary=inventory.equipped.duplicate(true)
+	var stash_before: Array=inventory.stash.duplicate(true)
+	var scrap_before: int=inventory.scrap
+	var result: Dictionary=inventory.equip(current_item)
+	if inventory.save(INVENTORY_SAVE_PATH)!=OK:
+		inventory.equipped=equipment_before;inventory.stash=stash_before;inventory.scrap=scrap_before
+		status_message="Could not save gear. Your equipment is unchanged; try again."
+		item_compare.text="[color=#ff7d88]"+status_message+"[/color]\n"+build_item_comparison(current_item,inventory.equipped_item(str(current_item.get("slot",""))))
+		return
 	var item_name: String = current_item.get("name", "Loot")
 	if not item_name in run_kept_loot:
 		run_kept_loot.append(item_name)
 		run_notable_items.append(current_item.duplicate(true))
-	var result: Dictionary = inventory.equip(current_item)
 	award_current_weapon_family()
 	refresh_equipment_health()
-	inventory.save(INVENTORY_SAVE_PATH)
 	var filled_slots := 0
 	for slot in InventorySystem.SLOTS:
 		if not inventory.equipped_item(slot).is_empty():

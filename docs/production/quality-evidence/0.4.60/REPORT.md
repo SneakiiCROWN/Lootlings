@@ -1,0 +1,9 @@
+# 0.4.60 P0 owner access and equipment comparison candidate
+
+Owner-only whole painted wordmark hold for two seconds replaces the failed crystal gesture. Support contains an OWNER TOOLS backup to the same F1 sandbox panel. SHH tap reopens; one-second hold then drag stores normalised position, clamped within the fitted safe game area. Reset position, Hide and Relock are present. Preferences are owner-sandbox-only. No network, PIN or duplicate cheat panel.
+
+All four gear slots share current/inspecting cards, actual projected strike power, auto-attack delay, critical chance, HP, armour and incoming-damage factor. All effect keys and current/new/gained/lost signature descriptions are available through scrolling; caps and units are explicit. Desktop uses adjacent cards; portrait uses stacked cards. Forge and Shop share the preview. Shop purchase label corrected from SCRAP to LOOTCOINS; cost/current/remaining-wallet shown without altering prices. Refused loot equip persistence restores equipment, stash and scrap before reward/discovery mutations.
+
+Native three-layout owner and 30-item formula/no-RNG preview checks pass. Connected Home/Hub/expedition/combat/perk/merchant/reward/shop/stash route passes after updating obsolete roster-grid assertions to the current showcase controls. Existing targeted economy, combat readability, normal owner boundary, input transition and simulated save interruption tests pass.
+
+Acceptance is scoped: no physical S23 acceptance, no complete campaign lifecycle, no actual OS process-kill proof, no global professional art approval. Scroll/all-effect screenshots and exact compiled pack testing follow. Core content/animation backlog remains 2757 contracts; zero new art closures or new artwork/audio. START-only title, progressive onboarding, comfort mixing and offline backup remain outstanding. Existing approved art, title music, owner project.godot changes and reference files preserved.

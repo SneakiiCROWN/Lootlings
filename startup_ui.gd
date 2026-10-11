@@ -234,6 +234,9 @@ func build_settings() -> void:
 	story_settings.pressed.connect(func(): cinematic_preferences.visible = true)
 	support_panel = make_panel(settings_content,Rect2(28,75,424,710),Color("#0b1430ff"),Color("#72c8ff"))
 	support_panel.visible = false
+	if preload("res://owner_test_access.gd").enabled():
+		make_label(support_panel,"OWNER TEST BUILD • ISOLATED SAVES",14,Rect2(24,298,376,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
+		make_button(support_panel,"OWNER TOOLS",Rect2(42,354,340,54),Color("#17294b"),Color("#72c8ff"),16).pressed.connect(func():get_parent().owner_test_access.backup_open())
 	make_label(support_panel,"SUPPORT",26,Rect2(22,24,380,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	profile_id_label = make_label(support_panel,"",14,Rect2(24,116,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

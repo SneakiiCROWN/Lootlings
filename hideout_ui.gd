@@ -804,6 +804,8 @@ func select_forge_weapon(index: int) -> void:
 		if gold<int(next.gold):forge_confirm.text="NEED %d MORE LOOTCOINS" % (int(next.gold)-gold)
 		elif current_inventory.scrap<int(next.scrap):forge_confirm.text="NEED %d MORE SCRAP" % (int(next.scrap)-current_inventory.scrap)
 		forge_detail.text = "[center]" + ("%s\n%d Lootcoins + %d Scrap\n+4%% damage • permanent\n%s\nYou have %d Lootcoins / %d Scrap" % [next.name, next.gold, next.scrap, next.behaviour, gold, current_inventory.scrap]) + "[/center]"
+		forge_detail.scroll_active=true
+		forge_detail.text+="\n"+("After purchase: %d Lootcoins / %d Scrap" % [gold-int(next.gold),current_inventory.scrap-int(next.scrap)] if gold>=int(next.gold) and current_inventory.scrap>=int(next.scrap) else "Save up before purchasing this evolution.")+"\n\n"+comparison_callable.call(ForgeSystem.evolve(item),current_inventory.equipped_item("Weapon"))
 
 func build_upgrades() -> void:
 	upgrade_content = Control.new()
@@ -1432,7 +1434,8 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	var color := ItemCatalog.rarity_color(rarity).to_html(false)
 	shop_detail.text = "[b][color=#%s]%s[/color][/b]\n%s · %s\n%s" % [color,item.get("name","Unknown"),rarity.capitalize(),ItemCatalog.display_slot(item.get("slot","Item")),ItemCatalog.describe_headline_effects(item,2)]
 	shop_detail.tooltip_text = str(item.get("desc",""))
-	shop_buy_button.text = "BUY\n%d SCRAP" % int(item.get("price", 0))
+	shop_buy_button.text = "BUY\n%d LOOTCOINS" % int(item.get("price", 0))
+	shop_detail.text+="\nCost: %d Lootcoins · Wallet: %d\n%s\n\n" % [int(item.get("price",0)),gold,"Remaining after purchase: %d Lootcoins" % (gold-int(item.get("price",0))) if gold>=int(item.get("price",0)) else "Save %d more Lootcoins first." % (int(item.get("price",0))-gold)]
 	shop_detail.text+="\n\n%s\nBought gear goes to your stash; equip it when ready.\n\n%s" % [comparison_callable.call(item,current_inventory.equipped_item(str(item.get("slot","Weapon")))),item.get("desc","")]
 	shop_buy_button.disabled = reveal_pending or gold < int(item.get("price", 0)) or current_inventory.stash.size() >= current_inventory.stash_capacity
 	if reveal_pending:shop_buy_button.text="CLAIM\nYOUR CACHE"

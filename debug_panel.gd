@@ -135,7 +135,9 @@ func build_ui() -> void:
 	reset_button = make_button("RESET LOOTLINGS TEST SAVES", "reset", null)
 	reset_button.custom_minimum_size = Vector2(406, 52)
 	section_groups["TEST PROGRESSION"].node.add_child(reset_button)
-	section_groups["TEST SPEED"].node.add_child(make_button("HIDE / RELOCK SHH","relock",null))
+	section_groups["TEST SPEED"].node.add_child(make_button("RESET SHH POSITION","shh_reset",null))
+	section_groups["TEST SPEED"].node.add_child(make_button("HIDE SHH SHORTCUT","shh_hide",null))
+	section_groups["TEST SPEED"].node.add_child(make_button("RELOCK SHH","relock",null))
 	filter_sections(0)
 
 func filter_sections(index:int) -> void:
