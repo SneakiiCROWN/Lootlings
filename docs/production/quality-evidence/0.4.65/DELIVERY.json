@@ -1,0 +1,33 @@
+{
+  "version": "0.4.65",
+  "code": 76,
+  "source_checkpoint": "0a3c4ba0",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.65-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "01aaebd2e8e74b2f8f762bdd4305e0e68a2e9c15c98aef33259328194df16795"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.65-candidate.pck",
+      "bytes": 284215088,
+      "sha256": "49a10a61c8fa807705d4ede051b2f684d19bcdc61eb9e4f2cd7107e0603b4093"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.65-owner-test-debug.apk",
+      "bytes": 305247255,
+      "sha256": "9289798bb453472d56f8acffed1fd64a144f423ab4e059d1f88679e5d1986fdb"
+    }
+  ],
+  "compiled_native_fixtures": 18,
+  "source_strategy_runs": 102,
+  "compiled_strategy_runs": 36,
+  "compiled_source_match": true,
+  "stationary_dps_samples": 184,
+  "title_music_sha256": "7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7",
+  "physical_s23": "DEFERRED",
+  "android_execution": "Not performed; signed arm64 owner package/resources checked",
+  "normal_apk": "Not built this pass; prior normal rollback preserved",
+  "professional_acceptance": false,
+  "final_pack_sha256": "49a10a61c8fa807705d4ede051b2f684d19bcdc61eb9e4f2cd7107e0603b4093"
+}

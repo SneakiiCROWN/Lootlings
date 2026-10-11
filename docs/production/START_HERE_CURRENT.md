@@ -1,3 +1,7 @@
+# Current — 0.4.65 named-loadout balance diagnostics and live readability
+
+Source 0a3c4ba0 pushed; Windows and owner Android/code76 delivered. Perk names/multiline effects, actual capped gains, first heavy unlock, Stash framing/selection and Hub Guide overlap corrected. 102 named-loadout source routes, 184 stationary damage samples; all36 final exported subset observations match. 18 final-pack checks pass, including current Hub/Home/NPC/mode/transaction paths. Read [report](quality-evidence/0.4.65/REPORT.md), [delivery](quality-evidence/0.4.65/DELIVERY.json), and CONTINUATION_065.md. Overall balance, professional artistic/UX/audio/performance and physical S23 acceptance remain open. S23 DEFERRED, not blocking. Zero art closures;2757 contracts/7178 artist requirements remain. Preserve owner edits, canon, saves and rollback builds.
+
 # Current —0.4.64 foundation save safety and deterministic encounters
 
 Sourcea87e77e5: Stash/owner failed-write rollback and encounter audio-RNG isolation. Owner/code75 and Windows exported;13 actual-PCK fixtures,40 matched post-correction source/compiled runs,64 random-isolation seeds. Balance, full artistic/UX/audio/performance and physical S23 acceptance remain open. Read [current report](quality-evidence/0.4.64/REPORT.md) and CONTINUATION_064.md. Latest owner directive places existing foundations ahead of heavy art/Gremlin/seasons.0 new art closures;2757 contracts/7178 artist requirements remain. Preserve owner edits/saves/canon/rollback builds.

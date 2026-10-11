@@ -6,7 +6,7 @@ func review() -> void:
 		game.set_process(false); game.app_lifecycle.platform_notifications_enabled=false; game.audio_settings.cinematic_first_time=false
 		folder="res://.godot_test_data/phase4b/%dx%d/" % [size.x,size.y]; DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 		game.show_hideout(); game.hideout_ui.show_campaign(); await capture("mode_entry")
-		await super.tap(game.hideout_ui.dungeon_start_button); assert(game.state=="mode_menu"); await capture("modes")
+		await tap(game.hideout_ui.dungeon_start_button); assert(game.state=="mode_menu"); await capture("modes")
 		var previous: String=game.retention.progress.data.tracked
 		await swipe(game.retention.buttons[3]); assert(game.retention.progress.data.tracked==previous); game.touch_ux.inertia=null
 		await tap(game.retention.buttons[3]); assert(game.retention.progress.data.tracked=="gravebloom_staff"); await capture("tracked")
@@ -15,10 +15,10 @@ func review() -> void:
 		var attacks: int=game.attack_sequence
 		game.wave=10; game.wave_kills=0; game.retention.round_rule=game.retention.Catalog.round_rule(10,game.retention.rng); game.spawn_enemy(); await capture("boss_checkpoint_combat"); await sample_performance("boss_checkpoint"); attacks=game.attack_sequence
 		game.kill_enemy(); game.loot_drops.clear(); game.pending_items.clear(); await capture("extract_or_continue")
-		await super.tap(game.retention.buttons[1]); assert(game.wave==11 and game.state=="playing" and game.attack_sequence==attacks)
+		await tap(game.retention.buttons[1]); assert(game.wave==11 and game.state=="playing" and game.attack_sequence==attacks)
 		game.wave=20; game.wave_kills=0; game.retention.round_rule=game.retention.Catalog.round_rule(20,game.retention.rng); game.spawn_enemy(); game.kill_enemy(); game.loot_drops.clear(); game.pending_items.clear()
 		game.total_kills=65; game.coins=1000; await capture("deep_extraction")
-		await super.tap(game.retention.buttons[0]); assert(game.state=="result")
+		await tap(game.retention.buttons[0]); assert(game.state=="result")
 		await capture("siege_result"); await tap(game.retention.spinner_button); await capture("spinner")
 		var wallet: int=game.retention.progress.data.spin_wallet
 		await tap(game.retention.buttons[0]); await tap(game.retention.buttons[0]); assert(game.retention.progress.data.spin_wallet==wallet)

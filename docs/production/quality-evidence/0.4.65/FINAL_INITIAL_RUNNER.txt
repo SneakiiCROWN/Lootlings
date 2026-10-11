@@ -1,0 +1,24 @@
+perk_clarity_065_native_qa compiled PCK native PASS
+perk_formula_065_qa compiled PCK native PASS
+stash_transaction_064_native_qa compiled PCK native PASS
+encounter_rng_064_qa compiled PCK native PASS
+owner_transactions_064_qa compiled PCK native PASS
+offline_backup_062_qa compiled PCK native PASS
+quick_routes_062_native_qa compiled PCK native PASS
+front_of_house_059_native_qa compiled PCK native PASS
+completion_economy_qa compiled PCK native PASS
+mythical_collection_050_qa compiled PCK native PASS
+spinner_050_qa compiled PCK native PASS
+combat_settings_061_native_qa compiled PCK native PASS
+evolution_qa compiled PCK native PASS
+combat_family_qa compiled PCK native PASS
+combat_readability_055_qa compiled PCK native PASS
+hub_navigation_native_qa compiled PCK native PASS
+Traceback (most recent call last):
+  File "C:\Users\Snkii\Documents\lootlings\tools\run_exported_native.py", line 30, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\Snkii\Documents\lootlings\tools\run_exported_native.py", line 26, in main
+    assert r.returncode==0 and not errors,(name,r.returncode,errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('phase4b_native_qa', 1, ['SCRIPT ERROR: Assertion failed.', 'ERROR: Phase4 native timeout'])

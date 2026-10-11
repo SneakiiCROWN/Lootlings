@@ -1,0 +1,121 @@
+{
+  "strata": {
+    "COMMON": {
+      "offensive": {
+        "runs": 12,
+        "wins": 12,
+        "mean_seconds": 87.83749999999789,
+        "mean_damage_taken": 162.99643279316666,
+        "mean_min_hp_ratio": 0.7570379205517898,
+        "mean_level": 11.916666666666666
+      },
+      "defensive": {
+        "runs": 12,
+        "wins": 12,
+        "mean_seconds": 114.53333333333102,
+        "mean_damage_taken": 311.2310292399587,
+        "mean_min_hp_ratio": 0.8073287087132827,
+        "mean_level": 11.833333333333334
+      },
+      "synergy": {
+        "runs": 12,
+        "wins": 11,
+        "mean_seconds": 124.99999999999817,
+        "mean_damage_taken": 435.0376792212501,
+        "mean_min_hp_ratio": 0.5499876813099654,
+        "mean_level": 11.916666666666666
+      }
+    },
+    "RARE": {
+      "offensive": {
+        "runs": 12,
+        "wins": 12,
+        "mean_seconds": 80.1874999999976,
+        "mean_damage_taken": 54.90171058197917,
+        "mean_min_hp_ratio": 0.7357904091361899,
+        "mean_level": 12
+      },
+      "defensive": {
+        "runs": 12,
+        "wins": 12,
+        "mean_seconds": 124.97499999999835,
+        "mean_damage_taken": 318.48825860786775,
+        "mean_min_hp_ratio": 0.8755895872188472,
+        "mean_level": 12
+      },
+      "synergy": {
+        "runs": 12,
+        "wins": 11,
+        "mean_seconds": 129.70833333333192,
+        "mean_damage_taken": 400.8030064616042,
+        "mean_min_hp_ratio": 0.6596804600554854,
+        "mean_level": 11.916666666666666
+      }
+    },
+    "EPIC": {
+      "offensive": {
+        "runs": 10,
+        "wins": 10,
+        "mean_seconds": 78.58999999999767,
+        "mean_damage_taken": 65.2631313484,
+        "mean_min_hp_ratio": 0.7921168754543996,
+        "mean_level": 12.1
+      },
+      "defensive": {
+        "runs": 10,
+        "wins": 10,
+        "mean_seconds": 118.44999999999631,
+        "mean_damage_taken": 287.9230013930455,
+        "mean_min_hp_ratio": 0.8629962693523644,
+        "mean_level": 12.1
+      },
+      "synergy": {
+        "runs": 10,
+        "wins": 10,
+        "mean_seconds": 89.45999999999707,
+        "mean_damage_taken": 155.738168505232,
+        "mean_min_hp_ratio": 0.798099701558345,
+        "mean_level": 12.1
+      }
+    }
+  },
+  "losses": [
+    {
+      "actor": "emberhorn",
+      "rarity": "RARE",
+      "core": "Fire",
+      "wave": 15,
+      "choices": [
+        "wildfire",
+        "regen",
+        "ignite",
+        "ignite",
+        "wildfire",
+        "damage",
+        "ignite",
+        "speed",
+        "damage",
+        "ignite"
+      ]
+    },
+    {
+      "actor": "mosskin",
+      "rarity": "COMMON",
+      "core": "Lightning",
+      "wave": 15,
+      "choices": [
+        "speed",
+        "storm",
+        "regen",
+        "regen",
+        "speed",
+        "crit",
+        "storm",
+        "vamp",
+        "storm",
+        "splash"
+      ]
+    }
+  ],
+  "interpretation": "Offence shortens exposure; sustain accepts more incoming damage but survives. Two scripted elemental-priority losses are not proof of a formula defect. Core assignment, support gear and four taps/s do not model an optimised human. Matched starting seeds do not force identical later RNG consumption across different policies."
+}

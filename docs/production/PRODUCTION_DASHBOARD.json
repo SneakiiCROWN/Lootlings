@@ -287290,8 +287290,10 @@
       "102 real named-loadout campaign routes across 12 actors, three policies, three rarities and ten regions; 184 separate stationary damage measurements. Balance remains PARTIALLY TESTED.",
       "GUIDE no longer overlaps Hub Main menu; native world stations/Home/dialogue/decor and current mode-confirmation routes pass."
     ],
-    "quality_note": "Source native four-size screenshots and transaction/formula tests pass. Exact-export verification pending at source checkpoint; no blanket artistic acceptance.",
-    "exported_version": "Pending"
+    "quality_note": "18 checks on final Windows pack pass; 36 final source/export observations equal. Signed owner Android resources verified; no Android execution or blanket artistic acceptance.",
+    "exported_version": "0.4.65",
+    "source_checkpoint": "0a3c4ba0",
+    "compiled_native_fixtures": 18
   },
   "current_batch_corrections": [
     "Two initial Relic Beast release cells hide the second glove; rejected and replaced together.",
@@ -287319,7 +287321,7 @@
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.65/INSTALLATION_RECEIPT.json": "2ce5b323209309a5ada6db80e6bd7f317e0ca68c689b7cc4aebf7def15da2b9b",
+    "docs/production/quality-evidence/0.4.65/INSTALLATION_RECEIPT.json": "a15db71890f19187b39515016db20e207099967d46bbac5f509dfa0ea80212fb",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {
