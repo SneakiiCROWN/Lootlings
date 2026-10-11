@@ -1,3 +1,9 @@
+# Current authority — 2026-10-11
+
+Latest verified delivery: **0.4.58 / 09dc974**, branch codex/phase4e-gamefeel. Local 0.4.59 connected settings/navigation pass is being verified separately. Use [current production handoff](docs/production/START_HERE_CURRENT.md) and its versioned delivery receipts. Commercial release remains HOLD: physical S23, artistic/audio/balance/save gates and missing animation/content remain open. Latest frozen debt: 2757 contracts; 50 registration gaps; 111-path discrepancy.
+
+The sections below are dated history, not current build or canon authority. Hoard Dragon authority is art/hoard_dragon_identity_authority.json: original winged four-legged dragon, continuous tail.
+
 ## Phase4E canon/world integration checkpoint — 2026-10-06
 
 Implementation **2d3a8028594f714a7b9b1889233db5d4967c9451** (main batch 34939d5 plus the native-reviewed caption correction) preserves the accepted 79fecef source-sync checkpoint. Android **v29 / 0.4.20-phase4e-canon-world** is the next owner-test delivery (`builds/android/Lootlings-phase4e-canon-world-debug.apk`); receipt and scoped acceptance are in [the canon/world report](docs/production/phase4e/canon-world/REPORT.md).

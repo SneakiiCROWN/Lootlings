@@ -109,6 +109,16 @@ func build_overlay() -> void:
 	toast_subtitle.add_theme_color_override("font_color", Color("#d9e5ff"))
 	toast_panel.add_child(toast_subtitle)
 
+func reduced_motion() -> bool:
+	var owner: Node = get_parent()
+	while owner != null:
+		for key in ["audio_settings", "settings"]:
+			var values: Variant = owner.get(key)
+			if values is Dictionary and values.has("cinematic_reduced_motion"):
+				return bool(values.cinematic_reduced_motion)
+		owner = owner.get_parent()
+	return false
+
 func switch_screen(screens: Array, active: Control, duration: float = 0.22) -> void:
 	for screen in screens:
 		if screen != null:
@@ -116,6 +126,7 @@ func switch_screen(screens: Array, active: Control, duration: float = 0.22) -> v
 	if active == null:
 		return
 	var target_position := prepare_control(active)
+	if reduced_motion(): return
 	active.modulate.a = 0.0
 	active.scale = Vector2(0.985, 0.985)
 	active.pivot_offset = active.size * 0.5
@@ -132,6 +143,7 @@ func present_card(control: Control, accent: Color = Color("#d1a85a"), duration: 
 		return
 	var target_position := prepare_control(control)
 	control.visible = true
+	if reduced_motion(): return
 	control.pivot_offset = control.size * 0.5
 	control.scale = Vector2(0.97, 0.97)
 	control.modulate = Color(1, 1, 1, 0)
@@ -187,7 +199,7 @@ func update_toast(delta: float) -> void:
 		if toast_queue.is_empty() and chest_showcase_timer <= 0.0: set_process(false)
 
 func flash(accent: Color, duration: float = 0.18) -> void:
-	if travel_active or veil == null:
+	if reduced_motion() or travel_active or veil == null:
 		return
 	if flash_tween != null and flash_tween.is_valid():
 		flash_tween.kill()
@@ -226,7 +238,7 @@ func play_travel(title: String, subtitle: String, accent: Color, midpoint: Calla
 	veil.color = Color("#04081700")
 	travel_panel.visible = true
 	travel_panel.modulate = Color(1, 1, 1, 0)
-	travel_panel.scale = Vector2(0.97, 0.97)
+	travel_panel.scale = Vector2.ONE if reduced_motion() else Vector2(0.97, 0.97)
 	travel_panel.pivot_offset = travel_panel.size * 0.5
 	travel_title.text = title
 	fit_title(travel_title, title, 27)
@@ -282,6 +294,9 @@ func bind_button(button: Button) -> void:
 
 func animate_button(button: Button, target_scale: Vector2, duration: float) -> void:
 	if not is_instance_valid(button):
+		return
+	if reduced_motion():
+		button.scale = Vector2.ONE
 		return
 	button.pivot_offset = button.size * 0.5
 	create_tween().tween_property(button, "scale", target_scale, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)

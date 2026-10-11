@@ -2856,7 +2856,7 @@ func eject_hoard_loot() -> void:
 	hoard_chest_phase = ""
 	state = "playing"
 	spawn_clock = 1.2
-	add_float("THE HOARD OPENS", Vector2(100, 350), Color("#ffd36a"), 21)
+	add_float("THE HOARD OPENS", Vector2(100, 240), Color("#ffd36a"), 21)
 	var fanfare: String=preload("res://relic_spin_catalog.gd").sound(RewardRevealCatalog.highest_rarity(boss_reward_options))
 	if fanfare!=str(hoard_reveal_profile.get("audio","chest_open")):play_audio_event(fanfare)
 	if boss_reward_options.any(func(item): return item.get("rarity", "") == "LEGENDARY"):
@@ -3525,6 +3525,9 @@ func navigate_back() -> void:
 	if touch_ux != null and is_instance_valid(touch_ux.dialog):
 		touch_ux.close_dialog()
 		return
+	if presentation_director.vignette.active:
+		presentation_director.vignette.finish(); return
+	if startup_ui.visible and startup_ui.handle_settings_back(): return
 	if state=="personal_home":personal_home.go_back();return
 	if personal_profile_return and startup_ui.visible:
 		if startup_ui.identity_panel.visible:startup_ui.identity_panel.visible=false
@@ -3568,8 +3571,7 @@ func input_surface() -> Control:
 	# The topmost confirmation owns input, including inside personal Home.
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
 	if state=="personal_home":return personal_home.input_surface()
-	if startup_ui.visible and startup_ui.identity_panel.is_visible_in_tree():return startup_ui.identity_panel
-	if personal_profile_return and startup_ui.visible:return startup_ui
+	if startup_ui.visible: return startup_ui.input_surface()
 	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:
 		return retention.pool_panel if retention.pool_panel.visible else retention.panel
 	if state=="hideout":

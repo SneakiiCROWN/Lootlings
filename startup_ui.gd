@@ -21,6 +21,7 @@ const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
 var profile := {}
 var settings := {}
+var settings_return_screen := "title"
 var profile_exists := false
 var current_screen := "boot"
 var boot_timer := 0.0
@@ -152,6 +153,8 @@ func build_profile() -> void:
 	profile_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	profile_content.visible = false
 	add_child(profile_content)
+	make_button(profile_content, "‹ BACK", Rect2(24,20,112,52), Color("#17294b"), Color("#72c8ff"), 15).pressed.connect(func(): get_parent().navigate_back())
+	make_button(profile_content, "SETTINGS", Rect2(320,20,136,52), Color("#17294b"), Color("#c99cff"), 15).pressed.connect(show_settings)
 	var panel := make_panel(profile_content, Rect2(34, 102, 412, 650), Color("#0b1430f2"), Color("#d1a85a"))
 	profile_heading = make_label(panel, "YOUR LOOTLINGS PROFILE", 26, Rect2(20, 28, 372, 45), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	make_label(panel, "DISPLAY NAME", 13, Rect2(38, 103, 336, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#9fb3d8"))
@@ -191,12 +194,12 @@ func build_settings() -> void:
 	add_child(settings_content)
 	var panel := make_panel(settings_content, Rect2(28, 75, 424, 710), Color("#0b1430f4"), Color("#c99cff"))
 	LootlingsUI.apply_material(panel, "relic")
-	make_label(panel, "AUDIO SETTINGS", 29, Rect2(20, 24, 384, 46), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(panel, "AUDIO & ACCESSIBILITY", 23, Rect2(20, 24, 384, 46), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	var channels := SettingsStore.CHANNELS
 	for index in range(channels.size()):
 		var channel: String = channels[index]
 		var y := 92 + index * 103
-		make_label(panel, channel.to_upper(), 14, Rect2(30, y, 120, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9e5ff"))
+		make_label(panel, {"master":"MASTER", "music":"MUSIC", "sfx":"SOUND EFFECTS", "ui":"MENU SOUNDS", "ambience":"AMBIENCE"}[channel], 14, Rect2(30, y, 120, 24), HORIZONTAL_ALIGNMENT_LEFT, Color("#d9e5ff"))
 		var slider := HSlider.new()
 		slider.position = Vector2(30, y + 29)
 		slider.size = Vector2(258, 48)
@@ -227,7 +230,7 @@ func build_settings() -> void:
 		mute.add_theme_font_size_override("font_size", 12)
 		panel.add_child(mute)
 		setting_mutes[channel] = mute
-	var story_settings := make_button(panel, "STORY & MOTION", Rect2(42, 578, 216, 48), Color("#17294b"), Color("#c99cff"), 14)
+	var story_settings := make_button(panel, "STORY & MOTION", Rect2(42, 590, 216, 48), Color("#17294b"), Color("#c99cff"), 14)
 	story_settings.pressed.connect(func(): cinematic_preferences.visible = true)
 	support_panel = make_panel(settings_content,Rect2(28,75,424,710),Color("#0b1430ff"),Color("#72c8ff"))
 	support_panel.visible = false
@@ -237,7 +240,7 @@ func build_settings() -> void:
 	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)
 	support_back.pressed.connect(func(): support_panel.visible = false)
-	var support := make_button(panel,"SUPPORT",Rect2(270,578,112,48),Color("#17294b"),Color("#72c8ff"),14)
+	var support := make_button(panel,"SUPPORT",Rect2(270,590,112,48),Color("#17294b"),Color("#72c8ff"),14)
 	support.pressed.connect(func(): support_panel.visible = true)
 	var back := make_button(panel, "SAVE & RETURN", Rect2(42, 638, 340, 54), Color("#49346b"), Color("#d19cff"), 18)
 	back.pressed.connect(save_settings)
@@ -493,6 +496,7 @@ func show_profile(first_launch: bool) -> void:
 	set_screen(profile_content)
 
 func show_settings() -> void:
+	if current_screen != "settings": settings_return_screen = current_screen
 	support_panel.visible = false
 	current_screen = "settings"
 	refresh_settings()
@@ -527,7 +531,22 @@ func save_settings() -> void:
 	for key in cinematic_toggles: settings[key] = bool(cinematic_toggles[key].button_pressed)
 	settings_changed.emit(settings.duplicate(true))
 	ui_event.emit("menu_close")
-	show_title()
+	if settings_return_screen in ["profile", "profile_create"]: show_profile(settings_return_screen=="profile_create")
+	else: show_title()
+
+func handle_settings_back() -> bool:
+	if current_screen != "settings": return false
+	if support_panel.visible: support_panel.hide()
+	elif cinematic_preferences.visible: cinematic_preferences.hide()
+	else: save_settings()
+	return true
+
+func input_surface() -> Control:
+	if identity_panel.is_visible_in_tree(): return identity_panel
+	if current_screen == "settings":
+		if support_panel.is_visible_in_tree(): return support_panel
+		if cinematic_preferences.is_visible_in_tree(): return cinematic_preferences
+	return self
 
 func refresh_profile() -> void:
 	if name_edit == null:
@@ -537,7 +556,8 @@ func refresh_profile() -> void:
 	var uuid := str(profile.get("player_uuid", ""))
 	profile_id_label.text = "ACCOUNT INFO  •  SUPPORT ID …%s" % uuid.right(8)
 	profile_identity.text = "CURRENT AVATAR • %s" % Avatar.identity_line(profile).to_upper()
-	profile_actor_name.text = Avatar.display_name(profile).to_upper() + " • RUIN ROOKIE"
+	profile_actor_name.text = Avatar.display_name(profile).to_upper()
+	profile_actor_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 func refresh_settings() -> void:
 	if setting_sliders.is_empty():
@@ -600,7 +620,7 @@ func _draw() -> void:
 		draw_circle(Vector2.ZERO,136,Color("#050a17bb"))
 		draw_arc(Vector2.ZERO,138,0,TAU,64,Color("#bc9c5870"),2,true)
 		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-		for mote in range(6):
+		for mote in range(0 if settings.get("cinematic_reduced_motion",false) else 6):
 			var point:=Vector2(102+mote*55,350-fmod(scene_time*12+mote*31,180))
 			draw_circle(point,1.4,Color("#dfb65a66"))
 	if current_screen == "title":

@@ -1,3 +1,9 @@
+# Current authority — 2026-10-11
+
+Latest verified delivery: **0.4.58 / 09dc974**, branch codex/phase4e-gamefeel. Local 0.4.59 connected settings/navigation pass is being verified separately. Use [current production handoff](../START_HERE_CURRENT.md) and its versioned delivery receipts. Commercial release remains HOLD: physical S23, artistic/audio/balance/save gates and missing animation/content remain open. Latest frozen debt: 2757 contracts; 50 registration gaps; 111-path discrepancy.
+
+The sections below are dated history, not current build or canon authority. Hoard Dragon authority is art/hoard_dragon_identity_authority.json: original winged four-legged dragon, continuous tail.
+
 # Current live continuation — 0.4.48
 
 Read quality-evidence/0.4.48/REPORT.md, the sole dashboard and Git HEAD. Eighteen exact closures, 24 PNG/24 sidecars installed across three NPCs, two enemies and six named items; ten-region atmosphere and grounded resident transitions. Remaining2834/7363. Implementation checkpoints6bd2782 and145bdc1 pushed. Windows/Android0.4.48 exported, original branding and491 APK textures verified; final combat HUD/variant fix tested. Final evidence checkpoint follows. Never rerun extraction over accepted assets. Original rejected/merged sheets retained. Next: Inkling commit/hurt, Margin Imp windup/commit/hurt/recovery, NPC walk/sit, full playable weapon continuity and untouched enemy/boss families. Companion canon and exact title music preserved. Physical S23 deferred; fluid and professional approval open. Preserve owner project.godot and all untracked references.
