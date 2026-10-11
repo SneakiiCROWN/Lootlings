@@ -630,10 +630,6 @@ func _draw() -> void:
 			for mote in range(9):
 				var point:=Vector2(38+mote*51,490-fmod(scene_time*(3+mote%3)+mote*41,310))
 				draw_circle(point,1.0,Color(1.0,.78,.39,.22))
-	elif current_screen in ["profile", "profile_create", "settings"]:
-		var actor_texture := Avatar.texture(profile)
-		if actor_texture != null:
-			draw_texture_rect(Avatar.portrait(profile,"happy"), Rect2(352, 4, 116, 116), false, Avatar.tint(profile))
 	if current_screen != "title":draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:

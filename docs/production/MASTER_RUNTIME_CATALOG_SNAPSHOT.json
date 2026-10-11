@@ -7082,7 +7082,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "eba58bf6c9c3107083baa1522aa15e5c0aa32ec8d92f3390d971095815202004"
+    "source_sha256": "5b6e74cdc9b1d7b8c0c1edfb10d2fddab9d9f9ce1681d3466223392347f9d9e9"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8427,6 +8427,7 @@
     "methods": [
       "_ready",
       "build_overlay",
+      "reduced_motion",
       "switch_screen",
       "present_card",
       "present_toast",
@@ -8447,7 +8448,7 @@
       "draw_chest",
       "fit_title"
     ],
-    "source_sha256": "034999fad57fdbc0c8751c6040b029961bf761c138ca88f954312f3427e3ae78"
+    "source_sha256": "46218923e83ac9da4b249759dae385c615bef82478715e8dba3d647c3db9fbd5"
   },
   "profile_store.gd": {
     "constants": {
@@ -9346,6 +9347,8 @@
       "show_settings",
       "save_profile",
       "save_settings",
+      "handle_settings_back",
+      "input_surface",
       "refresh_profile",
       "refresh_settings",
       "set_screen",
@@ -9358,7 +9361,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "448aae707c54920df2ce0014bbabde8da6e9eac919fb9469af970925018d12b6"
+    "source_sha256": "5345845d3a662d451b78f2a7f03b7dd728460f80853a0cdcdf752181b0a35c51"
   },
   "station_presentation.gd": {
     "constants": {},

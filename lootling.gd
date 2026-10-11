@@ -3796,6 +3796,8 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	var lane := "damage"
 	if text_value.begins_with("-") or text_value.begins_with("WARD −"):
 		lane = "player"
+	elif text_value=="THE HOARD OPENS":
+		lane="announcement"
 	elif text_value.contains("EMBERS") or text_value.contains("LOOT") or text_value.contains("HOARD"):
 		lane = "reward"
 	elif is_dot or prefix in ["WARD"]:
@@ -3813,6 +3815,7 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 		return
 	match lane:
 		"player": pos = Vector2(WeaponFit.world_position(self).x, 414)
+		"announcement": pos = Vector2(100, 280)
 		"reward": pos = Vector2(392, 590)
 		"proc": pos = Vector2(140, 590)
 		"secondary": pos = Vector2(350, 595)

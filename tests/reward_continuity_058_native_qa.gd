@@ -25,6 +25,10 @@ func review() -> void:
   await capture("chest_anticipation");game.update_hoard_chest(2);assert(game.hoard_chest_phase=="silence");game.update_hoard_chest(1)
   assert(game.loot_drops.size()==3 and game.rng.state==rng_before and game.audio_manager.last_event_msec.has("spinner_jackpot"))
   game.eject_hoard_loot();assert(game.loot_drops.size()==3)
+  var banner_found:=false
+  for message in game.floating_texts:
+   if message.text=="THE HOARD OPENS":assert(message.pos.y==280 and message.lane=="announcement");banner_found=true
+  assert(banner_found)
   for index in range(3):
    assert(game.loot_drops[index].visual_slot==index);game.loot_drops[index].pos=Vector2(90+index*150,580);game.loot_drops[index].bounces=1
    for previous in range(index):assert(not Pickups.caption_rect(game.loot_drops[index]).intersects(Pickups.caption_rect(game.loot_drops[previous])))
