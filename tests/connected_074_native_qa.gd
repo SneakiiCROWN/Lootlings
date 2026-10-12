@@ -12,7 +12,7 @@ func review() -> void:
   for index in range(h.entries.size()):
    if not h.entries[index].equipped:h.select_entry(index);break
   await capture("stash_shared_comparison")
-  var view=h.stash_detail.get_meta("quick_comparison");assert(not h.stash_detail.text.contains("EFFECTIVE IF EQUIPPED") and view.rows.size()==5)
+  var view=h.stash_detail.get_meta("quick_comparison");assert(not h.stash_detail.text.contains("EFFECTIVE IF EQUIPPED") and view.rows.size()==6)
   for row in view.rows:assert(is_equal_approx(row.value_delta,row.value_after-row.value_before))
   game.gold=100000;game.refresh_hideout();h.show_shop();await tap(h.shop_offer_buttons[0]);await capture("shop_shared_comparison")
   var wallet:int=game.gold;await tap(h.shop_buy_button);assert(is_instance_valid(game.touch_ux.dialog));game.touch_ux.close_dialog();assert(game.gold==wallet)

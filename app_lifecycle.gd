@@ -20,8 +20,7 @@ func _notification(what: int) -> void:
 		NOTIFICATION_APPLICATION_FOCUS_IN, NOTIFICATION_APPLICATION_RESUMED:
 			restore_focus()
 		NOTIFICATION_WM_CLOSE_REQUEST:
-			persist()
-			get_tree().quit()
+			request_close()
 		NOTIFICATION_WM_GO_BACK_REQUEST:
 			game.navigate_back()
 
@@ -41,6 +40,36 @@ func restore_focus() -> void:
 	get_tree().paused = previous_pause
 	suspended = false
 	# Combat stays on the existing Pause screen until the player resumes.
+
+func request_close() -> Error:
+	var error: Error = persist()
+	if error == OK:
+		quit_application()
+		return OK
+	# Keep the latest in-memory progress and existing recovery generations.
+	# Reuse the one modal/input owner; never confirm a pending purchase here.
+	if game.state == "playing": game.pause_run()
+	var ux = game.touch_ux
+	ux.close_dialog()
+	ux.request("Progress wasn't saved", "Lootlings couldn't finish saving. Your latest changes are still here. Check available storage, then retry. Earlier saves remain available.\n\nClosing without saving may lose your latest changes. Expeditions do not resume from the middle of combat.", request_close)
+	ux.dialog.process_mode = Node.PROCESS_MODE_ALWAYS
+	var panel: Panel = ux.confirm_button.get_parent()
+	panel.size.y = 472
+	for child in panel.get_children():
+		if child is Button:
+			child.position.y = 390
+			child.text = "SAVE & CLOSE" if child == ux.confirm_button else "KEEP OPEN"
+	game.make_action_button(panel, "CLOSE WITHOUT SAVING…", Vector2(22,328), Vector2(388,48), Color("#51323c"), Color("#ffb4ad"), confirm_unsaved_close)
+	return error
+
+func confirm_unsaved_close() -> void:
+	game.touch_ux.close_dialog()
+	game.touch_ux.request("Close without saving?", "Your latest changes may be lost. Keep Lootlings open to retry saving, or close using the earlier saved progress. This cannot secure an unfinished expedition.", quit_application)
+	game.touch_ux.dialog.process_mode = Node.PROCESS_MODE_ALWAYS
+	game.touch_ux.confirm_button.text = "CLOSE UNSAVED"
+
+func quit_application() -> void:
+	get_tree().quit()
 
 func persist() -> Error:
 	if FileAccess.file_exists(preload("res://save_scope.gd").path(preload("res://offline_backup.gd").JOURNAL)):return ERR_BUSY

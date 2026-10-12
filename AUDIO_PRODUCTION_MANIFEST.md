@@ -1,3 +1,9 @@
+# Active production bank —0.4.75
+
+Production audio is installed, not merely proposed. See AUDIO_LICENSES.md's current section, `art/audio/production/LICENSES.txt`, `sources.json`, `score_sources.json` and announcement provenance. Runtime prefers production OGG scores, then production WAV, then fallback. Approved title.ogg is unchanged; no mixing/settings changes in this reconciliation.11scores/11retained sources and461bank outputs match their recorded hashes. Human listening and device/mastering acceptance remain pending.
+
+## Historical delivery brief — keep for requirements, not current installed status
+
 CURRENT PHASE 4E — Twelve-subtype weapon/material dispatch and seven material contacts are now active, with 95 newly source-documented CC0-derived variants/cues. Verdant has four action families; RED has a dedicated stinger. Native capture covers all six spinner tiers. Earlier proposed-routing tables below are historical where superseded; final mastering/perceptual and S23 approval remain open. See [Phase 4E report](docs/production/phase4e/REPORT.md) and retained `art/audio/production/sources.json` / `LICENSES.txt`.
 
 > **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). The eight actual WAV files are mono PCM16, 16 kHz, 48 seconds each (about 1.536 MB each), procedural placeholders. The stereo 44.1/48 kHz production requirements below are the future delivery contract, not the current file format. Hooks/buses/limiter/voice caps are live; final-mastered music/SFX are MISSING.

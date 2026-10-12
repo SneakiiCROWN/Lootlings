@@ -1,7 +1,7 @@
 extends Control
 const Compare=preload("res://equipment_comparison.gd")
 const UI=preload("res://lootlings_ui.gd")
-const KEYS=["Base strike power","Auto-attack delay","Critical chance","Maximum HP","Incoming damage factor"]
+const KEYS=["Base strike power","Auto-attack delay","Critical chance","Maximum HP","Armour mitigation","Incoming damage factor"]
 var game
 var details:RichTextLabel
 var found:Dictionary
@@ -51,14 +51,15 @@ func refresh() -> void:
 		if changed:
 			if gain:gains+=1
 			else:losses+=1
-		var unit:String="s" if key=="Auto-attack delay" else "%" if key=="Critical chance" else "×" if key=="Incoming damage factor" else ""
+		var unit:String="s" if key=="Auto-attack delay" else "%" if key in ["Critical chance","Armour mitigation"] else "×" if key=="Incoming damage factor" else ""
 		var change:String="= Same" if not changed else ("▲ " if gain else "▼ ")+"%+.2f%s" % [delta," pp" if unit=="%" else unit]
 		if key=="Auto-attack delay" and changed:change+=" Faster" if gain else " Slower"
-		rows.append({"key":{"Base strike power":"Strike","Auto-attack delay":"Delay","Critical chance":"Crit","Maximum HP":"Max HP","Incoming damage factor":"Damage in"}[key],"old":number(a)+unit,"new":number(b)+unit,"delta":change,"color":Color("#69e6b0" if gain else "#ff8794") if changed else Color("#b8c7dc"),"value_before":a,"value_after":b,"value_delta":delta})
+		if key=="Incoming damage factor" and changed:change+=" Less" if gain else " More"
+		rows.append({"key":{"Base strike power":"Strike","Auto-attack delay":"Delay","Critical chance":"Crit","Maximum HP":"Max HP","Armour mitigation":"Armour","Incoming damage factor":"Damage in"}[key],"old":number(a)+unit,"new":number(b)+unit,"delta":change,"color":Color("#69e6b0" if gain else "#ff8794") if changed else Color("#b8c7dc"),"value_before":a,"value_after":b,"value_delta":delta})
 	var powers_differ:bool=equipped.get("signature_hooks",[])!=found.get("signature_hooks",[])
 	verdict="MIXED TRADE-OFF" if gains>0 and losses>0 else "CORE STATS IMPROVE · CHECK EFFECTS" if gains>0 else "CORE STATS LOWER · CHECK EFFECTS" if losses>0 else "SAME CORE STATS · CHECK EFFECTS"
 	if powers_differ:verdict="TRADE-OFF · SIGNATURES CHANGE" if not (gains>0 and losses>0) else verdict+" · SIGNATURES CHANGE"
-	size.y=header_height+148
+	size.y=header_height+22*rows.size()+38
 	details.position=rect.position+Vector2(0,size.y+6);details.size=Vector2(rect.size.x,maxf(34,rect.size.y-size.y-6));details.scroll_to_line(0);show();queue_redraw()
 func _process(_delta:float) -> void:
 	visible=not found.is_empty() and is_instance_valid(details) and details.is_visible_in_tree()

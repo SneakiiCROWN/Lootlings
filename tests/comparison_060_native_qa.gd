@@ -22,7 +22,7 @@ func review() -> void:
    assert(is_equal_approx(projected["Base strike power"],game.base_damage*game.equipment_damage_multiplier()) and is_equal_approx(projected["Auto-attack delay"],game.current_attack_interval()) and is_equal_approx(projected["Critical chance"],game.effective_crit_chance()*100) and is_equal_approx(projected["Maximum HP"],game.player_max_hp))
    game.inventory.equipped=old_equipment;game.player_max_hp=old_max;game.equipment_hp_bonus=old_bonus;game.player_hp=hp;cases+=1
    if id in ["dawnweave","mirrorwake","ironpaw_plate","stormspark"]:
-    game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot));var quick=game.item_compare.get_meta("quick_comparison");var header_position:Vector2=quick.position;assert(quick.rows.size()==5 and quick.found.name==item.name)
+    game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot));var quick=game.item_compare.get_meta("quick_comparison");var header_position:Vector2=quick.position;assert(quick.rows.size()==6 and quick.found.name==item.name)
     assert(quick.position.y+quick.size.y<=game.item_compare.position.y)
     assert(game.item_compare.get_v_scroll_bar().value<1)
     var attacks_before:int=game.attack_sequence

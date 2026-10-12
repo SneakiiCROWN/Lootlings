@@ -1,3 +1,29 @@
+# Current audio authority —0.4.75 reconciliation
+
+The active music bank is `art/audio/production/music/*.ogg`, selected before production WAV and the old procedural fallback in `audio_manager.gd`. The **owner-approved title theme** is Vitalezzz's **The Ancient Legend**, `art/audio/production/music/title.ogg`; SHA256 `7d53beed1a8ba204fb9fc7809a659ca73c755f328c7c8e456b9a037db65ec9a7`. This reconciliation does not replace, regenerate, remix or retune that recording.
+
+The prior claim “no external audio files” is historical and no longer describes the installed game. Current provenance authorities are `art/audio/production/LICENSES.txt`, `sources.json`, `score_sources.json`, their retained source files and `ANNOUNCEMENT_AUDIO_PROVENANCE.json`. CC0 classifications below are the existing individual source records, not newly invented permissions. The separately recorded YOU WON announcement has its existing service-rights/source record; it is not labelled CC0 merely because music and recorded SFX are.
+
+| Cue | Recorded creator/title | Installed file | Recorded licence |
+|---|---|---|---|
+| home | Joth — jrpg-piano | `art/audio/production/music/home.ogg` | CC0-1.0 |
+| title | Vitalezzz — the-ancient-legend | `art/audio/production/music/title.ogg` | CC0-1.0 |
+| hideout | Vitalezzz — arcanum | `art/audio/production/music/hideout.ogg` | CC0-1.0 |
+| outer_ruins | Vitalezzz — adventurers-path | `art/audio/production/music/outer_ruins.ogg` | CC0-1.0 |
+| salvage_warrens | Vitalezzz — chasing-memories | `art/audio/production/music/salvage_warrens.ogg` | CC0-1.0 |
+| hoard_depths | Vitalezzz — outworld | `art/audio/production/music/hoard_depths.ogg` | CC0-1.0 |
+| boss | Vitalezzz — eclipse-legion | `art/audio/production/music/boss.ogg` | CC0-1.0 |
+| mossglass_wilds | nene — Beautiful Forest [Orchestra] | `art/audio/production/music/mossglass_wilds.ogg` | CC0-1.0 |
+| frostbell_hollows | Karate Studios — Ice Village | `art/audio/production/music/frostbell_hollows.ogg` | CC0-1.0 |
+| nullglass_expanse | Vitalezzz — Claimed by the Void | `art/audio/production/music/nullglass_expanse.ogg` | CC0-1.0 |
+| sunken_gearworks | Vitalezzz — Inevitable | `art/audio/production/music/sunken_gearworks.ogg` | CC0-1.0 |
+
+All11 score outputs and11 retained score sources match their recorded hashes; all461 production-bank outputs match `sources.json`. That verification establishes identity/integrity, not human mastering or phone-speaker quality. Recorded Kenney/EmoPreben/Darsycho/Kerzoven sources and original ambience/noise layers retain their individual attribution and processing records. No new downloads, licence substitutions or musical identity changes were made in this pass.
+
+Bounded voices, crossfades, category settings, fallback routing, limiter and event-bank validation remain in the existing audio manager. Human listening/mastering, fatigue, loop seams, real device mix/performance and final commercial acceptance remain pending. Earlier signal measurements below are historical observations, not proof of today's audible quality.
+
+## Historical pre-production record — superseded where it describes current assets
+
 > **2026-10-02 audit authority:** [AUDIT_REPORT.md](AUDIT_REPORT.md). Every current WAV is classified BETA procedural placeholder; no new external license was introduced by this audit. Native mix QA is objective signal testing, not human listening/mastering approval. Final production cues must preserve individual creator/license/source records.
 
 # Lootlings Audio Licences

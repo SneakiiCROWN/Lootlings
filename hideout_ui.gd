@@ -1229,6 +1229,7 @@ func refresh_achievements() -> void:
 		card.clip_text = true
 		card.tooltip_text = title
 		card.pressed.connect(select_achievement.bind(str(entry.id)))
+		card.set_meta("achievement_id", str(entry.id))
 	if visible_entries.is_empty():
 		achievement_detail.text = "[center][color=#9fb3d8]No trophies in this collection yet.[/color][/center]"
 		return
@@ -1263,6 +1264,16 @@ func trophy_texture_path(entry: Dictionary, unlocked: bool, secret: bool) -> Str
 func select_achievement(id: String) -> void:
 	selected_achievement_id = id
 	refresh_achievement_detail()
+	# Home deep-links must reveal the selected badge as well as its detail.
+	call_deferred("reveal_selected_achievement")
+
+func reveal_selected_achievement() -> void:
+	if not is_instance_valid(achievement_grid) or not achievement_grid.is_visible_in_tree(): return
+	var scroll: ScrollContainer = achievement_grid.get_parent()
+	for card in achievement_grid.get_children():
+		if str(card.get_meta("achievement_id", "")) == selected_achievement_id:
+			scroll.ensure_control_visible(card)
+			return
 
 func refresh_achievement_detail() -> void:
 	if achievement_detail == null or selected_achievement_id.is_empty():
