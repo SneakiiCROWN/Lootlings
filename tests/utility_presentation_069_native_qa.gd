@@ -5,6 +5,8 @@ func review() -> void:
   root.size=viewport;folder="res://.godot_test_data/utility069/%dx%d/" % [viewport.x,viewport.y];DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
   game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame;game.set_process(false);game.app_lifecycle.platform_notifications_enabled=false;game.audio_settings.cinematic_first_time=false
   game.startup_ui.show_settings();game.startup_ui.support_panel.show();await capture("support")
+  for child in game.startup_ui.support_panel.get_children():
+   if child is Label:assert(child.position.x+child.size.x<=game.startup_ui.support_panel.size.x+1)
   var attacks:int=game.attack_sequence;var wallet:int=game.gold;var guide=game.contextual_guide;var backups=game.backup_menu
   guide.read_ids.clear();guide.open("currencies");await capture("field_guide");guide.picker.show_popup();await capture("guide_dropdown");assert(guide.picker.get_popup().size.y<=480);guide.picker.get_popup().hide()
   guide.close();assert(game.startup_ui.support_panel.visible and not guide.panel.visible and game.attack_sequence==attacks)
@@ -23,4 +25,4 @@ func review() -> void:
   rows.append({"viewport":str(viewport),"guide_return":true,"backup_create_preview_cancel":true,"comparison":true,"wallet_unchanged":true,"touch_no_attack":true,"physical_device":false,"owner_artistic_acceptance":false})
   game.free();await process_frame
  var output=FileAccess.open("res://.godot_test_data/utility069/RESULTS.json",FileAccess.WRITE);output.store_string(JSON.stringify(rows,"  "));output.close()
- print("UTILITY 069 NATIVE PASS: Support, guide/dropdown, backup create/preview/confirmation cancel and named Mythical comparison; four layouts, no wallet/attack mutation. Physical/artistic acceptance pending.");quit()
+ print("UTILITY 069 NATIVE PASS: bounded Support, guide/dropdown, backup create/preview/confirmation cancel and named Mythical comparison; five layouts, no wallet/attack mutation. Physical/artistic acceptance pending.");quit()

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.68",
+  "version": "0.4.69",
   "policy": "Native evidence identifies defects. Functional tests and exports do not grant professional artistic acceptance. No additional frozen contract closures.",
   "entries": [
     {
@@ -15,9 +15,9 @@
     },
     {
       "id": "verdant-mirror-body-animation",
-      "identity": "The Verdant Mirror â€” Warden of the Stolen Spring",
+      "identity": "The Verdant Mirror — Warden of the Stolen Spring",
       "status": "DEFECTIVE / FUNCTIONALLY WORKING / ART CORRECTION REQUIRED",
-      "region": "Act II â€” Mossglass Wilds",
+      "region": "Act II — Mossglass Wilds",
       "source": "art/sprites/enemies/beta/verdant_mirror.png",
       "binding": "boss_presentation.gd BOSSES.mossglass_wilds; boss_patterns.gd mossglass_wilds",
       "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/verdant_mirror_open_defect.png",
@@ -36,7 +36,7 @@
     },
     {
       "id": "home-services-premium-review",
-      "identity": "Home â†’ Ilex Archive â†’ Trophy display; Patch Shop and Sera Shrine",
+      "identity": "Home → Ilex Archive → Trophy display; Patch Shop and Sera Shrine",
       "status": "FUNCTIONALLY TESTED / NATIVE VISUAL REVIEWED / NEEDS OWNER ACCEPTANCE",
       "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/grounded_companion.png",
       "remaining": [
@@ -56,6 +56,26 @@
         "Single approved gloved-hand contact is installed; authored animated stroking/blinking/body pose layers remain missing and are not claimed.",
         "Three matching canvas variants, original wordmark/music, real controls and restrained environmental motion verified across6 sizes.",
         "No new major narrative scripts, mystery answers or ending changes installed."
+      ]
+    },
+    {
+      "id": "owner-screenshot-consistency-069",
+      "identity": "Shared controls, utility screens, equipment and service detail flow",
+      "status": "FIXED & SOURCE VERIFIED selected defects; exact export checks pending / broader artistic review remains open",
+      "evidence": "docs/production/quality-evidence/0.4.69/REPORT.md",
+      "fixed": [
+        "Hidden backup confirmation and modal/back ownership",
+        "Unstyled guide/backups, meaningful empty/new/read/practised states",
+        "Default selector/popup/scrollbar/slider styling",
+        "Effects viewport too short in Stash/Forge/Shop",
+        "Unnecessary trailing Skip/Close/service/claim chevrons; no runtime mojibake found by targeted source scan"
+      ],
+      "remaining": [
+        "Owner visual acceptance and physical S23",
+        "Remaining Contracts state/reward hierarchy, Archive collectible prestige/Field Notes, region and Siege/dungeon information density",
+        "Hub label anchors/overlay/footer crowding and NPC environmental body/animation cohesion",
+        "Profile/character-editor fitting and story skip/text appearance in all native contexts",
+        "All-screen empty/locked/claimable/complete/no-data state coverage and exhaustive loot-context usability"
       ]
     }
   ]

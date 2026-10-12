@@ -733,12 +733,16 @@ func style_hero_stage(panel: Panel) -> void:
 
 func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignment: HorizontalAlignment, color: Color) -> Label:
 	var label := Label.new()
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.text = value
 	label.position = rect.position
 	label.size = rect.size
 	label.horizontal_alignment = alignment
 	label.add_theme_font_size_override("font_size", font_size)
 	preload("res://lootlings_typography.gd").label(label,font_size)
+	# Setting text before wrapping can expand a Label to its unwrapped minimum.
+	# Reapply the authored bounds after typography enables word wrapping.
+	label.size = rect.size
 	label.add_theme_color_override("font_color", color)
 	parent.add_child(label)
 	return label

@@ -186,7 +186,7 @@
     "settings_store.gd": "01fe7ce44a6b0bce97e23c5ccc2d2a1acffaf7186d23e7a531a10a99c83aefcc",
     "shop_system.gd": "b0c6a0e831830a9d09e1b03c3dc6bd7689b502e213478315c90636761999e04b",
     "showcase_art.gd": "014f7cd972444a15014ceff104099fa63ef7e8bdefa2b858f0329432634185ed",
-    "startup_ui.gd": "3aebebaf05d42a130af47574cb9489c00ccb1d1e440613428423bba15c1df835",
+    "startup_ui.gd": "ac833d3db50414346436b40f5da9c966feb402787c5ef9460029680d93800a90",
     "station_presentation.gd": "66abc58cf23ca587eae457c676a74adf7d8861b1afb1820c022ad7897b73b150",
     "touch_ux.gd": "a285118c83fb3aa5e8bffe18c01180abd906180ae60986c3ded74188b5569468",
     "travelling_merchant_view.gd": "163235d8da64b4677bfbf2379ee8b0f4ca52c23215747ff6f37b30d8386520b0",
@@ -336364,7 +336364,7 @@
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:771:0:b147a9cc",
+      "slot_id": "label:startup_ui.gd:775:0:b147a9cc",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -336391,13 +336391,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 771,
+        "line": 775,
         "text": "font_size",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:startup_ui.gd:771:1:bb1b3800",
+      "slot_id": "label:startup_ui.gd:775:1:bb1b3800",
       "game_id": "startup_ui_gd",
       "category": "player_text",
       "subject": "startup_ui.gd",
@@ -336424,7 +336424,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 771,
+        "line": 775,
         "text": "EXIT",
         "dynamic_template": true
       }

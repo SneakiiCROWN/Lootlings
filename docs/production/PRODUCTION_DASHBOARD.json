@@ -15584,8 +15584,8 @@
         "label:startup_ui.gd:623:0:a3901dfc",
         "label:startup_ui.gd:625:0:f6a7f641",
         "label:startup_ui.gd:626:0:3928f11d",
-        "label:startup_ui.gd:771:0:b147a9cc",
-        "label:startup_ui.gd:771:1:bb1b3800",
+        "label:startup_ui.gd:775:0:b147a9cc",
+        "label:startup_ui.gd:775:1:bb1b3800",
         "named-item:quiet_chime",
         "asset:art/audio/music/outer_ruins.wav",
         "asset:art/audio/production/ambience/outer_ruins.wav",
@@ -17599,8 +17599,8 @@
         "label:startup_ui.gd:623:0:a3901dfc",
         "label:startup_ui.gd:625:0:f6a7f641",
         "label:startup_ui.gd:626:0:3928f11d",
-        "label:startup_ui.gd:771:0:b147a9cc",
-        "label:startup_ui.gd:771:1:bb1b3800",
+        "label:startup_ui.gd:775:0:b147a9cc",
+        "label:startup_ui.gd:775:1:bb1b3800",
         "label:utility_presentation.gd:7:0:d8901735",
         "label:utility_presentation.gd:8:0:d8901735",
         "label:vignette_player.gd:52:0:431de839",
@@ -176375,7 +176375,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:771:0:b147a9cc",
+      "id": "label:startup_ui.gd:775:0:b147a9cc",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176402,7 +176402,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:771:1:bb1b3800",
+      "id": "label:startup_ui.gd:775:1:bb1b3800",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -287886,7 +287886,7 @@
     "quality_note": "Source native review and targeted regression pass. Exact export verification pending; no complete game professional acceptance."
   },
   "world_quality_defects": {
-    "version": "0.4.68",
+    "version": "0.4.69",
     "policy": "Native evidence identifies defects. Functional tests and exports do not grant professional artistic acceptance. No additional frozen contract closures.",
     "entries": [
       {
@@ -287902,9 +287902,9 @@
       },
       {
         "id": "verdant-mirror-body-animation",
-        "identity": "The Verdant Mirror â€” Warden of the Stolen Spring",
+        "identity": "The Verdant Mirror — Warden of the Stolen Spring",
         "status": "DEFECTIVE / FUNCTIONALLY WORKING / ART CORRECTION REQUIRED",
-        "region": "Act II â€” Mossglass Wilds",
+        "region": "Act II — Mossglass Wilds",
         "source": "art/sprites/enemies/beta/verdant_mirror.png",
         "binding": "boss_presentation.gd BOSSES.mossglass_wilds; boss_patterns.gd mossglass_wilds",
         "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/verdant_mirror_open_defect.png",
@@ -287923,7 +287923,7 @@
       },
       {
         "id": "home-services-premium-review",
-        "identity": "Home â†’ Ilex Archive â†’ Trophy display; Patch Shop and Sera Shrine",
+        "identity": "Home → Ilex Archive → Trophy display; Patch Shop and Sera Shrine",
         "status": "FUNCTIONALLY TESTED / NATIVE VISUAL REVIEWED / NEEDS OWNER ACCEPTANCE",
         "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/grounded_companion.png",
         "remaining": [
@@ -287944,6 +287944,26 @@
           "Three matching canvas variants, original wordmark/music, real controls and restrained environmental motion verified across6 sizes.",
           "No new major narrative scripts, mystery answers or ending changes installed."
         ]
+      },
+      {
+        "id": "owner-screenshot-consistency-069",
+        "identity": "Shared controls, utility screens, equipment and service detail flow",
+        "status": "FIXED & SOURCE VERIFIED selected defects; exact export checks pending / broader artistic review remains open",
+        "evidence": "docs/production/quality-evidence/0.4.69/REPORT.md",
+        "fixed": [
+          "Hidden backup confirmation and modal/back ownership",
+          "Unstyled guide/backups, meaningful empty/new/read/practised states",
+          "Default selector/popup/scrollbar/slider styling",
+          "Effects viewport too short in Stash/Forge/Shop",
+          "Unnecessary trailing Skip/Close/service/claim chevrons; no runtime mojibake found by targeted source scan"
+        ],
+        "remaining": [
+          "Owner visual acceptance and physical S23",
+          "Remaining Contracts state/reward hierarchy, Archive collectible prestige/Field Notes, region and Siege/dungeon information density",
+          "Hub label anchors/overlay/footer crowding and NPC environmental body/animation cohesion",
+          "Profile/character-editor fitting and story skip/text appearance in all native contexts",
+          "All-screen empty/locked/claimable/complete/no-data state coverage and exhaustive loot-context usability"
+        ]
       }
     ]
   },
@@ -287962,8 +287982,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "5e5664d4235722c45a921a281445c1be48cc0dd5172ade33f45bd42aee686f3f",
-    "docs/production/CANON_REGISTRY.json": "9204d2f417f8d7a6ab2bd7ddd96f83f0adda8953aa4679bd0dc8e61714b7eaeb",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "168f8ceea420ce3df57ba5fda7a46610cb6e048272e708eb9234e312543a4702",
+    "docs/production/CANON_REGISTRY.json": "f642221a69a7d2da9cfd3c0649410aef9d3423029cacb9cc67a43ada0338e23f",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -287972,7 +287992,7 @@
     "art/hoard_dragon_identity_authority.json": "8c3991797f5d51db5f0f58f25fa71b2265a91f387ba871f4bf167bc856e0cd63",
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
-    "docs/production/WORLD_QUALITY_DEFECTS.json": "48dc4e05af42b9c7481faaceaa760373aa2be818c591bf5e98a3d211ad644ea3",
+    "docs/production/WORLD_QUALITY_DEFECTS.json": "a6f32a2ef718c5e124f669a3453de5d9d206f2d0bb4ae6ef965aa6b0da059f04",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
     "docs/production/quality-evidence/0.4.69/INSTALLATION_RECEIPT.json": "adf67d8de45a42fea2eadd15d8f3e36bddd5d691d1217db1be988a3e454a67ec",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"

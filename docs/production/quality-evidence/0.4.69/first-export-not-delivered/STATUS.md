@@ -1,0 +1,1 @@
+Initial 0.4.69 export passed seven technical fixtures, but native visual review found Support copy overflowing its frame. Do not deliver the initial unsuffixed069 APK/EXE as final. Correct startup Label wrapping/minimum-size order, test explicit frame bounds, and deliver r2 after final exported review. Preserve initial artifacts for traceability.
