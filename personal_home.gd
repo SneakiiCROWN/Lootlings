@@ -139,7 +139,7 @@ func build_room_hotspots() -> void:
 	buttons.chest=nav.feature(room,"HomeChest",Rect2(98,298,112,120),"Stash","Prepare your gear",func():game.show_personal_stash())
 	buttons.gear=buttons.chest
 	buttons.archive=nav.feature(room,"HomeArchive",Rect2(8,318,84,116),"Archive","Trophies & memories",open_collection,12)
-	buttons.shelf=nav.feature(room,"HomeDisplay",Rect2(338,246,108,116),"Display","Make it yours",func():selected_slot="home.wall_display";open("decor"),12)
+	buttons.shelf=nav.feature(room,"HomeDisplay",Rect2(338,246,108,116),"Display","Make it yours",inspect_display,12)
 	buttons.shelf.get_node("FeatureName").position.y=96
 	buttons.ledge=nav.feature(room,"HomeWallPerch",Rect2(326,364,110,86),"Perch","",func():greet_or_collection("home.wall_perch"),12)
 	buttons.character=nav.feature(room,"HomeCharacter",Rect2(186,436,138,176),"","Your Lootling",func():game.show_profile_from_personal_home())
@@ -234,3 +234,9 @@ func greet_or_collection(slot: String) -> void:
 
 func open_collection() -> void:
 	visible=false;game.state="hideout";game.hideout_ui.visible=true;game.hideout_ui.private_return=true;game.hideout_ui.show_achievements()
+func inspect_display() -> void:
+	if preload("res://home_rewards.gd").displayed(game):
+		open_collection()
+		game.hideout_ui.set_achievement_filter("ALL")
+		game.hideout_ui.select_achievement(preload("res://home_rewards.gd").ACHIEVEMENT)
+	else:selected_slot="home.wall_display";open("decor")

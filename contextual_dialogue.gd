@@ -835,7 +835,8 @@ func choose(speaker: String, facts: Dictionary) -> String:
 	var buckets: Dictionary={}
 	var clock: float=Time.get_ticks_msec()/1000.0
 	for entry in LINES:
-		if entry.speaker!=speaker or entry.text in recent: continue
+		var pending_event:bool=entry.has("event") and str(facts.get("event",""))==str(entry.event)
+		if entry.speaker!=speaker or entry.text in recent and not pending_event: continue
 		var matches:=true
 		for key in entry:
 			if key in ["speaker","text","category","flag"]: continue
@@ -870,6 +871,8 @@ func choose(speaker: String, facts: Dictionary) -> String:
 	if not str(facts.get("event","")).is_empty() and buckets.has("context") and not buckets.context.is_empty():chosen_category="context"
 	var candidates: Array=buckets[chosen_category]
 	if chosen_category=="context":
+		var event_matches:Array=candidates.filter(func(entry):return entry.get("event","")==facts.get("event","") and entry.has("event"))
+		if not event_matches.is_empty():candidates=event_matches
 		var specificity:=0
 		for entry in candidates:
 			specificity=maxi(specificity,entry.size()-4 if entry.has("flag") else entry.size()-3)

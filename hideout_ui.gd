@@ -1768,13 +1768,16 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	facts.activity=resident_activity(requested_speaker)
 	var current_event:String=str(facts.get("event",""))
 	if resident_context_heard.get(requested_speaker,"")==current_event:facts.erase("event")
-	else:resident_context_heard[requested_speaker]=current_event
 	var line: String=home_dialogue.choose(requested_speaker,facts)
 	var voice_name: String=WorldStory.SPEAKERS.get(requested_speaker,requested_speaker)
 	if requested_speaker=="Mascot":
 		voice_name=Avatar.display_name(profile)
 		line=home_dialogue.choose(facts.character,facts)
-	queued_dialogue_context=""; queued_dialogue_priority=-1
+	# A greeting/service line cannot consume a story event meant for another
+	# resident. Record acknowledgement only after a matching authored line.
+	if not current_event.is_empty() and str(home_dialogue.last_selection.get("event",""))==current_event:
+		resident_context_heard[requested_speaker]=current_event
+		queued_dialogue_context=""; queued_dialogue_priority=-1
 	speech_name.text=voice_name
 	speech_label.text=line
 	speech_label.scroll_to_line(0)

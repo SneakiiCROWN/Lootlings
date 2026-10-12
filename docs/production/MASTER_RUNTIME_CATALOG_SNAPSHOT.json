@@ -3303,7 +3303,7 @@
       "_init",
       "choose"
     ],
-    "source_sha256": "17ac04a07244827ce65a8f96c1fcd19c2611f5e92f2273db552517bcba30af7d"
+    "source_sha256": "c70586378b9cd6e6010c99f6c63dc7b1706a3984e6106cdefaab993aac9109ee"
   },
   "contextual_guide.gd": {
     "constants": {
@@ -5273,7 +5273,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "d5fe77d0888aef3b6f5ab5c4be6d2b554e647d42d6237b6bbd7e603c06c860cc"
+    "source_sha256": "fb2fa3b063af446fba418c386f9abd152b836f2a0d7ef845dd424463332cf08c"
   },
   "home_catalog.gd": {
     "constants": {
@@ -8080,9 +8080,10 @@
       "refresh_decor_editor",
       "apply_decor",
       "greet_or_collection",
-      "open_collection"
+      "open_collection",
+      "inspect_display"
     ],
-    "source_sha256": "8f769d414478ea680ed3aff0b0da5068dc03a0604adc9dc9a0f53e42edc594b8"
+    "source_sha256": "ea79dd9bda79e9c2b62a80b4da960ba509f783be8da648e8e8c7471acdb285ba"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -8916,9 +8917,10 @@
       "reset",
       "refresh",
       "_process",
+      "number",
       "_draw"
     ],
-    "source_sha256": "873034c88548585fdaf99eeb86c3edf5f59f31df9aa5e1830e7ee92c8b0401e1"
+    "source_sha256": "042543184b83ad4c0c987487bc5f1949c945e48d06b6dea6431a92ef60af10af"
   },
   "region_audio.gd": {
     "constants": {
