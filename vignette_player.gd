@@ -49,7 +49,7 @@ func _ready() -> void:
 	close = Button.new()
 	close.position = Vector2(270, 792)
 	close.size = Vector2(184,48)
-	close.text = "SKIP ›"
+	close.text = "SKIP"
 	close.add_theme_font_size_override("font_size", 16)
 	UI.apply_button(close, Color("#17294b"), Color("#72c8ff"))
 	close.pressed.connect(finish)
@@ -84,7 +84,7 @@ func play(entry: Dictionary, settings: Dictionary, playback_mode: String, callba
 	title.text = str(entry.name).to_upper()
 	category.text = "%s • %s" % [str(entry.category).to_upper(), "ARCHIVE REPLAY" if mode == "replay" else "STORY PREVIEW" if mode == "preview" else "DISCOVERED MEMORY"]
 	status.text = str(entry.category).to_upper()
-	close.text = "CLOSE ›" if mode in ["replay","preview"] else "SKIP ›"
+	close.text = "CLOSE" if mode in ["replay","preview"] else "SKIP"
 	caption_panel.visible = subtitles
 	caption.visible = subtitles
 	status.visible = subtitles

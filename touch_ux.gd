@@ -239,7 +239,9 @@ func request(title: String, detail: String, action: Callable, comparison: Dictio
 	dialog_opened = Time.get_ticks_msec()
 	dialog = Control.new()
 	dialog.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	dialog.z_index = 200
+	# Confirmation must remain above utility overlays (Backups 940 / Guide 950),
+	# including restore previews. A hidden confirmation is an unusable route.
+	dialog.z_index = 1100
 	game.add_child(dialog)
 	var veil := ColorRect.new()
 	veil.color = Color("#050a17dd")

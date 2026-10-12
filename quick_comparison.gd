@@ -58,7 +58,7 @@ func _draw() -> void:
 	for index in range(2):
 		var item:Dictionary=equipped if index==0 else found;var x:float=index*size.x*.5+6;var width:float=size.x*.5-12
 		draw_string(font,Vector2(x,16),"EQUIPPED" if index==0 else "INSPECTING",HORIZONTAL_ALIGNMENT_LEFT,width,13,Color("#bcd1e8"))
-		var texture:Texture2D=UI.raw_item_texture(item)
+		var texture:Texture2D=UI.item_texture(item)
 		if texture!=null:
 			var dimensions:Vector2=texture.get_size();var scaled:Vector2=dimensions*minf(32/dimensions.x,32/dimensions.y)
 			draw_texture_rect(texture,Rect2(Vector2(x,27)+(Vector2(32,32)-scaled)*.5,scaled),false)

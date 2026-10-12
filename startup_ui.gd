@@ -266,13 +266,14 @@ func build_settings() -> void:
 	make_button(panel,"COMBAT TEXT",Rect2(154,590,116,48),Color("#17294b"),Color("#72c8ff"),12).pressed.connect(func():combat_preferences.show())
 	support_panel = make_panel(settings_content,Rect2(28,75,424,710),Color("#0b1430ff"),Color("#72c8ff"))
 	support_panel.visible = false
+	LootlingsUI.apply_material(support_panel,"leather")
 	if preload("res://owner_test_access.gd").enabled():
 		make_label(support_panel,"OWNER TEST BUILD • ISOLATED SAVES",14,Rect2(24,298,376,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 		make_button(support_panel,"OWNER TOOLS",Rect2(42,354,340,54),Color("#17294b"),Color("#72c8ff"),16).pressed.connect(func():get_parent().owner_test_access.backup_open())
 	make_label(support_panel,"SUPPORT",26,Rect2(22,24,380,44),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe178"))
 	profile_id_label = make_label(support_panel,"",14,Rect2(24,116,376,64),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
 	profile_id_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	make_label(support_panel,"Include this ID when reporting a problem.",14,Rect2(24,198,376,60),HORIZONTAL_ALIGNMENT_CENTER,Color("#b8c7e7"))
+	make_label(support_panel,"Keep your progress safe. Replay a guide, manage your backups, or include the ID above when reporting a problem.",16,Rect2(32,194,360,92),HORIZONTAL_ALIGNMENT_CENTER,Color("#d5e1f1"))
 	make_button(support_panel,"FIELD GUIDE · REPLAY HELP",Rect2(42,438,340,54),Color("#17294b"),Color("#72c8ff"),16).pressed.connect(func():get_parent().contextual_guide.open())
 	make_button(support_panel,"SAVES & BACKUPS",Rect2(42,508,340,54),Color("#17294b"),Color("#72c8ff"),16).pressed.connect(func():get_parent().backup_menu.open())
 	var support_back := make_button(support_panel,"‹ SETTINGS",Rect2(42,638,340,54),Color("#17294b"),Color("#72c8ff"),16)

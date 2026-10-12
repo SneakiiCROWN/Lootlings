@@ -26,6 +26,7 @@ var panel:Panel
 var chip:Button
 var picker:OptionButton
 var body:RichTextLabel
+var reading_state:Label
 var toggle:CheckButton
 var read_ids:Array=[]
 var practised_ids:Array=[]
@@ -45,17 +46,22 @@ func configure(target) -> void:
 				for id in values:
 					if id is String and TOPICS.has(id) and not id in (read_ids if key=="read" else practised_ids):(read_ids if key=="read" else practised_ids).append(id)
 	chip=Button.new();chip.position=Vector2(350,802);chip.size=Vector2(114,44);chip.text="GUIDE";chip.tooltip_text="Optional contextual help";chip.add_theme_font_size_override("font_size",13);chip.pressed.connect(func():open(context));add_child(chip)
+	preload("res://utility_presentation.gd").button(chip)
 	panel=Panel.new();panel.size=Vector2(480,854);panel.mouse_filter=Control.MOUSE_FILTER_STOP;panel.visible=false;add_child(panel)
-	var style:=StyleBoxFlat.new();style.bg_color=Color("#09162cff");panel.add_theme_stylebox_override("panel",style)
-	var heading:=Label.new();heading.text="THE FIELD GUIDE";heading.position=Vector2(28,48);heading.size=Vector2(424,48);heading.add_theme_font_size_override("font_size",25);panel.add_child(heading)
-	picker=OptionButton.new();picker.position=Vector2(28,116);picker.size=Vector2(424,56);picker.add_theme_font_size_override("font_size",17);panel.add_child(picker)
+	preload("res://utility_presentation.gd").decorate(panel,"THE FIELD GUIDE","A little guidance, whenever you need it.","res://art/production/phase4e/items/recipe_scroll.png")
+	picker=OptionButton.new();picker.position=Vector2(28,140);picker.size=Vector2(424,60);picker.add_theme_font_size_override("font_size",17);panel.add_child(picker)
 	for id in TOPICS:picker.add_item(TOPICS[id][0]);picker.set_item_metadata(picker.item_count-1,id)
+	picker.get_popup().max_size=Vector2i(424,480)
 	picker.item_selected.connect(func(_i):refresh())
-	body=RichTextLabel.new();body.position=Vector2(32,200);body.size=Vector2(416,300);body.add_theme_font_size_override("normal_font_size",20);body.add_theme_color_override("default_color",Color("#e6edf8"));body.scroll_active=true;panel.add_child(body)
+	preload("res://utility_presentation.gd").inset(panel,Rect2(28,212,424,304))
+	body=RichTextLabel.new();body.position=Vector2(44,228);body.size=Vector2(392,242);body.add_theme_font_size_override("normal_font_size",19);body.add_theme_color_override("default_color",Color("#e6edf8"));body.scroll_active=true;panel.add_child(body)
+	reading_state=Label.new();reading_state.position=Vector2(44,478);reading_state.size=Vector2(392,24);reading_state.add_theme_font_size_override("font_size",13);reading_state.add_theme_color_override("font_color",Color("#cbb684"));reading_state.mouse_filter=Control.MOUSE_FILTER_IGNORE;panel.add_child(reading_state)
 	toggle=CheckButton.new();toggle.text="Suggest guides in the world";toggle.position=Vector2(28,532);toggle.size=Vector2(424,60);toggle.add_theme_font_size_override("font_size",17);toggle.button_pressed=enabled;panel.add_child(toggle)
 	toggle.toggled.connect(func(value):var old:=enabled;enabled=value;if persist()!=OK:enabled=old;toggle.set_pressed_no_signal(old);body.text="Could not save this preference. Your previous setting is retained.")
 	var done:=Button.new();done.text="GOT IT · RETURN";done.position=Vector2(28,626);done.size=Vector2(424,60);done.pressed.connect(acknowledge);panel.add_child(done)
-	var close_button:=Button.new();close_button.text="BACK · WITHOUT MARKING READ";close_button.position=Vector2(28,704);close_button.size=Vector2(424,56);close_button.add_theme_font_size_override("font_size",15);close_button.pressed.connect(close);panel.add_child(close_button)
+	preload("res://utility_presentation.gd").button(done,true)
+	var close_button:=Button.new();close_button.text="RETURN · READ LATER";close_button.position=Vector2(28,704);close_button.size=Vector2(424,60);close_button.add_theme_font_size_override("font_size",15);close_button.pressed.connect(close);panel.add_child(close_button)
+	preload("res://utility_presentation.gd").button(close_button)
 func persist() -> Error:
 	var config:=ConfigFile.new();config.set_value("guide","version",1);config.set_value("guide","enabled",enabled);config.set_value("guide","read",read_ids);config.set_value("guide","practised",practised_ids)
 	return preload("res://safe_config.gd").save_config(config,PATH)
@@ -92,7 +98,8 @@ func open(id:String="") -> void:
 	refresh()
 func refresh() -> void:
 	var id:String=picker.get_item_metadata(picker.selected)
-	body.text=TOPICS[id][1]+("\n\nRead before · available to replay." if id in read_ids else "\n\nOptional. No purchase or reward is required.")+("\nPractised in game." if id in practised_ids else "")
+	body.text=TOPICS[id][1]
+	reading_state.text="Practised in game · replay anytime" if id in practised_ids else "Read before · replay anytime" if id in read_ids else "New topic · optional, no rewards required"
 	body.scroll_to_line(0)
 func acknowledge() -> void:
 	var id:String=picker.get_item_metadata(picker.selected)

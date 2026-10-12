@@ -3638,11 +3638,11 @@ func load_meta() -> void:
 	gold_upgrades = progress.get("gold_upgrades", {"bedroll":0, "whetstone":0, "pouch":0}).duplicate(true)
 
 func navigate_back() -> void:
-	if backup_menu!=null and backup_menu.panel.visible and not is_instance_valid(touch_ux.dialog):backup_menu.close();return
-	if contextual_guide!=null and contextual_guide.panel.visible:contextual_guide.close();return
 	if touch_ux != null and is_instance_valid(touch_ux.dialog):
 		touch_ux.close_dialog()
 		return
+	if backup_menu!=null and backup_menu.panel.visible:backup_menu.close();return
+	if contextual_guide!=null and contextual_guide.panel.visible:contextual_guide.close();return
 	if presentation_director.vignette.active:
 		presentation_director.vignette.finish(); return
 	if startup_ui.visible and startup_ui.handle_settings_back(): return
@@ -3684,12 +3684,10 @@ func navigate_back() -> void:
 		startup_ui.show_title()
 
 func input_surface() -> Control:
-	if contextual_guide!=null and contextual_guide.panel.visible:return contextual_guide.panel
-	if backup_menu!=null and backup_menu.panel.visible and not is_instance_valid(touch_ux.dialog):return backup_menu.panel
 	if touch_ux!=null and is_instance_valid(touch_ux.dialog):return touch_ux.dialog
+	if contextual_guide!=null and contextual_guide.panel.visible:return contextual_guide.panel
+	if backup_menu!=null and backup_menu.panel.visible:return backup_menu.panel
 	if is_instance_valid(debug_panel) and debug_panel.visible:return debug_panel
-	# The topmost confirmation owns input, including inside personal Home.
-	if touch_ux!=null and is_instance_valid(touch_ux.dialog): return touch_ux.dialog
 	if state=="personal_home":return personal_home.input_surface()
 	if startup_ui.visible: return startup_ui.input_surface()
 	if state in ["mode_menu","relic_spinner","siege_service","siege_checkpoint"]:

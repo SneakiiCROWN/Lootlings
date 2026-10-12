@@ -97,7 +97,7 @@
     "installed_artist_files": 1317,
     "remaining_artist_files": 7178,
     "current_reviewed_runtime_png_cells": 304,
-    "registered_requirement_records": 8360,
+    "registered_requirement_records": 8356,
     "production_ready_records": 0
   },
   "contract_families": [
@@ -879,18 +879,18 @@
     },
     {
       "family": "player_text",
-      "required_records": 1278,
-      "launch_records": 1243,
-      "installed_records": 1243,
+      "required_records": 1273,
+      "launch_records": 1238,
+      "installed_records": 1238,
       "production_ready": 0,
       "quality_counts": {
-        "installed_awaiting_visual_review": 1243,
+        "installed_awaiting_visual_review": 1238,
         "reference_or_planned": 35
       },
       "stages": {
         "canon_reference_approved": 0,
         "created": 0,
-        "integrated": 1243,
+        "integrated": 1238,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -1074,17 +1074,17 @@
     },
     {
       "family": "runtime_system",
-      "required_records": 125,
-      "launch_records": 125,
-      "installed_records": 125,
+      "required_records": 126,
+      "launch_records": 126,
+      "installed_records": 126,
       "production_ready": 0,
       "quality_counts": {
-        "installed_awaiting_visual_review": 125
+        "installed_awaiting_visual_review": 126
       },
       "stages": {
         "canon_reference_approved": 0,
         "created": 0,
-        "integrated": 125,
+        "integrated": 126,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -4237,12 +4237,12 @@
         "label:lootling.gd:3560:1:49e79ce8",
         "label:lootling.gd:3629:0:6ae99955",
         "label:lootling.gd:3629:1:e8fef4b9",
-        "label:lootling.gd:4042:0:d5954590",
-        "label:lootling.gd:4042:1:081f2640",
-        "label:lootling.gd:4051:0:56d73656",
-        "label:lootling.gd:4138:0:089331a2",
-        "label:lootling.gd:4139:0:e29764e7",
-        "label:lootling.gd:4273:0:56d441fc",
+        "label:lootling.gd:4040:0:d5954590",
+        "label:lootling.gd:4040:1:081f2640",
+        "label:lootling.gd:4049:0:56d73656",
+        "label:lootling.gd:4136:0:089331a2",
+        "label:lootling.gd:4137:0:e29764e7",
+        "label:lootling.gd:4271:0:56d441fc",
         "label:lootlings_ui.gd:277:0:31f63f09",
         "asset:art/backgrounds/lootlings_hideout.png",
         "asset:art/backgrounds/lootlings_living_title_068.png",
@@ -14789,7 +14789,7 @@
     },
     {
       "domain": "Menus / HUD / icons / interactions / shops",
-      "registered_requirement_records": 1095,
+      "registered_requirement_records": 1094,
       "records": [
         "pose:ruin_warden:idle:right:bow",
         "pose:ruin_warden:idle:right:crossbow",
@@ -15336,21 +15336,19 @@
         "screen:startup_ui.gd:refresh_profile",
         "screen:startup_ui.gd:refresh_settings",
         "screen:startup_ui.gd:refresh_roster_selection",
-        "label:contextual_guide.gd:47:0:b4d1872b",
-        "label:contextual_guide.gd:47:1:b9ca0071",
-        "label:contextual_guide.gd:47:2:b147a9cc",
-        "label:contextual_guide.gd:50:0:63cb2d3c",
-        "label:contextual_guide.gd:50:1:b147a9cc",
-        "label:contextual_guide.gd:55:0:cfee46ea",
-        "label:contextual_guide.gd:55:1:b147a9cc",
-        "label:contextual_guide.gd:56:0:faffc3b4",
-        "label:contextual_guide.gd:57:0:48f50817",
-        "label:contextual_guide.gd:58:0:1fd337e9",
-        "label:contextual_guide.gd:58:1:b147a9cc",
-        "label:contextual_guide.gd:95:0:5ab91ec1",
-        "label:contextual_guide.gd:95:1:839b4941",
-        "label:contextual_guide.gd:95:2:00c7f62c",
-        "label:contextual_guide.gd:101:0:f6a6b53a",
+        "label:contextual_guide.gd:48:0:b4d1872b",
+        "label:contextual_guide.gd:48:1:b9ca0071",
+        "label:contextual_guide.gd:48:2:b147a9cc",
+        "label:contextual_guide.gd:59:0:cfee46ea",
+        "label:contextual_guide.gd:59:1:b147a9cc",
+        "label:contextual_guide.gd:60:0:faffc3b4",
+        "label:contextual_guide.gd:61:0:48f50817",
+        "label:contextual_guide.gd:63:0:495549c3",
+        "label:contextual_guide.gd:63:1:b147a9cc",
+        "label:contextual_guide.gd:102:0:0bd849b9",
+        "label:contextual_guide.gd:102:1:f7e1a5c8",
+        "label:contextual_guide.gd:102:2:359ff712",
+        "label:contextual_guide.gd:108:0:f6a6b53a",
         "label:hideout_ui.gd:294:1:7faee9aa",
         "label:hideout_ui.gd:294:2:22ab572f",
         "label:hideout_ui.gd:335:0:7f4f3dac",
@@ -15399,7 +15397,7 @@
         "label:hideout_ui.gd:685:1:45c94649",
         "label:hideout_ui.gd:685:2:b965ae66",
         "label:hideout_ui.gd:686:0:c7d7652e",
-        "label:hideout_ui.gd:686:1:8eb31fd1",
+        "label:hideout_ui.gd:686:1:063e998e",
         "label:hideout_ui.gd:686:2:af04ae5b",
         "label:hideout_ui.gd:698:0:bf4f44dc",
         "label:hideout_ui.gd:703:0:7d0b9e81",
@@ -15447,7 +15445,7 @@
         "label:hideout_ui.gd:1259:2:6ae99955",
         "label:hideout_ui.gd:1259:3:9113115b",
         "label:hideout_ui.gd:1265:0:7b20b508",
-        "label:hideout_ui.gd:1279:0:fc9f08c2",
+        "label:hideout_ui.gd:1279:0:616ca9c9",
         "label:hideout_ui.gd:1315:0:01690268",
         "label:hideout_ui.gd:1315:1:6b42874e",
         "label:hideout_ui.gd:1315:2:6c369a4d",
@@ -15523,15 +15521,15 @@
         "label:hideout_ui.gd:1514:2:2097c337",
         "label:hideout_ui.gd:1518:0:e11a2da1",
         "label:hideout_ui.gd:1733:0:eb2057cb",
-        "label:hideout_ui.gd:1733:1:23510732",
+        "label:hideout_ui.gd:1733:1:b98b23ec",
         "label:hideout_ui.gd:1733:2:52b7362e",
-        "label:hideout_ui.gd:1733:3:abd8d21e",
+        "label:hideout_ui.gd:1733:3:7b9877de",
         "label:hideout_ui.gd:1733:4:8f30eb6d",
-        "label:hideout_ui.gd:1733:5:237f6739",
+        "label:hideout_ui.gd:1733:5:0ce0a417",
         "label:hideout_ui.gd:1733:6:4b413d03",
-        "label:hideout_ui.gd:1733:7:e162db1b",
+        "label:hideout_ui.gd:1733:7:5b6cbbf9",
         "label:hideout_ui.gd:1733:8:e0489488",
-        "label:hideout_ui.gd:1733:9:9101b4a0",
+        "label:hideout_ui.gd:1733:9:6529f695",
         "label:hideout_ui.gd:1733:10:ff3dbb42",
         "label:hideout_ui.gd:2133:0:a3f47c95",
         "label:hideout_ui.gd:2133:1:5c5d6a24",
@@ -15570,24 +15568,24 @@
         "label:startup_ui.gd:252:0:3701471b",
         "label:startup_ui.gd:254:0:3701471b",
         "label:startup_ui.gd:258:0:89646612",
-        "label:startup_ui.gd:319:0:5fbc5136",
-        "label:startup_ui.gd:319:1:3b0cf89a",
-        "label:startup_ui.gd:319:2:37c866bb",
-        "label:startup_ui.gd:364:0:f4cfa89d",
-        "label:startup_ui.gd:407:0:089331a2",
-        "label:startup_ui.gd:409:0:75e97fa7",
-        "label:startup_ui.gd:502:0:70128901",
-        "label:startup_ui.gd:506:0:491f9fdf",
-        "label:startup_ui.gd:506:1:1da5e866",
-        "label:startup_ui.gd:546:0:70128901",
-        "label:startup_ui.gd:555:0:df9c2553",
-        "label:startup_ui.gd:555:1:04c45a95",
-        "label:startup_ui.gd:621:0:586e05ed",
-        "label:startup_ui.gd:622:0:a3901dfc",
-        "label:startup_ui.gd:624:0:f6a7f641",
-        "label:startup_ui.gd:625:0:3928f11d",
-        "label:startup_ui.gd:770:0:b147a9cc",
-        "label:startup_ui.gd:770:1:bb1b3800",
+        "label:startup_ui.gd:320:0:5fbc5136",
+        "label:startup_ui.gd:320:1:3b0cf89a",
+        "label:startup_ui.gd:320:2:37c866bb",
+        "label:startup_ui.gd:365:0:f4cfa89d",
+        "label:startup_ui.gd:408:0:089331a2",
+        "label:startup_ui.gd:410:0:75e97fa7",
+        "label:startup_ui.gd:503:0:70128901",
+        "label:startup_ui.gd:507:0:491f9fdf",
+        "label:startup_ui.gd:507:1:1da5e866",
+        "label:startup_ui.gd:547:0:70128901",
+        "label:startup_ui.gd:556:0:df9c2553",
+        "label:startup_ui.gd:556:1:04c45a95",
+        "label:startup_ui.gd:622:0:586e05ed",
+        "label:startup_ui.gd:623:0:a3901dfc",
+        "label:startup_ui.gd:625:0:f6a7f641",
+        "label:startup_ui.gd:626:0:3928f11d",
+        "label:startup_ui.gd:771:0:b147a9cc",
+        "label:startup_ui.gd:771:1:bb1b3800",
         "named-item:quiet_chime",
         "asset:art/audio/music/outer_ruins.wav",
         "asset:art/audio/production/ambience/outer_ruins.wav",
@@ -15621,6 +15619,7 @@
         "asset:art/production/phase4e/items/memory_hourglass.png",
         "asset:art/production/phase4e/items/mythical_050/starfold.png",
         "asset:art/production/phase4e/items/named_048/quiet_chime.png",
+        "asset:art/production/phase4e/items/recipe_scroll.png",
         "asset:art/production/phase4e/items/trail_map.png",
         "asset:art/production/phase4e/npcs/ilex_canonical_station_panel.png",
         "asset:art/production/phase4e/npcs/patch_canonical_station_panel.png",
@@ -15891,7 +15890,7 @@
     },
     {
       "domain": "Regions / backgrounds / layers / interiors / environments",
-      "registered_requirement_records": 1887,
+      "registered_requirement_records": 1882,
       "records": [
         "pose:mossmaw:idle:right:None",
         "pose:mossmaw:idle:left:None",
@@ -17137,38 +17136,31 @@
         "content:voice_identity.gd:PLAYER_PROFILES:vault_runner",
         "content:voice_identity.gd:PLAYER_PROFILES:velvet_astrologer",
         "screen:lootling.gd:draw_background",
-        "label:backup_menu.gd:16:0:2b8a0bc9",
-        "label:backup_menu.gd:16:1:b147a9cc",
-        "label:backup_menu.gd:26:0:b147a9cc",
-        "label:backup_menu.gd:39:0:b0da1274",
-        "label:backup_menu.gd:42:0:9e0dcdd6",
-        "label:backup_menu.gd:45:0:cd95cd06",
-        "label:backup_menu.gd:46:0:81c843ed",
-        "label:backup_menu.gd:51:0:90704a15",
-        "label:backup_menu.gd:55:0:aaf1ed49",
-        "label:backup_menu.gd:55:1:5d45a009",
-        "label:backup_menu.gd:55:2:586e05ed",
-        "label:backup_menu.gd:55:3:44926954",
-        "label:backup_menu.gd:57:0:44c531dd",
-        "label:backup_menu.gd:63:0:18d41302",
-        "label:backup_menu.gd:71:0:3d413b88",
-        "label:backup_menu.gd:71:1:8481acd5",
+        "label:backup_menu.gd:27:0:b147a9cc",
+        "label:backup_menu.gd:47:0:a813d640",
+        "label:backup_menu.gd:50:0:9e0dcdd6",
+        "label:backup_menu.gd:53:0:cd95cd06",
+        "label:backup_menu.gd:54:0:81c843ed",
+        "label:backup_menu.gd:60:0:90704a15",
+        "label:backup_menu.gd:66:0:266bef04",
+        "label:backup_menu.gd:69:0:44c531dd",
+        "label:backup_menu.gd:75:0:18d41302",
+        "label:backup_menu.gd:83:0:3d413b88",
+        "label:backup_menu.gd:83:1:8481acd5",
         "label:combat_numbers.gd:84:0:931243f1",
-        "label:contextual_guide.gd:47:0:b4d1872b",
-        "label:contextual_guide.gd:47:1:b9ca0071",
-        "label:contextual_guide.gd:47:2:b147a9cc",
-        "label:contextual_guide.gd:50:0:63cb2d3c",
-        "label:contextual_guide.gd:50:1:b147a9cc",
-        "label:contextual_guide.gd:55:0:cfee46ea",
-        "label:contextual_guide.gd:55:1:b147a9cc",
-        "label:contextual_guide.gd:56:0:faffc3b4",
-        "label:contextual_guide.gd:57:0:48f50817",
-        "label:contextual_guide.gd:58:0:1fd337e9",
-        "label:contextual_guide.gd:58:1:b147a9cc",
-        "label:contextual_guide.gd:95:0:5ab91ec1",
-        "label:contextual_guide.gd:95:1:839b4941",
-        "label:contextual_guide.gd:95:2:00c7f62c",
-        "label:contextual_guide.gd:101:0:f6a6b53a",
+        "label:contextual_guide.gd:48:0:b4d1872b",
+        "label:contextual_guide.gd:48:1:b9ca0071",
+        "label:contextual_guide.gd:48:2:b147a9cc",
+        "label:contextual_guide.gd:59:0:cfee46ea",
+        "label:contextual_guide.gd:59:1:b147a9cc",
+        "label:contextual_guide.gd:60:0:faffc3b4",
+        "label:contextual_guide.gd:61:0:48f50817",
+        "label:contextual_guide.gd:63:0:495549c3",
+        "label:contextual_guide.gd:63:1:b147a9cc",
+        "label:contextual_guide.gd:102:0:0bd849b9",
+        "label:contextual_guide.gd:102:1:f7e1a5c8",
+        "label:contextual_guide.gd:102:2:359ff712",
+        "label:contextual_guide.gd:108:0:f6a6b53a",
         "label:creature_renderer.gd:90:0:064a0c35",
         "label:creature_renderer.gd:90:1:2e9e37ed",
         "label:creature_renderer.gd:111:0:3ed8a8e2",
@@ -17239,7 +17231,7 @@
         "label:hideout_ui.gd:685:1:45c94649",
         "label:hideout_ui.gd:685:2:b965ae66",
         "label:hideout_ui.gd:686:0:c7d7652e",
-        "label:hideout_ui.gd:686:1:8eb31fd1",
+        "label:hideout_ui.gd:686:1:063e998e",
         "label:hideout_ui.gd:686:2:af04ae5b",
         "label:hideout_ui.gd:698:0:bf4f44dc",
         "label:hideout_ui.gd:703:0:7d0b9e81",
@@ -17287,7 +17279,7 @@
         "label:hideout_ui.gd:1259:2:6ae99955",
         "label:hideout_ui.gd:1259:3:9113115b",
         "label:hideout_ui.gd:1265:0:7b20b508",
-        "label:hideout_ui.gd:1279:0:fc9f08c2",
+        "label:hideout_ui.gd:1279:0:616ca9c9",
         "label:hideout_ui.gd:1315:0:01690268",
         "label:hideout_ui.gd:1315:1:6b42874e",
         "label:hideout_ui.gd:1315:2:6c369a4d",
@@ -17363,15 +17355,15 @@
         "label:hideout_ui.gd:1514:2:2097c337",
         "label:hideout_ui.gd:1518:0:e11a2da1",
         "label:hideout_ui.gd:1733:0:eb2057cb",
-        "label:hideout_ui.gd:1733:1:23510732",
+        "label:hideout_ui.gd:1733:1:b98b23ec",
         "label:hideout_ui.gd:1733:2:52b7362e",
-        "label:hideout_ui.gd:1733:3:abd8d21e",
+        "label:hideout_ui.gd:1733:3:7b9877de",
         "label:hideout_ui.gd:1733:4:8f30eb6d",
-        "label:hideout_ui.gd:1733:5:237f6739",
+        "label:hideout_ui.gd:1733:5:0ce0a417",
         "label:hideout_ui.gd:1733:6:4b413d03",
-        "label:hideout_ui.gd:1733:7:e162db1b",
+        "label:hideout_ui.gd:1733:7:5b6cbbf9",
         "label:hideout_ui.gd:1733:8:e0489488",
-        "label:hideout_ui.gd:1733:9:9101b4a0",
+        "label:hideout_ui.gd:1733:9:6529f695",
         "label:hideout_ui.gd:1733:10:ff3dbb42",
         "label:hideout_ui.gd:2133:0:a3f47c95",
         "label:hideout_ui.gd:2133:1:5c5d6a24",
@@ -17493,12 +17485,12 @@
         "label:lootling.gd:3560:1:49e79ce8",
         "label:lootling.gd:3629:0:6ae99955",
         "label:lootling.gd:3629:1:e8fef4b9",
-        "label:lootling.gd:4042:0:d5954590",
-        "label:lootling.gd:4042:1:081f2640",
-        "label:lootling.gd:4051:0:56d73656",
-        "label:lootling.gd:4138:0:089331a2",
-        "label:lootling.gd:4139:0:e29764e7",
-        "label:lootling.gd:4273:0:56d441fc",
+        "label:lootling.gd:4040:0:d5954590",
+        "label:lootling.gd:4040:1:081f2640",
+        "label:lootling.gd:4049:0:56d73656",
+        "label:lootling.gd:4136:0:089331a2",
+        "label:lootling.gd:4137:0:e29764e7",
+        "label:lootling.gd:4271:0:56d441fc",
         "label:lootlings_ui.gd:277:0:31f63f09",
         "label:mobile_test_monitor.gd:139:0:861ac9ae",
         "label:mobile_test_monitor.gd:145:0:d7eccf85",
@@ -17591,35 +17583,37 @@
         "label:startup_ui.gd:252:0:3701471b",
         "label:startup_ui.gd:254:0:3701471b",
         "label:startup_ui.gd:258:0:89646612",
-        "label:startup_ui.gd:319:0:5fbc5136",
-        "label:startup_ui.gd:319:1:3b0cf89a",
-        "label:startup_ui.gd:319:2:37c866bb",
-        "label:startup_ui.gd:364:0:f4cfa89d",
-        "label:startup_ui.gd:407:0:089331a2",
-        "label:startup_ui.gd:409:0:75e97fa7",
-        "label:startup_ui.gd:502:0:70128901",
-        "label:startup_ui.gd:506:0:491f9fdf",
-        "label:startup_ui.gd:506:1:1da5e866",
-        "label:startup_ui.gd:546:0:70128901",
-        "label:startup_ui.gd:555:0:df9c2553",
-        "label:startup_ui.gd:555:1:04c45a95",
-        "label:startup_ui.gd:621:0:586e05ed",
-        "label:startup_ui.gd:622:0:a3901dfc",
-        "label:startup_ui.gd:624:0:f6a7f641",
-        "label:startup_ui.gd:625:0:3928f11d",
-        "label:startup_ui.gd:770:0:b147a9cc",
-        "label:startup_ui.gd:770:1:bb1b3800",
-        "label:vignette_player.gd:52:0:15eba0eb",
+        "label:startup_ui.gd:320:0:5fbc5136",
+        "label:startup_ui.gd:320:1:3b0cf89a",
+        "label:startup_ui.gd:320:2:37c866bb",
+        "label:startup_ui.gd:365:0:f4cfa89d",
+        "label:startup_ui.gd:408:0:089331a2",
+        "label:startup_ui.gd:410:0:75e97fa7",
+        "label:startup_ui.gd:503:0:70128901",
+        "label:startup_ui.gd:507:0:491f9fdf",
+        "label:startup_ui.gd:507:1:1da5e866",
+        "label:startup_ui.gd:547:0:70128901",
+        "label:startup_ui.gd:556:0:df9c2553",
+        "label:startup_ui.gd:556:1:04c45a95",
+        "label:startup_ui.gd:622:0:586e05ed",
+        "label:startup_ui.gd:623:0:a3901dfc",
+        "label:startup_ui.gd:625:0:f6a7f641",
+        "label:startup_ui.gd:626:0:3928f11d",
+        "label:startup_ui.gd:771:0:b147a9cc",
+        "label:startup_ui.gd:771:1:bb1b3800",
+        "label:utility_presentation.gd:7:0:d8901735",
+        "label:utility_presentation.gd:8:0:d8901735",
+        "label:vignette_player.gd:52:0:431de839",
         "label:vignette_player.gd:85:0:089331a2",
         "label:vignette_player.gd:85:1:7e034e70",
         "label:vignette_player.gd:85:2:341d953e",
         "label:vignette_player.gd:85:3:cf4100c4",
         "label:vignette_player.gd:85:4:1aa787fe",
         "label:vignette_player.gd:85:5:4cb0525f",
-        "label:vignette_player.gd:87:0:f59dcfc6",
+        "label:vignette_player.gd:87:0:dbc87420",
         "label:vignette_player.gd:87:1:341d953e",
         "label:vignette_player.gd:87:2:1aa787fe",
-        "label:vignette_player.gd:87:3:15eba0eb",
+        "label:vignette_player.gd:87:3:431de839",
         "asset:art/backgrounds/beta/crystal_grove.png",
         "asset:art/backgrounds/beta/first_hoard_throne.png",
         "asset:art/backgrounds/beta/frozen_citadel.png",
@@ -163880,7 +163874,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:16:0:2b8a0bc9",
+      "id": "label:backup_menu.gd:27:0:b147a9cc",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -163907,7 +163901,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:16:1:b147a9cc",
+      "id": "label:backup_menu.gd:47:0:a813d640",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -163934,7 +163928,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:26:0:b147a9cc",
+      "id": "label:backup_menu.gd:50:0:9e0dcdd6",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -163961,7 +163955,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:39:0:b0da1274",
+      "id": "label:backup_menu.gd:53:0:cd95cd06",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -163988,7 +163982,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:42:0:9e0dcdd6",
+      "id": "label:backup_menu.gd:54:0:81c843ed",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164015,7 +164009,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:45:0:cd95cd06",
+      "id": "label:backup_menu.gd:60:0:90704a15",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164042,7 +164036,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:46:0:81c843ed",
+      "id": "label:backup_menu.gd:66:0:266bef04",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164069,7 +164063,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:51:0:90704a15",
+      "id": "label:backup_menu.gd:69:0:44c531dd",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164096,7 +164090,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:55:0:aaf1ed49",
+      "id": "label:backup_menu.gd:75:0:18d41302",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164123,7 +164117,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:55:1:5d45a009",
+      "id": "label:backup_menu.gd:83:0:3d413b88",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164150,142 +164144,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:backup_menu.gd:55:2:586e05ed",
-      "family": "player_text",
-      "identity": "backup_menu_gd",
-      "name": "backup_menu.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "backup_menu.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:backup_menu.gd:55:3:44926954",
-      "family": "player_text",
-      "identity": "backup_menu_gd",
-      "name": "backup_menu.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "backup_menu.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:backup_menu.gd:57:0:44c531dd",
-      "family": "player_text",
-      "identity": "backup_menu_gd",
-      "name": "backup_menu.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "backup_menu.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:backup_menu.gd:63:0:18d41302",
-      "family": "player_text",
-      "identity": "backup_menu_gd",
-      "name": "backup_menu.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "backup_menu.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:backup_menu.gd:71:0:3d413b88",
-      "family": "player_text",
-      "identity": "backup_menu_gd",
-      "name": "backup_menu.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "backup_menu.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:backup_menu.gd:71:1:8481acd5",
+      "id": "label:backup_menu.gd:83:1:8481acd5",
       "family": "player_text",
       "identity": "backup_menu_gd",
       "name": "backup_menu.gd",
@@ -164339,7 +164198,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:47:0:b4d1872b",
+      "id": "label:contextual_guide.gd:48:0:b4d1872b",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164366,7 +164225,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:47:1:b9ca0071",
+      "id": "label:contextual_guide.gd:48:1:b9ca0071",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164393,7 +164252,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:47:2:b147a9cc",
+      "id": "label:contextual_guide.gd:48:2:b147a9cc",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164420,7 +164279,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:50:0:63cb2d3c",
+      "id": "label:contextual_guide.gd:59:0:cfee46ea",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164447,7 +164306,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:50:1:b147a9cc",
+      "id": "label:contextual_guide.gd:59:1:b147a9cc",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164474,7 +164333,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:55:0:cfee46ea",
+      "id": "label:contextual_guide.gd:60:0:faffc3b4",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164501,7 +164360,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:55:1:b147a9cc",
+      "id": "label:contextual_guide.gd:61:0:48f50817",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164528,7 +164387,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:56:0:faffc3b4",
+      "id": "label:contextual_guide.gd:63:0:495549c3",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164555,7 +164414,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:57:0:48f50817",
+      "id": "label:contextual_guide.gd:63:1:b147a9cc",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164582,7 +164441,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:58:0:1fd337e9",
+      "id": "label:contextual_guide.gd:102:0:0bd849b9",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164609,7 +164468,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:58:1:b147a9cc",
+      "id": "label:contextual_guide.gd:102:1:f7e1a5c8",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164636,7 +164495,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:95:0:5ab91ec1",
+      "id": "label:contextual_guide.gd:102:2:359ff712",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -164663,61 +164522,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:contextual_guide.gd:95:1:839b4941",
-      "family": "player_text",
-      "identity": "contextual_guide_gd",
-      "name": "contextual_guide.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "contextual_guide.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:contextual_guide.gd:95:2:00c7f62c",
-      "family": "player_text",
-      "identity": "contextual_guide_gd",
-      "name": "contextual_guide.gd",
-      "state": "UI label",
-      "facing": null,
-      "weapon": null,
-      "scope": true,
-      "priority": "P2",
-      "quality": "installed_awaiting_visual_review",
-      "stages": {
-        "canon_reference_approved": false,
-        "created": false,
-        "integrated": true,
-        "functionally_tested": false,
-        "gameplay_visual_reviewed": false,
-        "player_experience_reviewed": false,
-        "production_quality_accepted": false
-      },
-      "asset": null,
-      "canon": null,
-      "implementation": "contextual_guide.gd",
-      "blocker": null,
-      "defects": [],
-      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
-    },
-    {
-      "id": "label:contextual_guide.gd:101:0:f6a6b53a",
+      "id": "label:contextual_guide.gd:108:0:f6a6b53a",
       "family": "player_text",
       "identity": "contextual_guide_gd",
       "name": "contextual_guide.gd",
@@ -166634,7 +166439,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:686:1:8eb31fd1",
+      "id": "label:hideout_ui.gd:686:1:063e998e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -167930,7 +167735,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1279:0:fc9f08c2",
+      "id": "label:hideout_ui.gd:1279:0:616ca9c9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169982,7 +169787,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1733:1:23510732",
+      "id": "label:hideout_ui.gd:1733:1:b98b23ec",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170036,7 +169841,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1733:3:abd8d21e",
+      "id": "label:hideout_ui.gd:1733:3:7b9877de",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170090,7 +169895,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1733:5:237f6739",
+      "id": "label:hideout_ui.gd:1733:5:0ce0a417",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170144,7 +169949,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1733:7:e162db1b",
+      "id": "label:hideout_ui.gd:1733:7:5b6cbbf9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170198,7 +170003,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1733:9:9101b4a0",
+      "id": "label:hideout_ui.gd:1733:9:6529f695",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -173492,7 +173297,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4042:0:d5954590",
+      "id": "label:lootling.gd:4040:0:d5954590",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173519,7 +173324,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4042:1:081f2640",
+      "id": "label:lootling.gd:4040:1:081f2640",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173546,7 +173351,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4051:0:56d73656",
+      "id": "label:lootling.gd:4049:0:56d73656",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173573,7 +173378,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4138:0:089331a2",
+      "id": "label:lootling.gd:4136:0:089331a2",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173600,7 +173405,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4139:0:e29764e7",
+      "id": "label:lootling.gd:4137:0:e29764e7",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -173627,7 +173432,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:lootling.gd:4273:0:56d441fc",
+      "id": "label:lootling.gd:4271:0:56d441fc",
       "family": "player_text",
       "identity": "lootling_gd",
       "name": "lootling.gd",
@@ -176138,7 +175943,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:319:0:5fbc5136",
+      "id": "label:startup_ui.gd:320:0:5fbc5136",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176165,7 +175970,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:319:1:3b0cf89a",
+      "id": "label:startup_ui.gd:320:1:3b0cf89a",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176192,7 +175997,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:319:2:37c866bb",
+      "id": "label:startup_ui.gd:320:2:37c866bb",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176219,7 +176024,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:364:0:f4cfa89d",
+      "id": "label:startup_ui.gd:365:0:f4cfa89d",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176246,7 +176051,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:407:0:089331a2",
+      "id": "label:startup_ui.gd:408:0:089331a2",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176273,7 +176078,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:409:0:75e97fa7",
+      "id": "label:startup_ui.gd:410:0:75e97fa7",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176300,7 +176105,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:502:0:70128901",
+      "id": "label:startup_ui.gd:503:0:70128901",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176327,7 +176132,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:506:0:491f9fdf",
+      "id": "label:startup_ui.gd:507:0:491f9fdf",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176354,7 +176159,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:506:1:1da5e866",
+      "id": "label:startup_ui.gd:507:1:1da5e866",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176381,7 +176186,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:546:0:70128901",
+      "id": "label:startup_ui.gd:547:0:70128901",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176408,7 +176213,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:555:0:df9c2553",
+      "id": "label:startup_ui.gd:556:0:df9c2553",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176435,7 +176240,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:555:1:04c45a95",
+      "id": "label:startup_ui.gd:556:1:04c45a95",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176462,7 +176267,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:621:0:586e05ed",
+      "id": "label:startup_ui.gd:622:0:586e05ed",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176489,7 +176294,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:622:0:a3901dfc",
+      "id": "label:startup_ui.gd:623:0:a3901dfc",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176516,7 +176321,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:624:0:f6a7f641",
+      "id": "label:startup_ui.gd:625:0:f6a7f641",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176543,7 +176348,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:625:0:3928f11d",
+      "id": "label:startup_ui.gd:626:0:3928f11d",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176570,7 +176375,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:770:0:b147a9cc",
+      "id": "label:startup_ui.gd:771:0:b147a9cc",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176597,7 +176402,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:startup_ui.gd:770:1:bb1b3800",
+      "id": "label:startup_ui.gd:771:1:bb1b3800",
       "family": "player_text",
       "identity": "startup_ui_gd",
       "name": "startup_ui.gd",
@@ -176624,7 +176429,61 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:vignette_player.gd:52:0:15eba0eb",
+      "id": "label:utility_presentation.gd:7:0:d8901735",
+      "family": "player_text",
+      "identity": "utility_presentation_gd",
+      "name": "utility_presentation.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "utility_presentation.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "label:utility_presentation.gd:8:0:d8901735",
+      "family": "player_text",
+      "identity": "utility_presentation_gd",
+      "name": "utility_presentation.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "utility_presentation.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "label:vignette_player.gd:52:0:431de839",
       "family": "player_text",
       "identity": "vignette_player_gd",
       "name": "vignette_player.gd",
@@ -176813,7 +176672,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:vignette_player.gd:87:0:f59dcfc6",
+      "id": "label:vignette_player.gd:87:0:dbc87420",
       "family": "player_text",
       "identity": "vignette_player_gd",
       "name": "vignette_player.gd",
@@ -176894,7 +176753,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:vignette_player.gd:87:3:15eba0eb",
+      "id": "label:vignette_player.gd:87:3:431de839",
       "family": "player_text",
       "identity": "vignette_player_gd",
       "name": "vignette_player.gd",
@@ -198741,6 +198600,7 @@
       "asset": "art/production/phase4e/items/recipe_scroll.png",
       "canon": null,
       "implementation": [
+        "contextual_guide.gd",
         "home_catalog.gd",
         "personal_home.gd",
         "phase4e_extracted_art.gd"
@@ -252406,6 +252266,33 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "system:utility_presentation.gd",
+      "family": "runtime_system",
+      "identity": "utility_presentation_gd",
+      "name": "utility_presentation.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "utility_presentation.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "system:vignette_catalog.gd",
       "family": "runtime_system",
       "identity": "vignette_catalog_gd",
@@ -287981,26 +287868,22 @@
     "system:world_interaction_feedback.gd"
   ],
   "latest_runtime_integration": {
-    "version": "0.4.68",
-    "kind": "Owner-approved living Sera/Gloomlet title, separated combat HUD and connected Archive accuracy",
+    "version": "0.4.69",
+    "kind": "Screenshot feedback: utility screens, shared controls, useful comparison space and visible restore confirmation",
     "verified_contracts_closed": 0,
-    "new_runtime_png": 3,
-    "new_physical_artist_files": 3,
+    "new_runtime_png": 0,
+    "new_physical_artist_files": 0,
     "remaining_contracts": 2757,
     "professionally_approved": false,
     "physical_device_tested": false,
-    "physical_device_status": "S23 owner acceptance pending",
+    "physical_device_status": "S23 pending owner acceptance",
     "other_installed_features": [
-      "Active canonical shared Sera/Gloomlet contact scene, Patch merchant and Ilex Archive alcoves: original wordmark/music, three aspect-specific paintings, real controls, five native layouts and restrained12 fireflies/3 petals/water glints/lantern light.",
-      "Desktop navigation row below character feet;60-unit secondary controls, quiet contrast backing and licensed typography. No mismatched side backgrounds or repeated moon bands.",
-      "Wave/perk notices separated from enemy/boss HP/status/tells; full pack names/long tokens, aligned dynamic card bars, quieter reused frame caps and compact high-value numbers.",
-      "Damage receipts preserve26-unit row separation, existing colours/settings/aggregation/timing and reduced motion.",
-      "Archive Home keepsake uses cropped canonical dragon. Four achievement descriptions match Lootcoins and actual saved targets; no target/economy/story changes.",
-      "Durable Hoard achievement → Ilex Archive → saved Home display preserved and tested; canonical four-legged winged combat/preview unchanged."
+      "Field Guide and Backups reuse accepted frames and licensed fonts; styled selectors, popups, sliders and scrollbars.",
+      "Visible topmost restore confirmation, actual cancel and input ownership; empty backup disables Restore.",
+      "Expanded Stash/Forge/Shop effects viewports, fitted approved item thumbnails, cleaner Stash count.",
+      "Objective copy cleanup: Skip, service and claim actions without unnecessary trailing chevrons."
     ],
-    "quality_note": "13 exact Windows-pack checks pass;6 title sizes including tablet landscape, original Ogg track playing, real controls and12 native motion frames;4-layout combat and earned Home routes; owner unlock/currency/save/RNG/pack targeting checks. Source and final pack recover once after actual termination at both durable award boundaries. Signed owner APK/code79 imports, icons/splash/certificate/16k alignment verified. No Android execution or physical/whole-game professional acceptance.",
-    "source_checkpoint": "16bef883",
-    "compiled_native_fixtures": 13
+    "quality_note": "Source native review and targeted regression pass. Exact export verification pending; no complete game professional acceptance."
   },
   "world_quality_defects": {
     "version": "0.4.68",
@@ -288079,8 +287962,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "8c52ebdc997fabc01476c670a4e325aa1bdf73e90b8e5e79d6496da5473c16c3",
-    "docs/production/CANON_REGISTRY.json": "1d0d88f7fdb13fe5681825ccbef7067cb62aa9a3da711a71589af4d6cc26b503",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "5e5664d4235722c45a921a281445c1be48cc0dd5172ade33f45bd42aee686f3f",
+    "docs/production/CANON_REGISTRY.json": "9204d2f417f8d7a6ab2bd7ddd96f83f0adda8953aa4679bd0dc8e61714b7eaeb",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "041ecd35378a0d7e0c51932665bd5f8c5e4ad3b8136db7cb218585e1a65181fe",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -288091,7 +287974,7 @@
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
     "docs/production/WORLD_QUALITY_DEFECTS.json": "48dc4e05af42b9c7481faaceaa760373aa2be818c591bf5e98a3d211ad644ea3",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.68/INSTALLATION_RECEIPT.json": "ac23b46bb3053cc9faa4539ec7147b2bcf6cdfd1b9842f0cda9bf3275f763933",
+    "docs/production/quality-evidence/0.4.69/INSTALLATION_RECEIPT.json": "adf67d8de45a42fea2eadd15d8f3e36bddd5d691d1217db1be988a3e454a67ec",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {
@@ -306878,9 +306761,9 @@
       },
       {
         "family": "player_text",
-        "installed_records": 1243,
+        "installed_records": 1238,
         "missing_records": 0,
-        "visually_unfinished_or_unreviewed": 1278,
+        "visually_unfinished_or_unreviewed": 1273,
         "production_ready": 0,
         "fluid_animation_families": null,
         "acceptance": "Not feature-complete merely because records exist or tests pass."
@@ -306941,9 +306824,9 @@
       },
       {
         "family": "runtime_system",
-        "installed_records": 125,
+        "installed_records": 126,
         "missing_records": 0,
-        "visually_unfinished_or_unreviewed": 125,
+        "visually_unfinished_or_unreviewed": 126,
         "production_ready": 0,
         "fluid_animation_families": null,
         "acceptance": "Not feature-complete merely because records exist or tests pass."

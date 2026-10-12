@@ -402,7 +402,7 @@ func build_stash() -> void:
 	stash_list.custom_minimum_size = Vector2(402, 0)
 	stash_list.add_theme_constant_override("separation", 8)
 	scroll.add_child(stash_list)
-	stash_detail_panel = make_panel(stash_content, Rect2(20, 290, 440, 370), Color("#0d1530dc"), Color("#c99a4e"))
+	stash_detail_panel = make_panel(stash_content, Rect2(20, 290, 440, 450), Color("#0d1530dc"), Color("#c99a4e"))
 	stash_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	stash_detail_icon = ItemIcon.new()
 	stash_detail_icon.position = Vector2(18, 12)
@@ -414,15 +414,15 @@ func build_stash() -> void:
 	stash_detail_identity = make_label(stash_detail_panel, "", 13, Rect2(110, 64, 312, 32), HORIZONTAL_ALIGNMENT_LEFT, Color("#dbe7ff"))
 	stash_detail = RichTextLabel.new()
 	stash_detail.position = Vector2(18, 96)
-	stash_detail.size = Vector2(404, 266)
+	stash_detail.size = Vector2(404, 346)
 	stash_detail.bbcode_enabled = true
 	stash_detail.scroll_active = true
 	stash_detail.add_theme_font_size_override("normal_font_size", 14)
 	stash_detail.add_theme_color_override("default_color", Color("#e5edff"))
 	stash_detail_panel.add_child(stash_detail)
-	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 666, 210, 54), Color("#285c4c"), Color("#69e6b0"), 18)
+	stash_equip_button = make_button(stash_content, "EQUIP", Rect2(20, 746, 210, 60), Color("#285c4c"), Color("#69e6b0"), 18)
 	stash_equip_button.pressed.connect(request_stash_equip)
-	stash_scrap_button = make_button(stash_content, "SALVAGE", Rect2(250, 666, 210, 54), Color("#5a3828"), Color("#ffbd69"), 18)
+	stash_scrap_button = make_button(stash_content, "SALVAGE", Rect2(250, 746, 210, 60), Color("#5a3828"), Color("#ffbd69"), 18)
 	stash_scrap_button.pressed.connect(request_stash_scrap)
 	make_button(stash_detail_panel,"×",Rect2(386,2,48,48),Color("#172442"),Color("#7087ae"),20).pressed.connect(close_stash_detail)
 	close_stash_detail()
@@ -455,12 +455,12 @@ func build_forge() -> void:
 	forge_list.custom_minimum_size.x = 398
 	forge_list.add_theme_constant_override("separation", 10)
 	scroll.add_child(forge_list)
-	var forge_plate:=make_panel(forge_content, Rect2(28, 350, 424, 292), Color("#0b1229ec"), Color("#b39466"))
+	var forge_plate:=make_panel(forge_content, Rect2(28, 350, 424, 352), Color("#0b1229ec"), Color("#b39466"))
 	forge_plate.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
-	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 358, 384, 276), 16, Color("#ffe6ad"))
+	forge_detail = LootlingsUI.rich_label(forge_content, Rect2(48, 358, 384, 336), 16, Color("#ffe6ad"))
 	forge_detail.scroll_active=true
 	forge_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 654, 370, 64), Color("#493052"), Color("#e2b563"), 19)
+	forge_confirm = make_button(forge_content, "EVOLVE", Rect2(55, 726, 370, 64), Color("#493052"), Color("#e2b563"), 19)
 	forge_confirm.pressed.connect(func():
 		var recipe:=forge_recipe;var index:=forge_index
 		var owned_item:Dictionary=current_inventory.equipped_item("Weapon") if index<0 else current_inventory.stash[index]
@@ -683,7 +683,7 @@ func refresh_contracts() -> void:
 		button.text=""
 		button.get_node("JobName").text=str(item.name)
 		button.get_node("Requirement").text="%s • %d / %d" % [goals.get(str(item.event),"Explore"),item.progress,item.target]
-		button.get_node("Reward").text="CLAIM %d LOOTCOINS  ›" % item.gold if ready else "%d Lootcoins reward • keep adventuring" % item.gold
+		button.get_node("Reward").text="CLAIM %d LOOTCOINS" % item.gold if ready else "%d Lootcoins reward • keep adventuring" % item.gold
 		button.get_node("Reward").modulate=Color("#fff0a7") if ready else Color.WHITE
 		button.disabled=not ready
 		button.tooltip_text="Claim your reward" if ready else "%s to finish this job" % goals.get(str(item.event),"Explore")
@@ -892,11 +892,11 @@ func build_shop() -> void:
 		var offer_button := make_button(shop_content, "", Rect2(20, 150 + index * 60, 440, 56), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
-	shop_detail_panel = make_panel(shop_content, Rect2(20, 334, 440, 354), Color("#0d1530e6"), Color("#c99a4e"))
+	shop_detail_panel = make_panel(shop_content, Rect2(20, 334, 440, 406), Color("#0d1530e6"), Color("#c99a4e"))
 	shop_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(16, 8)
-	shop_detail.size = Vector2(408, 284)
+	shop_detail.size = Vector2(408, 324)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = true
 	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
@@ -905,15 +905,15 @@ func build_shop() -> void:
 	shop_detail.add_theme_font_size_override("italics_font_size", 14)
 	shop_detail.add_theme_font_size_override("bold_italics_font_size", 16)
 	shop_detail_panel.add_child(shop_detail)
-	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 298, 408, 48), Color("#6b4a1e"), Color("#ffd468"), 13)
+	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 338, 408, 60), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.set_meta("ui_intent", "primary")
 	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
-	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 700, 137, 64), Color("#5a3f20"), Color("#ffd36a"), 12)
+	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 744, 137, 64), Color("#5a3f20"), Color("#ffd36a"), 12)
 	shop_gold_cache_button.pressed.connect(func(): safe_action(shop_gold_cache_button,"Spend Lootcoins for one random item. Contents are not known before purchase.",func(): shop_gold_cache_requested.emit()))
-	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 700, 137, 64), Color("#3f315f"), Color("#c99cff"), 12)
+	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 744, 137, 64), Color("#3f315f"), Color("#c99cff"), 12)
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
-	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 700, 138, 64), Color("#21455b"), Color("#72c8ff"), 12)
+	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 744, 138, 64), Color("#21455b"), Color("#72c8ff"), 12)
 	shop_expansion_button.icon=LootlingsUI.icon("currency_gold")
 	shop_expansion_button.expand_icon=true
 	shop_expansion_button.add_theme_constant_override("icon_max_width",20)
@@ -1276,7 +1276,7 @@ func refresh_stash() -> void:
 		slot_button.tooltip_text = "Empty %s slot" % ItemCatalog.display_slot(slot) if worn.is_empty() else "%s • %s" % [worn.name, worn.rarity]
 		for state in ["normal","hover","pressed","disabled"]:
 			slot_button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
-	stash_title.text = "STASH  •  %d / %d STORED" % [current_inventory.stash.size(), current_inventory.stash_capacity]
+	stash_title.text = "STASH  •  %d / %d" % [current_inventory.stash.size(), current_inventory.stash_capacity]
 	for filter_name in filter_buttons:
 		var filter_button: Button = filter_buttons[filter_name]
 		filter_button.disabled=false
@@ -1730,7 +1730,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	speech_label.text=line
 	speech_label.scroll_to_line(0)
 	speech_portrait.texture=RESIDENT_PORTRAITS.get(requested_speaker,Avatar.portrait(profile,"curious"))
-	speech_role.text={"Salvager":"OPEN FORGE  ›" if current_screen=="forge" else "OPEN SHOP  ›","Relic Keeper":"OPEN SHRINE  ›","Archivist":"OPEN ARCHIVE  ›","Mascot":"CHARACTER  ›"}.get(requested_speaker,"CONTINUE")
+	speech_role.text={"Salvager":"OPEN FORGE" if current_screen=="forge" else "OPEN SHOP","Relic Keeper":"OPEN SHRINE","Archivist":"OPEN ARCHIVE","Mascot":"CHARACTER"}.get(requested_speaker,"CONTINUE")
 	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE
 	speech_visible_timer=0.0
 

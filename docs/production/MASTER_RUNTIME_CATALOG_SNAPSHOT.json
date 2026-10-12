@@ -1370,7 +1370,7 @@
       "choose_file",
       "selected_file"
     ],
-    "source_sha256": "31fafa3877eaa3fee2ba3880989cd91c1df8cba8fb79cdce20f152154e50cada"
+    "source_sha256": "6e38256a6396ae568e18c2c953bb577e4ca7ef23691848f89fd007501c326c54"
   },
   "beta_art_catalog.gd": {
     "constants": {
@@ -3384,7 +3384,7 @@
       "_exit_tree",
       "observe_success"
     ],
-    "source_sha256": "bab15c6893e9b24aa73ee2594e92642a797b893de8d3af6462ae35b1dbe5f45b"
+    "source_sha256": "35c5030cfd0ed6b6d21654aecaf31dcc4ac20f5f16cb8c01181f878d4c41513b"
   },
   "contract_system.gd": {
     "constants": {
@@ -5256,7 +5256,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "ee4b652b56c37ba084cfa6a8ebc5df24202d54fc38d6b40cc3bfbc49a0e29fcd"
+    "source_sha256": "8a85235624a5bc06f6f664ce5864d5781e1308478a7a8d62363f99972ee06ec6"
   },
   "home_catalog.gd": {
     "constants": {
@@ -7371,7 +7371,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "f895c5e6bb48ade7b4941866d5d82bb21055c4cbc8d69b5066070c4a2ef381e8"
+    "source_sha256": "802055ca5c4bcdbad936086d130778b5c8ae7b5203148c93052d567eb902d172"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7530,9 +7530,11 @@
       "bold",
       "heading",
       "install",
+      "control_surface",
+      "install_controls",
       "label"
     ],
-    "source_sha256": "074d8157076bc321f4c2ff3ea980ad958abfe4871f799ee149ba59de2b5e4875"
+    "source_sha256": "0e94ee3b95c9add1c9f94cfffecd230ff5ef2fb0eb0d5744447b718449df2f36"
   },
   "lootlings_ui.gd": {
     "constants": {
@@ -8878,7 +8880,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "0a9aa72fbebcfd41a2e1c676d4f3b992d713efd0d11124ab13ba382d854c261b"
+    "source_sha256": "873034c88548585fdaf99eeb86c3edf5f59f31df9aa5e1830e7ee92c8b0401e1"
   },
   "region_audio.gd": {
     "constants": {
@@ -9773,7 +9775,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "22ad1ab2f00bd8c51a87aaeec90ff1bd8c4978508120db6dafd8d1892c0a16c3"
+    "source_sha256": "3aebebaf05d42a130af47574cb9489c00ccb1d1e440613428423bba15c1df835"
   },
   "station_presentation.gd": {
     "constants": {},
@@ -9805,7 +9807,7 @@
       "request",
       "set_slider_value"
     ],
-    "source_sha256": "58da0bdfa30fffc05de03861f807a64e6a02d9c548beda56283649783a8042f3"
+    "source_sha256": "a285118c83fb3aa5e8bffe18c01180abd906180ae60986c3ded74188b5569468"
   },
   "travelling_merchant_view.gd": {
     "constants": {
@@ -9827,6 +9829,22 @@
       "_draw"
     ],
     "source_sha256": "722177f70bf5f2be4c5e901ca1ff08e9c441711c3ece9b071019cac935794e65"
+  },
+  "utility_presentation.gd": {
+    "constants": {
+      "Type": {
+        "resource_path": "res://lootlings_typography.gd"
+      },
+      "UI": {
+        "resource_path": "res://lootlings_ui.gd"
+      }
+    },
+    "methods": [
+      "decorate",
+      "inset",
+      "button"
+    ],
+    "source_sha256": "1aa241866b78966ddd1bf53d95bb50e6f5746fed8d3775cf68b85d957b439dce"
   },
   "vignette_catalog.gd": {
     "constants": {
@@ -9953,7 +9971,7 @@
       "actor_extent",
       "_draw"
     ],
-    "source_sha256": "cf4a857da2efc46162acebc64f5b03f3a9ed86be0cabfe088a330f5664a5ee59"
+    "source_sha256": "5a9c340e8ccc6a1f39d59bc8c5ddbce50d6956cbcd7d8e7d2f91c722615af057"
   },
   "voice_identity.gd": {
     "constants": {
