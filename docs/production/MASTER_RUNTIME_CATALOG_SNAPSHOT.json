@@ -3398,7 +3398,7 @@
       "_exit_tree",
       "observe_success"
     ],
-    "source_sha256": "36b2d6bd45a55bae3cdf8ef66871a2bc8ec81a170c26f5de3e4525b89a6da8e2"
+    "source_sha256": "3574a80cbc1dedbad05427b11b591c7608357fa396f5239dc664c677a7141b9c"
   },
   "contract_system.gd": {
     "constants": {
@@ -5235,6 +5235,8 @@
       "make_object_hotspot",
       "queue_dialogue_context",
       "request_dialogue",
+      "restore_home_conversation",
+      "persist_home_conversation",
       "dialogue_anchor",
       "play_transition",
       "_process",
@@ -5277,7 +5279,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "86acf0e5892fd94a1263edda126457f89fd8ec43d30372f036e8272255cf0049"
+    "source_sha256": "22ec3795352eef322c788b79b36d10bbe3e872ad14cf3f0ea580a28f1238ce37"
   },
   "home_catalog.gd": {
     "constants": {
@@ -7411,7 +7413,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "ff22675d4b20e436531c222163ad2174a4f869752e57f425c43acaecdc4a1386"
+    "source_sha256": "1f1ac4cd2a9dc8cfa419c426561c1cefc42565ef099bfbd5cdfc5171091ddd04"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -8087,7 +8089,7 @@
       "open_collection",
       "inspect_display"
     ],
-    "source_sha256": "ea79dd9bda79e9c2b62a80b4da960ba509f783be8da648e8e8c7471acdb285ba"
+    "source_sha256": "6ae0a95afd8f260476253afed1862839a0fd2875acb89e7d70ad97f80db42609"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -8862,7 +8864,7 @@
       "grant_companion",
       "grant_companion_unlock"
     ],
-    "source_sha256": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1"
+    "source_sha256": "f5f85b67f5a7139d757b703a0c9df24eff38fff8e8c6bba65cb6cc9493dda044"
   },
   "projectile_presentation.gd": {
     "constants": {
@@ -8925,7 +8927,7 @@
       "number",
       "_draw"
     ],
-    "source_sha256": "e9fc4dc2ab9d35d1d00f45b38be37e1064e9ba594587f70b3ecc79cb7eba7fc5"
+    "source_sha256": "f478d5547cc5276ea79984e0ce4f7c2b9df8ce91708efc181870b0238bfb957a"
   },
   "region_audio.gd": {
     "constants": {

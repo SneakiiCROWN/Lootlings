@@ -1,0 +1,36 @@
+{
+  "version": "0.4.76",
+  "code": 87,
+  "runtime_source": "3a5d06d7463d544ed1acbb04551b6414c3ce4adf",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.76-candidate.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.76-candidate.exe",
+      "bytes": 103196160,
+      "sha256": "1a4d71b8387a872f52e020a212774353f18e685a7277bd6407385399515f01c3"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.76-candidate.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.76-candidate.pck",
+      "bytes": 300523012,
+      "sha256": "41f734762727d615297cf9f75e2846e2d0cf19a01d04faf0f4ea1bc01d3922e0"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.76-owner-test-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.76-owner-test-debug.apk",
+      "bytes": 321855172,
+      "sha256": "5129c381f5ad7bfa48ea1c7a05de7d4d307a7eb955c8bd61d92bf14a8ca23e9b"
+    }
+  ],
+  "final_pack_fixture_passes": 6,
+  "final_fresh_process_checks": 6,
+  "windows_android_matched_resources": 25,
+  "rollback075_hashes_preserved": true,
+  "owner_files_hashes_preserved": true,
+  "same_owner_certificate": true,
+  "physical_s23": "PENDING, not passed",
+  "professional_game_acceptance": "PARTIAL: connected UI/story/world improvements reviewed; wide composition and authored animation work open",
+  "new_frozen_art_contract_closures": 0,
+  "remaining_contracts": 2753,
+  "remaining_artist_files": 7166
+}
