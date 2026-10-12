@@ -1,0 +1,35 @@
+{
+  "version": "0.4.66",
+  "code": 77,
+  "source_checkpoint": "c4b9c344",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.66-candidate-r2.exe",
+      "bytes": 103136768,
+      "sha256": "01aaebd2e8e74b2f8f762bdd4305e0e68a2e9c15c98aef33259328194df16795"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.66-candidate-r2.pck",
+      "bytes": 284217388,
+      "sha256": "67ee0b46b1a3c610333475ab4f5c68ffd5b5bce320698d9d404a3f0e3d947a0b"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.66-owner-test-debug-r2.apk",
+      "bytes": 305251498,
+      "sha256": "d7f687bc95e09f8d8d322e1f8da92cbecfbb9b7549622864bee0424a7ecb224e"
+    }
+  ],
+  "windows_startup": "VERIFIED PASS actual EXE120frames;12 exact-PCK fixtures pass",
+  "android": "Package/resources/signature/16k alignment verified; no Android execution",
+  "application_id": "com.sneakiicrown.lootlings.owner",
+  "physical_S23": "DEFERRED by owner",
+  "normal_066_apk": "not built; prior normal rollback retained",
+  "superseded_preserved": [
+    "builds/windows/Lootlings-0.4.66-candidate.exe",
+    "builds/windows/Lootlings-0.4.66-candidate.pck",
+    "builds/android/Lootlings-0.4.66-owner-test-debug.apk"
+  ],
+  "professional_release": "HOLD",
+  "compiled_fixtures": 12,
+  "high_rarity_source_export_match": 62
+}
