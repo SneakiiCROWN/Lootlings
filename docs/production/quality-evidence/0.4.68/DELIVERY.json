@@ -1,0 +1,44 @@
+{
+  "version": "0.4.68",
+  "code": 79,
+  "source_checkpoint": "16bef883",
+  "combat_checkpoint": "b2ccb463",
+  "previous_delivery": "9d1a5fd8",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.68-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "62da6bc1a1af4e1a46df34d8398921a844c1364c22f4635cc662372afd2ce7ba"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.68-candidate.pck",
+      "bytes": 291762972,
+      "sha256": "27536b9308de1bef815ec81393e34a4595c8674f4682f7665663e2e8baf54210"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.68-owner-test-debug.apk",
+      "bytes": 312797310,
+      "sha256": "6532f0b64b10a082f81cb2c6305e5cd3e5603f581e0471582e41ff646de34e7e"
+    }
+  ],
+  "windows_startup": "VERIFIED PASS actual EXE120frames;13 exact-pack fixtures pass",
+  "android": "Signed arm64 owner APK,16k alignment, original launcher/adaptive/monochrome/splash and all3 active title imports verified. No Android execution.",
+  "application_id": "com.sneakiicrown.lootlings.owner",
+  "application_label": "Lootlings Owner Test",
+  "physical_S23": "PENDING OWNER ACCEPTANCE; not passed",
+  "normal_068_apk": "not built; prior normal rollback retained",
+  "professional_release": "HOLD",
+  "compiled_fixtures": 13,
+  "title_layouts": [
+    "360x640",
+    "480x854",
+    "1080x2340",
+    "1600x2560",
+    "1280x800",
+    "1920x1080"
+  ],
+  "new_title_runtime_png": 3,
+  "new_art_contract_closures": 0,
+  "same_owner_update_signing_certificate": true,
+  "previous_delivery_artifacts_unchanged": 31
+}

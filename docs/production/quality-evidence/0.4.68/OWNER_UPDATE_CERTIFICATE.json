@@ -1,0 +1,15 @@
+{
+  "same_owner_package": "com.sneakiicrown.lootlings.owner",
+  "same_signing_certificate": true,
+  "artifacts": [
+    {
+      "apk": "builds/android/Lootlings-0.4.67-owner-test-debug.apk",
+      "certificate_sha256": "fe1e5f882df56d1615c9941cf6c51ff18712beadeb48aa732b231176bf3453f3"
+    },
+    {
+      "apk": "builds/android/Lootlings-0.4.68-owner-test-debug.apk",
+      "certificate_sha256": "fe1e5f882df56d1615c9941cf6c51ff18712beadeb48aa732b231176bf3453f3"
+    }
+  ],
+  "installation": "Update existing owner app; do not uninstall/clear its data. Physical installation remains pending."
+}

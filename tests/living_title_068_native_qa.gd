@@ -20,6 +20,7 @@ func review() -> void:
    assert(not rect.intersects(title.title_wordmark.get_global_rect()))
   assert(not controls[0].get_global_rect().intersects(controls[1].get_global_rect()) and not controls[1].get_global_rect().intersects(controls[2].get_global_rect()))
   await capture("active_title")
+  var title_draw_calls:float=Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
   assert(game.audio_manager.current_music=="TITLE")
   if game.audio_manager.output_enabled:
    assert(game.audio_manager.music_player.playing and game.audio_manager.music_player.stream.resource_path=="res://art/audio/production/music/title.ogg")
@@ -37,7 +38,7 @@ func review() -> void:
   await tap(controls[0]);await create_timer(.8).timeout
   if game.presentation_director.vignette.active:game.presentation_director.vignette.finish()
   assert(game.state=="hideout" and game.attack_sequence==attacks)
-  rows.append({"viewport":str(viewport),"active_approved_title":true,"touch_targets_at_least_44":true,"real_controls_return":true,"private_rng_input_lifecycle_reduced_motion":true,"shared_contact_static_not_fluid_animation":true,"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"physical_android":false})
+  rows.append({"viewport":str(viewport),"active_approved_title":true,"touch_targets_at_least_44":true,"real_controls_return":true,"private_rng_input_lifecycle_reduced_motion":true,"shared_contact_static_not_fluid_animation":true,"title_draw_calls":title_draw_calls,"physical_android":false})
   game.free();await process_frame
  var f=FileAccess.open("res://.godot_test_data/title068/RESULTS.json",FileAccess.WRITE);f.store_string(JSON.stringify(rows,"  "));f.close()
  print("LIVING TITLE 068 NATIVE PASS six layouts, active owner-approved composition, original wordmark/controls,44px minimum targets, private RNG/lifecycle/reduced motion and Start/Profile/Settings routes. No new narrative.");quit()

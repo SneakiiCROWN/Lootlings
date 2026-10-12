@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "boundary": 1,
+      "actual_writer_terminated": true,
+      "recovery_once": true,
+      "counter": 1,
+      "repeat_timestamp_preserved": true,
+      "isolated": true,
+      "production_code_from_pack": true
+    },
+    {
+      "boundary": 2,
+      "actual_writer_terminated": true,
+      "recovery_once": true,
+      "counter": 1,
+      "repeat_timestamp_preserved": true,
+      "isolated": true,
+      "production_code_from_pack": true
+    }
+  ],
+  "pack": "builds/windows/Lootlings-0.4.68-candidate.pck",
+  "pack_sha256": "27536b9308de1bef815ec81393e34a4595c8674f4682f7665663e2e8baf54210",
+  "limits": "Process termination after persisted boundaries; not power-loss or permanently unwritable storage acceptance."
+}
