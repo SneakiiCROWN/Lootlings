@@ -1,5 +1,5 @@
 {
-  "version": "0.4.70",
+  "version": "0.4.71",
   "policy": "Native evidence identifies defects. Functional tests and exports do not grant professional artistic acceptance. No additional frozen contract closures.",
   "entries": [
     {
@@ -15,9 +15,9 @@
     },
     {
       "id": "verdant-mirror-body-animation",
-      "identity": "The Verdant Mirror — Warden of the Stolen Spring",
+      "identity": "The Verdant Mirror \u2014 Warden of the Stolen Spring",
       "status": "DEFECTIVE / FUNCTIONALLY WORKING / ART CORRECTION REQUIRED",
-      "region": "Act II — Mossglass Wilds",
+      "region": "Act II \u2014 Mossglass Wilds",
       "source": "art/sprites/enemies/beta/verdant_mirror.png",
       "binding": "boss_presentation.gd BOSSES.mossglass_wilds; boss_patterns.gd mossglass_wilds",
       "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/verdant_mirror_open_defect.png",
@@ -36,7 +36,7 @@
     },
     {
       "id": "home-services-premium-review",
-      "identity": "Home → Ilex Archive → Trophy display; Patch Shop and Sera Shrine",
+      "identity": "Home \u2192 Ilex Archive \u2192 Trophy display; Patch Shop and Sera Shrine",
       "status": "FUNCTIONALLY TESTED / NATIVE VISUAL REVIEWED / NEEDS OWNER ACCEPTANCE",
       "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/grounded_companion.png",
       "remaining": [
@@ -94,6 +94,23 @@
         "Full living NPC/companion/environment/body/contact animation and broader world integration",
         "Broader mode/region usability and artistic polish; major narrative approval",
         "One intermittent native SHH reopen failure, not reproduced on isolated retry; physical S23 pending"
+      ]
+    },
+    {
+      "id": "owner-world-discoveries-071",
+      "status": "FIXED & VERIFIED selected native/exact-export defects; professional owner acceptance pending",
+      "fixes": [
+        "Immediate safe SHH reopening and bounded yellow receipt.",
+        "Shop nonoverlapping2x2 utility controls and wallet/service separation.",
+        "Title utility-button contrast and Home summary/save feedback.",
+        "Grounded canon NPC activity/inspect/talk keyframes and companion reactions.",
+        "Individual earned Archive cards, durable read marks, failed-write rollback and actual process restart."
+      ],
+      "evidence": "quality-evidence/0.4.71/REPORT.md",
+      "remaining": [
+        "Physical S23 reliability/appearance/performance acceptance.",
+        "Canonical authored title contact animation; fluid NPC and companion continuity.",
+        "Relic Beast greatsword14 exact missing pose/support contracts; no new art closures."
       ]
     }
   ]

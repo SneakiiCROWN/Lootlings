@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080 SUPER
+
+MYTHICAL GRANT dawnweave Granted Dawnweave to test stash. stash 1/12
+MYTHICAL GRANT tidestar Granted Tidestar to test stash. stash 2/12
+MYTHICAL GRANT aurora_thread Granted Aurora Thread to test stash. stash 3/12
+MYTHICAL GRANT prismsong Granted Prismsong to test stash. stash 4/12
+MYTHICAL GRANT hearthpearl Granted Hearthpearl to test stash. stash 5/12
+MYTHICAL GRANT mirrorwake Granted Mirrorwake to test stash. stash 6/12
+MYTHICAL GRANT bloomward Granted Bloomward to test stash. stash 7/12
+MYTHICAL GRANT starfold Granted Starfold to test stash. stash 8/12
+REOPEN STRESS (1080, 2340) misses=0 /24
+MYTHICAL GRANT dawnweave Granted Dawnweave to test stash. stash 1/12
+MYTHICAL GRANT tidestar Granted Tidestar to test stash. stash 2/12
+MYTHICAL GRANT aurora_thread Granted Aurora Thread to test stash. stash 3/12
+MYTHICAL GRANT prismsong Granted Prismsong to test stash. stash 4/12
+MYTHICAL GRANT hearthpearl Granted Hearthpearl to test stash. stash 5/12
+MYTHICAL GRANT mirrorwake Granted Mirrorwake to test stash. stash 6/12
+MYTHICAL GRANT bloomward Granted Bloomward to test stash. stash 7/12
+MYTHICAL GRANT starfold Granted Starfold to test stash. stash 8/12
+REOPEN STRESS (1600, 2560) misses=0 /24
+SCRIPT ERROR: Assertion failed.
+   at: review (res://tests/owner_reopen_071_native_qa.gd:57)
+   GDScript backtrace (most recent call first):
+       [0] review (res://tests/owner_reopen_071_native_qa.gd:57)
+       [1] tap (res://tests/phase4b_native_qa.gd:57)
+ERROR: Owner access timeout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://tests/owner_reopen_071_native_qa.gd:5)

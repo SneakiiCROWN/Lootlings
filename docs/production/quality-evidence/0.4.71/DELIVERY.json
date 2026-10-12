@@ -1,0 +1,37 @@
+{
+  "version": "0.4.71",
+  "code": 82,
+  "branch": "codex/phase4e-gamefeel",
+  "runtime_source": "93dc45b9f7598f3fc6860d85469443b62e809f09",
+  "prior_delivery": "81d1b06c",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.71-candidate.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.71-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "c902f072686222ecc1a8d44d5f92d4786e79ceb0a083f5c77e80cc1b3a6a9896"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.71-candidate.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.71-candidate.pck",
+      "bytes": 291774704,
+      "sha256": "4aaa46d2095cc8d541c4bcbef73370172706887205a282721ab708fc7d6fb6e0"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.71-owner-test-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.71-owner-test-debug.apk",
+      "bytes": 312809920,
+      "sha256": "d3cdd5a9beae0c0b2411bc3cb81ecd2bad08da78984c1f54aacf790e2791596b"
+    }
+  ],
+  "archive_fresh_process_pass": true,
+  "additional_connected_mode_regression": "PASS five layouts, claim-once/rotation, Field Notes/Memory routes, locked/available mode Back and input",
+  "apk_runtime_payloads_match": 8,
+  "original_title_imports_match": 3,
+  "signing_compatible_with_previous_owner": true,
+  "physical_s23": "PENDING OWNER TEST, not passed",
+  "professional_artistic_acceptance": "PENDING OWNER REVIEW",
+  "new_art_contract_closures": 0,
+  "exact_exported_fixture_passes": 9,
+  "rendered_interaction_fixture_passes": 6
+}
