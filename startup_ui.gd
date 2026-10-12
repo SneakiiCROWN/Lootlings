@@ -780,7 +780,10 @@ func style_title_button(button: Button, primary: bool) -> void:
 	if not primary:
 		for state in ["normal","hover","pressed","disabled"]:
 			var quiet:=StyleBoxFlat.new()
-			quiet.bg_color=Color("#0714268c") if state in ["normal","disabled"] else Color("#061225d0")
+			quiet.bg_color=Color("#071426dc") if state in ["normal","disabled"] else Color("#142b46f0")
+			quiet.border_color=Color("#b99b6278") if state in ["normal","disabled"] else Color("#e4cf94")
+			quiet.set_border_width_all(1)
+			quiet.content_margin_left=8;quiet.content_margin_right=8
 			quiet.set_corner_radius_all(8)
 			button.add_theme_stylebox_override(state,quiet)
 	var focus:=StyleBoxFlat.new()

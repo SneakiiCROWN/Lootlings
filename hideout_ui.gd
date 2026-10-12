@@ -17,6 +17,7 @@ var phase4_detail_panel: Panel
 var phase4_action: Button
 var track_button: Button
 var phase4_selected := ""
+var archive_discoveries:Control
 var phase4_mode := "blueprints"
 var phase4_message := ""
 var phase4_selected_msec := 0
@@ -165,6 +166,7 @@ var achievement_manager
 var achievement_display_button: Button
 var visited_destinations := {}
 var resident_facing: String = "left"
+var resident_reactions:Dictionary = {}
 var resource_label: RichTextLabel
 var loadout_label: RichTextLabel
 var loadout_panel: Panel
@@ -284,6 +286,8 @@ func show_home() -> void:
 	if private_return:
 		private_return=false;get_parent().show_personal_home();return
 	if get_parent().audio_manager != null: get_parent().audio_manager.set_music("HIDEOUT")
+	var returning_resident:String={"shop":"Salvager","forge":"Salvager","upgrades":"Relic Keeper","archive":"Archivist"}.get(current_screen,"")
+	if not returning_resident.is_empty():notice_resident(returning_resident)
 	current_screen = "home"
 	set_screen(home_content)
 	refresh_home()
@@ -499,6 +503,7 @@ func build_phase4() -> void:
 	phase4_detail_panel=detail_panel
 	phase4_detail = LootlingsUI.rich_label(detail_panel,Rect2(16,12,400,198),15,Color("#e7edff"))
 	phase4_detail.scroll_active = true
+	archive_discoveries=preload("res://archive_discovery_view.gd").new();detail_panel.add_child(archive_discoveries);archive_discoveries.configure(self)
 	phase4_action = make_button(phase4_content,"SELECT A FIND",Rect2(24,754,432,56),Color("#493052"),Color("#e2b563"),16)
 	phase4_action.position.x=156; phase4_action.size.x=300
 	track_button=make_button(phase4_content,"TRACK",Rect2(24,754,120,56),Color("#172442"),Color("#78e4ff"),14)
@@ -507,6 +512,7 @@ func build_phase4() -> void:
 	)
 	phase4_action.set_meta("ui_intent","primary"); apply_button_style(phase4_action,Color("#493052"),Color("#e2b563"))
 	phase4_action.pressed.connect(func():
+		if phase4_mode=="archive" and phase4_selected=="Field discoveries":archive_discoveries.open_shelf();return
 		if phase4_mode=="archive" and phase4_selected=="Home keepsakes":
 			show_achievements();select_achievement("hoard_dragon");return
 		if phase4_selected.is_empty() or Time.get_ticks_msec()-phase4_selected_msec < 180: return
@@ -530,6 +536,7 @@ func show_phase4(mode: String) -> void:
 
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
+	archive_discoveries.hide();phase4_detail.show()
 	phase4_action.position.x=156;phase4_action.size.x=300
 	var delivery_notice: String=phase4_message
 	phase4_action.visible=true; track_button.visible=true
@@ -556,6 +563,7 @@ func refresh_phase4() -> void:
 			button.custom_minimum_size = Vector2(410,56)
 			button.set_meta("selection_id",category)
 			button.pressed.connect(func():
+				archive_discoveries.hide();phase4_detail.show()
 				phase4_selected=category
 				phase4_action.visible=category=="Home keepsakes"
 				phase4_action.disabled=false;phase4_action.text="VIEW TROPHY & HOME DISPLAY";phase4_action.position.x=24;phase4_action.size.x=432
@@ -586,6 +594,7 @@ func refresh_phase4() -> void:
 						var pieces: int = int(expedition_progress.data.fragments.get(source.id,0))
 						phase4_detail.text += "%s • %s\n" % [str(source.name) if found or pieces > 0 else "Undiscovered gear", "collected" if found else "blueprint %d/3" % pieces]
 				phase4_detail.text="[b][color=#ffe6ad]"+category.to_upper()+"[/color][/b]\n\n"+phase4_detail.text
+				if category=="Field discoveries":archive_discoveries.open_shelf()
 				phase4_detail.scroll_to_line(0)
 			)
 		phase4_action.visible=false; track_button.visible=false; restore_phase4_selection(); return
@@ -910,17 +919,17 @@ func build_shop() -> void:
 	var back := make_button(shop_content, "‹ HUB", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(shop_content, "PATCH’S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
+	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(20, 65, 440, 28), 12, Color("#d9e5ff"))
 	build_resident_service(shop_content,"Salvager",Rect2(20,100,440,42),"Good gear. Fair deals. Every piece has a story.")
 	for index in range(3):
 		var offer_button := make_button(shop_content, "", Rect2(20, 150 + index * 60, 440, 56), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
-	shop_detail_panel = make_panel(shop_content, Rect2(20, 334, 440, 406), Color("#0d1530e6"), Color("#c99a4e"))
+	shop_detail_panel = make_panel(shop_content, Rect2(20, 334, 440, 374), Color("#0d1530e6"), Color("#c99a4e"))
 	shop_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(16, 8)
-	shop_detail.size = Vector2(408, 324)
+	shop_detail.size = Vector2(408, 292)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = true
 	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
@@ -929,15 +938,15 @@ func build_shop() -> void:
 	shop_detail.add_theme_font_size_override("italics_font_size", 14)
 	shop_detail.add_theme_font_size_override("bold_italics_font_size", 16)
 	shop_detail_panel.add_child(shop_detail)
-	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 338, 408, 60), Color("#6b4a1e"), Color("#ffd468"), 13)
+	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 306, 408, 60), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.set_meta("ui_intent", "primary")
 	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
-	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 744, 137, 64), Color("#5a3f20"), Color("#ffd36a"), 12)
+	shop_gold_cache_button = make_button(shop_content, "SCAVENGED CACHE", Rect2(20, 714, 210, 60), Color("#5a3f20"), Color("#ffd36a"), 14)
 	shop_gold_cache_button.pressed.connect(func(): safe_action(shop_gold_cache_button,"Spend Lootcoins for one random item. Contents are not known before purchase.",func(): shop_gold_cache_requested.emit()))
-	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(171, 744, 137, 64), Color("#3f315f"), Color("#c99cff"), 12)
+	shop_cache_button = make_button(shop_content, "MYSTERY CACHE", Rect2(250, 714, 210, 60), Color("#3f315f"), Color("#c99cff"), 14)
 	shop_cache_button.pressed.connect(func(): safe_action(shop_cache_button,"Spend Scrap for one random item. Contents are not known before purchase.",func(): shop_cache_requested.emit()))
-	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(322, 744, 138, 64), Color("#21455b"), Color("#72c8ff"), 12)
+	shop_expansion_button = make_button(shop_content, "STASH EXPANSION", Rect2(20, 782, 210, 60), Color("#21455b"), Color("#72c8ff"), 14)
 	shop_expansion_button.icon=LootlingsUI.icon("currency_gold")
 	shop_expansion_button.expand_icon=true
 	shop_expansion_button.add_theme_constant_override("icon_max_width",20)
@@ -945,12 +954,13 @@ func build_shop() -> void:
 	for utility in [shop_gold_cache_button,shop_cache_button,shop_expansion_button]:
 		utility.clip_text = true
 		utility.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		utility.add_theme_font_size_override("font_size",11)
+		utility.add_theme_font_size_override("font_size",14)
 		# Control keeps its previously expanded size when minimum size shrinks.
-		utility.size.x = 138 if utility == shop_expansion_button else 137
+		utility.size = Vector2(210,60)
 		utility.set_meta("ui_intent","utility")
 		LootlingsUI.apply_button(utility,Color("#192944"),Color("#7087ae"))
-	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(93, 774, 294, 50), Color("#34405b"), Color("#91a6ce"), 13)
+	shop_reroll_button = make_button(shop_content, "REROLL ONCE", Rect2(250, 782, 210, 60), Color("#34405b"), Color("#91a6ce"), 14)
+	shop_reroll_button.clip_text=true;shop_reroll_button.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	shop_reroll_button.pressed.connect(func(): safe_action(shop_reroll_button,"Spend Lootcoins to replace all current offers. Once per cycle.",func(): shop_reroll_requested.emit()))
 	# Static accepted luggage art illustrates capacity; it is not a new loot roll.
 	shop_expansion_button.icon=LootlingsUI.icon("res://art/production/phase4e/props/courier_cache.png")
@@ -1455,7 +1465,7 @@ func refresh_upgrades() -> void:
 func refresh_shop() -> void:
 	if current_inventory == null or current_shop == null or shop_scrap_label == null:
 		return
-	shop_scrap_label.text = "[center]%s %s LOOTCOINS • %s %s SCRAP • %d/%d STASH[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), current_inventory.stash.size(), current_inventory.stash_capacity]
+	shop_scrap_label.text = "[center]%s %s Lootcoins   %s %s Scrap   %d/%d Stash[/center]" % [LootlingsUI.inline_icon("currency_gold"), preload("res://display_numbers.gd").compact(gold), LootlingsUI.inline_icon("currency_scrap"), preload("res://display_numbers.gd").compact(current_inventory.scrap), current_inventory.stash.size(), current_inventory.stash_capacity]
 	var reveal_pending: bool = not current_shop.pending_cache_item.is_empty()
 	shop_gold_cache_button.text = "SCAVENGED CACHE\n%d LOOTCOINS" % current_shop.GOLD_CACHE_COST
 	shop_gold_cache_button.disabled = reveal_pending or current_shop.gold_cache_bought_this_cycle or gold < current_shop.GOLD_CACHE_COST or current_inventory.stash.size() >= current_inventory.stash_capacity
@@ -1728,6 +1738,7 @@ func make_object_hotspot(parent: Control, node_name: String, rect: Rect2, action
 	hotspot.pressed.connect(action); parent.add_child(hotspot)
 
 func queue_dialogue_context(context: String) -> void:
+	if context in ["victory","boss_defeated","epic_find","legendary_find","cache_opened","contract_complete"]:companion_presenter.react("reward")
 	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "red_find":8, "secret_discovered":8, "signature_find":7, "large_hoard":5, "forge_evolved":4, "contract_complete":3, "cache_opened":3, "trophy_earned":2}
 	var priority := int(priorities.get(context, 1))
 	if priority < queued_dialogue_priority:
@@ -1744,6 +1755,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	if context!="tapped" or speech_panel==null: return
 	if speech_panel.visible and speech_speaker==requested_speaker: dismiss_dialogue(); return
 	speech_speaker=requested_speaker
+	companion_presenter.react("talk")
 	var game=get_parent()
 	var facts: Dictionary={"event":queued_dialogue_context,"weapon":str(current_inventory.equipped_item("Weapon").get("weapon_type","")) if current_inventory!=null else "","mode":"siege" if game.retention.siege else "dungeon" if game.retention.targeted else "region"}
 	facts.merge(last_home_facts,true)
@@ -1917,12 +1929,21 @@ func draw_home_workstations() -> void:
 	var shrine_pulse:=.08+maxf(0,sin(scene_time*1.6))*.06
 	draw_circle(Vector2(66,372),16,Color(.64,.51,1,shrine_pulse))
 
+# Use only accepted activity states. These are grounded keyframe reactions,
+# not authored walking or seated cycles; those contracts remain outstanding.
+func notice_resident(speaker:String) -> void:
+	resident_reactions[speaker]=scene_time+2.4
+	queue_redraw()
+
 func resident_activity(speaker: String) -> String:
-	if speech_panel!=null and speech_panel.visible and speech_speaker==speaker: return "talk"
-	var index: int=["Salvager","Relic Keeper","Archivist"].find(speaker)
-	if index<0: return "stand"
-	var state: int=int((scene_time+index*11)/28.0)%5
-	return {"Salvager":["repair","inspect","walk","sit","stand"],"Relic Keeper":["tend","sit","walk","stand","inspect"],"Archivist":["read","inspect","walk","sit","read"]}[speaker][state]
+	if speech_panel!=null and speech_panel.visible and speech_speaker==speaker:return "talk"
+	if float(resident_reactions.get(speaker,0))>scene_time:return "inspect"
+	var index:int=["Salvager","Relic Keeper","Archivist"].find(speaker)
+	if index<0:return "stand"
+	var phase:float=fmod(scene_time+index*9.3,28.0)
+	if phase<10:return {"Salvager":"repair","Relic Keeper":"tend","Archivist":"read"}[speaker]
+	if phase>=15 and phase<19:return "inspect"
+	return "rest"
 
 func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> void:
 	var activity:=resident_activity(speaker)
@@ -1932,7 +1953,9 @@ func draw_resident(speaker: String, rect: Rect2, name: String, phase: float) -> 
 
 	if speaker not in ["Salvager","Archivist"] or preload("res://resident_art_catalog.gd").has_body(speaker):
 		draw_set_transform(Vector2(rect.get_center().x,rect.end.y-3),0,Vector2(1,.22))
-		draw_circle(Vector2.ZERO,rect.size.x*.28,Color("#03061270"))
+		draw_circle(Vector2.ZERO,rect.size.x*.32,Color("#03061224"))
+		draw_circle(Vector2.ZERO,rect.size.x*.24,Color("#03061240"))
+		draw_circle(Vector2.ZERO,rect.size.x*.13,Color("#03061235"))
 	preload("res://resident_art_catalog.gd").draw(self,speaker,rect,activity,resident_facing)
 
 func draw_shop_scene() -> void:

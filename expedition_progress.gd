@@ -3,7 +3,7 @@ const Catalog = preload("res://phase4_catalog.gd")
 const Items = preload("res://item_catalog.gd")
 const Safe = preload("res://safe_config.gd")
 const PATH := "user://expedition_progress.cfg"
-var data := {"version":1,"actors":{},"weapons":{},"materials":{},"boss_parts":{},"fragments":{},"seen":{},"counts":{},"jobs":{},"claims":{},"craft_pending":{},"reward_receipts":{}}
+var data := {"version":1,"actors":{},"weapons":{},"materials":{},"boss_parts":{},"fragments":{},"seen":{},"counts":{},"jobs":{},"claims":{},"craft_pending":{},"reward_receipts":{},"archive_read":{}}
 var rng := RandomNumberGenerator.new()
 var run_region := "act_i"
 var run_tier := 0
@@ -143,6 +143,27 @@ func recover_delivery(inventory, inventory_path: String) -> String:
 	data.craft_pending = {}; data.seen["item:"+str(item.id)] = true
 	if save() != OK: data.craft_pending = item
 	return "%s forged into Gear." % item.name
+
+func discovery_records() -> Array:
+	var records:Array=[]
+	var kinds:Dictionary={"region":"Region","enemy":"Creature","miniboss":"Guardian","boss":"Boss","elite":"Elite","event":"Encounter","secret":"Secret"}
+	var encounters:Dictionary={"secret_bell":"The Hidden Bell","wandering_smith":"The Wandering Smith","mimic_parley":"A Mimic's Bargain"}
+	for key in data.seen:
+		if not key is String or not bool(data.seen[key]):continue
+		var parts:PackedStringArray=key.split(":",true,1)
+		if parts.size()!=2 or not kinds.has(parts[0]):continue
+		var title:String=preload("res://campaign_system.gd").title(parts[1]) if parts[0]=="region" else str(encounters.get(parts[1],parts[1].replace("_"," ").capitalize()))
+		records.append({"id":key,"title":title,"kind":kinds[parts[0]],"read":bool(data.archive_read.get(key,false))})
+	records.sort_custom(func(a,b):return a.title.naturalnocasecmp_to(b.title)<0)
+	return records
+
+func read_discovery(id:String) -> Error:
+	if not discovery_records().any(func(record):return record.id==id):return ERR_INVALID_PARAMETER
+	if bool(data.archive_read.get(id,false)):return OK
+	data.archive_read[id]=true
+	var error:Error=save()
+	if error!=OK:data.archive_read.erase(id)
+	return error
 
 func collection_text(category: String = "Mastery") -> String:
 	if category == "Field discoveries":

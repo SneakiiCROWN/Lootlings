@@ -795,6 +795,15 @@
     ],
     "source_sha256": "7ba37458ca1d52db49d05f2449b8a196a6e3cb50f4d4ebbd7c517b7367b6e746"
   },
+  "archive_discovery_view.gd": {
+    "constants": {},
+    "methods": [
+      "configure",
+      "open_shelf",
+      "open_record"
+    ],
+    "source_sha256": "f8f3a96e71d9a612bb6a7c6dda91b7b45c50bc9d0353d4f637955b745ae12037"
+  },
   "audio_manager.gd": {
     "constants": {
       "BASE_EVENT_SPECS": {
@@ -3609,6 +3618,7 @@
       "build_ui",
       "filter_sections",
       "add_section",
+      "bounded_readout",
       "make_label",
       "make_button",
       "run_action",
@@ -3622,7 +3632,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "d70c5745066da44579c723ed66793698f00a1805e5d8cfae485f9b2c9a6e7d30"
+    "source_sha256": "bdc41e644fb264e3a575d5c0bd4eb7b1f53dc9b59f1c8a01767921808b40c150"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -4707,9 +4717,11 @@
       "claim_job",
       "craft",
       "recover_delivery",
+      "discovery_records",
+      "read_discovery",
       "collection_text"
     ],
-    "source_sha256": "d6313001329ca5ad569acf8bad69e65c1eb08038e15df5de324d8114b5fbdae8"
+    "source_sha256": "c012ab90bf38be1b83aa08864a2c3da16d8125684120b5b9b8f3e49e8859f9b7"
   },
   "field_notes_catalog.gd": {
     "constants": {
@@ -5225,6 +5237,7 @@
       "draw_home_scene",
       "draw_home_board",
       "draw_home_workstations",
+      "notice_resident",
       "resident_activity",
       "draw_resident",
       "draw_shop_scene",
@@ -5258,7 +5271,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "947677bd79ca097e06f138247baee5d88aa74c8581140ca2c79a746a9e4d796f"
+    "source_sha256": "42233d15054c1a15f14ae69829910269213da1e296f3b3a44a57b4ff3a1de163"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5604,7 +5617,7 @@
       "finish_details",
       "refresh"
     ],
-    "source_sha256": "307073a7517a925edc4e143faebf8fe43c67525fb87d12f31004087b4363311f"
+    "source_sha256": "59a25ff131823f2b7633a1efcabb06fca83f0758b66d99ea51644c65452b1a72"
   },
   "hud_portrait_crest.gd": {
     "constants": {},
@@ -7882,7 +7895,7 @@
       "observe",
       "_process"
     ],
-    "source_sha256": "e1babc2e6caba197d90135793723b4e07d2d5fec75061b2d87c0e7446c1bc95c"
+    "source_sha256": "8deb6918876b43ecb0b1bd5ad66b0517fd790dd6a1d07cfafa5c87885cad6e75"
   },
   "perk_offer_catalog.gd": {
     "constants": {
@@ -8046,7 +8059,7 @@
       "greet_or_collection",
       "open_collection"
     ],
-    "source_sha256": "a902380ff469d3ee1821811bb11108e4acfdc969e698c1bbc121761fcc7b5a9c"
+    "source_sha256": "c3c5b3e2a1e355867c0a79cc255d424bf7306b7c7906adeb1234be91afb715d1"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -9777,7 +9790,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "ac833d3db50414346436b40f5da9c966feb402787c5ef9460029680d93800a90"
+    "source_sha256": "22c9d4f03e5cda196099dd0d5f27d99ee3d776eaab727859662baf851795f4d4"
   },
   "station_presentation.gd": {
     "constants": {},

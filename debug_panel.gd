@@ -1,8 +1,8 @@
 extends Control
 
 var game
-var info_label: Label
-var status_label: Label
+var info_label: RichTextLabel
+var status_label: RichTextLabel
 var reset_button: Button
 var close_button: Button
 var reset_armed := false
@@ -64,15 +64,14 @@ func build_ui() -> void:
 	close_button.tooltip_text = "Close development panel (F1 / Escape)"
 	close_button.pressed.connect(close)
 	panel.add_child(close_button)
-	info_label = make_label("", 12, Color("#d9e5ff"))
+	info_label = bounded_readout("", 12, Color("#d9e5ff"))
 	info_label.position = Vector2(20, 44)
-	info_label.size = Vector2(416, 92)
+	info_label.size = Vector2(416, 86)
 	info_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	panel.add_child(info_label)
-	status_label = make_label("SANDBOX SAVES ONLY. Normal progress is protected.", 11, Color("#ffe39a"))
+	status_label = bounded_readout("Test saves only. Normal progress is protected.", 12, Color("#ffe39a"))
 	status_label.position = Vector2(20, 138)
 	status_label.size = Vector2(416, 36)
-	status_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	panel.add_child(status_label)
 	var profile_button:=Button.new();profile_button.position=Vector2(20,182);profile_button.size=Vector2(416,50);profile_button.text="RETURN TO NORMAL PROFILE" if preload("res://save_scope.gd").active else "ENTER ISOLATED TEST PROFILE";profile_button.pressed.connect(func():preload("res://save_scope.gd").switch_profile(get_tree(),not preload("res://save_scope.gd").active));panel.add_child(profile_button)
 	tabs=OptionButton.new();tabs.position=Vector2(20,240);tabs.size=Vector2(416,48)
@@ -191,6 +190,18 @@ func add_section(parent: VBoxContainer, heading: String, actions: Array) -> void
 		else:
 			grid.add_child(make_button(str(action[0]), str(action[1]), action[2]))
 
+# Fixed readout bounds prevent long build summaries or command receipts from
+# expanding into the next control. Overflow remains scrollable, not discarded.
+func bounded_readout(value: String, font_size: int, color: Color) -> RichTextLabel:
+	var label := RichTextLabel.new()
+	label.fit_content = false
+	label.scroll_active = true
+	label.add_theme_font_override("normal_font", preload("res://lootlings_typography.gd").body())
+	label.add_theme_font_size_override("normal_font_size", font_size)
+	label.add_theme_color_override("default_color", color)
+	label.text = value
+	return label
+
 func make_label(value: String, font_size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.text = value
@@ -251,6 +262,8 @@ func close() -> void:
 	visible = false
 	game.touch_ux.renew_surface()
 	get_tree().paused = previous_tree_pause
+	# Reopening must be available immediately, not after the quarter-second scan.
+	if is_instance_valid(game.owner_test_access):game.owner_test_access.update_layout()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible or not event is InputEventKey:
@@ -298,3 +311,5 @@ func _process(delta: float) -> void:
 func _exit_tree() -> void:
 	if visible and get_tree() != null:
 		get_tree().paused = previous_tree_pause
+	# Reopening must be available immediately, not after the quarter-second scan.
+	if is_instance_valid(game.owner_test_access):game.owner_test_access.update_layout()

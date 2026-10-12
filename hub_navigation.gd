@@ -32,6 +32,13 @@ func build(hub) -> void:
  # NPCs own the direct service action; dialogue remains in that service's Talk
  # control. Do not put a second competing button over the same world body.
  for badge in talk_buttons.values():badge.hide()
+ # A resident notices the visitor using their actual accepted inspect frame.
+ # No extra buttons or invented animation layers are introduced.
+ for pair in [[world_buttons.ShopEntrance,"Salvager"],[world_buttons.ShrineProp,"Relic Keeper"],[world_buttons.ArchiveDesk,"Archivist"]]:
+  var destination:Button=pair[0];var speaker:String=pair[1]
+  destination.mouse_entered.connect(hub.notice_resident.bind(speaker))
+  destination.focus_entered.connect(hub.notice_resident.bind(speaker))
+
  # Only essential shortcuts stay at the edge, below the living scene.
  buttons.home=shortcut(surface,"Home",Rect2(24,782,136,52),func():hub.get_parent().show_personal_home(),"Your separate private den")
  buttons.character=shortcut(surface,"Character",Rect2(172,782,136,52),func():hub.profile_requested.emit(),"Character and profile")

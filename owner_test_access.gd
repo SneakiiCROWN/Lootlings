@@ -22,6 +22,7 @@ var preferred:=Vector2(.90,.16)
 var saved_position:bool=false
 var shortcut_hidden:bool=false
 var layout_timer:float=0.0
+var layout_initialized:=false
 static func enabled() -> bool:
  return OS.is_debug_build() and (OS.has_feature("owner_test") or OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_OWNER_TEST")=="1")
 func configure(target) -> void:
@@ -43,7 +44,7 @@ func save_preferences() -> Error:
  DirAccess.make_dir_recursive_absolute(PREFS.get_base_dir())
  return preload("res://safe_config.gd").save_config(config,PREFS)
 func reset_position() -> void:
- saved_position=false;preferred=Vector2(.9,.16);shortcut_hidden=false;save_preferences();update_layout()
+ saved_position=false;layout_initialized=false;preferred=Vector2(.9,.16);shortcut_hidden=false;save_preferences();update_layout()
 func hide_shortcut() -> void:
  shortcut_hidden=true;save_preferences();shortcut.hide()
 func show_activation_title() -> void:
@@ -53,7 +54,7 @@ func relock() -> void:
 func modal_active() -> bool:
  return game.debug_panel.visible or (is_instance_valid(game.touch_ux) and is_instance_valid(game.touch_ux.dialog))
 func clear_of_controls(point:Vector2) -> bool:
- var rect:=Rect2(game.get_global_transform()*point,game.get_global_transform().basis_xform(Vector2(52,44)))
+ var rect:=Rect2(game.get_global_transform()*point,game.get_global_transform().basis_xform(shortcut.size))
  for control in game.find_children("*","Control",true,false):
   if control==self or is_ancestor_of(control) or not control.is_visible_in_tree():continue
   if control is BaseButton or control is LineEdit or control is Range or control is ScrollContainer or control is Label or control is RichTextLabel:
@@ -65,12 +66,14 @@ func update_layout() -> void:
  badge.visible=Scope.active;shortcut.visible=unlocked and not shortcut_hidden and not modal_active()
  if not shortcut.visible or ssh_pointer>=0:return
  var wanted:=clamped(preferred*Vector2(428,788))
- if saved_position and clear_of_controls(wanted):shortcut.position=wanted;return
+ if saved_position and clear_of_controls(wanted):shortcut.position=wanted;layout_initialized=true;return
+ # Keep a safe target stationary; hover captions must not make it chase the finger.
+ if layout_initialized and clear_of_controls(shortcut.position):return
  var candidates:Array=[Vector2(8,134),Vector2(420,134),Vector2(8,792),Vector2(420,792),Vector2(8,172),Vector2(420,172),Vector2(8,680),Vector2(420,680)]
  if game.state in ["startup","boot"] and game.startup_ui.current_screen=="title":candidates.push_front(Vector2(4,740))
  for point in candidates:
   point=clamped(point)
-  if clear_of_controls(point):shortcut.position=point;return
+  if clear_of_controls(point):shortcut.position=point;layout_initialized=true;return
  shortcut.hide()
 func open_tools() -> void:
  if not enabled() or not unlocked or modal_active() or dragging:return

@@ -37,7 +37,7 @@ func configure(target) -> void:
 	title=nav.text(room,"YOUR HOME",Rect2(116,22,236,32),19)
 	game.hideout_ui.home_settings_content.reparent(self)
 	game.hideout_ui.companion_collection_content.reparent(self)
-	home_summary=UI.rich_label(room,Rect2(124,54,232,18),11,Color("#d9c9aa"))
+	home_summary=UI.rich_label(room,Rect2(116,54,248,22),12,Color("#efe2c8"))
 	build_decor_editor()
 	build_room_hotspots()
 	home_reaction=nav.text(room,"",Rect2(160,650,184,54),12);home_reaction.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;home_reaction.hide()
@@ -220,6 +220,7 @@ func apply_decor() -> void:
 		return
 	draft.clear();open("room")
 	game.play_audio_event("home_page")
+	warmth=3.5;home_reaction.text="Room saved. Welcome home."
 
 func greet_or_collection(slot: String) -> void:
 	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
