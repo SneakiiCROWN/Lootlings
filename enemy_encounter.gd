@@ -15,20 +15,22 @@ const FIELDS := [
 	"enemy_trait_opening_used","enemy_trait_crit_used","enemy_control_budget","enemy_status_ward_used","enemy_chime_primed",
 ]
 const VISUAL_TIMERS := ["enemy_flash", "enemy_attack_anim", "enemy_squash", "enemy_death_anim", "enemy_entry_anim"]
-const HUD_Y := 307.0
+const HUD_Y := 157.0
 var actors: Array[Dictionary] = []
 var selected := 0
 var active := false
 var aoe_active := false
 var compact_hud_skin: StyleBox
 var hud_layout_cache := {}
+var hud_group_key:=""
+var hud_extra:=0.0
 
 func clear() -> void:
 	actors.clear()
 	selected = 0
 	active = false
 	aoe_active = false
-	hud_layout_cache.clear()
+	hud_layout_cache.clear();hud_group_key="";hud_extra=0
 
 func capture(g) -> void:
 	if not active: return
@@ -85,28 +87,28 @@ func card_at(point: Vector2) -> int:
 	return -1
 
 func hud_rect(index: int) -> Rect2:
-	return Rect2(12+index*(228 if actors.size()==2 else 156),HUD_Y,218 if actors.size()==2 else 144,108)
+	return Rect2(12+index*(228 if actors.size()==2 else 156),HUD_Y,218 if actors.size()==2 else 144,108+hud_extra)
 
 func hud_layout(font: Font, text: String, index: int) -> Dictionary:
+	var group:String="|".join(actors.map(func(actor):return str(actor.enemy_name).to_upper()))
+	if group!=hud_group_key:
+		hud_group_key=group;hud_layout_cache.clear();hud_extra=0
+		for actor in actors:
+			var actor_width:float=206 if actors.size()==2 else 132
+			var actor_size:=13
+			var actor_lines:=preload("res://combat_presentation.gd").name_lines(font,str(actor.enemy_name).to_upper(),actor_width,actor_size)
+			while actor_lines.size()>3 and actor_size>11:
+				actor_size-=1;actor_lines=preload("res://combat_presentation.gd").name_lines(font,str(actor.enemy_name).to_upper(),actor_width,actor_size)
+			hud_extra=maxf(hud_extra,maxi(0,actor_lines.size()-3)*14)
 	var key:="%s:%d:%d:%d" % [text,actors.size(),index,font.get_instance_id()]
 	if hud_layout_cache.has(key):return hud_layout_cache[key]
 	var rect:=hud_rect(index)
 	var width:=rect.size.x-12
 	var font_size:=13
-	var lines: Array[String]=[]
-	# Preserve actual words, including elite prefixes. The old fixed-character
-	# cut lost identity and still overflowed proportional-font card widths.
-	for word in text.split(" ",false):
-		if lines.is_empty():lines.append(word)
-		elif font.get_string_size(lines.back()+" "+word,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x<=width:lines[-1]+=" "+word
-		else:lines.append(word)
-	if lines.size()>3:
-		font_size=12;lines.clear()
-		for word in text.split(" ",false):
-			if lines.is_empty():lines.append(word)
-			elif font.get_string_size(lines.back()+" "+word,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x<=width:lines[-1]+=" "+word
-			else:lines.append(word)
-	var result:={"rect":rect,"name_width":width,"font_size":font_size,"lines":lines,"bar":Rect2(rect.position+Vector2(6,59),Vector2(width,18)),"status_y":rect.position.y+82}
+	var lines:=preload("res://combat_presentation.gd").name_lines(font,text,width,font_size)
+	while lines.size()>3 and font_size>11:
+		font_size-=1;lines=preload("res://combat_presentation.gd").name_lines(font,text,width,font_size)
+	var result:={"rect":rect,"name_width":width,"font_size":font_size,"lines":lines,"bar":Rect2(rect.position+Vector2(6,59+hud_extra),Vector2(width,18)),"status_y":rect.position.y+82+hud_extra,"cue":Rect2(rect.position.x+6,HUD_Y+115+hud_extra,width,24)}
 	if hud_layout_cache.size()>=24:hud_layout_cache.clear()
 	hud_layout_cache[key]=result
 	return result
@@ -119,7 +121,7 @@ func hud_skin() -> StyleBox:
 		compact_hud_skin=preload("res://ui_surface_style.gd").new()
 		compact_hud_skin.texture=source.texture
 		compact_hud_skin.protected_margin=source.protected_margin
-		compact_hud_skin.source_scale=.20
+		compact_hud_skin.source_scale=.10
 	return compact_hud_skin
 
 func on_death(g) -> void:
@@ -217,8 +219,8 @@ func draw(g, shake: Vector2) -> void:
 		g.draw_style_box(hud_skin(),layout.rect)
 		if index==original:g.draw_line(layout.rect.position+Vector2(14,2),layout.rect.position+Vector2(layout.rect.size.x-14,2),accent,2,true)
 		for line in range(layout.lines.size()):g.draw_string(g.body_font,Vector2(x,HUD_Y+23+line*14),layout.lines[line],HORIZONTAL_ALIGNMENT_CENTER,width,layout.font_size,accent)
-		g.draw_bar(layout.bar, maxf(0, g.enemy_hp) / g.enemy_max_hp, Color("#4b263d"), Color("#ff6279"), "%.0f / %.0f" % [maxf(0, g.enemy_hp), g.enemy_max_hp], 12, g.combat_presentation.health_ratio(g.enemy_serial))
-		g.combat_presentation.draw_cue(g, position(index) + Vector2(0, 35) + shake, scale_factor, Rect2(x, HUD_Y+115, width, 24))
+		g.draw_bar(layout.bar, maxf(0, g.enemy_hp) / g.enemy_max_hp, Color("#4b263d"), Color("#ff6279"), "%s / %s" % [preload("res://display_numbers.gd").compact(int(maxf(0,g.enemy_hp))),preload("res://display_numbers.gd").compact(int(g.enemy_max_hp))], 12, g.combat_presentation.health_ratio(g.enemy_serial))
+		g.combat_presentation.draw_cue(g, position(index) + Vector2(0, 35) + shake, scale_factor, layout.cue)
 		if g.enemy_burn_dps > 0.0: UI.draw_icon(g.get_canvas_item(), UI.icon("status_burn"), Rect2(x + 2, layout.status_y, 18, 18))
 		if g.enemy_poison_stacks > 0:
 			UI.draw_icon(g.get_canvas_item(), UI.icon("status_poison"), Rect2(x + 26, layout.status_y, 18, 18))

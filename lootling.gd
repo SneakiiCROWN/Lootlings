@@ -4032,7 +4032,7 @@ func draw_hud() -> void:
 	if retention.siege: location_line="ROUND %02d • RELIC SIEGE" % wave
 	if dungeon.active and dungeon.depth < 0: location_line = "RELIC ROUTE • CHOOSE PATH"
 	if retention.targeted: location_line="ROOTGLASS VAULT • %s" % ("CHOOSE PATH" if dungeon.depth<0 else "ROOM %02d" % (dungeon.depth+1))
-	draw_string(body_font, Vector2(60, 52), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, 11, Color("#bac9eb"))
+	draw_string(body_font, Vector2(60, 52), location_line, HORIZONTAL_ALIGNMENT_LEFT, 174, LootlingsUI.fitted_font_size(body_font,location_line,174,11,9), Color("#bac9eb"))
 	var coin_pulse := clampf(coin_counter_flash / 0.24, 0.0, 1.0)
 	var resource_center := Vector2(353,29)
 	var resource_radius := 10.0+coin_pulse*3.0
@@ -4050,7 +4050,7 @@ func draw_hud() -> void:
 	if player_ward > 0:
 		draw_string(body_font,Vector2(332,94),"WARD %s" % preload("res://display_numbers.gd").compact(int(ceil(player_ward))),HORIZONTAL_ALIGNMENT_CENTER,130,12,Color("#b6ecff"))
 		LootlingsUI.draw_meter(get_canvas_item(),Rect2(332,99,130,8),player_ward/maxf(1,player_max_hp),"xp")
-	draw_bar(Rect2(60,57,402,24),player_hp/maxf(1,player_max_hp),Color.BLACK,Color.WHITE,"LV %d · HP %.0f / %.0f" % [level,maxf(0,player_hp),player_max_hp],14,combat_presentation.health_ratio(-1))
+	draw_bar(Rect2(60,57,402,24),player_hp/maxf(1,player_max_hp),Color.BLACK,Color.WHITE,"LV %d · HP %s / %s" % [level,preload("res://display_numbers.gd").compact(int(maxf(0,player_hp))),preload("res://display_numbers.gd").compact(int(player_max_hp))],14,combat_presentation.health_ratio(-1))
 	if player_hp > 0 and player_hp/player_max_hp <= .25:
 		draw_rect(Rect2(60,57,402,24),Color("#ffa278"),false,1.5)
 
@@ -4064,25 +4064,26 @@ func draw_arena(shake: Vector2) -> void:
 	if enemy_alive and show_combat_context and not special_entering and not enemy_encounter.active:
 		var name_layout:=combat_presentation.enemy_name_layout(self)
 		var enemy_name_size:int=name_layout.font_size
-		var enemy_hud_x := 40.0 if enemy_is_boss else (255.0 if enemy_stage_x >= player_x else 30.0)
-		var enemy_hud_width := 400.0 if enemy_is_boss else 195.0
-		var enemy_hud_y := 243.0 if enemy_is_boss else 294.0
-		if not enemy_is_boss: enemy_hud_x=clampf(target_combat_visual_position().x-enemy_hud_width*.5,16,480-enemy_hud_width-16)
+		var hud:Dictionary=combat_presentation.solo_hud(self)
+		var enemy_hud_x:float=hud.x
+		var enemy_hud_width:float=hud.width
+		var enemy_hud_y:float=hud.name_y
 		var name_lines:Array=name_layout.lines
 		var name_extra:float=name_layout.extra
 		draw_style_box(LootlingsUI.skin_style("hud_header_9slice"),Rect2(enemy_hud_x-10,enemy_hud_y-26,enemy_hud_width+20,64+name_extra))
 		for line in range(name_lines.size()):draw_string(body_font, Vector2(enemy_hud_x, enemy_hud_y+line*18), name_lines[line], HORIZONTAL_ALIGNMENT_CENTER, enemy_hud_width, enemy_name_size, Color("#f4f7ff"))
-		draw_bar(Rect2(100 if enemy_is_boss else enemy_hud_x, enemy_hud_y+12+name_extra, 280 if enemy_is_boss else 195, 16), enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%.0f / %.0f" % [enemy_hp, enemy_max_hp], 12, combat_presentation.health_ratio(enemy_serial))
-		var status_x := 165.0 if enemy_is_boss else enemy_hud_x+32
-		var status_y := (283.0 if enemy_is_boss else enemy_hud_y+51)+name_extra
-		if enemy_burn_dps > 0.0:
-			draw_status_chip(Vector2(status_x, status_y), "BURN", build.color("Fire"), "status_burn")
-			status_x += 80.0
-		if enemy_poison_stacks > 0:
-			draw_status_chip(Vector2(status_x, status_y), "TOXIN ×%d" % enemy_poison_stacks, build.color("Poison"), "status_poison")
-		if not enemy_variant_id.is_empty() and wave_banner_timer <= 0.0:
-			var variant := EnemyVariantCatalog.definition(enemy_variant_id)
-			draw_status_chip(Vector2(240 if enemy_is_boss else enemy_hud_x+enemy_hud_width*.5, (310 if enemy_is_boss else enemy_hud_y+76)+name_extra), enemy_variant_name, enemy_variant_color, EnemyVariantCatalog.icon_id(enemy_variant_id))
+		draw_bar(hud.bar, enemy_hp / enemy_max_hp, Color("#4b263d"), Color("#ffad45") if enemy_is_boss else Color("#ff6279"), "%s / %s" % [preload("res://display_numbers.gd").compact(int(maxf(0,enemy_hp))),preload("res://display_numbers.gd").compact(int(enemy_max_hp))], 12, combat_presentation.health_ratio(enemy_serial))
+		var burn_width:float=status_chip_width("BURN") if enemy_burn_dps>0 else 0
+		var toxin_text:="TOXIN ×%d" % enemy_poison_stacks
+		var toxin_width:float=status_chip_width(toxin_text) if enemy_poison_stacks>0 else 0
+		var total_width:float=burn_width+toxin_width+(8 if burn_width>0 and toxin_width>0 else 0)
+		var status_x:float=enemy_hud_x+(enemy_hud_width-total_width)*.5
+		if burn_width>0:
+			draw_status_chip(Vector2(status_x+burn_width*.5,hud.status_y),"BURN",build.color("Fire"),"status_burn")
+			status_x+=burn_width+8
+		if toxin_width>0:draw_status_chip(Vector2(status_x+toxin_width*.5,hud.status_y),toxin_text,build.color("Poison"),"status_poison")
+		if not enemy_variant_id.is_empty() and wave_banner_timer<=0:
+			draw_status_chip(Vector2(enemy_hud_x+enemy_hud_width*.5,hud.variant_y),enemy_variant_name,enemy_variant_color,EnemyVariantCatalog.icon_id(enemy_variant_id))
 	var player_pos := WeaponFit.world_position(self) + shake
 	combat_companion.draw_world(self,preload("res://companion_catalog.gd").sanitize(profile.get("companion",{})),audio_settings.get("cinematic_reduced_motion",false))
 	draw_lootling(player_pos, player_flash > 0.0)
@@ -4137,13 +4138,15 @@ func draw_stats_strip() -> void:
 	draw_string(body_font, Vector2(56, 785), "%s • %s" % [current_weapon_family(),core_title], HORIZONTAL_ALIGNMENT_LEFT, 296, 12, Color("#f1d486"))
 	draw_string(body_font, Vector2(362,785),"DETAILS: PAUSE",HORIZONTAL_ALIGNMENT_CENTER,90,10,Color("#b1c7eb"))
 
+func status_chip_width(text_value:String) -> float:
+	return clampf(body_font.get_string_size(text_value,HORIZONTAL_ALIGNMENT_LEFT,-1,10).x+26,72,140)
 func draw_status_chip(pos: Vector2, text_value: String, color: Color, icon_name: String) -> void:
-	var width := clampf(body_font.get_string_size(text_value, HORIZONTAL_ALIGNMENT_LEFT, -1, 10).x + 26.0, 72.0, 140.0)
+	var width:float=status_chip_width(text_value)
 	var rect := Rect2(pos.x - width * 0.5, pos.y - 12.0, width, 19.0)
 	draw_rect(rect, Color("#080f24df"), true)
 	draw_rect(rect, Color(color.r, color.g, color.b, 0.78), false, 1.5)
 	LootlingsUI.draw_icon(get_canvas_item(), LootlingsUI.icon(icon_name), Rect2(rect.position + Vector2(3, 2), Vector2(15, 15)))
-	draw_string(body_font, Vector2(rect.position.x + 22, pos.y + 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, width - 25, 10, Color("#f5f7ff"))
+	draw_string(body_font, Vector2(rect.position.x + 22, pos.y + 3), text_value, HORIZONTAL_ALIGNMENT_CENTER, width - 25, LootlingsUI.fitted_font_size(body_font,text_value,width-25,10,8), Color("#f5f7ff"))
 
 func build_summary() -> String:
 	return build.short_summary()
@@ -4153,8 +4156,9 @@ func draw_bar(rect: Rect2, ratio: float, _back: Color, _fill: Color, text_value:
 	LootlingsUI.draw_meter(get_canvas_item(), rect, ratio, kind, trail_ratio)
 	if not text_value.is_empty():
 		var baseline := rect.position + Vector2(4,rect.size.y-5)
-		draw_string_outline(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,font_size,2,Color("#071225"))
-		draw_string(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,font_size,Color.WHITE)
+		var fitted:int=LootlingsUI.fitted_font_size(body_font,text_value,rect.size.x-8,font_size,10)
+		draw_string_outline(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,fitted,2,Color("#071225"))
+		draw_string(body_font,baseline,text_value,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,fitted,Color.WHITE)
 
 func draw_effects() -> void:
 	if state in ["result","relic_spinner"]:return # Keep transient combat/drop receipts out of outcome panels.
@@ -4271,16 +4275,13 @@ func draw_moment_overlay() -> void:
 		var fade := clampf(wave_banner_timer * 2.5, 0.0, 1.0)
 		var banner_color := wave_banner_color
 		banner_color.a = fade
-		var important := wave_banner_text.contains("BOSS") or wave_banner_text.contains("FINAL")
-		if important:
-			draw_rect(Rect2(72, 276, 336, 50), Color(0.03, 0.06, 0.16, 0.78 * fade), true)
-			draw_rect(Rect2(72, 276, 336, 2), banner_color, true)
-			draw_rect(Rect2(72, 324, 336, 2), banner_color, true)
-			draw_string(title_font, Vector2(84, 310), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 312, 20, banner_color)
-		else:
-			draw_rect(Rect2(100, 264, 280, 38), Color(0.03, 0.06, 0.16, 0.82 * fade), true)
-			draw_rect(Rect2(100, 264, 280, 2), banner_color, true)
-			draw_string(title_font, Vector2(110, 291), wave_banner_text, HORIZONTAL_ALIGNMENT_CENTER, 260, 17, banner_color)
+		# Wave/perk notices occupy their own short lane below the player HUD.
+		# They must never cover enemy identity, health, status or attack tells.
+		var banner_rect:=Rect2(84,118,312,30)
+		draw_rect(banner_rect,Color(.03,.06,.16,.78*fade),true)
+		draw_line(banner_rect.position,banner_rect.position+Vector2(banner_rect.size.x,0),banner_color,1)
+		var fitted:int=LootlingsUI.fitted_font_size(body_font,wave_banner_text,296,14,10)
+		draw_string(body_font,Vector2(92,139),wave_banner_text,HORIZONTAL_ALIGNMENT_CENTER,296,fitted,banner_color)
 
 func save_home_preferences(home: Dictionary, companion: Dictionary) -> bool:
 	if state!="personal_home" or personal_home.view not in ["preferences","companions","decor","decor_preview"]:return false

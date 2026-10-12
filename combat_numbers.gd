@@ -3,7 +3,7 @@ extends RefCounted
 const LIMIT := 8
 const COLORS={"Physical":"#eef3ff","Fire":"#ffad61","Ice":"#88e9ff","Frost":"#88e9ff","Lightning":"#8ff0ff","Poison":"#73e2aa","Nature":"#a6e596","Shadow":"#c99cff","Void":"#c99cff","enemy_heal":"#91e7ba","heal":"#80e7b6","ward":"#91ddff","armour":"#c1c9df","incoming":"#ff9aa5","heavy":"#ff927f","critical":"#ffe593"}
 static func text(kind: String, amount: float, hits: int=1) -> String:
- var value := "<0.01" if amount<.01 else ("%.2f" if amount<1 else "%.1f" if amount<10 else "%.0f") % amount
+ var value:String=preload("res://display_numbers.gd").compact(int(round(amount))) if amount>=10000 else "<0.01" if amount<.01 else ("%.2f" if amount<1 else "%.1f" if amount<10 else "%.0f") % amount
  var label: String={"Physical":"HIT","critical":"CRIT!","heavy":"HEAVY","enemy_heal":"MEND +","heal":"HP +","ward":"WARD BLOCK","armour":"ARMOUR BLOCK","incoming":"HP −","Fire_tick":"BURN","Poison_tick":"POISON"}.get(kind,kind.to_upper())
  return "%s %s%s" % [label,value," ×%d" % hits if hits>1 else ""]
 static func recycle(g, item: Dictionary) -> void:
@@ -45,7 +45,13 @@ static func add(g, amount: float, kind: String, player: bool=false, critical: bo
  if g.enemy_encounter.active:pos.y=clampf(origin.y+70+pack_row*27,548,634)
  var size_delta:int={"Small":-2,"Normal":0,"Large":3}.get(g.audio_settings.get("combat_text_size","Normal"),0)
  var emphasized:bool=critical and g.audio_settings.get("combat_crit_emphasis",true)
- var min_y:float=548 if g.enemy_encounter.active else pos.y-16 if player else preload("res://combat_presentation.gd").cue_label_rect(g).end.y+30
+ var minimum:float=548 if g.enemy_encounter.active else 412 if player else maxf(412,preload("res://combat_presentation.gd").cue_label_rect(g).end.y+30)
+ if not g.enemy_encounter.active:
+  # Apply the reserved cue boundary before slot spacing. Clamping every slot
+  # afterwards collapsed several damage lines onto the same baseline.
+  var base_y:float=clampf(origin.y+(34 if player else -48),minimum,586 if player else 474)
+  pos.y=base_y+count*26
+ var min_y:float=548 if g.enemy_encounter.active else maxf(minimum,pos.y-12)
  pos.y=maxf(pos.y,min_y)
  var receipt:Dictionary
  if not g.combat_number_pool.is_empty():receipt=g.combat_number_pool.pop_back()
@@ -63,6 +69,7 @@ static func draw(g, item: Dictionary) -> void:
  var font:Font=preload("res://lootlings_typography.gd").bold()
  var font_size:int=item.size
  if g.audio_settings.get("combat_text_mode","Standard")=="Expressive" and not g.audio_settings.get("cinematic_reduced_motion",false):font_size+=roundi(3*maxf(0,1-float(item.age)/.16))
+ font_size=preload("res://lootlings_ui.gd").fitted_font_size(font,item.text,390 if item.emphasized and item.number_kind!="critical" else 425,font_size,11)
  var width:=font.get_string_size(item.text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
  var badge:bool=item.emphasized and item.number_kind!="critical"
  var total_width:float=width+(35 if badge else 0)

@@ -142,12 +142,20 @@ static func enemy_name_layout(g) -> Dictionary:
 		font_size-=1
 		lines=name_lines(g.body_font,g.enemy_name.to_upper(),width-2,font_size)
 	return {"lines":lines,"font_size":font_size,"extra":18.0*maxi(0,lines.size()-1)}
-static func cue_label_rect(g) -> Rect2:
+static func solo_hud(g) -> Dictionary:
 	var layout:=enemy_name_layout(g)
-	if g.enemy_is_boss:return Rect2(120,338+layout.extra if not g.enemy_variant_id.is_empty() else 312+layout.extra,240,28)
-	var width:float=195.0
-	var x:float=clampf(g.target_combat_visual_position().x-width*.5,16,480-width-16)
-	return Rect2(x,(397 if not g.enemy_variant_id.is_empty() else 370)+layout.extra,width,22)
+	var width:float=400 if g.enemy_is_boss else 195
+	var x:float=40 if g.enemy_is_boss else clampf(g.target_combat_visual_position().x-width*.5,16,480-width-16)
+	var base:=183.0
+	var bar:=Rect2(100 if g.enemy_is_boss else x,base+12+layout.extra,280 if g.enemy_is_boss else width,16)
+	var status_y:float=bar.end.y+18
+	var has_status:bool=g.enemy_burn_dps>0 or g.enemy_poison_stacks>0
+	var has_variant:bool=not g.enemy_variant_id.is_empty()
+	var variant_y:float=status_y+26 if has_status else status_y
+	var cue_y:float=variant_y+13 if has_variant else status_y+13 if has_status else bar.end.y+12
+	return {"x":x,"width":width,"name_y":base,"bar":bar,"status_y":status_y,"variant_y":variant_y,"cue":Rect2(x+(width-240)*.5 if g.enemy_is_boss else x,cue_y,240 if g.enemy_is_boss else width,28 if g.enemy_is_boss else 22)}
+static func cue_label_rect(g) -> Rect2:
+	return solo_hud(g).cue
 static func draw_cue(g, center: Vector2, scale_factor: float = 1.0, label_rect: Rect2 = Rect2()) -> void:
 	if label_rect.size==Vector2.ZERO:label_rect=cue_label_rect(g)
 	var cue := attack_cue(g)
