@@ -162,6 +162,7 @@ var achievement_filter_buttons: Array[Button] = []
 var achievement_filter := "ALL"
 var selected_achievement_id := ""
 var achievement_manager
+var achievement_display_button: Button
 var visited_destinations := {}
 var resident_facing: String = "left"
 var resource_label: RichTextLabel
@@ -487,6 +488,8 @@ func build_phase4() -> void:
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	phase4_content.add_child(scroll)
 	phase4_list = VBoxContainer.new(); phase4_list.custom_minimum_size.x = 410; phase4_list.add_theme_constant_override("separation",10); scroll.add_child(phase4_list)
+	build_resident_service(phase4_content,"Archivist",Rect2(24,142,432,50),"Bring your stories home. I'll keep their names.",0,50)
+	phase4_content.get_node("ResidentService").hide()
 	var detail_panel := make_panel(phase4_content,Rect2(24,510,432,222),Color("#0b1229ec"),Color("#7087ae"))
 	phase4_detail_panel=detail_panel
 	phase4_detail = LootlingsUI.rich_label(detail_panel,Rect2(16,12,400,198),15,Color("#e7edff"))
@@ -499,6 +502,8 @@ func build_phase4() -> void:
 	)
 	phase4_action.set_meta("ui_intent","primary"); apply_button_style(phase4_action,Color("#493052"),Color("#e2b563"))
 	phase4_action.pressed.connect(func():
+		if phase4_mode=="archive" and phase4_selected=="Home keepsakes":
+			show_achievements();select_achievement("hoard_dragon");return
 		if phase4_selected.is_empty() or Time.get_ticks_msec()-phase4_selected_msec < 180: return
 		var selected := phase4_selected; phase4_selected = ""; phase4_action.disabled = true
 		if phase4_mode == "blueprints": blueprint_requested.emit(selected)
@@ -509,6 +514,10 @@ func show_phase4(mode: String) -> void:
 	dismiss_dialogue(); current_screen = "workshop"; phase4_mode = mode
 	set_screen(phase4_content)
 	hub_navigation.archive_talk.visible=mode=="archive"
+	phase4_content.get_node("ResidentService").visible=mode=="archive"
+	var records_scroll:ScrollContainer=phase4_list.get_parent()
+	records_scroll.position.y=202 if mode=="archive" else 150
+	records_scroll.size.y=294 if mode=="archive" else 346
 	phase4_heading.text={"blueprints":"BLUEPRINT FORGE","contracts":"CONTRACT BOARD","archive":"ILEX’S ARCHIVE"}.get(mode,"ARCHIVE")
 	phase4_nav[0].text={"blueprints":"WEAPON EVOLUTION","contracts":"LOCAL CONTRACTS","archive":"TROPHIES"}.get(mode,"")
 	phase4_nav[1].text={"blueprints":"BLUEPRINTS","contracts":"REGIONAL BOUNTIES","archive":"FIELD NOTES"}.get(mode,"")
@@ -516,34 +525,41 @@ func show_phase4(mode: String) -> void:
 
 func refresh_phase4() -> void:
 	if expedition_progress == null: return
+	phase4_action.position.x=156;phase4_action.size.x=300
 	var delivery_notice: String=phase4_message
 	phase4_action.visible=true; track_button.visible=true
 	phase4_selected = str(phase4_selections.get(phase4_mode,"")); track_button.disabled=true; phase4_action.disabled = true; phase4_action.text = "SELECT A FIND"
-	phase4_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").paper() if phase4_mode=="archive" else preload("res://station_presentation.gd").metal())
-	phase4_detail.add_theme_color_override("default_color",Color("#382e32") if phase4_mode=="archive" else Color("#e7edff"))
+	phase4_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
+	phase4_detail.add_theme_color_override("default_color",Color("#e7edff"))
 	for child in phase4_list.get_children(): phase4_list.remove_child(child); child.queue_free()
 	phase4_detail.text = phase4_message if not phase4_message.is_empty() else "Relic Rank %d\nRegional materials shape named gear. Boss seals bind a Rare blueprint craft.\nMastery comes from use; no daily clock." % expedition_progress.rank()
 	phase4_message = ""
 	if phase4_mode == "archive":
 		phase4_detail.text = "Select a record to inspect. Unknown finds keep their names until you discover them."
-		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege"]:
+		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege","Home keepsakes"]:
 			var button := make_button(phase4_list,"",Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
 			button.set_meta("paper_selection",true)
 			button.set_meta("ui_sound","archive_page")
 			preload("res://station_presentation.gd").paper_button(button)
-			var icon_name: String={"Mastery":"core","Characters":"res://art/sprites/relic_beast_base.png","Named gear":"res://art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune"}[category]
+			var icon_name: String={"Mastery":"core","Characters":"res://art/sprites/relic_beast_base.png","Named gear":"res://art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune","Home keepsakes":"res://art/ui/trophies/category_bosses.png"}[category]
 			# Use verified canonical icons, with all decorative children ignoring touch.
 			if icon_name=="core": icon_name="core_neutral"
 			if icon_name=="gear_weapon": icon_name="res://art/sprites/weapons/vanguard_hammer.png"
 			LootlingsUI.add_icon(button,Rect2(12,6,44,44),icon_name)
-			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#382e32")).mouse_filter=Control.MOUSE_FILTER_IGNORE
+			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 			button.custom_minimum_size = Vector2(410,56)
 			button.set_meta("selection_id",category)
 			button.pressed.connect(func():
+				phase4_selected=category
+				phase4_action.visible=category=="Home keepsakes"
+				phase4_action.disabled=false;phase4_action.text="VIEW TROPHY & HOME DISPLAY";phase4_action.position.x=24;phase4_action.size.x=432
 				phase4_selections[phase4_mode]=category
 				refresh_selection_styles(phase4_list,category)
 				if category=="Field discoveries": last_home_facts.event="archive_discovery"
 				phase4_detail.text = expedition_progress.collection_text(category)
+				if category=="Home keepsakes":
+					var earned:bool=preload("res://home_rewards.gd").earned(get_parent())
+					phase4_detail.text="DRAGON, DISLODGED\nHoard Dragon keepsake\n\n"+("Permanently earned. Preview it on your Home display shelf; Apply saves, Cancel keeps your current decor." if earned else "Defeat the Hoard Dragon in the Outer Ruins. Your first victory earns a permanent keepsake for your Home. No fee and no repeat payout.")
 				if category == "Relic Siege" and endgame_progress != null:
 					phase4_detail.text="Highest round %d • best score %d\nRootglass Vault clears %d\n%s\nRound 10: extraction. Round 20+: Crownroot chase.\nOwned gear, mastery and discoveries survive defeat." % [endgame_progress.data.highest,endgame_progress.data.best_score,endgame_progress.data.dungeon_clears,endgame_progress.target_text()]
 					var owned_red: bool=current_inventory!=null and (current_inventory.equipped_item("Weapon").get("id","")=="gravebloom_staff" or current_inventory.stash.any(func(item): return item.id=="gravebloom_staff"))
@@ -855,10 +871,10 @@ func request_gold_upgrade(upgrade_id: String) -> void:
 	var game=get_parent()
 	game.touch_ux.request("Improve %s?" % data[0],"Rank %d → %d. %s. Costs %d %s." % [rank,rank+1,data[1],data[2][rank],preload("res://permanent_upgrade_catalog.gd").currency(upgrade_id)],func(): gold_upgrade_requested.emit(upgrade_id))
 
-func build_resident_service(surface:Control,speaker:String,rect:Rect2,line:String) -> void:
+func build_resident_service(surface:Control,speaker:String,rect:Rect2,line:String,face_offset:float=-25,face_height:float=67) -> void:
 	var host:=Control.new();host.name="ResidentService";host.position=rect.position;host.size=rect.size;host.mouse_filter=Control.MOUSE_FILTER_IGNORE;surface.add_child(host)
 	var face:=TextureRect.new();face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	face.texture=load(preload("res://resident_art_catalog.gd").portrait_path(preload("res://resident_art_catalog.gd").IDS[speaker]));face.position=Vector2(0,-25);face.size=Vector2(62,67);face.mouse_filter=Control.MOUSE_FILTER_IGNORE;host.add_child(face)
+	face.texture=load(preload("res://resident_art_catalog.gd").portrait_path(preload("res://resident_art_catalog.gd").IDS[speaker]));face.position=Vector2(0,face_offset);face.size=Vector2(62,face_height);face.mouse_filter=Control.MOUSE_FILTER_IGNORE;host.add_child(face)
 	var greeting:=make_label(host,line,14,Rect2(76,0,rect.size.x-82,42),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7d9ba"));greeting.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;greeting.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;greeting.mouse_filter=Control.MOUSE_FILTER_IGNORE
 
 func build_shop() -> void:
@@ -984,6 +1000,12 @@ func build_achievements() -> void:
 	achievement_detail.add_theme_font_size_override("normal_font_size", 15)
 	achievement_detail.add_theme_color_override("default_color", Color("#e7edff"))
 	detail_panel.add_child(achievement_detail)
+	achievement_display_button=make_button(detail_panel,"PREVIEW AT HOME",Rect2(20,144,400,48),Color("#172442"),Color("#dcb973"),15)
+	achievement_display_button.hide()
+	achievement_display_button.pressed.connect(func():
+		var rewards=preload("res://home_rewards.gd")
+		if rewards.displayed(get_parent()):get_parent().show_personal_home()
+		else:rewards.preview(get_parent()))
 	var lore_button := make_button(achievement_content, "FIELD NOTES & STORIES", Rect2(248, 797, 212, 48), Color("#252343"), Color("#b5a0de"), 12)
 	lore_button.pressed.connect(show_lore)
 
@@ -1079,6 +1101,9 @@ func refresh_memories() -> void:
 			if str(id).begins_with("character/"): art_path=FieldNotes.portrait(str(id).get_slice("/",1))
 			if str(id).begins_with("resident/"): art_path=preload("res://resident_art_catalog.gd").portrait_path(str(id).get_slice("/",1))
 			var thumbnail:=LootlingsUI.add_icon(button,Rect2(10,8,124,96) if illustrated else Rect2(10,8,64,64),art_path)
+			if entry.has("actor_region") and art_path==str(entry.actor):
+				var atlas:=AtlasTexture.new();atlas.atlas=thumbnail.texture
+				var crop:Array=entry.actor_region;atlas.region=Rect2(crop[0],crop[1],crop[2],crop[3]);thumbnail.texture=atlas
 			if illustrated and str(art_path).contains("/backgrounds/"):
 				thumbnail.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED;thumbnail.clip_contents=true
 			if str(id).begins_with("origin/"): thumbnail.texture=Avatar.portrait(profile)
@@ -1210,6 +1235,12 @@ func refresh_achievement_detail() -> void:
 	var target := int(entry.get("target", 1))
 	var state_line := "[color=#ffe178]RECOVERED[/color]" if unlocked else "[color=#9fddff]PROGRESS  %d / %d[/color]" % [mini(current, target), target]
 	achievement_detail.text = "[center][font_size=22][color=%s][img=28x28]%s[/img]  %s[/color][/font_size]\n[color=#b99de6]%s COLLECTION[/color]\n\n%s\n\n%s[/center]" % ["#ffe178" if unlocked else "#d9e5ff", trophy_texture_path(entry, unlocked, secret), title, str(entry.category).to_upper(), description, state_line]
+	achievement_display_button.visible=selected_achievement_id==preload("res://home_rewards.gd").ACHIEVEMENT
+	achievement_detail.size.y=120 if achievement_display_button.visible else 174
+	achievement_detail.scroll_active=true
+	if achievement_display_button.visible:
+		achievement_display_button.disabled=not unlocked
+		achievement_display_button.text="ON DISPLAY AT HOME · VIEW" if preload("res://home_rewards.gd").displayed(get_parent()) else "PREVIEW AT HOME" if unlocked else "DEFEAT THE HOARD DRAGON TO DISPLAY"
 
 func refresh_home() -> void:
 	if current_inventory == null or resource_label == null:
@@ -1777,7 +1808,7 @@ func background_for_screen() -> Texture2D:
 	match current_screen:
 		"campaign", "contracts": return BetaArt.MARKET
 		"forge": return BetaArt.GEARWORKS
-		"workshop": return BetaArt.ARCHIVE if phase4_mode=="archive" else BetaArt.GEARWORKS if phase4_mode=="blueprints" else BetaArt.MARKET
+		"workshop": return HIDEOUT_BACKGROUND if phase4_mode=="archive" else BetaArt.GEARWORKS if phase4_mode=="blueprints" else BetaArt.MARKET
 		"lore", "memories", "achievements": return BetaArt.ARCHIVE
 		# The old stall painting bakes the superseded goblin Patch identity.
 		# Reuse the current public Hub setting and the approved Patch station panel.
@@ -1799,7 +1830,7 @@ func draw_home_scene() -> void:
 	LootlingsUI.draw_icon(get_canvas_item(),HOME_GATE_ART,Rect2(153,106,174,158))
 	LootlingsUI.draw_icon(get_canvas_item(),HOME_SHRINE_ART,Rect2(8,210,80,112))
 	# Contact shadows sit on the station floor, not around the image rectangle.
-	for station in [[Vector2(405,444),46.0],[Vector2(71,707),52.0],[Vector2(403,721),29.0]]:
+	for station in [[Vector2(71,707),52.0],[Vector2(403,721),29.0]]:
 		draw_set_transform(station[0],0,Vector2(1,.18));draw_circle(Vector2.ZERO,station[1],Color("#03061280"));draw_set_transform(Vector2.ZERO)
 	# The painted merchant stall is already present; no second miniature cart.
 	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("forge_station","props"),Rect2(10,642,126,76))

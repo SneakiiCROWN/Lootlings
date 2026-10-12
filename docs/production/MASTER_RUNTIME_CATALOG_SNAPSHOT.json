@@ -273,7 +273,13 @@
     "methods": [
       "_init",
       "load_state",
+      "snapshot",
+      "apply_snapshot",
+      "write_snapshot",
       "save_state",
+      "recover_award",
+      "retry_pending",
+      "change",
       "add_progress",
       "set_progress",
       "unlock",
@@ -283,7 +289,7 @@
       "definition_for",
       "display_description"
     ],
-    "source_sha256": "da89d219ec2158a30018120de0fe4cbc8aa0bdca76ef94c0d1335e07eb642152"
+    "source_sha256": "e5b677eaced3a011d0428f8412b8c8bc7d7474429b924441bbfc663983a3f34b"
   },
   "action_pose_catalog.gd": {
     "constants": {
@@ -1764,7 +1770,7 @@
       "motion",
       "draw_identity"
     ],
-    "source_sha256": "352143e8ed76c21548e4048edcf608db380351574b021896c5095229623cfc4c"
+    "source_sha256": "f0c4ef2405c2f097068313bfd7440a801e71c41b6b95ef88d127549593a64c98"
   },
   "build_system.gd": {
     "constants": {
@@ -5249,7 +5255,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "98ff67d45b779ebac76715507229d360b0ef6d152fb74e968e0a1c86c5a1ea73"
+    "source_sha256": "b0dc927feffa65893bd73c792d859cd32cf9332f3db71721e513fe6573c615f4"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5312,6 +5318,28 @@
           "target_size_design": [
             96,
             48
+          ]
+        },
+        "home_dragon_keepsake": {
+          "achievement": "hoard_dragon",
+          "allowed_slots": [
+            "home.wall_display"
+          ],
+          "asset_path": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+          "canvas": [
+            2048,
+            2048
+          ],
+          "classification": "REUSE_EXISTING",
+          "display_name": "Dragon, Dislodged · Hoard Dragon keepsake",
+          "pivot_pixel": [
+            1024,
+            2048
+          ],
+          "representation": "Framed canonical idle portrait reused; not new sculpted trophy art",
+          "target_size_design": [
+            82,
+            62
           ]
         },
         "home_lantern": {
@@ -5389,19 +5417,19 @@
             "home_companion_cushion"
           ],
           "anchor_design": [
-            92,
-            746
+            117,
+            604
           ],
           "companion_pivot_design": [
-            92,
-            746
+            117,
+            592
           ],
           "facing_default": "right",
           "hit_rect_design": [
-            40,
-            682,
-            100,
-            80
+            58,
+            536,
+            120,
+            102
           ],
           "mount": "floor",
           "sprite_size_design": [
@@ -5431,6 +5459,7 @@
         },
         "home.wall_display": {
           "allowed_decor": [
+            "home_dragon_keepsake",
             "home_trophy",
             "home_plans"
           ],
@@ -5531,7 +5560,20 @@
       "draw_display_shelf",
       "draw_foreground"
     ],
-    "source_sha256": "f9d7e86d825de2fa877bd16c1da39818367f541517786c6f326d065eb75ff609"
+    "source_sha256": "6131d419b25ca015f657608c5d709558b1d180b6e5caa5082a21e7f99e63f0f3"
+  },
+  "home_rewards.gd": {
+    "constants": {
+      "ACHIEVEMENT": "hoard_dragon",
+      "DECOR_ID": "home_dragon_keepsake",
+      "NAME": "Dragon, Dislodged"
+    },
+    "methods": [
+      "earned",
+      "displayed",
+      "preview"
+    ],
+    "source_sha256": "ae925fe7a7068e0803251c753fd9c9699ca248de74dee710e21bcc60c2ff3cd5"
   },
   "home_runtime_art.gd": {
     "constants": {
@@ -7174,6 +7216,7 @@
       "play_character_voice",
       "play_audio_event",
       "award_achievement",
+      "show_achievement_earned",
       "award_item_discovery",
       "award_unique_achievement",
       "award_current_weapon_family",
@@ -7326,7 +7369,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "6f304a3ab84ca03694ed47588301863e014628094a3eeba04809230d4c5eaf71"
+    "source_sha256": "ccb0b2a4b264a82445b09bf3a3b699ae6f5099786559cfb127538705222fc90d"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7803,7 +7846,7 @@
       "restore",
       "recover"
     ],
-    "source_sha256": "a29c4e1a3a17b5b77d33c915ec3948dddab9562fa01d816acab0d601c9b74e13"
+    "source_sha256": "a8b91d5f17fce700987dc2d95c9026931089f49029571039733d5cdc5bee072a"
   },
   "owner_test_access.gd": {
     "constants": {
@@ -7997,7 +8040,7 @@
       "greet_or_collection",
       "open_collection"
     ],
-    "source_sha256": "da2b727e359cf7bd0fdee518610539a0038d17c21bc601730fa3ea7eaff5ee9b"
+    "source_sha256": "a902380ff469d3ee1821811bb11108e4acfdc969e698c1bbc121761fcc7b5a9c"
   },
   "phase3_item_catalog.gd": {
     "constants": {

@@ -2,6 +2,14 @@ extends RefCounted
 # Exact launch catalogue/anchors from the owner-approved master Home contracts.
 # Four accepted furnishings reused unchanged. Missing perch exports stay gated.
 const ITEMS := {
+  "home_dragon_keepsake": {
+    "display_name":"Dragon, Dislodged · Hoard Dragon keepsake",
+    "classification":"REUSE_EXISTING",
+    "asset_path":"art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+    "canvas":[2048,2048],"pivot_pixel":[1024,2048],"target_size_design":[82,62],
+    "representation":"Framed canonical idle portrait reused; not new sculpted trophy art",
+    "allowed_slots":["home.wall_display"],"achievement":"hoard_dragon"
+  },
   "home_trophy": {
     "display_name": "Trophy stand",
     "classification": "REUSE_EXISTING",
@@ -127,8 +135,8 @@ const SLOTS := {
   "home.floor_perch": {
     "mount": "floor",
     "anchor_design": [
-      92,
-      746
+      117,
+      604
     ],
     "allowed_decor": [
       "home_companion_cushion"
@@ -146,14 +154,14 @@ const SLOTS := {
       48
     ],
     "companion_pivot_design": [
-      92,
-      746
+      117,
+      592
     ],
     "hit_rect_design": [
-      40,
-      682,
-      100,
-      80
+      58,
+      536,
+      120,
+      102
     ],
     "facing_default": "right"
   },
@@ -193,6 +201,7 @@ const SLOTS := {
       337
     ],
     "allowed_decor": [
+      "home_dragon_keepsake",
       "home_trophy",
       "home_plans"
     ],
@@ -283,12 +292,27 @@ static func sanitize(home: Dictionary, companion_id: String="") -> Dictionary:
 		var furnishing: String=str(layout.placements.get(slot,""))
 		if companion_id in SLOTS[slot].allowed_companions and available(furnishing):layout.companion_mode="perch"
 	return {"display":display,"home_layout":layout}
+static var keepsake_texture: Texture2D
+static var keepsake_frame: StyleBox
 static func texture(id: String) -> Texture2D:
+	if id=="home_dragon_keepsake":
+		if keepsake_texture==null:
+			var boss=preload("res://boss_presentation.gd")
+			keepsake_texture=boss.texture_for(boss.profile("act_i"))
+		return keepsake_texture
 	return TEXTURES.get(id,preload("res://home_runtime_art.gd").texture("home_decor:"+id))
-static func draw(canvas: Control, layout: Dictionary) -> void:
+static func draw(canvas: Control, layout: Dictionary, earned: Array=[]) -> void:
 	for slot in SLOTS:
 		var id=layout.placements.get(slot,"")
 		if not id is String or not available(id):continue
+		if ITEMS[id].has("achievement") and not ITEMS[id].achievement in earned:continue
+		if id=="home_dragon_keepsake":
+			var shelf: Array=SLOTS[slot].anchor_design
+			var point:=Vector2(shelf[0],shelf[1])
+			if keepsake_frame==null:keepsake_frame=preload("res://lootlings_ui.gd").material_style("relic",8)
+			canvas.draw_style_box(keepsake_frame,Rect2(point-Vector2(41,64),Vector2(82,62)))
+			preload("res://lootlings_ui.gd").draw_icon(canvas.get_canvas_item(),texture(id),Rect2(point-Vector2(35,58),Vector2(70,51)))
+			continue
 		var item: Dictionary=ITEMS[id];var art:=texture(id)
 		var extent:=Vector2(item.target_size_design[0],item.target_size_design[1])
 		var factor:=minf(extent.x/art.get_width(),extent.y/art.get_height())

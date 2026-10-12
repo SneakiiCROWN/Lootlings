@@ -26,4 +26,15 @@ func review() -> void:
 	Scope.active=true;assert(Backup.validate(original)==ERR_UNAUTHORIZED);Scope.active=false
 	assert(Backup.restore(newer)==OK)
 	var current:Dictionary=preload("res://meta_store.gd").load_progress(game.SAVE_PATH);assert(current.gold==876 and current.shards==91 and current.rift.sigils==8)
+	# A durable award intent is settled before an explicit older restore, then
+	# the restored achievement store remains authoritative after another restart.
+	var awards=preload("res://achievement_manager.gd").new();awards.qa_stop_stage=1
+	assert(not awards.add_progress("hoard_dragon") and FileAccess.file_exists("user://lootlings_achievements.cfg.pending"))
+	assert(Backup.restore(original)==OK)
+	var restored_awards=preload("res://achievement_manager.gd").new()
+	assert(not restored_awards.is_unlocked("hoard_dragon") and not FileAccess.file_exists("user://lootlings_achievements.cfg.pending"))
+	assert(Backup.restore(original,0)==ERR_BUSY)
+	var blocked_awards=preload("res://achievement_manager.gd").new();assert(blocked_awards.save_state()==ERR_BUSY)
+	assert(Backup.recover()==OK)
+	assert(not preload("res://achievement_manager.gd").new().is_unlocked("hoard_dragon"))
 	print("OFFLINE BACKUP 062 PASS: 11-store checksummed snapshot, exact roundtrip, 12 interruption boundaries, replay, scope/path/hash rejection and retained currency/Rift fields. No physical power-loss or cloud claim.");game.queue_free();quit()

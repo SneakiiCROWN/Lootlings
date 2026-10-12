@@ -66,6 +66,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:lootling.gd:show_startup | show_startup / show_startup | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_profile_from_hideout | show_profile_from_hideout / show_profile_from_hideout | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:show_title_from_hideout | show_title_from_hideout / show_title_from_hideout | LIVE_BETA | lootling.gd |
+| screen:lootling.gd:show_achievement_earned | show_achievement_earned / show_achievement_earned | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_overlay_ui | build_overlay_ui / build_overlay_ui | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_pause_ui | build_pause_ui / build_pause_ui | LIVE_BETA | lootling.gd |
 | screen:lootling.gd:build_expedition_event_ui | build_expedition_event_ui / build_expedition_event_ui | LIVE_BETA | lootling.gd |

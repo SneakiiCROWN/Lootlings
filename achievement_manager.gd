@@ -52,77 +52,102 @@ func _init(save_path: String = "user://lootlings_achievements.cfg") -> void:
 	load_state()
 
 func load_state() -> void:
+	pending_snapshot.clear();pending_corrupt=false
 	progress.clear()
 	unlocked.clear()
 	unique_keys.clear()
 	var config := ConfigFile.new()
-	if preload("res://safe_config.gd").load_config(config, path, "achievements") != OK:
-		return
-	progress = config.get_value("achievements", "progress", {}).duplicate(true)
-	unlocked = config.get_value("achievements", "unlocked", {}).duplicate(true)
-	unique_keys = config.get_value("achievements", "unique_keys", {}).duplicate(true)
+	if preload("res://safe_config.gd").load_config(config,path,"achievements")==OK:
+		progress=config.get_value("achievements","progress",{}).duplicate(true)
+		unlocked=config.get_value("achievements","unlocked",{}).duplicate(true)
+		unique_keys=config.get_value("achievements","unique_keys",{}).duplicate(true)
+	recover_award()
+
+var pending_snapshot := {}
+var pending_corrupt := false
+var last_save_error: Error = OK
+var qa_stop_stage := -1
+
+func snapshot() -> Dictionary:
+	return {"progress":progress.duplicate(true),"unlocked":unlocked.duplicate(true),"unique_keys":unique_keys.duplicate(true)}
+
+func apply_snapshot(value: Dictionary) -> void:
+	progress=value.progress.duplicate(true);unlocked=value.unlocked.duplicate(true);unique_keys=value.unique_keys.duplicate(true)
+
+func write_snapshot(value: Dictionary) -> Error:
+	var config:=ConfigFile.new()
+	config.set_value("achievements","schema_version",SCHEMA_VERSION)
+	for field in ["progress","unlocked","unique_keys"]:config.set_value("achievements",field,value[field])
+	return preload("res://safe_config.gd").save_config(config,path)
 
 func save_state() -> Error:
-	var config := ConfigFile.new()
-	config.set_value("achievements", "schema_version", SCHEMA_VERSION)
-	config.set_value("achievements", "progress", progress)
-	config.set_value("achievements", "unlocked", unlocked)
-	config.set_value("achievements", "unique_keys", unique_keys)
-	return preload("res://safe_config.gd").save_config(config, path)
+	if FileAccess.file_exists(preload("res://save_scope.gd").path("user://lootlings_restore.cfg")):return ERR_BUSY
+	if pending_corrupt:return ERR_FILE_CORRUPT
+	var target:Dictionary=snapshot() if pending_snapshot.is_empty() else pending_snapshot.duplicate(true)
+	var journal:=ConfigFile.new();journal.set_value("award","version",1);journal.set_value("award","snapshot",target)
+	journal.set_value("award","sha256",JSON.stringify(target).sha256_text())
+	var error:Error=preload("res://safe_config.gd").save_config(journal,path+".pending")
+	if error==OK and OS.get_environment("LOOTLINGS_QA")=="1" and qa_stop_stage==1:error=ERR_BUSY
+	if error==OK:error=write_snapshot(target)
+	if error==OK and OS.get_environment("LOOTLINGS_QA")=="1" and qa_stop_stage==2:error=ERR_BUSY
+	last_save_error=error
+	if error!=OK:pending_snapshot=target;return error
+	apply_snapshot(target);pending_snapshot.clear()
+	# A leftover committed journal is safe: recovery replays identical values,
+	# never another payout, counter increment or separately stored entitlement.
+	DirAccess.remove_absolute(preload("res://save_scope.gd").path(path+".pending"))
+	return OK
 
-func add_progress(id: String, amount: int = 1) -> bool:
-	var definition := definition_for(id)
-	if definition.is_empty() or is_unlocked(id):
-		return false
-	progress[id] = int(progress.get(id, 0)) + amount
-	if int(progress[id]) >= int(definition.get("target", 1)):
-		unlocked[id] = int(Time.get_unix_time_from_system())
-		save_state()
-		return true
+func recover_award() -> void:
+	if FileAccess.file_exists(preload("res://save_scope.gd").path("user://lootlings_restore.cfg")):last_save_error=ERR_BUSY;return
+	var scoped: String=preload("res://save_scope.gd").path(path+".pending")
+	if not FileAccess.file_exists(scoped):return
+	var journal:=ConfigFile.new()
+	if journal.load(scoped)!=OK:pending_corrupt=true;last_save_error=ERR_FILE_CORRUPT;return
+	var target=journal.get_value("award","snapshot",{})
+	var valid:bool=journal.get_value("award","version",0)==1 and target is Dictionary
+	if not valid:pending_corrupt=true;last_save_error=ERR_FILE_CORRUPT;return
+	for field in ["progress","unlocked","unique_keys"]:valid=valid and target.get(field,null) is Dictionary
+	valid=valid and journal.get_value("award","sha256","")==JSON.stringify(target).sha256_text()
+	if not valid:pending_corrupt=true;last_save_error=ERR_FILE_CORRUPT;return
+	pending_snapshot=target.duplicate(true)
 	save_state()
-	return false
 
-func set_progress(id: String, value: int) -> bool:
-	var old := int(progress.get(id, 0))
-	progress[id] = maxi(old, value)
-	var definition := definition_for(id)
-	if not definition.is_empty() and not is_unlocked(id) and int(progress[id]) >= int(definition.get("target", 1)):
-		unlocked[id] = int(Time.get_unix_time_from_system())
-		save_state()
-		return true
-	save_state()
-	return false
+func retry_pending() -> Array:
+	if pending_snapshot.is_empty():return []
+	var before:Dictionary=unlocked.duplicate(true)
+	if save_state()!=OK:return []
+	return unlocked.keys().filter(func(id):return not before.has(id))
 
-func unlock(id: String) -> bool:
-	var definition := definition_for(id)
-	if definition.is_empty() or is_unlocked(id):
-		return false
-	progress[id] = int(definition.get("target", 1))
-	unlocked[id] = int(Time.get_unix_time_from_system())
-	save_state()
-	return true
+func change(kind: String,id: String,value: int=1,key: String="") -> bool:
+	var definition:=definition_for(id)
+	if definition.is_empty() or pending_corrupt:return false
+	var before:=snapshot()
+	if not pending_snapshot.is_empty():apply_snapshot(pending_snapshot)
+	if is_unlocked(id):apply_snapshot(before);return false
+	if kind=="unique":
+		var keys:Array=unique_keys.get(id,[]).duplicate()
+		if key.is_empty() or key in keys:apply_snapshot(before);return false
+		keys.append(key);unique_keys[id]=keys;progress[id]=keys.size()
+	elif kind=="unlock":progress[id]=int(definition.get("target",1))
+	elif kind=="set":progress[id]=maxi(int(progress.get(id,0)),value)
+	else:progress[id]=int(progress.get(id,0))+maxi(0,value)
+	var earned:bool=int(progress[id])>=int(definition.get("target",1))
+	if earned:unlocked[id]=int(Time.get_unix_time_from_system())
+	pending_snapshot=snapshot()
+	if save_state()!=OK:apply_snapshot(before);return false
+	return earned
 
-func mark_unique(id: String, key: String) -> bool:
-	var definition := definition_for(id)
-	if definition.is_empty() or is_unlocked(id) or key.is_empty():
-		return false
-	var keys: Array = unique_keys.get(id, []).duplicate()
-	if key in keys:
-		return false
-	keys.append(key)
-	unique_keys[id] = keys
-	progress[id] = keys.size()
-	if keys.size() >= int(definition.get("target", 1)):
-		unlocked[id] = int(Time.get_unix_time_from_system())
-		save_state()
-		return true
-	save_state()
-	return false
+func add_progress(id: String,amount: int=1) -> bool:return change("add",id,amount)
+func set_progress(id: String,value: int) -> bool:return change("set",id,value)
+func unlock(id: String) -> bool:return change("unlock",id)
+func mark_unique(id: String,key: String) -> bool:return change("unique",id,1,key)
 
 func is_unlocked(id: String) -> bool:
 	return unlocked.has(id)
 
 func reset() -> void:
+	pending_snapshot.clear();pending_corrupt=false
 	progress.clear()
 	unlocked.clear()
 	unique_keys.clear()

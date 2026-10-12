@@ -22,6 +22,7 @@ var home_summary: RichTextLabel
 var draft := {}
 var selected_slot := "home.wall_display"
 var preview_actions: Control
+var preview_status: Label
 var summary_style: StyleBox=preload("res://station_presentation.gd").metal()
 func background() -> Texture2D:
 	var accepted:=preload("res://home_runtime_art.gd").texture("environment:personal_home:interior")
@@ -58,6 +59,7 @@ func open(next: String="room") -> void:
 	decor_panel.visible=view=="decor"
 	preview_actions.visible=view=="decor_preview"
 	if view=="decor":refresh_decor_editor()
+	if preview_status!=null:preview_status.text="Preview only · Apply saves · Cancel keeps your current room"
 	game.hideout_ui.home_settings_content.visible=view=="preferences"
 	game.hideout_ui.companion_collection_content.visible=view=="companions"
 	game.hideout_ui.current_screen="home_settings" if view=="preferences" else "companion_collection" if view=="companions" else "personal_home"
@@ -66,6 +68,7 @@ func open(next: String="room") -> void:
 	title.text="YOUR HOME" if who.is_empty() else who+"'s Home"
 	title.add_theme_font_size_override("font_size",UI.fitted_font_size(game.body_font,title.text,236,19,13))
 	home_summary.text="[center]%d / %d stash   •   %d memories[/center]" % [game.inventory.stash.size(),game.inventory.stash_capacity,game.profile.get("memories",[]).size()]
+	buttons.shelf.get_node("FeatureName").text="Dragon keepsake" if preload("res://home_rewards.gd").displayed(game) else "Display"
 	follower.react("return");queue_redraw();game.queue_redraw()
 
 func go_back() -> void:
@@ -96,14 +99,16 @@ func _draw() -> void:
 	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
 	var layout: Dictionary=draft if view in ["decor","decor_preview"] else home.home_layout
 	Decor.draw_display_shelf(self)
-	Decor.draw(self,layout)
+	Decor.draw(self,layout,game.achievements.unlocked.keys())
 	if layout.placements.get("home.wall_light","")=="home_lantern":
 		for radius in [36,24,12]:draw_circle(Vector2(388,208),radius,Color(1,.7,.3,.025))
-	draw_set_transform(Vector2(240,570),0,Vector2(1,.18));draw_circle(Vector2.ZERO,50,Color("#03071166"));draw_set_transform(Vector2.ZERO)
+	draw_set_transform(Vector2(254,578),0,Vector2(1,.18));draw_circle(Vector2.ZERO,34,Color("#03071166"));draw_set_transform(Vector2.ZERO)
 	var motion:bool=not game.audio_settings.get("cinematic_reduced_motion",false)
-	var breath:float=1.0+sin(time*1.7)*.006 if motion else 1.0
-	draw_set_transform(Vector2(240,570),sin(time*.9)*.002 if motion else 0.0,Vector2(breath,1.0/breath))
-	UI.draw_icon(get_canvas_item(),game.hideout_ui.actor_texture(),Rect2(-92,-176,184,188))
+	var breath:float=1.0+sin(time*1.7)*.003 if motion else 1.0
+	var actor:Texture2D=preload("res://avatar_presentation.gd").grounded_texture(game.hideout_ui.actor_texture())
+	var actor_extent:=actor.get_size()*minf(134.0/actor.get_width(),134.0/actor.get_height())
+	draw_set_transform(Vector2(254,578),0,Vector2(1,breath))
+	draw_texture_rect(actor,Rect2(Vector2(-actor_extent.x*.5,-actor_extent.y),actor_extent),false,game.hideout_ui.actor_tint())
 	draw_set_transform(Vector2.ZERO)
 	if motion:
 		# Light and rising embers originate in the actual fireplace opening.
@@ -116,10 +121,10 @@ func _draw() -> void:
 			draw_circle(pos,1.2,Color(1,.77,.35,.12+maxf(0,sin(time*.8+i))*.14))
 	var display: String=home.display if layout.placements.get("home.wall_display",null)==null else "none"
 	var art: Texture2D=null
-	if display=="weapon":art=UI.item_texture(game.inventory.equipped_item("Weapon"))
+	if display=="weapon":art=UI.raw_item_texture(game.inventory.equipped_item("Weapon"))
 	elif display=="scroll":art=preload("res://art/production/phase4e/items/recipe_scroll.png")
 	elif display=="trophy":art=preload("res://art/production/phase4e/props/trophy_dais.png")
-	UI.draw_icon(get_canvas_item(),art,Rect2(351,267,70,70))
+	UI.draw_icon(get_canvas_item(),art,Rect2(358,281,56,56))
 	follower.draw_home(self,preload("res://companion_catalog.gd").sanitize(game.profile.get("companion",{})),not motion)
 	Decor.draw_foreground(self,layout)
 	if view=="decor":draw_rect(Rect2(0,0,480,854),Color("#050a1788"))
@@ -129,15 +134,16 @@ func input_surface() -> Control:
 
 func build_room_hotspots() -> void:
 	var nav=game.hideout_ui.hub_navigation
-	buttons.bed=nav.feature(room,"HomeBed",Rect2(12,452,140,122),"Rest","",func():warmth=3.5;home_reaction.text="A quiet moment before the next adventure.",12)
+	buttons.bed=nav.feature(room,"HomeBed",Rect2(12,442,136,104),"Rest","",func():warmth=3.5;home_reaction.text="A quiet moment before the next adventure.",12)
 	buttons.hearth=nav.feature(room,"HomeHearth",Rect2(352,452,112,106),"Hearth","",func():warmth=3.5;home_reaction.text="Warm embers, good company.",12)
 	buttons.chest=nav.feature(room,"HomeChest",Rect2(98,298,112,120),"Stash","Prepare your gear",func():game.show_personal_stash())
 	buttons.gear=buttons.chest
-	buttons.archive=nav.feature(room,"HomeArchive",Rect2(8,318,84,116),"Memories","Your Archive",open_collection,12)
-	buttons.shelf=nav.feature(room,"HomeDisplay",Rect2(338,246,108,112),"Display","Make it yours",func():selected_slot="home.wall_display";open("decor"))
+	buttons.archive=nav.feature(room,"HomeArchive",Rect2(8,318,84,116),"Archive","Trophies & memories",open_collection,12)
+	buttons.shelf=nav.feature(room,"HomeDisplay",Rect2(338,246,108,116),"Display","Make it yours",func():selected_slot="home.wall_display";open("decor"),12)
+	buttons.shelf.get_node("FeatureName").position.y=96
 	buttons.ledge=nav.feature(room,"HomeWallPerch",Rect2(326,364,110,86),"Perch","",func():greet_or_collection("home.wall_perch"),12)
-	buttons.character=nav.feature(room,"HomeCharacter",Rect2(156,398,168,236),"Character","Your Lootling",func():game.show_profile_from_personal_home())
-	buttons.nook=nav.feature(room,"HomeCompanionNook",Rect2(30,682,124,112),"Companions  ›","Rest & play",func():greet_or_collection("home.floor_perch"))
+	buttons.character=nav.feature(room,"HomeCharacter",Rect2(186,436,138,176),"","Your Lootling",func():game.show_profile_from_personal_home())
+	buttons.nook=nav.feature(room,"HomeCompanionNook",Rect2(60,552,120,108),"Companions","Rest & play",func():greet_or_collection("home.floor_perch"),12)
 	# The companion itself reacts to a greeting; its unobtrusive name opens the
 	# existing collection directly, even when an owned companion is resting.
 	var collection:Button=game.hideout_ui.make_button(buttons.nook,"",Rect2(0,66,124,48),Color.TRANSPARENT,Color.TRANSPARENT,13)
@@ -147,6 +153,7 @@ func build_room_hotspots() -> void:
 	game.hideout_ui.make_label(preview_actions,"DECOR PREVIEW",27,Rect2(24,98,432,46),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	game.hideout_ui.make_button(preview_actions,"CANCEL",Rect2(22,698,210,60),Color("#172442"),Color("#7087ae"),16).pressed.connect(func():draft.clear();open("room"))
 	var apply_preview: Button=game.hideout_ui.make_button(preview_actions,"APPLY / FREE",Rect2(248,698,210,60),Color("#172442"),Color("#dcb973"),16);apply_preview.name="ApplyPreview";apply_preview.pressed.connect(apply_decor)
+	preview_status=nav.text(preview_actions,"",Rect2(22,770,436,46),13);preview_status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 func room_hotspot(id: String,text: String,rect: Rect2,action: Callable) -> void:
 	var control: Button=game.hideout_ui.make_button(room,text,rect,Color.TRANSPARENT,Color("#dcb973"),13)
 	control.name=id;control.tooltip_text="Personal display" if id=="shelf" else "Open your stash";control.set_meta("gesture_release_owned",true);room_hotspot_skin(control);control.pressed.connect(action);buttons[id]=control
@@ -187,7 +194,9 @@ func refresh_decor_editor() -> void:
 	for id in options:
 		var caption: String="Equipped weapon / shelf display" if id==null else "Clear this slot" if id=="" else str(Decor.ITEMS[id].display_name)
 		var b: Button=game.hideout_ui.make_button(decor_list,caption,Rect2(0,0,380,48),Color("#172442"),Color("#dcb973"),15);b.custom_minimum_size=Vector2(380,48)
-		b.disabled=id is String and not id.is_empty() and not Decor.available(id)
+		var locked:bool=id is String and Decor.ITEMS.has(id) and Decor.ITEMS[id].has("achievement") and not game.achievements.is_unlocked(Decor.ITEMS[id].achievement)
+		b.disabled=locked or id is String and not id.is_empty() and not Decor.available(id)
+		if locked:b.text="Dragon keepsake · defeat the Hoard Dragon";b.tooltip_text="Outer Ruins final boss. Its trophy is permanently yours after the achievement saves."
 		if id is String and not id.is_empty():
 			b.icon=Decor.texture(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",40)
 		b.set_meta("decor_id",id);game.hideout_ui.apply_display_button_style(b,Color("#dcb973"),draft.placements[selected_slot]==id)
@@ -203,9 +212,14 @@ func refresh_decor_editor() -> void:
 
 func apply_decor() -> void:
 	if view not in ["decor","decor_preview"]:return
+	if draft.placements.get("home.wall_display","")==preload("res://home_rewards.gd").DECOR_ID and not preload("res://home_rewards.gd").earned(game):return
 	var home: Dictionary=game.profile.get("homestead",{}).duplicate(true);home.home_layout=draft.duplicate(true)
-	if not game.save_home_preferences(home,game.profile.get("companion",{})):return
+	if not game.save_home_preferences(home,game.profile.get("companion",{})):
+		decor_status.text="Could not save · Your room is unchanged · Retry Apply"
+		preview_status.text="Could not save. Your room is unchanged. Try Apply again."
+		return
 	draft.clear();open("room")
+	game.play_audio_event("home_page")
 
 func greet_or_collection(slot: String) -> void:
 	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
@@ -213,4 +227,4 @@ func greet_or_collection(slot: String) -> void:
 	else:open("companions")
 
 func open_collection() -> void:
-	visible=false;game.state="hideout";game.hideout_ui.visible=true;game.hideout_ui.private_return=true;game.hideout_ui.show_memories()
+	visible=false;game.state="hideout";game.hideout_ui.visible=true;game.hideout_ui.private_return=true;game.hideout_ui.show_achievements()

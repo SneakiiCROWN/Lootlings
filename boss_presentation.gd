@@ -25,6 +25,15 @@ static func profile(region: String) -> Dictionary:
 	# Do not add rectangle distortion to the existing TEMP dragon source.
 	# This preserves its pixels' proportions; the defective tail still needs redraw.
 	result.preserve_aspect=true
+	if region=="act_i":
+		# Preview/fallback callers must use the same winged, four-legged identity
+		# as combat. The old serpent-like DRAGON source remains preserved only
+		# for unrelated legacy proxies; it is not an Act I preview authority.
+		var idle:Dictionary=preload("res://boss_art_manifest.gd").select_frame("act_i","idle","",-1)
+		if not idle.is_empty():
+			result.texture_path=idle.asset_path
+			var rect:Array=idle.content_rect;result.source=Rect2(rect[0],rect[1],rect[2],rect[3])
+			result.status="Approved winged quadruped idle; shared preview/combat authority"
 	return result
 
 static func display_rect(data: Dictionary, texture: Texture2D) -> Rect2:

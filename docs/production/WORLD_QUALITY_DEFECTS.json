@@ -1,0 +1,49 @@
+{
+  "version": "0.4.67",
+  "policy": "Native evidence identifies defects. Functional tests and exports do not grant professional artistic acceptance. No additional frozen contract closures.",
+  "entries": [
+    {
+      "id": "hoard-preview-canon",
+      "identity": "The Hoard Dragon",
+      "status": "FIXED & VERIFIED source native; compiled verification pending",
+      "source": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
+      "binding": "boss_presentation.gd profile(act_i) now resolves the accepted combat idle crop; Memories thumbnail honors actor_region. Existing VignetteCatalog direct story route already used the approved idle.",
+      "evidence": ".godot_test_data/home067/1920x1080/canonical_dragon_preview.png",
+      "remaining": [
+        "Owner appearance acceptance; no combat redesign."
+      ]
+    },
+    {
+      "id": "verdant-mirror-body-animation",
+      "identity": "The Verdant Mirror — Warden of the Stolen Spring",
+      "status": "DEFECTIVE / FUNCTIONALLY WORKING / ART CORRECTION REQUIRED",
+      "region": "Act II — Mossglass Wilds",
+      "source": "art/sprites/enemies/beta/verdant_mirror.png",
+      "binding": "boss_presentation.gd BOSSES.mossglass_wilds; boss_patterns.gd mossglass_wilds",
+      "evidence": ".godot_test_data/home067/480x854/verdant_mirror_open_defect.png",
+      "defects": [
+        "Dense moss/tree mass and water-stream cutout contour compete with illustrated scene perspective.",
+        "Weak readable root/feet grounding, lighting integration and scale.",
+        "Single body cannot express root sweep, mirror charge, thorn cast, hit, recovery and defeat convincingly."
+      ],
+      "remaining": [
+        "Locate or obtain approval for exact dedicated tree/root guardian identity sheet; supporting boards do not authorize a redesign.",
+        "Preserve green moss, root/tree guardian and Stolen Spring identity; confirm silhouette, face, gold/crystal and water details against recovered authority.",
+        "Produce transparent full-body idle/movement/tells/root-sweep/mirror-charge/thorn-cast/hurt/recovery/defeat with both required facings and separate effects.",
+        "Validate alpha, anatomy, silhouette, sequence continuity, feet pivots and attack contact/hitbox against actual Godot.",
+        "Review phone/tablet/desktop native animation, environmental light and owner artistic acceptance before retirement of existing source."
+      ]
+    },
+    {
+      "id": "home-services-premium-review",
+      "identity": "Home → Ilex Archive → Trophy display; Patch Shop and Sera Shrine",
+      "status": "FUNCTIONALLY TESTED / NATIVE VISUAL REVIEWED / NEEDS OWNER ACCEPTANCE",
+      "evidence": ".godot_test_data/home067/480x854/grounded_companion.png",
+      "remaining": [
+        "New framed Hoard portrait is reuse of canonical idle, not sculpted trophy art.",
+        "Illustrated station fallback for Ilex remains intentional; full living body/animation is not complete.",
+        "Broader NPC animation, environmental cohesion, service ambience/mixing and Home companion/furniture depth remain open."
+      ]
+    }
+  ]
+}

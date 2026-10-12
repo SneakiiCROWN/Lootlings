@@ -356,6 +356,7 @@ var route_reseed_button: Button
 var profile := {}
 var audio_settings := {}
 var achievements = AchievementManager.new()
+var achievement_retry_clock := 0.0
 var last_lantern_spent := false
 
 func _ready() -> void:
@@ -365,6 +366,7 @@ func _ready() -> void:
 		var notice:=Label.new();notice.text="Your saved purchase could not be recovered.\nYour files have been retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
 	if preload("res://offline_backup.gd").recover()!=OK:
 		set_process(false);var notice:=Label.new();notice.text="Your interrupted restore needs recovery. Files are retained. Restart after checking storage.";notice.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;add_child(notice);return
+	achievements.load_state()
 	rng.randomize()
 	visual_rng.randomize()
 	preload("res://lootlings_typography.gd").install(self)
@@ -830,12 +832,17 @@ func award_achievement(id: String, amount: int = 1, set_value: bool = false) -> 
 	var unlocked_now := achievements.set_progress(id, amount) if set_value else achievements.add_progress(id, amount)
 	if not unlocked_now:
 		return
+	show_achievement_earned(id)
+
+func show_achievement_earned(id: String) -> void:
 	var entry := AchievementManager.definition_for(id)
 	if hideout_ui != null:
 		hideout_ui.queue_dialogue_context("secret_discovered" if bool(entry.get("secret",false)) else "trophy_earned")
 	play_audio_event("rare_reveal")
 	if presentation_director != null:
-		presentation_director.present_toast("TROPHY UNLOCKED  •  %s" % str(entry.get("name", "Achievement")), achievements.display_description(entry), Color("#ffd36a"))
+		var note:String=achievements.display_description(entry)
+		if id=="hoard_dragon":note="Hoard Dragon keepsake earned. Display it from the Trophy Archive."
+		presentation_director.present_toast("TROPHY UNLOCKED  •  %s" % str(entry.get("name", "Achievement")), note, Color("#ffd36a"))
 	AnalyticsLogger.log_event(ANALYTICS_PATH, "achievement_unlocked", {"achievement_id":id})
 
 func award_item_discovery(item: Dictionary) -> void:
@@ -2136,6 +2143,10 @@ func finish_story_boss_intro() -> void:
 	spawn_enemy()
 
 func _process(delta: float) -> void:
+	achievement_retry_clock=maxf(0,achievement_retry_clock-delta)
+	if achievement_retry_clock<=0 and not achievements.pending_snapshot.is_empty():
+		achievement_retry_clock=3.0
+		for earned_id in achievements.retry_pending():show_achievement_earned(str(earned_id))
 	if state=="playing" and profile.get("companion",{}).get("accompany",false) and not str(profile.get("companion",{}).get("equipped_id","")).is_empty():
 		var companion_owner:=Vector2(WeaponFit.world_position(self).x,preload("res://combat_stage.gd").GROUND_Y)
 		combat_companion.update(delta,companion_owner,Vector2(-100*combat_facing(),0))
@@ -2785,7 +2796,7 @@ func kill_enemy() -> void:
 		award_achievement("first_miniboss")
 	if enemy_is_boss:
 		contracts.record("boss")
-	if enemy_is_boss and campaign_id == "act_i":
+	if enemy_is_boss and campaign_id == "act_i" and enemy_name == "THE HOARD DRAGON":
 		award_achievement("hoard_dragon")
 		award_achievement("dragon_regular")
 		award_achievement("dragon_problem")

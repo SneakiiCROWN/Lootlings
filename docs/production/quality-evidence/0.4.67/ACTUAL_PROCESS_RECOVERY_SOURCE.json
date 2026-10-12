@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "boundary": 1,
+      "actual_writer_terminated": true,
+      "recovery_once": true,
+      "counter": 1,
+      "repeat_timestamp_preserved": true,
+      "isolated": true,
+      "production_code_from_pack": false
+    },
+    {
+      "boundary": 2,
+      "actual_writer_terminated": true,
+      "recovery_once": true,
+      "counter": 1,
+      "repeat_timestamp_preserved": true,
+      "isolated": true,
+      "production_code_from_pack": false
+    }
+  ],
+  "pack": null,
+  "pack_sha256": null,
+  "limits": "Process termination after persisted boundaries; not power-loss or permanently unwritable storage acceptance."
+}

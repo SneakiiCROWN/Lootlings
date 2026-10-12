@@ -49,6 +49,10 @@ static func restore(bundle:Dictionary,stop_after:int=-1) -> Error:
 	var error:=validate(bundle)
 	if error!=OK:return error
 	if preload("res://economy_transaction.gd").recover()!=OK:return ERR_BUSY
+	# Settle an earned achievement's durable intent before beginning a different
+	# restore. A corrupt/unwritable intent is retained and cannot be overwritten.
+	var awards=preload("res://achievement_manager.gd").new()
+	if awards.pending_corrupt or not awards.pending_snapshot.is_empty():return ERR_BUSY
 	if FileAccess.file_exists(Scope.path(JOURNAL)) and recover()!=OK:return ERR_BUSY
 	var journal:=ConfigFile.new();journal.set_value("restore","bundle",bundle)
 	error=Safe.save_config(journal,JOURNAL)
@@ -69,4 +73,10 @@ static func recover(stop_after:int=-1) -> Error:
 		error=Safe.save_config(config,"user://"+name)
 		if error!=OK:return error
 		completed+=1
+	# Once every requested snapshot is written, its achievement store is the
+	# authority. A stale pre-restore award intent must not resurrect old progress.
+	var award_path:=Scope.path("user://lootlings_achievements.cfg.pending")
+	if FileAccess.file_exists(award_path):
+		error=DirAccess.remove_absolute(award_path)
+		if error!=OK:return error
 	return DirAccess.remove_absolute(Scope.path(JOURNAL))

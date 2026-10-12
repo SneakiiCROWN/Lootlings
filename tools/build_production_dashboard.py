@@ -189,6 +189,7 @@ def build():
             'art/reference/phase4e_handoff/REFERENCE_STATUS.json','art/approved_missing_canon_references.json','art/npc_identity_authorities.json',
             'art/reference/canonical/companions/COMPANION_CANON_MANIFEST.json','art/hoard_dragon_identity_authority.json',
             str((CONT/'CONTINUOUS_PRODUCTION_COUNTS.json').relative_to(ROOT)),str((CONT/'EXACT_REMAINING_CONTRACTS.json').relative_to(ROOT))]
+    if (OUT/'WORLD_QUALITY_DEFECTS.json').exists():inputs.append('docs/production/WORLD_QUALITY_DEFECTS.json')
     if player_receipt.exists():inputs.append(str(player_receipt.relative_to(ROOT)))
     if integration_pass:inputs.append(integration_path)
     if (OUT/"OWNER_APPROVED_FEATURE_ADDITIONS.json").exists():inputs.append("docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json")
@@ -204,6 +205,7 @@ def build():
                 unregistered_dependencies=dependencies,
                 stale_quality_evidence=stale_evidence,
                 latest_runtime_integration=integration_pass,
+                world_quality_defects=read('docs/production/WORLD_QUALITY_DEFECTS.json') if (OUT/'WORLD_QUALITY_DEFECTS.json').exists() else {'entries':[]},
                 current_batch_corrections=receipt['quality_findings'],
                 coverage_gaps=['No total artist-file denominator for all audio/UI/environment variations is specified by frozen pose contracts.',
                                'A source-sheet approval does not approve every derived pose or runtime use.',
@@ -216,6 +218,7 @@ HTML='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewpor
 <style>body{background:#101c2e;color:#e9eef4;font:15px system-ui;margin:0;padding:24px}h1{color:#ffd88b}section{background:#18293e;border:1px solid #456077;border-radius:12px;padding:20px;margin:18px 0}p{line-height:1.6}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid #365064;vertical-align:top}th{color:#ffd88b}input,select,button{background:#243d56;color:white;border:1px solid #6c8ca7;padding:12px;border-radius:7px;margin:5px}a{color:#9cdbff}.scroll{overflow:auto;max-height:650px}.stats{display:flex;gap:18px;flex-wrap:wrap}.stat{padding:14px;background:#24364a;border-radius:9px}.note{color:#b8cbd9}</style>
 <h1>Lootlings · complete registered scope & quality</h1><p id="policy"></p><div class="stats" id="stats"></div>
 <section><h2>Latest playable integration pass</h2><div id="integration"></div></section>
+<section><h2>Connected world quality corrections</h2><div id="world-quality"></div></section>
 <section><h2>Requested economy and endgame work</h2><div id="economy"></div></section>
 <section><h2>Additional owner-approved gameplay</h2><div id="owner-additions"></div></section><section><h2>Frozen delivery contracts</h2><p class="note">Installed closures are delivery evidence, not automatic professional acceptance. Artist-file totals count requested body/layer/sidecar requirements, including verified reuse. Per-batch receipts separately count new physical files.</p><div id="contracts"></div></section>
 <section><h2>Every registered family</h2><div class="scroll" id="families"></div></section>
@@ -229,6 +232,7 @@ const d=JSON.parse(document.getElementById('data').textContent),el=id=>document.
 const table=(heads,rows)=>'<table><thead><tr>'+heads.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
 if(d.owner_approved_additions){el('owner-additions').innerHTML='<p>'+d.owner_approved_additions.accounting+'</p>'+table(['Feature','Status','Next gates'],d.owner_approved_additions.features.map(x=>[x.name,x.status,x.gates.join(' · ')]));}
 if(d.feature_completeness){const f=d.feature_completeness;el('feature-note').textContent=f.accounting_note+' '+f.illustration_note;el('dependency-summary').textContent=f.shared_body_state_view_groups+' source dependency groups; '+f.multi_weapon_candidate_groups+' multi-weapon candidates need native compatibility validation. '+f.sampled_body_fallbacks+' / '+f.sampled_player_cases+' sampled body fallbacks remain. No automatic closures.';el('feature-view').innerHTML=table(['Player-facing family','Integrated records','Missing','Unfinished/review pending','Production ready'],f.player_facing_features.map(x=>[x.family,x.installed_records,x.missing_records,x.visually_unfinished_or_unreviewed,x.production_ready]));}
+if(d.world_quality_defects){el('world-quality').innerHTML=table(['Identity','Actual status','Remaining acceptance gates'],d.world_quality_defects.entries.map(x=>[x.identity,x.status,x.remaining.join(' · ')]));}
 el('policy').textContent=d.quality_policy+' '+d.denominators;
 el('stats').innerHTML=Object.entries(d.counts).map(([k,v])=>'<div class="stat"><b>'+esc(v)+'</b><br>'+esc(k.replaceAll('_',' '))+'</div>').join('');
 el('contracts').innerHTML=table(['Family','Required contracts','Installed closures','Remaining'],d.contract_families.map(r=>[r.family,r.required,r.installed_contract_closures,r.remaining]));
