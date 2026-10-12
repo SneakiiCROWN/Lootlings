@@ -2709,7 +2709,8 @@ func update_elemental_damage(delta: float) -> void:
 	# the whole frame first lost live ticks on stalls and even at 20 FPS. Keep
 	# the existing cadence, stack damage, burn fade and burn-before-poison order.
 	var remaining := maxf(0.0,delta)
-	while remaining > 0.000001 and state == "playing" and enemy_alive:
+	var status_target_serial := enemy_serial
+	while remaining > 0.000001 and state == "playing" and enemy_alive and enemy_serial == status_target_serial:
 		var elapsed := minf(remaining,maxf(0.0,dot_tick_clock))
 		var fade_elapsed := maxf(0.0,elapsed-enemy_burn_time)
 		enemy_burn_time = maxf(0.0,enemy_burn_time-elapsed)

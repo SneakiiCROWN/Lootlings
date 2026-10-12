@@ -27,4 +27,12 @@ func review() -> void:
  var kills:int=game.total_kills;game.update_elemental_damage(3.0)
  assert(game.total_kills==kills+1 and game.player_hp==20 and not game.enemy_alive)
  game.update_elemental_damage(3.0);assert(game.total_kills==kills+1)
- game.free();print("STATUS TIMING 066 PASS: actual burn/poison expiry, fade, stacked ticks and siphon agree at 120/60/30 FPS and 0.4/1.1/3 second stalls; fatal burn cannot leech or award twice.");quit()
+ # Group death loads another living actor. Remaining time belongs to the old
+ # target; the pack adapter will advance each actor exactly once itself.
+ game.state="playing";game.enemy_encounter.begin(game,2)
+ for actor in game.enemy_encounter.actors:
+  actor.enemy_hp=1000;actor.enemy_max_hp=1000;actor.enemy_burn_dps=30;actor.enemy_burn_time=1;actor.enemy_poison_stacks=0;actor.enemy_poison_time=0;actor.dot_tick_clock=.35
+ game.enemy_encounter.actors[0].enemy_hp=1;game.enemy_encounter.load_actor(game,0)
+ var first_serial:int=game.enemy_serial;game.update_elemental_damage(1.0)
+ assert(game.enemy_serial!=first_serial and game.enemy_hp==1000 and is_equal_approx(game.dot_tick_clock,.35))
+ game.free();print("STATUS TIMING 066 PASS: actual burn/poison expiry, fade, stacked ticks and siphon agree at 120/60/30 FPS and 0.4/1.1/3 second stalls; fatal burn cannot leech, award twice or advance a newly loaded pack target.");quit()

@@ -19,3 +19,5 @@ No new art contracts closed.517/3274 integrated contracts,2757remaining;1317/849
 Next: complete Home spatial anchors and meaningful earned collect/display loop; larger Hub lighting/station cohesion; then complete-mode high-rarity attrition, buff/debuff/proc timing beyond burn/poison, loot utility and animation dependencies. Existing SHH/F1 owner tools preserved; later UWU personality/activation refinement requested, not implemented. Physical S23 DEFERRED; Android package evidence is not device execution.
 
 Delivery/export evidence pending in this source checkpoint; final paths/hashes and exact source/PCK comparison belong in DELIVERY.json.
+
+Finalisation correction: a lethal status tick in a pack can load a new target. The catch-up loop now stops at the original enemy serial; a two-actor regression confirms the next actor retains1000 HP and its untouched0.35s clock. Initial066 packages are retained but superseded; final r2 candidates include this guard.
