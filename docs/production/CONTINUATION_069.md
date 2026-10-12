@@ -1,0 +1,7 @@
+# Continue from 0.4.69 screenshot-feedback pass
+
+Source402dcadf includes shared control styling, Field Guide/Backups/Support frames, topmost restore confirmation and input/back ownership, readable scrolling backup previews, more Stash/Forge/Shop effect space, silhouette item thumbnails and Skip/service/claim copy cleanup. Initial export visually failed Support wrapping; corrected source enables wrapping before text and enforces authored label bounds. Only final r2 candidates are intended for delivery. Original Sera/Gloomlet title/music/logo, gameplay maths, saves and owner tools unchanged.
+
+Read quality-evidence/0.4.69/REPORT.md and DELIVERY.json for final exported evidence and hashes. Preserve three owner tracked modifications and all rollback builds. Physical S23/owner appearance acceptance pending, not passed. Do not redo these fixes unless an actual defect appears.0 new art closures;2757contracts/7178artist requirements remain.
+
+Next connected batch from the owner's screenshot feedback: Contracts state/reward/action hierarchy; Archive prestige, Field Notes detail and useful empty/locked states; region/Siege/dungeon reward density; Hub label/footer/world framing and living NPC integration. Inspect current native cases first and fix cohesive defects using existing artwork. Profile/editor and all story/layout states still require representative native review; no major new story rewrite approved. Keep generated, integrated, functionally-tested, visually-reviewed and professionally accepted states separate.

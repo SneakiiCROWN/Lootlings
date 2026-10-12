@@ -1,0 +1,49 @@
+{
+  "version": "0.4.69",
+  "revision": "r2",
+  "code": 80,
+  "source_checkpoint": "402dcadf",
+  "first_source_checkpoint": "5926f6f8",
+  "previous_delivery": "a8b02fce",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.69-candidate-r2.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.69-candidate-r2.exe",
+      "bytes": 103136768,
+      "sha256": "6a6b628d242f5f539e9fca99a220049fd21bba9ab410b47cf4b02077ff55e002"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.69-candidate-r2.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.69-candidate-r2.pck",
+      "bytes": 291767300,
+      "sha256": "4ad39c46ee0271f0b5bf64b6df7054e7779470b83c66b9659bb192dfe05957f0"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.69-owner-test-debug-r2.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.69-owner-test-debug-r2.apk",
+      "bytes": 312801565,
+      "sha256": "c4262311fe14fbf08eeb4a5c9b9819ffd2954122519fd212d7871b37e6199fdd"
+    }
+  ],
+  "final_compiled_fixtures": 4,
+  "earlier_export_regression_fixtures": 7,
+  "final_ui_layouts": [
+    "360x640",
+    "480x854",
+    "1080x2340",
+    "1600x2560",
+    "1920x1080"
+  ],
+  "title_layouts": 6,
+  "windows_startup": "Actual final EXE headless120frames PASS; final PCK native screenshots and four affected-route fixtures PASS",
+  "android": "Signed arm64/16k aligned, offline/no permissions, original icons/splash/title imports, identical prior owner-update certificate; all10 changed runtime GDC payloads match tested final Windows pack",
+  "application_id": "com.sneakiicrown.lootlings.owner",
+  "application_label": "Lootlings Owner Test",
+  "physical_S23": "PENDING OWNER ACCEPTANCE; not passed",
+  "android_runtime_execution": false,
+  "professionally_approved": false,
+  "new_art_contract_closures": 0,
+  "remaining_contracts": 2757,
+  "normal_069_apk": "not built; previous normal rollback preserved",
+  "initial_069_export": "NOT FINAL: Support overflow detected and corrected; use r2 only"
+}

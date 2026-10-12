@@ -61,14 +61,15 @@
     {
       "id": "owner-screenshot-consistency-069",
       "identity": "Shared controls, utility screens, equipment and service detail flow",
-      "status": "FIXED & SOURCE VERIFIED selected defects; exact export checks pending / broader artistic review remains open",
+      "status": "FIXED & VERIFIED selected defects in source and final r2 exported native; owner appearance acceptance and broader review open",
       "evidence": "docs/production/quality-evidence/0.4.69/REPORT.md",
       "fixed": [
         "Hidden backup confirmation and modal/back ownership",
         "Unstyled guide/backups, meaningful empty/new/read/practised states",
         "Default selector/popup/scrollbar/slider styling",
         "Effects viewport too short in Stash/Forge/Shop",
-        "Unnecessary trailing Skip/Close/service/claim chevrons; no runtime mojibake found by targeted source scan"
+        "Unnecessary trailing Skip/Close/service/claim chevrons; no runtime mojibake found by targeted source scan",
+        "Support copy overflow caught in initial export; wrapping-before-text and explicit authored Label bounds verified in final r2"
       ],
       "remaining": [
         "Owner visual acceptance and physical S23",

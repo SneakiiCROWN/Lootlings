@@ -287883,7 +287883,9 @@
       "Expanded Stash/Forge/Shop effects viewports, fitted approved item thumbnails, cleaner Stash count.",
       "Objective copy cleanup: Skip, service and claim actions without unnecessary trailing chevrons."
     ],
-    "quality_note": "Source native review and targeted regression pass. Exact export verification pending; no complete game professional acceptance."
+    "quality_note": "Final r2: four exact-pack native fixtures,5 utility sizes and6 title sizes; source/earlier-export comparison formulas, connected services, save/owner transactions passed. Native visual review caught Support overflow despite initial technical passes; label-bound assertion and r2 screenshots verify correction. APK changed runtime payloads match final tested Windows pack. S23/owner artistic acceptance pending;0 art closures.",
+    "source_checkpoint": "402dcadf",
+    "compiled_native_fixtures": 4
   },
   "world_quality_defects": {
     "version": "0.4.69",
@@ -287948,14 +287950,15 @@
       {
         "id": "owner-screenshot-consistency-069",
         "identity": "Shared controls, utility screens, equipment and service detail flow",
-        "status": "FIXED & SOURCE VERIFIED selected defects; exact export checks pending / broader artistic review remains open",
+        "status": "FIXED & VERIFIED selected defects in source and final r2 exported native; owner appearance acceptance and broader review open",
         "evidence": "docs/production/quality-evidence/0.4.69/REPORT.md",
         "fixed": [
           "Hidden backup confirmation and modal/back ownership",
           "Unstyled guide/backups, meaningful empty/new/read/practised states",
           "Default selector/popup/scrollbar/slider styling",
           "Effects viewport too short in Stash/Forge/Shop",
-          "Unnecessary trailing Skip/Close/service/claim chevrons; no runtime mojibake found by targeted source scan"
+          "Unnecessary trailing Skip/Close/service/claim chevrons; no runtime mojibake found by targeted source scan",
+          "Support copy overflow caught in initial export; wrapping-before-text and explicit authored Label bounds verified in final r2"
         ],
         "remaining": [
           "Owner visual acceptance and physical S23",
@@ -287992,9 +287995,9 @@
     "art/hoard_dragon_identity_authority.json": "8c3991797f5d51db5f0f58f25fa71b2265a91f387ba871f4bf167bc856e0cd63",
     "docs\\production\\full-completion\\continuous-production\\CONTINUOUS_PRODUCTION_COUNTS.json": "3bc8072397a20473f219a9b25c91ad1fc928cb190b5edae3ab38205e81b32f40",
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "d14b2170a2b519e863e6ce36eb5e66a918d9cb46ff653885a7bec372338b93cd",
-    "docs/production/WORLD_QUALITY_DEFECTS.json": "a6f32a2ef718c5e124f669a3453de5d9d206f2d0bb4ae6ef965aa6b0da059f04",
+    "docs/production/WORLD_QUALITY_DEFECTS.json": "b7b677e14b95d825b57bb19b353cc8afe02312927e152cb73ffb8c8ed76bafaa",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.69/INSTALLATION_RECEIPT.json": "adf67d8de45a42fea2eadd15d8f3e36bddd5d691d1217db1be988a3e454a67ec",
+    "docs/production/quality-evidence/0.4.69/INSTALLATION_RECEIPT.json": "adf37447806995fe2f7cff939dceb495459c718efa1abc52ee0a5a0e0c2776d0",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {
