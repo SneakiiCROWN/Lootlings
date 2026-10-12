@@ -1,0 +1,173 @@
+{
+  "previous_pack": "0.4.71",
+  "current_pack": "0.4.72",
+  "matched_real_damage_samples": 9,
+  "hp_rng_role_multiplier_identical": true,
+  "fixture_correction": "Invalidate cached wave composition before seeding/spawning; earlier unmatched roles were a fixture defect, not a balance change.",
+  "before": [
+    {
+      "hit_multiplier": 0.82,
+      "hp_removed": 8.20000000000073,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "tank",
+      "serial": 2,
+      "viewport": "(1080, 2340)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "hexer",
+      "serial": 3,
+      "viewport": "(1080, 2340)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "skirmisher",
+      "serial": 4,
+      "viewport": "(1080, 2340)"
+    },
+    {
+      "hit_multiplier": 0.82,
+      "hp_removed": 8.20000000000073,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "tank",
+      "serial": 2,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "hexer",
+      "serial": 3,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "skirmisher",
+      "serial": 4,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "hit_multiplier": 0.82,
+      "hp_removed": 8.20000000000073,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "tank",
+      "serial": 2,
+      "viewport": "(1920, 1080)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "hexer",
+      "serial": 3,
+      "viewport": "(1920, 1080)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "skirmisher",
+      "serial": 4,
+      "viewport": "(1920, 1080)"
+    }
+  ],
+  "after": [
+    {
+      "hit_multiplier": 0.82,
+      "hp_removed": 8.20000000000073,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "tank",
+      "serial": 2,
+      "viewport": "(1080, 2340)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "hexer",
+      "serial": 3,
+      "viewport": "(1080, 2340)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "skirmisher",
+      "serial": 4,
+      "viewport": "(1080, 2340)"
+    },
+    {
+      "hit_multiplier": 0.82,
+      "hp_removed": 8.20000000000073,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "tank",
+      "serial": 2,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "hexer",
+      "serial": 3,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "skirmisher",
+      "serial": 4,
+      "viewport": "(1600, 2560)"
+    },
+    {
+      "hit_multiplier": 0.82,
+      "hp_removed": 8.20000000000073,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "tank",
+      "serial": 2,
+      "viewport": "(1920, 1080)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "hexer",
+      "serial": 3,
+      "viewport": "(1920, 1080)"
+    },
+    {
+      "hit_multiplier": 1.0,
+      "hp_removed": 10.0,
+      "rng_after": -1281123594564794113,
+      "rng_before": -1281123594564794113,
+      "role": "skirmisher",
+      "serial": 4,
+      "viewport": "(1920, 1080)"
+    }
+  ]
+}

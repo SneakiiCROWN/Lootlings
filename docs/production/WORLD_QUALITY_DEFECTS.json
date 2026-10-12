@@ -40,9 +40,9 @@
       "status": "FUNCTIONALLY TESTED / NATIVE VISUAL REVIEWED / NEEDS OWNER ACCEPTANCE",
       "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/grounded_companion.png",
       "remaining": [
-        "New framed Hoard portrait is reuse of canonical idle, not sculpted trophy art.",
-        "Illustrated station fallback for Ilex remains intentional; full living body/animation is not complete.",
-        "Broader NPC animation, environmental cohesion, service ambience/mixing and Home companion/furniture depth remain open."
+        "Framed Hoard portrait reuses canonical combat idle; separate sculpted trophy art is not complete.",
+        "Accepted Patch/Ilex/Sera bodies and inspect/talk keyframes installed; fluid locomotion/work/contact layers remain incomplete.",
+        "Broader environmental lighting/depth, Home companion/furniture coherence and full wide composition remain open."
       ]
     },
     {
@@ -116,7 +116,7 @@
     {
       "id": "connected-world-motion-072",
       "identity": "Approved Sera/Gloomlet title / Main Hub / separate personal Home",
-      "status": "FIXED & VERIFIED SOURCE; exact-export and owner appearance pending",
+      "status": "SOURCE AND EXACT EXPORTED WINDOWS MOTION/INTERACTIONS VERIFIED; owner artistic and physical S23 pending",
       "implemented": [
         "Source-aligned bounded waterfall highlights, lantern flicker and occasional title petals; original painting/logo/music preserved.",
         "Hub garden-edge petals and four torchbugs replace central rising dust; reduced-motion light/hero accents static.",

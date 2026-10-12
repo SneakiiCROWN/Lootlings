@@ -20,6 +20,14 @@ func review() -> void:
   game.startup_ui.show_title();game.state="startup";await process_frame;await process_frame
   var crystal:Vector2=game.owner_test_access.activation_rect().get_center()
   await finger(crystal,true);await create_timer(.85).timeout;await finger(crystal,false);assert(not Scope.active)
+  if viewport.x==1080:
+   for i in range(6):
+    await finger(crystal,true);await create_timer(.035).timeout;await finger(crystal,false)
+   await finger(crystal,true);await create_timer(.85).timeout;await finger(crystal,false);assert(not Scope.active,"Six taps must not unlock")
+   for i in range(7):
+    await finger(crystal,true);await create_timer(.035).timeout;await finger(crystal,false)
+   await create_timer(3.1).timeout
+   await finger(crystal,true);await create_timer(.85).timeout;await finger(crystal,false);assert(not Scope.active,"Expired taps must not unlock")
   await secret_unlock(crystal)
   await process_frame;await process_frame;game=current_scene
   assert(Scope.active and is_instance_valid(game.debug_panel) and game.debug_panel.visible and game.input_surface()==game.debug_panel)

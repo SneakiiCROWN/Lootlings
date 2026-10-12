@@ -1,0 +1,9 @@
+# Continue from 0.4.72 connected living-world delivery
+
+Runtime0c916f99; early checkpointdcefee97; owner code83. Read quality-evidence/0.4.72/REPORT.md, DELIVERY.json, EXACT_EXPORT_RESULTS.json and WORLD_MOTION_EXPORTED.json. Nine distinct compiled-pack fixtures pass;24 packaged resources match Android/Windows; existing certificate, branding and EXE startup verified. S23 and owner artistic approval pending.
+
+Do not repeat this connected pass. Correct seven taps/3seconds + eighthhold≥.8seconds,72 SHH reopens, footer/status separation, title environmental highlights, Hub garden accents, Home light/greetings, per-resident return event and combat contact fixes installed. Four actual Relic Beast greatsword left poses + foreground grips/sidecars are active, not staged; no fluid full-family claim.2,753 contracts/7,166 artist requirements remain. Relic greatsword10 remaining; support bundle/idle/move/hurt/victory/defeat and other families explicitly open.
+
+Next: close canonical locomotion/idle/hit/outcome/contact dependencies where feasible; NPC and companion true activity continuity, environment integration, and remaining Home furnishing/depth. Keep Verdant Mirror canonical art defect open; grounding fix is not art acceptance. Approved title character-contact/blink layers absent; no fake strokes. Hub/Home full wide composition and owner art acceptance still open. Existing story lines used, no major narrative rewrite installed.
+
+Preserve owner project.godot/relic_chase_meter.gd/tools/run_exported_native.py changes, untracked canonical packs/UIDs, all normal/owner saves and rollback builds. Do not reset/clean/regenerate accepted sources. Source/compiled before-after tests record cached-encounter fixture correction separately; inspect exact matched results before balance conclusions.

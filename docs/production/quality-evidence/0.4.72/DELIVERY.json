@@ -1,0 +1,38 @@
+{
+  "version": "0.4.72",
+  "code": 83,
+  "branch": "codex/phase4e-gamefeel",
+  "runtime_source": "0c916f99522aa0a5b4dcb1ab508f65144d1e6518",
+  "early_secure_checkpoint": "dcefee97",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.72-candidate.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.72-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "92ee12180f44a59717f7f2e202209f205e541bf90872eedbcbea2bb66ce8985f"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.72-candidate.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.72-candidate.pck",
+      "bytes": 292712200,
+      "sha256": "b00dc8b327d366100c07e31241f54986243b940c7043bc24be3913cb0e7d0a0f"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.72-owner-test-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.72-owner-test-debug.apk",
+      "bytes": 313738665,
+      "sha256": "47a5b6c7189840824d80185e32777c50513f2e20f2035e2a348c2acb301aed65"
+    }
+  ],
+  "exact_exported_fixture_passes": 9,
+  "windows_android_matched_resources": 24,
+  "physical_s23": "PENDING OWNER TEST, not passed",
+  "professional_artistic_acceptance": "PENDING OWNER REVIEW",
+  "new_art_contract_closures": 4,
+  "new_runtime_png_files": 8,
+  "new_artist_files": 12,
+  "remaining_contracts": 2753,
+  "remaining_artist_files": 7166,
+  "signing_compatible_with_previous_owner": true,
+  "normal_save_isolation": "native byte-identical normal stores; physical Android pending"
+}
