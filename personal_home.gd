@@ -101,7 +101,7 @@ func _draw() -> void:
 	Decor.draw_display_shelf(self)
 	Decor.draw(self,layout,game.achievements.unlocked.keys())
 	if layout.placements.get("home.wall_light","")=="home_lantern":
-		for radius in [36,24,12]:draw_circle(Vector2(388,208),radius,Color(1,.7,.3,.025))
+		preload("res://world_ambience.gd").draw_home_lantern(self,time,game.audio_settings.get("cinematic_reduced_motion",false))
 	draw_set_transform(Vector2(254,578),0,Vector2(1,.18));draw_circle(Vector2.ZERO,34,Color("#03071166"));draw_set_transform(Vector2.ZERO)
 	var motion:bool=not game.audio_settings.get("cinematic_reduced_motion",false)
 	var breath:float=1.0+sin(time*1.7)*.003 if motion else 1.0

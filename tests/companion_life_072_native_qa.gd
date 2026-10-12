@@ -13,7 +13,9 @@ func review() -> void:
    await tap(h.buttons.companions);assert(h.view=="companions");h.go_back();assert(h.view=="room")
   game.show_hideout();var hub=game.hideout_ui;hub.last_home_facts.region="act_i";hub.queue_dialogue_context("boss_defeated")
   for speaker in ["Salvager","Relic Keeper","Archivist"]:
-   hub.request_dialogue("tapped",speaker);assert(hub.resident_context_heard[speaker]=="boss_defeated");await capture(speaker.replace(" ","_")+"_return_dialogue");hub.dismiss_dialogue()
+   hub.request_dialogue("tapped",speaker);assert(hub.resident_context_heard[speaker]=="boss_defeated")
+   if speaker=="Archivist":assert(hub.home_dialogue.last_selection.get("event","")=="boss_defeated")
+   await capture(speaker.replace(" ","_")+"_return_dialogue");hub.dismiss_dialogue()
   game.hideout_ui.show_phase4("archive");game.hideout_ui.show_home();assert(game.hideout_ui.resident_activity("Archivist")=="inspect");await capture("ilex_return")
   game.free();await process_frame
  print("COMPANION072 NATIVE PASS six exact canonical followers react to actual Home taps; collection still directly accessible; wallets/HP unchanged; Ilex return notice;3 layouts. Sparse keyframes, not fluid animation.");quit()

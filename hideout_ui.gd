@@ -1868,9 +1868,12 @@ func background_for_screen() -> Texture2D:
 	return HIDEOUT_BACKGROUND
 
 func draw_home_scene() -> void:
+	var reduced:bool=get_parent().audio_settings.get("cinematic_reduced_motion",false)
+	var ambience_time:float=0.0 if reduced else scene_time
+	preload("res://world_ambience.gd").draw_garden_life(self,scene_time,reduced)
 	# Canonical resident mascot, gently breathing in the painted Hideout.
 	var bob := 0.0 # Feet stay planted; only the torso breathes.
-	var breathe := 1.0 if get_parent().audio_settings.get("cinematic_reduced_motion",false) else 1.0 + sin(scene_time * 1.65) * 0.003
+	var breathe := 1.0 if get_parent().audio_settings.get("cinematic_reduced_motion",false) else 1.0 + sin(ambience_time * 1.65) * 0.003
 	draw_hideout_light(Vector2(179, 244), 20.0, 0.040, 0.0)
 	draw_hideout_light(Vector2(302, 244), 20.0, 0.040, 1.3)
 	draw_hideout_light(Vector2(442, 169), 17.0, 0.030, 2.1)
@@ -1884,25 +1887,22 @@ func draw_home_scene() -> void:
 		draw_set_transform(station[0],0,Vector2(1,.18));draw_circle(Vector2.ZERO,station[1],Color("#03061280"));draw_set_transform(Vector2.ZERO)
 	# The painted merchant stall is already present; no second miniature cart.
 	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("forge_station","props"),Rect2(10,642,126,76))
-	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(scene_time*1.7)*.025
+	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(ambience_time*1.7)*.025
 	draw_arc(Vector2(240,179),63,-PI,0,32,gate_light,4,true)
 	for rune in range(5):
 		var point:=Vector2(240,182)+Vector2.RIGHT.rotated(PI+rune*PI/4)*63
-		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(scene_time*2-rune))*.16))
+		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(ambience_time*2-rune))*.16))
 	draw_home_board()
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.18))
 	draw_circle(Vector2.ZERO, 40, Color("#03061280"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	draw_set_transform(Vector2(240, 491), sin(scene_time * 1.15) * 0.006, Vector2(1.0, breathe))
+	draw_set_transform(Vector2(240, 491), sin(ambience_time * 1.15) * 0.006, Vector2(1.0, breathe))
 	var grounded_actor: Texture2D = Avatar.grounded_texture(actor_texture())
 	var actor_extent: Vector2 = grounded_actor.get_size() * minf(118.0 / grounded_actor.get_width(), 118.0 / grounded_actor.get_height())
 	draw_texture_rect(grounded_actor, Rect2(Vector2(-actor_extent.x*.5,-actor_extent.y),actor_extent), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	var core_pulse := 0.07 + maxf(0.0, sin(scene_time * 2.6)) * 0.07
-	draw_circle(Vector2(253, 435), 10.0 + sin(scene_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
-	for index in range(6):
-		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
-		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
+	var core_pulse := 0.07 + maxf(0.0, sin(ambience_time * 2.6)) * 0.07
+	draw_circle(Vector2(253, 435), 10.0 + sin(ambience_time * 2.6), Color(0.78, 0.55, 1.0, core_pulse))
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
 	# Exact authored bodies stand beside their established service stations.
 	# Portraits remain the approved dialogue/memory illustrations.
@@ -2006,8 +2006,9 @@ func draw_shrine_scene() -> void:
 		draw_arc(Vector2(315, 252), 28.0 + (1.0 - ratio) * 72.0, 0.0, TAU, 36, Color(0.76, 0.53, 1.0, ratio * 0.82), 5.0)
 
 func draw_hideout_light(position: Vector2, radius: float, base_alpha: float, phase: float) -> void:
-	var flicker := base_alpha + maxf(0.0, sin(scene_time * 3.1 + phase)) * base_alpha * 0.55
-	draw_circle(position, radius + sin(scene_time * 2.3 + phase) * 1.5, Color(1.0, 0.64, 0.24, flicker))
+	var light_time:float=0.0 if get_parent().audio_settings.get("cinematic_reduced_motion",false) else scene_time
+	var flicker := base_alpha + maxf(0.0, sin(light_time * 3.1 + phase)) * base_alpha * 0.55
+	draw_circle(position, radius + sin(light_time * 2.3 + phase) * 1.5, Color(1.0, 0.64, 0.24, flicker))
 
 func draw_archive_scene() -> void:
 	# The physical Archive nook remains visible behind the deferred Lootbook notice.

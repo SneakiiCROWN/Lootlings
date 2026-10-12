@@ -3303,7 +3303,7 @@
       "_init",
       "choose"
     ],
-    "source_sha256": "cfeeb9de9f14a96b76ee754ec747391a764fb28bf68380c48a27a5d16bba0274"
+    "source_sha256": "17ac04a07244827ce65a8f96c1fcd19c2611f5e92f2273db552517bcba30af7d"
   },
   "contextual_guide.gd": {
     "constants": {
@@ -5273,7 +5273,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "5bf0a0efc67e5b42c7709687d8573230a09e673f246ddcb69ec11d191ec73bde"
+    "source_sha256": "d5fe77d0888aef3b6f5ab5c4be6d2b554e647d42d6237b6bbd7e603c06c860cc"
   },
   "home_catalog.gd": {
     "constants": {
@@ -8063,7 +8063,7 @@
       "greet_or_collection",
       "open_collection"
     ],
-    "source_sha256": "b6ac733fa53ebd7d29e14b7f9413a2e22b0150f1287caad9d9d87626ca3ffc03"
+    "source_sha256": "8f769d414478ea680ed3aff0b0da5068dc03a0604adc9dc9a0f53e42edc594b8"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -11332,9 +11332,11 @@
       "_process",
       "_draw",
       "scene_point",
-      "draw_title_environment"
+      "draw_title_environment",
+      "draw_garden_life",
+      "draw_home_lantern"
     ],
-    "source_sha256": "ab9a0ec9d742e0bc283311bc4634068db13fffd658732d4538fafd8b2769818f"
+    "source_sha256": "0180492341ed984f72b0bb6b56f1883dfd91026c7a3084d4821780ea3552580f"
   },
   "world_content_catalog.gd": {
     "constants": {

@@ -865,6 +865,9 @@ func choose(speaker: String, facts: Dictionary) -> String:
 		if buckets[category].is_empty(): continue
 		roll-=float(category_weights[category])
 		if roll<=0: chosen_category=category; break
+	# A genuine return/event acknowledgement gets one deliberate hearing per
+	# resident; the Hub clears that resident's event before subsequent banter.
+	if not str(facts.get("event","")).is_empty() and buckets.has("context") and not buckets.context.is_empty():chosen_category="context"
 	var candidates: Array=buckets[chosen_category]
 	if chosen_category=="context":
 		var specificity:=0
