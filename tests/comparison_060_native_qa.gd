@@ -23,7 +23,7 @@ func review() -> void:
    game.inventory.equipped=old_equipment;game.player_max_hp=old_max;game.equipment_hp_bonus=old_bonus;game.player_hp=hp;cases+=1
    if id in ["dawnweave","mirrorwake","ironpaw_plate","stormspark"]:
     game.pending_items=[item];game.show_next_item();await capture("comparison_"+str(item.slot));var quick=game.item_compare.get_meta("quick_comparison");var header_position:Vector2=quick.position;assert(quick.rows.size()==6 and quick.found.name==item.name)
-    assert(quick.position.y+quick.size.y<=game.item_compare.position.y)
+    assert(quick.effects_button.is_visible_in_tree());await tap(quick.effects_button);assert(quick.showing_effects and game.item_compare.is_visible_in_tree())
     assert(game.item_compare.get_v_scroll_bar().value<1)
     var attacks_before:int=game.attack_sequence
     await swipe(game.item_compare);game.touch_ux.inertia=null;await process_frame

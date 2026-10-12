@@ -807,7 +807,9 @@ func save_profile_data(updated_profile: Dictionary) -> void:
 	var was_created := ProfileStore.is_created(profile)
 	var old_name := str(profile.get("display_name", ""))
 	var known_memories := ProfileStore.sanitize_memories(profile.get("memories", []))
+	var current_conversation:Dictionary=profile.get("home_conversation",{}).duplicate(true)
 	profile = updated_profile.duplicate(true)
+	profile.home_conversation=current_conversation
 	# A profile form opened before discovery must never erase an earned memory.
 	profile.memories = ProfileStore.sanitize_memories(known_memories + ProfileStore.sanitize_memories(profile.get("memories", [])))
 	ProfileStore.save_profile(PROFILE_SAVE_PATH, profile)

@@ -167,7 +167,9 @@ var achievement_display_button: Button
 var visited_destinations := {}
 var resident_facing: String = "left"
 var resident_reactions:Dictionary = {}
+var resident_audio_states:Dictionary = {}
 var resident_context_heard:Dictionary = {}
+var conversation_restored:=false
 var resource_label: RichTextLabel
 var loadout_label: RichTextLabel
 var loadout_panel: Panel
@@ -1005,7 +1007,7 @@ func build_achievements() -> void:
 	var back := make_button(achievement_content, "‹ HUB", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
 	make_label(achievement_content, "TROPHY ARCHIVE", 28, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	LootlingsUI.add_icon(achievement_content,Rect2(155,26,32,38),"res://art/production/phase4e/props/trophy_dais.png")
+	# The heading owns this lane; trophy art remains on actual record badges.
 	make_button(achievement_content,"COLLECTION & MASTERY",Rect2(20,797,216,48),Color("#172442"),Color("#7087ae"),12).pressed.connect(func(): show_phase4("archive"))
 	achievement_summary = make_label(achievement_content, "", 14, Rect2(46, 75, 388, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7c9ff"))
 	var filters := ["ALL", "ADVENTURE", "COMBAT", "LOOT", "OTHER"]
@@ -1751,6 +1753,7 @@ func make_object_hotspot(parent: Control, node_name: String, rect: Rect2, action
 	hotspot.pressed.connect(action); parent.add_child(hotspot)
 
 func queue_dialogue_context(context: String) -> void:
+	restore_home_conversation()
 	if context in ["victory","boss_defeated","epic_find","legendary_find","cache_opened","contract_complete"]:companion_presenter.react("reward")
 	var priorities := {"returning":1, "early_defeat":2, "victory":3, "epic_find":4, "boss_defeated":5, "legendary_find":6, "red_find":8, "secret_discovered":8, "signature_find":7, "large_hoard":5, "forge_evolved":4, "contract_complete":3, "cache_opened":3, "trophy_earned":2}
 	var priority := int(priorities.get(context, 1))
@@ -1760,11 +1763,13 @@ func queue_dialogue_context(context: String) -> void:
 	resident_context_heard.clear()
 	queued_dialogue_context = context
 	queued_dialogue_priority = priority
+	persist_home_conversation()
 	speech_visible_timer = 0.0
 	if speech_panel != null:
 		speech_panel.visible = false
 
 func request_dialogue(context: String = "idle", requested_speaker: String = "") -> void:
+	restore_home_conversation()
 	if context not in ["idle","tapped"]:
 		last_home_facts.event=context
 	if context!="tapped" or speech_panel==null: return
@@ -1789,6 +1794,7 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	if not current_event.is_empty() and str(home_dialogue.last_selection.get("event",""))==current_event:
 		resident_context_heard[requested_speaker]=current_event
 		queued_dialogue_context=""; queued_dialogue_priority=-1
+		persist_home_conversation()
 	speech_name.text=voice_name
 	speech_label.text=line
 	speech_label.scroll_to_line(0)
@@ -1796,6 +1802,26 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	speech_role.text={"Salvager":"OPEN FORGE" if current_screen=="forge" else "OPEN SHOP","Relic Keeper":"OPEN SHRINE","Archivist":"OPEN ARCHIVE","Mascot":"CHARACTER"}.get(requested_speaker,"CONTINUE")
 	speech_panel.visible=true; speech_panel.modulate=Color.WHITE; speech_panel.scale=Vector2.ONE
 	speech_visible_timer=0.0
+
+func restore_home_conversation() -> void:
+	if conversation_restored:return
+	conversation_restored=true
+	var saved:Dictionary=get_parent().profile.get("home_conversation",{})
+	var event:String=str(saved.get("event",""))
+	if event.is_empty():return
+	last_home_facts.merge(saved.get("facts",{}),true);last_home_facts.event=event
+	resident_context_heard=saved.get("heard",{}).duplicate(true)
+	queued_dialogue_context=event;queued_dialogue_priority=int(saved.get("priority",-1))
+
+func persist_home_conversation() -> void:
+	var game=get_parent()
+	var facts:Dictionary={}
+	for key in ["region","outcome","weapon","mode"]:
+		if last_home_facts.has(key):facts[key]=str(last_home_facts[key])
+	game.profile.home_conversation={"event":str(last_home_facts.get("event","")),"priority":queued_dialogue_priority,"facts":facts,"heard":resident_context_heard.duplicate(true)}
+	# A refused write retains the in-memory acknowledgement for the next
+	# lifecycle save. It never grants rewards or claims a successful write.
+	preload("res://profile_store.gd").save_profile(game.PROFILE_SAVE_PATH,game.profile)
 
 func dialogue_anchor(speaker: String) -> Vector2:
 	if current_screen == "shop":
@@ -1821,11 +1847,17 @@ func _process(delta: float) -> void:
 		shop_reveal_icon.visible=not current_shop.pending_cache_item.is_empty() and presentation.chest_showcase_timer<=0
 	if current_screen == "home":
 		companion_presenter.update(delta,Vector2(240,491),Vector2(-96,10))
-		var cycle:=int(scene_time/28.0)
-		if cycle!=station_cycle:
-			station_cycle=cycle
-			if cycle>0 and cycle%3==0: ui_event.emit("home_bench")
-			elif cycle%3==2: ui_event.emit("home_page")
+		# A page/tool sound belongs to its actual accepted resident activity,
+		# not a global timer that can fire over an unrelated idle/inspect pose.
+		for speaker in ["Salvager","Archivist"]:
+			var activity:String=resident_activity(speaker)
+			var previous:String=str(resident_audio_states.get(speaker,activity))
+			resident_audio_states[speaker]=activity
+			if activity==previous or get_parent().audio_settings.get("cinematic_reduced_motion",false):continue
+			var authored:Dictionary=preload("res://resident_art_catalog.gd").presentation(speaker,RESIDENT_RECTS[speaker],activity,resident_facing)
+			if authored.get("export_state","")=="work/read/tend":
+				if activity=="repair":ui_event.emit("home_bench")
+				elif activity=="read":ui_event.emit("home_page")
 	shrine_pulse = maxf(0.0, shrine_pulse - delta)
 	cache_pulse = maxf(0.0, cache_pulse - delta)
 	if speech_visible_timer > 0.0:
@@ -1908,7 +1940,9 @@ func draw_home_scene() -> void:
 		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(ambience_time*2-rune))*.16))
 	draw_home_board()
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.18))
-	draw_circle(Vector2.ZERO, 40, Color("#03061280"))
+	draw_circle(Vector2.ZERO, 40, Color("#03061228"))
+	draw_circle(Vector2.ZERO, 30, Color("#03061248"))
+	draw_circle(Vector2.ZERO, 18, Color("#03061248"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_set_transform(Vector2(240, 491), sin(ambience_time * 1.15) * 0.006, Vector2(1.0, breathe))
 	var grounded_actor: Texture2D = Avatar.grounded_texture(actor_texture())

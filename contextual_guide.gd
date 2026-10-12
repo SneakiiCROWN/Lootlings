@@ -87,7 +87,10 @@ func _process(_delta:float) -> void:
 		if chip.get_parent()!=target:chip.reparent(target)
 		# Hub footer already owns Home / Character / Main menu. Keep optional
 		# help below the header, above the portal, without intercepting that dock.
-		chip.position=Vector2(350,58) if game.state=="hideout" else Vector2(350,802)
+		var world:bool=game.state=="personal_home" or game.state=="hideout" and game.hideout_ui.current_screen=="home"
+		chip.size=Vector2(76,44) if world else Vector2(114,44)
+		chip.text="Guide" if world else "GUIDE"
+		chip.position=Vector2(388,58) if world else Vector2(350,58) if game.state=="hideout" else Vector2(350,802)
 	if panel.visible:chip.hide()
 	if game.state=="playing" and chip.visible:game.help_label.size.x=320
 	else:game.help_label.size.x=440

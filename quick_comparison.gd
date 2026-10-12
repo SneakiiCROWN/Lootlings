@@ -11,10 +11,13 @@ var verdict:=""
 var header_height:=100.0
 var old_lines:Array=[]
 var new_lines:Array=[]
+var showing_effects:=false
+var effects_button:Button
 static func install(label:RichTextLabel,target,new_item:Dictionary,old_item:Dictionary) -> void:
 	var view=label.get_meta("quick_comparison") if label.has_meta("quick_comparison") else null
 	if not is_instance_valid(view):
 		view=load("res://quick_comparison.gd").new();view.mouse_filter=Control.MOUSE_FILTER_IGNORE;view.details=label;label.set_meta("comparison_rect",Rect2(label.position,label.size));label.set_meta("quick_comparison",view);label.get_parent().add_child(view)
+	if view.found.get("serial",null)!=new_item.get("serial",null):view.showing_effects=false
 	view.game=target;view.found=new_item.duplicate(true);view.equipped=old_item.duplicate(true);view.refresh()
 	# Remove only duplicate cards; retain prices, caps, effects and stash warnings.
 	var start:int=label.text.find("[table=2]");var end:int=label.text.find("[/table]",start)
@@ -34,7 +37,7 @@ static func install(label:RichTextLabel,target,new_item:Dictionary,old_item:Dict
 static func reset(label:RichTextLabel) -> void:
 	var view=label.get_meta("quick_comparison") if label.has_meta("quick_comparison") else null
 	if is_instance_valid(view):
-		view.hide();view.found={};var rect:Rect2=label.get_meta("comparison_rect");label.position=rect.position;label.size=rect.size
+		view.hide();view.found={};var rect:Rect2=label.get_meta("comparison_rect");label.position=rect.position;label.size=rect.size;label.show()
 func refresh() -> void:
 	var before=preload("res://inventory_system.gd").new();before.equipped=game.inventory.equipped.duplicate(true)
 	var after=preload("res://inventory_system.gd").new();after.equipped=before.equipped.duplicate(true);after.equipped[str(found.get("slot","Weapon"))]=found.duplicate(true)
@@ -60,13 +63,22 @@ func refresh() -> void:
 	verdict="MIXED TRADE-OFF" if gains>0 and losses>0 else "CORE STATS IMPROVE · CHECK EFFECTS" if gains>0 else "CORE STATS LOWER · CHECK EFFECTS" if losses>0 else "SAME CORE STATS · CHECK EFFECTS"
 	if powers_differ:verdict="TRADE-OFF · SIGNATURES CHANGE" if not (gains>0 and losses>0) else verdict+" · SIGNATURES CHANGE"
 	size.y=header_height+22*rows.size()+38
-	details.position=rect.position+Vector2(0,size.y+6);details.size=Vector2(rect.size.x,maxf(34,rect.size.y-size.y-6));details.scroll_to_line(0);show();queue_redraw()
+	if not is_instance_valid(effects_button):
+		effects_button=game.make_action_button(self,"",Vector2.ZERO,Vector2(size.x,40),Color("#223951"),Color("#cdb478"),func():showing_effects=not showing_effects;refresh())
+	if showing_effects:
+		size.y=40;effects_button.position=Vector2.ZERO;effects_button.text="‹ EQUIPMENT STATS"
+		details.position=rect.position+Vector2(0,48);details.size=Vector2(rect.size.x,maxf(34,rect.size.y-48));details.show()
+	else:
+		effects_button.position=Vector2(0,size.y+4);effects_button.text="ALL EFFECTS & LORE ›"
+		details.position=rect.position+Vector2(0,size.y+48);details.hide()
+	effects_button.size.x=size.x;details.scroll_to_line(0);show();queue_redraw()
 func _process(_delta:float) -> void:
-	visible=not found.is_empty() and is_instance_valid(details) and details.is_visible_in_tree()
+	visible=not found.is_empty() and is_instance_valid(details) and details.get_parent().is_visible_in_tree()
 static func number(value:float) -> String:
 	var text:="%.2f" % value
 	return text.trim_suffix(".00")
 func _draw() -> void:
+	if showing_effects:return
 	var font:Font=preload("res://lootlings_typography.gd").bold();var body_font:Font=preload("res://lootlings_typography.gd").body()
 	draw_rect(Rect2(Vector2.ZERO,size),Color("#101e31"));draw_line(Vector2(size.x*.5,0),Vector2(size.x*.5,header_height-4),Color("#51617c"),1)
 	for index in range(2):

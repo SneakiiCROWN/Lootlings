@@ -102,7 +102,9 @@ func _draw() -> void:
 	Decor.draw(self,layout,game.achievements.unlocked.keys())
 	if layout.placements.get("home.wall_light","")=="home_lantern":
 		preload("res://world_ambience.gd").draw_home_lantern(self,time,game.audio_settings.get("cinematic_reduced_motion",false))
-	draw_set_transform(Vector2(254,578),0,Vector2(1,.18));draw_circle(Vector2.ZERO,34,Color("#03071166"));draw_set_transform(Vector2.ZERO)
+	draw_set_transform(Vector2(254,578),0,Vector2(1,.18))
+	for contact in [[34,.12],[26,.20],[16,.24]]:draw_circle(Vector2.ZERO,contact[0],Color(.01,.025,.06,contact[1]))
+	draw_set_transform(Vector2.ZERO)
 	var motion:bool=not game.audio_settings.get("cinematic_reduced_motion",false)
 	var breath:float=1.0+sin(time*1.7)*.003 if motion else 1.0
 	var actor:Texture2D=preload("res://avatar_presentation.gd").grounded_texture(game.hideout_ui.actor_texture())

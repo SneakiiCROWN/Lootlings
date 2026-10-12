@@ -16,6 +16,7 @@ static func create_default() -> Dictionary:
 		"avatar_mode":"lootling",
 		"wanderer":WandererCatalog.create_default(),
 		"memories":[],
+		"home_conversation":{},
 		"companion":{"equipped_id":"", "owned_ids":[], "accompany":false},
 		"homestead":preload("res://home_catalog.gd").sanitize({"display":"weapon"}),
 		"cosmetic_ids":[],
@@ -81,6 +82,15 @@ static func sanitize(value: Dictionary) -> Dictionary:
 		result[section]=cleaned
 	result.companion=preload("res://companion_catalog.gd").sanitize(result.companion)
 	result.homestead=preload("res://home_catalog.gd").sanitize(result.homestead,result.companion.equipped_id)
+	var conversation:Dictionary=result.home_conversation
+	var heard:Dictionary={}
+	for speaker in ["Salvager","Relic Keeper","Archivist","Mascot"]:
+		if conversation.get("heard",{}) is Dictionary and conversation.get("heard",{}).get(speaker,"") is String:
+			heard[speaker]=str(conversation.get("heard",{}).get(speaker,"")).left(80)
+	var facts:Dictionary={}
+	for key in ["region","outcome","weapon","mode"]:
+		if conversation.get("facts",{}) is Dictionary and conversation.get("facts",{}).get(key,"") is String:facts[key]=str(conversation.get("facts",{}).get(key,"")).left(80)
+	result.home_conversation={"event":str(conversation.get("event","")).left(80),"priority":clampi(preload("res://safe_config.gd").int_value(conversation.get("priority",-1)),-1,20),"heard":heard,"facts":facts}
 	return result
 
 static func is_created(profile: Dictionary) -> bool:
