@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "Dungeon": {
+      "offensive": {
+        "samples": 4,
+        "target_defeated": 4,
+        "mean_seconds": 1.9249999999999998,
+        "mean_damage_taken": 5.58100595
+      },
+      "sustain": {
+        "samples": 4,
+        "target_defeated": 4,
+        "mean_seconds": 5.68749999999999,
+        "mean_damage_taken": 9.10167407592
+      },
+      "elemental": {
+        "samples": 4,
+        "target_defeated": 4,
+        "mean_seconds": 7.08749999999998,
+        "mean_damage_taken": 26.2336819
+      }
+    },
+    "Prism Rift": {
+      "offensive": {
+        "samples": 4,
+        "target_defeated": 4,
+        "mean_seconds": 3.537499999999995,
+        "mean_damage_taken": 10.1524318
+      },
+      "sustain": {
+        "samples": 4,
+        "target_defeated": 4,
+        "mean_seconds": 12.075000000000049,
+        "mean_damage_taken": 51.685625768159994
+      },
+      "elemental": {
+        "samples": 4,
+        "target_defeated": 4,
+        "mean_seconds": 14.287500000000101,
+        "mean_damage_taken": 68.26528703
+      }
+    },
+    "Siege": {
+      "offensive": {
+        "samples": 4,
+        "target_defeated": 2,
+        "mean_seconds": 5.274999999999991,
+        "mean_damage_taken": 227.673420125
+      },
+      "sustain": {
+        "samples": 4,
+        "target_defeated": 2,
+        "mean_seconds": 16.662500000000126,
+        "mean_damage_taken": 585.3303557281
+      },
+      "elemental": {
+        "samples": 4,
+        "target_defeated": 0,
+        "mean_seconds": 11.75000000000005,
+        "mean_damage_taken": 511.53858425
+      }
+    }
+  },
+  "accepted_balance": false,
+  "whole_route_testing": false
+}

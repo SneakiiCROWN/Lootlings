@@ -15,9 +15,9 @@ func build(hub) -> void:
  hub.resource_label=UI.rich_label(surface,Rect2(32,31,416,22),11,Color("#dce6f5"))
  world_buttons.GateEntrance=feature(surface,"GateEntrance",Rect2(148,100,184,232),"ENTER THE GATE  ›","Choose an expedition",func():hub.play_requested.emit(),17)
  # The same shrine hit area includes Sera; one service, one named world location.
- world_buttons.ShrineProp=feature(surface,"ShrineProp",Rect2(12,208,128,304),"Sera · Upgrades","Permanent power",hub.show_upgrades)
+ world_buttons.ShrineProp=feature(surface,"ShrineProp",Rect2(12,208,128,290),"Sera · Upgrades","Permanent power",hub.show_upgrades)
  talk_buttons.sera=talk_badge(world_buttons.ShrineProp,Rect2(76,150,48,48),"Relic Keeper")
- world_buttons.ShopEntrance=feature(surface,"ShopEntrance",Rect2(332,320,144,192),"Patch’s Shop","Gear & caches",hub.show_shop)
+ world_buttons.ShopEntrance=feature(surface,"ShopEntrance",Rect2(332,320,144,192),"Patch · Shop","Gear & caches",hub.show_shop)
  talk_buttons.patch=talk_badge(world_buttons.ShopEntrance,Rect2(86,94,48,48),"Salvager")
  world_buttons.ContractBoard=feature(surface,"ContractBoard",Rect2(342,166,122,152),"Quest Board · Jobs","Jobs & bounties",hub.show_contracts)
  world_buttons.StorageChest=feature(surface,"StorageChest",Rect2(12,514,136,122),"Gear & Stash","Equip & compare",hub.show_stash)
@@ -28,7 +28,10 @@ func build(hub) -> void:
  talk_buttons.ilex=talk_badge(world_buttons.ArchiveDesk,Rect2(82,76,48,48),"Archivist")
  world_buttons.RelicEngine=feature(surface,"RelicEngine",Rect2(332,668,132,98),"Relic Engine","Secured rewards",func():hub.engine_requested.emit())
  hub.engine_button=world_buttons.RelicEngine;engine_hint=world_buttons.RelicEngine.get_node("Purpose")
- world_buttons.Mascot=feature(surface,"YourLootling",Rect2(164,364,152,178),"Your Lootling","",func():hub.request_dialogue("tapped","Mascot"),12)
+ world_buttons.Mascot=feature(surface,"YourLootling",Rect2(174,378,132,154),"","Your Lootling",func():hub.request_dialogue("tapped","Mascot"),12)
+ # NPCs own the direct service action; dialogue remains in that service's Talk
+ # control. Do not put a second competing button over the same world body.
+ for badge in talk_buttons.values():badge.hide()
  # Only essential shortcuts stay at the edge, below the living scene.
  buttons.home=shortcut(surface,"Home",Rect2(24,782,136,52),func():hub.get_parent().show_personal_home(),"Your separate private den")
  buttons.character=shortcut(surface,"Character",Rect2(172,782,136,52),func():hub.profile_requested.emit(),"Character and profile")

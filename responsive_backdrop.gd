@@ -16,8 +16,9 @@ func _draw() -> void:
 		# One continuous artwork layer; no repeated sky or character crops.
 		draw_rect(Rect2(Vector2.ZERO,size),Color(.012,.028,.055,1))
 		var art:Texture2D=game.startup_ui.TITLE_ART
-		var art_width:float=game.size.x*game.scale.x
-		draw_texture_rect(art,Rect2(game.position.x,0,art_width,art_width*art.get_height()/art.get_width()),false)
+		var extent:=art.get_size()
+		var scaled:=extent*maxf(size.x/extent.x,size.y/extent.y)
+		draw_texture_rect(art,Rect2((size-scaled)*.5,scaled),false)
 		return
 	var texture: Texture2D = game.current_zone.get("background",game.ZoneCatalog.OUTER_RUINS_BACKGROUND)
 	if game.state == "hideout": texture = game.hideout_ui.background_for_screen()

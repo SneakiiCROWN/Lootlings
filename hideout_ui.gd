@@ -61,7 +61,7 @@ const RESIDENT_PORTRAITS := {
 	"Archivist":preload("res://art/production/phase4e/npcs/ilex_canonical_station_panel.png")
 }
 const HOME_SLOTS := {"pet_bed":Rect2(38,700,60,48),"trophy":Rect2(338,176,56,56),"weapon_display":Rect2(202,519,48,48),"banner":Rect2(92,124,48,100),"hearth":Rect2(32,268,64,64),"shelf":Rect2(350,614,64,48)}
-const RESIDENT_RECTS := {"Salvager":Rect2(346,336,88,132), "Relic Keeper":Rect2(42,334,88,132), "Archivist":Rect2(352,562,80,120)}
+const RESIDENT_RECTS := {"Salvager":Rect2(342,344,74,112), "Relic Keeper":Rect2(42,332,78,114), "Archivist":Rect2(344,537,74,112)}
 const LootlingsUI = preload("res://lootlings_ui.gd")
 const LootlingCatalog = preload("res://lootling_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
@@ -194,6 +194,9 @@ var shop_detail: RichTextLabel
 var shop_buy_button: Button
 var shop_detail_panel: Panel
 var shop_status_panel: Panel
+var shop_message_active := false
+var shop_status_dismiss: Button
+var shop_reveal_icon: TextureRect
 var selected_entry := -1
 var selected_shop_offer := -1
 var scene_time := 0.0
@@ -304,6 +307,7 @@ func show_upgrades() -> void:
 
 func show_shop() -> void:
 	dismiss_dialogue()
+	shop_message_active=false
 	current_screen = "shop"
 	set_screen(shop_content)
 	refresh_shop()
@@ -821,7 +825,7 @@ func build_upgrades() -> void:
 	add_child(upgrade_content)
 	var back := make_button(upgrade_content, "‹ HUB", Rect2(20, 20, 122, 48), Color("#202d4d"), Color("#7f94bc"), 16)
 	back.pressed.connect(show_home)
-	make_label(upgrade_content, "RELIC TRAINING", 29, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
+	make_label(upgrade_content, "SERA’S UPGRADES", 29, Rect2(145, 23, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	upgrade_panel = make_panel(upgrade_content, Rect2(48, 354, 384, 202), Color("#101634ce"), Color("#b78cff"))
 	LootlingsUI.apply_material(upgrade_panel, "relic")
 	LootlingsUI.add_divider(upgrade_panel, Rect2(30, 116, 324, 8), "relic")
@@ -851,6 +855,12 @@ func request_gold_upgrade(upgrade_id: String) -> void:
 	var game=get_parent()
 	game.touch_ux.request("Improve %s?" % data[0],"Rank %d → %d. %s. Costs %d %s." % [rank,rank+1,data[1],data[2][rank],preload("res://permanent_upgrade_catalog.gd").currency(upgrade_id)],func(): gold_upgrade_requested.emit(upgrade_id))
 
+func build_resident_service(surface:Control,speaker:String,rect:Rect2,line:String) -> void:
+	var host:=Control.new();host.name="ResidentService";host.position=rect.position;host.size=rect.size;host.mouse_filter=Control.MOUSE_FILTER_IGNORE;surface.add_child(host)
+	var face:=TextureRect.new();face.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;face.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	face.texture=load(preload("res://resident_art_catalog.gd").portrait_path(preload("res://resident_art_catalog.gd").IDS[speaker]));face.position=Vector2(0,-25);face.size=Vector2(62,67);face.mouse_filter=Control.MOUSE_FILTER_IGNORE;host.add_child(face)
+	var greeting:=make_label(host,line,14,Rect2(76,0,rect.size.x-82,42),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7d9ba"));greeting.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;greeting.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;greeting.mouse_filter=Control.MOUSE_FILTER_IGNORE
+
 func build_shop() -> void:
 	shop_content = Control.new()
 	shop_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -860,16 +870,16 @@ func build_shop() -> void:
 	back.pressed.connect(show_home)
 	make_label(shop_content, "PATCH’S SHOP", 27, Rect2(145, 22, 315, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	shop_scrap_label = LootlingsUI.rich_label(shop_content, Rect2(145, 65, 315, 28), 13, Color("#d9e5ff"))
-	# The merchant cart is a world station in Hub; keep the selected shop view clear.
+	build_resident_service(shop_content,"Salvager",Rect2(20,100,440,42),"Good gear. Fair deals. Every piece has a story.")
 	for index in range(3):
-		var offer_button := make_button(shop_content, "", Rect2(20, 110 + index * 72, 440, 64), Color("#172442e8"), Color("#b7c0ca"), 12)
+		var offer_button := make_button(shop_content, "", Rect2(20, 150 + index * 60, 440, 56), Color("#172442e8"), Color("#b7c0ca"), 12)
 		offer_button.pressed.connect(select_shop_offer.bind(index))
 		shop_offer_buttons.append(offer_button)
-	shop_detail_panel = make_panel(shop_content, Rect2(20, 326, 440, 362), Color("#0d1530e6"), Color("#c99a4e"))
+	shop_detail_panel = make_panel(shop_content, Rect2(20, 334, 440, 354), Color("#0d1530e6"), Color("#c99a4e"))
 	shop_detail_panel.add_theme_stylebox_override("panel",preload("res://station_presentation.gd").metal())
 	shop_detail = RichTextLabel.new()
 	shop_detail.position = Vector2(16, 8)
-	shop_detail.size = Vector2(408, 292)
+	shop_detail.size = Vector2(408, 284)
 	shop_detail.bbcode_enabled = true
 	shop_detail.scroll_active = true
 	shop_detail.mouse_filter=Control.MOUSE_FILTER_STOP
@@ -878,7 +888,7 @@ func build_shop() -> void:
 	shop_detail.add_theme_font_size_override("italics_font_size", 14)
 	shop_detail.add_theme_font_size_override("bold_italics_font_size", 16)
 	shop_detail_panel.add_child(shop_detail)
-	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 306, 408, 48), Color("#6b4a1e"), Color("#ffd468"), 13)
+	shop_buy_button = make_button(shop_detail_panel, "SELECT AN OFFER", Rect2(16, 298, 408, 48), Color("#6b4a1e"), Color("#ffd468"), 13)
 	shop_buy_button.set_meta("ui_intent", "primary")
 	apply_button_style(shop_buy_button, Color("#6b4a1e"), Color("#ffd468"))
 	shop_buy_button.pressed.connect(request_selected_shop_offer)
@@ -904,18 +914,23 @@ func build_shop() -> void:
 	# Static accepted luggage art illustrates capacity; it is not a new loot roll.
 	shop_expansion_button.icon=LootlingsUI.icon("res://art/production/phase4e/props/courier_cache.png")
 	shop_expansion_button.expand_icon=true;shop_expansion_button.add_theme_constant_override("icon_max_width",28)
-	shop_status_panel = make_panel(shop_content, Rect2(20, 830, 440, 22), Color("#0d1530dc"), Color("#8ea2c8"))
+	# Feedback and reserved cache reveals use the detail area, never a clipped
+	# bottom strip or an overlapping modal. Purchase/claim controls stay below.
+	shop_status_panel = make_panel(shop_content, Rect2(20,334,440,354), Color("#0d1530f5"), Color("#8ea2c8"))
 	LootlingsUI.apply_material(shop_status_panel, "salvage", 16)
-	LootlingsUI.add_divider(shop_status_panel, Rect2(28, 4, 384, 8), "salvage")
+	shop_status_panel.hide()
 	shop_status = RichTextLabel.new()
-	shop_status.position = Vector2(14, 0)
-	shop_status.size = Vector2(412, 22)
+	shop_status.position = Vector2(20,56)
+	shop_status.size = Vector2(400,278)
 	shop_status.bbcode_enabled = true
 	shop_status.fit_content = false
 	shop_status.scroll_active = true
 	shop_status.add_theme_font_size_override("normal_font_size", 14)
 	shop_status.add_theme_color_override("default_color", Color("#e5edff"))
 	shop_status_panel.add_child(shop_status)
+	shop_status_dismiss=make_button(shop_status_panel,"‹ OFFERS",Rect2(16,8,144,48),Color("#172442"),Color("#7087ae"),14)
+	shop_status_dismiss.pressed.connect(func():shop_message_active=false;refresh_shop())
+	shop_reveal_icon=TextureRect.new();shop_reveal_icon.position=Vector2(164,20);shop_reveal_icon.size=Vector2(112,112);shop_reveal_icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;shop_reveal_icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;shop_reveal_icon.mouse_filter=Control.MOUSE_FILTER_IGNORE;shop_status_panel.add_child(shop_reveal_icon);shop_reveal_icon.hide()
 
 func build_coming_soon() -> void:
 	coming_content = Control.new()
@@ -1414,7 +1429,8 @@ func refresh_shop() -> void:
 		shop_cache_button.disabled = is_gold_cache or current_inventory.stash.size() >= current_inventory.stash_capacity
 		shop_gold_cache_button.text = "CLAIM REVEALED ITEM" if is_gold_cache else "SCAVENGED CACHE"
 		shop_gold_cache_button.disabled = not is_gold_cache or current_inventory.stash.size() >= current_inventory.stash_capacity
-		shop_status.text = "[center][color=#ffe178]%s REVEAL[/color]\n[font_size=20][color=#%s]%s[/color][/font_size]\n%s  •  %s\n%s[/center]" % ["SCAVENGED CACHE" if is_gold_cache else "MYSTERY CACHE", color, item.get("name", "Unknown"), item.get("rarity", "COMMON"), ItemCatalog.display_slot(item.get("slot", "Item")), ItemCatalog.describe_effects(item)]
+		shop_status.text = "[center][font_size=20][color=#%s]%s[/color][/font_size]\n%s • %s\n%s\n\nClaim below. This find is reserved for you.[/center]" % [color, item.get("name", "Unknown"), item.get("rarity", "COMMON"), ItemCatalog.display_slot(item.get("slot", "Item")), ItemCatalog.describe_effects(item)]
+		shop_reveal_icon.texture=LootlingsUI.item_texture(item)
 	else:
 		if current_shop.cache_bought_this_cycle:
 			shop_cache_button.text = "CACHE OPENED\nREFRESHES AFTER RUN"
@@ -1431,7 +1447,15 @@ func refresh_shop() -> void:
 			shop_status.text = "[center][color=#ffe39a]Choose gear • pay with Lootcoins[/color]\nStock refreshes after a completed run.[/center]"
 	if current_shop.requires_review():
 		for button in shop_offer_buttons+[shop_cache_button,shop_gold_cache_button,shop_expansion_button,shop_reroll_button]:button.disabled=true
-		show_shop_message("Your reserved cache needs review. Its record is retained; no new charge was made.")
+		# Never recurse through show_shop_message -> refresh_shop for a blocked record.
+		shop_message_active=true
+		shop_status.text="[center]Your reserved cache needs review. Its record is retained; no new charge was made.[/center]"
+	shop_status_panel.visible=reveal_pending or shop_message_active
+	shop_detail_panel.visible=not shop_status_panel.visible
+	shop_status_dismiss.visible=not reveal_pending and not current_shop.requires_review()
+	shop_status.position=Vector2(20,154 if reveal_pending else 56)
+	shop_status.size=Vector2(400,180 if reveal_pending else 278)
+	shop_reveal_icon.visible=reveal_pending and presentation.chest_showcase_timer<=0
 
 func refresh_shop_detail(reveal_pending: bool) -> void:
 	preload("res://quick_comparison.gd").reset(shop_detail)
@@ -1458,6 +1482,7 @@ func refresh_shop_detail(reveal_pending: bool) -> void:
 	elif gold < int(item.get("price",0)):shop_buy_button.text="NEED %d\nMORE LOOTCOINS" % (int(item.get("price",0))-gold)
 
 func show_shop_message(message: String, color: String = "#e5edff") -> void:
+	shop_message_active=true
 	shop_status.text = "[center][color=%s]%s[/color][/center]" % [color, message]
 	refresh_shop()
 
@@ -1487,6 +1512,7 @@ func request_stash_scrap() -> void:
 	get_parent().touch_ux.request("Salvage %s?" % item.name,"Receive %d Scrap. This item is destroyed permanently." % ItemCatalog.scrap_value(item),func(): stash_scrap_requested.emit(index))
 
 func select_shop_offer(index: int) -> void:
+	shop_message_active=false
 	if current_shop == null or index < 0 or index >= current_shop.stock.size() or current_shop.stock[index].is_empty():
 		return
 	selected_shop_offer = index
@@ -1696,6 +1722,8 @@ func _process(delta: float) -> void:
 		dialogue.update(delta)
 	if not visible:
 		return
+	if current_screen=="shop" and shop_reveal_icon!=null and current_shop!=null:
+		shop_reveal_icon.visible=not current_shop.pending_cache_item.is_empty() and presentation.chest_showcase_timer<=0
 	if current_screen == "home":
 		companion_presenter.update(delta,Vector2(240,491),Vector2(-96,10))
 		var cycle:=int(scene_time/28.0)
@@ -1703,12 +1731,6 @@ func _process(delta: float) -> void:
 			station_cycle=cycle
 			if cycle>0 and cycle%3==0: ui_event.emit("home_bench")
 			elif cycle%3==2: ui_event.emit("home_page")
-		life_event_clock -= delta
-		life_event_time = maxf(0.0, life_event_time - delta)
-		if life_event_clock <= 0.0:
-			life_event = ["critter", "coin", "chest", "motes"][life_rng.randi_range(0, 3)]
-			life_event_time = life_rng.randf_range(1.4, 3.2)
-			life_event_clock = life_rng.randf_range(8.0, 15.0)
 	shrine_pulse = maxf(0.0, shrine_pulse - delta)
 	cache_pulse = maxf(0.0, cache_pulse - delta)
 	if speech_visible_timer > 0.0:
@@ -1779,7 +1801,7 @@ func draw_home_scene() -> void:
 	# Contact shadows sit on the station floor, not around the image rectangle.
 	for station in [[Vector2(405,444),46.0],[Vector2(71,707),52.0],[Vector2(403,721),29.0]]:
 		draw_set_transform(station[0],0,Vector2(1,.18));draw_circle(Vector2.ZERO,station[1],Color("#03061280"));draw_set_transform(Vector2.ZERO)
-	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("merchant_cart","props"),Rect2(350,338,110,116))
+	# The painted merchant stall is already present; no second miniature cart.
 	LootlingsUI.draw_icon(get_canvas_item(),preload("res://bible_runtime_art.gd").texture("forge_station","props"),Rect2(10,642,126,76))
 	var gate_light:=Color("#87cbff"); gate_light.a=.10+sin(scene_time*1.7)*.025
 	draw_arc(Vector2(240,179),63,-PI,0,32,gate_light,4,true)
@@ -1788,11 +1810,11 @@ func draw_home_scene() -> void:
 		draw_circle(point,3,Color(.55,.8,1,.26+maxf(0,sin(scene_time*2-rune))*.16))
 	draw_home_board()
 	draw_set_transform(Vector2(240, 491 + bob), 0.0, Vector2(1.0, 0.18))
-	draw_circle(Vector2.ZERO, 52, Color("#03061280"))
+	draw_circle(Vector2.ZERO, 40, Color("#03061280"))
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_set_transform(Vector2(240, 491), sin(scene_time * 1.15) * 0.006, Vector2(1.0, breathe))
 	var grounded_actor: Texture2D = Avatar.grounded_texture(actor_texture())
-	var actor_extent: Vector2 = grounded_actor.get_size() * minf(144.0 / grounded_actor.get_width(), 144.0 / grounded_actor.get_height())
+	var actor_extent: Vector2 = grounded_actor.get_size() * minf(118.0 / grounded_actor.get_width(), 118.0 / grounded_actor.get_height())
 	draw_texture_rect(grounded_actor, Rect2(Vector2(-actor_extent.x*.5,-actor_extent.y),actor_extent), false, actor_tint())
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var core_pulse := 0.07 + maxf(0.0, sin(scene_time * 2.6)) * 0.07
@@ -1800,33 +1822,13 @@ func draw_home_scene() -> void:
 	for index in range(6):
 		var drift := fmod(scene_time * (8.0 + index) + index * 29.0, 150.0)
 		draw_circle(Vector2(178 + index * 26, 640 - drift), 1.5 + (index % 2), Color(1.0, 0.78, 0.36, 0.25))
-	# Rare bounded micro-events prevent the Hideout from reading as a static
-	# painting without creating autonomous nodes or permanent particle systems.
-	if life_event_time > 0.0:
-		var event_phase := life_event_time
-		match life_event:
-			"critter":
-				var critter_x := 44.0 + fmod((3.2 - event_phase) * 86.0, 126.0)
-				draw_circle(Vector2(critter_x, 665), 8.0, Color("#17233cc9"))
-				draw_colored_polygon(PackedVector2Array([Vector2(critter_x - 7, 660), Vector2(critter_x - 3, 650), Vector2(critter_x + 1, 660)]), Color("#17233cc9"))
-				draw_circle(Vector2(critter_x + 3, 663), 1.5, Color("#ffe178"))
-			"coin":
-				var coin_x := 310.0 + minf(1.0, 3.2 - event_phase) * 52.0
-				draw_circle(Vector2(coin_x, 668 + absf(sin(scene_time * 9.0)) * -7.0), 5.0, Color("#ffd468"), false, 2.0)
-			"chest":
-				var twitch := sin(scene_time * 18.0) * 2.5
-				LootlingsUI.draw_icon(get_canvas_item(),preload("res://art/sprites/rewards/scavenged_chest_beta.png"),Rect2(35+twitch,603,46,40))
-			"motes":
-				for mote_index in range(5):
-					var mote_pos := Vector2(78 + mote_index * 9, 514 - fmod(scene_time * (10.0 + mote_index), 42.0))
-					draw_circle(mote_pos, 2.0, Color(0.78, 0.55, 1.0, 0.48))
 	draw_resident("Relic Keeper", RESIDENT_RECTS["Relic Keeper"], "SERA", 1.0)
 	# Exact authored bodies stand beside their established service stations.
 	# Portraits remain the approved dialogue/memory illustrations.
 	if preload("res://resident_art_catalog.gd").has_body("Salvager"):
-		draw_resident("Salvager",Rect2(337,338,74,128),"PATCH",.4)
+		draw_resident("Salvager",RESIDENT_RECTS["Salvager"],"PATCH",.4)
 	if preload("res://resident_art_catalog.gd").has_body("Archivist"):
-		draw_resident("Archivist",Rect2(340,537,74,112),"ILEX",1.8)
+		draw_resident("Archivist",RESIDENT_RECTS["Archivist"],"ILEX",1.8)
 	var engine_art:=preload("res://art/production/phase4e/props/trophy_dais.png")
 	LootlingsUI.draw_icon(get_canvas_item(),engine_art,Rect2(372,665,62,65))
 	draw_hideout_light(Vector2(403,689),15,.055,1.7)
@@ -1896,6 +1898,7 @@ func draw_stash_scene() -> void:
 	draw_line(Vector2(244, 175), Vector2(244, 187), Color(0.55, 0.84, 1.0, glint_alpha), 1.5)
 
 func draw_shrine_scene() -> void:
+	draw_resident("Relic Keeper",Rect2(303,226,88,111),"SERA",1.0)
 	draw_hideout_light(Vector2(74, 320), 16.0, 0.028, 0.0)
 	draw_hideout_light(Vector2(406, 320), 16.0, 0.028, 1.7)
 	var breathe := 1.0 if get_parent().audio_settings.get("cinematic_reduced_motion",false) else 1.0 + sin(scene_time * 1.7) * 0.003

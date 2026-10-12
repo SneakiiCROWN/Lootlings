@@ -15,8 +15,7 @@ const LootlingCatalog = preload("res://lootling_catalog.gd")
 const WandererCatalog = preload("res://wanderer_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
-static var title_scrim:GradientTexture2D
-const TITLE_ART = preload("res://art/ui/brand/lootlings_title_ensemble_v2.png")
+const TITLE_ART = preload("res://art/backgrounds/treasure_ruins_arena.png")
 const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
 var profile := {}
@@ -67,6 +66,7 @@ var wanderer_voice: OptionButton
 var selected_wanderer := "vault_runner"
 var wanderer_confirm: Button
 var title_wordmark:TextureRect
+var title_ambience:Control
 var title_tagline:Label
 var title_roster_buttons := {}
 var title_identity: Label
@@ -118,7 +118,10 @@ func build_title() -> void:
 	title_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	title_content.visible = false
 	add_child(title_content)
-	title_wordmark=LootlingsUI.add_wordmark(title_content, Rect2(24, 18, 432, 108))
+	title_ambience=preload("res://world_ambience.gd").new()
+	title_ambience.configure(Rect2(28,250,424,345),func():return settings)
+	title_content.add_child(title_ambience)
+	title_wordmark=LootlingsUI.add_wordmark(title_content, Rect2(24, 42, 432, 108))
 	title_tagline=make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 492, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
 	# Franchise ensemble uses the seven accepted canonical portrait sources,
 	# never marketing boards or alternate actor designs.
@@ -143,19 +146,25 @@ func build_title() -> void:
 		index+=1
 	title_identity=make_label(title_content,"",16,Rect2(38,589,404,28),HORIZONTAL_ALIGNMENT_CENTER,Color("#ffe3ac"))
 	title_personality=make_label(title_content,"",12,Rect2(36,805,408,26),HORIZONTAL_ALIGNMENT_CENTER,Color("#d7e5ff"))
-	var play := make_button(title_content, "START", Rect2(92, 644, 296, 72), Color("#6f4b1fef"), Color("#ffda72"), 21)
+	var play := make_button(title_content, "START", Rect2(92, 622, 296, 72), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
-	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 722, 160, 62), Color("#17294be8"), Color("#72c8ff"), 17)
+	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 712, 160, 52), Color("#17294be8"), Color("#72c8ff"), 17)
 	profile_button.pressed.connect(func(): ui_event.emit("menu_open"); show_profile(false))
-	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 722, 160, 62), Color("#17294be8"), Color("#c99cff"), 17)
+	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 712, 160, 52), Color("#17294be8"), Color("#c99cff"), 17)
 	settings_button.pressed.connect(func(): ui_event.emit("menu_open"); show_settings())
 	style_title_button(play,true)
 	style_title_button(profile_button,false)
 	style_title_button(settings_button,false)
-	# Accepted ensemble and original logo carry the title; roster/profile belong
-	# in their existing selection flows, not a second row of marketing controls.
+	# One approved environment and original logo. Selection galleries remain in
+	# their existing flows; secondary controls stay quiet and directly reachable.
 	for child in title_content.get_children():
-		if child!=title_wordmark and child!=play:child.hide()
+		if child not in [title_wordmark,title_ambience,play,profile_button,settings_button]:child.hide()
+	if OS.has_feature("windows") or OS.has_feature("linux") or OS.has_feature("macos"):
+		var exit_button:=make_button(title_content,"EXIT",Rect2(184,786,112,48),Color("#17294b"),Color("#7087ae"),13)
+		exit_button.pressed.connect(func():
+			if get_parent().app_lifecycle.persist()==OK:get_tree().quit()
+			else:exit_button.tooltip_text="Could not save. Retry Exit, or export a backup from Settings.")
+		style_title_button(exit_button,false)
 
 
 func build_profile() -> void:
@@ -648,10 +657,8 @@ func set_screen(active: Control) -> void:
 func _process(delta: float) -> void:
 	scene_time += delta
 	if current_screen=="title" and title_wordmark!=null:
-		# Keep branding in the upper sky, including above a letterboxed safe frame.
-		var owner=get_parent()
-		var header_y:float=maxf(18.0,36.0/owner.scale.y)-owner.position.y/owner.scale.y
-		title_wordmark.position.y=header_y
+		# Branding stays in the same safe frame as live menu controls.
+		title_wordmark.position.y=42
 		title_tagline.position.y=492
 
 	if current_screen == "boot":
@@ -671,13 +678,6 @@ func _draw() -> void:
 	if current_screen == "title":
 		if get_parent().responsive_backdrop==null:
 			draw_texture_rect(TITLE_ART,Rect2(0,0,480,720),false)
-		if title_scrim==null:
-			title_scrim=GradientTexture2D.new();title_scrim.width=2;title_scrim.height=512
-			title_scrim.fill_from=Vector2(0,0);title_scrim.fill_to=Vector2(0,1)
-			var gradient:=Gradient.new()
-			gradient.set_color(0,Color(.012,.028,.055,0));gradient.set_color(1,Color(.012,.028,.055,1))
-			gradient.add_point(.35,Color(.012,.028,.055,1));title_scrim.gradient=gradient
-		draw_texture_rect(title_scrim,Rect2(0,495,480,359),false)
 	else:
 		if get_parent().responsive_backdrop == null: draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
 		draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
@@ -692,13 +692,6 @@ func _draw() -> void:
 		for mote in range(0 if settings.get("cinematic_reduced_motion",false) else 6):
 			var point:=Vector2(102+mote*55,350-fmod(scene_time*12+mote*31,180))
 			draw_circle(point,1.4,Color("#dfb65a66"))
-	if current_screen == "title":
-		# The seven canonical heroes are integrated into one authored scene.
-		# Restrained motes add life without moving the live controls.
-		if not settings.get("cinematic_reduced_motion",false):
-			for mote in range(9):
-				var point:=Vector2(38+mote*51,490-fmod(scene_time*(3+mote%3)+mote*41,310))
-				draw_circle(point,1.0,Color(1.0,.78,.39,.22))
 	if current_screen != "title":draw_rect(Rect2(0, 0, 480, 5), Color("#d4a856"), true)
 
 func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:
@@ -748,13 +741,19 @@ func refresh_roster_selection(buttons: Dictionary, selected_id: String) -> void:
 
 # Uses the accepted relic-metal button artwork; text and input remain native.
 func style_title_button(button: Button, primary: bool) -> void:
-	button.set_meta("ui_intent","primary")
+	button.set_meta("ui_intent","primary" if primary else "utility")
 	LootlingsUI.apply_button(button,Color("#102139"),Color("#d1a85a"))
 	button.add_theme_font_size_override("font_size",20 if primary else 15)
 	button.add_theme_color_override("font_color",Color("#fff0c8") if primary else Color("#dfeafa"))
 	button.add_theme_color_override("font_shadow_color",Color("#030a16"))
 	button.add_theme_constant_override("shadow_offset_x",1)
 	button.add_theme_constant_override("shadow_offset_y",2)
+	if not primary:
+		for state in ["normal","hover","pressed","disabled"]:
+			var quiet:=StyleBoxFlat.new()
+			quiet.bg_color=Color.TRANSPARENT if state in ["normal","disabled"] else Color("#06122560")
+			quiet.set_corner_radius_all(8)
+			button.add_theme_stylebox_override(state,quiet)
 	var focus:=StyleBoxFlat.new()
 	focus.bg_color=Color.TRANSPARENT;focus.border_color=Color("#c3edff")
 	focus.set_border_width_all(2);focus.set_corner_radius_all(8)

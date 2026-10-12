@@ -25,6 +25,7 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | screen:hideout_ui.gd:show_forge | show_forge / show_forge | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:refresh_forge | refresh_forge / refresh_forge | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:build_upgrades | build_upgrades / build_upgrades | LIVE_BETA | hideout_ui.gd |
+| screen:hideout_ui.gd:build_resident_service | build_resident_service / build_resident_service | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:build_shop | build_shop / build_shop | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:build_coming_soon | build_coming_soon / build_coming_soon | LIVE_BETA | hideout_ui.gd |
 | screen:hideout_ui.gd:build_achievements | build_achievements / build_achievements | LIVE_BETA | hideout_ui.gd |

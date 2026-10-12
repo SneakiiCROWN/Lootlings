@@ -5100,9 +5100,9 @@
         }
       },
       "RESIDENT_RECTS": {
-        "Archivist": "[P: (352.0, 562.0), S: (80.0, 120.0)]",
-        "Relic Keeper": "[P: (42.0, 334.0), S: (88.0, 132.0)]",
-        "Salvager": "[P: (346.0, 336.0), S: (88.0, 132.0)]"
+        "Archivist": "[P: (344.0, 537.0), S: (74.0, 112.0)]",
+        "Relic Keeper": "[P: (42.0, 332.0), S: (78.0, 114.0)]",
+        "Salvager": "[P: (342.0, 344.0), S: (74.0, 112.0)]"
       },
       "ROGUE_WEAPON_TEXTURE": {
         "resource_path": "res://art/sprites/weapons/rogue_daggers.png"
@@ -5164,6 +5164,7 @@
       "select_forge_weapon",
       "build_upgrades",
       "request_gold_upgrade",
+      "build_resident_service",
       "build_shop",
       "build_coming_soon",
       "build_achievements",
@@ -5248,7 +5249,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "b5106a97b5079fee1d42481f4e637b33f22fd4e341992a250877e867b5a20284"
+    "source_sha256": "98ff67d45b779ebac76715507229d360b0ef6d152fb74e968e0a1c86c5a1ea73"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5558,7 +5559,7 @@
       "finish_details",
       "refresh"
     ],
-    "source_sha256": "ae687cb952c1847b4fa7da3181391716262881079c7b67de30bf30b5ca5f1c93"
+    "source_sha256": "5a9418af92bcda113433ac318213de5601f07895f4a2ef30f0cf8b42dd61b9b0"
   },
   "hud_portrait_crest.gd": {
     "constants": {},
@@ -7244,6 +7245,7 @@
       "perform_enemy_attack",
       "deal_elemental_hit",
       "update_elemental_damage",
+      "resolve_elemental_tick",
       "kill_enemy",
       "spawn_item_drop",
       "prepare_hoard_chest",
@@ -7324,7 +7326,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "cf68b249c816888e417bea86612172e73473c7ab4c992a4256edfa6033c9f81c"
+    "source_sha256": "c0051246de4d02b53cfad26a08c1ffb6ec04ade1a8c848a635a1bc49e779c2cb"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9366,7 +9368,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "da2a4a7e005445b87e8f8b986216c6429400563dad8bea390b79e3b7ec94e52b"
+    "source_sha256": "7baa750d4160c4e56cd4e31a0cef8223a90e794f25427276d02f8010606f38dc"
   },
   "result_actor_view.gd": {
     "constants": {},
@@ -9530,7 +9532,7 @@
       "recover",
       "chase_summary"
     ],
-    "source_sha256": "64eb57f559ffd77bef7ce501f748153e3755765add212f80046aaa7d6dc6dde5"
+    "source_sha256": "ae2397499d076c86203007eafecda70b803ecf74bbb6489b6cf4e020f8ecd5b7"
   },
   "safe_area_layout.gd": {
     "constants": {
@@ -9665,7 +9667,7 @@
         "resource_path": "res://settings_store.gd"
       },
       "TITLE_ART": {
-        "resource_path": "res://art/ui/brand/lootlings_title_ensemble_v2.png"
+        "resource_path": "res://art/backgrounds/treasure_ruins_arena.png"
       },
       "WandererCatalog": {
         "resource_path": "res://wanderer_catalog.gd"
@@ -9718,7 +9720,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "7b5284c53d1d7fa7d749e12b93a64708586b822010bd970ffe2b955985504ccb"
+    "source_sha256": "f364bdb916afedbbf832ac16d8518f08fb83f24252d93065ca296d1a3868decd"
   },
   "station_presentation.gd": {
     "constants": {},
@@ -11231,6 +11233,16 @@
       "projectile_origin"
     ],
     "source_sha256": "f76a9979defb3f3af537b4304c1f7db9fbd1220eb091c1a4064fffc710ed4556"
+  },
+  "world_ambience.gd": {
+    "constants": {},
+    "methods": [
+      "configure",
+      "reduced_motion",
+      "_process",
+      "_draw"
+    ],
+    "source_sha256": "bb7ddaedf012bc1b618d69444729ae12345df1b63abe522fa5e65225aeeb5cdc"
   },
   "world_content_catalog.gd": {
     "constants": {

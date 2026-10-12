@@ -46,7 +46,7 @@ static func settle(game, token: String, victory: bool, kills: int, elite: bool) 
    game.rift_progress.pending.append({"id":id,"receipt":"mythical:"+receipt})
  game.rift_progress.entry=""
  if not game.save_hideout_economy():return "Rift reward could not be saved. No additional currency was charged."
- return ("RIFT REWARDS Ã¢â‚¬Â¢ +%d Sigil Ã¢â‚¬Â¢ +%d Lootcoins Ã¢â‚¬Â¢ +%d Diamonds" % [sigils,coins,diamonds]) if coins>0 else ("+1 RIFT SIGIL Ã¢â‚¬Â¢ optional elite entry costs 2" if sigils>0 else "")
+ return ("RIFT REWARDS • +%d Sigil • +%d Lootcoins • +%d Diamonds" % [sigils,coins,diamonds]) if coins>0 else ("+1 RIFT SIGIL • optional elite entry costs 2" if sigils>0 else "")
 
 static func recover(game) -> Array:
  var delivered:Array=[]

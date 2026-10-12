@@ -1,3 +1,7 @@
+# Current quality authority
+
+[Owner-approved premium production standard](../PREMIUM_QUALITY_STANDARD.md) applies game-wide. Current checkpoint and evidence: [START_HERE_CURRENT](../START_HERE_CURRENT.md). Historical counts below are superseded by the sole dashboard. One live repository writer; no parallel agents.
+
 # Lootlings shared production state
 
 Single active writer: Codex; live `C:\Users\Snkii\Documents\lootlings`, branch `codex/phase4e-gamefeel`. Base pushed 0.4.42 `6a15b57`; current tested candidate 0.4.43. Resolve latest saved/pushed SHA through Git, never infer a checkpoint from an export.
