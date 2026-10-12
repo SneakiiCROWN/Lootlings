@@ -48,6 +48,13 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 		if bow_slice is Dictionary:
 			for row in bow_slice.get("entries",[]):
 				if row.get("native_validated",false) and row.get("production_status","")=="validated_beta_windup_only": extracted_rows.append(row)
+		var accepted072:Variant=JSON.parse_string(FileAccess.get_file_as_string("res://art/production/phase4e/player_combat_072_manifest.json"))
+		if accepted072 is Dictionary:
+			for row in accepted072.get("entries",[]):
+				if row.get("native_validated",false) and row.get("production_status","")=="canon_validated_runtime":extracted_rows.append(row)
+		if OS.get_environment("LOOTLINGS_QA")=="1" and OS.get_environment("LOOTLINGS_RELIC_072_PREVIEW")=="1":
+			var preview:Variant=JSON.parse_string(FileAccess.get_file_as_string("res://art/source/relic_combat_072/CANDIDATES.json"))
+			if preview is Dictionary:extracted_rows.append_array(preview.get("entries",[]))
 	for row in extracted_rows:
 		if not preload("res://actor_identity_corrections.gd").allowed(str(row.actor),str(row.asset_path)):continue
 		if row.actor == actor and subtype in row.weapon_types and row.phase == phase and row.facing == ("left_only" if facing<0 else "right_only"):
@@ -60,6 +67,7 @@ static func extracted_phase(actor: String, subtype: String, phase: String, facin
 				result.baked_weapon = row.get("baked_weapon","")
 				result.extracted_idle = phase == "IDLE"
 				result.extracted_pose = true
+				result.combat_batch_072=bool(row.get("combat_batch_072",false))
 				result.combat_batch_045=str(row.get("source","")).begins_with("art/source/player_combat_045/")
 				result.combat_batch_046=str(row.get("source","")).begins_with("art/source/combat_continuation_046/")
 				result.polearm_batch_051=str(row.get("source","")).begins_with("art/source/player_polearm_051/")

@@ -45,15 +45,16 @@ func build_ui() -> void:
 	panel.size = Vector2(456, 830)
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("#11172afb")
-	box.border_color = Color("#ff5b73")
+	box.border_color = Color("#d4ad65")
 	box.set_border_width_all(3)
 	box.set_corner_radius_all(14)
 	panel.add_theme_stylebox_override("panel", box)
 	add_child(panel)
-	var title := make_label("DEVELOPMENT ONLY", 19, Color("#ff8191"))
+	var title := make_label("SSSHHH! · OWNER PLAYGROUND", 19, Color("#ffe3ac"))
 	title.position = Vector2(16, 12)
 	title.size = Vector2(360, 30)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_override("font",preload("res://lootlings_typography.gd").heading())
 	panel.add_child(title)
 	close_button = Button.new()
 	close_button.text = "×"
@@ -69,7 +70,7 @@ func build_ui() -> void:
 	info_label.size = Vector2(416, 86)
 	info_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	panel.add_child(info_label)
-	status_label = bounded_readout("Test saves only. Normal progress is protected.", 12, Color("#ffe39a"))
+	status_label = bounded_readout("Keep this between us. Test saves only; normal progress stays safe.", 12, Color("#ffe39a"))
 	status_label.position = Vector2(20, 138)
 	status_label.size = Vector2(416, 36)
 	panel.add_child(status_label)
@@ -144,7 +145,7 @@ func build_ui() -> void:
 	section_groups["TEST PROGRESSION"].node.add_child(value_slider)
 	value_slider.value_changed.connect(func(value):amount.value=value)
 	amount.value_changed.connect(func(value):value_slider.set_value_no_signal(value))
-	value_readout=make_label("",15,Color("#d9e5ff"));value_readout.custom_minimum_size=Vector2(406,44)
+	value_readout=make_label("",13,Color("#d9e5ff"));value_readout.custom_minimum_size=Vector2(406,54)
 	value_readout.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	section_groups["TEST PROGRESSION"].node.add_child(value_readout)
 	var exact_actions:=HBoxContainer.new();exact_actions.add_theme_constant_override("separation",8)
@@ -205,6 +206,7 @@ func bounded_readout(value: String, font_size: int, color: Color) -> RichTextLab
 func make_label(value: String, font_size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.text = value
+	label.add_theme_font_override("font",preload("res://lootlings_typography.gd").body())
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
 	return label
@@ -215,7 +217,8 @@ func make_button(value: String, action: String, payload) -> Button:
 	if action=="god":god_button=button
 	button.set_meta("debug_action",action);button.set_meta("debug_payload",payload)
 	button.custom_minimum_size = Vector2(130, 52)
-	button.add_theme_font_size_override("font_size", 11)
+	button.add_theme_font_size_override("font_size", 13)
+	button.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	button.pressed.connect(run_action.bind(action, payload))
 	return button
 
@@ -255,6 +258,7 @@ func open() -> void:
 	game.touch_ux.renew_surface()
 	get_tree().paused = true
 	refresh_info()
+	if is_instance_valid(game.owner_test_access):game.owner_test_access.update_layout()
 
 func close() -> void:
 	if not visible:
@@ -277,7 +281,10 @@ func refresh_info() -> void:
 		return
 	info_label.text = ("ISOLATED TEST PROFILE\n" if preload("res://save_scope.gd").active else "NORMAL PROFILE - COMMANDS LOCKED\n")+game.debug_snapshot()
 	if god_button!=null:god_button.text="GOD ON" if game.debug_god_mode else "GOD OFF"
-	if value_readout!=null:value_readout.text="Current: %s  •  range %s–%s" % [str(game.debug_value(str(value_picker.get_item_metadata(value_picker.selected)))),str(amount.min_value),str(amount.max_value)]
+	if value_readout!=null:
+		var field:String=str(value_picker.get_item_metadata(value_picker.selected))
+		var persistence:String="Saved test profile" if field in ["gold","diamonds","scrap","sigils"] else "Temporary · this run"
+		value_readout.text="Current: %s · %s\nRange: %s–%s" % [str(game.debug_value(field)),persistence,str(amount.min_value),str(amount.max_value)]
 
 func refresh_value_bounds() -> void:
 	var key:String=value_picker.get_item_metadata(value_picker.selected)

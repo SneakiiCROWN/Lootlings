@@ -208,7 +208,7 @@ func draw(g, shake: Vector2) -> void:
 		var scale_factor := 0.82 if actors.size() == 2 else 0.64
 		if g.enemy_alive or g.enemy_death_anim > 0.0:
 			var alpha: float = 1.0 if g.enemy_alive else clampf(g.enemy_death_anim / 0.5, 0.0, 1.0)
-			g.draw_enemy(preload("res://combat_stage.gd").enemy_position(g,position(index).x) + Vector2(g.enemy_recoil * 0.35, sin(g.run_time * 3.0 + index) * 1.5) + shake, Color(1, 1, 1, alpha) if g.enemy_flash > 0.0 else Color(0.45, 0.84, 0.64, alpha), scale_factor)
+			g.draw_enemy(preload("res://combat_stage.gd").enemy_position(g,position(index).x) + Vector2(g.enemy_recoil * 0.35 * -g.enemy_facing_at(position(index).x), 0) + shake, Color(1, 1, 1, alpha) if g.enemy_flash > 0.0 else Color(0.45, 0.84, 0.64, alpha), scale_factor)
 		if g.state != "playing": continue
 		var layout:=hud_layout(g.body_font,str(g.enemy_name).to_upper(),index)
 		var width: float=layout.name_width

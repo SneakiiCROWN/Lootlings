@@ -224,7 +224,12 @@ func apply_decor() -> void:
 
 func greet_or_collection(slot: String) -> void:
 	var home: Dictionary=Decor.sanitize(game.profile.get("homestead",{}),str(game.profile.get("companion",{}).get("equipped_id","")))
-	if home.home_layout.companion_mode=="perch" and home.home_layout.companion_perch_slot==slot and follower.state in ["perch_rest","perch_interact"]:follower.react("talk")
+	var id:String=str(game.profile.get("companion",{}).get("equipped_id",""))
+	var pivot:Vector2=Vector2(Decor.SLOTS[slot].companion_pivot_design[0],Decor.SLOTS[slot].companion_pivot_design[1])
+	var present:bool=not id.is_empty() and follower.initialized and follower.position.distance_to(pivot)<40
+	if present and id in preload("res://companion_catalog.gd").ENTRIES:
+		follower.react("talk")
+		warmth=2.5;home_reaction.text=preload("res://companion_catalog.gd").ENTRIES[id].name+" · "+preload("res://companion_catalog.gd").ENTRIES[id].voice
 	else:open("companions")
 
 func open_collection() -> void:

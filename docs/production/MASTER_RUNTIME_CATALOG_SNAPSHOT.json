@@ -1333,7 +1333,7 @@
       "facing_pack",
       "resolve"
     ],
-    "source_sha256": "deb342f25660cc6e66d82289c88702b8356bce30761b81b52c6088b886a37ccc"
+    "source_sha256": "8de422682e0c39752612e2421b568a17c05873e8f01bce87cdea4fe1334d6a48"
   },
   "avatar_presentation.gd": {
     "constants": {
@@ -2267,6 +2267,8 @@
       "reset",
       "register_enemy",
       "update_health",
+      "remember_body",
+      "contact_position",
       "record_contact",
       "record_incoming",
       "step",
@@ -2277,7 +2279,7 @@
       "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "118a988f699c65f19b382948144f5df0b21786b830f97b2c15adb47ec73da281"
+    "source_sha256": "7b27e2c27ec10b33f5abb35ce2881625f24c1696415922bf18517d979762cda0"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -3517,7 +3519,7 @@
       "draw_enemy",
       "draw_enemy_sprite"
     ],
-    "source_sha256": "7579f88c6f26661a5171d23cfef49ef0fb56dc3d33efb555ea7bae4d5dec37db"
+    "source_sha256": "a6b32370347fa9fd55ff9cbd8349513eb2cd4985dddf37d25a67a259831db771"
   },
   "currency_schema.gd": {
     "constants": {
@@ -3632,7 +3634,7 @@
       "_process",
       "_exit_tree"
     ],
-    "source_sha256": "bdc41e644fb264e3a575d5c0bd4eb7b1f53dc9b59f1c8a01767921808b40c150"
+    "source_sha256": "66f37917e5cf2a79d435a8db2bd000d36ef6ab9ad08f50789767a76c8ba101d0"
   },
   "dialogue_director.gd": {
     "constants": {
@@ -4272,7 +4274,7 @@
       "splash",
       "draw"
     ],
-    "source_sha256": "ac64965bd991c692ffb4c4b29c3f486096c75f263ec77d88188c641ede58fee4"
+    "source_sha256": "6746ec237e080d56d9e689765eb48306e264aceda869f336aa84c25290212e37"
   },
   "enemy_motion.gd": {
     "constants": {},
@@ -5271,7 +5273,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "42233d15054c1a15f14ae69829910269213da1e296f3b3a44a57b4ff3a1de163"
+    "source_sha256": "5bf0a0efc67e5b42c7709687d8573230a09e673f246ddcb69ec11d191ec73bde"
   },
   "home_catalog.gd": {
     "constants": {
@@ -7386,7 +7388,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "8cbe30d11add55fa3c19706819acb234458e98d0b712c705032a775af2d814c1"
+    "source_sha256": "ff22675d4b20e436531c222163ad2174a4f869752e57f425c43acaecdc4a1386"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -7892,10 +7894,12 @@
       "backup_open",
       "activate_secret",
       "activation_rect",
+      "activation_areas",
+      "reset_secret_sequence",
       "observe",
       "_process"
     ],
-    "source_sha256": "8deb6918876b43ecb0b1bd5ad66b0517fd790dd6a1d07cfafa5c87885cad6e75"
+    "source_sha256": "6412ab622f78987d04c9ecb05612711242a9fe2a44f986b861aa12ad46f66d1a"
   },
   "perk_offer_catalog.gd": {
     "constants": {
@@ -8059,7 +8063,7 @@
       "greet_or_collection",
       "open_collection"
     ],
-    "source_sha256": "c3c5b3e2a1e355867c0a79cc255d424bf7306b7c7906adeb1234be91afb715d1"
+    "source_sha256": "b6ac733fa53ebd7d29e14b7f9413a2e22b0150f1287caad9d9d87626ca3ffc03"
   },
   "phase3_item_catalog.gd": {
     "constants": {
@@ -11318,7 +11322,7 @@
       "world_position",
       "projectile_origin"
     ],
-    "source_sha256": "f76a9979defb3f3af537b4304c1f7db9fbd1220eb091c1a4064fffc710ed4556"
+    "source_sha256": "4f3aa9cbc4257e5982aa050b12fb15eb424c1d52fb59768da10c362150102bdf"
   },
   "world_ambience.gd": {
     "constants": {},

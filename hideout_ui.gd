@@ -167,6 +167,7 @@ var achievement_display_button: Button
 var visited_destinations := {}
 var resident_facing: String = "left"
 var resident_reactions:Dictionary = {}
+var resident_context_heard:Dictionary = {}
 var resource_label: RichTextLabel
 var loadout_label: RichTextLabel
 var loadout_panel: Panel
@@ -287,6 +288,7 @@ func show_home() -> void:
 		private_return=false;get_parent().show_personal_home();return
 	if get_parent().audio_manager != null: get_parent().audio_manager.set_music("HIDEOUT")
 	var returning_resident:String={"shop":"Salvager","forge":"Salvager","upgrades":"Relic Keeper","archive":"Archivist"}.get(current_screen,"")
+	if current_screen=="workshop" and phase4_mode=="archive":returning_resident="Archivist"
 	if not returning_resident.is_empty():notice_resident(returning_resident)
 	current_screen = "home"
 	set_screen(home_content)
@@ -1743,6 +1745,8 @@ func queue_dialogue_context(context: String) -> void:
 	var priority := int(priorities.get(context, 1))
 	if priority < queued_dialogue_priority:
 		return
+	last_home_facts.event=context
+	resident_context_heard.clear()
 	queued_dialogue_context = context
 	queued_dialogue_priority = priority
 	speech_visible_timer = 0.0
@@ -1762,6 +1766,9 @@ func request_dialogue(context: String = "idle", requested_speaker: String = "") 
 	if not queued_dialogue_context.is_empty(): facts.event=queued_dialogue_context
 	facts.character=Avatar.preset_id(profile) if Avatar.is_wanderer(profile) else str(profile.get("current_lootling_id","relic_beast"))
 	facts.activity=resident_activity(requested_speaker)
+	var current_event:String=str(facts.get("event",""))
+	if resident_context_heard.get(requested_speaker,"")==current_event:facts.erase("event")
+	else:resident_context_heard[requested_speaker]=current_event
 	var line: String=home_dialogue.choose(requested_speaker,facts)
 	var voice_name: String=WorldStory.SPEAKERS.get(requested_speaker,requested_speaker)
 	if requested_speaker=="Mascot":

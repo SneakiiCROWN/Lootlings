@@ -1,0 +1,69 @@
+{
+  "actor": "relic_beast",
+  "asset_path": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left.png",
+  "baked_weapon": "",
+  "body_rect": [
+    -81.92,
+    -109.226666666667,
+    163.84,
+    163.84
+  ],
+  "canvas": [
+    512.0,
+    512.0
+  ],
+  "combat_batch_072": true,
+  "contract_slot_id": "pose:relic_beast:recovery:left:greatsword",
+  "core_anchor": [
+    0.5,
+    0.4
+  ],
+  "draw_depth": "front",
+  "extracted_pose": true,
+  "facing": "left_only",
+  "feet_baseline": 49.4933333333333,
+  "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left_grip_front.png",
+  "metadata_path": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left.json",
+  "native_validated": true,
+  "phase": "RECOVER",
+  "pivot": [
+    256.0,
+    341.333333333333
+  ],
+  "primary_anchor": [
+    0.256121735074627,
+    0.671146222014925
+  ],
+  "production_status": "canon_validated_runtime",
+  "secondary_anchor": [
+    0.194904384328358,
+    0.676393423507463
+  ],
+  "source": "art/source/relic_combat_072/corrected_sheet.png",
+  "source_bounds": [
+    706.0,
+    676.0,
+    1193.0,
+    1175.0
+  ],
+  "source_primary": [
+    810.0,
+    1005.0
+  ],
+  "source_reference": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+  "source_reference_sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+  "source_secondary": [
+    775.0,
+    1008.0
+  ],
+  "source_sha256": "247f16d51126d85d58158b4bbf95696ce8b8d27d7b6d9f92d0900532ffe9bf33",
+  "state": "recovery",
+  "supports_two_hand": true,
+  "wardrobe_requires": {},
+  "weapon_overrides": {},
+  "weapon_types": [
+    "greatsword"
+  ],
+  "visual_review": "Dedicated original mascot compared;12 native left-facing action/contact views across phone/tablet/desktop reviewed. Independent silhouettes, grounded pivots and two-hand grips. Four sparse left action keyframes only; idle, movement, hurt, outcome, full fluid continuity and final owner artistic approval remain open.",
+  "asset_sha256": "d76d5807feaedfbea07423feb85562bdc01123fec27dad51fb610c5c9aef1d0c"
+}

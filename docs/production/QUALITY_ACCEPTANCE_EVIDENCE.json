@@ -10688,6 +10688,82 @@
       ],
       "limitations": "Basic service keyframes and subtle breathing; not a fluid articulated sequence. Full-game and physical device artistic acceptance remain open.",
       "defects": []
+    },
+    {
+      "slot_id": "pose:relic_beast:windup:left:greatsword",
+      "asset": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_windup_left.png",
+      "asset_sha256": "642380d0919bdf831a19c912b44e8f6d040b0b9e5797539e653ab71454561540",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.72/source-logs/combat072-installed-9e8241d4e2/combat_life_072_native_qa.log"
+      ],
+      "limitations": "Four independent left keyframes only; right art preserved, remaining idle/movement/hurt/outcome/support contracts open. No fluid-family or owner artistic acceptance.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:relic_beast:strike_or_cast:left:greatsword",
+      "asset": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_strike_or_cast_left.png",
+      "asset_sha256": "2034be3ff8923bf3522b83564ed4d50d628a4ac93c12abd79aafbfdc03380617",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.72/source-logs/combat072-installed-9e8241d4e2/combat_life_072_native_qa.log"
+      ],
+      "limitations": "Four independent left keyframes only; right art preserved, remaining idle/movement/hurt/outcome/support contracts open. No fluid-family or owner artistic acceptance.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:relic_beast:follow_through:left:greatsword",
+      "asset": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_follow_through_left.png",
+      "asset_sha256": "e844fc40087f9ef5e0c9c8af640ff3a77a59e758d2d221f283ec570d5fe34cd9",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.72/source-logs/combat072-installed-9e8241d4e2/combat_life_072_native_qa.log"
+      ],
+      "limitations": "Four independent left keyframes only; right art preserved, remaining idle/movement/hurt/outcome/support contracts open. No fluid-family or owner artistic acceptance.",
+      "defects": []
+    },
+    {
+      "slot_id": "pose:relic_beast:recovery:left:greatsword",
+      "asset": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left.png",
+      "asset_sha256": "d76d5807feaedfbea07423feb85562bdc01123fec27dad51fb610c5c9aef1d0c",
+      "stages": {
+        "canon_reference_approved": true,
+        "created": true,
+        "integrated": true,
+        "functionally_tested": true,
+        "gameplay_visual_reviewed": true,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "evidence_files": [
+        "docs/production/quality-evidence/0.4.72/source-logs/combat072-installed-9e8241d4e2/combat_life_072_native_qa.log"
+      ],
+      "limitations": "Four independent left keyframes only; right art preserved, remaining idle/movement/hurt/outcome/support contracts open. No fluid-family or owner artistic acceptance.",
+      "defects": []
     }
   ],
   "source_receipt": "docs/production/full-completion/continuous-production/REGIONAL_RESIDENT_INSTALLATION_0441.json"

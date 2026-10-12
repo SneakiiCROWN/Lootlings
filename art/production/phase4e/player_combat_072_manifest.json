@@ -1,0 +1,281 @@
+{
+  "entries": [
+    {
+      "actor": "relic_beast",
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_windup_left.png",
+      "baked_weapon": "",
+      "body_rect": [
+        -81.92,
+        -109.226666666667,
+        163.84,
+        163.84
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "combat_batch_072": true,
+      "contract_slot_id": "pose:relic_beast:windup:left:greatsword",
+      "core_anchor": [
+        0.5,
+        0.4
+      ],
+      "draw_depth": "front",
+      "extracted_pose": true,
+      "facing": "left_only",
+      "feet_baseline": 49.4933333333333,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_windup_left_grip_front.png",
+      "metadata_path": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_windup_left.json",
+      "native_validated": true,
+      "phase": "ANTICIPATE",
+      "pivot": [
+        256.0,
+        341.333333333333
+      ],
+      "primary_anchor": [
+        0.592583955223881,
+        0.43779151119403
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.561100746268657,
+        0.388817630597015
+      ],
+      "source": "art/source/relic_combat_072/corrected_sheet.png",
+      "source_bounds": [
+        93.0,
+        69.0,
+        611.0,
+        563.0
+      ],
+      "source_primary": [
+        405.0,
+        259.0
+      ],
+      "source_reference": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+      "source_reference_sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+      "source_secondary": [
+        387.0,
+        231.0
+      ],
+      "source_sha256": "247f16d51126d85d58158b4bbf95696ce8b8d27d7b6d9f92d0900532ffe9bf33",
+      "state": "windup",
+      "supports_two_hand": true,
+      "wardrobe_requires": {},
+      "weapon_overrides": {},
+      "weapon_types": [
+        "greatsword"
+      ],
+      "visual_review": "Dedicated original mascot compared;12 native left-facing action/contact views across phone/tablet/desktop reviewed. Independent silhouettes, grounded pivots and two-hand grips. Four sparse left action keyframes only; idle, movement, hurt, outcome, full fluid continuity and final owner artistic approval remain open.",
+      "asset_sha256": "642380d0919bdf831a19c912b44e8f6d040b0b9e5797539e653ab71454561540"
+    },
+    {
+      "actor": "relic_beast",
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_strike_or_cast_left.png",
+      "baked_weapon": "",
+      "body_rect": [
+        -81.92,
+        -109.226666666667,
+        163.84,
+        163.84
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "combat_batch_072": true,
+      "contract_slot_id": "pose:relic_beast:strike_or_cast:left:greatsword",
+      "core_anchor": [
+        0.5,
+        0.4
+      ],
+      "draw_depth": "front",
+      "extracted_pose": true,
+      "facing": "left_only",
+      "feet_baseline": 49.4933333333333,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_strike_or_cast_left_grip_front.png",
+      "metadata_path": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_strike_or_cast_left.json",
+      "native_validated": true,
+      "phase": "ATTACK",
+      "pivot": [
+        256.0,
+        341.333333333333
+      ],
+      "primary_anchor": [
+        0.14677588619403,
+        0.69639109141791
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.10829640858209,
+        0.659660680970149
+      ],
+      "source": "art/source/relic_combat_072/corrected_sheet.png",
+      "source_bounds": [
+        692.0,
+        109.0,
+        1208.0,
+        566.0
+      ],
+      "source_primary": [
+        748.0,
+        410.0
+      ],
+      "source_reference": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+      "source_reference_sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+      "source_secondary": [
+        726.0,
+        389.0
+      ],
+      "source_sha256": "247f16d51126d85d58158b4bbf95696ce8b8d27d7b6d9f92d0900532ffe9bf33",
+      "state": "strike_or_cast",
+      "supports_two_hand": true,
+      "wardrobe_requires": {},
+      "weapon_overrides": {},
+      "weapon_types": [
+        "greatsword"
+      ],
+      "visual_review": "Dedicated original mascot compared;12 native left-facing action/contact views across phone/tablet/desktop reviewed. Independent silhouettes, grounded pivots and two-hand grips. Four sparse left action keyframes only; idle, movement, hurt, outcome, full fluid continuity and final owner artistic approval remain open.",
+      "asset_sha256": "2034be3ff8923bf3522b83564ed4d50d628a4ac93c12abd79aafbfdc03380617"
+    },
+    {
+      "actor": "relic_beast",
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_follow_through_left.png",
+      "baked_weapon": "",
+      "body_rect": [
+        -81.92,
+        -109.226666666667,
+        163.84,
+        163.84
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "combat_batch_072": true,
+      "contract_slot_id": "pose:relic_beast:follow_through:left:greatsword",
+      "core_anchor": [
+        0.5,
+        0.4
+      ],
+      "draw_depth": "front",
+      "extracted_pose": true,
+      "facing": "left_only",
+      "feet_baseline": 49.4933333333333,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_follow_through_left_grip_front.png",
+      "metadata_path": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_follow_through_left.json",
+      "native_validated": true,
+      "phase": "IMPACT",
+      "pivot": [
+        256.0,
+        341.333333333333
+      ],
+      "primary_anchor": [
+        0.312849813432836,
+        0.734375
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.262126865671642,
+        0.743120335820896
+      ],
+      "source": "art/source/relic_combat_072/corrected_sheet.png",
+      "source_bounds": [
+        78.0,
+        708.0,
+        614.0,
+        1177.0
+      ],
+      "source_primary": [
+        239.0,
+        1043.0
+      ],
+      "source_reference": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+      "source_reference_sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+      "source_secondary": [
+        210.0,
+        1048.0
+      ],
+      "source_sha256": "247f16d51126d85d58158b4bbf95696ce8b8d27d7b6d9f92d0900532ffe9bf33",
+      "state": "follow_through",
+      "supports_two_hand": true,
+      "wardrobe_requires": {},
+      "weapon_overrides": {},
+      "weapon_types": [
+        "greatsword"
+      ],
+      "visual_review": "Dedicated original mascot compared;12 native left-facing action/contact views across phone/tablet/desktop reviewed. Independent silhouettes, grounded pivots and two-hand grips. Four sparse left action keyframes only; idle, movement, hurt, outcome, full fluid continuity and final owner artistic approval remain open.",
+      "asset_sha256": "e844fc40087f9ef5e0c9c8af640ff3a77a59e758d2d221f283ec570d5fe34cd9"
+    },
+    {
+      "actor": "relic_beast",
+      "asset_path": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left.png",
+      "baked_weapon": "",
+      "body_rect": [
+        -81.92,
+        -109.226666666667,
+        163.84,
+        163.84
+      ],
+      "canvas": [
+        512.0,
+        512.0
+      ],
+      "combat_batch_072": true,
+      "contract_slot_id": "pose:relic_beast:recovery:left:greatsword",
+      "core_anchor": [
+        0.5,
+        0.4
+      ],
+      "draw_depth": "front",
+      "extracted_pose": true,
+      "facing": "left_only",
+      "feet_baseline": 49.4933333333333,
+      "foreground_layer": "res://art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left_grip_front.png",
+      "metadata_path": "art/production/phase4e/lootlings/relic_beast/combat_072/relic_beast_recovery_left.json",
+      "native_validated": true,
+      "phase": "RECOVER",
+      "pivot": [
+        256.0,
+        341.333333333333
+      ],
+      "primary_anchor": [
+        0.256121735074627,
+        0.671146222014925
+      ],
+      "production_status": "canon_validated_runtime",
+      "secondary_anchor": [
+        0.194904384328358,
+        0.676393423507463
+      ],
+      "source": "art/source/relic_combat_072/corrected_sheet.png",
+      "source_bounds": [
+        706.0,
+        676.0,
+        1193.0,
+        1175.0
+      ],
+      "source_primary": [
+        810.0,
+        1005.0
+      ],
+      "source_reference": "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png",
+      "source_reference_sha256": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+      "source_secondary": [
+        775.0,
+        1008.0
+      ],
+      "source_sha256": "247f16d51126d85d58158b4bbf95696ce8b8d27d7b6d9f92d0900532ffe9bf33",
+      "state": "recovery",
+      "supports_two_hand": true,
+      "wardrobe_requires": {},
+      "weapon_overrides": {},
+      "weapon_types": [
+        "greatsword"
+      ],
+      "visual_review": "Dedicated original mascot compared;12 native left-facing action/contact views across phone/tablet/desktop reviewed. Independent silhouettes, grounded pivots and two-hand grips. Four sparse left action keyframes only; idle, movement, hurt, outcome, full fluid continuity and final owner artistic approval remain open.",
+      "asset_sha256": "d76d5807feaedfbea07423feb85562bdc01123fec27dad51fb610c5c9aef1d0c"
+    }
+  ],
+  "production_quality_accepted": false
+}

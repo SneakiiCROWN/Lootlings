@@ -10,6 +10,10 @@ var badge:Label
 var progress:ProgressBar
 var gesture_pointer:int=-1
 var held_since:int=0
+var secret_taps:=0
+var secret_started:=0
+var secret_last_tap:=0
+var secret_hold_ready:=false
 var origin:Vector2
 var cancelled:bool=false
 var ssh_pointer:int=-1
@@ -30,7 +34,7 @@ func configure(target) -> void:
  load_preferences()
  badge=Label.new();badge.position=Vector2(12,832);badge.size=Vector2(456,18);badge.text="OWNER TEST PROFILE - SEPARATE SAVES";badge.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;badge.mouse_filter=Control.MOUSE_FILTER_IGNORE;badge.add_theme_font_size_override("font_size",10);badge.add_theme_color_override("font_color",Color("#ffe39a"));add_child(badge)
  shortcut=Button.new();shortcut.name="OwnerSHH";shortcut.text="SHH";shortcut.icon=preload("res://art/ui/icons/owner_hush.svg");shortcut.expand_icon=true;shortcut.add_theme_constant_override("icon_max_width",16);shortcut.size=Vector2(52,44);shortcut.add_theme_font_size_override("font_size",11);shortcut.tooltip_text="SSSHHH! Tap for tools. Hold one second, then drag to move.";shortcut.pressed.connect(open_tools);preload("res://lootlings_ui.gd").apply_button(shortcut,Color("#172442dd"),Color("#d4ad65"));add_child(shortcut)
- progress=ProgressBar.new();progress.size=Vector2(156,5);progress.max_value=2;progress.show_percentage=false;progress.mouse_filter=Control.MOUSE_FILTER_IGNORE;progress.hide();add_child(progress)
+ progress=ProgressBar.new();progress.size=Vector2(156,5);progress.max_value=.8;progress.show_percentage=false;progress.mouse_filter=Control.MOUSE_FILTER_IGNORE;progress.hide();add_child(progress)
  update_layout()
  if restore_title:restore_title=false;call_deferred("show_activation_title")
 func load_preferences() -> void:
@@ -63,7 +67,7 @@ func clear_of_controls(point:Vector2) -> bool:
 func clamped(point:Vector2) -> Vector2:
  return point.clamp(Vector2(6,8),Vector2(422,780))
 func update_layout() -> void:
- badge.visible=Scope.active;shortcut.visible=unlocked and not shortcut_hidden and not modal_active()
+ badge.visible=Scope.active and not game.debug_panel.visible;shortcut.visible=unlocked and not shortcut_hidden and not modal_active()
  if not shortcut.visible or ssh_pointer>=0:return
  var wanted:=clamped(preferred*Vector2(428,788))
  if saved_position and clear_of_controls(wanted):shortcut.position=wanted;layout_initialized=true;return
@@ -90,12 +94,19 @@ func activate_secret() -> void:
  if Scope.active:restore_title=false;show_activation_title();game.debug_panel.open();update_layout()
  else:enter_sandbox()
 func activation_rect() -> Rect2:
- # The painted wordmark within KEEP_ASPECT_CENTERED, excluding empty margins.
+ # Main blue crystal inset in the approved wordmark's second O.
  var mark:TextureRect=game.startup_ui.title_wordmark
- var rect:=mark.get_global_rect();var source:Vector2=mark.texture.get_size()
+ var rect:Rect2=mark.get_global_rect();var source:Vector2=mark.texture.get_size()
  var factor:float=minf(rect.size.x/source.x,rect.size.y/source.y)
- var painted:=source*factor
- return Rect2(rect.get_center()-painted*.5,painted)
+ var painted:Vector2=source*factor;var start:Vector2=rect.get_center()-painted*.5
+ return Rect2(start+painted*Vector2(.413,.46)-Vector2(30,30),Vector2(60,60))
+func activation_areas() -> Array[Rect2]:
+ var main:Rect2=activation_rect();var mark:TextureRect=game.startup_ui.title_wordmark
+ var rect:Rect2=mark.get_global_rect();var source:Vector2=mark.texture.get_size();var factor:float=minf(rect.size.x/source.x,rect.size.y/source.y)
+ var painted:Vector2=source*factor;var start:Vector2=rect.get_center()-painted*.5
+ return [main,Rect2(start+painted*Vector2(.604,.15)-Vector2(30,30),Vector2(60,60))]
+func reset_secret_sequence() -> void:
+ secret_taps=0;secret_started=0;secret_last_tap=0;secret_hold_ready=false
 func observe(event:InputEvent) -> bool:
  if not enabled():return false
  var local:Vector2
@@ -123,12 +134,22 @@ func observe(event:InputEvent) -> bool:
  if gesture_pointer==event.index and not event.pressed:
   gesture_pointer=-1;progress.hide()
   var elapsed:int=Time.get_ticks_msec()-held_since;held_since=0
-  if not cancelled and not event.canceled and elapsed>=2000:unlocked=true;restore_title=true;call_deferred("activate_secret")
+  if cancelled or event.canceled:reset_secret_sequence()
+  elif secret_hold_ready:
+   if elapsed>=800:unlocked=true;restore_title=true;call_deferred("activate_secret")
+   reset_secret_sequence()
+  elif elapsed<800:
+   if secret_started==0:secret_started=Time.get_ticks_msec()-elapsed
+   if Time.get_ticks_msec()-secret_started<=3000:secret_taps+=1;secret_last_tap=Time.get_ticks_msec()
+   else:reset_secret_sequence()
+  else:reset_secret_sequence()
   return true
  if game.state not in ["startup","boot"] or game.startup_ui.current_screen!="title" or not game.startup_ui.visible or modal_active():return false
- if event.pressed and activation_rect().has_point(game.get_global_transform()*local):
+ if event.pressed and activation_areas().any(func(rect):return rect.has_point(game.get_global_transform()*local)):
   if gesture_pointer>=0:cancelled=true;return true
-  gesture_pointer=event.index;origin=event.position;held_since=Time.get_ticks_msec();cancelled=false;progress.position=local+Vector2(-78,24);progress.value=0;progress.show();return true
+  if secret_started>0 and Time.get_ticks_msec()-secret_started>3000 and not (secret_taps==7 and Time.get_ticks_msec()-secret_last_tap<=500):reset_secret_sequence()
+  secret_hold_ready=secret_taps==7
+  gesture_pointer=event.index;origin=event.position;held_since=Time.get_ticks_msec();cancelled=false;progress.position=local+Vector2(-78,24);progress.value=0;progress.visible=secret_hold_ready;return true
  return false
 func _process(delta:float) -> void:
  if gesture_pointer>=0:progress.value=(Time.get_ticks_msec()-held_since)/1000.0

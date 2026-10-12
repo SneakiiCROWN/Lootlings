@@ -1198,7 +1198,7 @@
   "authority": "Existing locked identity; final production art cannot be inferred from rejected boards",
   "count_unit": "body/view bundles, each containing reusable pose states plus exact family/socket restrictions; not unique files per delivery cell",
   "body_view_packages": 83,
-  "delivery_cells": 2592,
+  "delivery_cells": 2588,
   "support_packages_recalculated": {
     "right": 82,
     "left": 83
@@ -13384,7 +13384,6 @@
         },
         "windup": {
           "weapon_families": [
-            "greatsword",
             "greataxe",
             "maul",
             "daggers",
@@ -13395,123 +13394,6 @@
             "orb"
           ],
           "requirements": [
-            {
-              "slot_id": "pose:relic_beast:windup:left:greatsword",
-              "weapon_family": "greatsword",
-              "primary_socket": {
-                "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
-                "primary": [
-                  40,
-                  -17
-                ],
-                "secondary": [
-                  12,
-                  -8
-                ],
-                "source_palm_pixels": null,
-                "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
-              },
-              "support_socket": "two shaft/stock palms",
-              "target_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_windup_greatsword_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": [
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_ready.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_strike.png"
-                ]
-              },
-              "purpose": "windup / left / greatsword",
-              "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "relic_beast_windup_greatsword_left.png",
-              "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_windup_greatsword_left.png",
-              "source_destination": "art/source/phase4e/delivery/relic_beast/relic_beast_windup_greatsword_left.png",
-              "entity": "relic_beast",
-              "state": "windup",
-              "facing": "left",
-              "canvas": [
-                512,
-                512
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": 548,
-                "rig_local_y": 64,
-                "target_canvas_y": 496
-              },
-              "pivot": {
-                "rig_local": [
-                  0,
-                  0
-                ],
-                "target_canvas": [
-                  256.0,
-                  341.3333333333333
-                ]
-              },
-              "canonical_reference": [
-                "res://art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
-              ],
-              "socket_sidecar_filename": "relic_beast_windup_greatsword_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  496,
-                  496
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Readable anticipation toward active target, body weight prepared behind the release, hands attached to their grips.",
-              "separate_layers_required": [
-                "foreground grip fingers when equipment passes behind the palm",
-                "family weapon module unless explicitly declared source-baked",
-                "second independent weapon and palm for paired families",
-                "bowstring/nocked arrow and drawing palm for Bow",
-                "temporal charge/trail/impact/status VFX separate from body"
-              ],
-              "layer_filenames": {
-                "body": "relic_beast_windup_greatsword_left.png",
-                "metadata": "relic_beast_windup_greatsword_left.json",
-                "foreground_grip_if_needed": "relic_beast_windup_greatsword_left_grip_front.png",
-                "support_hand_if_needed": "relic_beast_windup_greatsword_left_support.png",
-                "separate_temporal_vfx_if_required": "relic_beast_windup_greatsword_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:relic_beast:windup:left:greatsword; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P0"
-            },
             {
               "slot_id": "pose:relic_beast:windup:left:greataxe",
               "weapon_family": "greataxe",
@@ -14452,7 +14334,6 @@
         },
         "strike_or_cast": {
           "weapon_families": [
-            "greatsword",
             "greataxe",
             "maul",
             "daggers",
@@ -14463,123 +14344,6 @@
             "orb"
           ],
           "requirements": [
-            {
-              "slot_id": "pose:relic_beast:strike_or_cast:left:greatsword",
-              "weapon_family": "greatsword",
-              "primary_socket": {
-                "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
-                "primary": [
-                  40,
-                  -17
-                ],
-                "secondary": [
-                  12,
-                  -8
-                ],
-                "source_palm_pixels": null,
-                "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
-              },
-              "support_socket": "two shaft/stock palms",
-              "target_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_greatsword_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": [
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_ready.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_strike.png"
-                ]
-              },
-              "purpose": "strike_or_cast / left / greatsword",
-              "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "relic_beast_strike_or_cast_greatsword_left.png",
-              "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_greatsword_left.png",
-              "source_destination": "art/source/phase4e/delivery/relic_beast/relic_beast_strike_or_cast_greatsword_left.png",
-              "entity": "relic_beast",
-              "state": "strike_or_cast",
-              "facing": "left",
-              "canvas": [
-                512,
-                512
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": 548,
-                "rig_local_y": 64,
-                "target_canvas_y": 496
-              },
-              "pivot": {
-                "rig_local": [
-                  0,
-                  0
-                ],
-                "target_canvas": [
-                  256.0,
-                  341.3333333333333
-                ]
-              },
-              "canonical_reference": [
-                "res://art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
-              ],
-              "socket_sidecar_filename": "relic_beast_strike_or_cast_greatsword_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  496,
-                  496
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Authored target-directed strike or casting release; lead hand/weapon drives the action.",
-              "separate_layers_required": [
-                "foreground grip fingers when equipment passes behind the palm",
-                "family weapon module unless explicitly declared source-baked",
-                "second independent weapon and palm for paired families",
-                "bowstring/nocked arrow and drawing palm for Bow",
-                "temporal charge/trail/impact/status VFX separate from body"
-              ],
-              "layer_filenames": {
-                "body": "relic_beast_strike_or_cast_greatsword_left.png",
-                "metadata": "relic_beast_strike_or_cast_greatsword_left.json",
-                "foreground_grip_if_needed": "relic_beast_strike_or_cast_greatsword_left_grip_front.png",
-                "support_hand_if_needed": "relic_beast_strike_or_cast_greatsword_left_support.png",
-                "separate_temporal_vfx_if_required": "relic_beast_strike_or_cast_greatsword_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:relic_beast:strike_or_cast:left:greatsword; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P0"
-            },
             {
               "slot_id": "pose:relic_beast:strike_or_cast:left:greataxe",
               "weapon_family": "greataxe",
@@ -15520,7 +15284,6 @@
         },
         "follow_through": {
           "weapon_families": [
-            "greatsword",
             "greataxe",
             "maul",
             "spear",
@@ -15534,123 +15297,6 @@
             "orb"
           ],
           "requirements": [
-            {
-              "slot_id": "pose:relic_beast:follow_through:left:greatsword",
-              "weapon_family": "greatsword",
-              "primary_socket": {
-                "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
-                "primary": [
-                  40,
-                  -17
-                ],
-                "secondary": [
-                  12,
-                  -8
-                ],
-                "source_palm_pixels": null,
-                "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
-              },
-              "support_socket": "two shaft/stock palms",
-              "target_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_follow_through_greatsword_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": [
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_ready.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_strike.png"
-                ]
-              },
-              "purpose": "follow_through / left / greatsword",
-              "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "relic_beast_follow_through_greatsword_left.png",
-              "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_follow_through_greatsword_left.png",
-              "source_destination": "art/source/phase4e/delivery/relic_beast/relic_beast_follow_through_greatsword_left.png",
-              "entity": "relic_beast",
-              "state": "follow_through",
-              "facing": "left",
-              "canvas": [
-                512,
-                512
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": 548,
-                "rig_local_y": 64,
-                "target_canvas_y": 496
-              },
-              "pivot": {
-                "rig_local": [
-                  0,
-                  0
-                ],
-                "target_canvas": [
-                  256.0,
-                  341.3333333333333
-                ]
-              },
-              "canonical_reference": [
-                "res://art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
-              ],
-              "socket_sidecar_filename": "relic_beast_follow_through_greatsword_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  496,
-                  496
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Actual committed strike/release frame before recovery; preserve limbs, contact and body weight.",
-              "separate_layers_required": [
-                "foreground grip fingers when equipment passes behind the palm",
-                "family weapon module unless explicitly declared source-baked",
-                "second independent weapon and palm for paired families",
-                "bowstring/nocked arrow and drawing palm for Bow",
-                "temporal charge/trail/impact/status VFX separate from body"
-              ],
-              "layer_filenames": {
-                "body": "relic_beast_follow_through_greatsword_left.png",
-                "metadata": "relic_beast_follow_through_greatsword_left.json",
-                "foreground_grip_if_needed": "relic_beast_follow_through_greatsword_left_grip_front.png",
-                "support_hand_if_needed": "relic_beast_follow_through_greatsword_left_support.png",
-                "separate_temporal_vfx_if_required": "relic_beast_follow_through_greatsword_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:relic_beast:follow_through:left:greatsword; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P0"
-            },
             {
               "slot_id": "pose:relic_beast:follow_through:left:greataxe",
               "weapon_family": "greataxe",
@@ -16942,7 +16588,6 @@
         },
         "recovery": {
           "weapon_families": [
-            "greatsword",
             "greataxe",
             "maul",
             "daggers",
@@ -16953,123 +16598,6 @@
             "orb"
           ],
           "requirements": [
-            {
-              "slot_id": "pose:relic_beast:recovery:left:greatsword",
-              "weapon_family": "greatsword",
-              "primary_socket": {
-                "coordinate_space": "existing rig local units; initial READY target, phase-specific source artist alignment required",
-                "primary": [
-                  40,
-                  -17
-                ],
-                "secondary": [
-                  12,
-                  -8
-                ],
-                "source_palm_pixels": null,
-                "source_pixels_status": "OPEN until the actual requested state is authored; do not invent anatomy to meet a coordinate"
-              },
-              "support_socket": "two shaft/stock palms",
-              "target_path": "art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_greatsword_left.png",
-              "why_existing_source_cannot_close": "No accepted source frame has this exact state/facing and hand/weapon contract. Neutral exports cannot substitute for movement/strike/hurt/defeat; an asymmetric view cannot be mirrored; source palms and support layers cannot be invented.",
-              "existing_source_search": {
-                "accepted_state_manifest": "art/production_pose_manifest.json",
-                "extracted_state_manifest": "art/production/phase4e/runtime_manifest.json",
-                "direct_reuse_manifest": "art/production/phase4e/reuse_manifest.json",
-                "existing_actor_candidates": [
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_defeat_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_left_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_0.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_movement_right_1.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/motion_044/relic_beast_victory_return_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_recovery_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_strike_or_cast_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/polearm_051/relic_beast_windup_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_idle_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_strike_or_cast_wand_right.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_left.png",
-                  "res://art/production/phase4e/lootlings/relic_beast/relic_beast_windup_wand_right.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_ready.png",
-                  "res://art/sprites/poses/relic_beast/greatsword_strike.png"
-                ]
-              },
-              "purpose": "recovery / left / greatsword",
-              "weapon_contract": "Exact family-specific export; a baked weapon must be declared and restricted. Otherwise deliver intact weaponless hands and separate equipment layers.",
-              "source_scale": "Deliver at requested canvas dimensions with uniform scale and complete source silhouette; no stretch or invented covered pixels.",
-              "allowed_baked_vfx": "Permanent canonical markings/glow only; any source-baked temporal effect requires explicit state restriction and provenance.",
-              "separate_vfx": "Trails, charge, impact, damage flash, status, reward burst and floor/contact particles remain separate runtime layers.",
-              "expected_filename": "relic_beast_recovery_greatsword_left.png",
-              "runtime_destination": "art/production/phase4e/lootlings/relic_beast/relic_beast_recovery_greatsword_left.png",
-              "source_destination": "art/source/phase4e/delivery/relic_beast/relic_beast_recovery_greatsword_left.png",
-              "entity": "relic_beast",
-              "state": "recovery",
-              "facing": "left",
-              "canvas": [
-                512,
-                512
-              ],
-              "transparent_background": true,
-              "baseline": {
-                "renderer_ground_y": 548,
-                "rig_local_y": 64,
-                "target_canvas_y": 496
-              },
-              "pivot": {
-                "rig_local": [
-                  0,
-                  0
-                ],
-                "target_canvas": [
-                  256.0,
-                  341.3333333333333
-                ]
-              },
-              "canonical_reference": [
-                "res://art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png"
-              ],
-              "socket_sidecar_filename": "relic_beast_recovery_greatsword_left.json",
-              "integration_contract": "Sidecar declares exact state/view/family, actual primary/secondary palms, Core, ground, foreground fingers, and baked equipment. Register approved delivery in the existing per-state manifest; never route another state implicitly. Compatible identical bodies may share a single PNG only after family socket validation.",
-              "occupied_bounds": {
-                "canvas_inset_pixels": 16,
-                "maximum_bounds": [
-                  16,
-                  16,
-                  496,
-                  496
-                ],
-                "rule": "Full silhouette inside these bounds; match per-ID proportions and existing ground target, not a stretched square."
-              },
-              "mirroring_allowed": false,
-              "visible_anatomy": "Complete head/ears, torso/hips, source-authored limbs, feet/tail and relevant hands; palms/grips must not be obscured by charge, trails, sheet text or another pose. Do not reconstruct covered anatomy.",
-              "required_pose": "Authored controlled return toward the neutral baseline; no invented idle/strike relabel.",
-              "separate_layers_required": [
-                "foreground grip fingers when equipment passes behind the palm",
-                "family weapon module unless explicitly declared source-baked",
-                "second independent weapon and palm for paired families",
-                "bowstring/nocked arrow and drawing palm for Bow",
-                "temporal charge/trail/impact/status VFX separate from body"
-              ],
-              "layer_filenames": {
-                "body": "relic_beast_recovery_greatsword_left.png",
-                "metadata": "relic_beast_recovery_greatsword_left.json",
-                "foreground_grip_if_needed": "relic_beast_recovery_greatsword_left_grip_front.png",
-                "support_hand_if_needed": "relic_beast_recovery_greatsword_left_support.png",
-                "separate_temporal_vfx_if_required": "relic_beast_recovery_greatsword_left_vfx.png"
-              },
-              "current_temp_replacement": "pose:relic_beast:recovery:left:greatsword; existing unapproved/missing authored-state presentation is not final art.",
-              "priority": "P0"
-            },
             {
               "slot_id": "pose:relic_beast:recovery:left:greataxe",
               "weapon_family": "greataxe",

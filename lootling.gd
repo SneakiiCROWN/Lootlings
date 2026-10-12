@@ -2383,7 +2383,7 @@ func perform_player_attack(is_tap: bool) -> void:
 			"is_tap": is_tap,
 			"pos": launch_position,
 			"start": launch_position,
-			"target": target_combat_visual_position()+Vector2(-28*combat_facing(),-29),
+			"target": combat_presentation.contact_position(self),
 			"life": travel_time,
 			"max_life": travel_time,
 			"enemy_serial": enemy_serial
@@ -2546,7 +2546,7 @@ func damage_enemy(amount: float, is_crit: bool, is_tap: bool, is_heavy: bool = f
 	if audio_manager!=null:
 		audio_manager.play_contact(str(inventory.equipped_item("Weapon").get("weapon_type","greatsword")),preload("res://regional_enemy_presentation.gd").material(self),is_crit,is_heavy)
 	preload("res://combat_numbers.gd").add(self,health_removed,"critical" if is_crit else "heavy" if is_heavy else "Physical")
-	add_particles(Vector2(342, 475), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7)
+	add_particles(combat_presentation.contact_position(self), Color("#ffda69") if is_crit else Color("#b8efff"), 14 if is_crit else 7,0.0)
 	var hp_before_leech := player_hp
 	player_hp = minf(player_max_hp, player_hp + health_removed * life_steal)
 	preload("res://combat_numbers.gd").add(self,player_hp-hp_before_leech,"heal",true)
@@ -3950,8 +3950,8 @@ func add_float(text_value: String, pos: Vector2, color: Color, size_value: int) 
 	var notices: Array = floating_texts.filter(func(item): return not item.has("number_kind"))
 	while notices.size() > 3: floating_texts.erase(notices.pop_front())
 
-func add_particles(pos: Vector2, color: Color, count: int) -> void:
-	pos.y+=40
+func add_particles(pos: Vector2, color: Color, count: int, stage_offset:float=40.0) -> void:
+	pos.y+=stage_offset
 	for i in range(mini(count,8)):
 		particles.append({"pos":pos, "vel":Vector2(visual_rng.randf_range(-105, 105), visual_rng.randf_range(-155, -25)), "color":color, "life":visual_rng.randf_range(0.25, 0.55), "max_life":0.55})
 	while particles.size() > 96: particles.pop_front()

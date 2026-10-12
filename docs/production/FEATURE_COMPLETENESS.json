@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "contract_coverage": {
-    "installed_contracts": 517,
-    "installed_artist_files": 1317,
+    "installed_contracts": 521,
+    "installed_artist_files": 1329,
     "installed_by_category": {
-      "playable_lootlings": 217,
+      "playable_lootlings": 221,
       "companions": 58,
       "Home": 3,
       "bosses": 12,
@@ -12,10 +12,10 @@
       "npcs": 34,
       "wanderers": 64
     },
-    "remaining_contracts": 2757,
-    "remaining_artist_files": 7178,
+    "remaining_contracts": 2753,
+    "remaining_artist_files": 7166,
     "remaining_by_category": {
-      "playable_lootlings": 1239,
+      "playable_lootlings": 1235,
       "wanderers": 791,
       "enemies": 194,
       "bosses": 356,
@@ -33,17 +33,17 @@
     "latest_enemy_revision": "0.4.49: 12 additional independently authored Inkling release/hurt and Margin Imp windup/release/hurt/recovery both facings. All six registered states both views now available for these two creatures. Basic keyframes; fluid motion and professional family acceptance remain open.",
     "latest_npc_revision": "0.4.51: ten Pack Peddler rest/talk/offer/inspect/return keyframes both facings, actual roadside shop activity and passive grounded service presentation. Route/walk, articulated fluid motion and professional acceptance remain open.",
     "artist_file_count_unit": "Frozen artist-file requirements fulfilled, including verified reuse. Not unique newly authored physical files. See per-batch receipts.",
-    "latest_player_revision": "0.4.51: 31 exact Relic Beast/Glimmerfin polearm/casting contracts; 16 independent bodies/16 co-registered grip masks. 186 native ordinary/Mythical contacts. Basic keyframes, not fluid animation families."
+    "latest_player_revision": "0.4.72: four independently authored Relic Beast greatsword left action keyframes;4 body PNGs,4 co-registered two-paw foreground PNGs,4 sidecars. Source native3layout anatomy/contact review and technical alpha checks pass. No fluid-family or full14-slot completion."
   },
-  "listed_remaining_file_paths": 7289,
+  "listed_remaining_file_paths": 7277,
   "legacy_artist_count_discrepancy": 111,
   "accounting_note": "Exact queue lists 7289 unique paths; legacy remaining-file ledger says7178. 111-path discrepancy is open, not a closure or unique illustration estimate. No ledger requirements removed.",
   "remaining_file_requirements_by_dependency": {
-    "painted_body_or_prop": 2592,
-    "metadata": 2757,
-    "grip_or_layer": 1940
+    "painted_body_or_prop": 2588,
+    "metadata": 2753,
+    "grip_or_layer": 1936
   },
-  "unique_named_remaining_paths": 7289,
+  "unique_named_remaining_paths": 7277,
   "duplicate_named_path_requirements": 0,
   "unique_illustrations_required": null,
   "illustration_note": "PNG dependencies include layers; metadata is not illustration. Shared body/state/view groups are opportunities, not automatic compatibility or count reductions.",
@@ -13476,14 +13476,13 @@
       "identity": "relic_beast",
       "state": "follow_through",
       "facing": "left",
-      "contracts": 12,
+      "contracts": 11,
       "weapons": [
         "bow",
         "claws",
         "crossbow",
         "daggers",
         "greataxe",
-        "greatsword",
         "maul",
         "orb",
         "sling",
@@ -13492,7 +13491,6 @@
         "wand"
       ],
       "slot_ids": [
-        "pose:relic_beast:follow_through:left:greatsword",
         "pose:relic_beast:follow_through:left:greataxe",
         "pose:relic_beast:follow_through:left:maul",
         "pose:relic_beast:follow_through:left:spear",
@@ -13750,20 +13748,18 @@
       "identity": "relic_beast",
       "state": "recovery",
       "facing": "left",
-      "contracts": 9,
+      "contracts": 8,
       "weapons": [
         "bow",
         "claws",
         "crossbow",
         "daggers",
         "greataxe",
-        "greatsword",
         "maul",
         "orb",
         "sling"
       ],
       "slot_ids": [
-        "pose:relic_beast:recovery:left:greatsword",
         "pose:relic_beast:recovery:left:greataxe",
         "pose:relic_beast:recovery:left:maul",
         "pose:relic_beast:recovery:left:daggers",
@@ -13812,20 +13808,18 @@
       "identity": "relic_beast",
       "state": "strike_or_cast",
       "facing": "left",
-      "contracts": 9,
+      "contracts": 8,
       "weapons": [
         "bow",
         "claws",
         "crossbow",
         "daggers",
         "greataxe",
-        "greatsword",
         "maul",
         "orb",
         "sling"
       ],
       "slot_ids": [
-        "pose:relic_beast:strike_or_cast:left:greatsword",
         "pose:relic_beast:strike_or_cast:left:greataxe",
         "pose:relic_beast:strike_or_cast:left:maul",
         "pose:relic_beast:strike_or_cast:left:daggers",
@@ -14180,20 +14174,18 @@
       "identity": "relic_beast",
       "state": "windup",
       "facing": "left",
-      "contracts": 9,
+      "contracts": 8,
       "weapons": [
         "bow",
         "claws",
         "crossbow",
         "daggers",
         "greataxe",
-        "greatsword",
         "maul",
         "orb",
         "sling"
       ],
       "slot_ids": [
-        "pose:relic_beast:windup:left:greatsword",
         "pose:relic_beast:windup:left:greataxe",
         "pose:relic_beast:windup:left:maul",
         "pose:relic_beast:windup:left:daggers",
@@ -18620,9 +18612,9 @@
     },
     {
       "family": "combat_art",
-      "installed_records": 753,
+      "installed_records": 761,
       "missing_records": 0,
-      "visually_unfinished_or_unreviewed": 886,
+      "visually_unfinished_or_unreviewed": 894,
       "production_ready": 0,
       "fluid_animation_families": null,
       "acceptance": "Not feature-complete merely because records exist or tests pass."
@@ -18773,8 +18765,8 @@
     },
     {
       "family": "playable",
-      "installed_records": 632,
-      "missing_records": 2030,
+      "installed_records": 636,
+      "missing_records": 2026,
       "visually_unfinished_or_unreviewed": 2662,
       "production_ready": 0,
       "fluid_animation_families": null,
@@ -18782,9 +18774,9 @@
     },
     {
       "family": "player_text",
-      "installed_records": 1288,
+      "installed_records": 1289,
       "missing_records": 0,
-      "visually_unfinished_or_unreviewed": 1323,
+      "visually_unfinished_or_unreviewed": 1324,
       "production_ready": 0,
       "fluid_animation_families": null,
       "acceptance": "Not feature-complete merely because records exist or tests pass."
@@ -18811,7 +18803,7 @@
       "family": "reference",
       "installed_records": 0,
       "missing_records": 0,
-      "visually_unfinished_or_unreviewed": 492,
+      "visually_unfinished_or_unreviewed": 494,
       "production_ready": 0,
       "fluid_animation_families": null,
       "acceptance": "Not feature-complete merely because records exist or tests pass."
@@ -19906,7 +19898,7 @@
     {
       "category": "playable_lootlings",
       "actor": "relic_beast",
-      "missing_contracts": 174,
+      "missing_contracts": 170,
       "missing_states": [
         "defeat",
         "follow_through",
@@ -20418,6 +20410,11 @@
       "implementation": "authored_pose_manifest.gd",
       "resource": "art/production/phase4e/wanderers/",
       "reason": "directory/prefix lookup: variant coverage needs explicit resolution"
+    },
+    {
+      "implementation": "authored_pose_manifest.gd",
+      "resource": "art/source/relic_combat_072/CANDIDATES.json",
+      "reason": "runtime literal not registered in current accepted manifests"
     },
     {
       "implementation": "authored_pose_manifest.gd",

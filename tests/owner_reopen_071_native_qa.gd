@@ -5,6 +5,10 @@ func _initialize() -> void:
  OS.set_environment("LOOTLINGS_OWNER_TEST","1");create_timer(240).timeout.connect(func():push_error("Owner access timeout");quit(1));call_deferred("review")
 func finger(point:Vector2,down:bool,index:int=0) -> void:
  var event:=InputEventScreenTouch.new();event.index=index;event.pressed=down;event.position=root.get_screen_transform()*point-Vector2(root.position);Input.parse_input_event(event);Input.flush_buffered_events();await process_frame
+func secret_unlock(crystal:Vector2) -> void:
+ for i in range(7):
+  await finger(crystal,true);await create_timer(.035).timeout;await finger(crystal,false);await create_timer(.035).timeout
+ await finger(crystal,true);await create_timer(.85).timeout;await finger(crystal,false)
 func review() -> void:
  for viewport in [Vector2i(1080,2340),Vector2i(1600,2560),Vector2i(1920,1080)]:
   root.size=viewport;folder="res://.godot_test_data/owner-reopen071/%dx%d/" % [viewport.x,viewport.y];DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
@@ -14,9 +18,9 @@ func review() -> void:
   var normal:Dictionary={}
   for name in ["lootlings_save.cfg","lootlings_inventory.cfg","lootlings_profile.cfg","lootlings_settings.cfg","endgame.cfg","campaign.cfg","contracts.cfg","lootlings_hideout_shop.cfg","expedition_progress.cfg","lootlings_achievements.cfg"]:normal[name]=FileAccess.get_file_as_bytes("user://"+name)
   game.startup_ui.show_title();game.state="startup";await process_frame;await process_frame
-  var crystal:Vector2=game.startup_ui.title_wordmark.get_global_rect().get_center()
+  var crystal:Vector2=game.owner_test_access.activation_rect().get_center()
   await finger(crystal,true);await create_timer(.85).timeout;await finger(crystal,false);assert(not Scope.active)
-  await finger(crystal,true);await create_timer(2.05).timeout;await finger(crystal,false)
+  await secret_unlock(crystal)
   await process_frame;await process_frame;game=current_scene
   assert(Scope.active and is_instance_valid(game.debug_panel) and game.debug_panel.visible and game.input_surface()==game.debug_panel)
   game.set_process(false);game.app_lifecycle.platform_notifications_enabled=false
@@ -66,8 +70,8 @@ func review() -> void:
   panel.close();assert(game.state==state_before)
   await capture("ssh_title")
   panel.run_action("relock",null);assert(not preload("res://owner_test_access.gd").unlocked and not game.owner_test_access.shortcut.visible and Scope.active)
-  game.owner_test_access.show_activation_title();await process_frame;await process_frame;crystal=game.startup_ui.title_wordmark.get_global_rect().get_center()
-  await finger(crystal,true);await create_timer(2.05).timeout;await finger(crystal,false);await process_frame;await process_frame;await create_timer(.1).timeout;assert(panel.visible)
+  game.owner_test_access.show_activation_title();await process_frame;await process_frame;crystal=game.owner_test_access.activation_rect().get_center()
+  await secret_unlock(crystal);await process_frame;await process_frame;await create_timer(.1).timeout;assert(panel.visible)
   panel.close();game.owner_test_access.update_layout();assert(game.owner_test_access.shortcut.visible)
   var access=game.owner_test_access;var start:Vector2=access.shortcut.get_global_rect().get_center()
   await finger(start,true);await create_timer(1.05).timeout
@@ -103,5 +107,5 @@ func review() -> void:
   assert(not Scope.active and game.gold==321 and game.meta_shards==17 and game.inventory.stash.is_empty())
   for name in normal:assert(FileAccess.get_file_as_bytes("user://"+name)==normal[name])
   game.free();current_scene=null;await process_frame
- print("OWNER ACCESS 060 NATIVE PASS: independent visible logo center two-second hold, short hold rejection, saved normalized hold-drag/no accidental open/reset/hide/backup route; persistent SHH reopen/return, same F1 panel four tabs, real touch currency command, all eight Mythicals, Ward/Sigils, reset cancel, sandbox/normal reload and byte-identical normal stores; three layouts")
+ print("OWNER ACCESS 060 NATIVE PASS: owner-specified seven crystal taps in3seconds plus eighth .8second hold, short hold rejection, saved normalized hold-drag/no accidental open/reset/hide/backup route; persistent SHH reopen/return, same F1 panel four tabs, real touch currency command, all eight Mythicals, Ward/Sigils, reset cancel, sandbox/normal reload and byte-identical normal stores; three layouts")
  quit()

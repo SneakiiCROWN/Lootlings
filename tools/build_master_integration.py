@@ -50,6 +50,11 @@ def main():
     if heavy.exists():pose_sources.update({r['asset_path']:r for r in json.loads(read(heavy))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime'})
     polearm=ROOT/'art/production/phase4e/player_polearm_051_manifest.json'
     if polearm.exists():pose_sources.update({x['asset_path']:x for x in json.loads(read(polearm))['entries'] if x.get('native_validated') and x.get('production_status')=='canon_validated_runtime'})
+    accepted072_path=ROOT/'art/production/phase4e/player_combat_072_manifest.json'
+    accepted072=[r for r in json.loads(read(accepted072_path))['entries'] if r.get('native_validated') and r.get('production_status')=='canon_validated_runtime'] if accepted072_path.exists() else []
+    pose_sources.update({r['asset_path']:r for r in accepted072})
+    accepted072_slots={(r['actor'],r['state'],r['facing'].removesuffix('_only'),w):r for r in accepted072 for w in r['weapon_types']}
+    missing['total_missing_cells']-=sum(1 for c in missing['missing'] if (c['game_id'],c['state'],c['facing'],c.get('weapon_family')) in accepted072_slots)
     references=json.loads(read(ROOT/'art/reference/phase4e_handoff/REFERENCE_STATUS.json'))
     npc_authorities={x['id']:x for x in json.loads(read(ROOT/'art/npc_identity_authorities.json'))['entries']} if (ROOT/'art/npc_identity_authorities.json').exists() else {}
     texts={p.name:read(p) for p in ROOT.glob('*.gd')}
@@ -65,6 +70,8 @@ def main():
         category=cell.get('category','playable')
         boss=boss_sources.get((actor,state,face)) or enemy_sources.get((actor,state,face)) or npc_sources.get((actor,state,face))
         if boss:cell={**cell,'asset_path':boss['asset_path'],'source_canonical_sheet':boss['source_reference']};absent=False
+        current072=accepted072_slots.get((actor,state,face,weapon))
+        if current072:cell={**cell,'asset_path':current072['asset_path'],'source_canonical_sheet':current072['source_reference']};absent=False
         source=cell.get('source_canonical_sheet'); asset=cell.get('asset_path')
         if actor in npc_authorities:source=npc_authorities[actor]['canonical_source']
         if not absent:

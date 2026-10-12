@@ -2,6 +2,7 @@ extends RefCounted
 
 # Presentation only: read existing combat clocks, never change damage or RNG.
 var health_trails := {}
+var rendered_bodies:Dictionary = {}
 var boss_action := ""
 var boss_action_time := 0.0
 var player_prepared:=false
@@ -35,6 +36,7 @@ static func name_lines(font: Font, text: String, width: float, font_size: int) -
 
 func reset() -> void:
 	health_trails.clear()
+	rendered_bodies.clear()
 	contacts.clear()
 	incoming_contacts.clear()
 	previous_ward=-1;ward_gain=0;ward_gain_life=0
@@ -61,9 +63,20 @@ func update_health(key: int, hp: float, maximum: float, delta: float) -> void:
 	elif float(trail.hold) <= 0.0:
 		trail.ratio = move_toward(float(trail.ratio), ratio, delta * 0.8)
 
+# Last native draw geometry, keyed by encounter serial; never redirects a
+# released hit when the selected foe changes. Bounded and presentation-only.
+func remember_body(serial:int, transform:Transform2D, rect:Rect2) -> void:
+	rendered_bodies[serial]=preload("res://combat_stage.gd").transformed_bounds(transform,rect)
+	while rendered_bodies.size()>8:rendered_bodies.erase(rendered_bodies.keys()[0])
+
+func contact_position(g) -> Vector2:
+	var bounds:Rect2=rendered_bodies.get(g.enemy_serial,Rect2())
+	if not bounds.has_area():return g.target_combat_visual_position()+Vector2(0,-29)
+	return bounds.position+bounds.size*Vector2(.5+.20*g.enemy_facing_at(bounds.get_center().x),.55)
+
 func record_contact(g, critical: bool, heavy: bool) -> void:
 	# Capture this actor before a kill/projectile/pack callback changes selection.
-	var pos: Vector2=g.target_combat_visual_position()+Vector2(0,-29)
+	var pos: Vector2=contact_position(g)
 	var weapon: String=g.inventory.equipped_item("Weapon").get("weapon_type","")
 	var event := {"serial":g.enemy_serial,"pos":pos,"origin":preload("res://weapon_fit_catalog.gd").projectile_origin(g),"material":preload("res://regional_enemy_presentation.gd").material(g),"facing":g.enemy_facing_at(pos.x),"critical":critical,"heavy":heavy or weapon in ["greatsword","greataxe","maul"],"weapon":weapon,"life":.18,"duration":.18}
 	contacts.append(event)
