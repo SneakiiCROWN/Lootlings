@@ -5,22 +5,22 @@
     {
       "id": "hoard-preview-canon",
       "identity": "The Hoard Dragon",
-      "status": "FIXED & VERIFIED source native; compiled verification pending",
+      "status": "FIXED & VERIFIED source and exact exported Windows native; owner appearance acceptance open",
       "source": "art/sprites/enemies/approved/hoard_dragon/act_i_idle_left.png",
       "binding": "boss_presentation.gd profile(act_i) now resolves the accepted combat idle crop; Memories thumbnail honors actor_region. Existing VignetteCatalog direct story route already used the approved idle.",
-      "evidence": ".godot_test_data/home067/1920x1080/canonical_dragon_preview.png",
+      "evidence": "docs/production/quality-evidence/0.4.67/compiled/1920x1080/canonical_dragon_preview.png",
       "remaining": [
         "Owner appearance acceptance; no combat redesign."
       ]
     },
     {
       "id": "verdant-mirror-body-animation",
-      "identity": "The Verdant Mirror — Warden of the Stolen Spring",
+      "identity": "The Verdant Mirror â€” Warden of the Stolen Spring",
       "status": "DEFECTIVE / FUNCTIONALLY WORKING / ART CORRECTION REQUIRED",
-      "region": "Act II — Mossglass Wilds",
+      "region": "Act II â€” Mossglass Wilds",
       "source": "art/sprites/enemies/beta/verdant_mirror.png",
       "binding": "boss_presentation.gd BOSSES.mossglass_wilds; boss_patterns.gd mossglass_wilds",
-      "evidence": ".godot_test_data/home067/480x854/verdant_mirror_open_defect.png",
+      "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/verdant_mirror_open_defect.png",
       "defects": [
         "Dense moss/tree mass and water-stream cutout contour compete with illustrated scene perspective.",
         "Weak readable root/feet grounding, lighting integration and scale.",
@@ -36,13 +36,27 @@
     },
     {
       "id": "home-services-premium-review",
-      "identity": "Home → Ilex Archive → Trophy display; Patch Shop and Sera Shrine",
+      "identity": "Home â†’ Ilex Archive â†’ Trophy display; Patch Shop and Sera Shrine",
       "status": "FUNCTIONALLY TESTED / NATIVE VISUAL REVIEWED / NEEDS OWNER ACCEPTANCE",
-      "evidence": ".godot_test_data/home067/480x854/grounded_companion.png",
+      "evidence": "docs/production/quality-evidence/0.4.67/compiled/480x854/grounded_companion.png",
       "remaining": [
         "New framed Hoard portrait is reuse of canonical idle, not sculpted trophy art.",
         "Illustrated station fallback for Ilex remains intentional; full living body/animation is not complete.",
         "Broader NPC animation, environmental cohesion, service ambience/mixing and Home companion/furniture depth remain open."
+      ]
+    },
+    {
+      "id": "living-title-contact-composition",
+      "identity": "Sera Vey / canonical Gloomlet / Patch Brasswick / Ilex Quill",
+      "status": "NEXT CONNECTED BATCH — NOT INSTALLED OR ACCEPTED",
+      "source": "art/npc_identity_authorities.json and Gloomlet_CharacterSheet_Canonical.png",
+      "evidence": "docs/production/quality-evidence/0.4.67/compiled/1080x2340/title_initial.png",
+      "remaining": [
+        "Sera is the established adult relic keeper: original white hair, blue/gold witch hat/coat, black/gold outfit and blue crystals must be retained.",
+        "Dedicated Sera/Gloomlet held or patted shared contact pose is missing; prepare a canonical composition candidate for owner review without installing generic cutouts.",
+        "Patch merchant alcove and Ilex Archive nook must match dedicated identity panels; no Wanderers.",
+        "Cherry blossom/stream/reflection/lantern layers need properly aligned restrained animation, private RNG/input isolation, reduced motion and actual responsive review.",
+        "Preserve current approved title/art/music/logo/controls until replacement passes canon review and owner appearance approval."
       ]
     }
   ]

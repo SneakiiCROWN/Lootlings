@@ -1,0 +1,9 @@
+# Continue after 0.4.67
+
+Live source7d4d7674 pushed; delivered Windows/owner Android code78. Read quality-evidence/0.4.67/REPORT.md, DELIVERY.json and WORLD_QUALITY_DEFECTS.json. Preserve owner project.godot (4 adds/11 deletes), newline-only files, source references and all rollback builds. No reset/cleanup/canon redesign.
+
+Completed connected slice: actual Act-I Hoard achievement → durable recovery/feedback → Ilex Archive/Trophy record → framed canonical Home keepsake → Preview/Cancel/failed Apply/Apply/reload; grounded Home actor/cushion/shelf. Nine exact-pack fixtures and source/compiled actual process-cut recovery pass. Professional Home/Archive/Hub appearance still needs owner review. No new art closures:2757contracts/7178artistrequirements remain. S23 DEFERRED.
+
+Next: execute the owner living-title follow-up from attachment621914bf-a0cb-429c-96ba-7d07219dabba. The adult relic lady is Sera Vey, verified againstart/npc_identity_authorities.json andart/sprites/npcs/beta/sera_idle.png. Preserve her exact original design. Gloomlet contact pose missing: generate a reference-locked candidate for owner review; do not install unrelated portraits/static fake contact. Patch/Ilex dedicated sheets override broad boards. No Wanderers. Preserve original logo/title music and real controls, RNG isolation/input ownership/reduced motion/mobile performance. Finish this connected screen before scattering superficial changes.
+
+The Verdant Mirror Act-II body/cutout and animation deficits remain registered, exact tree/root identity preserved. Existing correct combat Hoard unchanged; legacy pre-fight fallback and padded thumbnail fixed and natively checked. Continue canonical animation/grip/lighting/NPC/audio and foundation debt after these front-of-house dependencies. Optional Gremlin/seasons remain registered, not installed.

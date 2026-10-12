@@ -1,0 +1,39 @@
+{
+  "version": "0.4.67",
+  "code": 78,
+  "source_checkpoint": "7d4d7674",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.67-candidate.exe",
+      "bytes": 103136768,
+      "sha256": "d43c2710d7ee5a204c81dcb30b86518edf23886829a797ab277f8d12d623b56c"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.67-candidate.pck",
+      "bytes": 284224644,
+      "sha256": "3dce9e36388a566914199c53c28abb926d844d7e0b925a97a0b288d1f97f1397"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.67-owner-test-debug.apk",
+      "bytes": 305255737,
+      "sha256": "1929e7840a72c32855fe3cfa6750ce99e2a57a19033969a34b8e53a9e5a2011c"
+    }
+  ],
+  "windows_startup": "VERIFIED PASS actual EXE120frames;9 exact-PCK fixtures pass",
+  "android": "Signed arm64 owner package/resources/16k alignment and original branding verified; no Android execution",
+  "application_id": "com.sneakiicrown.lootlings.owner",
+  "physical_S23": "DEFERRED by owner",
+  "normal_067_apk": "not built; earlier normal rollback preserved",
+  "professional_release": "HOLD",
+  "compiled_fixtures": 9,
+  "actual_process_cut_boundaries": 2,
+  "new_home_script_exported": [
+    "assets/home_rewards.gdc",
+    "assets/home_catalog.gdc",
+    "assets/boss_presentation.gdc",
+    "assets/home_rewards.gd.remap",
+    "assets/home_catalog.gd.remap",
+    "assets/boss_presentation.gd.remap"
+  ],
+  "all_previous_delivery_artifacts_unchanged": true
+}
