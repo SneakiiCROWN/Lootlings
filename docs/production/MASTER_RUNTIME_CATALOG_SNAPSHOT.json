@@ -783,9 +783,12 @@
       "_notification",
       "suspend",
       "restore_focus",
+      "request_close",
+      "confirm_unsaved_close",
+      "quit_application",
       "persist"
     ],
-    "source_sha256": "e8cc2d01c3023b8a956d52c3c27423bfd507ae7768b96af359548de4d6cfd079"
+    "source_sha256": "93294415e9381b92e1ab2fc7871942457fdf5f641de82f466b513c91360fe1ae"
   },
   "approved_missing_runtime_art.gd": {
     "constants": {},
@@ -5203,6 +5206,7 @@
       "achievement_matches_filter",
       "trophy_texture_path",
       "select_achievement",
+      "reveal_selected_achievement",
       "refresh_achievement_detail",
       "refresh_home",
       "refresh_stash",
@@ -5273,7 +5277,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "fb2fa3b063af446fba418c386f9abd152b836f2a0d7ef845dd424463332cf08c"
+    "source_sha256": "86acf0e5892fd94a1263edda126457f89fd8ec43d30372f036e8272255cf0049"
   },
   "home_catalog.gd": {
     "constants": {
@@ -8906,6 +8910,7 @@
         "Auto-attack delay",
         "Critical chance",
         "Maximum HP",
+        "Armour mitigation",
         "Incoming damage factor"
       ],
       "UI": {
@@ -8920,7 +8925,7 @@
       "number",
       "_draw"
     ],
-    "source_sha256": "32078b453a5aad705796de75e99e03ee00178c9b519fa4a5e2f1e9aeed900535"
+    "source_sha256": "e9fc4dc2ab9d35d1d00f45b38be37e1064e9ba594587f70b3ecc79cb7eba7fc5"
   },
   "region_audio.gd": {
     "constants": {

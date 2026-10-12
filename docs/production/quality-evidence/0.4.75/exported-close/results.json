@@ -1,0 +1,47 @@
+[
+  {
+    "name": "native",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 24,
+    "marker": "CLOSE SAVE 075 NATIVE PASS",
+    "physical_device": false,
+    "pack_sha256": "86acb7f1f37104d64af3b57598c606643acfc02c2c8145d1d9105c268e9cad14",
+    "copied_game_code": false
+  },
+  {
+    "name": "normal-close",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RETRY 075:",
+    "physical_device": false,
+    "pack_sha256": "86acb7f1f37104d64af3b57598c606643acfc02c2c8145d1d9105c268e9cad14",
+    "copied_game_code": false
+  },
+  {
+    "name": "normal-restart",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RESTART 075 PASS",
+    "physical_device": false,
+    "pack_sha256": "86acb7f1f37104d64af3b57598c606643acfc02c2c8145d1d9105c268e9cad14",
+    "copied_game_code": false
+  },
+  {
+    "name": "owner-close",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RETRY 075:",
+    "physical_device": false,
+    "pack_sha256": "86acb7f1f37104d64af3b57598c606643acfc02c2c8145d1d9105c268e9cad14",
+    "copied_game_code": false
+  },
+  {
+    "name": "owner-restart",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RESTART 075 PASS",
+    "physical_device": false,
+    "pack_sha256": "86acb7f1f37104d64af3b57598c606643acfc02c2c8145d1d9105c268e9cad14",
+    "copied_game_code": false
+  }
+]

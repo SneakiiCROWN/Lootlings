@@ -1,3 +1,7 @@
+# Current —0.4.75 safe close saves, defensive comparisons and earned Archive selection
+
+Runtime4aac2292; owner/code86 and matching Windows candidate delivered. Six final-PCK fixtures and five close/process checks pass;23Windows/Android resources match, same certificate and073/074 rollback hashes verified. Failed Windows close offers retry/keep open/confirmed unsaved close; shared comparisons show armour and incoming tradeoffs; earned Archive badge scrolls into view. Audio authority reconciled, exact approved title.ogg unchanged.0newartclosures;2753contracts/7166artist requirements remain. Read CONTINUATION_075.md and quality-evidence/0.4.75/REPORT.md/DELIVERY.json. Next Hub/Home composition, story durability and shared presentation; physical S23/human listening/artistic acceptance pending. Preserve owner files/saves/references.
+
 # Current —0.4.74 connected comparisons, NPC acknowledgement and Home keepsake
 
 Runtime4404ef20, owner/code85 and matching Windows candidate delivered. Three final exact-PCK fixtures pass including actual earned Hoard/Home path; eight relevant Windows/Android script payloads match, same certificate and073 rollback hashes checked. Shared comparison clarity, correct speaker acknowledgement and earned display→specific Archive record installed.0 new art closures;2753contracts/7166artist requirements remain. Read CONTINUATION_074.md and quality-evidence/0.4.74/REPORT.md/DELIVERY.json. Failed Windows-close save handling is next; preserve owner files/saves/references. S23 and professional appearance/audio acceptance pending.

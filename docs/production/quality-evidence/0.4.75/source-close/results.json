@@ -1,0 +1,37 @@
+[
+  {
+    "name": "native",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 24,
+    "marker": "CLOSE SAVE 075 NATIVE PASS",
+    "physical_device": false
+  },
+  {
+    "name": "normal-close",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RETRY 075:",
+    "physical_device": false
+  },
+  {
+    "name": "normal-restart",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RESTART 075 PASS",
+    "physical_device": false
+  },
+  {
+    "name": "owner-close",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RETRY 075:",
+    "physical_device": false
+  },
+  {
+    "name": "owner-restart",
+    "exit": 0,
+    "expected_write_refusal_diagnostics": 0,
+    "marker": "CLOSE RESTART 075 PASS",
+    "physical_device": false
+  }
+]

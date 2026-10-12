@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MASTER runtime inventory: 128 implementation scripts; no saves instantiated
+{
+  "total_records": 8433,
+  "total_launch_scope_slots": 7179,
+  "all_statuses": {
+    "LIVE_FINAL": 0,
+    "LIVE_BETA": 4592,
+    "EXTRACTABLE_NOW": 0,
+    "NEEDS_CROP_OR_MASK": 0,
+    "NEEDS_RUNTIME_ASSEMBLY": 0,
+    "NEEDS_NEW_CANON_EXPORT": 2588,
+    "REFERENCE_ONLY": 1028,
+    "REJECTED_IDENTITY_DRIFT": 4,
+    "PLANNED_NOT_IMPLEMENTED": 10,
+    "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
+  },
+  "launch_statuses": {
+    "LIVE_FINAL": 0,
+    "LIVE_BETA": 4591,
+    "EXTRACTABLE_NOW": 0,
+    "NEEDS_CROP_OR_MASK": 0,
+    "NEEDS_RUNTIME_ASSEMBLY": 0,
+    "NEEDS_NEW_CANON_EXPORT": 2588,
+    "REFERENCE_ONLY": 0,
+    "REJECTED_IDENTITY_DRIFT": 0,
+    "PLANNED_NOT_IMPLEMENTED": 0,
+    "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 0
+  },
+  "exact_missing_art_cells": 2588,
+  "support_packages": 165
+}
+{"slots": 8433, "launch_slots": 7179, "missing_delivery_cells": 2588, "shared_body_view_bundles": 83, "support_packages": 165, "fresh_sources": 174}
+CANON registry: 929 identities; 905 catalog/screen routes; no new art approval
+{"identities": 929, "catalog_screen_routes": 905, "rejected_board_paths": 3, "authority_boundaries": 2, "frozen_hash_guard": "validate_canonical_art.py", "matrix_guard": "validate_master_integration.py"}

@@ -97,7 +97,7 @@
     "installed_artist_files": 1329,
     "remaining_artist_files": 7166,
     "current_reviewed_runtime_png_cells": 308,
-    "registered_requirement_records": 8430,
+    "registered_requirement_records": 8433,
     "production_ready_records": 0
   },
   "contract_families": [
@@ -879,18 +879,18 @@
     },
     {
       "family": "player_text",
-      "required_records": 1325,
-      "launch_records": 1290,
-      "installed_records": 1290,
+      "required_records": 1328,
+      "launch_records": 1293,
+      "installed_records": 1293,
       "production_ready": 0,
       "quality_counts": {
-        "installed_awaiting_visual_review": 1290,
+        "installed_awaiting_visual_review": 1293,
         "reference_or_planned": 35
       },
       "stages": {
         "canon_reference_approved": 0,
         "created": 0,
-        "integrated": 1290,
+        "integrated": 1293,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -15471,141 +15471,141 @@
         "label:hideout_ui.gd:1178:0:2810f6fa",
         "label:hideout_ui.gd:1197:0:918160aa",
         "label:hideout_ui.gd:1207:0:cc4128fb",
-        "label:hideout_ui.gd:1233:0:65bdece2",
-        "label:hideout_ui.gd:1280:0:c41560ef",
-        "label:hideout_ui.gd:1286:0:7345919c",
-        "label:hideout_ui.gd:1286:2:65e3338a",
-        "label:hideout_ui.gd:1286:3:5adba8bb",
-        "label:hideout_ui.gd:1297:0:f31d1ffc",
-        "label:hideout_ui.gd:1297:1:fbaab420",
-        "label:hideout_ui.gd:1297:3:574363a7",
-        "label:hideout_ui.gd:1297:5:fbfd0d95",
-        "label:hideout_ui.gd:1301:0:ead53368",
-        "label:hideout_ui.gd:1301:1:ead53368",
-        "label:hideout_ui.gd:1301:2:6ae99955",
-        "label:hideout_ui.gd:1301:3:9113115b",
-        "label:hideout_ui.gd:1307:0:7b20b508",
-        "label:hideout_ui.gd:1321:0:616ca9c9",
-        "label:hideout_ui.gd:1357:0:01690268",
-        "label:hideout_ui.gd:1357:1:6b42874e",
-        "label:hideout_ui.gd:1357:2:6c369a4d",
-        "label:hideout_ui.gd:1357:3:a0d35352",
-        "label:hideout_ui.gd:1364:0:2e399298",
-        "label:hideout_ui.gd:1364:1:6b42874e",
-        "label:hideout_ui.gd:1364:2:8268f89a",
-        "label:hideout_ui.gd:1382:0:e715d42c",
-        "label:hideout_ui.gd:1383:0:993cd80e",
-        "label:hideout_ui.gd:1384:0:f40ae478",
-        "label:hideout_ui.gd:1411:0:6ae99955",
-        "label:hideout_ui.gd:1411:1:bc7819b3",
-        "label:hideout_ui.gd:1415:0:089331a2",
-        "label:hideout_ui.gd:1418:0:342cbb5b",
-        "label:hideout_ui.gd:1422:0:1e5a19cd",
-        "label:hideout_ui.gd:1423:0:51da9110",
-        "label:hideout_ui.gd:1426:0:cde8e347",
-        "label:hideout_ui.gd:1431:0:df39feda",
-        "label:hideout_ui.gd:1432:0:30c4aa22",
-        "label:hideout_ui.gd:1438:0:e37a2ab6",
-        "label:hideout_ui.gd:1438:1:fbfd0d95",
-        "label:hideout_ui.gd:1439:0:35b2f8d1",
-        "label:hideout_ui.gd:1440:0:25cffccd",
-        "label:hideout_ui.gd:1441:0:71f9488d",
-        "label:hideout_ui.gd:1446:0:8a8f7aa0",
-        "label:hideout_ui.gd:1456:0:9088d83c",
-        "label:hideout_ui.gd:1460:0:40e24c35",
-        "label:hideout_ui.gd:1470:0:23216c50",
-        "label:hideout_ui.gd:1470:1:fbaab420",
-        "label:hideout_ui.gd:1470:3:574363a7",
-        "label:hideout_ui.gd:1472:0:0252ae33",
-        "label:hideout_ui.gd:1477:0:11543f2f",
-        "label:hideout_ui.gd:1486:0:c8ae748c",
-        "label:hideout_ui.gd:1486:1:6ae99955",
-        "label:hideout_ui.gd:1486:2:bc7819b3",
-        "label:hideout_ui.gd:1486:3:f147fc3f",
-        "label:hideout_ui.gd:1486:4:e4636d46",
-        "label:hideout_ui.gd:1486:5:2097c337",
-        "label:hideout_ui.gd:1494:0:15e42727",
-        "label:hideout_ui.gd:1494:1:317e18d2",
-        "label:hideout_ui.gd:1496:0:ab7d3eb8",
-        "label:hideout_ui.gd:1496:1:b081ff70",
-        "label:hideout_ui.gd:1502:0:ba240d7e",
-        "label:hideout_ui.gd:1502:1:c32246c5",
-        "label:hideout_ui.gd:1504:0:ba240d7e",
-        "label:hideout_ui.gd:1504:1:6a907455",
-        "label:hideout_ui.gd:1506:0:9bf8f3e5",
-        "label:hideout_ui.gd:1506:1:6ae99955",
-        "label:hideout_ui.gd:1506:2:bc7819b3",
-        "label:hideout_ui.gd:1506:3:f147fc3f",
-        "label:hideout_ui.gd:1506:4:e4636d46",
-        "label:hideout_ui.gd:1506:5:462854f9",
-        "label:hideout_ui.gd:1506:6:ecdda59a",
-        "label:hideout_ui.gd:1510:0:ffc41647",
-        "label:hideout_ui.gd:1513:0:fd22c9a3",
-        "label:hideout_ui.gd:1516:0:cfcc5d20",
-        "label:hideout_ui.gd:1519:0:622741e6",
-        "label:hideout_ui.gd:1521:0:c606420d",
-        "label:hideout_ui.gd:1526:0:4b97fc3e",
-        "label:hideout_ui.gd:1538:0:0da4f016",
-        "label:hideout_ui.gd:1539:0:eb1d28f0",
-        "label:hideout_ui.gd:1546:0:6f3bc7e5",
-        "label:hideout_ui.gd:1546:1:6ae99955",
-        "label:hideout_ui.gd:1546:2:bc7819b3",
-        "label:hideout_ui.gd:1546:3:462854f9",
-        "label:hideout_ui.gd:1546:4:ecdda59a",
-        "label:hideout_ui.gd:1548:0:3ac4794b",
-        "label:hideout_ui.gd:1548:1:2097c337",
-        "label:hideout_ui.gd:1554:0:fcee478f",
-        "label:hideout_ui.gd:1555:0:39b4a5c1",
-        "label:hideout_ui.gd:1556:0:2097c337",
-        "label:hideout_ui.gd:1556:1:6ec9e0af",
-        "label:hideout_ui.gd:1556:2:2097c337",
-        "label:hideout_ui.gd:1560:0:e11a2da1",
-        "label:hideout_ui.gd:1785:0:eb2057cb",
-        "label:hideout_ui.gd:1785:1:b98b23ec",
-        "label:hideout_ui.gd:1785:2:52b7362e",
-        "label:hideout_ui.gd:1785:3:7b9877de",
-        "label:hideout_ui.gd:1785:4:8f30eb6d",
-        "label:hideout_ui.gd:1785:5:0ce0a417",
-        "label:hideout_ui.gd:1785:6:4b413d03",
-        "label:hideout_ui.gd:1785:7:5b6cbbf9",
-        "label:hideout_ui.gd:1785:8:e0489488",
-        "label:hideout_ui.gd:1785:9:6529f695",
-        "label:hideout_ui.gd:1785:10:ff3dbb42",
-        "label:hideout_ui.gd:2199:0:a3f47c95",
-        "label:hideout_ui.gd:2199:1:5c5d6a24",
-        "label:hideout_ui.gd:2199:2:395d3b4c",
-        "label:hideout_ui.gd:2199:3:20048f9f",
-        "label:hideout_ui.gd:2199:4:c29dac5a",
-        "label:hideout_ui.gd:2199:5:885d7bf8",
-        "label:hideout_ui.gd:2199:6:1f5bbe7f",
-        "label:hideout_ui.gd:2199:7:8dffc634",
-        "label:hideout_ui.gd:2199:8:71f8e797",
-        "label:hideout_ui.gd:2199:9:cf836688",
-        "label:hideout_ui.gd:2203:0:a40315b5",
-        "label:hideout_ui.gd:2204:1:cf368476",
-        "label:hideout_ui.gd:2205:0:6b9af882",
-        "label:hideout_ui.gd:2205:2:6ae99955",
-        "label:hideout_ui.gd:2205:3:163ee286",
-        "label:hideout_ui.gd:2207:0:b791ca20",
-        "label:hideout_ui.gd:2207:1:40832288",
-        "label:hideout_ui.gd:2207:2:04ad07f9",
-        "label:hideout_ui.gd:2211:0:a5315c46",
-        "label:hideout_ui.gd:2211:1:4d7a10de",
-        "label:hideout_ui.gd:2216:0:1e5a19cd",
-        "label:hideout_ui.gd:2216:1:df39feda",
-        "label:hideout_ui.gd:2216:2:da6bac29",
-        "label:hideout_ui.gd:2216:3:e5c6b060",
+        "label:hideout_ui.gd:1234:0:65bdece2",
+        "label:hideout_ui.gd:1291:0:c41560ef",
+        "label:hideout_ui.gd:1297:0:7345919c",
+        "label:hideout_ui.gd:1297:2:65e3338a",
+        "label:hideout_ui.gd:1297:3:5adba8bb",
+        "label:hideout_ui.gd:1308:0:f31d1ffc",
+        "label:hideout_ui.gd:1308:1:fbaab420",
+        "label:hideout_ui.gd:1308:3:574363a7",
+        "label:hideout_ui.gd:1308:5:fbfd0d95",
+        "label:hideout_ui.gd:1312:0:ead53368",
+        "label:hideout_ui.gd:1312:1:ead53368",
+        "label:hideout_ui.gd:1312:2:6ae99955",
+        "label:hideout_ui.gd:1312:3:9113115b",
+        "label:hideout_ui.gd:1318:0:7b20b508",
+        "label:hideout_ui.gd:1332:0:616ca9c9",
+        "label:hideout_ui.gd:1368:0:01690268",
+        "label:hideout_ui.gd:1368:1:6b42874e",
+        "label:hideout_ui.gd:1368:2:6c369a4d",
+        "label:hideout_ui.gd:1368:3:a0d35352",
+        "label:hideout_ui.gd:1375:0:2e399298",
+        "label:hideout_ui.gd:1375:1:6b42874e",
+        "label:hideout_ui.gd:1375:2:8268f89a",
+        "label:hideout_ui.gd:1393:0:e715d42c",
+        "label:hideout_ui.gd:1394:0:993cd80e",
+        "label:hideout_ui.gd:1395:0:f40ae478",
+        "label:hideout_ui.gd:1422:0:6ae99955",
+        "label:hideout_ui.gd:1422:1:bc7819b3",
+        "label:hideout_ui.gd:1426:0:089331a2",
+        "label:hideout_ui.gd:1429:0:342cbb5b",
+        "label:hideout_ui.gd:1433:0:1e5a19cd",
+        "label:hideout_ui.gd:1434:0:51da9110",
+        "label:hideout_ui.gd:1437:0:cde8e347",
+        "label:hideout_ui.gd:1442:0:df39feda",
+        "label:hideout_ui.gd:1443:0:30c4aa22",
+        "label:hideout_ui.gd:1449:0:e37a2ab6",
+        "label:hideout_ui.gd:1449:1:fbfd0d95",
+        "label:hideout_ui.gd:1450:0:35b2f8d1",
+        "label:hideout_ui.gd:1451:0:25cffccd",
+        "label:hideout_ui.gd:1452:0:71f9488d",
+        "label:hideout_ui.gd:1457:0:8a8f7aa0",
+        "label:hideout_ui.gd:1467:0:9088d83c",
+        "label:hideout_ui.gd:1471:0:40e24c35",
+        "label:hideout_ui.gd:1481:0:23216c50",
+        "label:hideout_ui.gd:1481:1:fbaab420",
+        "label:hideout_ui.gd:1481:3:574363a7",
+        "label:hideout_ui.gd:1483:0:0252ae33",
+        "label:hideout_ui.gd:1488:0:11543f2f",
+        "label:hideout_ui.gd:1497:0:c8ae748c",
+        "label:hideout_ui.gd:1497:1:6ae99955",
+        "label:hideout_ui.gd:1497:2:bc7819b3",
+        "label:hideout_ui.gd:1497:3:f147fc3f",
+        "label:hideout_ui.gd:1497:4:e4636d46",
+        "label:hideout_ui.gd:1497:5:2097c337",
+        "label:hideout_ui.gd:1505:0:15e42727",
+        "label:hideout_ui.gd:1505:1:317e18d2",
+        "label:hideout_ui.gd:1507:0:ab7d3eb8",
+        "label:hideout_ui.gd:1507:1:b081ff70",
+        "label:hideout_ui.gd:1513:0:ba240d7e",
+        "label:hideout_ui.gd:1513:1:c32246c5",
+        "label:hideout_ui.gd:1515:0:ba240d7e",
+        "label:hideout_ui.gd:1515:1:6a907455",
+        "label:hideout_ui.gd:1517:0:9bf8f3e5",
+        "label:hideout_ui.gd:1517:1:6ae99955",
+        "label:hideout_ui.gd:1517:2:bc7819b3",
+        "label:hideout_ui.gd:1517:3:f147fc3f",
+        "label:hideout_ui.gd:1517:4:e4636d46",
+        "label:hideout_ui.gd:1517:5:462854f9",
+        "label:hideout_ui.gd:1517:6:ecdda59a",
+        "label:hideout_ui.gd:1521:0:ffc41647",
+        "label:hideout_ui.gd:1524:0:fd22c9a3",
+        "label:hideout_ui.gd:1527:0:cfcc5d20",
+        "label:hideout_ui.gd:1530:0:622741e6",
+        "label:hideout_ui.gd:1532:0:c606420d",
+        "label:hideout_ui.gd:1537:0:4b97fc3e",
+        "label:hideout_ui.gd:1549:0:0da4f016",
+        "label:hideout_ui.gd:1550:0:eb1d28f0",
+        "label:hideout_ui.gd:1557:0:6f3bc7e5",
+        "label:hideout_ui.gd:1557:1:6ae99955",
+        "label:hideout_ui.gd:1557:2:bc7819b3",
+        "label:hideout_ui.gd:1557:3:462854f9",
+        "label:hideout_ui.gd:1557:4:ecdda59a",
+        "label:hideout_ui.gd:1559:0:3ac4794b",
+        "label:hideout_ui.gd:1559:1:2097c337",
+        "label:hideout_ui.gd:1565:0:fcee478f",
+        "label:hideout_ui.gd:1566:0:39b4a5c1",
+        "label:hideout_ui.gd:1567:0:2097c337",
+        "label:hideout_ui.gd:1567:1:6ec9e0af",
+        "label:hideout_ui.gd:1567:2:2097c337",
+        "label:hideout_ui.gd:1571:0:e11a2da1",
+        "label:hideout_ui.gd:1796:0:eb2057cb",
+        "label:hideout_ui.gd:1796:1:b98b23ec",
+        "label:hideout_ui.gd:1796:2:52b7362e",
+        "label:hideout_ui.gd:1796:3:7b9877de",
+        "label:hideout_ui.gd:1796:4:8f30eb6d",
+        "label:hideout_ui.gd:1796:5:0ce0a417",
+        "label:hideout_ui.gd:1796:6:4b413d03",
+        "label:hideout_ui.gd:1796:7:5b6cbbf9",
+        "label:hideout_ui.gd:1796:8:e0489488",
+        "label:hideout_ui.gd:1796:9:6529f695",
+        "label:hideout_ui.gd:1796:10:ff3dbb42",
+        "label:hideout_ui.gd:2210:0:a3f47c95",
+        "label:hideout_ui.gd:2210:1:5c5d6a24",
+        "label:hideout_ui.gd:2210:2:395d3b4c",
+        "label:hideout_ui.gd:2210:3:20048f9f",
+        "label:hideout_ui.gd:2210:4:c29dac5a",
+        "label:hideout_ui.gd:2210:5:885d7bf8",
+        "label:hideout_ui.gd:2210:6:1f5bbe7f",
+        "label:hideout_ui.gd:2210:7:8dffc634",
+        "label:hideout_ui.gd:2210:8:71f8e797",
+        "label:hideout_ui.gd:2210:9:cf836688",
+        "label:hideout_ui.gd:2214:0:a40315b5",
+        "label:hideout_ui.gd:2215:1:cf368476",
+        "label:hideout_ui.gd:2216:0:6b9af882",
+        "label:hideout_ui.gd:2216:2:6ae99955",
+        "label:hideout_ui.gd:2216:3:163ee286",
+        "label:hideout_ui.gd:2218:0:b791ca20",
+        "label:hideout_ui.gd:2218:1:40832288",
+        "label:hideout_ui.gd:2218:2:04ad07f9",
+        "label:hideout_ui.gd:2222:0:a5315c46",
+        "label:hideout_ui.gd:2222:1:4d7a10de",
+        "label:hideout_ui.gd:2227:0:1e5a19cd",
+        "label:hideout_ui.gd:2227:1:df39feda",
+        "label:hideout_ui.gd:2227:2:da6bac29",
+        "label:hideout_ui.gd:2227:3:e5c6b060",
         "label:lootlings_ui.gd:277:0:31f63f09",
         "label:quick_comparison.gd:31:0:940f05be",
-        "label:quick_comparison.gd:73:0:1e5a19cd",
-        "label:quick_comparison.gd:73:1:706703df",
-        "label:quick_comparison.gd:80:0:f147fc3f",
-        "label:quick_comparison.gd:80:1:3159fe42",
-        "label:quick_comparison.gd:80:2:d3dacf89",
-        "label:quick_comparison.gd:80:3:462854f9",
-        "label:quick_comparison.gd:80:4:462854f9",
-        "label:quick_comparison.gd:80:5:24451372",
-        "label:quick_comparison.gd:80:6:c84c6d2e",
+        "label:quick_comparison.gd:74:0:1e5a19cd",
+        "label:quick_comparison.gd:74:1:706703df",
+        "label:quick_comparison.gd:81:0:f147fc3f",
+        "label:quick_comparison.gd:81:1:3159fe42",
+        "label:quick_comparison.gd:81:2:d3dacf89",
+        "label:quick_comparison.gd:81:3:462854f9",
+        "label:quick_comparison.gd:81:4:462854f9",
+        "label:quick_comparison.gd:81:5:24451372",
+        "label:quick_comparison.gd:81:6:c84c6d2e",
         "label:startup_ui.gd:252:0:3701471b",
         "label:startup_ui.gd:254:0:3701471b",
         "label:startup_ui.gd:258:0:89646612",
@@ -15939,7 +15939,7 @@
     },
     {
       "domain": "Regions / backgrounds / layers / interiors / environments",
-      "registered_requirement_records": 1935,
+      "registered_requirement_records": 1938,
       "records": [
         "pose:mossmaw:idle:right:None",
         "pose:mossmaw:idle:left:None",
@@ -17185,6 +17185,9 @@
         "content:voice_identity.gd:PLAYER_PROFILES:vault_runner",
         "content:voice_identity.gd:PLAYER_PROFILES:velvet_astrologer",
         "screen:lootling.gd:draw_background",
+        "label:app_lifecycle.gd:61:0:83bacf8d",
+        "label:app_lifecycle.gd:61:1:44409722",
+        "label:app_lifecycle.gd:69:0:2bbde927",
         "label:archive_discovery_view.gd:16:2:97530533",
         "label:archive_discovery_view.gd:19:0:ef7e6794",
         "label:archive_discovery_view.gd:19:1:a47b3a20",
@@ -17359,130 +17362,130 @@
         "label:hideout_ui.gd:1178:0:2810f6fa",
         "label:hideout_ui.gd:1197:0:918160aa",
         "label:hideout_ui.gd:1207:0:cc4128fb",
-        "label:hideout_ui.gd:1233:0:65bdece2",
-        "label:hideout_ui.gd:1280:0:c41560ef",
-        "label:hideout_ui.gd:1286:0:7345919c",
-        "label:hideout_ui.gd:1286:2:65e3338a",
-        "label:hideout_ui.gd:1286:3:5adba8bb",
-        "label:hideout_ui.gd:1297:0:f31d1ffc",
-        "label:hideout_ui.gd:1297:1:fbaab420",
-        "label:hideout_ui.gd:1297:3:574363a7",
-        "label:hideout_ui.gd:1297:5:fbfd0d95",
-        "label:hideout_ui.gd:1301:0:ead53368",
-        "label:hideout_ui.gd:1301:1:ead53368",
-        "label:hideout_ui.gd:1301:2:6ae99955",
-        "label:hideout_ui.gd:1301:3:9113115b",
-        "label:hideout_ui.gd:1307:0:7b20b508",
-        "label:hideout_ui.gd:1321:0:616ca9c9",
-        "label:hideout_ui.gd:1357:0:01690268",
-        "label:hideout_ui.gd:1357:1:6b42874e",
-        "label:hideout_ui.gd:1357:2:6c369a4d",
-        "label:hideout_ui.gd:1357:3:a0d35352",
-        "label:hideout_ui.gd:1364:0:2e399298",
-        "label:hideout_ui.gd:1364:1:6b42874e",
-        "label:hideout_ui.gd:1364:2:8268f89a",
-        "label:hideout_ui.gd:1382:0:e715d42c",
-        "label:hideout_ui.gd:1383:0:993cd80e",
-        "label:hideout_ui.gd:1384:0:f40ae478",
-        "label:hideout_ui.gd:1411:0:6ae99955",
-        "label:hideout_ui.gd:1411:1:bc7819b3",
-        "label:hideout_ui.gd:1415:0:089331a2",
-        "label:hideout_ui.gd:1418:0:342cbb5b",
-        "label:hideout_ui.gd:1422:0:1e5a19cd",
-        "label:hideout_ui.gd:1423:0:51da9110",
-        "label:hideout_ui.gd:1426:0:cde8e347",
-        "label:hideout_ui.gd:1431:0:df39feda",
-        "label:hideout_ui.gd:1432:0:30c4aa22",
-        "label:hideout_ui.gd:1438:0:e37a2ab6",
-        "label:hideout_ui.gd:1438:1:fbfd0d95",
-        "label:hideout_ui.gd:1439:0:35b2f8d1",
-        "label:hideout_ui.gd:1440:0:25cffccd",
-        "label:hideout_ui.gd:1441:0:71f9488d",
-        "label:hideout_ui.gd:1446:0:8a8f7aa0",
-        "label:hideout_ui.gd:1456:0:9088d83c",
-        "label:hideout_ui.gd:1460:0:40e24c35",
-        "label:hideout_ui.gd:1470:0:23216c50",
-        "label:hideout_ui.gd:1470:1:fbaab420",
-        "label:hideout_ui.gd:1470:3:574363a7",
-        "label:hideout_ui.gd:1472:0:0252ae33",
-        "label:hideout_ui.gd:1477:0:11543f2f",
-        "label:hideout_ui.gd:1486:0:c8ae748c",
-        "label:hideout_ui.gd:1486:1:6ae99955",
-        "label:hideout_ui.gd:1486:2:bc7819b3",
-        "label:hideout_ui.gd:1486:3:f147fc3f",
-        "label:hideout_ui.gd:1486:4:e4636d46",
-        "label:hideout_ui.gd:1486:5:2097c337",
-        "label:hideout_ui.gd:1494:0:15e42727",
-        "label:hideout_ui.gd:1494:1:317e18d2",
-        "label:hideout_ui.gd:1496:0:ab7d3eb8",
-        "label:hideout_ui.gd:1496:1:b081ff70",
-        "label:hideout_ui.gd:1502:0:ba240d7e",
-        "label:hideout_ui.gd:1502:1:c32246c5",
-        "label:hideout_ui.gd:1504:0:ba240d7e",
-        "label:hideout_ui.gd:1504:1:6a907455",
-        "label:hideout_ui.gd:1506:0:9bf8f3e5",
-        "label:hideout_ui.gd:1506:1:6ae99955",
-        "label:hideout_ui.gd:1506:2:bc7819b3",
-        "label:hideout_ui.gd:1506:3:f147fc3f",
-        "label:hideout_ui.gd:1506:4:e4636d46",
-        "label:hideout_ui.gd:1506:5:462854f9",
-        "label:hideout_ui.gd:1506:6:ecdda59a",
-        "label:hideout_ui.gd:1510:0:ffc41647",
-        "label:hideout_ui.gd:1513:0:fd22c9a3",
-        "label:hideout_ui.gd:1516:0:cfcc5d20",
-        "label:hideout_ui.gd:1519:0:622741e6",
-        "label:hideout_ui.gd:1521:0:c606420d",
-        "label:hideout_ui.gd:1526:0:4b97fc3e",
-        "label:hideout_ui.gd:1538:0:0da4f016",
-        "label:hideout_ui.gd:1539:0:eb1d28f0",
-        "label:hideout_ui.gd:1546:0:6f3bc7e5",
-        "label:hideout_ui.gd:1546:1:6ae99955",
-        "label:hideout_ui.gd:1546:2:bc7819b3",
-        "label:hideout_ui.gd:1546:3:462854f9",
-        "label:hideout_ui.gd:1546:4:ecdda59a",
-        "label:hideout_ui.gd:1548:0:3ac4794b",
-        "label:hideout_ui.gd:1548:1:2097c337",
-        "label:hideout_ui.gd:1554:0:fcee478f",
-        "label:hideout_ui.gd:1555:0:39b4a5c1",
-        "label:hideout_ui.gd:1556:0:2097c337",
-        "label:hideout_ui.gd:1556:1:6ec9e0af",
-        "label:hideout_ui.gd:1556:2:2097c337",
-        "label:hideout_ui.gd:1560:0:e11a2da1",
-        "label:hideout_ui.gd:1785:0:eb2057cb",
-        "label:hideout_ui.gd:1785:1:b98b23ec",
-        "label:hideout_ui.gd:1785:2:52b7362e",
-        "label:hideout_ui.gd:1785:3:7b9877de",
-        "label:hideout_ui.gd:1785:4:8f30eb6d",
-        "label:hideout_ui.gd:1785:5:0ce0a417",
-        "label:hideout_ui.gd:1785:6:4b413d03",
-        "label:hideout_ui.gd:1785:7:5b6cbbf9",
-        "label:hideout_ui.gd:1785:8:e0489488",
-        "label:hideout_ui.gd:1785:9:6529f695",
-        "label:hideout_ui.gd:1785:10:ff3dbb42",
-        "label:hideout_ui.gd:2199:0:a3f47c95",
-        "label:hideout_ui.gd:2199:1:5c5d6a24",
-        "label:hideout_ui.gd:2199:2:395d3b4c",
-        "label:hideout_ui.gd:2199:3:20048f9f",
-        "label:hideout_ui.gd:2199:4:c29dac5a",
-        "label:hideout_ui.gd:2199:5:885d7bf8",
-        "label:hideout_ui.gd:2199:6:1f5bbe7f",
-        "label:hideout_ui.gd:2199:7:8dffc634",
-        "label:hideout_ui.gd:2199:8:71f8e797",
-        "label:hideout_ui.gd:2199:9:cf836688",
-        "label:hideout_ui.gd:2203:0:a40315b5",
-        "label:hideout_ui.gd:2204:1:cf368476",
-        "label:hideout_ui.gd:2205:0:6b9af882",
-        "label:hideout_ui.gd:2205:2:6ae99955",
-        "label:hideout_ui.gd:2205:3:163ee286",
-        "label:hideout_ui.gd:2207:0:b791ca20",
-        "label:hideout_ui.gd:2207:1:40832288",
-        "label:hideout_ui.gd:2207:2:04ad07f9",
-        "label:hideout_ui.gd:2211:0:a5315c46",
-        "label:hideout_ui.gd:2211:1:4d7a10de",
-        "label:hideout_ui.gd:2216:0:1e5a19cd",
-        "label:hideout_ui.gd:2216:1:df39feda",
-        "label:hideout_ui.gd:2216:2:da6bac29",
-        "label:hideout_ui.gd:2216:3:e5c6b060",
+        "label:hideout_ui.gd:1234:0:65bdece2",
+        "label:hideout_ui.gd:1291:0:c41560ef",
+        "label:hideout_ui.gd:1297:0:7345919c",
+        "label:hideout_ui.gd:1297:2:65e3338a",
+        "label:hideout_ui.gd:1297:3:5adba8bb",
+        "label:hideout_ui.gd:1308:0:f31d1ffc",
+        "label:hideout_ui.gd:1308:1:fbaab420",
+        "label:hideout_ui.gd:1308:3:574363a7",
+        "label:hideout_ui.gd:1308:5:fbfd0d95",
+        "label:hideout_ui.gd:1312:0:ead53368",
+        "label:hideout_ui.gd:1312:1:ead53368",
+        "label:hideout_ui.gd:1312:2:6ae99955",
+        "label:hideout_ui.gd:1312:3:9113115b",
+        "label:hideout_ui.gd:1318:0:7b20b508",
+        "label:hideout_ui.gd:1332:0:616ca9c9",
+        "label:hideout_ui.gd:1368:0:01690268",
+        "label:hideout_ui.gd:1368:1:6b42874e",
+        "label:hideout_ui.gd:1368:2:6c369a4d",
+        "label:hideout_ui.gd:1368:3:a0d35352",
+        "label:hideout_ui.gd:1375:0:2e399298",
+        "label:hideout_ui.gd:1375:1:6b42874e",
+        "label:hideout_ui.gd:1375:2:8268f89a",
+        "label:hideout_ui.gd:1393:0:e715d42c",
+        "label:hideout_ui.gd:1394:0:993cd80e",
+        "label:hideout_ui.gd:1395:0:f40ae478",
+        "label:hideout_ui.gd:1422:0:6ae99955",
+        "label:hideout_ui.gd:1422:1:bc7819b3",
+        "label:hideout_ui.gd:1426:0:089331a2",
+        "label:hideout_ui.gd:1429:0:342cbb5b",
+        "label:hideout_ui.gd:1433:0:1e5a19cd",
+        "label:hideout_ui.gd:1434:0:51da9110",
+        "label:hideout_ui.gd:1437:0:cde8e347",
+        "label:hideout_ui.gd:1442:0:df39feda",
+        "label:hideout_ui.gd:1443:0:30c4aa22",
+        "label:hideout_ui.gd:1449:0:e37a2ab6",
+        "label:hideout_ui.gd:1449:1:fbfd0d95",
+        "label:hideout_ui.gd:1450:0:35b2f8d1",
+        "label:hideout_ui.gd:1451:0:25cffccd",
+        "label:hideout_ui.gd:1452:0:71f9488d",
+        "label:hideout_ui.gd:1457:0:8a8f7aa0",
+        "label:hideout_ui.gd:1467:0:9088d83c",
+        "label:hideout_ui.gd:1471:0:40e24c35",
+        "label:hideout_ui.gd:1481:0:23216c50",
+        "label:hideout_ui.gd:1481:1:fbaab420",
+        "label:hideout_ui.gd:1481:3:574363a7",
+        "label:hideout_ui.gd:1483:0:0252ae33",
+        "label:hideout_ui.gd:1488:0:11543f2f",
+        "label:hideout_ui.gd:1497:0:c8ae748c",
+        "label:hideout_ui.gd:1497:1:6ae99955",
+        "label:hideout_ui.gd:1497:2:bc7819b3",
+        "label:hideout_ui.gd:1497:3:f147fc3f",
+        "label:hideout_ui.gd:1497:4:e4636d46",
+        "label:hideout_ui.gd:1497:5:2097c337",
+        "label:hideout_ui.gd:1505:0:15e42727",
+        "label:hideout_ui.gd:1505:1:317e18d2",
+        "label:hideout_ui.gd:1507:0:ab7d3eb8",
+        "label:hideout_ui.gd:1507:1:b081ff70",
+        "label:hideout_ui.gd:1513:0:ba240d7e",
+        "label:hideout_ui.gd:1513:1:c32246c5",
+        "label:hideout_ui.gd:1515:0:ba240d7e",
+        "label:hideout_ui.gd:1515:1:6a907455",
+        "label:hideout_ui.gd:1517:0:9bf8f3e5",
+        "label:hideout_ui.gd:1517:1:6ae99955",
+        "label:hideout_ui.gd:1517:2:bc7819b3",
+        "label:hideout_ui.gd:1517:3:f147fc3f",
+        "label:hideout_ui.gd:1517:4:e4636d46",
+        "label:hideout_ui.gd:1517:5:462854f9",
+        "label:hideout_ui.gd:1517:6:ecdda59a",
+        "label:hideout_ui.gd:1521:0:ffc41647",
+        "label:hideout_ui.gd:1524:0:fd22c9a3",
+        "label:hideout_ui.gd:1527:0:cfcc5d20",
+        "label:hideout_ui.gd:1530:0:622741e6",
+        "label:hideout_ui.gd:1532:0:c606420d",
+        "label:hideout_ui.gd:1537:0:4b97fc3e",
+        "label:hideout_ui.gd:1549:0:0da4f016",
+        "label:hideout_ui.gd:1550:0:eb1d28f0",
+        "label:hideout_ui.gd:1557:0:6f3bc7e5",
+        "label:hideout_ui.gd:1557:1:6ae99955",
+        "label:hideout_ui.gd:1557:2:bc7819b3",
+        "label:hideout_ui.gd:1557:3:462854f9",
+        "label:hideout_ui.gd:1557:4:ecdda59a",
+        "label:hideout_ui.gd:1559:0:3ac4794b",
+        "label:hideout_ui.gd:1559:1:2097c337",
+        "label:hideout_ui.gd:1565:0:fcee478f",
+        "label:hideout_ui.gd:1566:0:39b4a5c1",
+        "label:hideout_ui.gd:1567:0:2097c337",
+        "label:hideout_ui.gd:1567:1:6ec9e0af",
+        "label:hideout_ui.gd:1567:2:2097c337",
+        "label:hideout_ui.gd:1571:0:e11a2da1",
+        "label:hideout_ui.gd:1796:0:eb2057cb",
+        "label:hideout_ui.gd:1796:1:b98b23ec",
+        "label:hideout_ui.gd:1796:2:52b7362e",
+        "label:hideout_ui.gd:1796:3:7b9877de",
+        "label:hideout_ui.gd:1796:4:8f30eb6d",
+        "label:hideout_ui.gd:1796:5:0ce0a417",
+        "label:hideout_ui.gd:1796:6:4b413d03",
+        "label:hideout_ui.gd:1796:7:5b6cbbf9",
+        "label:hideout_ui.gd:1796:8:e0489488",
+        "label:hideout_ui.gd:1796:9:6529f695",
+        "label:hideout_ui.gd:1796:10:ff3dbb42",
+        "label:hideout_ui.gd:2210:0:a3f47c95",
+        "label:hideout_ui.gd:2210:1:5c5d6a24",
+        "label:hideout_ui.gd:2210:2:395d3b4c",
+        "label:hideout_ui.gd:2210:3:20048f9f",
+        "label:hideout_ui.gd:2210:4:c29dac5a",
+        "label:hideout_ui.gd:2210:5:885d7bf8",
+        "label:hideout_ui.gd:2210:6:1f5bbe7f",
+        "label:hideout_ui.gd:2210:7:8dffc634",
+        "label:hideout_ui.gd:2210:8:71f8e797",
+        "label:hideout_ui.gd:2210:9:cf836688",
+        "label:hideout_ui.gd:2214:0:a40315b5",
+        "label:hideout_ui.gd:2215:1:cf368476",
+        "label:hideout_ui.gd:2216:0:6b9af882",
+        "label:hideout_ui.gd:2216:2:6ae99955",
+        "label:hideout_ui.gd:2216:3:163ee286",
+        "label:hideout_ui.gd:2218:0:b791ca20",
+        "label:hideout_ui.gd:2218:1:40832288",
+        "label:hideout_ui.gd:2218:2:04ad07f9",
+        "label:hideout_ui.gd:2222:0:a5315c46",
+        "label:hideout_ui.gd:2222:1:4d7a10de",
+        "label:hideout_ui.gd:2227:0:1e5a19cd",
+        "label:hideout_ui.gd:2227:1:df39feda",
+        "label:hideout_ui.gd:2227:2:da6bac29",
+        "label:hideout_ui.gd:2227:3:e5c6b060",
         "label:hub_navigation.gd:97:0:3af30bdc",
         "label:hub_navigation.gd:97:1:ddd4980c",
         "label:lootling.gd:366:0:dbb437ae",
@@ -17621,15 +17624,15 @@
         "label:personal_home.gd:223:0:6b0bfe37",
         "label:personal_home.gd:232:1:d3dacf89",
         "label:quick_comparison.gd:31:0:940f05be",
-        "label:quick_comparison.gd:73:0:1e5a19cd",
-        "label:quick_comparison.gd:73:1:706703df",
-        "label:quick_comparison.gd:80:0:f147fc3f",
-        "label:quick_comparison.gd:80:1:3159fe42",
-        "label:quick_comparison.gd:80:2:d3dacf89",
-        "label:quick_comparison.gd:80:3:462854f9",
-        "label:quick_comparison.gd:80:4:462854f9",
-        "label:quick_comparison.gd:80:5:24451372",
-        "label:quick_comparison.gd:80:6:c84c6d2e",
+        "label:quick_comparison.gd:74:0:1e5a19cd",
+        "label:quick_comparison.gd:74:1:706703df",
+        "label:quick_comparison.gd:81:0:f147fc3f",
+        "label:quick_comparison.gd:81:1:3159fe42",
+        "label:quick_comparison.gd:81:2:d3dacf89",
+        "label:quick_comparison.gd:81:3:462854f9",
+        "label:quick_comparison.gd:81:4:462854f9",
+        "label:quick_comparison.gd:81:5:24451372",
+        "label:quick_comparison.gd:81:6:c84c6d2e",
         "label:resident_art_catalog.gd:68:1:6f8f7df4",
         "label:resident_art_catalog.gd:68:2:d75b3b52",
         "label:resident_art_catalog.gd:68:3:e69fc18a",
@@ -163980,6 +163983,87 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
+      "id": "label:app_lifecycle.gd:61:0:83bacf8d",
+      "family": "player_text",
+      "identity": "app_lifecycle_gd",
+      "name": "app_lifecycle.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "app_lifecycle.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "label:app_lifecycle.gd:61:1:44409722",
+      "family": "player_text",
+      "identity": "app_lifecycle_gd",
+      "name": "app_lifecycle.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "app_lifecycle.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "label:app_lifecycle.gd:69:0:2bbde927",
+      "family": "player_text",
+      "identity": "app_lifecycle_gd",
+      "name": "app_lifecycle.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "app_lifecycle.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
       "id": "label:archive_discovery_view.gd:16:2:97530533",
       "family": "player_text",
       "identity": "archive_discovery_view_gd",
@@ -168678,7 +168762,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1233:0:65bdece2",
+      "id": "label:hideout_ui.gd:1234:0:65bdece2",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168705,7 +168789,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1280:0:c41560ef",
+      "id": "label:hideout_ui.gd:1291:0:c41560ef",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168732,7 +168816,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1286:0:7345919c",
+      "id": "label:hideout_ui.gd:1297:0:7345919c",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168759,7 +168843,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1286:2:65e3338a",
+      "id": "label:hideout_ui.gd:1297:2:65e3338a",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168786,7 +168870,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1286:3:5adba8bb",
+      "id": "label:hideout_ui.gd:1297:3:5adba8bb",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168813,7 +168897,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1297:0:f31d1ffc",
+      "id": "label:hideout_ui.gd:1308:0:f31d1ffc",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168840,7 +168924,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1297:1:fbaab420",
+      "id": "label:hideout_ui.gd:1308:1:fbaab420",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168867,7 +168951,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1297:3:574363a7",
+      "id": "label:hideout_ui.gd:1308:3:574363a7",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168894,7 +168978,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1297:5:fbfd0d95",
+      "id": "label:hideout_ui.gd:1308:5:fbfd0d95",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168921,7 +169005,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1301:0:ead53368",
+      "id": "label:hideout_ui.gd:1312:0:ead53368",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168948,7 +169032,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1301:1:ead53368",
+      "id": "label:hideout_ui.gd:1312:1:ead53368",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -168975,7 +169059,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1301:2:6ae99955",
+      "id": "label:hideout_ui.gd:1312:2:6ae99955",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169002,7 +169086,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1301:3:9113115b",
+      "id": "label:hideout_ui.gd:1312:3:9113115b",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169029,7 +169113,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1307:0:7b20b508",
+      "id": "label:hideout_ui.gd:1318:0:7b20b508",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169056,7 +169140,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1321:0:616ca9c9",
+      "id": "label:hideout_ui.gd:1332:0:616ca9c9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169083,7 +169167,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1357:0:01690268",
+      "id": "label:hideout_ui.gd:1368:0:01690268",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169110,7 +169194,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1357:1:6b42874e",
+      "id": "label:hideout_ui.gd:1368:1:6b42874e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169137,7 +169221,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1357:2:6c369a4d",
+      "id": "label:hideout_ui.gd:1368:2:6c369a4d",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169164,7 +169248,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1357:3:a0d35352",
+      "id": "label:hideout_ui.gd:1368:3:a0d35352",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169191,7 +169275,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1364:0:2e399298",
+      "id": "label:hideout_ui.gd:1375:0:2e399298",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169218,7 +169302,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1364:1:6b42874e",
+      "id": "label:hideout_ui.gd:1375:1:6b42874e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169245,7 +169329,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1364:2:8268f89a",
+      "id": "label:hideout_ui.gd:1375:2:8268f89a",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169272,7 +169356,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1382:0:e715d42c",
+      "id": "label:hideout_ui.gd:1393:0:e715d42c",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169299,7 +169383,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1383:0:993cd80e",
+      "id": "label:hideout_ui.gd:1394:0:993cd80e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169326,7 +169410,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1384:0:f40ae478",
+      "id": "label:hideout_ui.gd:1395:0:f40ae478",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169353,7 +169437,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1411:0:6ae99955",
+      "id": "label:hideout_ui.gd:1422:0:6ae99955",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169380,7 +169464,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1411:1:bc7819b3",
+      "id": "label:hideout_ui.gd:1422:1:bc7819b3",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169407,7 +169491,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1415:0:089331a2",
+      "id": "label:hideout_ui.gd:1426:0:089331a2",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169434,7 +169518,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1418:0:342cbb5b",
+      "id": "label:hideout_ui.gd:1429:0:342cbb5b",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169461,7 +169545,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1422:0:1e5a19cd",
+      "id": "label:hideout_ui.gd:1433:0:1e5a19cd",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169488,7 +169572,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1423:0:51da9110",
+      "id": "label:hideout_ui.gd:1434:0:51da9110",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169515,7 +169599,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1426:0:cde8e347",
+      "id": "label:hideout_ui.gd:1437:0:cde8e347",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169542,7 +169626,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1431:0:df39feda",
+      "id": "label:hideout_ui.gd:1442:0:df39feda",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169569,7 +169653,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1432:0:30c4aa22",
+      "id": "label:hideout_ui.gd:1443:0:30c4aa22",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169596,7 +169680,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1438:0:e37a2ab6",
+      "id": "label:hideout_ui.gd:1449:0:e37a2ab6",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169623,7 +169707,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1438:1:fbfd0d95",
+      "id": "label:hideout_ui.gd:1449:1:fbfd0d95",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169650,7 +169734,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1439:0:35b2f8d1",
+      "id": "label:hideout_ui.gd:1450:0:35b2f8d1",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169677,7 +169761,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1440:0:25cffccd",
+      "id": "label:hideout_ui.gd:1451:0:25cffccd",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169704,7 +169788,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1441:0:71f9488d",
+      "id": "label:hideout_ui.gd:1452:0:71f9488d",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169731,7 +169815,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1446:0:8a8f7aa0",
+      "id": "label:hideout_ui.gd:1457:0:8a8f7aa0",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169758,7 +169842,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1456:0:9088d83c",
+      "id": "label:hideout_ui.gd:1467:0:9088d83c",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169785,7 +169869,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1460:0:40e24c35",
+      "id": "label:hideout_ui.gd:1471:0:40e24c35",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169812,7 +169896,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1470:0:23216c50",
+      "id": "label:hideout_ui.gd:1481:0:23216c50",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169839,7 +169923,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1470:1:fbaab420",
+      "id": "label:hideout_ui.gd:1481:1:fbaab420",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169866,7 +169950,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1470:3:574363a7",
+      "id": "label:hideout_ui.gd:1481:3:574363a7",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169893,7 +169977,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1472:0:0252ae33",
+      "id": "label:hideout_ui.gd:1483:0:0252ae33",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169920,7 +170004,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1477:0:11543f2f",
+      "id": "label:hideout_ui.gd:1488:0:11543f2f",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169947,7 +170031,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1486:0:c8ae748c",
+      "id": "label:hideout_ui.gd:1497:0:c8ae748c",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -169974,7 +170058,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1486:1:6ae99955",
+      "id": "label:hideout_ui.gd:1497:1:6ae99955",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170001,7 +170085,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1486:2:bc7819b3",
+      "id": "label:hideout_ui.gd:1497:2:bc7819b3",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170028,7 +170112,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1486:3:f147fc3f",
+      "id": "label:hideout_ui.gd:1497:3:f147fc3f",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170055,7 +170139,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1486:4:e4636d46",
+      "id": "label:hideout_ui.gd:1497:4:e4636d46",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170082,7 +170166,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1486:5:2097c337",
+      "id": "label:hideout_ui.gd:1497:5:2097c337",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170109,7 +170193,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1494:0:15e42727",
+      "id": "label:hideout_ui.gd:1505:0:15e42727",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170136,7 +170220,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1494:1:317e18d2",
+      "id": "label:hideout_ui.gd:1505:1:317e18d2",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170163,7 +170247,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1496:0:ab7d3eb8",
+      "id": "label:hideout_ui.gd:1507:0:ab7d3eb8",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170190,7 +170274,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1496:1:b081ff70",
+      "id": "label:hideout_ui.gd:1507:1:b081ff70",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170217,7 +170301,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1502:0:ba240d7e",
+      "id": "label:hideout_ui.gd:1513:0:ba240d7e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170244,7 +170328,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1502:1:c32246c5",
+      "id": "label:hideout_ui.gd:1513:1:c32246c5",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170271,7 +170355,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1504:0:ba240d7e",
+      "id": "label:hideout_ui.gd:1515:0:ba240d7e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170298,7 +170382,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1504:1:6a907455",
+      "id": "label:hideout_ui.gd:1515:1:6a907455",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170325,7 +170409,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:0:9bf8f3e5",
+      "id": "label:hideout_ui.gd:1517:0:9bf8f3e5",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170352,7 +170436,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:1:6ae99955",
+      "id": "label:hideout_ui.gd:1517:1:6ae99955",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170379,7 +170463,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:2:bc7819b3",
+      "id": "label:hideout_ui.gd:1517:2:bc7819b3",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170406,7 +170490,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:3:f147fc3f",
+      "id": "label:hideout_ui.gd:1517:3:f147fc3f",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170433,7 +170517,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:4:e4636d46",
+      "id": "label:hideout_ui.gd:1517:4:e4636d46",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170460,7 +170544,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:5:462854f9",
+      "id": "label:hideout_ui.gd:1517:5:462854f9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170487,7 +170571,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1506:6:ecdda59a",
+      "id": "label:hideout_ui.gd:1517:6:ecdda59a",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170514,7 +170598,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1510:0:ffc41647",
+      "id": "label:hideout_ui.gd:1521:0:ffc41647",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170541,7 +170625,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1513:0:fd22c9a3",
+      "id": "label:hideout_ui.gd:1524:0:fd22c9a3",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170568,7 +170652,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1516:0:cfcc5d20",
+      "id": "label:hideout_ui.gd:1527:0:cfcc5d20",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170595,7 +170679,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1519:0:622741e6",
+      "id": "label:hideout_ui.gd:1530:0:622741e6",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170622,7 +170706,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1521:0:c606420d",
+      "id": "label:hideout_ui.gd:1532:0:c606420d",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170649,7 +170733,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1526:0:4b97fc3e",
+      "id": "label:hideout_ui.gd:1537:0:4b97fc3e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170676,7 +170760,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1538:0:0da4f016",
+      "id": "label:hideout_ui.gd:1549:0:0da4f016",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170703,7 +170787,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1539:0:eb1d28f0",
+      "id": "label:hideout_ui.gd:1550:0:eb1d28f0",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170730,7 +170814,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1546:0:6f3bc7e5",
+      "id": "label:hideout_ui.gd:1557:0:6f3bc7e5",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170757,7 +170841,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1546:1:6ae99955",
+      "id": "label:hideout_ui.gd:1557:1:6ae99955",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170784,7 +170868,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1546:2:bc7819b3",
+      "id": "label:hideout_ui.gd:1557:2:bc7819b3",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170811,7 +170895,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1546:3:462854f9",
+      "id": "label:hideout_ui.gd:1557:3:462854f9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170838,7 +170922,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1546:4:ecdda59a",
+      "id": "label:hideout_ui.gd:1557:4:ecdda59a",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170865,7 +170949,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1548:0:3ac4794b",
+      "id": "label:hideout_ui.gd:1559:0:3ac4794b",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170892,7 +170976,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1548:1:2097c337",
+      "id": "label:hideout_ui.gd:1559:1:2097c337",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170919,7 +171003,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1554:0:fcee478f",
+      "id": "label:hideout_ui.gd:1565:0:fcee478f",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170946,7 +171030,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1555:0:39b4a5c1",
+      "id": "label:hideout_ui.gd:1566:0:39b4a5c1",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -170973,7 +171057,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1556:0:2097c337",
+      "id": "label:hideout_ui.gd:1567:0:2097c337",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171000,7 +171084,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1556:1:6ec9e0af",
+      "id": "label:hideout_ui.gd:1567:1:6ec9e0af",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171027,7 +171111,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1556:2:2097c337",
+      "id": "label:hideout_ui.gd:1567:2:2097c337",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171054,7 +171138,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1560:0:e11a2da1",
+      "id": "label:hideout_ui.gd:1571:0:e11a2da1",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171081,7 +171165,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:0:eb2057cb",
+      "id": "label:hideout_ui.gd:1796:0:eb2057cb",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171108,7 +171192,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:1:b98b23ec",
+      "id": "label:hideout_ui.gd:1796:1:b98b23ec",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171135,7 +171219,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:2:52b7362e",
+      "id": "label:hideout_ui.gd:1796:2:52b7362e",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171162,7 +171246,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:3:7b9877de",
+      "id": "label:hideout_ui.gd:1796:3:7b9877de",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171189,7 +171273,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:4:8f30eb6d",
+      "id": "label:hideout_ui.gd:1796:4:8f30eb6d",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171216,7 +171300,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:5:0ce0a417",
+      "id": "label:hideout_ui.gd:1796:5:0ce0a417",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171243,7 +171327,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:6:4b413d03",
+      "id": "label:hideout_ui.gd:1796:6:4b413d03",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171270,7 +171354,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:7:5b6cbbf9",
+      "id": "label:hideout_ui.gd:1796:7:5b6cbbf9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171297,7 +171381,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:8:e0489488",
+      "id": "label:hideout_ui.gd:1796:8:e0489488",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171324,7 +171408,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:9:6529f695",
+      "id": "label:hideout_ui.gd:1796:9:6529f695",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171351,7 +171435,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:1785:10:ff3dbb42",
+      "id": "label:hideout_ui.gd:1796:10:ff3dbb42",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171378,7 +171462,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:0:a3f47c95",
+      "id": "label:hideout_ui.gd:2210:0:a3f47c95",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171405,7 +171489,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:1:5c5d6a24",
+      "id": "label:hideout_ui.gd:2210:1:5c5d6a24",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171432,7 +171516,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:2:395d3b4c",
+      "id": "label:hideout_ui.gd:2210:2:395d3b4c",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171459,7 +171543,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:3:20048f9f",
+      "id": "label:hideout_ui.gd:2210:3:20048f9f",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171486,7 +171570,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:4:c29dac5a",
+      "id": "label:hideout_ui.gd:2210:4:c29dac5a",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171513,7 +171597,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:5:885d7bf8",
+      "id": "label:hideout_ui.gd:2210:5:885d7bf8",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171540,7 +171624,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:6:1f5bbe7f",
+      "id": "label:hideout_ui.gd:2210:6:1f5bbe7f",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171567,7 +171651,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:7:8dffc634",
+      "id": "label:hideout_ui.gd:2210:7:8dffc634",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171594,7 +171678,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:8:71f8e797",
+      "id": "label:hideout_ui.gd:2210:8:71f8e797",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171621,7 +171705,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2199:9:cf836688",
+      "id": "label:hideout_ui.gd:2210:9:cf836688",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171648,7 +171732,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2203:0:a40315b5",
+      "id": "label:hideout_ui.gd:2214:0:a40315b5",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171675,7 +171759,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2204:1:cf368476",
+      "id": "label:hideout_ui.gd:2215:1:cf368476",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171702,7 +171786,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2205:0:6b9af882",
+      "id": "label:hideout_ui.gd:2216:0:6b9af882",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171729,7 +171813,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2205:2:6ae99955",
+      "id": "label:hideout_ui.gd:2216:2:6ae99955",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171756,7 +171840,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2205:3:163ee286",
+      "id": "label:hideout_ui.gd:2216:3:163ee286",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171783,7 +171867,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2207:0:b791ca20",
+      "id": "label:hideout_ui.gd:2218:0:b791ca20",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171810,7 +171894,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2207:1:40832288",
+      "id": "label:hideout_ui.gd:2218:1:40832288",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171837,7 +171921,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2207:2:04ad07f9",
+      "id": "label:hideout_ui.gd:2218:2:04ad07f9",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171864,7 +171948,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2211:0:a5315c46",
+      "id": "label:hideout_ui.gd:2222:0:a5315c46",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171891,7 +171975,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2211:1:4d7a10de",
+      "id": "label:hideout_ui.gd:2222:1:4d7a10de",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171918,7 +172002,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2216:0:1e5a19cd",
+      "id": "label:hideout_ui.gd:2227:0:1e5a19cd",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171945,7 +172029,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2216:1:df39feda",
+      "id": "label:hideout_ui.gd:2227:1:df39feda",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171972,7 +172056,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2216:2:da6bac29",
+      "id": "label:hideout_ui.gd:2227:2:da6bac29",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -171999,7 +172083,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:hideout_ui.gd:2216:3:e5c6b060",
+      "id": "label:hideout_ui.gd:2227:3:e5c6b060",
       "family": "player_text",
       "identity": "hideout_ui_gd",
       "name": "hideout_ui.gd",
@@ -175752,7 +175836,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:73:0:1e5a19cd",
+      "id": "label:quick_comparison.gd:74:0:1e5a19cd",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175779,7 +175863,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:73:1:706703df",
+      "id": "label:quick_comparison.gd:74:1:706703df",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175806,7 +175890,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:0:f147fc3f",
+      "id": "label:quick_comparison.gd:81:0:f147fc3f",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175833,7 +175917,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:1:3159fe42",
+      "id": "label:quick_comparison.gd:81:1:3159fe42",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175860,7 +175944,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:2:d3dacf89",
+      "id": "label:quick_comparison.gd:81:2:d3dacf89",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175887,7 +175971,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:3:462854f9",
+      "id": "label:quick_comparison.gd:81:3:462854f9",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175914,7 +175998,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:4:462854f9",
+      "id": "label:quick_comparison.gd:81:4:462854f9",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175941,7 +176025,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:5:24451372",
+      "id": "label:quick_comparison.gd:81:5:24451372",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175968,7 +176052,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:80:6:c84c6d2e",
+      "id": "label:quick_comparison.gd:81:6:c84c6d2e",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -290025,8 +290109,8 @@
     "system:world_interaction_feedback.gd"
   ],
   "latest_runtime_integration": {
-    "version": "0.4.74",
-    "kind": "Connected equipment clarity, truthful NPC acknowledgement and earned Home keepsake inspection",
+    "version": "0.4.75",
+    "kind": "Failed-close progress protection, defensive comparison clarity and earned Archive selection",
     "verified_contracts_closed": 0,
     "new_runtime_png": 0,
     "new_physical_artist_files": 0,
@@ -290034,11 +290118,12 @@
     "professionally_approved": false,
     "physical_device_tested": false,
     "other_installed_features": [
-      "Shared Equipped/Candidate/Change comparisons with larger figures and nonduplicated effects.",
-      "Only actual event-authored dialogue acknowledges the earned event.",
-      "Earned Home Hoard display opens its specific Archive record; ordinary decor editing preserved."
+      "Failed close keeps progress in memory and provides retry/keep open; unsaved closure requires a separate confirmation.",
+      "Shared six-row comparison includes armour mitigation and explicit more/less incoming damage.",
+      "Home earned-display Archive deep-link scrolls the selected badge into view.",
+      "Audio authority now identifies approved production title.ogg and actual installed licensed banks."
     ],
-    "quality_note": "Three final exact-pack fixtures pass; representative screenshots reviewed. Owner artistic/S23 gates open."
+    "quality_note": "Six exact-PCK fixtures plus five close/restart checks pass; original menu/music preserved. Visual/S23 acceptance pending."
   },
   "world_quality_defects": {
     "version": "0.4.72",
@@ -290190,8 +290275,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "da094172197ba5a0042ad9978aa32cbbe365ae20b869978803282c33aefa5459",
-    "docs/production/CANON_REGISTRY.json": "2fdc17203831679f5d96c3bbe93bb6bb9b21a3d5fb394e298c052c7d1fcc8fc6",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "dcfbaa3d8cea0c4241ffbb641314ae008f6c8f4befde219c38dae669d0451947",
+    "docs/production/CANON_REGISTRY.json": "c74d68c09e25568b6076e5b2187847429b2e74b2c7bef19eddc3da2c40ce13cd",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "a603771b67bffbb42157ceb9cbdc31015126f2d5ada760e5b5cf1d8bd80310a3",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -290202,7 +290287,7 @@
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "9aafe96919bbaf9ffbbe5f61da003258f1949004fd1e8ece12eb6b14955d0e54",
     "docs/production/WORLD_QUALITY_DEFECTS.json": "12d3b966b758b90cfd66e72f2ca610eab6df26d7f220b25580d23419e70ad812",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.74/INSTALLATION_RECEIPT.json": "93b9a64a81fd0aaca6be2765e74d80e2e417b96866b73ef708dec40d9a3c795c",
+    "docs/production/quality-evidence/0.4.75/INSTALLATION_RECEIPT.json": "b218a9ea31f39aa181c900d8cb7b6844877c905f4f4801415dd97d8e99dd52eb",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {
@@ -308981,9 +309066,9 @@
       },
       {
         "family": "player_text",
-        "installed_records": 1290,
+        "installed_records": 1293,
         "missing_records": 0,
-        "visually_unfinished_or_unreviewed": 1325,
+        "visually_unfinished_or_unreviewed": 1328,
         "production_ready": 0,
         "fluid_animation_families": null,
         "acceptance": "Not feature-complete merely because records exist or tests pass."

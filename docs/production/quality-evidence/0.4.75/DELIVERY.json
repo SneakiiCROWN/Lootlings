@@ -1,0 +1,42 @@
+{
+  "version": "0.4.75",
+  "code": 86,
+  "runtime_source": "4aac2292dac1efa3f14699ae71f3b3df50eb9bb0",
+  "previous_delivery": "29053219 (0.4.74)",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.75-candidate.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.75-candidate.exe",
+      "bytes": 103196160,
+      "sha256": "9147129629c66c5f1e96429c83e038fdc94d86e88112e07e102c5feb52286b47"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.75-candidate.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.75-candidate.pck",
+      "bytes": 300520004,
+      "sha256": "86acb7f1f37104d64af3b57598c606643acfc02c2c8145d1d9105c268e9cad14"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.75-owner-test-debug.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.75-owner-test-debug.apk",
+      "bytes": 321855172,
+      "sha256": "d0a0ddcbcbf9da8897a4632d768953b37e026ad45104eb0fcd0fc7c79afbea71"
+    }
+  ],
+  "final_pack_fixture_passes": 6,
+  "final_pack_close_process_checks": 5,
+  "expected_write_refusal_diagnostics": 24,
+  "windows_android_matched_resources": 23,
+  "signature_same_previous_owner": true,
+  "rollback073_074_hashes_preserved": true,
+  "physical_s23": "PENDING OWNER ACCEPTANCE, not passed",
+  "professional_game_acceptance": "Not final; explicit world/art/audio and responsive visual gates remain",
+  "new_frozen_art_contract_closures": 0,
+  "remaining_contracts": 2753,
+  "remaining_artist_files": 7166,
+  "owner_working_tree_files": {
+    "project.godot": "9f8a2fa02b226da9463de64eb426694d28137b288b87486b3a8decd0359d2e88",
+    "relic_chase_meter.gd": "a3aaad132335959214fc6f6e865163047a703d90d545e16c9f0216826075bd5e",
+    "tools/run_exported_native.py": "07229e18a0c3201643ba8d67eec332f7f2a2756e004992fb24fa355482e8872b"
+  }
+}
