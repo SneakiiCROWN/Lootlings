@@ -107,7 +107,7 @@
     "combat_tap_meter.gd": "1df4da3fb4ac3b65f74f79eaf088fc31772a8fb0006ba8971696c7e91ba3f9cc",
     "companion_catalog.gd": "9b92065490bc13c13b0da2360af8fd85bad80e53e0e51858a1dca086dbd2ca50",
     "companion_presentation.gd": "e8161fcb29bf17e16ba2a649991279a7eaa1c1d9f55d3f6365c51a8f1c21bd9a",
-    "contextual_dialogue.gd": "024de82bce3154ac77f2fe4aa0be6897bc299c9e25dd9709d43d3dd3aaa75beb",
+    "contextual_dialogue.gd": "cfeeb9de9f14a96b76ee754ec747391a764fb28bf68380c48a27a5d16bba0274",
     "contextual_guide.gd": "36b2d6bd45a55bae3cdf8ef66871a2bc8ec81a170c26f5de3e4525b89a6da8e2",
     "contract_system.gd": "d799d7c2992cdfa1ade11160ec9204219d0621ce9dec8e4fa544bad5d314ab49",
     "creature_renderer.gd": "7579f88c6f26661a5171d23cfef49ef0fb56dc3d33efb555ea7bae4d5dec37db",
@@ -301945,7 +301945,7 @@
           "category": "context",
           "event": "contract_complete",
           "speaker": "Archivist",
-          "text": "Collect the board reward. You did the work; the promise should be kept."
+          "text": "The board paid what it promised. Keep the coin; bring me the story."
         }
       }
     },
@@ -302009,7 +302009,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "text": "Collect the board reward. You did the work; the promise should be kept.",
+        "text": "The board paid what it promised. Keep the coin; bring me the story.",
         "owner": "content:contextual_dialogue.gd:LINES:85"
       }
     },

@@ -475,7 +475,7 @@ const LINES := [
   },
   {
     "speaker": "Archivist",
-    "text": "Collect the board reward. You did the work; the promise should be kept.",
+    "text": "The board paid what it promised. Keep the coin; bring me the story.",
     "category": "context",
     "event": "contract_complete"
   },
