@@ -1442,6 +1442,7 @@ func claim_contract(slot: int) -> void:
 	if not save_hideout_economy():return
 	refresh_hideout()
 	hideout_ui.refresh_contracts()
+	hideout_ui.contract_feedback.text="Claimed %d Lootcoins. A fresh job is ready on the board." % reward
 	play_audio_event("shop_purchase")
 	hideout_ui.queue_dialogue_context("contract_complete")
 
@@ -3678,6 +3679,9 @@ func navigate_back() -> void:
 		if hideout_ui.loadout_panel.is_visible_in_tree():hideout_ui.loadout_panel.visible=false;return
 		if hideout_ui.region_sheet.visible: hideout_ui.region_sheet.visible=false; return
 		if hideout_ui.stash_detail_panel.visible and hideout_ui.current_screen=="stash": hideout_ui.close_stash_detail(); return
+		if hideout_ui.current_screen=="contracts":hideout_ui.return_from_contracts();return
+		if hideout_ui.current_screen=="lore":hideout_ui.return_from_lore();return
+		if hideout_ui.current_screen=="memories":hideout_ui.show_lore();return
 		if hideout_ui.current_screen != "home": hideout_ui.show_home()
 		else: show_title_from_hideout()
 	elif startup_ui.visible:

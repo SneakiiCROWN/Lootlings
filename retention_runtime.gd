@@ -121,7 +121,8 @@ func show_modes(tab: String="siege") -> void:
 	buttons[0].visible=tab=="siege"; buttons[1].visible=tab=="dungeons"; buttons[2].visible=tab=="dungeons"
 	mode_art.visible=true; mode_art.texture=preload("res://beta_art_catalog.gd").FIRST_HOARD if tab=="siege" else preload("res://beta_art_catalog.gd").GROVE
 	mode_art.position.y=126;mode_art.size.y=118
-	detail.position=Vector2(24,258); detail.size=Vector2(376,84)
+	panel.position.y=75;panel.size.y=735
+	detail.position=Vector2(24,258); detail.size=Vector2(376,144)
 	for button in mode_tabs:
 		game.hideout_ui.apply_display_button_style(button,Color("#b8a476"),button.text==("SIEGE" if tab=="siege" else "DUNGEONS"))
 	var mode_line: String="Escalating survival • extract from round 10.\nPush past round 20 to chase Crownroot.\nBest: round %d • score %d" % [progress.data.highest,progress.data.best_score] if tab=="siege" else "Rootglass Vault: targeted Mossglass rewards.\nRelic Route: branching rooms and encounters.\nChoose your route; keep your owned gear."
@@ -129,7 +130,7 @@ func show_modes(tab: String="siege") -> void:
 	detail.text="%s\nCrownroot fragments: %d / %d → Gravebloom Staff\nRun enhancements expire on return.\nRift Sigils: %d • earn one per clear (8+ foes)." % [mode_line,progress.data.red_fragments,Catalog.RED_TARGET,int(game.rift_progress.sigils)]
 	mythical_chase.visible=tab=="dungeons";mythical_chase.refresh(game.rift_progress)
 	if tab=="dungeons":
-		detail.text="Rootglass: local loot. Relic Route: branching rooms.\nRift Sigils: %d | earn 1 per clear with 8+ foes.\nPrism Rift: costs 2; optional harder encounters.\nMythical: 1%% per elite clear; first 8 finds are unique." % int(game.rift_progress.sigils)
+		detail.text="[b]CHOOSE YOUR CHALLENGE[/b]\nRootglass Vault: targeted Mossglass loot.\nRelic Route: branching rooms and encounters.\n"+("Clear Treasure Ruins to unlock these free routes.\n" if buttons[1].disabled and buttons[2].disabled else "Both ordinary routes are free to enter.\n")+"Prism Rift: 2 earned Sigils; harder encounters.\nSigils: %d · earn 1 per clear with 8+ foes.\nMythical: 1%% per elite clear; guaranteed by clear 24." % int(game.rift_progress.sigils)
 	else:
 		detail.text+="\nPrism Rift and Mythical collection: see Dungeons."
 
@@ -139,11 +140,12 @@ func show_modes(tab: String="siege") -> void:
 	for index in [0,1,2,5,3,4]:
 		var button: Button=buttons[index]
 		if button.visible:
-			button.position=Vector2(24,354+visible_index*54); button.size.y=50; visible_index+=1
+			button.position=Vector2(24,414+visible_index*64); button.size.y=60; visible_index+=1
 			var primary: bool=button==buttons[0] or (tab=="dungeons" and button==buttons[1])
 			button.set_meta("ui_intent","primary" if primary else "secondary")
 			preload("res://lootlings_ui.gd").apply_button(button,Color("#172442"),Color("#d4ad65"))
 			button.add_theme_font_size_override("font_size",17 if primary else 13)
+	panel.size.y=414+visible_index*64+12
 
 func choose(index: int) -> void:
 	if Time.get_ticks_msec()-selected_at<180: return

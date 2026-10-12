@@ -194,6 +194,11 @@ var shop_status: RichTextLabel
 var shop_detail: RichTextLabel
 var shop_buy_button: Button
 var shop_detail_panel: Panel
+var contracts_back:Button
+var contracts_return_screen:="home"
+var contract_feedback:Label
+var lore_back:Button
+var lore_return_screen:="archive"
 var shop_status_panel: Panel
 var shop_message_active := false
 var shop_status_dismiss: Button
@@ -535,12 +540,12 @@ func refresh_phase4() -> void:
 	phase4_detail.text = phase4_message if not phase4_message.is_empty() else "Relic Rank %d\nRegional materials shape named gear. Boss seals bind a Rare blueprint craft.\nMastery comes from use; no daily clock." % expedition_progress.rank()
 	phase4_message = ""
 	if phase4_mode == "archive":
-		phase4_detail.text = "Select a record to inspect. Unknown finds keep their names until you discover them."
+		phase4_detail.text = "[b][color=#ffe6ad]ILEX'S COLLECTIONS[/color][/b]\n\nChoose a shelf above to inspect your discoveries, equipment records and earned keepsakes.\n\nUndiscovered records stay sealed until you find them. Stories can be replayed without granting extra rewards."
 		for category in ["Mastery","Characters","Named gear","Field discoveries","Blueprints","Relic Siege","Home keepsakes"]:
 			var button := make_button(phase4_list,"",Rect2(0,0,410,56),Color("#172442"),Color("#7087ae"),16)
-			button.set_meta("paper_selection",true)
+			button.set_meta("paper_selection",false)
 			button.set_meta("ui_sound","archive_page")
-			preload("res://station_presentation.gd").paper_button(button)
+			LootlingsUI.apply_rarity_card(button,Color("#8799ba"))
 			var icon_name: String={"Mastery":"core","Characters":"res://art/sprites/relic_beast_base.png","Named gear":"res://art/production/phase4e/items/armour_inventory_v1/mossguard_harness.png","Field discoveries":"res://art/sprites/items/beta/vault_scroll.png","Blueprints":"gear_weapon","Relic Siege":"gear_rune","Home keepsakes":"res://art/ui/trophies/category_bosses.png"}[category]
 			# Use verified canonical icons, with all decorative children ignoring touch.
 			if icon_name=="core": icon_name="core_neutral"
@@ -580,6 +585,8 @@ func refresh_phase4() -> void:
 						var found: bool = expedition_progress.data.seen.has("item:"+str(source.id))
 						var pieces: int = int(expedition_progress.data.fragments.get(source.id,0))
 						phase4_detail.text += "%s • %s\n" % [str(source.name) if found or pieces > 0 else "Undiscovered gear", "collected" if found else "blueprint %d/3" % pieces]
+				phase4_detail.text="[b][color=#ffe6ad]"+category.to_upper()+"[/color][/b]\n\n"+phase4_detail.text
+				phase4_detail.scroll_to_line(0)
 			)
 		phase4_action.visible=false; track_button.visible=false; restore_phase4_selection(); return
 	var entries: Array = Phase4.ITEMS if phase4_mode == "blueprints" else CampaignSystem.ORDER
@@ -652,22 +659,35 @@ func build_contracts() -> void:
 	contracts_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	contracts_content.visible = false
 	add_child(contracts_content)
-	make_button(contracts_content, "‹ EXPEDITIONS", Rect2(20, 20, 158, 48), Color("#202d4d"), Color("#7f94bc"), 13).pressed.connect(show_campaign)
+	contracts_back=make_button(contracts_content, "‹ HUB", Rect2(20, 20, 158, 48), Color("#202d4d"), Color("#7f94bc"), 13)
+	contracts_back.pressed.connect(return_from_contracts)
 	make_label(contracts_content, "CONTRACTS", 26, Rect2(220, 23, 240, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
 	LootlingsUI.add_icon(contracts_content,Rect2(180,26,30,38),"res://art/production/phase4e/props/contract_banner.png")
 	make_button(contracts_content,"REGIONAL BOUNTIES",Rect2(24,70,432,48),Color("#172442"),Color("#7087ae"),14).pressed.connect(func(): show_phase4("contracts"))
 	make_label(contracts_content, "Three local jobs • progress through play\nClaim a reward to receive a fresh job", 14, Rect2(24, 126, 432, 52), HORIZONTAL_ALIGNMENT_CENTER, Color("#dbe7ff"))
 	for slot in range(3):
-		var button := make_button(contracts_content, "", Rect2(30, 190 + slot * 148, 420, 126), Color("#172442"), Color("#d4ad65"), 16)
+		var button := make_button(contracts_content, "", Rect2(30, 190 + slot * 164, 420, 144), Color("#172442"), Color("#d4ad65"), 16)
 		LootlingsUI.apply_rarity_card(button,Color("#d4ad65"))
-		LootlingsUI.add_icon(button,Rect2(18,48,44,44),"currency_gold")
+		LootlingsUI.add_icon(button,Rect2(18,84,44,44),"currency_gold")
 		make_label(button,"",18,Rect2(80,12,320,28),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6ad")).name="JobName"
 		make_label(button,"",14,Rect2(80,43,320,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#dbe7ff")).name="Requirement"
-		make_label(button,"",15,Rect2(80,78,320,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#b8d3df")).name="Reward"
+		make_label(button,"",15,Rect2(80,84,320,26),HORIZONTAL_ALIGNMENT_LEFT,Color("#b8d3df")).name="Reward"
+		make_label(button,"",12,Rect2(80,114,320,20),HORIZONTAL_ALIGNMENT_LEFT,Color("#b8d3df")).name="State"
+		var progress:=ProgressBar.new();progress.name="Progress";progress.position=Vector2(80,74);progress.size=Vector2(320,6);progress.show_percentage=false;progress.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		var background:=StyleBoxFlat.new();background.bg_color=Color("#0b1628");background.set_corner_radius_all(3);progress.add_theme_stylebox_override("background",background)
+		var fill:=StyleBoxFlat.new();fill.bg_color=Color("#ceb37b");fill.set_corner_radius_all(3);progress.add_theme_stylebox_override("fill",fill);button.add_child(progress)
+		progress.set_deferred("size",Vector2(320,6))
 		button.pressed.connect(func(): contract_claim_requested.emit(slot))
 		contract_buttons.append(button)
+	contract_feedback=make_label(contracts_content,"Jobs have no expiry. Claiming replaces only that job.",15,Rect2(30,704,420,76),HORIZONTAL_ALIGNMENT_CENTER,Color("#c4d3e7"))
+
+func return_from_contracts() -> void:
+	if contracts_return_screen=="campaign":show_campaign()
+	else:show_home()
 
 func show_contracts() -> void:
+	if current_screen in ["home","campaign"]:contracts_return_screen=current_screen
+	contracts_back.text="‹ EXPEDITIONS" if contracts_return_screen=="campaign" else "‹ HUB"
 	dismiss_dialogue()
 	current_screen = "contracts"
 	set_screen(contracts_content)
@@ -677,13 +697,17 @@ func refresh_contracts() -> void:
 	if contracts == null: return
 	for slot in range(3):
 		var item: Dictionary = contracts.offer(slot)
+		if item.is_empty():
+			contract_buttons[slot].disabled=true;contract_buttons[slot].get_node("JobName").text="No job available";contract_buttons[slot].get_node("Requirement").text="Return when another job is posted";contract_buttons[slot].get_node("Reward").text="";contract_buttons[slot].get_node("State").text="UNAVAILABLE";contract_buttons[slot].get_node("Progress").value=0;continue
 		var ready := int(item.progress) >= int(item.target)
 		var button:Button=contract_buttons[slot]
 		var goals:Dictionary={"kill":"Defeat enemies", "miniboss":"Defeat a miniboss", "chest":"Open chests", "boss":"Defeat a boss", "win":"Return victorious"}
 		button.text=""
 		button.get_node("JobName").text=str(item.name)
 		button.get_node("Requirement").text="%s • %d / %d" % [goals.get(str(item.event),"Explore"),item.progress,item.target]
-		button.get_node("Reward").text="CLAIM %d LOOTCOINS" % item.gold if ready else "%d Lootcoins reward • keep adventuring" % item.gold
+		button.get_node("Reward").text="CLAIM %d LOOTCOINS" % item.gold if ready else "Reward · %d Lootcoins" % item.gold
+		button.get_node("State").text="READY TO CLAIM" if ready else "IN PROGRESS" if item.progress>0 else "AVAILABLE · PROGRESS THROUGH PLAY"
+		button.get_node("Progress").max_value=item.target;button.get_node("Progress").value=item.progress
 		button.get_node("Reward").modulate=Color("#fff0a7") if ready else Color.WHITE
 		button.disabled=not ready
 		button.tooltip_text="Claim your reward" if ready else "%s to finish this job" % goals.get(str(item.event),"Explore")
@@ -1015,9 +1039,8 @@ func build_lore() -> void:
 	lore_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	lore_content.visible = false
 	add_child(lore_content)
-	make_button(lore_content, "‹ TROPHIES", Rect2(20, 20, 124, 48), Color("#202d4d"), Color("#7f94bc"), 15).pressed.connect(show_achievements)
+	lore_back=make_button(lore_content, "‹ ARCHIVE", Rect2(20, 20, 124, 48), Color("#202d4d"), Color("#7f94bc"), 15);lore_back.pressed.connect(return_from_lore)
 	make_label(lore_content, "FIELD NOTES", 27, Rect2(148, 23, 312, 42), HORIZONTAL_ALIGNMENT_CENTER, Color("#ffe178"))
-	LootlingsUI.add_icon(lore_content,Rect2(159,29,34,34),"res://art/production/phase4e/items/trail_map.png")
 	for index in range(FieldNotes.CATEGORIES.size()):
 		var category: String = FieldNotes.CATEGORIES[index]
 		var button := make_button(lore_content, category, Rect2(20+index*89,90,85,48), Color("#202d4d"), Color("#b5a0de"), 13)
@@ -1035,14 +1058,14 @@ func build_lore() -> void:
 	lore_landscape_backing.color=Color("#071027e8");lore_landscape_backing.mouse_filter=Control.MOUSE_FILTER_IGNORE;lore_landscape_backing.visible=false;art_panel.add_child(lore_landscape_backing)
 	lore_heading=make_label(art_panel,"",22,Rect2(142,14,270,100),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe178"))
 	lore_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	var panel := make_panel(lore_content, Rect2(24,292,432,421), Color("#10162ff2"), Color("#b5a0de"))
+	var panel := make_panel(lore_content, Rect2(24,292,432,390), Color("#10162ff2"), Color("#b5a0de"))
 	LootlingsUI.apply_material(panel, "relic")
-	lore_detail = LootlingsUI.rich_label(panel, Rect2(24,22,384,377), 18, Color("#e7edff"))
+	lore_detail = LootlingsUI.rich_label(panel, Rect2(24,22,384,346), 18, Color("#e7edff"))
 	lore_detail.scroll_active = true
 	lore_detail.mouse_filter=Control.MOUSE_FILTER_STOP
-	make_button(lore_content, "‹ PREVIOUS", Rect2(28, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(-1))
-	make_button(lore_content, "NEXT ›", Rect2(248, 739, 204, 64), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(1))
-	make_button(lore_content, "▷ MEMORIES / STORY REPLAY", Rect2(40, 805, 400, 44), Color("#202d4d"), Color("#c99cff"), 14).pressed.connect(show_memories)
+	make_button(lore_content, "PREVIOUS", Rect2(28, 694, 204, 60), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(-1))
+	make_button(lore_content, "NEXT", Rect2(248, 694, 204, 60), Color("#202d4d"), Color("#7f94bc"), 16).pressed.connect(cycle_lore.bind(1))
+	make_button(lore_content, "MEMORIES · STORY REPLAY", Rect2(40, 774, 400, 60), Color("#202d4d"), Color("#c99cff"), 14).pressed.connect(show_memories)
 
 func build_memories() -> void:
 	memory_content = Control.new()
@@ -1094,7 +1117,7 @@ func refresh_memories() -> void:
 		button.text=""
 		LootlingsUI.apply_button(button,Color("#17294b"),Color("#c99cff"))
 		var text_x:=144 if illustrated else 86 if unlocked else 16
-		var caption:=make_label(button,"%s\n%s" % [str(entry.name), "Revisit this echo"] if unlocked else "UNDISCOVERED MEMORY\nFind this story on your travels",15,Rect2(text_x,12,396-text_x-16,88 if illustrated else 56),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff") if unlocked else Color("#91a2c0"))
+		var caption:=make_label(button,"%s\n%s" % [str(entry.name), "REMEMBERED · REPLAY" if id in profile.get("memories",[]) else "AVAILABLE STORY · REPLAY"] if unlocked else "SEALED MEMORY\nDiscover this story on your travels",15,Rect2(text_x,12,396-text_x-16,88 if illustrated else 56),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff") if unlocked else Color("#91a2c0"))
 		caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		if unlocked:
@@ -1114,10 +1137,17 @@ func refresh_memories() -> void:
 		memory_list.add_child(button)
 
 func show_lore() -> void:
+	if current_screen=="achievements":lore_return_screen="achievements"
+	elif current_screen=="workshop" and phase4_mode=="archive":lore_return_screen="archive"
+	lore_back.text="‹ TROPHIES" if lore_return_screen=="achievements" else "‹ ARCHIVE"
 	dismiss_dialogue()
 	current_screen = "lore"
 	set_screen(lore_content)
 	refresh_lore()
+
+func return_from_lore() -> void:
+	if lore_return_screen=="achievements":show_achievements()
+	else:show_phase4("archive")
 
 func refresh_lore() -> void:
 	lore_entries=[]
@@ -1144,8 +1174,8 @@ func cycle_lore(direction: int) -> void:
 	lore_art.position=Vector2(12,8);lore_art.size=Vector2(408,224) if landscape else Vector2(116,112)
 	lore_landscape_backing.position.y=197 if landscape else 85
 	lore_detail.get_parent().position.y=404 if landscape else 292
-	lore_detail.get_parent().size.y=309 if landscape else 421
-	lore_detail.size.y=265 if landscape else 377
+	lore_detail.get_parent().size.y=278 if landscape else 390
+	lore_detail.size.y=234 if landscape else 346
 	lore_art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED if landscape else TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	lore_art.clip_contents=landscape
 	lore_heading.position=Vector2(20,199) if landscape else Vector2(142,14)
@@ -1660,7 +1690,7 @@ func build_transition_overlay() -> void:
 
 func build_dialogue_overlay() -> void:
 	var speech_veil:=ColorRect.new(); speech_veil.name="DialogueVeil"; speech_veil.color=Color("#050b171c"); speech_veil.size=Vector2(480,854); speech_veil.z_index=79; speech_veil.mouse_filter=Control.MOUSE_FILTER_STOP; speech_veil.visible=false; add_child(speech_veil)
-	speech_panel=make_panel(self,Rect2(20,599,440,224),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
+	speech_panel=make_panel(self,Rect2(20,548,440,224),Color("#10182bf5"),Color("#d8bd7b")); speech_panel.visible=false; speech_panel.z_index=80
 	speech_panel.visibility_changed.connect(func():speech_veil.visible=speech_panel.visible)
 	speech_portrait=TextureRect.new(); speech_portrait.position=Vector2(14,14); speech_portrait.size=Vector2(54,64); speech_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; speech_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; speech_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE; speech_panel.add_child(speech_portrait)
 	speech_name=make_label(speech_panel,"",17,Rect2(82,12,294,32),HORIZONTAL_ALIGNMENT_LEFT,Color("#ffe6a0"))
@@ -1966,12 +1996,14 @@ func make_panel(parent: Node, rect: Rect2, fill: Color, border: Color) -> Panel:
 
 func make_label(parent: Node, value: String, font_size: int, rect: Rect2, alignment: HorizontalAlignment, color: Color) -> Label:
 	var label := Label.new()
+	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	label.text = value
 	label.position = rect.position
 	label.size = rect.size
 	label.horizontal_alignment = alignment
 	label.add_theme_font_size_override("font_size", font_size)
 	preload("res://lootlings_typography.gd").label(label,font_size)
+	label.size=rect.size
 	label.add_theme_color_override("font_color", color)
 	parent.add_child(label)
 	return label

@@ -13,7 +13,7 @@ func build(hub) -> void:
  var surface:Control=hub.home_content
  text(surface,"MAIN HUB",Rect2(120,9,240,22),16,Color("#ffe3ac"))
  hub.resource_label=UI.rich_label(surface,Rect2(32,31,416,22),11,Color("#dce6f5"))
- world_buttons.GateEntrance=feature(surface,"GateEntrance",Rect2(148,100,184,232),"ENTER THE GATE  ›","Choose an expedition",func():hub.play_requested.emit(),17)
+ world_buttons.GateEntrance=feature(surface,"GateEntrance",Rect2(148,100,184,232),"ENTER THE GATE","Choose an expedition",func():hub.play_requested.emit(),17)
  # The same shrine hit area includes Sera; one service, one named world location.
  world_buttons.ShrineProp=feature(surface,"ShrineProp",Rect2(12,208,128,290),"Sera · Upgrades","Permanent power",hub.show_upgrades)
  talk_buttons.sera=talk_badge(world_buttons.ShrineProp,Rect2(76,150,48,48),"Relic Keeper")

@@ -3384,7 +3384,7 @@
       "_exit_tree",
       "observe_success"
     ],
-    "source_sha256": "35c5030cfd0ed6b6d21654aecaf31dcc4ac20f5f16cb8c01181f878d4c41513b"
+    "source_sha256": "36b2d6bd45a55bae3cdf8ef66871a2bc8ec81a170c26f5de3e4525b89a6da8e2"
   },
   "contract_system.gd": {
     "constants": {
@@ -5160,6 +5160,7 @@
       "refresh_phase4",
       "build_campaign",
       "build_contracts",
+      "return_from_contracts",
       "show_contracts",
       "refresh_contracts",
       "show_campaign",
@@ -5180,6 +5181,7 @@
       "show_memories",
       "refresh_memories",
       "show_lore",
+      "return_from_lore",
       "refresh_lore",
       "cycle_lore",
       "refresh_achievements",
@@ -5256,7 +5258,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "8a85235624a5bc06f6f664ce5864d5781e1308478a7a8d62363f99972ee06ec6"
+    "source_sha256": "947677bd79ca097e06f138247baee5d88aa74c8581140ca2c79a746a9e4d796f"
   },
   "home_catalog.gd": {
     "constants": {
@@ -5602,7 +5604,7 @@
       "finish_details",
       "refresh"
     ],
-    "source_sha256": "5a9418af92bcda113433ac318213de5601f07895f4a2ef30f0cf8b42dd61b9b0"
+    "source_sha256": "307073a7517a925edc4e143faebf8fe43c67525fb87d12f31004087b4363311f"
   },
   "hud_portrait_crest.gd": {
     "constants": {},
@@ -7371,7 +7373,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "802055ca5c4bcdbad936086d130778b5c8ae7b5203148c93052d567eb902d172"
+    "source_sha256": "8cbe30d11add55fa3c19706819acb234458e98d0b712c705032a775af2d814c1"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9463,7 +9465,7 @@
       "setup_targeted",
       "close_modes"
     ],
-    "source_sha256": "695f756f6f2bdcc8487f45d58dec2ca36ed658e438479d63d6a40d74ab84b95f"
+    "source_sha256": "05320be3bd582688197c64a3395b76cea562671c3a2f83dcfa53143f193f6780"
   },
   "reward_reveal_catalog.gd": {
     "constants": {

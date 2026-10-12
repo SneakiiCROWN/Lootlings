@@ -79,6 +79,7 @@ func _process(_delta:float) -> void:
 		if persist()!=OK:practised_ids.erase("combat")
 	chip.visible=enabled and not context in read_ids and game.state in ["playing","personal_home"] or enabled and not context in read_ids and game.state=="hideout" and game.hideout_ui.current_screen=="home"
 	if game.startup_ui.visible or (is_instance_valid(game.debug_panel) and game.debug_panel.visible) or game.touch_ux!=null and is_instance_valid(game.touch_ux.dialog):chip.visible=false
+	if is_instance_valid(game.hideout_ui) and is_instance_valid(game.hideout_ui.speech_panel) and game.hideout_ui.speech_panel.is_visible_in_tree():chip.visible=false
 	# A hidden suggestion must never be adopted by a disposable confirmation dialog.
 	if not panel.visible and chip.visible:
 		var target:Control=game.input_surface()
