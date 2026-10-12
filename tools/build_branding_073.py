@@ -46,7 +46,15 @@ front=Image.new('RGBA',(432,432));front.alpha_composite(portrait,((432-extent[0]
 # Exact approved blue crystal pixels, outside the mascot's canonical gold Core.
 crystal=wordmark.crop((595,0,654,47));ca=np.array(crystal);ca[:,:,3]=np.where(ca[:,:,0]>ca[:,:,2],0,ca[:,:,3]);crystal=Image.fromarray(ca);crystal.thumbnail((57,57),Image.Resampling.LANCZOS)
 crystal.thumbnail((30,30),Image.Resampling.LANCZOS);front.alpha_composite(crystal,(272,273));front.save(OUT/'android_foreground.png')
-mono=Image.new('RGBA',(432,432),'white');mono.putalpha(front.getchannel('A'));mono.save(OUT/'android_monochrome.png')
+mono=Image.new('RGBA',(432,432),'white');mono_alpha=np.array(front.getchannel('A'));fp=np.array(front)
+# Exact dark eye/nose pixels become negative space, preserving the original
+# expression rather than inventing a second monochrome face.
+origin=((432-extent[0])//2,(432-extent[1])//2)
+left=round(origin[0]+(610-350)*factor);right=round(origin[0]+(950-350)*factor)
+top=round(origin[1]+385*factor);bottom=round(origin[1]+600*factor)
+region=fp[top:bottom,left:right,:3];holes=(region[:,:,0]<100)&(region[:,:,1]<95)&(region[:,:,2]<90)
+mono_alpha[top:bottom,left:right]=np.where(holes,0,mono_alpha[top:bottom,left:right])
+mono.putalpha(Image.fromarray(mono_alpha));mono.save(OUT/'android_monochrome.png')
 # Opaque full-bleed background; the launcher owns its mask, no baked black corners.
 sky=Image.open(ROOT/'art/backgrounds/lootlings_living_title_wide_068.png').convert('RGBA');sky=sky.crop((725,0,1035,235));bg=ImageOps.fit(sky,(432,432)).filter(ImageFilter.GaussianBlur(1.5));shade=Image.new('RGBA',(432,432),(5,14,30,100));bg=Image.alpha_composite(bg,shade);bp=bg.load()
 plain_bg=bg.copy()
