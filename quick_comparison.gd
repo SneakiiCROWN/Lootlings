@@ -24,7 +24,12 @@ static func install(label:RichTextLabel,target,new_item:Dictionary,old_item:Dict
 	# should begin with modifiers and signatures rather than repeat the table.
 	var effective:int=label.text.find("[b]EFFECTIVE IF EQUIPPED[/b]")
 	var effects:int=label.text.find("[b]ALL ITEM EFFECT CHANGES[/b]",effective)
-	if effective>=0 and effects>effective:label.text=label.text.substr(0,effective)+label.text.substr(effects)
+	if effective>=0 and effects>effective:
+		var block:String=label.text.substr(effective,effects-effective)
+		var cap_start:int=block.find("Caps:")
+		var caps:String=block.substr(cap_start).strip_edges() if cap_start>=0 else ""
+		label.text=label.text.substr(0,effective)+"Current encounter and health conditions; excludes untriggered procs.\n\n"+label.text.substr(effects)
+		if not caps.is_empty():label.text+="\n\n"+caps
 	if not lore.is_empty() and not label.text.contains(lore):label.text+="\n\n[b]ITEM LORE[/b]\n"+lore
 static func reset(label:RichTextLabel) -> void:
 	var view=label.get_meta("quick_comparison") if label.has_meta("quick_comparison") else null
