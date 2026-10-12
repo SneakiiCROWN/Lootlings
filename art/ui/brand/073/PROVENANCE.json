@@ -1,0 +1,37 @@
+{
+  "method": "Existing canonical pixels with deterministic framing/scaling; no generated replacement face or logo.",
+  "sources": {
+    "art/sprites/relic_beast_base.png": "0a44b6ebbd856bb26c873b8d1be042d73dc7602ef1844fb12876c0aedeb1ee1e",
+    "art/reference/canonical/characters/Lootlings_Main_Mascot_RelicBeast_Canonical.png": "746e7e23cd8af91334a48b977b1f29eec7f9ab0d7471da4aad63f8e189837c15",
+    "art/ui/brand/lootlings_wordmark.png": "e0b26aa146e9786cc13f6db9ab14fac494bb7011f2cfe725b7b03f3a1fa428dd",
+    "art/backgrounds/lootlings_living_title_068.png": "0c26ce8f6bb211a7995cc79208174330775b5940ddb1c6df3ad714ccb4926f9f",
+    "art/backgrounds/lootlings_living_title_wide_068.png": "5b7965dd11ae6de040bd6c3cd3b987bd43402ab22015284d5aabc56be52d6e7d",
+    "art/backgrounds/lootlings_living_title_tall_068.png": "8f2176f1a547b685e0f846510719a81157c5b502519f784663abd09fdda87dca"
+  },
+  "wordmark_components": [
+    {
+      "pixels": 110746,
+      "retained": true
+    },
+    {
+      "pixels": 21,
+      "retained": false
+    },
+    {
+      "pixels": 1016,
+      "retained": false
+    },
+    {
+      "pixels": 21,
+      "retained": false
+    }
+  ],
+  "adaptive_silhouette_radius_limit": 126,
+  "foreground_extent": [
+    198,
+    171
+  ],
+  "concepts": "Owner attachments are direction only, not canon. Their different gem/markings are not installed.",
+  "mascot_core": "original gold retained; separate approved blue wordmark crystal accent",
+  "physical_device_acceptance": false
+}

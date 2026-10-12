@@ -1,0 +1,1 @@
+Owner concepts are visual direction only. Do not register their different facial markings, absent/small horns or blue replacement chest gem as canonical identity. Production derives the unchanged approved Relic Beast body, original logo and accepted title paintings. No image-generation candidates authored this pass.

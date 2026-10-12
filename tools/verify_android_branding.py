@@ -1,10 +1,12 @@
 """Inspect actual Android resources, not just export preset paths. Requires Pillow."""
 from pathlib import Path
 from PIL import Image, ImageChops, ImageStat, ImageDraw
-import io, json, zipfile, argparse
+import io, json, zipfile, argparse, re
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('apk');args=p.parse_args()
 report=[];tiles=[]
+preset=(ROOT/'export_presets.cfg').read_text()
+folder=Path(re.search(r'launcher_icons/main_192x192="res://([^"]+)"',preset)[1]).parent
 with zipfile.ZipFile(args.apk) as apk:
     for entry,source in [
         ('res/mipmap/icon.webp','lootlings_icon.png'),
@@ -13,7 +15,7 @@ with zipfile.ZipFile(args.apk) as apk:
         ('res/mipmap/icon_monochrome.webp','android_monochrome.png'),
         ('res/drawable/splash_icon.webp','android_foreground.png')]:
         actual=Image.open(io.BytesIO(apk.read(entry))).convert('RGBA')
-        expected=Image.open(ROOT/'art/ui/brand'/source).convert('RGBA').resize(actual.size,Image.Resampling.LANCZOS)
+        expected=Image.open(ROOT/folder/source).convert('RGBA').resize(actual.size,Image.Resampling.LANCZOS)
         # Composite on the same navy so invisible RGB is irrelevant.
         bg=Image.new('RGBA',actual.size,'#0d182d')
         a=Image.alpha_composite(bg,actual).convert('RGB');e=Image.alpha_composite(bg,expected).convert('RGB')

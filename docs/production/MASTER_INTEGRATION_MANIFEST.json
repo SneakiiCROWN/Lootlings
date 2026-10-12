@@ -16,23 +16,23 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 8418,
-    "total_launch_scope_slots": 7171,
+    "total_records": 8429,
+    "total_launch_scope_slots": 7175,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4584,
+      "LIVE_BETA": 4588,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
       "NEEDS_NEW_CANON_EXPORT": 2588,
-      "REFERENCE_ONLY": 1021,
+      "REFERENCE_ONLY": 1028,
       "REJECTED_IDENTITY_DRIFT": 4,
       "PLANNED_NOT_IMPLEMENTED": 10,
       "NOT_REQUIRED_FOR_CURRENT_LAUNCH": 211
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4583,
+      "LIVE_BETA": 4587,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -54,7 +54,7 @@
     "ART_REFERENCE_INDEX.md": "c7330135a3e91975b0b49ed49eaad45ff2090cca08d371dfd08b75b2ac4f9848",
     "PRODUCTION_PHASE4E.md": "4a662e34f73222a0bcac29900ba3f01c5e6eee9fe0e0f863cfad89c5dc1d0555",
     "docs/production/phase4e/polish/ART_EXPORT_CONTRACT.md": "360a6f4ec978ba2e95e941236879236f6f638f369fc531e74cca1c186c925c75",
-    "export_presets.cfg": "6bc525c17bd4faec4952c374ca15163abf87d6f71615faa8bc07970aba1f9c00",
+    "export_presets.cfg": "fdfb711e5e33891bdb876648d97f586f7b0f6ad37fd49bd6f81bc25aecce2bcc",
     "art/production_pose_manifest.json": "e16743d233dffeb9977bc027567799d668264d222b4ef560407a3f1a34ad9ece",
     "art/production_boss_manifest.json": "79dceccee58d3b70c9db2ce5eee36f195c56c8d3727511cb4f9017179e2c5c46",
     "art/production/phase4e/runtime_manifest.json": "3c6a0e15b548b87a4d4b4267257ce4252fa3fa7087e5e06d29e5a34f1e5223dc",
@@ -140,6 +140,7 @@
     "inventory_system.gd": "e3799f21d587006de6d20d7d295a1eb6111eb27a1b5e86083104921b83cd645a",
     "item_catalog.gd": "4dda3da9e0f5a9541d3e229332e9916e7de2d7f733fd78480348c34979d62e98",
     "item_icon.gd": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8",
+    "launch_presentation.gd": "7dff11ab239dffb916d68f5ea2d0e3c8a344e996c7bfe237d5856ced0ce8c8ac",
     "local_save_provider.gd": "600020dc39e9283986de6f83a115a75b06492f4bf977d93d300217e78fac1ba3",
     "lootling.gd": "ff22675d4b20e436531c222163ad2174a4f869752e57f425c43acaecdc4a1386",
     "lootlings_typography.gd": "0e94ee3b95c9add1c9f94cfffecd230ff5ef2fb0eb0d5744447b718449df2f36",
@@ -393105,6 +393106,70 @@
       }
     },
     {
+      "slot_id": "source:art/source/branding073/owner_icon_direction.png",
+      "game_id": "owner_icon_direction",
+      "category": "reference",
+      "subject": "owner_icon_direction",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/branding073/owner_icon_direction.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "eba93c81b75cd3d9528c5bc6401e25a7cfd282e2b3e7ba79e0d3fb9922c7feda",
+        "rejection": null
+      }
+    },
+    {
+      "slot_id": "source:art/source/branding073/owner_splash_direction.png",
+      "game_id": "owner_splash_direction",
+      "category": "reference",
+      "subject": "owner_splash_direction",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": "art/source/branding073/owner_splash_direction.png",
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": null,
+      "implementation_file": null,
+      "dependency": [],
+      "blocker": "Reference is not a production state; no new canon approval inferred",
+      "priority": "P2",
+      "acceptance_status": "OPEN",
+      "evidence": {
+        "sha256": "c5ef65f9f6d523ee67b4b7e6966a0b41652f6c4f86addf67aa43b12803516f14",
+        "rejection": null
+      }
+    },
+    {
       "slot_id": "source:art/source/combat_continuation_046/dew_hexer_candidate.png",
       "game_id": "dew_hexer_candidate",
       "category": "reference",
@@ -409367,6 +409432,298 @@
       "acceptance_status": "BETA; owner/perceptual acceptance open",
       "evidence": {
         "sha256": "33cca9b8be406138049ee4b0e26fd50e18bf5259ebd9a1a4bdea44c28a207b87",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/android_background.png",
+      "game_id": "android_background",
+      "category": "brand",
+      "subject": "android_background",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/android_background.png",
+      "target_production_path": "art/ui/brand/073/android_background.png",
+      "dimensions": [
+        432,
+        432
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "1e6841f553862e582c20737ac6173d887b2a7f535f6e3bf24f18798ec2bd2cad",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/android_foreground.png",
+      "game_id": "android_foreground",
+      "category": "brand",
+      "subject": "android_foreground",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/android_foreground.png",
+      "target_production_path": "art/ui/brand/073/android_foreground.png",
+      "dimensions": [
+        432,
+        432
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "77d575ca27b73e23f16d7564ca5ea2a203f7c30d53b2ab8dfe3e1e860a7c3fe4",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/android_monochrome.png",
+      "game_id": "android_monochrome",
+      "category": "brand",
+      "subject": "android_monochrome",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/android_monochrome.png",
+      "target_production_path": "art/ui/brand/073/android_monochrome.png",
+      "dimensions": [
+        432,
+        432
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "6ed8d84367748f07a390756d8dfdf408df5be86131339c0b13e3f77846ce7c40",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/boot_portrait.png",
+      "game_id": "boot_portrait",
+      "category": "brand",
+      "subject": "boot_portrait",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/boot_portrait.png",
+      "target_production_path": "art/ui/brand/073/boot_portrait.png",
+      "dimensions": [
+        720,
+        1279
+      ],
+      "background": "opaque",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "launch_presentation.gd"
+      ],
+      "implementation_file": [
+        "launch_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "a3f78c483058234a99f7119988c966e6e131ab0c0af7b1fe43263efcb9634be4",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/boot_tall.png",
+      "game_id": "boot_tall",
+      "category": "brand",
+      "subject": "boot_tall",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/boot_tall.png",
+      "target_production_path": "art/ui/brand/073/boot_tall.png",
+      "dimensions": [
+        720,
+        1560
+      ],
+      "background": "opaque",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "launch_presentation.gd"
+      ],
+      "implementation_file": [
+        "launch_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "9c8a4323fe15b560f34d13cdb3a067182f00702646ef176585bbcb2b52e09b6c",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/boot_wide.png",
+      "game_id": "boot_wide",
+      "category": "brand",
+      "subject": "boot_wide",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/boot_wide.png",
+      "target_production_path": "art/ui/brand/073/boot_wide.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "background": "opaque",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [
+        "launch_presentation.gd"
+      ],
+      "implementation_file": [
+        "launch_presentation.gd"
+      ],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "6b21309fb86f9b9553001690a8bcb207b2c6017a68270e76cd1a1a790b84545d",
+        "usage": "static resource or documented dynamic loader"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/lootlings_icon.png",
+      "game_id": "lootlings_icon",
+      "category": "brand",
+      "subject": "lootlings_icon",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/lootlings_icon.png",
+      "target_production_path": "art/ui/brand/073/lootlings_icon.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "1f7eeca5ec67a1f709375db6f54c69a1bd49cd8f36a5ef0a743cae166596b461",
+        "usage": "retained unreferenced production/historical export"
+      }
+    },
+    {
+      "slot_id": "asset:art/ui/brand/073/wordmark_clean.png",
+      "game_id": "wordmark_clean",
+      "category": "brand",
+      "subject": "wordmark_clean",
+      "state": null,
+      "facing": null,
+      "weapon_family": null,
+      "status": "REFERENCE_ONLY",
+      "launch_scope": false,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": "art/ui/brand/073/wordmark_clean.png",
+      "target_production_path": "art/ui/brand/073/wordmark_clean.png",
+      "dimensions": [
+        769,
+        228
+      ],
+      "background": "RGBA",
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": [],
+      "implementation_file": [],
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA; owner/perceptual acceptance open",
+      "evidence": {
+        "sha256": "e43f29cc54ef7bae28300832727a132fbbe3075ab75e8b6a4b658a6a8ce8c689",
         "usage": "retained unreferenced production/historical export"
       }
     },
@@ -434224,6 +434581,41 @@
       "evidence": {
         "methods": [
           "configure",
+          "_draw"
+        ]
+      }
+    },
+    {
+      "slot_id": "system:launch_presentation.gd",
+      "game_id": "launch_presentation_gd",
+      "category": "runtime_system",
+      "subject": "launch_presentation.gd",
+      "state": "implementation/hook",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "launch_presentation.gd",
+      "implementation_file": "launch_presentation.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "methods": [
+          "_ready",
+          "_process",
           "_draw"
         ]
       }

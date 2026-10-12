@@ -1,5 +1,5 @@
 """Verify the actual exported PE launcher icons against approved Lootlings icon art."""
-import argparse,struct,io,json
+import argparse,struct,io,json,re
 from pathlib import Path
 from PIL import Image,ImageChops,ImageStat
 ROOT=Path(__file__).resolve().parents[1]
@@ -28,9 +28,9 @@ def verify(path):
  groups=tree[14];group_id=next(k for k in groups if k==1) if 1 in groups else next(iter(groups));group=leaf(groups[group_id]);count=struct.unpack_from('<H',group,4)[0];payload=[];entries=[];cursor=6+count*16
  for i in range(count):
   width,height,colors,reserved,planes,bpp,size,id=struct.unpack_from('<BBBBHHIH',group,6+i*14);raw=leaf(tree[3][id]);assert len(raw)==size;entries.append(struct.pack('<BBBBHHII',width,height,colors,reserved,planes,bpp,size,cursor));payload.append(raw);cursor+=size
- ico=struct.pack('<HHH',0,1,count)+b''.join(entries)+b''.join(payload);out=ROOT/'.godot_test_data/windows';out.mkdir(exist_ok=True);(out/'exported_icon.ico').write_bytes(ico);actual=Image.open(io.BytesIO(ico));sizes=sorted(actual.ico.sizes());assert set(sizes)=={(s,s) for s in [16,32,48,64,128,256]};source=Image.open(ROOT/'art/ui/brand/lootlings_icon.png').convert('RGBA');report=[]
+ ico=struct.pack('<HHH',0,1,count)+b''.join(entries)+b''.join(payload);out=ROOT/'.godot_test_data/windows';out.mkdir(exist_ok=True);(out/'exported_icon.ico').write_bytes(ico);actual=Image.open(io.BytesIO(ico));sizes=sorted(actual.ico.sizes());assert set(sizes)=={(s,s) for s in [16,32,48,64,128,256]};icon=re.search(r'config/icon="res://([^"]+)"',(ROOT/'project.godot').read_text())[1];source=Image.open(ROOT/icon).convert('RGBA');report=[]
  for size in sizes:
   a=actual.ico.getimage(size).convert('RGBA');e=source.resize(size,Image.Resampling.LANCZOS);bg=Image.new('RGBA',size,'#0d182d');error=sum(ImageStat.Stat(ImageChops.difference(Image.alpha_composite(bg,a).convert('RGB'),Image.alpha_composite(bg,e).convert('RGB'))).mean)/3;assert error<8,(size,error);report.append({'size':list(size),'mean_rgb_error':round(error,3)})
- result={'exe':str(Path(path).resolve()),'approved_source':'art/ui/brand/lootlings_icon.png','actual_pe_group':group_id,'checks':report,'passed':True};(out/'icon-verification.json').write_text(json.dumps(result,indent=2),encoding='utf-8');return result
+ result={'exe':str(Path(path).resolve()),'approved_source':icon,'actual_pe_group':group_id,'checks':report,'passed':True};(out/'icon-verification.json').write_text(json.dumps(result,indent=2),encoding='utf-8');return result
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('exe');print(json.dumps(verify(p.parse_args().exe),indent=2))

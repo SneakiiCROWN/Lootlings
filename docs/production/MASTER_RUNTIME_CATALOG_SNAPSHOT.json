@@ -6816,6 +6816,25 @@
     ],
     "source_sha256": "69cff204a61ffc55016bef542bbec098b00a4b524f2e8762cbc89aa8e46b10f8"
   },
+  "launch_presentation.gd": {
+    "constants": {
+      "PORTRAIT": {
+        "resource_path": "res://art/ui/brand/073/boot_portrait.png"
+      },
+      "TALL": {
+        "resource_path": "res://art/ui/brand/073/boot_tall.png"
+      },
+      "WIDE": {
+        "resource_path": "res://art/ui/brand/073/boot_wide.png"
+      }
+    },
+    "methods": [
+      "_ready",
+      "_process",
+      "_draw"
+    ],
+    "source_sha256": "7dff11ab239dffb916d68f5ea2d0e3c8a344e996c7bfe237d5856ced0ce8c8ac"
+  },
   "local_save_provider.gd": {
     "constants": {
       "Safe": {

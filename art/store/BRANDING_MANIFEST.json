@@ -3,11 +3,27 @@
   "approved_adaptive_foreground": "art/ui/brand/android_foreground.png",
   "approved_wordmark": "art/ui/brand/lootlings_wordmark.png",
   "approved_splash": "art/ui/brand/boot_brand.png",
-  "canon_menu": "art/ui/brand/lootlings_title_ensemble_v2.png",
+  "canon_menu": "art/living_title_authority_068.json",
   "actual_native_store_screenshots": [
     "art/store/lootlings_title_1080x2340.png",
     "art/store/lootlings_title_1200x1920.png"
   ],
   "published_to_store": false,
-  "identity": "Exact mascot icon and dedicated canonical character identities; no alternate branding"
+  "identity": "Exact mascot icon and dedicated canonical character identities; no alternate branding",
+  "previous_approved_resources": {
+    "approved_icon": "art/ui/brand/lootlings_icon.png",
+    "approved_adaptive_foreground": "art/ui/brand/android_foreground.png",
+    "approved_wordmark": "art/ui/brand/lootlings_wordmark.png",
+    "approved_splash": "art/ui/brand/boot_brand.png"
+  },
+  "active_device_icon": "art/ui/brand/073/lootlings_icon.png",
+  "active_adaptive_foreground": "art/ui/brand/073/android_foreground.png",
+  "active_loading_scene": "launch_presentation.tscn",
+  "active_loading_art": [
+    "art/ui/brand/073/boot_portrait.png",
+    "art/ui/brand/073/boot_tall.png",
+    "art/ui/brand/073/boot_wide.png"
+  ],
+  "branding_layout_owner_acceptance": "PENDING",
+  "character_logo_authority": "Original approved sources unchanged; PROVENANCE.json"
 }
