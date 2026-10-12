@@ -62,6 +62,9 @@ Stable runtime IDs/implementation paths. LIVE_BETA is implemented, not final own
 | asset:art/backgrounds/beta/starfall_sanctum.png | starfall_sanctum / starfall_sanctum | LIVE_BETA | ['beta_art_catalog.gd'] |
 | asset:art/backgrounds/hoard_depths_arena.png | hoard_depths_arena / hoard_depths_arena | LIVE_BETA | ['vignette_catalog.gd', 'zone_catalog.gd'] |
 | asset:art/backgrounds/lootlings_hideout.png | lootlings_hideout / lootlings_hideout | LIVE_BETA | ['field_notes_catalog.gd', 'hideout_ui.gd', 'responsive_backdrop.gd', 'vignette_catalog.gd'] |
+| asset:art/backgrounds/lootlings_living_title_068.png | lootlings_living_title_068 / lootlings_living_title_068 | LIVE_BETA | ['startup_ui.gd'] |
+| asset:art/backgrounds/lootlings_living_title_tall_068.png | lootlings_living_title_tall_068 / lootlings_living_title_tall_068 | LIVE_BETA | ['startup_ui.gd'] |
+| asset:art/backgrounds/lootlings_living_title_wide_068.png | lootlings_living_title_wide_068 / lootlings_living_title_wide_068 | LIVE_BETA | ['startup_ui.gd'] |
 | asset:art/backgrounds/relic_shrine.png | relic_shrine / relic_shrine | LIVE_BETA | ['hideout_ui.gd'] |
 | asset:art/backgrounds/salvage_warrens_arena.png | salvage_warrens_arena / salvage_warrens_arena | LIVE_BETA | ['vignette_catalog.gd', 'zone_catalog.gd'] |
 | asset:art/backgrounds/salvager_shop.png | salvager_shop / salvager_shop | LIVE_BETA | ['hideout_ui.gd'] |

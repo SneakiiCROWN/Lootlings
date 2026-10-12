@@ -1,0 +1,32 @@
+[
+  {
+    "name": "combat_family_qa",
+    "exit": 0,
+    "seconds": 2.68,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "combat_staging_qa",
+    "exit": 0,
+    "seconds": 9.55,
+    "errors": [],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "encounter_qa",
+    "exit": 124,
+    "seconds": 300.03,
+    "errors": [
+      "SCRIPT ERROR: Assertion failed."
+    ],
+    "expected_diagnostics": []
+  },
+  {
+    "name": "status_timing_066_qa",
+    "exit": 0,
+    "seconds": 2.04,
+    "errors": [],
+    "expected_diagnostics": []
+  }
+]

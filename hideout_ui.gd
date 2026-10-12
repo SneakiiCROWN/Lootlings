@@ -545,7 +545,8 @@ func refresh_phase4() -> void:
 			# Use verified canonical icons, with all decorative children ignoring touch.
 			if icon_name=="core": icon_name="core_neutral"
 			if icon_name=="gear_weapon": icon_name="res://art/sprites/weapons/vanguard_hammer.png"
-			LootlingsUI.add_icon(button,Rect2(12,6,44,44),icon_name)
+			var record_icon:TextureRect=LootlingsUI.add_icon(button,Rect2(12,6,44,44),icon_name)
+			if category=="Home keepsakes":record_icon.texture=preload("res://home_catalog.gd").texture("home_dragon_keepsake")
 			make_label(button,category,17,Rect2(70,6,320,44),HORIZONTAL_ALIGNMENT_LEFT,Color("#e7edff")).mouse_filter=Control.MOUSE_FILTER_IGNORE
 			button.custom_minimum_size = Vector2(410,56)
 			button.set_meta("selection_id",category)

@@ -14,6 +14,7 @@ func review() -> void:
   var rng:int=game.rng.state;var loot_rng:int=game.loot_system.rng.state;var hp:float=game.enemy_hp
   game.audio_settings.combat_text_size="Large";game.audio_settings.combat_aggregate=false
   for kind in ["Physical","Fire_tick","Poison_tick"]:Numbers.add(game,123456,kind)
+  assert(game.enemy_hp==hp and game.rng.state==rng and game.loot_system.rng.state==loot_rng)
   if stage=="after":
    var local:Array=game.floating_texts.filter(func(item):return item.has("number_kind"))
    for i in range(1,local.size()):assert(local[i].pos.y-local[i-1].pos.y>=26)

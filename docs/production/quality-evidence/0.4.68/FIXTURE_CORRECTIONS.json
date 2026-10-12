@@ -1,0 +1,5 @@
+{
+  "early_result": "Legacy encounter_qa expected retired Run Scrip from ordinary packs. Existing delivered kill_enemy already sets reward=0 outside Siege.",
+  "correction": "Fixture now expects unchanged ordinary counter and existing capped Siege reward only when active. Game reward formula unchanged; final SAVE_ENCOUNTER_SOURCE passes.",
+  "title_fixture": "Corrected canvas-versus-pixel bounds assertion to actual engine screen transform, not a game regression."
+}

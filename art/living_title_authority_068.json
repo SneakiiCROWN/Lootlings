@@ -1,0 +1,57 @@
+{
+  "asset": "art/backgrounds/lootlings_living_title_068.png",
+  "sha256": "0c26ce8f6bb211a7995cc79208174330775b5940ddb1c6df3ad714ccb4926f9f",
+  "authority": "Explicit owner approval in this chat,2026-10-12: promote and finish Sera/Gloomlet composition as active title. Original dedicated identities preserved.",
+  "generation": "Built-in image_gen, one reference-locked cohesive title composition. No generated wordmark or controls.",
+  "references": [
+    {
+      "path": "art/backgrounds/treasure_ruins_arena.png",
+      "sha256": "b40dcd849dd56e0b4e5872b7a5f53bcf50110431fcd5f3457aeaced86606fb95"
+    },
+    {
+      "path": "art/sprites/npcs/beta/sera_idle.png",
+      "sha256": "a1c5104b75e08d54def1b71b76fdd5c21a30b10ab09e1457aa03e5a1c7358300"
+    },
+    {
+      "path": "art/reference/canonical/characters/Gloomlet_CharacterSheet_Canonical.png",
+      "sha256": "62901b747da8bc20ebf03c44deb15563c9b60601ece9d1e8667382934003ea1f"
+    },
+    {
+      "path": "art/reference/canonical/npcs/Patch_Brasswick_Canonical.png",
+      "sha256": "d32fed744a0210ac0be13a14e74562e2a37a383922f70d810e08783256aad2de"
+    },
+    {
+      "path": "art/reference/canonical/npcs/Ilex_Quill_Canonical.png",
+      "sha256": "3fd6466467ebd6cba6e6e1f711e8344270cf86b0ca7e16a0f9b97b51742ef158"
+    }
+  ],
+  "installed": true,
+  "scope": "Approved static shared contact/environment composition; not complete body/contact animation contracts. Original title and branding remain recoverable.",
+  "review": [
+    "Adult Sera original white hair, blue/violet/gold outfit, boots, crystal and hat retained.",
+    "Canonical Gloomlet violet eyes, black/purple fur, ears, gem/armour and continuous visible tail; authored gloved hand-to-head contact.",
+    "Patch merchant and Ilex book alcoves included in shared illustration; no separate pasted portrait layers, no Wanderers."
+  ],
+  "professional_runtime_acceptance": "Source native five layouts reviewed; final exported implementation checks pending. Owner appearance acceptance separate.",
+  "narrative_rewrite": "Not installed or approved.",
+  "aspect_derivatives": [
+    {
+      "asset": "art/backgrounds/lootlings_living_title_wide_068.png",
+      "sha256": "5b7965dd11ae6de040bd6c3cd3b987bd43402ab22015284d5aabc56be52d6e7d",
+      "purpose": "Canvas extension of approved shared composition; preserve full characters, canon and original contact. Runtime aspect selection."
+    },
+    {
+      "asset": "art/backgrounds/lootlings_living_title_tall_068.png",
+      "sha256": "8f2176f1a547b685e0f846510719a81157c5b502519f784663abd09fdda87dca",
+      "purpose": "Canvas extension of approved shared composition; preserve full characters, canon and original contact. Runtime aspect selection."
+    }
+  ],
+  "rejected": [
+    {
+      "asset": "art/source/living_title_068/tall_rejected_wrong_aspect.png",
+      "reason": "9:16 output failed requested tall canvas aspect; excluded from runtime."
+    }
+  ],
+  "contact": "Painted gloved hand contact exists in approved composition. No animated stroking/body pose closures.",
+  "prompt_set": "art/source/living_title_068/PROMPTS.md"
+}

@@ -95,7 +95,7 @@
         },
         {
           "category": "Collection",
-          "desc": "Hold 1,000 Gold at once.",
+          "desc": "Hold 1,000 Lootcoins at once.",
           "id": "gold_hoard",
           "name": "Shiny Problem",
           "target": 1000
@@ -109,7 +109,7 @@
         },
         {
           "category": "Hideout",
-          "desc": "Visit every Hideout destination.",
+          "desc": "Visit 5 different Hideout destinations.",
           "id": "hideout_social",
           "name": "Everybody Knows Your Name",
           "target": 5
@@ -160,7 +160,7 @@
         },
         {
           "category": "Loot",
-          "desc": "Discover all six live Signature effects.",
+          "desc": "Discover 6 different Signature effects.",
           "id": "signature_set",
           "name": "Autograph Collector",
           "target": 6
@@ -181,7 +181,7 @@
         },
         {
           "category": "Collection",
-          "desc": "Equip each current combat weapon family.",
+          "desc": "Equip 4 different weapon families.",
           "id": "weapon_families",
           "name": "Try Everything Once",
           "target": 4
@@ -289,7 +289,7 @@
       "definition_for",
       "display_description"
     ],
-    "source_sha256": "e5b677eaced3a011d0428f8412b8c8bc7d7474429b924441bbfc663983a3f34b"
+    "source_sha256": "8722d2c505898abc87de6c2b8680dd4148d48f38c3c28bd39d21e287be141fe2"
   },
   "action_pose_catalog.gd": {
     "constants": {
@@ -2247,7 +2247,7 @@
       "step",
       "draw"
     ],
-    "source_sha256": "18be0d9a8fbe3724db1b791e266e2aa7c23c7cfe1d934c6e34349ba8d9315ee9"
+    "source_sha256": "84848e5a4bac53d49dc0a70fe0c50ea851d6d40ea61d1b4630b458822db7b704"
   },
   "combat_presentation.gd": {
     "constants": {
@@ -2264,10 +2264,11 @@
       "health_ratio",
       "attack_cue",
       "enemy_name_layout",
+      "solo_hud",
       "cue_label_rect",
       "draw_cue"
     ],
-    "source_sha256": "a02c898422591b3777a0aa64131fa3b07a90f3ccc29ae2b87129cb8f6eb86bad"
+    "source_sha256": "118a988f699c65f19b382948144f5df0b21786b830f97b2c15adb47ec73da281"
   },
   "combat_sprite_rig.gd": {
     "constants": {
@@ -4228,7 +4229,7 @@
         "enemy_status_ward_used",
         "enemy_chime_primed"
       ],
-      "HUD_Y": 307.0,
+      "HUD_Y": 157.0,
       "UI": {
         "resource_path": "res://lootlings_ui.gd"
       },
@@ -4261,7 +4262,7 @@
       "splash",
       "draw"
     ],
-    "source_sha256": "92e3e1a925ba63813d5029147d43f1f2d18e4101d7fc318d1357e02c9088d5f7"
+    "source_sha256": "ac64965bd991c692ffb4c4b29c3f486096c75f263ec77d88188c641ede58fee4"
   },
   "enemy_motion.gd": {
     "constants": {},
@@ -5255,7 +5256,7 @@
       "restore_phase4_selection",
       "toggle_companion_follow"
     ],
-    "source_sha256": "b0dc927feffa65893bd73c792d859cd32cf9332f3db71721e513fe6573c615f4"
+    "source_sha256": "ee4b652b56c37ba084cfa6a8ebc5df24202d54fc38d6b40cc3bfbc49a0e29fcd"
   },
   "home_catalog.gd": {
     "constants": {
@@ -7356,6 +7357,7 @@
       "draw_lootling",
       "draw_enemy",
       "draw_stats_strip",
+      "status_chip_width",
       "draw_status_chip",
       "build_summary",
       "draw_bar",
@@ -7369,7 +7371,7 @@
       "show_profile_from_personal_home",
       "show_personal_stash"
     ],
-    "source_sha256": "ccb0b2a4b264a82445b09bf3a3b699ae6f5099786559cfb127538705222fc90d"
+    "source_sha256": "f895c5e6bb48ade7b4941866d5d82bb21055c4cbc8d69b5066070c4a2ef381e8"
   },
   "lootling_catalog.gd": {
     "constants": {
@@ -9411,7 +9413,7 @@
       "_process",
       "_draw"
     ],
-    "source_sha256": "7baa750d4160c4e56cd4e31a0cef8223a90e794f25427276d02f8010606f38dc"
+    "source_sha256": "78ff63c8c2a544868a8d47fac2463c6a7132dfca84ecd5d0bdec536b0d66f795"
   },
   "result_actor_view.gd": {
     "constants": {},
@@ -9710,7 +9712,13 @@
         "resource_path": "res://settings_store.gd"
       },
       "TITLE_ART": {
-        "resource_path": "res://art/backgrounds/treasure_ruins_arena.png"
+        "resource_path": "res://art/backgrounds/lootlings_living_title_068.png"
+      },
+      "TITLE_TALL_ART": {
+        "resource_path": "res://art/backgrounds/lootlings_living_title_tall_068.png"
+      },
+      "TITLE_WIDE_ART": {
+        "resource_path": "res://art/backgrounds/lootlings_living_title_wide_068.png"
       },
       "WandererCatalog": {
         "resource_path": "res://wanderer_catalog.gd"
@@ -9755,6 +9763,8 @@
       "apply_audio_preset",
       "set_screen",
       "_process",
+      "title_art_for_viewport",
+      "layout_title_controls",
       "_draw",
       "make_panel",
       "style_hero_stage",
@@ -9763,7 +9773,7 @@
       "refresh_roster_selection",
       "style_title_button"
     ],
-    "source_sha256": "f364bdb916afedbbf832ac16d8518f08fb83f24252d93065ca296d1a3868decd"
+    "source_sha256": "22ad1ab2f00bd8c51a87aaeec90ff1bd8c4978508120db6dafd8d1892c0a16c3"
   },
   "station_presentation.gd": {
     "constants": {},
@@ -11283,9 +11293,11 @@
       "configure",
       "reduced_motion",
       "_process",
-      "_draw"
+      "_draw",
+      "scene_point",
+      "draw_title_environment"
     ],
-    "source_sha256": "bb7ddaedf012bc1b618d69444729ae12345df1b63abe522fa5e65225aeeb5cdc"
+    "source_sha256": "ab9a0ec9d742e0bc283311bc4634068db13fffd658732d4538fafd8b2769818f"
   },
   "world_content_catalog.gd": {
     "constants": {

@@ -15,7 +15,9 @@ const LootlingCatalog = preload("res://lootling_catalog.gd")
 const WandererCatalog = preload("res://wanderer_catalog.gd")
 const Avatar = preload("res://avatar_presentation.gd")
 const MASCOT_TEXTURE = preload("res://art/sprites/relic_beast_base.png")
-const TITLE_ART = preload("res://art/backgrounds/treasure_ruins_arena.png")
+const TITLE_ART = preload("res://art/backgrounds/lootlings_living_title_068.png")
+const TITLE_TALL_ART=preload("res://art/backgrounds/lootlings_living_title_tall_068.png")
+const TITLE_WIDE_ART=preload("res://art/backgrounds/lootlings_living_title_wide_068.png")
 const BACKGROUND = preload("res://art/backgrounds/treasure_ruins_arena.png")
 
 var profile := {}
@@ -69,6 +71,7 @@ var title_wordmark:TextureRect
 var title_ambience:Control
 var title_tagline:Label
 var title_roster_buttons := {}
+var title_menu_buttons:Dictionary={}
 var title_identity: Label
 var title_personality: Label
 var identity_panel: Panel
@@ -120,6 +123,7 @@ func build_title() -> void:
 	add_child(title_content)
 	title_ambience=preload("res://world_ambience.gd").new()
 	title_ambience.configure(Rect2(28,250,424,345),func():return settings)
+	title_ambience.living_title=true
 	title_content.add_child(title_ambience)
 	title_wordmark=LootlingsUI.add_wordmark(title_content, Rect2(24, 42, 432, 108))
 	title_tagline=make_label(title_content, "PACK LIGHT. COME HOME HEAVY.", 14, Rect2(30, 492, 420, 28), HORIZONTAL_ALIGNMENT_CENTER, Color("#d7e5ff"))
@@ -148,10 +152,11 @@ func build_title() -> void:
 	title_personality=make_label(title_content,"",12,Rect2(36,805,408,26),HORIZONTAL_ALIGNMENT_CENTER,Color("#d7e5ff"))
 	var play := make_button(title_content, "START", Rect2(92, 622, 296, 72), Color("#6f4b1fef"), Color("#ffda72"), 21)
 	play.pressed.connect(request_play)
-	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 712, 160, 52), Color("#17294be8"), Color("#72c8ff"), 17)
+	var profile_button := make_button(title_content, "PROFILE", Rect2(68, 712, 160, 60), Color("#17294be8"), Color("#72c8ff"), 17)
 	profile_button.pressed.connect(func(): ui_event.emit("menu_open"); show_profile(false))
-	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 712, 160, 52), Color("#17294be8"), Color("#c99cff"), 17)
+	var settings_button := make_button(title_content, "SETTINGS", Rect2(252, 712, 160, 60), Color("#17294be8"), Color("#c99cff"), 17)
 	settings_button.pressed.connect(func(): ui_event.emit("menu_open"); show_settings())
+	title_menu_buttons={"START":play,"PROFILE":profile_button,"SETTINGS":settings_button}
 	style_title_button(play,true)
 	style_title_button(profile_button,false)
 	style_title_button(settings_button,false)
@@ -160,11 +165,12 @@ func build_title() -> void:
 	for child in title_content.get_children():
 		if child not in [title_wordmark,title_ambience,play,profile_button,settings_button]:child.hide()
 	if OS.has_feature("windows") or OS.has_feature("linux") or OS.has_feature("macos"):
-		var exit_button:=make_button(title_content,"EXIT",Rect2(184,786,112,48),Color("#17294b"),Color("#7087ae"),13)
+		var exit_button:=make_button(title_content,"EXIT",Rect2(184,786,112,60),Color("#17294b"),Color("#7087ae"),13)
 		exit_button.pressed.connect(func():
 			if get_parent().app_lifecycle.persist()==OK:get_tree().quit()
 			else:exit_button.tooltip_text="Could not save. Retry Exit, or export a backup from Settings.")
 		style_title_button(exit_button,false)
+		title_menu_buttons["EXIT"]=exit_button
 
 
 func build_profile() -> void:
@@ -660,6 +666,7 @@ func _process(delta: float) -> void:
 		# Branding stays in the same safe frame as live menu controls.
 		title_wordmark.position.y=42
 		title_tagline.position.y=492
+		layout_title_controls()
 
 	if current_screen == "boot":
 		boot_timer += delta
@@ -671,13 +678,30 @@ func _process(delta: float) -> void:
 			skip_boot()
 	queue_redraw()
 
+func title_art_for_viewport() -> Texture2D:
+	var aspect:float=get_viewport_rect().size.x/get_viewport_rect().size.y
+	return TITLE_WIDE_ART if aspect>1.25 else TITLE_TALL_ART if aspect<.51 else TITLE_ART
+
+func layout_title_controls() -> void:
+	var wide:bool=get_viewport_rect().size.x/get_viewport_rect().size.y>1.25
+	var positions:={"START":Rect2(92,622,296,72),"PROFILE":Rect2(68,712,160,60),"SETTINGS":Rect2(252,712,160,60),"EXIT":Rect2(184,786,112,60)}
+	if wide:
+		var total:=296.0+160+160+(112 if title_menu_buttons.has("EXIT") else 0)+24*(title_menu_buttons.size()-1)
+		var x:float=240-total*.5
+		for key in title_menu_buttons:
+			var width:float=positions[key].size.x
+			positions[key]=Rect2(x,786,width,60);x+=width+24
+	for key in title_menu_buttons:
+		title_menu_buttons[key].position=positions[key].position
+		title_menu_buttons[key].size=positions[key].size
+
 func _draw() -> void:
 	var texture_size := BACKGROUND.get_size()
 	var crop_height := texture_size.x * 854.0 / 480.0
 	var source := Rect2(0, maxf(0.0, (texture_size.y - crop_height) * 0.5), texture_size.x, minf(texture_size.y, crop_height))
 	if current_screen == "title":
 		if get_parent().responsive_backdrop==null:
-			draw_texture_rect(TITLE_ART,Rect2(0,0,480,720),false)
+			draw_texture_rect(TITLE_ART,Rect2(0,0,480,854),false)
 	else:
 		if get_parent().responsive_backdrop == null: draw_texture_rect_region(BACKGROUND, Rect2(0, 0, 480, 854), source)
 		draw_rect(Rect2(0, 0, 480, 854), Color("#0610298c"), true)
@@ -743,7 +767,7 @@ func refresh_roster_selection(buttons: Dictionary, selected_id: String) -> void:
 func style_title_button(button: Button, primary: bool) -> void:
 	button.set_meta("ui_intent","primary" if primary else "utility")
 	LootlingsUI.apply_button(button,Color("#102139"),Color("#d1a85a"))
-	button.add_theme_font_size_override("font_size",20 if primary else 15)
+	button.add_theme_font_size_override("font_size",20 if primary else (14 if button.text=="EXIT" else 17))
 	button.add_theme_color_override("font_color",Color("#fff0c8") if primary else Color("#dfeafa"))
 	button.add_theme_color_override("font_shadow_color",Color("#030a16"))
 	button.add_theme_constant_override("shadow_offset_x",1)
@@ -751,7 +775,7 @@ func style_title_button(button: Button, primary: bool) -> void:
 	if not primary:
 		for state in ["normal","hover","pressed","disabled"]:
 			var quiet:=StyleBoxFlat.new()
-			quiet.bg_color=Color.TRANSPARENT if state in ["normal","disabled"] else Color("#06122560")
+			quiet.bg_color=Color("#0714268c") if state in ["normal","disabled"] else Color("#061225d0")
 			quiet.set_corner_radius_all(8)
 			button.add_theme_stylebox_override(state,quiet)
 	var focus:=StyleBoxFlat.new()

@@ -13,13 +13,16 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	if game == null: return
 	if game.startup_ui.visible and game.startup_ui.current_screen=="title":
-		# One continuous artwork layer; no repeated sky or character crops.
-		draw_rect(Rect2(Vector2.ZERO,size),Color(.012,.028,.055,1))
-		var art:Texture2D=game.startup_ui.TITLE_ART
-		var extent:=art.get_size()
-		var scaled:=extent*maxf(size.x/extent.x,size.y/extent.y)
+		var wide:bool=size.x/size.y>1.25
+		var art:Texture2D=game.startup_ui.title_art_for_viewport()
+		var extent:=art.get_size();var scaled:=extent*maxf(size.x/extent.x,size.y/extent.y)
 		draw_texture_rect(art,Rect2((size-scaled)*.5,scaled),false)
+		if wide:
+			# Scenery-only bottom navigation lane, below the authored contact pose.
+			var lane:float=(game.position.y+786*game.scale.y)
+			draw_rect(Rect2(0,lane-8,size.x,size.y-lane+8),Color(.02,.04,.07,.52))
 		return
+
 	var texture: Texture2D = game.current_zone.get("background",game.ZoneCatalog.OUTER_RUINS_BACKGROUND)
 	if game.state == "hideout": texture = game.hideout_ui.background_for_screen()
 	elif game.state=="personal_home":texture=game.personal_home.background()
