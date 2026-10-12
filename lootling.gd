@@ -2705,16 +2705,26 @@ func deal_elemental_hit(amount: float, identity: String, critical: bool = false)
 func update_elemental_damage(delta: float) -> void:
 	if state != "playing" or not enemy_alive:
 		return
-	enemy_burn_time = maxf(0.0, enemy_burn_time - delta)
-	enemy_poison_time = maxf(0.0, enemy_poison_time - delta)
-	if enemy_burn_time <= 0.0:
-		enemy_burn_dps = move_toward(enemy_burn_dps, 0.0, base_damage * delta)
-	if enemy_poison_time <= 0.0:
-		enemy_poison_stacks = 0
-	dot_tick_clock -= delta
-	if dot_tick_clock > 0.0:
-		return
-	dot_tick_clock += 0.4
+	# Advance to each scheduled tick before expiring its statuses. Subtracting
+	# the whole frame first lost live ticks on stalls and even at 20 FPS. Keep
+	# the existing cadence, stack damage, burn fade and burn-before-poison order.
+	var remaining := maxf(0.0,delta)
+	while remaining > 0.000001 and state == "playing" and enemy_alive:
+		var elapsed := minf(remaining,maxf(0.0,dot_tick_clock))
+		var fade_elapsed := maxf(0.0,elapsed-enemy_burn_time)
+		enemy_burn_time = maxf(0.0,enemy_burn_time-elapsed)
+		enemy_poison_time = maxf(0.0,enemy_poison_time-elapsed)
+		if fade_elapsed > 0.0:
+			enemy_burn_dps = move_toward(enemy_burn_dps,0.0,base_damage*fade_elapsed)
+		if enemy_poison_time <= 0.000001:
+			enemy_poison_stacks = 0
+		dot_tick_clock -= elapsed
+		remaining -= elapsed
+		if dot_tick_clock <= 0.000001:
+			dot_tick_clock = 0.4
+			resolve_elemental_tick()
+
+func resolve_elemental_tick() -> void:
 	var total_dot := 0.0
 	var burn_damage := 0.0
 	var poison_damage := 0.0
