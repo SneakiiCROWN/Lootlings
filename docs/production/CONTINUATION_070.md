@@ -1,0 +1,7 @@
+# Continue from0.4.70 r2
+
+Runtime16a574fa; initiala03c40a6. Use final r2 Windows/ownerAPK/code81 in quality-evidence/0.4.70/DELIVERY.json. Contracts states/claim receipt/context return, Archive shelves/reader hierarchy, Notes/Memory navigation and mode information/actions installed. NPC dialogue above Hub footer, Guide suppression and paid-contract Ilex wording corrected. Native selected screenshots reviewed; no professional/physical acceptance assumed. Preserve three owner edits and all rollback builds.
+
+Final connected5-size claim/rotation/reload/replay/mode/dialogue tests and4-size real Hoard→Archive→saved Home loop pass. Initial pack six mechanics/services/owner/RNG checks pass. One final-pack owner shortcut assertion failed on second viewport; isolated identical-pack retry passed3 sizes. Keep failure logged, investigate reproducible trigger/physical S23 if reported. No owner-control code changed.
+
+Next highest-value connected slice: individual Archive discovery/gear/trophy detail prestige and honest durable read/unread tracking; deeper expedition state/reward clarity; naturally integrated NPC interaction/body animation only with exact existing authorities and exports. Broad Home/NPC composition and canonical animation/art backlog remain open (2757contracts/7178artist requirements). No major campaign/mystery scripts approved for silent installation. Do not redo verified069 utility/title fixes or070 routes without a real defect.

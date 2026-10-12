@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080 SUPER
+
+MYTHICAL GRANT dawnweave Granted Dawnweave to test stash. stash 1/12
+MYTHICAL GRANT tidestar Granted Tidestar to test stash. stash 2/12
+MYTHICAL GRANT aurora_thread Granted Aurora Thread to test stash. stash 3/12
+MYTHICAL GRANT prismsong Granted Prismsong to test stash. stash 4/12
+MYTHICAL GRANT hearthpearl Granted Hearthpearl to test stash. stash 5/12
+MYTHICAL GRANT mirrorwake Granted Mirrorwake to test stash. stash 6/12
+MYTHICAL GRANT bloomward Granted Bloomward to test stash. stash 7/12
+MYTHICAL GRANT starfold Granted Starfold to test stash. stash 8/12
+MYTHICAL GRANT dawnweave Granted Dawnweave to test stash. stash 1/12
+MYTHICAL GRANT tidestar Granted Tidestar to test stash. stash 2/12
+MYTHICAL GRANT aurora_thread Granted Aurora Thread to test stash. stash 3/12
+MYTHICAL GRANT prismsong Granted Prismsong to test stash. stash 4/12
+MYTHICAL GRANT hearthpearl Granted Hearthpearl to test stash. stash 5/12
+MYTHICAL GRANT mirrorwake Granted Mirrorwake to test stash. stash 6/12
+MYTHICAL GRANT bloomward Granted Bloomward to test stash. stash 7/12
+MYTHICAL GRANT starfold Granted Starfold to test stash. stash 8/12
+MYTHICAL GRANT dawnweave Granted Dawnweave to test stash. stash 1/12
+MYTHICAL GRANT tidestar Granted Tidestar to test stash. stash 2/12
+MYTHICAL GRANT aurora_thread Granted Aurora Thread to test stash. stash 3/12
+MYTHICAL GRANT prismsong Granted Prismsong to test stash. stash 4/12
+MYTHICAL GRANT hearthpearl Granted Hearthpearl to test stash. stash 5/12
+MYTHICAL GRANT mirrorwake Granted Mirrorwake to test stash. stash 6/12
+MYTHICAL GRANT bloomward Granted Bloomward to test stash. stash 7/12
+MYTHICAL GRANT starfold Granted Starfold to test stash. stash 8/12
+SCRIPT ERROR: Assertion failed.
+   at: review (C:/Users/Snkii/Documents/lootlings/.godot_test_data/exported-fixtures-0702/owner_access_060_native_qa.gd:43)
+   GDScript backtrace (most recent call first):
+       [0] review (C:/Users/Snkii/Documents/lootlings/.godot_test_data/exported-fixtures-0702/owner_access_060_native_qa.gd:43)
+       [1] tap (C:/Users/Snkii/Documents/lootlings/.godot_test_data/exported-fixtures-0702/phase4b_native_qa.gd:57)
+ERROR: Owner access timeout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (C:/Users/Snkii/Documents/lootlings/.godot_test_data/exported-fixtures-0702/owner_access_060_native_qa.gd:5)

@@ -1,0 +1,1 @@
+Initial070 pack passed six affected/source-regression fixtures. Final delivery is r2: only Ilex paid-contract acknowledgement text changed after exported visual review. Initial artifacts retained; no mechanical defect or art regression inferred. Final r2 presentation replay and shared compiled payload verification required.

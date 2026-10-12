@@ -1,0 +1,46 @@
+{
+  "version": "0.4.70",
+  "revision": "r2",
+  "code": 81,
+  "runtime_source": "16a574fa",
+  "initial_runtime": "a03c40a6",
+  "prior_delivery": "04db3576",
+  "artifacts": [
+    {
+      "path": "builds/windows/Lootlings-0.4.70-candidate-r2.exe",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.70-candidate-r2.exe",
+      "bytes": 103136768,
+      "sha256": "c902f072686222ecc1a8d44d5f92d4786e79ceb0a083f5c77e80cc1b3a6a9896"
+    },
+    {
+      "path": "builds/windows/Lootlings-0.4.70-candidate-r2.pck",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\windows\\Lootlings-0.4.70-candidate-r2.pck",
+      "bytes": 291768884,
+      "sha256": "065fda8a15fb46cd52e5ee2217a78b1c3e1c68e8f4cbd184ebc0e708d5f76d3a"
+    },
+    {
+      "path": "builds/android/Lootlings-0.4.70-owner-test-debug-r2.apk",
+      "absolute_path": "C:\\Users\\Snkii\\Documents\\lootlings\\builds\\android\\Lootlings-0.4.70-owner-test-debug-r2.apk",
+      "bytes": 312801565,
+      "sha256": "298c18c7692d62082d1895f38d6df87da85e6b7630a1144a8713ebd05bc9e65c"
+    }
+  ],
+  "final_r2_checks": 3,
+  "initial_export_checks": 6,
+  "native_layouts": [
+    "360x640",
+    "480x854",
+    "1080x2340",
+    "1600x2560",
+    "1920x1080"
+  ],
+  "android": "Signed arm64,16k alignment, offline/no permissions, original icon/splash/title imports, same owner certificate; six changed script payloads match tested Windows pack",
+  "android_executed": false,
+  "physical_S23": "PENDING OWNER ACCEPTANCE",
+  "professional_acceptance": false,
+  "owner_control_note": "Initial r2 SHH reopen assertion failed on second viewport; isolated identical-pack retry passed all three sizes. Cause not established; failure retained and physical check remains open. No owner-control code changed.",
+  "new_art_contract_closures": 0,
+  "remaining_contracts": 2757,
+  "remaining_artist_requirements": 7178,
+  "initial_export": "Retained, superseded by r2 solely for paid-contract dialogue acknowledgement."
+}
