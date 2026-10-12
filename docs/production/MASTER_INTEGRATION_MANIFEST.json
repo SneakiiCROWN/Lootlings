@@ -16,11 +16,11 @@
     "NOT_REQUIRED_FOR_CURRENT_LAUNCH"
   ],
   "counts": {
-    "total_records": 8429,
-    "total_launch_scope_slots": 7175,
+    "total_records": 8430,
+    "total_launch_scope_slots": 7176,
     "all_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4588,
+      "LIVE_BETA": 4589,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -32,7 +32,7 @@
     },
     "launch_statuses": {
       "LIVE_FINAL": 0,
-      "LIVE_BETA": 4587,
+      "LIVE_BETA": 4588,
       "EXTRACTABLE_NOW": 0,
       "NEEDS_CROP_OR_MASK": 0,
       "NEEDS_RUNTIME_ASSEMBLY": 0,
@@ -166,7 +166,7 @@
     "presentation_director.gd": "46218923e83ac9da4b249759dae385c615bef82478715e8dba3d647c3db9fbd5",
     "profile_store.gd": "57322efe356992f2e55c5096cd861c024e3cb05177e2049efc756b518f4f9ee1",
     "projectile_presentation.gd": "d91eb446a42937340730392f3f85dee3cae4c8ef5bf87ae8a1b69bf338d02cf9",
-    "quick_comparison.gd": "042543184b83ad4c0c987487bc5f1949c945e48d06b6dea6431a92ef60af10af",
+    "quick_comparison.gd": "32078b453a5aad705796de75e99e03ee00178c9b519fa4a5e2f1e9aeed900535",
     "regional_atmosphere.gd": "067aa5460f6c766ee7401945e042c3160e7cdb9be6ca4266399aeef88541f289",
     "regional_enemy_presentation.gd": "4fd9c7f2a503b693ed22407680596069bcf768702368849fef86dc3d98c71745",
     "region_audio.gd": "1e6b241adc79578698c277fb0c58a56b202b313ab250b21d3fd709d8888a51a9",
@@ -335306,7 +335306,7 @@
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:68:0:1e5a19cd",
+      "slot_id": "label:quick_comparison.gd:31:0:940f05be",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335333,13 +335333,46 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 68,
+        "line": 31,
+        "text": "Current encounter and health conditions; excludes untriggered procs.\\n\\n",
+        "dynamic_template": true
+      }
+    },
+    {
+      "slot_id": "label:quick_comparison.gd:73:0:1e5a19cd",
+      "game_id": "quick_comparison_gd",
+      "category": "player_text",
+      "subject": "quick_comparison.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon_family": null,
+      "status": "LIVE_BETA",
+      "launch_scope": true,
+      "canonical_source": null,
+      "source_crop": null,
+      "current_production_asset": null,
+      "target_production_path": null,
+      "dimensions": null,
+      "background": null,
+      "baseline": null,
+      "pivot_anchor": null,
+      "weapon_socket": null,
+      "support_hand_socket": null,
+      "layering_requirements": null,
+      "runtime_system": "quick_comparison",
+      "implementation_file": "quick_comparison.gd",
+      "dependency": [],
+      "blocker": null,
+      "priority": "P2",
+      "acceptance_status": "BETA / owner visual acceptance open",
+      "evidence": {
+        "line": 73,
         "text": "EQUIPPED",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:68:1:706703df",
+      "slot_id": "label:quick_comparison.gd:73:1:706703df",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335366,13 +335399,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 68,
+        "line": 73,
         "text": "INSPECTING",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:0:f147fc3f",
+      "slot_id": "label:quick_comparison.gd:80:0:f147fc3f",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335399,13 +335432,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": "rarity",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:1:3159fe42",
+      "slot_id": "label:quick_comparison.gd:80:1:3159fe42",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335432,13 +335465,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": "Empty",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:2:d3dacf89",
+      "slot_id": "label:quick_comparison.gd:80:2:d3dacf89",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335465,13 +335498,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": " · ",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:3:462854f9",
+      "slot_id": "label:quick_comparison.gd:80:3:462854f9",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335498,13 +335531,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:4:462854f9",
+      "slot_id": "label:quick_comparison.gd:80:4:462854f9",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335531,13 +335564,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": "slot",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:5:24451372",
+      "slot_id": "label:quick_comparison.gd:80:5:24451372",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335564,13 +335597,13 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": "))),HORIZONTAL_ALIGNMENT_LEFT,width,12,preload(",
         "dynamic_template": true
       }
     },
     {
-      "slot_id": "label:quick_comparison.gd:75:6:c84c6d2e",
+      "slot_id": "label:quick_comparison.gd:80:6:c84c6d2e",
       "game_id": "quick_comparison_gd",
       "category": "player_text",
       "subject": "quick_comparison.gd",
@@ -335597,7 +335630,7 @@
       "priority": "P2",
       "acceptance_status": "BETA / owner visual acceptance open",
       "evidence": {
-        "line": 75,
+        "line": 80,
         "text": ").rarity_color(str(item.get(",
         "dynamic_template": true
       }

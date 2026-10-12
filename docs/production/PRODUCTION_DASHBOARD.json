@@ -97,7 +97,7 @@
     "installed_artist_files": 1329,
     "remaining_artist_files": 7166,
     "current_reviewed_runtime_png_cells": 308,
-    "registered_requirement_records": 8429,
+    "registered_requirement_records": 8430,
     "production_ready_records": 0
   },
   "contract_families": [
@@ -879,18 +879,18 @@
     },
     {
       "family": "player_text",
-      "required_records": 1324,
-      "launch_records": 1289,
-      "installed_records": 1289,
+      "required_records": 1325,
+      "launch_records": 1290,
+      "installed_records": 1290,
       "production_ready": 0,
       "quality_counts": {
-        "installed_awaiting_visual_review": 1289,
+        "installed_awaiting_visual_review": 1290,
         "reference_or_planned": 35
       },
       "stages": {
         "canon_reference_approved": 0,
         "created": 0,
-        "integrated": 1289,
+        "integrated": 1290,
         "functionally_tested": 0,
         "gameplay_visual_reviewed": 0,
         "player_experience_reviewed": 0,
@@ -14809,7 +14809,7 @@
     },
     {
       "domain": "Menus / HUD / icons / interactions / shops",
-      "registered_requirement_records": 1122,
+      "registered_requirement_records": 1123,
       "records": [
         "pose:ruin_warden:idle:right:bow",
         "pose:ruin_warden:idle:right:crossbow",
@@ -15596,15 +15596,16 @@
         "label:hideout_ui.gd:2216:2:da6bac29",
         "label:hideout_ui.gd:2216:3:e5c6b060",
         "label:lootlings_ui.gd:277:0:31f63f09",
-        "label:quick_comparison.gd:68:0:1e5a19cd",
-        "label:quick_comparison.gd:68:1:706703df",
-        "label:quick_comparison.gd:75:0:f147fc3f",
-        "label:quick_comparison.gd:75:1:3159fe42",
-        "label:quick_comparison.gd:75:2:d3dacf89",
-        "label:quick_comparison.gd:75:3:462854f9",
-        "label:quick_comparison.gd:75:4:462854f9",
-        "label:quick_comparison.gd:75:5:24451372",
-        "label:quick_comparison.gd:75:6:c84c6d2e",
+        "label:quick_comparison.gd:31:0:940f05be",
+        "label:quick_comparison.gd:73:0:1e5a19cd",
+        "label:quick_comparison.gd:73:1:706703df",
+        "label:quick_comparison.gd:80:0:f147fc3f",
+        "label:quick_comparison.gd:80:1:3159fe42",
+        "label:quick_comparison.gd:80:2:d3dacf89",
+        "label:quick_comparison.gd:80:3:462854f9",
+        "label:quick_comparison.gd:80:4:462854f9",
+        "label:quick_comparison.gd:80:5:24451372",
+        "label:quick_comparison.gd:80:6:c84c6d2e",
         "label:startup_ui.gd:252:0:3701471b",
         "label:startup_ui.gd:254:0:3701471b",
         "label:startup_ui.gd:258:0:89646612",
@@ -15938,7 +15939,7 @@
     },
     {
       "domain": "Regions / backgrounds / layers / interiors / environments",
-      "registered_requirement_records": 1934,
+      "registered_requirement_records": 1935,
       "records": [
         "pose:mossmaw:idle:right:None",
         "pose:mossmaw:idle:left:None",
@@ -17619,15 +17620,16 @@
         "label:personal_home.gd:219:0:35949fbe",
         "label:personal_home.gd:223:0:6b0bfe37",
         "label:personal_home.gd:232:1:d3dacf89",
-        "label:quick_comparison.gd:68:0:1e5a19cd",
-        "label:quick_comparison.gd:68:1:706703df",
-        "label:quick_comparison.gd:75:0:f147fc3f",
-        "label:quick_comparison.gd:75:1:3159fe42",
-        "label:quick_comparison.gd:75:2:d3dacf89",
-        "label:quick_comparison.gd:75:3:462854f9",
-        "label:quick_comparison.gd:75:4:462854f9",
-        "label:quick_comparison.gd:75:5:24451372",
-        "label:quick_comparison.gd:75:6:c84c6d2e",
+        "label:quick_comparison.gd:31:0:940f05be",
+        "label:quick_comparison.gd:73:0:1e5a19cd",
+        "label:quick_comparison.gd:73:1:706703df",
+        "label:quick_comparison.gd:80:0:f147fc3f",
+        "label:quick_comparison.gd:80:1:3159fe42",
+        "label:quick_comparison.gd:80:2:d3dacf89",
+        "label:quick_comparison.gd:80:3:462854f9",
+        "label:quick_comparison.gd:80:4:462854f9",
+        "label:quick_comparison.gd:80:5:24451372",
+        "label:quick_comparison.gd:80:6:c84c6d2e",
         "label:resident_art_catalog.gd:68:1:6f8f7df4",
         "label:resident_art_catalog.gd:68:2:d75b3b52",
         "label:resident_art_catalog.gd:68:3:e69fc18a",
@@ -175723,7 +175725,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:68:0:1e5a19cd",
+      "id": "label:quick_comparison.gd:31:0:940f05be",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175750,7 +175752,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:68:1:706703df",
+      "id": "label:quick_comparison.gd:73:0:1e5a19cd",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175777,7 +175779,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:0:f147fc3f",
+      "id": "label:quick_comparison.gd:73:1:706703df",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175804,7 +175806,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:1:3159fe42",
+      "id": "label:quick_comparison.gd:80:0:f147fc3f",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175831,7 +175833,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:2:d3dacf89",
+      "id": "label:quick_comparison.gd:80:1:3159fe42",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175858,7 +175860,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:3:462854f9",
+      "id": "label:quick_comparison.gd:80:2:d3dacf89",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175885,7 +175887,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:4:462854f9",
+      "id": "label:quick_comparison.gd:80:3:462854f9",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175912,7 +175914,7 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:5:24451372",
+      "id": "label:quick_comparison.gd:80:4:462854f9",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -175939,7 +175941,34 @@
       "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
     },
     {
-      "id": "label:quick_comparison.gd:75:6:c84c6d2e",
+      "id": "label:quick_comparison.gd:80:5:24451372",
+      "family": "player_text",
+      "identity": "quick_comparison_gd",
+      "name": "quick_comparison.gd",
+      "state": "UI label",
+      "facing": null,
+      "weapon": null,
+      "scope": true,
+      "priority": "P2",
+      "quality": "installed_awaiting_visual_review",
+      "stages": {
+        "canon_reference_approved": false,
+        "created": false,
+        "integrated": true,
+        "functionally_tested": false,
+        "gameplay_visual_reviewed": false,
+        "player_experience_reviewed": false,
+        "production_quality_accepted": false
+      },
+      "asset": null,
+      "canon": null,
+      "implementation": "quick_comparison.gd",
+      "blocker": null,
+      "defects": [],
+      "quality_notes": "Prior completion labels are not quality evidence; native visual and usability re-review required."
+    },
+    {
+      "id": "label:quick_comparison.gd:80:6:c84c6d2e",
       "family": "player_text",
       "identity": "quick_comparison_gd",
       "name": "quick_comparison.gd",
@@ -289996,21 +290025,20 @@
     "system:world_interaction_feedback.gd"
   ],
   "latest_runtime_integration": {
-    "version": "0.4.73",
-    "kind": "Canonical device icon family and responsive illustrated startup",
+    "version": "0.4.74",
+    "kind": "Connected equipment clarity, truthful NPC acknowledgement and earned Home keepsake inspection",
     "verified_contracts_closed": 0,
-    "new_runtime_png": 8,
+    "new_runtime_png": 0,
     "new_physical_artist_files": 0,
-    "uncontracted_presentation_resources": "8 derived PNGs +1 ICO; not frozen artist delivery closures",
     "remaining_contracts": 2753,
     "professionally_approved": false,
     "physical_device_tested": false,
     "other_installed_features": [
-      "Exact canonical mascot pixels in device icon family; original gold Core and separate blue accent.",
-      "Three real full-bleed startup layouts, clean original wordmark, no fake loading percentage or timed delay.",
-      "Original menu/gameplay/SHH code/music preserved; same signed owner package."
+      "Shared Equipped/Candidate/Change comparisons with larger figures and nonduplicated effects.",
+      "Only actual event-authored dialogue acknowledges the earned event.",
+      "Earned Home Hoard display opens its specific Archive record; ordinary decor editing preserved."
     ],
-    "quality_note": "Final native cold/layouts and packaged resources verified; S23/owner appearance pending."
+    "quality_note": "Three final exact-pack fixtures pass; representative screenshots reviewed. Owner artistic/S23 gates open."
   },
   "world_quality_defects": {
     "version": "0.4.72",
@@ -290162,8 +290190,8 @@
     "Physical Android device performance, listening and launcher review remain pending."
   ],
   "input_sha256": {
-    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "7c26a00fa1599e924aa45a1bf5ca2d4f198f4825ef280f6720d9379ee1a85669",
-    "docs/production/CANON_REGISTRY.json": "4f6c60a79ccdee39972ead346d8b16b1f497c8dfbd35a4fa14d34315b357e388",
+    "docs/production/MASTER_INTEGRATION_MANIFEST.json": "da094172197ba5a0042ad9978aa32cbbe365ae20b869978803282c33aefa5459",
+    "docs/production/CANON_REGISTRY.json": "2fdc17203831679f5d96c3bbe93bb6bb9b21a3d5fb394e298c052c7d1fcc8fc6",
     "docs/production/QUALITY_ACCEPTANCE_EVIDENCE.json": "a603771b67bffbb42157ceb9cbdc31015126f2d5ada760e5b5cf1d8bd80310a3",
     "art/reference/phase4e_handoff/REFERENCE_STATUS.json": "30d333066f18795e3c44875d8674453d7e969ec4b76bf4bd8ee1ada9d3342f98",
     "art/approved_missing_canon_references.json": "56fccc89897ab566b2cacee25894516caa52024dab65f991b374c33438bc6a3a",
@@ -290174,7 +290202,7 @@
     "docs\\production\\full-completion\\continuous-production\\EXACT_REMAINING_CONTRACTS.json": "9aafe96919bbaf9ffbbe5f61da003258f1949004fd1e8ece12eb6b14955d0e54",
     "docs/production/WORLD_QUALITY_DEFECTS.json": "12d3b966b758b90cfd66e72f2ca610eab6df26d7f220b25580d23419e70ad812",
     "docs\\production\\full-completion\\continuous-production\\POLEARM_INSTALLATION_0451.json": "954a258706f751b5a8c01a668fac6ceb5ef6e568e38ad88cd2709c1bc8c26b1d",
-    "docs/production/quality-evidence/0.4.73/INSTALLATION_RECEIPT.json": "e2c25dab07db8f2e3f4cffa02de9798421c188fb571f1ecb27015ff505ce1002",
+    "docs/production/quality-evidence/0.4.74/INSTALLATION_RECEIPT.json": "93b9a64a81fd0aaca6be2765e74d80e2e417b96866b73ef708dec40d9a3c795c",
     "docs/production/OWNER_APPROVED_FEATURE_ADDITIONS.json": "730f5266d2c9bcd6d80a7b05dee2f26974ef0f3b3838b87b5ba0a0321268fe39"
   },
   "feature_completeness": {
@@ -308953,9 +308981,9 @@
       },
       {
         "family": "player_text",
-        "installed_records": 1289,
+        "installed_records": 1290,
         "missing_records": 0,
-        "visually_unfinished_or_unreviewed": 1324,
+        "visually_unfinished_or_unreviewed": 1325,
         "production_ready": 0,
         "fluid_animation_families": null,
         "acceptance": "Not feature-complete merely because records exist or tests pass."

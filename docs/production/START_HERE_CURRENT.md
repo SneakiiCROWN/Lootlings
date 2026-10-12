@@ -1,3 +1,7 @@
+# Current —0.4.74 connected comparisons, NPC acknowledgement and Home keepsake
+
+Runtime4404ef20, owner/code85 and matching Windows candidate delivered. Three final exact-PCK fixtures pass including actual earned Hoard/Home path; eight relevant Windows/Android script payloads match, same certificate and073 rollback hashes checked. Shared comparison clarity, correct speaker acknowledgement and earned display→specific Archive record installed.0 new art closures;2753contracts/7166artist requirements remain. Read CONTINUATION_074.md and quality-evidence/0.4.74/REPORT.md/DELIVERY.json. Failed Windows-close save handling is next; preserve owner files/saves/references. S23 and professional appearance/audio acceptance pending.
+
 # Current —0.4.73 canonical device branding and responsive illustrated startup
 
 Runtime90fac903 / initial7a29c95e pushed; owner/code84 and Windows candidate exported. Application starts in new real illustrated loading scene, then unchanged accepted menu/music.8 canonical-pixel PNGs/1 ICO installed; Android adaptive/mono/splash and Windows16–256px resources verified. Final cold/layout native checks pass;18 packaged resources match APK. Same package/cert/saves;0.4.72 rollback files preserved. S23/new layout owner acceptance pending.0 frozen art closures;2753 contracts/7166 artist requirements remain. Read CONTINUATION_073.md and quality-evidence/0.4.73/REPORT.md/DELIVERY.json. Preserve owner settings/files/references and remaining Home/Hub/dialogue/UI/HUD/animation work; no commercial-final claim.
