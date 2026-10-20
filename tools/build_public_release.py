@@ -35,7 +35,8 @@ settings=Path.home()/'.config/godot/editor_settings-4.7.tres';settings.parent.mk
 settings.write_text('[gd_resource type="EditorSettings" format=3]\n\n[resource]\nexport/android/java_sdk_path = "'+java.as_posix()+'"\nexport/android/android_sdk_path = "'+sdk.as_posix()+'"\n')
 env['LOOTLINGS_QA']='1'  # CI runs in a fresh disposable runner
 run([a.engine,'--headless','--path',P,'--editor','--import','--quit'],env)
-run([a.engine,'--headless','--path',P]+['-s','tests/save_boundary_059_qa.gd'],env)
+env['GODOT']=a.engine
+run([sys.executable,P/'tools/run_qa.py','--only','save_boundary_059_qa','--label','github-public'],env)
 # Windows export is a cross-build; native launch testing remains a separate gate.
 run([a.engine,'--headless','--path',P,'--export-release','Windows Desktop',O/'Lootlings.exe'],env)
 run([a.engine,'--headless','--path',P,'--export-debug','Android',O/'Lootlings-Android.apk'],env)
