@@ -1,0 +1,93 @@
+name: Build current Windows and Android prerelease
+on:
+  workflow_dispatch:
+    inputs:
+      version_code:
+        description: Increasing Android version code (keep package and signing identity)
+        required: true
+        default: '89'
+        type: string
+      release_tag:
+        description: Unique prerelease tag
+        required: true
+        type: string
+      publish:
+        description: Publish checked artifacts (native hardware checks remain separate)
+        default: false
+        type: boolean
+permissions:
+  contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Restore Godot and export template cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/godot/export_templates/4.7.2.stable
+            ~/.local/bin/godot-4.7.2
+          key: godot-4.7.2-linux-windows-android-v1
+      - name: Install official engine and required templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.local/bin" "$HOME/.local/share/godot/export_templates/4.7.2.stable"
+          if [ ! -f "$HOME/.local/bin/godot-4.7.2" ]; then
+            curl -fsSL --retry 3 -o "$RUNNER_TEMP/godot.zip" https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+            unzip -jo "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godotbin"
+            cp "$RUNNER_TEMP/godotbin/Godot_v4.7.2-stable_linux.x86_64" "$HOME/.local/bin/godot-4.7.2"
+            chmod +x "$HOME/.local/bin/godot-4.7.2"
+          fi
+          if [ ! -f "$HOME/.local/share/godot/export_templates/4.7.2.stable/windows_release_x86_64.exe" ]; then
+            curl -fsSL --retry 3 -o "$RUNNER_TEMP/templates.tpz" https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz
+            unzip -jo "$RUNNER_TEMP/templates.tpz" templates/android_debug.apk templates/android_release.apk templates/windows_release_x86_64.exe -d "$HOME/.local/share/godot/export_templates/4.7.2.stable"
+          fi
+          python -m pip install Pillow
+      - name: Install Android build tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDKMANAGER="$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | sort -V | tail -n1)"
+          "$SDKMANAGER" --sdk_root="$ANDROID_HOME" 'platform-tools' 'build-tools;36.0.0' 'platforms;android-36'
+      - name: Build with preserved signing identity and run regressions
+        env:
+          SIGNING_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          NEXT_CODE: ${{ inputs.version_code }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SIGNING_KEY" || { echo 'Persistent signing secret missing; refusing identity replacement'; exit 1; }
+          printf '%s' "$SIGNING_KEY" | base64 --decode > "$RUNNER_TEMP/android-signing.keystore"
+          chmod 600 "$RUNNER_TEMP/android-signing.keystore"
+          export ANDROID_SIGNING_KEY="$RUNNER_TEMP/android-signing.keystore"
+          python tools/build_public_release.py --engine "$HOME/.local/bin/godot-4.7.2" --code "$NEXT_CODE" --output "$RUNNER_TEMP/output"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: checked-windows-android-packages
+          path: |
+            ${{ runner.temp }}/output/*-Windows.zip
+            ${{ runner.temp }}/output/*-Android.apk
+            ${{ runner.temp }}/output/SHA256SUMS.txt
+          retention-days: 14
+      - name: Publish requested prerelease
+        if: inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create "$RELEASE_TAG" "$RUNNER_TEMP/output/"*-Windows.zip "$RUNNER_TEMP/output/"*-Android.apk "$RUNNER_TEMP/output/SHA256SUMS.txt" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "$RELEASE_TAG" --notes 'Current source built and regression/signature/alignment checks passed. Read README for package IDs, update instructions, credits and remaining physical device/native testing.'
