@@ -21,13 +21,14 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
       - name: Prepare Android SDK
         shell: bash
         run: |
           set -euo pipefail
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          command -v sdkmanager
           yes | sdkmanager --licenses >/dev/null || true
-          sdkmanager 'platform-tools' 'build-tools;36.1.0' 'platforms;android-36'
+          sdkmanager 'platform-tools' 'build-tools;36.0.0' 'platforms;android-36'
       - name: Install official Godot 4.7.2 editor and Android templates
         shell: bash
         run: |
