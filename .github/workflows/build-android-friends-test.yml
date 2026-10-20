@@ -5,6 +5,9 @@ on:
   push:
     paths:
       - .github/workflows/build-android-friends-test.yml
+      - project.godot
+      - '*.gd'
+      - '*.tscn'
 
 permissions:
   contents: write
