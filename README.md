@@ -6,7 +6,7 @@ A portrait fantasy adventure for mobile, made by SneakiiCROWN. Meet unusual comp
 
 Look for a tested Android **APK** under [Releases](https://github.com/SneakiiCROWN/Lootlings/releases).
 
-**There's no installable APK on GitHub Releases yet.** The files here are the Godot game project, not an app you can open straight from your phone's downloads.
+**Android friend-test APK available:** [Download Lootlings-Android-Friend-Test.apk](https://github.com/SneakiiCROWN/Lootlings/releases/download/lootlings-test-4/Lootlings-Android-Friend-Test.apk). It's a separate test application that won't overwrite your usual Lootlings install or saves. The game's Godot files are source code, not an installable app.
 
 When a release arrives: download the APK, install it on your Android phone and keep your old save/build until the new version works properly.
 
