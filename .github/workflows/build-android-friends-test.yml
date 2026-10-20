@@ -1,0 +1,117 @@
+name: Build Lootlings Android friend-test APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/build-android-friends-test.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-android-debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Prepare Android SDK
+        shell: bash
+        run: |
+          set -euo pipefail
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager 'platform-tools' 'build-tools;36.1.0' 'platforms;android-36'
+      - name: Install official Godot 4.7.2 editor and Android templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/godot.zip" "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip"
+          mkdir -p "$RUNNER_TEMP/godotbin"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godotbin"
+          chmod +x "$RUNNER_TEMP/godotbin/Godot_v4.7.2-stable_linux.x86_64"
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/templates.tpz" "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz"
+          mkdir -p "$HOME/.local/share/godot/export_templates/4.7.2.stable"
+          unzip -jo "$RUNNER_TEMP/templates.tpz" "templates/android_debug.apk" "templates/android_release.apk" -d "$HOME/.local/share/godot/export_templates/4.7.2.stable"
+      - name: Create temporary test signing key and editor setup (not committed)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.android" "$HOME/.config/godot"
+          keytool -genkeypair -noprompt -keystore "$HOME/.android/debug.keystore" -alias androiddebugkey -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 9999 -dname "CN=Android Debug,O=Android,C=US"
+          cat > "$HOME/.config/godot/editor_settings-4.7.tres" <<EOF
+          [gd_resource type="EditorSettings" format=3]
+
+          [resource]
+          export/android/android_sdk_path = "$ANDROID_HOME"
+          export/android/java_sdk_path = "$JAVA_HOME"
+          export/android/debug_keystore = "$HOME/.android/debug.keystore"
+          export/android/debug_keystore_user = "androiddebugkey"
+          export/android/debug_keystore_pass = "android"
+          EOF
+          cat > export_presets.cfg <<'EOF'
+          [preset.0]
+
+          name="Android Friend Test"
+          platform="Android"
+          runnable=true
+          advanced_options=false
+          dedicated_server=false
+          custom_features=""
+          export_filter="all_resources"
+          include_filter=""
+          exclude_filter=""
+          export_path=""
+          encryption_include_filters=""
+          encryption_exclude_filters=""
+          encrypt_pck=false
+          encrypt_directory=false
+          script_export_mode=2
+
+          [preset.0.options]
+
+          custom_template/debug=""
+          custom_template/release=""
+          gradle_build/use_gradle_build=false
+          architectures/armeabi-v7a=false
+          architectures/arm64-v8a=true
+          architectures/x86=false
+          architectures/x86_64=false
+          package/unique_name="com.sneakiicrown.lootlings.friends"
+          package/name="Lootlings Friend Test"
+          package/signed=true
+          package/app_category=2
+          version/code=1
+          version/name="Friend Test"
+          EOF
+      - name: Import source and export installable signed Android test APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT="$RUNNER_TEMP/godotbin/Godot_v4.7.2-stable_linux.x86_64"
+          "$GODOT" --headless --path . --editor --import --quit 2>&1 | tee "$RUNNER_TEMP/import.log"
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load script' "$RUNNER_TEMP/import.log"; then
+            echo "Godot import reported script errors; refusing to publish an unverified APK."
+            exit 1
+          fi
+          "$GODOT" --headless --path . --export-debug "Android Friend Test" "$RUNNER_TEMP/Lootlings-Android-Friend-Test.apk" 2>&1 | tee "$RUNNER_TEMP/export.log"
+          test -s "$RUNNER_TEMP/Lootlings-Android-Friend-Test.apk"
+          if grep -E 'ERROR: Export|Export failed|Error while exporting' "$RUNNER_TEMP/export.log"; then exit 1; fi
+          unzip -t "$RUNNER_TEMP/Lootlings-Android-Friend-Test.apk" >/dev/null
+      - name: Save APK as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lootlings-Android-Friend-Test.apk
+          path: ${{ runner.temp }}/Lootlings-Android-Friend-Test.apk
+      - name: Create private-repository test prerelease with APK attached
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "lootlings-test-${{ github.run_number }}" "$RUNNER_TEMP/Lootlings-Android-Friend-Test.apk" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "Lootlings Android friend test ${{ github.run_number }}" --notes "Android arm64 sideload test APK built from the source currently in this GitHub repository. No physical-phone testing yet. Has separate test package ID (com.sneakiicrown.lootlings.friends) to avoid overwriting the creator's installed main game or save. Uses an ephemeral debug signing key: future friend-test APKs may require uninstalling the previous friend-test app, losing that test app's saves. Does not automatically include newer unpushed PC project changes. Install only from this trusted release."
