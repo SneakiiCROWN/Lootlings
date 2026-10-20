@@ -1,31 +1,43 @@
-# Lootlings 🐾⚔️
+# Lootlings
 
-A portrait fantasy adventure for mobile, made by SneakiiCROWN. Meet unusual companions, battle enemies, collect loot and upgrade your character and gear.
+A portrait fantasy adventure for Android: companions, battles, treasure, gear and character upgrades.
 
-## Want to play?
+**Current version: Android friend-test APK.** It's installable, but it isn't the final game and still needs hands-on phone testing.
 
-Look for a tested Android **APK** under [Releases](https://github.com/SneakiiCROWN/Lootlings/releases).
+## Download and play
 
-**Android friend-test APK available:** [Download Lootlings-Android-Friend-Test.apk](https://github.com/SneakiiCROWN/Lootlings/releases/download/lootlings-test-4/Lootlings-Android-Friend-Test.apk). It's a separate test application that won't overwrite your usual Lootlings install or saves. The game's Godot files are source code, not an installable app.
+1. On your **Android phone**, [download the Lootlings test APK](https://github.com/SneakiiCROWN/Lootlings/releases/download/lootlings-test-4/Lootlings-Android-Friend-Test.apk).
+2. Open it from your Downloads app or browser.
+3. Tap **Install**. If Android asks for permission to install from that app, only grant it if you trust the download.
+4. Open **Lootlings**.
 
-When a release arrives: download the APK, install it on your Android phone and keep your old save/build until the new version works properly.
+You don't need Godot or a PC to install the APK. The green **Code → Download ZIP** button gives you source files, not the game.
+
+This is a **separate friend-test app**, so it should not replace your usual Lootlings installation or saves. Friend-test APKs use temporary signing keys, so a future test update may require uninstalling the old test app and losing its test saves. Don't rely on this copy for permanent progress yet.
 
 ## What's in it?
 
-- Fantasy combat and collectable loot.
-- Companions, equipment and upgrades.
-- Characters, story and world progression.
-- A growing collection of scenes, artwork and gameplay systems.
+- Fantasy battles, companions and loot.
+- Weapons, equipment and upgrades.
+- Story, character and world-progression systems.
+- Growing artwork and animated presentation.
 
-**Still in development:** some character art, animations and performance work aren't finished yet. Not every planned feature is ready.
+## What's working, and what's still being tested?
 
-## Open the source project (optional)
+- **Built successfully:** the Godot project imported and an Android APK exported.
+- **Implemented in the project:** battle, item, companion and progression systems, with many source-level regression checks recorded.
+- **Still unfinished or unverified:** some character/weapon poses and art, final polish, performance on older phones and full real-device playtesting.
 
-1. Install **Godot 4.7.x**.
-2. Download/extract the source ZIP (or clone the repo).
-3. Import the folder containing `project.godot` into Godot.
-4. Open it and press **Run**.
+A successful export doesn't mean every feature is bug-free on your phone.
 
-For current work, see [PROJECT_STATE.md](PROJECT_STATE.md); for future plans, see [MASTER_ROADMAP.md](MASTER_ROADMAP.md).
+## What's coming next?
 
-**Status:** Work in progress. Android hardware performance and a friend-ready APK still need verification.
+Continue the unfinished character/weapon artwork, improve presentation and animation, and test Android gameplay/performance. Read [PROJECT_STATE.md](PROJECT_STATE.md) for what's done and [MASTER_ROADMAP.md](MASTER_ROADMAP.md) for future plans.
+
+## Found a bug?
+
+[Report it here](https://github.com/SneakiiCROWN/Lootlings/issues). Tell me your phone model, what you were doing and what went wrong.
+
+## For developers only
+
+Install **Godot 4.7.x**, download the source, import the folder with `project.godot` and press **Run**. Use the **Releases** page if you only want to play.
