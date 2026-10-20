@@ -34,6 +34,12 @@ A successful export doesn't mean every feature is bug-free on your phone.
 
 Continue the unfinished character/weapon artwork, improve presentation and animation, and test Android gameplay/performance. Read [PROJECT_STATE.md](PROJECT_STATE.md) for what's done and [MASTER_ROADMAP.md](MASTER_ROADMAP.md) for future plans.
 
+## Known rough edges and updates
+
+The source project still has unfinished hand/weapon animation poses and art. This APK also hasn't been checked on a physical Android phone, so graphics, touch controls, saves and speed are not yet guaranteed. That's why it's labelled a **test build**, not a finished release.
+
+**Updating:** check [Releases](https://github.com/SneakiiCROWN/Lootlings/releases) for new test APKs. Temporary signing can stop a newer test APK installing over an older one; uninstalling the old *friend-test app* may be necessary and will erase that test app's saves. Your usual Lootlings app is separate.
+
 ## Found a bug?
 
 [Report it here](https://github.com/SneakiiCROWN/Lootlings/issues). Tell me your phone model, what you were doing and what went wrong.
